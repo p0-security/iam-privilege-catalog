@@ -1,0 +1,10 @@
+name: Policy destruction
+description: |
+  Allows an attacker to delete IAM policies. When these policies
+  would otherwise deny attacker access, can allow an attacker
+  both vertical and lateral privilege escalation.
+risk: CRITICAL
+mitigations:
+  - Favor restricted allow policies over deny policies
+links:
+  - https://attack.mitre.org/techniques/T1098/

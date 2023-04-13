@@ -1,0 +1,13 @@
+name: Data discovery
+description: |
+  Allows an attacker to inventory stored data objects.
+  May allow an attacker to focus attacks on specific data
+  repositories. When object identifiers contain sensitive
+  information (e.g. tenant identifiers), gives attackers
+  access to this information.
+risk: LOW
+mitigations:
+  - Avoid using externally meaningful data identifiers for
+    sensitive identifiers
+links:
+  - https://attack.mitre.org/techniques/T1619/
