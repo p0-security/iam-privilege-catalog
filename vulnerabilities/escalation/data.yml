@@ -1,0 +1,7 @@
+name: Data escalation
+description: |
+  Allows an attacker to access additional data within
+  an already compromised component.
+risk: CRITICAL
+mitigations: []
+links: []

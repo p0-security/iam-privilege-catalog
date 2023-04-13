@@ -1,4 +1,4 @@
-# IAM vulnerabilities category
+# IAM vulnerabilities catalog
 
 A catalog of potential IAM privilege abuses.
 
@@ -9,6 +9,7 @@ This is primarily inspired by the [MITRE ATT&CK Matrix for infrastructure-as-a-s
 Each vulnerability is tagged with a risk score. This score indicates the risk associated
 with exploit independent of the size and scope of the system exploited, or the sensitivity
 of the exploited system.
+
 - **CRITICAL**: Used alone, has the potential to disrupt central organizational operations,
   destroy trust, or create significant liability. Additionally, includes vulnerabilities
   that give attackers access to broadly provisioned identities that enable the above impacts

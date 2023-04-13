@@ -1,0 +1,17 @@
+name: BigQuery data policies
+description: |
+  Column-level data-masking policies for BigQuery tables.
+scope: HIGH
+notes: |
+  Alteration of data-masking policies can allow access to
+  sensitive data or deny access to necessary data.
+privileges:
+  create: [impact:dos]
+  delete: [escalation:data]
+  get: [discovery:policy]
+  getIamPolicy: [discovery:policy, discovery:account]
+  list: [discovery:policy]
+  setIamPolicy: [escalation:data]
+  update: [impact:dos, escalation:data]
+links:
+  - https://cloud.google.com/bigquery/docs/access-control

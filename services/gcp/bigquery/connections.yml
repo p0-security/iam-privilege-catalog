@@ -1,0 +1,34 @@
+name: BigQuery connections
+description: |
+  External connections to data in other services (both within
+  and without GCP).
+scope: HIGH
+notes: |
+  Deletion or alteration of connections can interrupt dependent
+  operations.
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+  delegate:
+    notes: May be unused
+    vulnerabilities: []
+  delete:
+    vulnerabilities: [destruction:infra]
+  get:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  getIamPolicy:
+    vulnerabilities: [discovery:account, discovery:policy]
+  list:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege]
+  update:
+    vulnerabilities: [destruction:infra]
+  updateTag:
+    notes: Appears unused
+    vulnerabilities: []
+  use:
+links:
+  - https://cloud.google.com/bigquery/docs/access-control

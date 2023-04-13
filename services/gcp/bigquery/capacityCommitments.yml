@@ -1,0 +1,22 @@
+name: BigQuery capacity commitments
+description: |
+  Privileges to view and edit BigQuery capacity commitments.
+scope: MEDIUM
+notes: |
+  Capacity commitments affect operational cost.
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+  delete:
+    vulnerabilities: [impact:spend]
+  get:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  list:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  update:
+    vulnerabilities: [impact:spend]
+links:
+  - https://cloud.google.com/bigquery/docs/reservations-intro
+  - https://cloud.google.com/bigquery/docs/access-control

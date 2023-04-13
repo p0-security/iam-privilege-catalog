@@ -9,6 +9,7 @@ in an organization.
 ## How this catalog is organized
 
 This catalog is broken into two main components:
+
 1. A catalog of general privilege vulnerabilities, with assigned risk ratings
 2. A catalog of privileges in IAM systems, with details on potential abuses and scopes
    of impact

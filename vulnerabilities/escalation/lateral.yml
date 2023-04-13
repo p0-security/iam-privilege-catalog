@@ -12,4 +12,3 @@ mitigations:
   - Monitor suspicious account access
 links:
   - https://attack.mitre.org/techniques/T1550/
-
