@@ -1,0 +1,8 @@
+name: Access
+description: |
+  Allows an attacker to prevent authorized operational
+  access. This can allow an attacker to continue system
+  abuse.
+risk: EVASION
+mitigations: []
+links: []
