@@ -1,0 +1,12 @@
+name: Infrastructure discovery
+description: |
+  Allows an attacker to inventory infrastructure resources.
+  May allow an attacker to focus attacks on specific resources.
+  When component identifiers contain sensitive
+  information (e.g. tenant identifiers), gives attackers
+  access to this information.
+risk: LOW
+mitigations:
+  - Avoid using sensitive component identifiers
+links:
+  - https://attack.mitre.org/techniques/T1580/

@@ -5,9 +5,9 @@ description: |
   to escalate access.
 risk: LOW
 mitigations:
-  - Use least-privilege principals on accounts
+  - Use least-privileged access
   - Use multi-factor authentication for user accounts
-  - Rotate credentials for service accounts
+  - Rotate service-account credentials
   - Prevent unencrypted service-account credential storage
   - Monitor suspicious account access
   - Remove or suspend inactive accounts

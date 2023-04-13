@@ -2,7 +2,7 @@
 
 A catalog of potential IAM privilege abuses.
 
-This is primarily inspired by the MITRE ATT&CK Matrix for infrastructure-as-a-service.
+This is primarily inspired by the [MITRE ATT&CK Matrix for infrastructure-as-a-service](https://attack.mitre.org/matrices/enterprise/cloud/iaas/).
 
 ## Risk scores
 

@@ -7,7 +7,6 @@ description: |
   access to this information.
 risk: LOW
 mitigations:
-  - Avoid using externally meaningful data identifiers for
-    sensitive identifiers
+  - Avoid using sensitive data identifiers
 links:
   - https://attack.mitre.org/techniques/T1619/
