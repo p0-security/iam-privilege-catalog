@@ -13,6 +13,6 @@ privileges:
     vulnerabilities: []
     scope: LOW
     notes: |
-      Updating an recommendation is extremely low impact since it only updates the recommendation metadata, for purposes such as marking the recommendation as accepted.
+      Updating a recommendation is extremely low impact since it only updates the recommendation metadata, for purposes such as marking the recommendation as accepted.
 links:
   - https://cloud.google.com/policy-intelligence/docs/review-apply-role-recommendations
