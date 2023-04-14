@@ -1,12 +1,12 @@
 name: Google Cloud Service
 description: |
-  Includes all services and APIs offered as part of Google CLoud Platform.
+  Includes all services and APIs offered as part of Google Cloud Platform.
 scope: LOW
 privileges:
   disable:
     vulnerabilities: [impact:dos]
     scope: CRITICAL
-    notes: | 
+    notes: |
       Depends on the service: disabling a service the organization relies on is a critical impact.
   enable:
     vulnerabilities: [escalation:lateral]

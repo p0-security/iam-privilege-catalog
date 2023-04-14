@@ -1,11 +1,11 @@
 name: Service Usage Quotas
 description: |
-  Includes quota limitations for service usage for all Google Services. 
+  Includes quota limitations for service usage for all Google Services.
 scope: LOW
 privileges:
   get:
     vulnerabilities: [discovery:infra]
   update:
-    vulnerabilities: [impact:dos,impact:spend]
+    vulnerabilities: [impact:dos, impact:spend]
 links:
   - https://cloud.google.com/service-usage/docs/access-control
