@@ -1,5 +1,5 @@
 name: Service Usage Quotas
-description: |
+description: >-
   Includes quota limitations for service usage for all Google Services.
 scope: LOW
 privileges:

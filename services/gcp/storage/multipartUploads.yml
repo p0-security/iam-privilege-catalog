@@ -1,11 +1,11 @@
 name: Cloud Storage Multi-part uploads
-description: |
-  A multi-part upload is a job that allows you to upload an object to a Cloud Storage bucket by uploading the data in multiple parts.
+description: >-
+  Allows users to upload an object to a Cloud Storage bucket in multiple parts.
 scope: LOW
 privileges:
   create:
     vulnerabilities: [impact:spend]
-    notes: |
+    notes: >-
       Also requires storage.objects.create permission.
   abort:
     vulnerabilities: [impact:dos]

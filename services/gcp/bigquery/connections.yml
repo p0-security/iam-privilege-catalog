@@ -1,16 +1,16 @@
 name: BigQuery connections
-description: |
+description: >
   External connections to data in other services (both within
   and without GCP).
 scope: HIGH
-notes: |
+notes: >
   Deletion or alteration of connections can interrupt dependent
   operations.
 privileges:
   create:
     vulnerabilities: [impact:spend]
   delegate:
-    notes: May be unused
+    notes: May be unused.
     vulnerabilities: []
   delete:
     vulnerabilities: [destruction:infra]
@@ -27,7 +27,7 @@ privileges:
   update:
     vulnerabilities: [destruction:infra]
   updateTag:
-    notes: Appears unused
+    notes: Appears unused.
     vulnerabilities: []
   use:
 links:

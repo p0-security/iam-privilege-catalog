@@ -1,18 +1,19 @@
 name: Google Cloud Service
-description: |
+description: >-
   Includes all services and APIs offered as part of Google Cloud Platform.
 scope: LOW
 privileges:
   disable:
     vulnerabilities: [impact:dos]
     scope: CRITICAL
-    notes: |
+    notes: >-
       Depends on the service: disabling a service the organization relies on is a critical impact.
   enable:
     vulnerabilities: [escalation:lateral]
     scope: CRITICAL
-    notes: |
-      Depends on the service. The attacker could enable a service that contains vulnerabilities (such as an overprovisioned default service account) that allows themselves to escalate permissions.
+    notes: >-
+      Depends on the service. The attacker could enable a service that contains vulnerabilities
+      (such as an overprovisioned default service account) that allows themselves to escalate permissions.
   get:
     vulnerabilities: [discovery:infra]
   list:

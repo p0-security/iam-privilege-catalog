@@ -1,8 +1,8 @@
 name: BigQuery capacity commitments
-description: |
+description: >
   Privileges to view and edit BigQuery capacity commitments.
 scope: MEDIUM
-notes: |
+notes: >
   Capacity commitments affect operational cost.
 privileges:
   create:

@@ -1,29 +1,37 @@
 name: Secret Manager Versions
-description: |
-  A version in Secret Manager contains the contents of a secret along with metadata about the version.
+description: >-
+  A version in Secret Manager contains the contents of a
+  secret along with metadata about the version.
 scope: CRITICAL
-notes: |
-  Secret manager is a highly sensitive service. Secrets may include API keys, encryption secret keys, login credentials, and other extremely sensitive data.
+notes: >-
+  Secret manager is a highly sensitive service. Secrets may include
+  API keys, encryption secret keys, login credentials, and other
+  extremely sensitive data.
 privileges:
   access:
     vulnerabilities: [escalation:lateral]
-    notes: |
-      Escalation possibilities depend on the contents of secrets inside the Secret Manager, but for most systems this will include at least some opportunities for lateral escalation.
+    notes: >-
+      Escalation possibilities depend on the contents of secrets inside
+      the Secret Manager, but for most systems this will include at
+      least some opportunities for lateral escalation.
   add:
     vulnerabilities: [impact:dos]
-    notes: |
-      Adding a new version of a secret can break services that rely on reading the latest version of the secret.
+    notes: >-
+      Adding a new version of a secret can break services that
+      rely on reading the latest version of the secret.
   destroy:
     vulnerabilities: [impact:dos, destruction:data]
   disable:
     vulnerabilities: [impact:dos]
   enable:
     vulnerabilities: [impact:dos]
-    notes: |
-      This can be used for a DOS by enabling a out-of-date or otherwise incorrect version of the secret.
+    notes: >-
+      This can be used for a DOS by enabling a out-of-date or
+      otherwise incorrect version of the secret.
   get:
     vulnerabilities: [discovery:infra, discovery:account]
-    notes: |
-      This includes account discovery because the names of secrets may expose accounts that the secrets are associated with.
+    notes: >-
+      This includes account discovery because the names of secrets
+      may expose accounts that the secrets are associated with.
   list:
     vulnerabilities: [discovery:infra, discovery:account]

@@ -1,8 +1,8 @@
 name: BigQuery data policies
-description: |
+description: >
   Column-level data-masking policies for BigQuery tables.
 scope: HIGH
-notes: |
+notes: >
   Alteration of data-masking policies can allow access to
   sensitive data or deny access to necessary data.
 privileges:

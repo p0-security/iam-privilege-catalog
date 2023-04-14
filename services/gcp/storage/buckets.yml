@@ -1,8 +1,8 @@
 name: Cloud Storage buckets
-description: |
+description: >-
   Buckets are the basic unit of data storage within Cloud Storage. All data must be contained in a bucket.
 scope: CRITICAL
-notes: |
+notes: >-
   Buckets may be used to store data of various sensitivites, from publicly available data to very sensitive confidential data.
 privileges:
   create:
@@ -10,14 +10,18 @@ privileges:
     scope: LOW
   createTagBinding:
     vulnerabilities: [escalation:privilege]
-    notes: |
-      A common use case of tag bindings is for use in IAM policy conditions. If the user has any policies that use tag bindings to enforce conditions,creating a tag on a resource allows them to escalate their access to that resource. Also requires getIamPolicy or knowledge of the IAM policy from some other means.
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. If the user has any
+      policies that use tag bindings to enforce conditions, creating a tag on a resource allows them
+      to escalate their access to that resource. Also requires getIamPolicy or knowledge of the IAM
+      policy from some other means.
   delete:
     vulnerabilities: [impact:dos, destruction:data, destruction:infra]
   deleteTagBinding:
     vulnerabilities: [impact:dos, destruction:metadata, impact:access]
-    notes: |
-      A common use case of tag bindings is for use in IAM policy conditions. The "destruction:policy" and "impact:access" vulnerabilities apply if the tag is used in any policies.
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The "destruction:policy" and
+      "impact:access" vulnerabilities apply if the tag is used in any policies.
   get:
     vulnerabilities: [discovery:data]
     scope: LOW
@@ -36,8 +40,11 @@ privileges:
     vulnerabilities: [escalation:privilege]
   update:
     vulnerabilities: [impact:encryption, destruction:metadata]
-    notes: |
-      Even though certain access-related controls are part of the bucket metadata (ACLs, public access settings), those cannot be updated without setIamPolicy. However, the encryption key can be updated with just this permission. An attacker could use their own key (in their own project) to encrypt the data, then disable or delete it, rendering the data unusable until the user can recover the key.
+    notes: >-
+      Even though certain access-related controls are part of the bucket metadata (ACLs, public access
+      settings), those cannot be updated without setIamPolicy. However, the encryption key can be updated
+      with just this permission. An attacker could use their own key (in their own project) to encrypt
+      the data, then disable or delete it, rendering the data unusable until the user can recover the key.
 
 links:
   - https://cloud.google.com/storage/docs/access-control/iam-permissions
