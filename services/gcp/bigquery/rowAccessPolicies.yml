@@ -1,0 +1,33 @@
+name: BigQuery row-access policies
+description: >-
+  Row-level access policies for BigQuery tables.
+scope: HIGH
+notes: >-
+  Alteration of row-access policies can allow access to
+  sensitive data or deny access to necessary data.
+privileges:
+  create:
+    vulnerabilities: [impact:dos]
+  delete:
+    vulnerabilities: [escalation:data]
+  get:
+    vulnerabilities: [discovery:policy]
+  getFilteredData:
+    vulnerabilities: [exfiltration:data]
+    notes: >-
+      Should only be granted per row-access policy
+    links:
+      - https://cloud.google.com/bigquery/docs/best-practices-row-level-security#use_the_filtered_data_viewer_role_with_caution
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  overrideTimeTravelRestrictions:
+    vulnerabilities: [exfiltration:data]
+  list:
+    vulnerabilities: [discovery:policy]
+  setIamPolicy:
+    vulnerabilities: [escalation:data]
+  update:
+    vulnerabilities: [impact:dos, escalation:data]
+links:
+  - https://cloud.google.com/bigquery/docs/row-level-security-intro
+  - https://cloud.google.com/bigquery/docs/access-control

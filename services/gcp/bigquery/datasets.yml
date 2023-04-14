@@ -1,10 +1,10 @@
 name: BigQuery datasets
-description: >
+description: >-
   Datasets in BigQuery are a primary unit of organizing
   and controlling access to data. They are analogous to
   schemata in relational data systems.
 scope: CRITICAL
-notes: >
+notes: >-
   BigQuery can potentially store sensitive information from
   across an organization's functions.
 privileges:
@@ -12,14 +12,14 @@ privileges:
     vulnerabilities: []
   createTagBinding:
     vulnerabilities: [escalation:privilege]
-    notes: >
+    notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The
       vulnerabilities apply if the tag is used in any policies.
   delete:
     vulnerabilities: [destruction:data]
   deleteTagBinding:
     vulnerabilities: [destruction:policy, impact:access]
-    notes: >
+    notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The
       vulnerabilities apply if the tag is used in any policies.
   get:
@@ -35,11 +35,11 @@ privileges:
     vulnerabilities: [escalation:data, escalation:privilege]
   update:
     vulnerabilities: [destruction:data]
-    notes: >
+    notes: >-
       Data can be destroyed if default table expiration is modified.
   updateTag:
     vulnerabilities: [escalation:privilege, impact:access]
-    notes: >
+    notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The
       vulnerabilities apply if the tag is used in any policies.
 links:

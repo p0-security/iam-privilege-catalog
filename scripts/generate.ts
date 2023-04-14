@@ -38,7 +38,7 @@ const generateVulns = async (base: string) => {
   const model: object[] = [];
   await recursiveRead(base, base, (data, file) => {
     const id = path.relative(base, file).replace("/", ":").slice(0, -4);
-    model.push({id, ...data})
+    model.push({ id, ...data });
   });
   await fs.mkdir(OUTPUT_PATH, { recursive: true });
   await fs.writeFile(
@@ -67,12 +67,13 @@ const generatePrivileges = async (base: string) => {
           notes: `${data.notes ?? ""}${
             value.notes ? "\n" + value.notes : ""
           }`.trim(),
+          links: [...(data.links ?? []), ...(value.links ?? [])],
         };
         const id = SERVICE_IDS[sid as keyof typeof SERVICE_IDS](
           path.relative(serviceBase, file).slice(0, -4),
           key
         );
-        model[sid].push({id, ...pData})
+        model[sid].push({ id, ...pData });
       }
     });
   }

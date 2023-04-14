@@ -1,0 +1,55 @@
+name: BigQuery tables
+description: >-
+  BigQuery tables hold data.
+scope: CRITICAL
+notes: >-
+  BigQuery can potentially store sensitive information from
+  across an organization's functions.
+privileges:
+  create:
+    vulnerabilities: []
+  createIndex:
+    vulnerabilities: [impact:spend]
+  createSnapshot:
+    vulnerabilities: [impact:spend]
+  delete:
+    vulnerabilities: [destruction:data]
+  deleteIndex:
+    vulnerabilities: [destruction:infra, impact:spend, impact:dos]
+    notes: >-
+      Can cause service interruptions by reducing query performance.
+  deleteSnapshot:
+    vulnerabilities: [destruction:data]
+  export:
+    vulnerabilities: [exfiltration:data]
+  get:
+    vulnerabilities: [discovery:infra]
+  getData:
+    vulnerabilities: [exfiltration:data]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list:
+    vulnerabilities: [discovery:infra]
+  restoreSnapshot:
+    vulnerabilities: [destruction:data]
+    notes: >-
+      Can destroy data more recent than the restored snapshot.
+  setCategory:
+    vulnerabilities: [escalation:privilege, impact:access]
+    notes: >-
+      Categories alter table access.
+    links:
+      - https://cloud.google.com/bigquery/docs/managing-policy-tags-across-locations
+  setIamPolicy:
+    vulnerabilities: [escalation:data, escalation:privilege]
+  update:
+    vulnerabilities: [destruction:infra]
+  updateData:
+    vulnerabilities: [destruction:data]
+  updateTag:
+    vulnerabilities: [escalation:privilege, impact:access]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The
+      vulnerabilities apply if the tag is used in any policies.
+links:
+  - https://cloud.google.com/bigquery/docs/access-control

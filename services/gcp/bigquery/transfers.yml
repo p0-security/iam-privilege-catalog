@@ -1,0 +1,19 @@
+name: BigQuery transfers
+description: >-
+  Automates data import into BigQuery.
+scope: MEDIUM
+notes: >-
+  Creation or alteration of transfers can interrupt service and incur
+  spend. Note that the `bigquery.datasets.update` privilege is
+  required to alter data. Additionally, the BigQuery Data Transfer
+  Service must be enabled separately from BigQuery itself.
+privileges:
+  get:
+    vulnerabilities: [discovery:infra]
+  update:
+    vulnerabilities: [impact:dos, impact:spend]
+    notes: >-
+      Can interrupt services that rely on data transfers.
+links:
+  - https://cloud.google.com/bigquery/docs/dts-introduction
+  - https://cloud.google.com/bigquery/docs/access-control
