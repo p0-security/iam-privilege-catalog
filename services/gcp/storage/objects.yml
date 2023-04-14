@@ -1,0 +1,25 @@
+name: Cloud Storage Objects
+description: | 
+Objects are files and folders inside Google Cloud storage buckets.
+scope: CRITICAL
+notes: |
+  Cloud Storage objects may be used to store data of various sensitivites, from publicly available data to very sensitive confidential data.
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+    scope: LOW
+  delete:
+    vulnerabilities: [impact:dos,destruction:data]
+  get:
+    vulnerabilities: [exfiltration:data, discovery:data]
+  list:
+    vulnerabilities: [discovery:data]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy,discovery:account]
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege]
+  update:
+    vulnerabilities: [destruction:metadata]
+  
+links:
+  - https://cloud.google.com/storage/docs/access-control/iam-permissions
