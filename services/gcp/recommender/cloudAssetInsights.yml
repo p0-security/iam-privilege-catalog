@@ -1,0 +1,13 @@
+name: Cloud Asset Insights
+description: |
+  Cloud Asset Insights include changes to the IAM policies of your resources suggested by Google in order to improve your security posture
+scope: HIGH
+notes: |
+  These insights include sensitive information about your Google Cloud resources and their IAM policies, as well as exposing information about users, groups, and service accounts.
+privileges:
+  get:
+    vulnerabilities: [discovery:policy, discovery:account, discovery:infra]
+  list:
+    vulnerabilities: [discovery:policy, discovery:account, discovery:infra]
+links:
+  - https://cloud.google.com/asset-inventory/docs/using-asset-insights

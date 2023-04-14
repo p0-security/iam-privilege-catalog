@@ -1,0 +1,18 @@
+name: IAM Policy Insights
+description: |
+  Cloud Asset Insights include changes to the IAM policies of your projects suggested by Google in order to improve your security posture.
+scope: HIGH
+notes: |
+  These recommendations include sensitive information about your project-level IAM policies, as well as exposing information about users, groups, and service accounts.
+privileges:
+  get:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list:
+    vulnerabilities: [discovery:policy, discovery:account]
+  update:
+    vulnerabilities: []
+    scope: LOW
+    notes: |
+      Updating an recommendation is extremely low impact since it only updates the recommendation metadata, for purposes such as marking the recommendation as accepted.
+links:
+  - https://cloud.google.com/policy-intelligence/docs/review-apply-role-recommendations
