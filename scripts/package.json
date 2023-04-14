@@ -1,0 +1,21 @@
+{
+  "name": "iam-privilege-catalog",
+  "version": "1.0.0",
+  "description": "Catalog of IAM privileges and their risks",
+  "main": "generate.ts",
+  "repository": "https://github.com/p0-security/iam-privilege-catalog",
+  "author": "P0 Security, Inc.",
+  "license": "LGPL-3.0-or-later",
+  "private": false,
+  "dependencies": {
+    "@types/lodash": "^4.14.192",
+    "@types/node": "^18.15.11",
+    "lodash": "^4.17.21",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "yaml": "^2.2.1"
+  },
+  "devDependencies": {
+    "prettier": "2.8.7"
+  }
+}
