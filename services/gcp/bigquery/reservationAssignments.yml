@@ -1,0 +1,19 @@
+name: BigQuery reservations
+description: >-
+  Assigns projects to previously purchased BigQuery reservations
+scope: LOW
+notes: >-
+  Assignments do not directly incur additional cost beyond previously
+  purchased reservations.
+privileges:
+  create:
+    vulnerabilities: []
+  delete:
+    vulnerabilities: [destruction:infra]
+  list:
+    vulnerabilities: [discovery:infra]
+  search:
+    vulnerabilities: [discovery:infra]
+links:
+  - https://cloud.google.com/bigquery/docs/reservations-intro
+  - https://cloud.google.com/bigquery/docs/access-control

@@ -1,9 +1,10 @@
-name: BigQuery capacity commitments
+name: BigQuery reservations
 description: >-
-  Privileges to view and edit BigQuery capacity commitments.
+  Works with capacity commitments to assign BigQuery
+  slots to commitments.
 scope: MEDIUM
 notes: >-
-  Capacity commitments affect operational cost.
+  Reservations affect operational cost.
 privileges:
   create:
     vulnerabilities: [impact:spend]
