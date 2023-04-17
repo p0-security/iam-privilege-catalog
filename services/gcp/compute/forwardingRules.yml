@@ -1,0 +1,79 @@
+name: Compute Engine forwarding rules
+description: >-
+  Manage layer 4 port forwarding rules within a Google Cloud load
+  balancer.
+scope: HIGH
+notes: >-
+  Multiple organizational functions may often reside within
+  Compute Engine. However, abuse of forwarding rules requires
+  leveraging additional vulnerabilities in VM / VPC configuration,
+  such as sensitive data or access broadcast on open VPC ports.
+privileges:
+  create:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      Can be used to directly create a load balancer.
+  delete:
+    vulnerabilities: [destruction:network]
+    notes: >-
+      Also can terminate a load balancer.
+  get:
+    vulnerabilities: [discovery:network, discovery:infra]
+    notes: >-
+      Discovers infrastructure when the target is identified by
+      resource identifier.
+  list:
+    vulnerabilities: [discovery:network, discovery:infra]
+    notes: >-
+      Discovers infrastructure when the target is identified by
+      resource identifier.
+  pscCreate:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      Can be used to access Google managed services when a VM
+      is already compromised.
+  pscDelete:
+    vulnerabilities: [destruction:network]
+  pscSetLabels:
+    vulnerabilities: [destruction:infra]
+    scope: MEDIUM
+    notes: >-
+      Labels are generally low-sensitivity infrastructure.
+  pscSetTarget:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      Can be used to access Google managed services when a VM
+      is already compromised.
+  pscUpdate:
+    vulnerabilities: [escalation:lateral, destruction:network]
+    notes: >-
+      Can not be used to change targets. Can be used to access
+      Google managed services when the rule already directs traffic
+      to a target service and the attacker has access to a particular
+      source VM.
+  setLabels:
+    vulnerabilities: [destruction:infra]
+    scope: MEDIUM
+    notes: >-
+      Labels are generally low-sensitivity infrastructure.
+  setTargets:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      Can be used to escalate access when an attacker can reach
+      the loadbalancer source endpoint.
+  update:
+    vulnerabilities: [escalation:lateral, destruction:network]
+    notes: >-
+      Can not be used to change targets. Can be used to escalate
+      access when the rule already directs traffic to a target system
+      and the attacker has access to a particular source endpoint.
+  use:
+links:
+  - https://cloud.google.com/load-balancing/docs/using-forwarding-rules
+  - https://cloud.google.com/load-balancing/docs/protocol-forwarding
+  - https://cloud.google.com/load-balancing/docs/access-control
+  - https://cloud.google.com/service-directory/docs/configuring-netlb-in-sd
+  - https://cloud.google.com/sdk/gcloud/reference/compute/forwarding-rules
+  - https://cloud.google.com/vpc/docs/private-service-connect
+seeAlso:
+  - compute.globalForwardingRules
