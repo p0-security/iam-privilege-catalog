@@ -1,0 +1,21 @@
+name: Compute Engine autoscalers
+description: >-
+  Read and edit Compute Engine autoscaling groups.
+scope: MEDIUM
+notes: >-
+  Note that autoscaling is only applicable if the resource uses
+  managed instance groups (MIGs). Generally requires
+  `compute.instanceGroupManagers.use`.
+privileges:
+  create:
+    vulnerabilities: [impact:spend, impact:hijacking]
+  delete:
+    vulnerabilities: [destruction:infra]
+  get:
+    vulnerabilities: [discovery:infra]
+  list:
+    vulnerabilities: [discovery:infra]
+  update:
+    vulnerabilities: [impact:spend, impact:hijacking, destruction:infra]
+links:
+  - https://cloud.google.com/compute/docs/autoscaler

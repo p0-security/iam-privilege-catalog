@@ -1,0 +1,56 @@
+name: Compute Engine backend buckets
+description: >-
+  Cloud Storage buckets that may be referenced by load-balancer
+  URL maps, or via Cloud CDN.
+scope: HIGH
+notes: >-
+  Generally used for providing publicly accessible data via a load balancer.
+  This scope may depend on the exact configuration of the load balancer (e.g.
+  if the load balancer requires certain cookies or auth tokens), and
+  whether the load balancer itself is intended to be publicly accessible.
+  The scope of read permissions should be downgraded to PUBLIC if only
+  publicly accessible data are contained within these buckets.
+privileges:
+  addSignedUrlKey:
+    vulnerabilities: [privilege:escalation]
+    notes: >-
+      Allows an attacker to forge signed URLs, potentially gaining access to additional
+      data.
+  create:
+    vulnerabilities: []
+  delete:
+    vulnerabilities: [destruction:infra, destruction:data]
+  deleteSignedUrlKey:
+    vulnerabilities: [destruction:infra]
+  get:
+    vulnerabilities: [discovery:infra]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy]
+  list:
+    vulnerabilities: [discovery:infra]
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege]
+  setSecurityPolicy:
+    vulnerabilities: [escalation:privilege]
+    notes: >-
+      Allows an attacker to defeat content security, gaining access to bucket contents.
+    links:
+      - https://cloud.google.com/armor/docs/security-policy-overview
+  update:
+    vulnerabilities: [destruction:infra, destruction:data, escalation:privilege]
+    notes: >-
+      May allow modifications to CDN and edge security policies.
+    links:
+      - https://cloud.google.com/armor/docs/security-policy-overview
+  use:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      When combined with the ability to edit URL maps, allows an attacker to point a
+      load-balancer URL to a backend bucket.
+    links:
+      - https://cloud.google.com/compute/docs/reference/rest/v1/urlMaps/insert
+links:
+  - https://cloud.google.com/load-balancing/docs/https/ext-load-balancer-backend-buckets
+  - https://cloud.google.com/compute/docs/reference/rest/v1/backendBuckets
+seeAlso:
+  - compute.backendServices

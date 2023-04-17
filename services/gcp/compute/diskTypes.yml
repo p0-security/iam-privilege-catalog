@@ -1,0 +1,14 @@
+name: Compute Engine disk types
+description: >-
+  Read available disk types
+scope: PUBLIC
+notes: >-
+  Reads publicly available data from Google Cloud
+privileges:
+  get:
+    vulnerabilities: []
+  list:
+    vulnerabilities: []
+links:
+  - https://cloud.google.com/compute/docs/disks
+  - https://cloud.google.com/compute/docs/reference/rest/v1/diskTypes
