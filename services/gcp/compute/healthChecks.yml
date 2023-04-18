@@ -1,0 +1,44 @@
+name: Compute Engine health checks
+description: >-
+  Create and manage health checks used by Cloud load balancers.
+scope: MEDIUM
+notes: >-
+  Exploitation relies on multiple additional exerciseable vulnerabilities,
+  including poorly secured backend endpoints, the ability to route
+  to this infrastructure, and provisioned forwarding rules to the subject
+  backends.
+privileges:
+  create:
+    vulnerabilities: [impact:dos]
+  delete:
+    vulnerabilities: [destruction:network]
+    scope: HIGH
+    notes: >-
+      May make backend infrastructure unroutable for intended uses.
+  get:
+    vulnerabilities: [discovery:network]
+  list:
+    vulnerabilities: [discovery:network]
+  update:
+    vulnerabilities: [destruction:infra, destruction:network, impact:dos]
+    scope: HIGH
+    notes: >-
+      May make backend infrastructure unroutable for intended uses.
+  use:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      When combined with tailored health checks, may make backend infrastructure
+      unroutable for intended uses.
+  useReadOnly:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      When combined with tailored health checks, may make backend infrastructure
+      unroutable for intended uses.
+links:
+  - https://cloud.google.com/load-balancing/docs/health-checks
+  - https://cloud.google.com/sdk/gcloud/reference/compute/health-checks
+  - https://cloud.google.com/compute/docs/reference/rest/v1/healthChecks
+seeAlso:
+  - compute.httpHealthChecks
+  - compute.httpsHealthChecks
+  - compute.regionalHealthChecks
