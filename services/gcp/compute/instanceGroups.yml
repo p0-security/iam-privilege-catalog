@@ -1,0 +1,39 @@
+name: Compute Engine instance groups
+description: >-
+  Create and alter (unmanaged) instance groups.
+scope: MEDIUM
+notes: >-
+  Allows creation, modification, and destruction of manually
+  managed instance groups. Generally requires exercise of multiple
+  vulnerabilities to exploit.
+privileges:
+  create:
+    vulnerabilities: []
+    notes: >-
+      Instances must be manually added to the group; therefore no
+      directly impactful vulnerabilities.
+  delete:
+    vulnerabilities: [destruction:infra]
+  get:
+    vulnerabilities: [discovery:infra]
+  list:
+    vulnerabilities: [discovery:infra]
+  update:
+    vulnerabilities: [escalation:lateral,destruction:network]
+    scope: HIGH
+    notes: >-
+      Can provide access to a VM by connecting instances to a compromised
+      load-balancing rule; or, remove necessary infrastructure from network
+      access.
+  use:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      No known or documented application; may be necessary to assign the group
+      to a load balancer.
+links:
+  - https://cloud.google.com/compute/docs/instance-groups
+  - https://cloud.google.com/sdk/gcloud/reference/compute/instance-groups/unmanaged
+  - https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroups
+seeAlso:
+  - compute.instances
+  - compute.instanceGroupManagers

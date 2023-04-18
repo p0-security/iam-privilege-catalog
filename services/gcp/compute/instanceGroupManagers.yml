@@ -1,0 +1,45 @@
+name: Compute Engine managed instance groups
+description: >-
+  Create and alter managed instance groups.
+scope: MEDIUM
+notes: >-
+  Allows creation, modification, and destruction of
+  auto-scaling instance groups. Except for resizing, can not
+  critically impact organizational functions.
+privileges:
+  create:
+    vulnerabilities: [impact:spend,impact:hijack]
+    notes: >-
+      Can be exploited for cryptojacking purposes, but additionally
+      requires creation of corresponding instance templates. Instances
+      may be accessible via addition to target groups.
+  delete:
+    vulnerabilities: [destruction:infra,destruction:network]
+    scope: HIGH
+    notes: >-
+      Does not delete instances themselves, but can effectively remove network
+      access to instances.
+  get:
+    vulnerabilities: [discovery:infra]
+  list:
+    vulnerabilities: [discovery:infra]
+  update:
+    vulnerabilities: [impact:spend,destruction:infra,destruction:data,destruction:network,escalation:lateral]
+    scope: CRITICAL
+    notes: >-
+      Groups can be resized, either increasing spend or destroying infrastructure.
+      Groups can be added to target pools, granting access via unsecured network
+      endpoints.
+  use:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      No known or documented application; may be necessary to assign the group
+      to a load balancer.
+links:
+  - https://cloud.google.com/compute/docs/instance-groups
+  - https://cloud.google.com/sdk/gcloud/reference/compute/instance-groups/managed
+  - https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroupManagers
+seeAlso:
+  - compute.instances
+  - compute.instanceGroups
+  - compute.regionInstanceGroupManagers
