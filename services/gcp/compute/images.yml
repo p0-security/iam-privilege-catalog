@@ -1,0 +1,66 @@
+name: Compute Engine images
+description: >-
+  Manage disk images.
+scope: HIGH
+notes: >-
+  Multiple organizational functions may often reside within
+  Compute Engine. Vulnerabilities generally require exploiting
+  multiple privileges.
+privileges:
+  create:
+    vulnerabilities: [exfiltration:data]
+    notes: >-
+      When combined with a compromised source, a compromised storage
+      bucket, and a known encryption key, can allow an attacker to
+      exfiltrate a disk image.
+  createTagBinding:
+    vulnerabilities: [escalation:privilege]
+    notes: >-
+      An attacker can exploit tag-based IAM policies to gain access
+      to image data.
+  delete:
+    vulnerabilities: [destruction:data]
+  deleteTagBinding:
+    vulnerabilities: [escalation:privilege]
+    notes: >-
+      An attacker can exploit tag-based IAM policies to gain access
+      to image data.
+  deprecate:
+    vulnerabilities: []
+    notes: >-
+      No particular impact.
+  get:
+    vulnerabilities: [exfiltration:crypto]
+    notes: >-
+      Potentially gives access to raw encryption keys.
+  getFromFamily:
+    vulnerabilities: [exfiltration:crypto]
+    notes: >-
+      Potentially gives access to raw encryption keys.
+  getIamPolicy:
+    vulnerabilities: [discovery:policy]
+  list:
+    vulnerabilities: [exfiltration:crypto]
+    notes: >-
+      Potentially gives access to raw encryption keys.
+  listEffectiveTags:
+    vulnerabilities: [discovery:policy]
+  listTagBindings:
+    vulnerabilities: [discovery:policy]
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege]
+  setLabels:
+    scope: LOW
+    vulnerabilities: [discovery:infra]
+  update:
+    scope: LOW
+    vulnerabilities: [destruction:infra]
+  useReadOnly:
+    vulnerabilities: [escalation:data]
+    notes: >-
+      When combined with compute.instances.create, can allow
+      access to image data.
+links:
+  - https://cloud.google.com/compute/docs/images
+  - https://cloud.google.com/sdk/gcloud/reference/compute/images
+  - https://cloud.google.com/compute/docs/reference/rest/v1/images
