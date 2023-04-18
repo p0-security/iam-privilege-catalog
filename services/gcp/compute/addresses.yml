@@ -1,0 +1,46 @@
+name: Compute Engine addresses
+description: >-
+  Read and edit Compute Engine addresses
+scope: LOW
+notes: >-
+  Allows discovering, reserving, and modifying IP addresses within Compute Engine.
+  If IP ranges are narrowly constrained (e.g., from a /28 range),
+  may allow an attacker to deny access to infrastructure.
+privileges:
+  create:
+    scope: LOW
+    vulnerabilities: [infrastructure:consumption]
+  createInternal:
+    scope: LOW
+    vulnerabilities: [infrastructure:consumption]
+  delete:
+    vulnerabilities: [destruction:infra]
+    notes: >-
+      Can not delete an address that is in use by an instance.
+  deleteInternal:
+    vulnerabilities: [destruction:infra]
+    notes: >-
+      Can not delete an address that is in use by an instance.
+  get:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      May allow an attacker to identify network resources to target.
+  list:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      May allow an attacker to identify network resources to target.
+  setLabels:
+    vulnerabilities: [destruction:infra]
+  use:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      If used to attach a network address to an already compromised access, can
+      allow lateral movement across a network.
+  useInternal:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      If used to attach a network address to an already compromised access, can
+      allow lateral movement across a network.
+links:
+  - https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address
+  - https://cloud.google.com/compute/docs/ip-addresses/reserve-static-internal-ip-address

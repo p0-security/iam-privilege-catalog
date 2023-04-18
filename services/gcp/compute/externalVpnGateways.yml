@@ -1,0 +1,28 @@
+name: Compute Engine external VPN gateways
+description: >-
+  Manage external access points to Compute Engine VPNs (e.g.,
+  network gateways).
+scope: CRITICAL
+notes: >-
+  Multiple organizational functions may often reside within
+  Compute Engine.
+privileges:
+  create:
+    vulnerabilities: []
+  delete:
+    vulnerabilities: [destruction:network]
+  get:
+    vulnerabilities: [discovery:network]
+  list:
+    vulnerabilities: [discovery:network]
+  setLabels:
+    vulnerabilities: [destruction:infra]
+  use:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      Can be used to gain network access when the attacker has
+      access to both the gateway in question, and the ability to
+      modify the VPN settings.
+links:
+  - https://cloud.google.com/network-connectivity/docs/vpn/concepts/overview
+  - https://cloud.google.com/network-connectivity/docs/vpn/how-to/configuring-peer-gateway

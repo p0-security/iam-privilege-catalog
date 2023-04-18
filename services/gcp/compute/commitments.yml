@@ -1,0 +1,21 @@
+name: Compute Engine commitments
+description: >-
+  Manage committed use discounts.
+scope: MEDIUM
+notes: >-
+  Commitments affect operational cost.
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+  get:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  list:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  update:
+    vulnerabilities: [impact:spend]
+  updateReservations:
+    vulnerabilities: [impact:spend]
+links:
+  - https://cloud.google.com/compute/docs/instances/committed-use-discounts-overview

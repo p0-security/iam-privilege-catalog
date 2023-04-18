@@ -1,0 +1,13 @@
+name: Compute Engine accelerator-optimized machines
+description: >-
+  Read accelerator-optimized machine types
+scope: PUBLIC
+notes: >-
+  Reads publicly available data from Google Cloud
+privileges:
+  get:
+    vulnerabilities: []
+  list:
+    vulnerabilities: []
+links:
+  - https://cloud.google.com/compute/docs/accelerator-optimized-machines

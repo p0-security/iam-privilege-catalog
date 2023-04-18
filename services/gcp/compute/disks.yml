@@ -1,0 +1,90 @@
+name: Compute Engine disks
+description: >-
+  Read and edit Compute Engine disks and disk assignments.
+scope: CRITICAL
+notes: >-
+  Multiple organizational functions may often reside within
+  Compute Engine.
+privileges:
+  addResourcePolicies:
+    vulnerabilities: [impact:spend, collection:data]
+    notes: >-
+      Requires a useful resource policy to otherwise exist.
+    links:
+      - https://cloud.google.com/compute/docs/reference/rest/v1/resourcePolicies
+      - https://cloud.google.com/compute/docs/disks/scheduled-snapshots
+  create:
+    vulnerabilities: [impact:spend]
+  createSnapshot:
+    scope: HIGH
+    notes: >-
+      When combined with the ability to read disk images, can allow access
+      to disk data.
+    vulnerabilities: [collection:data]
+  createTagBinding:
+    vulnerabilities: [escalation:privilege]
+    notes: >-
+      Tag bindings are used to dynamically modify IAM policies.
+  delete:
+    vulnerabilities: [destruction:infra, destruction:data]
+  deleteTagBinding:
+    vulnerabilities: [escalation:privilege, destruction:policy]
+    notes: >-
+      Tag bindings are used to dynamically modify IAM policies.
+  get:
+    vulnerabilities: [discovery:infra]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy]
+  list:
+    vulnerabilities: [discovery:infra]
+  listEffectiveTags:
+    vulnerabilities: [discovery:policy]
+  listTagBindings:
+    vulnerabilities: [discovery:policy]
+  removeResourceBindings:
+    vulnerabilities: [destruction:infra]
+    links:
+      - https://cloud.google.com/compute/docs/reference/rest/v1/resourcePolicies
+      - https://cloud.google.com/compute/docs/disks/scheduled-snapshots
+  resize:
+    vulnerabilities: [impact:spend]
+    notes: >-
+      Disks can only be increased in size.
+    links:
+      - https://cloud.google.com/compute/docs/reference/rest/v1/disks/resize
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege]
+  setLabels:
+    vulnerabilities: [destruction:infra]
+  startAsyncReplication:
+    vulnerabilities: []
+    links:
+      - https://cloud.google.com/compute/docs/disks/async-pd/about
+  stopAsyncReplication:
+    vulnerabilities: [destruction:infra]
+    notes: >-
+      Can effectively turn off disk replication if applied repeatedly.
+    links:
+      - https://cloud.google.com/compute/docs/disks/async-pd/about
+  stopGroupAsyncReplication:
+    vulnerabilities: [destruction:infra]
+    notes: >-
+      Can effectively turn off disk replication if applied repeatedly.
+    links:
+      - https://cloud.google.com/compute/docs/disks/async-pd/about
+  update:
+    vulnerabilities: [escalation:data, destruction:infra]
+    notes: >-
+      Can allow data access via modifying disk or snapshot encryption keys.
+  use:
+    vulnerabilities: [collection:data, destruction:data]
+    notes: >-
+      Can allow data access if the attacker can attach the disk to an additionally
+      compromised instance.
+  useReadOnly:
+    vulnerabilities: [collection:data]
+    notes: >-
+      Can allow data access if the attacker can attach the disk to an additionally
+      compromised instance.
+links:
+  - https://cloud.google.com/compute/docs/disks/persistent-disks
