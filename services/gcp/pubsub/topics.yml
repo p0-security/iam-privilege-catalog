@@ -23,7 +23,7 @@ privileges:
   publish:
     vulnerabilities: [impact:dos, impact:manipulation]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   update:
     vulnerabilities: [impact:dos]
   updateTag:

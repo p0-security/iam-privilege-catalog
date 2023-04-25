@@ -30,7 +30,7 @@ privileges:
   list:
     vulnerabilities: [discovery:network]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, destruction:policy]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   use:
     vulnerabilities: [impact:dos]
     notes: >-

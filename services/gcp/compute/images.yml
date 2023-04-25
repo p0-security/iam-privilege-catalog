@@ -48,7 +48,7 @@ privileges:
   listTagBindings:
     vulnerabilities: [discovery:policy]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   setLabels:
     scope: LOW
     vulnerabilities: [discovery:infra]

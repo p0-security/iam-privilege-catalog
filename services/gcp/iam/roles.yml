@@ -10,7 +10,6 @@ privileges:
     scope: LOW
   undelete:
     vulnerabilities: [persistence:account]
-    scope: LOW
     notes: >-
       Undeleting a custom role will restore any bindings the role was part of at the time of deletion.
   delete:

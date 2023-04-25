@@ -32,7 +32,7 @@ privileges:
   listTagBindings:
     vulnerabilities: [discovery:metadata]
   setIamPolicy:
-    vulnerabilities: [escalation:data, escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   update:
     vulnerabilities: [destruction:data]
     notes: >-

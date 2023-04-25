@@ -17,7 +17,7 @@ privileges:
   list:
     vulnerabilities: [discovery:policy]
   setIamPolicy:
-    vulnerabilities: [escalation:data]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   update:
     vulnerabilities: [impact:dos, escalation:data]
 links:

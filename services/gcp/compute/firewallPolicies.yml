@@ -49,7 +49,7 @@ privileges:
     notes: >-
       Allows removal of a policy from a VPC.
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, destruction:policy]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   update:
     vulnerabilities: [destruction:infra]
     scope: LOW

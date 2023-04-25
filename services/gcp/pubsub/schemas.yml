@@ -28,7 +28,7 @@ privileges:
     notes: >-
       Can cause service interruptions by rolling back to an incompatible schema.
   setIamPolicy:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   validate:
     vulnerabilities: []
     notes: >-
