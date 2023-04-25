@@ -1,0 +1,27 @@
+name: IAM Roles
+description: >-
+  IAM custom roles created for use in IAM policies.
+scope: CRITICAL
+notes: >-
+  This is a sensitive service since it exposes information about organizational IAM policies and allows for potential manipulation of access.
+privileges:
+  create:
+    vulnerabilities: [persistence:account]
+    scope: LOW
+  undelete:
+    vulnerabilities: [persistence:account]
+    notes: >-
+      Undeleting a custom role will restore any bindings the role was part of at the time of deletion.
+  delete:
+    vulnerabilities: [impact:access, destruction:policy]
+    notes: >-
+      Deleting a custom role is possible even when it's present in bindings. The bindings remain, but are ineffectual.
+  update:
+    vulnerabilities: [escalation:privilege, impact:access]
+  get:
+    vulnerabilities: [discovery:policy]
+  list:
+    vulnerabilities: [discovery:policy]
+links:
+  - https://cloud.google.com/iam/docs/creating-custom-roles
+  - https://cloud.google.com/iam/docs/reference/rest/v1/projects.roles/delete

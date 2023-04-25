@@ -25,11 +25,11 @@ privileges:
   get:
     vulnerabilities: [discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:policy]
+    vulnerabilities: [discovery:policy, discovery:account]
   list:
     vulnerabilities: [discovery:infra]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   setSecurityPolicy:
     vulnerabilities: [escalation:privilege]
     notes: >-

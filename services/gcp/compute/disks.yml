@@ -34,7 +34,7 @@ privileges:
   get:
     vulnerabilities: [discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:policy]
+    vulnerabilities: [discovery:account, discovery:policy]
   list:
     vulnerabilities: [discovery:infra]
   listEffectiveTags:
@@ -53,7 +53,7 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/reference/rest/v1/disks/resize
   setIamPolicy:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   setLabels:
     vulnerabilities: [destruction:infra]
   startAsyncReplication:

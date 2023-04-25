@@ -23,7 +23,7 @@ privileges:
     vulnerabilities: [discovery:infra]
     scope: LOW
   setIamPolicy:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   update:
     vulnerabilities: [destruction:infra]
   updateTag:

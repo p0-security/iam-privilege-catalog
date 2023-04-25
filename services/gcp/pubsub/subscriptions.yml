@@ -1,0 +1,29 @@
+name: Pub/Sub subscription
+description: >-
+  A Pub/Sub subscription receives messages published to a Pub/Sub topic.
+scope: HIGH
+notes: >-
+  Subscriptions can allow an attacker to read Pub/Sub messages, which may contain sensitive information.
+privileges:
+  consume:
+    vulnerabilities: [exfiltration:data]
+  create:
+    vulnerabilities: [impact:spend]
+    scope: LOW
+    notes: >-
+      Creating a subscription does not provide access to Pub/Sub data on its own, since you cannot consume messages or attach the subscription to a topic.
+  delete:
+    vulnerabilities: [impact:dos]
+  get:
+    vulnerabilities: [discovery:infra]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list:
+    vulnerabilities: [discovery:infra]
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    vulnerabilities: [impact:dos]
+links:
+  - https://cloud.google.com/pubsub/docs/subscriber
+  - https://cloud.google.com/pubsub/docs/access-control

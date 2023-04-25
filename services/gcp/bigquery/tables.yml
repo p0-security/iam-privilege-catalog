@@ -41,7 +41,7 @@ privileges:
     links:
       - https://cloud.google.com/bigquery/docs/managing-policy-tags-across-locations
   setIamPolicy:
-    vulnerabilities: [escalation:data, escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   update:
     vulnerabilities: [destruction:infra]
   updateData:

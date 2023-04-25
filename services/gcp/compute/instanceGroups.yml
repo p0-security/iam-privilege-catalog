@@ -19,7 +19,7 @@ privileges:
   list:
     vulnerabilities: [discovery:infra]
   update:
-    vulnerabilities: [escalation:lateral,destruction:network]
+    vulnerabilities: [escalation:lateral, destruction:network]
     scope: HIGH
     notes: >-
       Can provide access to a VM by connecting instances to a compromised

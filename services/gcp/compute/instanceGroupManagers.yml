@@ -8,13 +8,13 @@ notes: >-
   critically impact organizational functions.
 privileges:
   create:
-    vulnerabilities: [impact:spend,impact:hijack]
+    vulnerabilities: [impact:spend, impact:hijack]
     notes: >-
       Can be exploited for cryptojacking purposes, but additionally
       requires creation of corresponding instance templates. Instances
       may be accessible via addition to target groups.
   delete:
-    vulnerabilities: [destruction:infra,destruction:network]
+    vulnerabilities: [destruction:infra, destruction:network]
     scope: HIGH
     notes: >-
       Does not delete instances themselves, but can effectively remove network
@@ -24,7 +24,12 @@ privileges:
   list:
     vulnerabilities: [discovery:infra]
   update:
-    vulnerabilities: [impact:spend,destruction:infra,destruction:data,destruction:network,escalation:lateral]
+    vulnerabilities:
+      - impact:spend
+      - destruction:infra
+      - destruction:data
+      - destruction:network
+      - escalation:lateral
     scope: CRITICAL
     notes: >-
       Groups can be resized, either increasing spend or destroying infrastructure.

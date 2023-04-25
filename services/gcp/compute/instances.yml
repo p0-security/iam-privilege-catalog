@@ -88,7 +88,7 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/metadata/overview
   getIamPolicy:
-    vulnerabilities: [discovery:policy]
+    vulnerabilities: [discovery:account, discovery:policy]
   getScreenshot:
     vulnerabilities: [exfiltration:data]
     scope: HIGH
@@ -221,7 +221,7 @@ privileges:
     notes: >-
       Leads to destruction when the instance is deleted.
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   setLabels:
     vulnerabilities: [destruction:infra]
     scope: LOW

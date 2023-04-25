@@ -37,7 +37,7 @@ privileges:
     vulnerabilities: [discovery:policy, discovery:account]
     scope: LOW
   setIamPolicy:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   update:
     vulnerabilities: [impact:encryption, destruction:metadata]
     notes: >-

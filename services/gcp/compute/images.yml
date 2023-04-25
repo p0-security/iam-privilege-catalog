@@ -38,7 +38,7 @@ privileges:
     notes: >-
       Potentially gives access to raw encryption keys.
   getIamPolicy:
-    vulnerabilities: [discovery:policy]
+    vulnerabilities: [discovery:account, discovery:policy]
   list:
     vulnerabilities: [exfiltration:crypto]
     notes: >-
@@ -48,7 +48,7 @@ privileges:
   listTagBindings:
     vulnerabilities: [discovery:policy]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   setLabels:
     scope: LOW
     vulnerabilities: [discovery:infra]
