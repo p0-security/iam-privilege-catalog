@@ -11,7 +11,7 @@ privileges:
     vulnerabilities: [impact:spend]
     scope: LOW
   delete:
-    vulnerabilities: [impact:dos]
+    vulnerabilities: [impact:dos, data:destruction]
   detachSubscription:
     vulnerabilities: [impact:dos]
   get:
@@ -21,7 +21,7 @@ privileges:
   list:
     vulnerabilities: [discovery:infra]
   publish:
-    vulnerabilities: [impact:dos]
+    vulnerabilities: [impact:dos, impact:manipulation]
   setIamPolicy:
     vulnerabilities: [escalation:privilege]
   update:

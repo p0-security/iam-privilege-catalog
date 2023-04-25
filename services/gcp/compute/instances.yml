@@ -88,7 +88,7 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/metadata/overview
   getIamPolicy:
-    vulnerabilities: [discovery:policy]
+    vulnerabilities: [discovery:account, discovery:policy]
   getScreenshot:
     vulnerabilities: [exfiltration:data]
     scope: HIGH

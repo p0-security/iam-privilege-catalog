@@ -6,7 +6,8 @@ privileges:
   create:
     vulnerabilities: [impact:spend]
   delete:
-    vulnerabilities: [impact:dos]
+    scope: HIGH
+    vulnerabilities: [impact:dos, data:destruction]
   get:
     vulnerabilities: [discovery:infra]
   getIamPolicy:
@@ -21,7 +22,9 @@ privileges:
   setIamPolicy:
     vulnerabilities: [escalation:privilege]
   update:
-    vulnerabilities: [impact:dos]
+    vulnerabilities: [impact:dos, data:destruction]
+    notes: >-
+      This allows updating snapshot metadata. Potential DOS and data destruction vulnerabilities if the expiration time is updated.
 links:
   - https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_snapshot
   - https://cloud.google.com/sdk/gcloud/reference/pubsub/snapshots/create

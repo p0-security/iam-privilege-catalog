@@ -25,13 +25,11 @@ privileges:
     vulnerabilities: [discovery:infra]
   update:
     vulnerabilities:
-      [
-        impact:spend,
-        destruction:infra,
-        destruction:data,
-        destruction:network,
-        escalation:lateral,
-      ]
+      - impact:spend
+      - destruction:infra
+      - destruction:data
+      - destruction:network
+      - escalation:lateral
     scope: CRITICAL
     notes: >-
       Groups can be resized, either increasing spend or destroying infrastructure.

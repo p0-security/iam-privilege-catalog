@@ -34,7 +34,7 @@ privileges:
   get:
     vulnerabilities: [discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:policy]
+    vulnerabilities: [discovery:account, discovery:policy]
   list:
     vulnerabilities: [discovery:infra]
   listEffectiveTags:

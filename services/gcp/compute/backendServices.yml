@@ -20,7 +20,7 @@ privileges:
   get:
     vulnerabilities: [discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:policy]
+    vulnerabilities: [discovery:policy, discovery:account]
   list:
     vulnerabilities: [discovery:infra]
   setIamPolicy:

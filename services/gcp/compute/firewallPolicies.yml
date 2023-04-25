@@ -38,7 +38,7 @@ privileges:
   get:
     vulnerabilities: [discovery:network, discovery:policy]
   getIamPolicy:
-    vulnerabilities: [discovery:policy]
+    vulnerabilities: [discovery:account, discovery:policy]
   list:
     vulnerabilities: [discovery:network, discovery:policy]
   move:

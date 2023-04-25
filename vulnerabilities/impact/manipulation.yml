@@ -1,0 +1,11 @@
+name: Data manipulation
+description: |
+  Allows an attacker to insert, delete, or manipulate organizational data. This may be done to evade detection or impact business/operational processes.
+risk: HIGH
+mitigations:
+  - Data encryption
+  - Network segmentation
+  - Data backup
+  - Least privilege permissions
+links:
+  - https://attack.mitre.org/techniques/T1565/

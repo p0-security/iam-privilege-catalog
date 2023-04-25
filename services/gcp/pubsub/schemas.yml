@@ -1,7 +1,7 @@
 name: Pub/Sub schemas
 description: >-
   A Pub/Sub schema specifies the data format for a Pub/Sub message. Schemas are enforced by the Pub/Sub service.
-scope: LOW
+scope: MEDIUM
 privileges:
   attach:
     vulnerabilities: [impact:dos]
@@ -31,5 +31,7 @@ privileges:
     vulnerabilities: [escalation:privilege]
   validate:
     vulnerabilities: []
+    notes: >-
+      Validating lets you validate messages against a schema.
 links:
   - https://cloud.google.com/pubsub/docs/schemas
