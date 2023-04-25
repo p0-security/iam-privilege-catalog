@@ -1,0 +1,23 @@
+name: IAM Roles
+description: >-
+  IAM custom roles created for use in IAM policies.
+scope: CRITICAL
+notes: >-
+  This is a sensitive service since it exposes information about organizational IAM policies and allows for potential manipulation of access.
+privileges:
+  create:
+    vulnerabilities: [persistence:account]
+    scope: LOW
+  undelete:
+    vulnerabilities: [persistence:account]
+    scope: LOW
+  delete:
+    vulnerabilities: [impact:access, destruction:policy]
+  update:
+    vulnerabilities: [escalation:privilege, impact:access]
+  get:
+    vulnerabilities: [discovery:policy]
+  list:
+    vulnerabilities: [discovery:policy]
+links:
+  - https://cloud.google.com/iam/docs/creating-custom-roles

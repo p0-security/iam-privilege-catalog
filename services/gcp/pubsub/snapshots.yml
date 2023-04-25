@@ -1,0 +1,27 @@
+name: Pub/Sub snapshot
+description: >-
+  A Pub/Sub snapshot captures the state of a pub/sub subscription. It retains all unacknowledged messages in the source subscription at the time of creation, and any messages published after the snapshot was created.
+scope: LOW
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+  delete:
+    vulnerabilities: [impact:dos]
+  get:
+    vulnerabilities: [discovery:infra]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list:
+    vulnerabilities: [discovery:infra]
+  seek:
+    vulnerabilities: [exfiltration:data]
+    scope: HIGH
+    notes: >-
+      The seek functionality allows for replay/redelivery of the messages in the snapshot. This can allow an attacker to read Pub/Sub messages, which may be sensitive.
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege]
+  update:
+    vulnerabilities: [impact:dos]
+links:
+  - https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_snapshot
+  - https://cloud.google.com/sdk/gcloud/reference/pubsub/snapshots/create

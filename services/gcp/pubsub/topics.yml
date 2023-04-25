@@ -1,0 +1,38 @@
+name: Pub/Sub topic
+description: >-
+  A Pub/Sub topic is a feed of messages that can be arbitrarily subscribed to.
+scope: HIGH
+notes: >-
+  Pub/Sub messages may contain sensitive information.
+privileges:
+  attachSubscription:
+    vulnerabilities: [exfiltration:data]
+  create:
+    vulnerabilities: [impact:spend]
+    scope: LOW
+  delete:
+    vulnerabilities: [impact:dos]
+  detachSubscription:
+    vulnerabilities: [impact:dos]
+  get:
+    vulnerabilities: [discovery:infra]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list:
+    vulnerabilities: [discovery:infra]
+  publish:
+    vulnerabilities: [impact:dos]
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege]
+  update:
+    vulnerabilities: [impact:dos]
+  updateTag:
+    vulnerabilities: [escalation:privilege]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. If the user has any
+      policies that use tag bindings to enforce conditions, creating a tag on a resource allows them
+      to escalate their access to that resource. Also requires getIamPolicy or knowledge of the IAM
+      policy from some other means.
+links:
+  - https://cloud.google.com/pubsub/docs/create-topic
+  - https://cloud.google.com/pubsub/docs/access-control
