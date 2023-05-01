@@ -6,7 +6,7 @@ privileges:
   create:
     vulnerabilities: [impact:spend]
   delete:
-    vulnerabilities: [impact:dos, data:destruction]
+    vulnerabilities: [impact:dos, destruction:data]
   get:
     vulnerabilities: [discovery:infra]
   getIamPolicy:
@@ -20,7 +20,7 @@ privileges:
   setIamPolicy:
     vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [impact:dos, data:destruction]
+    vulnerabilities: [impact:dos, destruction:data]
     notes: >-
       This allows updating snapshot metadata. Potential DOS and data destruction vulnerabilities if the expiration time is updated.
 links:
