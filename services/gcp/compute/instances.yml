@@ -46,6 +46,7 @@ privileges:
       server using the VM's local access to the instance metadata (see `get` below). Allows
       access to network instances to which the VM is connected (e.g. VPCs). Created
       instances can be used to hijack resources, or create extra spend.
+      Creating an instance with an attached service account requires permissions to impersonate the service account.
     links:
       - https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/
       - https://cloud.google.com/compute/docs/metadata/default-metadata-values

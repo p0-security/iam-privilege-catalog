@@ -1,0 +1,12 @@
+name: Cloud Functions Locations
+description: >-
+  Infrastructure regions available for Google Cloud functions.
+scope: PUBLIC
+notes: >-
+  This resource contains public information about Google's location offerings for Cloud Functions.
+privileges:
+  list:
+    vulnerabilities: []
+links:
+  - https://cloud.google.com/functions/docs/locations
+  - https://cloud.google.com/functions/docs/reference/iam/permissions
