@@ -2,6 +2,8 @@ name: Cloud Build
 description: >-
   A Cloud build describes where to find source code, how to build it, and where to store built artifacts.
 scope: MEDIUM
+notes: >-
+  Code and artifacts are generally stored in other services, such as Cloud storage.
 privileges:
   approve:
     vulnerabilities: [impact:dos]
