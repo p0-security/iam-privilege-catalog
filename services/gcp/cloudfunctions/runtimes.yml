@@ -1,0 +1,12 @@
+name: Cloud Functions runtimes
+description: >-
+  Runtimes available for Google Cloud functions.
+scope: PUBLIC
+notes: >-
+  This resource contains public information about Google's runtime offerings for Cloud Functions.
+privileges:
+  list:
+    vulnerabilities: []
+links:
+  - https://cloud.google.com/functions/docs/runtime-support
+  - https://cloud.google.com/functions/docs/reference/iam/permissions
