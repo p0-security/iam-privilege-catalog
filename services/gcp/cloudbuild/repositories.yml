@@ -1,0 +1,27 @@
+name: Cloud Build Repository
+description: >-
+  A Cloud build repository is a connection to a repository located in an external Source Code Management provider, like Github and Gitlab.
+scope: MEDIUM
+privileges:
+  accessReadToken:
+    vulnerabilities: [exfiltration:code]
+    notes: >-
+      Fetches the read token for the connected repository
+  accessReadWriteToken:
+    vulnerabilities: [exfiltration:code, impact:defacement, impact:dos]
+    notes: >-
+      Fetches the read/write token for the connected repository
+  create:
+    vulnerabilities: []
+  delete:
+    vulnerabilities: [impact:dos]
+  fetchGitRefs:
+    vulnerabilities: []
+    notes: >-
+      Could not find any documentation on this and it is not included in any Cloud Build roles, so I think this permission is unused.
+  get: vulnerabilities:[discovery:infra, discovery:code]
+  list: vulnerabilities:[discovery:infra, discovery:code]
+links:
+  - https://cloud.google.com/build/docs/iam-roles-permissions
+  - https://cloud.google.com/build/docs/api/reference/rest/v2/projects.locations.connections.repositories
+  - https://cloud.google.com/build/docs/repositories

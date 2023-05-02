@@ -1,0 +1,25 @@
+name: Cloud Build
+description: >-
+  A Cloud build describes where to find source code, how to build it, and where to store built artifacts.
+scope: MEDIUM
+privileges:
+  approve:
+    vulnerabilities: [impact:dos]
+     notes: >- 
+      This allows the user to both approve or deny an existing build.
+  create:
+    vulnerabilities: [impact:spend, impact:dos, escalation:privilege]
+    notes: >-
+      This permission allows users to run builds as the Cloud Build serivce account. This can allow the user to have escalated build-time privileges.
+  get:
+    vulnerabilities: [discovery:infra]
+  list:
+    vulnerabilities: [discovery:infra]
+  update:
+    vulnerabilities: [impact:dos]
+    notes: >- 
+      This allows the user to cancel a build.
+links:
+  - https://cloud.google.com/build/docs/iam-roles-permissions
+  - https://cloud.google.com/build/docs/overview#how_builds_work
+  - https://cloud.google.com/build/docs/api/reference/rest/v1/projects.builds#Build

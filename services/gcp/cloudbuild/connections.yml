@@ -1,0 +1,28 @@
+name: Cloud Build Connection
+description: >-
+  A Cloud build connection is a connection to an external Source Code Management system, like Github and Gitlab.
+scope: MEDIUM
+privileges:
+  create:
+    vulnerabilities: []
+  delete:
+    vulnerabilities: [impact:dos]
+  fetchLinkableRepositories:
+    vulnerabilities: [discovery:code]
+    notes: >-
+      This fetches repositories from the system the connection is with.
+  get:
+    vulnerabilities: [discovery:infra, discovery:code]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list: vulnerabilities:[discovery:infra, discovery:code]
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      You can change the user token secret used for the connection, effectively resulting in a DOS.
+links:
+  - https://cloud.google.com/build/docs/iam-roles-permissions
+  - https://cloud.google.com/sdk/gcloud/reference/alpha/builds/connections
+  - https://cloud.google.com/build/docs/api/reference/rest/v2/projects.locations.connections

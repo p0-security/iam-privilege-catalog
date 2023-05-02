@@ -1,0 +1,26 @@
+name: Cloud Build Worker Pools
+description: >-
+  A Cloud build worker pool is a dedicated pool of workers that offers customization over the build environment, including the ability to access resources in a private network.
+scope: MEDIUM
+privileges:
+  create:
+    vulnerabilities: []
+    notes: >-
+      Build is priced per build minute, so just creating a worker pool does not add spend.
+  delete:
+    vulnerabilities: [impact:dos]
+  get:
+    vulnerabilities: [discovery:infra, discovery:network]
+  list:
+    vulnerabilities: [discovery:infra, discovery:network]
+  update:
+    vulnerabilities: [impact:dos, impact:spend]
+    notes: >-
+      Can effectively create a DOS by reducing disk size. Spend impact via increasing disk size or changing machine type.
+  use:
+    vulnerabilities: [impact:spend, escalation:network]
+    notes: >-
+      This also requires builds.create. Allows a user to run a build on the worker pool. If the worker pool has access to a VPC network, provides an opportunity for network escalation.
+links:
+  - https://cloud.google.com/build/docs/iam-roles-permissions
+  - https://cloud.google.com/build/docs/private-pools/private-pools-overview
