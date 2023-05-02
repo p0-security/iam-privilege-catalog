@@ -4,7 +4,11 @@ description: >-
 scope: CRITICAL
 privileges:
   get:
-    vulnerabilities: [discovery:infra, discovery:network, discovery:data, discovery:policy]
+    vulnerabilities:
+      - discovery:infra
+      - discovery:network
+      - discovery:data
+      - discovery:policy]
     notes: >-
       Function metadata includes the following: 
         - labels and descriptions associated with the function
@@ -13,7 +17,11 @@ privileges:
         - configuration for events that trigger the function (service info for the service that triggers the info, filters on event fields)
         - encryption key name
   list:
-    vulnerabilities: [discovery:infra, discovery:network, discovery:data, discovery:policy]
+    vulnerabilities:
+      - discovery:infra
+      - discovery:network
+      - discovery:data
+      - discovery:policy]
     notes: >-
       See notes for get
   call:
@@ -25,8 +33,10 @@ privileges:
       - impact:spend
       - impact:dos
       - impact:manipulation
-    notes: >- 
-      Allows execution of a cloud function. Can expose a variety of vulnerabilities depending on the contents of the cloud function. Also allows for DOS via spamming executions and data injection via execution with fake parameters. 
+    notes: >-
+      Allows execution of a cloud function.
+      Can expose a variety of vulnerabilities depending on the contents of the cloud function.
+      Also allows for DOS via spamming executions and data injection via execution with fake parameters.
   invoke:
     vulnerabilities:
       - discovery:account
@@ -36,8 +46,10 @@ privileges:
       - impact:spend
       - impact:dos
       - impact:manipulation
-    notes: >- 
-      Allows execution of a cloud function. Can expose a variety of vulnerabilities depending on the contents of the cloud function. Also allows for DOS via spamming executions and data injection via execution with fake parameters. 
+    notes: >-
+      Allows execution of a cloud function. 
+      Can expose a variety of vulnerabilities depending on the contents of the cloud function. 
+      Also allows for DOS via spamming executions and data injection via execution with fake parameters.
   create:
     vulnerabilities:
       - discovery:account
@@ -47,7 +59,7 @@ privileges:
       - exfiltration:account
       - impact:spend
       - impact:hijack
-    notes: >- 
+    notes: >-
       Creating a cloud function requires permissions on the cloud functions runtime service account.
       It then allows you to export credentials to the service account.
       Vulnerabilities also require the sourceCodeSet permission.
@@ -57,7 +69,7 @@ privileges:
       - https://cloud.google.com/functions/docs/reference/iam/roles#additional-configuration
   delete:
     vulnerabilities: [destruction:infra, destruction:data]
-  sourceCodeGet: 
+  sourceCodeGet:
     vulnerabilities: [exfiltration:code]
   update:
     vulnerabilities:
@@ -70,7 +82,7 @@ privileges:
       - discovery:data
       - exfiltration:data
       - exfiltration:account
-    notes: >- 
+    notes: >-
       Allows for updating ingress and egress network traffic settings as well as updating encryption keys 
       Additionally includes the same set of vulnerabilities as create when the user also has sourceCodeSet permissions.
   sourceCodeSet:
@@ -84,7 +96,7 @@ privileges:
       - discovery:data
       - exfiltration:data
       - exfiltration:account
-    notes: >- 
+    notes: >-
       Includes DOS, data manipulation, spend, and hijack vulnerabilities.
       Additionally includes the same set of vulnerabilities as create when the user also has update permissions.
   getIamPolicy:
@@ -94,4 +106,3 @@ privileges:
 links:
   - https://cloud.google.com/functions/docs/reference/iam/permissions
   - https://cloud.google.com/functions/docs/reference/rest/v2/projects.locations.functions
-  
