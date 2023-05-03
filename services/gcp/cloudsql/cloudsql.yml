@@ -50,15 +50,13 @@ privileges:
       Users with this privilege can delete database users within a Cloud SQL instance. It poses risks to data integrity.
 
   getConnection:
-    vulnerabilities: [discovery:data]
-    scope: LOW
+    vulnerabilities: [discovery:data, exfiltration:data]
     notes: >-
       This privilege enables users to establish a connection to a Cloud SQL instance. 
       The vulnerability "data discovery" implies the risk of unauthorized access to sensitive data.
   
   viewLogs:
     vulnerabilities: [discovery:data]
-    scope: LOW
     notes: >-
       This privilege allows users to view logs and monitoring information for a Cloud SQL instance. 
       The vulnerability "data discovery" implies the risk of unauthorized access to log data 
