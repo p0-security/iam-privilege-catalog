@@ -9,10 +9,10 @@ notes: >-
 
 privileges:
   createInstance:
-    vulnerabilities: [escalation:privilege, impact:spend]
+    vulnerabilities: [impact:spend]
     notes: >-
       This privilege allows users to create new Cloud SQL instances. 
-      It involves the risk of privilege escalation and potential excessive costs due to resource usage.
+      It involves the potential excessive costs due to resource usage.
 
   deleteInstance:
     vulnerabilities: [impact:dos, destruction:data, destruction:infra]
@@ -21,37 +21,31 @@ privileges:
       It poses the risks of service disruption, permanent data loss, and infrastructure damage.
 
   createDatabase:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [impact:spend]
     notes: >-
       This privilege enables users to create databases within a Cloud SQL instance. 
-      It involves the risk of privilege escalation.
+      It involves the potential excessive costs due to resource usage.
 
   deleteDatabase:
-    vulnerabilities: [impact:data, impact:infra]
+    vulnerabilities: [destruction:data, destruction:infra]
     notes: >-
       With this privilege, users can delete databases within a Cloud SQL instance. 
       It poses risks to data integrity and potential impact on the infrastructure.
 
   createBackup:
-    vulnerabilities: [escalation:privilege, impact:spend]
+    vulnerabilities: [impact:spend]
     notes: >-
       This privilege allows users to create backups of Cloud SQL instances. 
-      It involves the risk of privilege escalation and potential excessive costs due to resource usage.
+      It involves the potential excessive costs due to resource usage.
 
   restoreBackup:
-    vulnerabilities: [impact:data, impact:infra]
+    vulnerabilities: [destruction:data]
     notes: >-
       Users with this privilege can restore backups to Cloud SQL instances. 
-      It poses risks to data integrity and potential impact on the infrastructure.
-
-  createUser:
-    vulnerabilities: [escalation:privilege]
-    notes: >-
-      This privilege allows users to create database users within a Cloud SQL instance. 
-      It involves the risk of privilege escalation.
+      It poses risks to data integrity.
 
   deleteUser:
-    vulnerabilities: [impact:data]
+    vulnerabilities: [destruction:data]
     notes: >-
       Users with this privilege can delete database users within a Cloud SQL instance. It poses risks to data integrity.
 
@@ -71,45 +65,39 @@ privileges:
       containing potentially sensitive information.
 
   manageSslCerts:
-    vulnerabilities: [impact:data, impact:access]
+    vulnerabilities: [destruction:defense]
     notes: >-
       Users with this privilege can manage SSL certificates for Cloud SQL instances. 
-      The vulnerabilities indicate the potential impact on data integrity and unauthorized access to SSL certificates.
+      The vulnerabilities indicate the potential impact on unauthorized access to SSL certificates.
 
   manageReplication:
-    vulnerabilities: [escalation:privilege, impact:data, impact:infra]
+    vulnerabilities: [impact:infra]
     notes: >-
       This privilege enables users to manage replication settings for a Cloud SQL instance, 
       including configuring replica instances and replication types. The vulnerabilities suggest the risks of privilege escalation, 
       potential impact on data integrity, and infrastructure changes related to replication.
   
   manageBackups:
-    vulnerabilities: [escalation:privilege, impact:data, impact:infra]
+    vulnerabilities: [destruction:data, impact:infra]
     notes: >-
       Users with this privilege can manage backups for Cloud SQL instances, 
       including scheduling backups, configuring retention policies, and managing backup storage. 
-      The vulnerabilities suggest the risks of privilege escalation, potential impact on data integrity, and 
+      The vulnerabilities suggest the risks of potential impact on data integrity, and 
       potential infrastructure changes related to backups.
-  
-  manageInstanceSettings:
-    vulnerabilities: [escalation:privilege, impact:data]
-    notes: >-
-      With this privilege, users can manage various instance-level settings for a Cloud SQL instance, such as storage capacity, backup options, and maintenance settings. 
-      The vulnerabilities indicate the risks of privilege escalation and potential impact on data availability and instance configurations.
 
   manageBackupRetention:
-    vulnerabilities: [escalation:privilege, impact:data]
+    vulnerabilities: [destruction:data]
     notes: >-
       This privilege enables users to manage the backup retention policy for Cloud SQL instances, 
       specifying how long backups should be retained. 
-      The vulnerabilities suggest the risks of privilege escalation and potential impact on data retention and availability.
+      The vulnerabilities suggest the risks of potential impact on data retention and availability.
 
   manageMaintenanceWindow:
-    vulnerabilities: [escalation:privilege, impact:data]
+    vulnerabilities: [impact:dos]
     notes: >-
       With this privilege, users can manage the maintenance window for a Cloud SQL instance, 
       specifying the time when scheduled maintenance operations can occur. 
-      The vulnerabilities indicate the potential risks of privilege escalation and impact on data availability during maintenance activities.
+      The vulnerabilities indicate the potential risks of impact on data availability during maintenance activities.
 
 links:
   - https://cloud.google.com/sql/docs/mysql/iam-permissions
