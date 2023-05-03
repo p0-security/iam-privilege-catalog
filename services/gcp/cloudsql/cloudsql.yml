@@ -1,0 +1,72 @@
+name: Google Cloud SQL
+description: >-
+  Google Cloud SQL is a fully managed database service that makes it easy to set up, 
+  maintain, manage, and administer relational databases.
+scope: CRITICAL
+notes: >-
+  Cloud SQL provides a secure and scalable solution for storing and 
+  accessing relational data in the cloud. It supports various database engines, such as MySQL, PostgreSQL, and SQL Server.
+
+privileges:
+  createInstance:
+    vulnerabilities: [escalation:privilege, impact:spend]
+    notes: >-
+      This privilege allows users to create new Cloud SQL instances. 
+      It involves the risk of privilege escalation and potential excessive costs due to resource usage.
+
+  deleteInstance:
+    vulnerabilities: [impact:dos, destruction:data, destruction:infra]
+    notes: >-
+      With this privilege, users can delete Cloud SQL instances. 
+      It poses the risks of service disruption, permanent data loss, and infrastructure damage.
+
+  createDatabase:
+    vulnerabilities: [escalation:privilege]
+    notes: >-
+      This privilege enables users to create databases within a Cloud SQL instance. 
+      It involves the risk of privilege escalation.
+
+  deleteDatabase:
+    vulnerabilities: [impact:data, impact:infra]
+    notes: >-
+      With this privilege, users can delete databases within a Cloud SQL instance. 
+      It poses risks to data integrity and potential impact on the infrastructure.
+
+  createBackup:
+    vulnerabilities: [escalation:privilege, impact:spend]
+    notes: >-
+      This privilege allows users to create backups of Cloud SQL instances. 
+      It involves the risk of privilege escalation and potential excessive costs due to resource usage.
+
+  restoreBackup:
+    vulnerabilities: [impact:data, impact:infra]
+    notes: >-
+      Users with this privilege can restore backups to Cloud SQL instances. 
+      It poses risks to data integrity and potential impact on the infrastructure.
+
+  createUser:
+    vulnerabilities: [escalation:privilege]
+    notes: >-
+      This privilege allows users to create database users within a Cloud SQL instance. 
+      It involves the risk of privilege escalation.
+
+  deleteUser:
+    vulnerabilities: [impact:data]
+    notes: >-
+      Users with this privilege can delete database users within a Cloud SQL instance. It poses risks to data integrity.
+
+  getConnection:
+    vulnerabilities: [discovery:data]
+    scope: LOW
+    notes: >-
+      This privilege enables users to establish a connection to a Cloud SQL instance. 
+      The vulnerability "data discovery" implies the risk of unauthorized access to sensitive data.
+
+  manageSslCerts:
+    vulnerabilities: [impact:data, impact:access]
+    notes: >-
+      Users with this privilege can manage SSL certificates for Cloud SQL instances. 
+      The vulnerabilities indicate the potential impact on data integrity and unauthorized access to SSL certificates.
+
+links:
+  - https://cloud.google.com/sql/docs/mysql/iam-permissions
