@@ -67,6 +67,21 @@ privileges:
     notes: >-
       Users with this privilege can manage SSL certificates for Cloud SQL instances. 
       The vulnerabilities indicate the potential impact on data integrity and unauthorized access to SSL certificates.
+  
+  viewLogs:
+    vulnerabilities: [discovery:data]
+    scope: LOW
+    notes: >-
+      This privilege allows users to view logs and monitoring information for a Cloud SQL instance. 
+      The vulnerability "data discovery" implies the risk of unauthorized access to log data 
+      containing potentially sensitive information.
+
+  manageReplication:
+    vulnerabilities: [escalation:privilege, impact:data, impact:infra]
+    notes: >-
+      This privilege enables users to manage replication settings for a Cloud SQL instance, 
+      including configuring replica instances and replication types. The vulnerabilities suggest the risks of privilege escalation, 
+      potential impact on data integrity, and infrastructure changes related to replication.
 
 links:
   - https://cloud.google.com/sql/docs/mysql/iam-permissions
