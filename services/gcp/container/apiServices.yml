@@ -1,0 +1,41 @@
+name: Kubernetes Engine API Services
+description: >-
+  Exposes /apis/apiregistration.k8s.io/v1/apiservices Kubernetes API endpoints.
+  API Services provide a way to advertise a Kubernetes API that is implemented across 
+  multiple versions of Kubernetes. It is used to register and expose APIs for Kubernetes 
+  extensions and custom resources. It also provides a way to specify the resource schema 
+  for a custom resource, which enables client-side validation and discovery of resources.
+scope: MEDIUM
+notes: >-
+  API Services can be used to track the availability and health of API servers and extensions 
+  in the cluster. For custom resources can set the insecureSkipTLSVerify to true which allows
+  unauthenticated communication with the custom resource's endpoints.
+privileges:
+  create:
+    vulnerabilities: [escalation:network]
+    notes: >-
+      Together with the ability to deploy a new Kubernetes service in the cluster an attacker
+      can configure an APIService to expose that new service with custom authentication settings
+      which opens a backdoor to the cluster.
+  delete:
+    vulnerabilities: [destruction:infra]
+    notes: >-
+      Only API Services that expose custom CRDs can be deleted. API Services automanaged by
+      Kubernetes, such as core v1, apps/v1, batch/v1, extensions/v1beta1 APIs cannot be deleted
+      or modified.
+  get:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  getStatus:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  list:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  update:
+    vulnerabilities: [escalation:network]
+  updateStatus:
+    vulnerabilities: []
+    notes: >-
+      While this permission is exposed, updating the status of a custom APIService is not allowed.
+      Status is managed by Kubernetes.
