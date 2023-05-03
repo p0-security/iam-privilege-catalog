@@ -1,4 +1,4 @@
-name: Compute Engine interconnect attachments
+name: Compute Engine interconnects
 description: >-
   Interconnects provide connectivity between Compute Engine infrastructure
   and on-premises systems.
