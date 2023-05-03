@@ -32,18 +32,6 @@ privileges:
       With this privilege, users can delete databases within a Cloud SQL instance. 
       It poses risks to data integrity and potential impact on the infrastructure.
 
-  createBackup:
-    vulnerabilities: [impact:spend]
-    notes: >-
-      This privilege allows users to create backups of Cloud SQL instances. 
-      It involves the potential excessive costs due to resource usage.
-
-  restoreBackup:
-    vulnerabilities: [destruction:data]
-    notes: >-
-      Users with this privilege can restore backups to Cloud SQL instances. 
-      It poses risks to data integrity.
-
   deleteUser:
     vulnerabilities: [destruction:data]
     notes: >-
