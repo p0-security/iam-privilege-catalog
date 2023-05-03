@@ -19,6 +19,10 @@ privileges:
       which opens a backdoor to the cluster.
   delete:
     vulnerabilities: [destruction:infra]
+    notes: >-
+      Only API Services that expose custom CRDs can be deleted. API Services automanaged by
+      Kubernetes, such as core v1, apps/v1, batch/v1, extensions/v1beta1 APIs cannot be deleted
+      or modified.
   get:
     vulnerabilities: [discovery:infra]
     scope: LOW
@@ -31,4 +35,7 @@ privileges:
   update:
     vulnerabilities: [escalation:network]
   updateStatus:
-    vulnerabilities: [destruction:infra]
+    vulnerabilities: []
+    notes: >-
+      While this permission is exposed, updating the status of a custom APIService is not allowed.
+      Status is managed by Kubernetes.
