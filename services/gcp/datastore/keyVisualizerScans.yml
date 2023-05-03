@@ -1,0 +1,14 @@
+name: Key Visualizer Scans
+description: >-
+  Key Visualizer is a tool that helps you analyze your Firestore usage patterns. 
+  It generates visual reports that break down your usage based on the documents that you access.
+scope: LOW
+privileges:
+  list:
+    vulnerabilities: []
+  get:
+    vulnerabilities: [discovery:data]
+    notes: >-
+      get access to specific key visualizer scans can provide insights into the heat maps of the data.
+      this when paired with permissions like destruction of indexes and data might impact the availability of the service.
+links:
