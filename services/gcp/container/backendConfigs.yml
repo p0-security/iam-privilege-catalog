@@ -1,0 +1,33 @@
+name: Custom CRD BackendConfig for Google Kubernetes Engine 
+description: >-
+  BackendConfig objects are reusable configurations for Kubernetes Service objects.
+  BackendConfigs set the destination Service for incoming requests. 
+  Other ingress parameters for the service include service timeout, Cloud CDN, 
+  HTTP access logging, Session Affinity.
+scope: MEDIUM
+notes: >-
+  Without the additional permissions to associated the a BackendConfig with a Service
+privileges:
+  create:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      Together with the ability to associate a BackendConfig with an Ingress an attacker
+      may manipulate the Ingress settings.
+  delete:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      BackendConfigs that are associated with a Service can be deleted without first removing the reference to them.
+    scope: CRITICAL
+  get:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  list:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  update:
+    vulnerabilities: [destruction:defense, impact:dos]
+    notes: >-
+      For BackendConfigs that are associated with Service, an update may remove a Cloud Armor Security Policy or
+      route requests to a non-existent or malicious service.
+    scope: CRITICAL
+
