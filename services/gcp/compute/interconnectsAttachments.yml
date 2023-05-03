@@ -1,0 +1,45 @@
+name: Compute Engine interconnect attachments
+description: >-
+  Interconnects provide connectivity between Compute Engine infrastructure
+  and on-premises systems.
+scope: HIGH
+notes: >-
+  This privilege set may allow connection or disconnection of networks between
+  multiple critical systems. To abuse creation of interconnects, multiple concurrent
+  vulnerabilities must be exploited, as abusing interconnects require access to a valid
+  target on-premise facility, the ability to create interconnects, the ability to attach
+  interconnects, and the ability to map interconnects to a compute router VLAN. The full
+  set of privileges necessary to connect to a VLAN are: compute.interconnects.create,
+  compute.interconnectAttachments.create, compute.interconnectAttachments.get,
+  compute.routers.create, compute.routers.get, compute.routers.update.
+privileges:
+  create:
+    vulnerabilities: [escalation:network, impact:spend]
+    scope: MEDIUM
+    notes: >-
+      Additionally requires the privileges described in this component's notes.
+  delete:
+    vulnerabilities: [destruction:network]
+  get:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Exposes router IP addresses and VLAN tags.
+  list:
+    vulnerabilities: [discovery:network]
+    notes: Per get.
+  setLabels:
+    vulnerabilities: [destruction:infra]
+    scope: LOW
+  update:
+    vulnerabilities: [impact:dos, escalation:network]
+    notes: >-
+      Can be used to resize or reroute the interconnect.
+  use:
+    vulnerabilities: [escalation:network]
+    scope: MEDIUM
+    notes: >-
+      May allow an attachment to be used by an already compromised cloud router.
+links:
+  - https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview
+  - https://cloud.google.com/sdk/gcloud/reference/compute/interconnects
+  - https://cloud.google.com/compute/docs/reference/rest/v1/interconnects

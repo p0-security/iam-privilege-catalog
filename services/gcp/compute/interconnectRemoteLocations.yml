@@ -1,0 +1,9 @@
+name: Compute Engine interconnect locations
+description: >-
+  No known use. The privilege set implies public use analogous to
+  interconnectLocations.
+scope: PUBLIC
+privileges:
+  get: []
+  list: []
+links: []
