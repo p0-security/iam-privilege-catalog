@@ -1,5 +1,10 @@
 # IDE
 .idea/
+.vscode/
 
 # Mac
 .DS_Store
+
+# node
+dist/
+**/node_modules/
