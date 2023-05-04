@@ -72,10 +72,9 @@ To answer this question:
 A script is provided to convert the catalog to JSON format. To use this script:
 
 1. Install [yarn](https://yarnpkg.com/) in your environment.
-1. Within [/scripts](https://github.com/p0-security/iam-risk-catalog/scripts):
-   1. Run `yarn install`.
-   1. Run `yarn ts-node generate.ts`.
-1. Generated JSON will be stored in `/scripts/dist`.
+1. Run `yarn install`.
+1. Run `yarn ts-node scripts/generate.ts`.
+1. Generated JSON will be stored in `/dist`.
 
 ## Contributing
 
