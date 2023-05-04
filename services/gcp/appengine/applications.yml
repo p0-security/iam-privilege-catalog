@@ -1,0 +1,39 @@
+name: Google App Engine Applications
+description: >-
+  A Google App Engine Application is a serverless web application hosted and fully managed by Google.
+scope: CRITICAL
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+  get:
+    vulnerabilities: [discovery:infra, discovery:data]
+    notes: >-
+      Includes data discovery because it reveals Cloud Storage bucket names
+  update:
+    vulnerabilities:
+      - impact:dos
+      - impact:access
+      - destruction:policy
+      - escalation:lateral
+      - destruction:defense
+    notes: >-
+      Allows modification of app IAP settings (which controls app authentication). 
+      This can a create DOS if the IAP config is changed in a way that disallows access. Also allows 
+      disabling IAP, in which case App Engine will stop requiring authentication for all incoming requests.
+      This allows the attacker to gain access to your web application.
+      Also allows modification of SSL keys, including modification of private keys. This allows the attacker to 
+      decrypt customer traffic and potentially perform a man-in-the-middle attack.
+      Does not allow deploying to the application.
+    links:
+      - https://cloud.google.com/beyondcorp-enterprise/docs/securing-app-engine
+  disable:
+    vulnerabilities: []
+    notes: >-
+      This permission is part of some predefined roles but doesn't provide access to anything
+  list:
+    vulnerabilities: []
+    notes: >-
+      This permission is part of some predefined roles but doesn't do anything.
+links:
+  - https://cloud.google.com/appengine/docs/admin-api/access-control#roles
+  - https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services

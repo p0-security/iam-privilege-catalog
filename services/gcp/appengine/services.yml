@@ -1,0 +1,36 @@
+name: Google App Engine services
+description: >-
+  A service is a logical component of an application that can share state and securely communicate with other services.
+scope: CRITICAL
+privileges:
+  delete:
+    vulnerabilities: [impact:dos, destruction:infra]
+  get:
+    vulnerabilities: [discovery:infra, discovery:policy]
+    notes: >-
+      Includes network discovery since it allows viewing of ingress traffic policies.
+  list:
+    vulnerabilities: [discovery:infra, discovery:policy]
+    notes: >-
+      See get
+  update:
+    vulnerabilities:
+      [
+        impact:dos,
+        destruction:policy,
+        escalation:lateral,
+        impact:access,
+        impact:defacement,
+      ]
+    notes: >-
+      Allows modifying network traffic settings. An attacker could divert traffic to invalid versions, creating a DOS.
+      Defacement impact when combined with versions.create, since they could deploy a version and then divert traffic to it.
+      Also allows modifying ingress traffic settings, which could either lead to escalation by making access public, 
+      or restrict previously authorized access by narrowing the policy.
+  create:
+    vulnerabilities: []
+    notes: >-
+      This permission is part of some predefined roles but doesn't do anything.
+links:
+  - https://cloud.google.com/appengine/docs/admin-api/access-control#roles
+  - https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services

@@ -1,0 +1,41 @@
+name: Google App Engine Instances
+description: >-
+  An instance is the computing unit that fully hosts an App Engine application.
+  An application may be running on one or more instances, with scaling and request routing managed by Google.
+scope: CRITICAL
+privileges:
+  delete:
+    vulnerabilities: []
+    notes: >-
+      Deleting the instance does not result in a DOS because App Engine will recreate it based on the scaling settings for the app.
+  enableDebug:
+    vulnerabilities:
+      - collection:data
+      - discovery:network
+      - discovery:policy
+      - escalation:lateral
+      - exfiltration:data
+      - impact:defacement
+      - impact:hijack
+    notes: >-
+      Allows the user to SSH into the VM where the instance lives. 
+      Specific vulnerabilities depend on instance and application configuration, 
+      but can potentially allow data exfiltration from the application or defacement of the application.
+      There are no destruction vulnerabilities since instances are intended to be short-lived (deleted/created according to demand)
+      and do not store data intended to be persistent.
+  get:
+    vulnerabilities: [discovery:infra]
+    notes: >-
+      This only exposes basic information about the VM it is running on (ID, zone, IP, etc) and application metrics (requests, errors, memory usage, etc)
+  list:
+    vulnerabilities: [discovery:infra]
+    notes: >-
+      This only exposes basic information about the VM it is running on (ID, zone, IP, etc) and application metrics (requests, errors, memory usage, etc)
+  update:
+    vulnerabilities: []
+    notes: >-
+      This permission is part of some predefined roles but doesn't do anything.
+links:
+  - https://cloud.google.com/appengine/docs/admin-api/access-control#roles
+  - https://cloud.google.com/appengine/docs/legacy/standard/java/how-instances-are-managed
+  - https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions.instances

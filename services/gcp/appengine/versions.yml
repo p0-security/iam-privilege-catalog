@@ -1,0 +1,45 @@
+name: Google App Engine version
+description: >-
+  A version is a specific set of source code and configuration files that are deployed to a service.
+notes: >-
+  Resources for a version, including source code, must first be uploaded to a Cloud Storage bucket.
+scope: CRITICAL
+privileges:
+  create:
+    vulnerabilities: [impact:hijack, impact:spend]
+    notes: >-
+      Creating a version will deploy the provided source code to App Engine. 
+      This does not route any external traffic to the new version, but allows for resource hijacking.
+  delete:
+    vulnerabilities: [impact:dos, destruction:infra]
+  get:
+    vulnerabilities:
+      - discovery:infra
+      - discovery:policy
+      - discovery:network
+      - discovery:data
+    notes: >-
+      Includes data discovery since it exposes names of Cloud Storage buckets, policy discovery since it includes VPC egress settings,
+      and network discovery for network settings in the application environment..
+  getFileContents:
+    vulnerabilities: [exfiltration:code]
+    notes: >-
+      Read access to deployed source code.
+  list:
+    vulnerabilities:
+      - discovery:infra
+      - discovery:policy
+      - discovery:network
+      - discovery:data
+    notes: >-
+      See get
+  update:
+    vulnerabilities:
+      - impact:spend
+    notes: >-
+      Only allows updating scaling settings for the version.
+    links:
+      - https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch
+links:
+  - https://cloud.google.com/appengine/docs/admin-api/access-control#roles
+  - https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions
