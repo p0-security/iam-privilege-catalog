@@ -1,0 +1,13 @@
+name: Secret Manager Locations
+description: >-
+  Infrastructure regions available for  Secret Manager resources
+scope: PUBLIC
+notes: >-
+  This resource contains public information about Google's location offerings for Secret Manager
+privileges:
+  list:
+    vulnerabilities: []
+  get:
+    vulnerabilities: []
+links:
+  - https://cloud.google.com/secret-manager/docs/locations
