@@ -1,0 +1,25 @@
+name: Firebase security rules publishing
+description: >-
+  Manage security rules releases, which define which security rules are live and used by security rules-enabled services.
+scope: HIGH
+privileges:
+  create:
+    vulnerabilities: []
+    notes: >-
+      You can technically create new releases for additional services that use security rules, but if one didn't already exist for that service, that means that the service is not in use and therefor does not represent a vulnerability.
+  delete:
+    vulnerabiltiies: [destruction:policy, impact:access]
+    notes: >-
+      If an attacker deletes a project's firestore security rules, it will reset the rules to a default which denies all requests, therefor making the app unusable.
+  get:
+    vulnerabilities: []
+  getExecutable:
+    vulnerabilities: []
+    notes: >-
+      Gets an encoded executable string, not useful for an attacker.
+  list:
+    vulnerabilities: []
+  update:
+    vulnerabiltiies: [destruction:policy, escalation:data, impact:access]
+    notes: >-
+      You will need access to modify rulesets as well in order to wreak maximum havoc. However, even by itself, an attacker could revert your environment to old rules if they knew the rules id.

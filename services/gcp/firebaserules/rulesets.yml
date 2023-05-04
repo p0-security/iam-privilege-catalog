@@ -1,0 +1,23 @@
+name: Firebase security rules publishing
+description: >-
+  Manage security rules sources. By themselves, these don't do anything, but when they are referenced by the current release, they are the active rules.
+scope: HIGH
+privileges:
+  create:
+    vulnerabilities: [destruction:policy, escalation:data, impact:access]
+    notes: >-
+      While creating a ruleset by itself doesn't do anything, when combined with access to update security rules releases, an attacker can hijack your security rules.
+  delete:
+    vulnerabiltiies: [destruction:logs]
+    notes: >-
+      While an attacker cannot delete the currently used ruleset, they can delete older rulesets which may cause a loss of historical rules information.
+  get:
+    vulnerabilities: [discovery:policy]
+  list:
+    vulnerabilities: []
+    notes: >-
+      Lists metadata only.
+  test:
+    vulnerabiltiies: []
+    notes: >-
+      Test validity of security rules source code (basically syntax/error checking).
