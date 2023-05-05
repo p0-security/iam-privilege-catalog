@@ -1,11 +1,11 @@
 name: BigQuery connections
 description: >-
-  External connections to data in other services (both within
+  External read-only connections to data in other services (both within
   and without GCP).
 scope: HIGH
 notes: >-
   Deletion or alteration of connections can interrupt dependent
-  operations.
+  operations. Reading connection metadata can expose database accounts.
 privileges:
   create:
     vulnerabilities: [impact:spend]
@@ -15,8 +15,9 @@ privileges:
   delete:
     vulnerabilities: [destruction:infra]
   get:
-    vulnerabilities: [discovery:infra]
-    scope: LOW
+    vulnerabilities: [discovery:infra, exfiltration:account]
+    notes: >-
+      In the case of connections to Cloud SQL, directly exposes the database username and password.
   getIamPolicy:
     vulnerabilities: [discovery:account, discovery:policy]
   list:
@@ -30,5 +31,16 @@ privileges:
     notes: Appears unused.
     vulnerabilities: []
   use:
+    vulnerabilities: [exfiltration:data]
+    scope: LOW
+    notes: >
+      In order to exploit a connection to read data from a third-party source, all of the following must be true:
+        - The attacker must have permission to create a connection of the correct type
+        - The attacker must already have read access to the target data system, or have a mechanism to give
+          the connection read access to the target data system
+        - The attacker can then use this permission to run queries against the connection
+      In general, therefore, exfiltration is only possible when the attacker already otherwise has access ot the
+      target system.
 links:
   - https://cloud.google.com/bigquery/docs/access-control
+  - https://cloud.google.com/bigquery/docs/working-with-connections

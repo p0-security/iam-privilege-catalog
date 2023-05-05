@@ -73,6 +73,13 @@ privileges:
       access when the rule already directs traffic to a target system
       and the attacker has access to a particular source endpoint.
   use:
+    vulnerabilities: [escalation:lateral]
+    notes: >-
+      This privilege is undocumented by Google. In analogy to other .use
+      privileges, this *may* allow connection of an existing forwarding
+      rule to an (existing) load balancer, thereby potentially allowing
+      access to a service. This has not been tested by the catalog
+      maintainers.
 links:
   - https://cloud.google.com/load-balancing/docs/using-forwarding-rules
   - https://cloud.google.com/load-balancing/docs/protocol-forwarding

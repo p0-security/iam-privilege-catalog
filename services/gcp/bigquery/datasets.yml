@@ -27,6 +27,13 @@ privileges:
   getIamPolicy:
     vulnerabilities: [discovery:policy, discovery:account]
   link:
+    vulnerabilities: []
+    notes: >-
+      Possibly used by the AnalyticsHub API projects.locations.dataExchanges/create, although this is
+      undocumented by Google. More likely is that creating linked datasets is actually solely enabled by
+      analyticshub.listings.create, and this permission is unused.
+    links:
+      - https://cloud.google.com/bigquery/docs/reference/analytics-hub/rest/v1/projects.locations.dataExchanges/create
   listEffectiveTags:
     vulnerabilities: [discovery:metadata]
   listTagBindings:

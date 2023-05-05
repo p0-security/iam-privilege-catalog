@@ -292,6 +292,12 @@ privileges:
     notes: >-
       Tags are used to control access.
   simulateMaintenanceEvent:
+    vulnerabilities: [destruction:data, destruction:network, impact:dos]
+    notes: >-
+      Executes maintenance events, which can move instances between hosts, preempt jobs,
+      or stop or restart instances. Inherits the vulnerabilities of those actions.
+    links:
+      - https://cloud.google.com/compute/docs/instances/simulating-host-maintenance
   start:
     vulnerabilities: [impact:spend]
     notes: >-

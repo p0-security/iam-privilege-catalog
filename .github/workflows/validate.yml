@@ -1,0 +1,26 @@
+on:
+  pull_request: {}
+  push:
+    branches: [main]
+
+name: Validate
+
+jobs:
+  lint:
+    name: Generate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          token: ${{ secrets.READ_P0_REPOS }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ^18.6.0
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Yarn install
+        run: yarn install
+      - name: Validate generation
+        run: yarn ts-node scripts/generate.ts

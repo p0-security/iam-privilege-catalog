@@ -1,0 +1,11 @@
+name: Compute Engine interconnect locations
+description: >-
+  View and list interconnect colocation facilities.
+scope: PUBLIC
+notes: >-
+  Access to public data only.
+privileges:
+  get: []
+  list: []
+links:
+  - https://cloud.google.com/network-connectivity/docs/interconnect/how-to/dedicated/listing-locations

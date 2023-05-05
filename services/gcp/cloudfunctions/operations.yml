@@ -6,13 +6,15 @@ notes: >-
   The operation includes the data returned from the API call the operation is associated with. This means that viewing an operation includes access to view function metadata, and contains the same vulnerabilities as get and list operations directly on functions.
 privileges:
   get:
-    vulnerabilities: [discovery:infra, discovery:network, discovery:data, discovery:policy]
-  notes: >-
-    See notes for functions.get
+    vulnerabilities:
+      [discovery:infra, discovery:network, discovery:data, discovery:policy]
+    notes: >-
+      See notes for functions.get
   list:
-    vulnerabilities: [discovery:infra, discovery:network, discovery:data, discovery:policy]
-  notes: >-
-    See notes for functions.get
+    vulnerabilities:
+      [discovery:infra, discovery:network, discovery:data, discovery:policy]
+    notes: >-
+      See notes for functions.get
 links:
   - https://cloud.google.com/functions/docs/reference/iam/permissions
   - https://cloud.google.com/functions/docs/reference/rest/v2/projects.locations.operations

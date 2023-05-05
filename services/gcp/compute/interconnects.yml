@@ -1,0 +1,43 @@
+name: Compute Engine interconnects
+description: >-
+  Interconnects provide connectivity between Compute Engine infrastructure
+  and on-premises systems.
+scope: MEDIUM
+notes: >-
+  Abuse of interconnect resources generally requires the ability to add interconnects as attachments
+  to an already compromised system. For more information see compute.interconnectsAttachments.
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+  delete:
+    vulnerabilities: [destruction:infra]
+    notes: >-
+      Interconnects can only be deleted when no attachments use them.
+  get:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Exposes interconnect IP and MAC address.
+  list:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Per get.
+  setLabels:
+    vulnerabilities: [destruction:infra]
+    scope: LOW
+  update:
+    vulnerabilities: [impact:dos, escalation:network]
+    scope: HIGH
+    notes: >-
+      Can be used to enable, disable, or resize attached interconnects. Requires the interconnect
+      to be attached.
+  use:
+    scope: HIGH
+    vulnerabilities: [escalation:network]
+    notes: >-
+      When combined with the ability to attach the interconnect, allows network escalation.
+      When further combined with the ability to create an interconnect, may allow for arbitrary
+      connection of the compute VPC to any network.
+links:
+  - https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview
+  - https://cloud.google.com/sdk/gcloud/reference/compute/interconnects
+  - https://cloud.google.com/compute/docs/reference/rest/v1/interconnects

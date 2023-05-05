@@ -9,10 +9,10 @@ notes: >-
 privileges:
   create:
     scope: LOW
-    vulnerabilities: [infrastructure:consumption]
+    vulnerabilities: [impact:consumption]
   createInternal:
     scope: LOW
-    vulnerabilities: [infrastructure:consumption]
+    vulnerabilities: [impact:consumption]
   delete:
     vulnerabilities: [destruction:infra]
     notes: >-
