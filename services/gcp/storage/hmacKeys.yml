@@ -10,7 +10,7 @@ privileges:
     links:
       - https://rhinosecuritylabs.com/cloud-security/privilege-escalation-google-cloud-platform-part-2/
   delete:
-    vulnerabilities: [impact:dos, destruction:infra]
+    vulnerabilities: [impact:dos, destruction:secret]
   get:
     vulnerabilities: [discovery:infra]
     notes: >-
