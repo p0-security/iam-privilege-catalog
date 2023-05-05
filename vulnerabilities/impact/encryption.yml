@@ -1,0 +1,10 @@
+name: Encryption
+description: |
+  Allows an attacker to encrypt data within a system. This can be used to
+  either make data permanently inaccessible, or extort compensation for
+  access to the encryption key, in the case of ransomware.
+risk: CRITICAL
+mitigations:
+  - Backup data
+links:
+  - https://attack.mitre.org/techniques/T1486/

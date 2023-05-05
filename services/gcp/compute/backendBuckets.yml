@@ -12,7 +12,7 @@ notes: >-
   publicly accessible data are contained within these buckets.
 privileges:
   addSignedUrlKey:
-    vulnerabilities: [privilege:escalation]
+    vulnerabilities: [escalation:privilege]
     notes: >-
       Allows an attacker to forge signed URLs, potentially gaining access to additional
       data.

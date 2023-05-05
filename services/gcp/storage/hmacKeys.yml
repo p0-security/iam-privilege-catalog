@@ -1,0 +1,28 @@
+name: Cloud Storage HMAC Keys
+description: >-
+  A HMAC key is a type of credential that can be used to authenticate requests to Cloud Storage.
+scope: CRITICAL
+privileges:
+  create:
+    vulnerabilities: [escalation:data]
+    notes: >-
+      Allows you to sign requests to cloud storage as a service account, allowing for escalation.
+    links:
+      - https://rhinosecuritylabs.com/cloud-security/privilege-escalation-google-cloud-platform-part-2/
+  delete:
+    vulnerabilities: [impact:dos, destruction:infra]
+  get:
+    vulnerabilities: [discovery:infra]
+    notes: >-
+      This does not include the secret.
+  list:
+    vulnerabilities: [discovery:infra]
+    notes: >-
+      This does not include the secret.
+  update:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      Allows updating the key to be inactive.
+links:
+  - https://cloud.google.com/storage/docs/authentication/managing-hmackeys
+  - https://cloud.google.com/storage/docs/authentication/hmackeys

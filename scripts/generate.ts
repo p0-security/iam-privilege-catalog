@@ -4,6 +4,7 @@ import * as path from "node:path";
 import * as fs from "node:fs/promises";
 import * as yaml from "yaml";
 import { size, omit, sum } from "lodash";
+import { sys } from "typescript";
 
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_PATH = "dist";
@@ -13,6 +14,8 @@ const SERVICES_FOLDER = "services";
 const SERVICE_IDS = {
   gcp: (path: string, key: string) => `${path.replace(/\//g, ".")}.${key}`,
 };
+
+let exitFlag = 0;
 
 const recursiveRead = async (
   base: string,
@@ -24,8 +27,14 @@ const recursiveRead = async (
     const stat = await fs.stat(file);
     if (stat.isFile() && file.endsWith(".yml")) {
       const buffer = await fs.readFile(file, { encoding: "utf-8" });
-      const data = yaml.parse(buffer);
-      cb(data, file);
+      try {
+        const data = yaml.parse(buffer);
+        cb(data, file);
+      } catch (error: any) {
+        if (error instanceof yaml.YAMLParseError) {
+          console.warn(`${error.message}\n${file}`);
+        }
+      }
       continue;
     }
     if (stat.isDirectory()) {
@@ -35,7 +44,7 @@ const recursiveRead = async (
 };
 
 const generateVulns = async (base: string) => {
-  const model: object[] = [];
+  const model: Record<string, any>[] = [];
   await recursiveRead(base, base, (data, file) => {
     const id = path.relative(base, file).replace("/", ":").slice(0, -4);
     model.push({ id, ...data });
@@ -47,9 +56,10 @@ const generateVulns = async (base: string) => {
     { encoding: "utf-8" }
   );
   console.log(`Wrote ${size(model)} vulnerabilities`);
+  return model.map((v) => v.id);
 };
 
-const generatePrivileges = async (base: string) => {
+const generatePrivileges = async (base: string, vulnerabilities: string[]) => {
   const model: Record<string, object[]> = {};
   for (const sid of Object.keys(SERVICE_IDS)) {
     model[sid] = [];
@@ -58,8 +68,20 @@ const generatePrivileges = async (base: string) => {
       const privileges = data.privileges as Record<string, any>;
       for (const [key, value] of Object.entries(privileges)) {
         if (!value) {
-          console.warn(`Null privilege at ${file}:privileges:${key}`);
+          console.warn(`Null privilege at ${path.relative(ROOT, file)}:${key}`);
+          exitFlag |= 2;
           continue;
+        }
+        for (const vuln of value.vulnerabilities) {
+          if (!vulnerabilities.includes(vuln)) {
+            console.warn(
+              `Missing vulnerability ${vuln} at ${path.relative(
+                ROOT,
+                file
+              )} ${key}`
+            );
+            exitFlag |= 4;
+          }
         }
         const pData = {
           ...omit(data, "privileges"),
@@ -88,5 +110,7 @@ const generatePrivileges = async (base: string) => {
   );
 };
 
-void generateVulns(path.join(ROOT, VULNERABILITIES_FOLDER));
-void generatePrivileges(path.join(ROOT, SERVICES_FOLDER));
+void generateVulns(path.join(ROOT, VULNERABILITIES_FOLDER))
+  .then((vulns) => generatePrivileges(path.join(ROOT, SERVICES_FOLDER), vulns))
+  .then(() => sys.exit(exitFlag))
+  .catch(console.error);
