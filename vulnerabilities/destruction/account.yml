@@ -1,0 +1,6 @@
+name: Account destruction
+description: |
+  Allows an attacker to delete accounts in the system.
+risk: CRITICAL
+mitigations:
+links:

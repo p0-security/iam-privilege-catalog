@@ -1,6 +1,6 @@
-name: Account manipulation persistence
+name: Account persistence
 description: |
-  Allows an attacker to maintain access to the target system by manipulating accounts. This can include modifying credentials and permission groups and other activity designed to subvert security policies.
+  Allows an attacker to maintain access to the target system by manipulating existing accounts or creating new accounts. This can include modifying credentials and permission groups and other activity designed to subvert security policies.
 risk: MEDIUM
 mitigations:
   - Use least-privileged access
@@ -8,3 +8,4 @@ mitigations:
   - Use firewalls and other access control mechanisms to isolate critical systems
 links:
   - https://attack.mitre.org/techniques/T1098/
+  - https://attack.mitre.org/techniques/T1136/
