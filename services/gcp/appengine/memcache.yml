@@ -1,0 +1,34 @@
+name: Google App Engine Memcache
+description: >-
+  Memcache is a key-value store accessible to App Engine applications.
+notes: >-
+  Memcache is not intended for persistent storage. Values can expire anytime, so users are recommended
+  to only use memcache for values that the application can behave acceptably without. Examples of data 
+  commonly stored in memcache are session data and user preferences, as well as results of commonly used datastore queries.
+  Scope is HIGH because this service may include sensitive customer data from cached datastore queries used by the application.
+scope: HIGH
+privileges:
+  addKey:
+    vulnerabilities: [impact:spend]
+  flush:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      This removes all key-value pairs from the cache, but it does not cause destruction since
+      values may expire anytime and applications need to design around that.
+      Repeated flushes may result in a DoS.
+  get:
+    vulnerabilities: [exfiltration:data]
+  getKey:
+    vulnerabilities: [exfiltration:data]
+    notes: >-
+      The difference between getKey and get is not clear in Google's documentation.
+  list:
+    vulnerabilities: [exfiltration:data]
+  update:
+    vulnerabilities: [impact:manipulation]
+    notes: >-
+      Destruction is not a concern since memcache is only intended for temporary storage.
+links:
+  - https://cloud.google.com/appengine/docs/admin-api/access-control#roles
+  - https://cloud.google.com/appengine/docs/legacy/standard/python/memcache/using
+  - https://cloud.google.com/appengine/docs/legacy/standard/python/memcache
