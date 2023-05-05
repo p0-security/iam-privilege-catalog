@@ -1,9 +1,21 @@
 name: BigQuery config
-description: |
-  ???
-scope: ???
+description: >-
+  A BigQuery config is a set of organization settings applied across
+  BigQuery. It is modified using the `ALTER ORGANIZATION` SQL
+  statement, and read by executing a `SELECT` statement on tables
+  in the `{region}.INFORMATION_SCHEMA` schema.
+scope: MEDIUM
+notes: >-
+  Certain of these settings can affect operations (such as modification
+  of default time-outs or timezones) when those operations operate with
+  default settings.
 privileges:
   get:
+    vulnerabilities: [discovery:infra]
   update:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      Can cause query timeouts.
 links:
   - https://cloud.google.com/bigquery/docs/access-control
+  - https://cloud.google.com/bigquery/docs/default-configuration
