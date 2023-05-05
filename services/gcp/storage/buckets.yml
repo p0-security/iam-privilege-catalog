@@ -45,6 +45,10 @@ privileges:
       settings), those cannot be updated without setIamPolicy. However, the encryption key can be updated
       with just this permission. An attacker could use their own key (in their own project) to encrypt
       the data, then disable or delete it, rendering the data unusable until the user can recover the key.
+  getObjectInsights:
+    vulnerabilities: [discovery:data]
+    notes: >-
+      This includes access to object metadata, but not objects themselves.
 
 links:
   - https://cloud.google.com/storage/docs/access-control/iam-permissions

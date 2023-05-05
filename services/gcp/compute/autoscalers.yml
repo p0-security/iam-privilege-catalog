@@ -8,7 +8,7 @@ notes: >-
   `compute.instanceGroupManagers.use`.
 privileges:
   create:
-    vulnerabilities: [impact:spend, impact:hijacking]
+    vulnerabilities: [impact:spend, impact:hijack]
   delete:
     vulnerabilities: [destruction:infra]
   get:
@@ -16,6 +16,6 @@ privileges:
   list:
     vulnerabilities: [discovery:infra]
   update:
-    vulnerabilities: [impact:spend, impact:hijacking, destruction:infra]
+    vulnerabilities: [impact:spend, impact:hijack, destruction:infra]
 links:
   - https://cloud.google.com/compute/docs/autoscaler

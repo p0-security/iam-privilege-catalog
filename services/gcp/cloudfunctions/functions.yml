@@ -8,7 +8,7 @@ privileges:
       - discovery:infra
       - discovery:network
       - discovery:data
-      - discovery:policy]
+      - discovery:policy
     notes: >-
       Function metadata includes the following: 
         - labels and descriptions associated with the function
@@ -21,7 +21,7 @@ privileges:
       - discovery:infra
       - discovery:network
       - discovery:data
-      - discovery:policy]
+      - discovery:policy
     notes: >-
       See notes for get
   call:

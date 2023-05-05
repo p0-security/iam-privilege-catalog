@@ -19,6 +19,8 @@ privileges:
     notes: Appears unused.
     vulnerabilities: []
   use:
+    vulnerabilities: []
+    notes: Appears unused.
 links:
   - https://cloud.google.com/bigquery/docs/work-with-saved-queries
   - https://cloud.google.com/bigquery/docs/access-control

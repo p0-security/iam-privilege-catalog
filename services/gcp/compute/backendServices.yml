@@ -7,7 +7,7 @@ notes: >-
   Used to serve dynamic content via a load balancer.
 privileges:
   addSignedUrlKey:
-    vulnerabilities: [privilege:escalation]
+    vulnerabilities: [escalation:privilege]
     notes: >-
       Allows an attacker to forge signed URLs, potentially gaining access to additional
       data.
