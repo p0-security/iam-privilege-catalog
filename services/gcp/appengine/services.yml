@@ -2,6 +2,8 @@ name: Google App Engine services
 description: >-
   A service is a logical component of an application that can share state and securely communicate with other services.
 scope: CRITICAL
+notes: >-
+  Application functionality relies on services: deleting or updating services can prevent normal application function.
 privileges:
   delete:
     vulnerabilities: [impact:dos, destruction:infra]

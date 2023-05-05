@@ -5,19 +5,23 @@ notes: >-
   Memcache is not intended for persistent storage. Values can expire anytime, so users are recommended
   to only use memcache for values that the application can behave acceptably without. Examples of data 
   commonly stored in memcache are session data and user preferences, as well as results of commonly used datastore queries.
+  Scope is HIGH because this service may include sensitive customer data from cached datastore queries used by the application.
 scope: HIGH
 privileges:
   addKey:
     vulnerabilities: [impact:spend]
   flush:
-    vulnerabilities: []
+    vulnerabilities: [impact:dos]
     notes: >-
-      This removes all key-value pairs from the cache, but it should not affect operations since memcache
+      This removes all key-value pairs from the cache, but it does not cause destruction since
       values may expire anytime and applications need to design around that.
+      Repeated flushes may result in a DoS.
   get:
     vulnerabilities: [exfiltration:data]
   getKey:
     vulnerabilities: [exfiltration:data]
+    notes: >-
+      The difference between getKey and get is not clear in Google's documentation.
   list:
     vulnerabilities: [exfiltration:data]
   update:

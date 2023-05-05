@@ -12,6 +12,9 @@ privileges:
       This does not route any external traffic to the new version, but allows for resource hijacking.
   delete:
     vulnerabilities: [impact:dos, destruction:infra]
+    notes: >-
+      App Engine does not allow deleting the default version for the application. However,
+      non-default versions may still be configured to receive traffic and can be deleted.
   get:
     vulnerabilities:
       - discovery:infra

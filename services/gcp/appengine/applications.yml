@@ -2,6 +2,10 @@ name: Google App Engine Applications
 description: >-
   A Google App Engine Applications are serverless web applications hosted and fully managed by Google.
 scope: CRITICAL
+notes: >-
+  App Engine applications can be used for a broad range of organizational functions and may include publically
+  available web applications. Therefore, viewing and modifying application configuration has the potential to significantly
+  disrupt organizational operations.
 privileges:
   create:
     vulnerabilities: [impact:spend]
