@@ -12,7 +12,7 @@ privileges:
   create:
     vulnerabilities: [impact:spend, impact:dos, escalation:privilege]
     notes: >-
-      This permission allows users to run builds as the Cloud Build serivce account. This can allow the user to have escalated build-time privileges.
+      This permission allows users to run builds as the Cloud Build service account. This can allow the user to have escalated build-time privileges.
   get:
     vulnerabilities: [discovery:infra]
   list:

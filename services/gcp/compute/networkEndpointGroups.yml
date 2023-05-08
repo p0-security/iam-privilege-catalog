@@ -1,6 +1,6 @@
 name: Compute Engine network endpoint groups
 description: >-
-  Manage network endpoint groups (NEGs) for Google Cload load balancers.
+  Manage network endpoint groups (NEGs) for Google Cloud load balancers.
 scope: HIGH
 notes: >-
   Multiple organizational functions may often reside within

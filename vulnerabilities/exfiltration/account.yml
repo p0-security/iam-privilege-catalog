@@ -1,6 +1,6 @@
 name: Account exfiltration
 description: |
-  Allows an attacker to export account identitification credentials
+  Allows an attacker to export account identification credentials
   from a system.
 risk: CRITICAL
 mitigations:

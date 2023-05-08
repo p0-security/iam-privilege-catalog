@@ -1,8 +1,8 @@
 name: Impersonation
 description: |
-  Allows an attacker to impersonate one or more respresentatives
+  Allows an attacker to impersonate one or more representatives
   of an organization. This can be used to collect sensitive information
-  from within or without the organization, and to impune the reputation
+  from within or without the organization, and to impugn the reputation
   of the organization.
 risk: HIGH
 mitigations:

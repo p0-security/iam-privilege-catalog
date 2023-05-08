@@ -13,7 +13,7 @@ of the exploited system.
 - **CRITICAL**: Used alone, has the potential to disrupt central organizational operations,
   destroy trust, or create significant liability. Additionally, includes vulnerabilities
   that give attackers access to broadly provisioned identities that enable the above impacts
-  (such as root privilege escalation vulnerabilites).
+  (such as root privilege escalation vulnerabilities).
 - **HIGH**: Used alone, has the potential to disrupt ancillary organization operations,
   cause reputational damage, or run afoul of compliance requirements.
 - **MEDIUM**: Used alone, has the potential to create operational burden or monetary costs,
@@ -22,7 +22,7 @@ of the exploited system.
   sensitivity of accessed systems. Includes automated collection and lateral movement
   vulnerabilities.
 - **EVASION**: Allows an attacker to evade detection, allowing the attacker to exploit
-  additional vulnerabilites without detection, and prevent exploit remediation.
+  additional vulnerabilities without detection, and prevent exploit remediation.
 - **LOW**: Assists in additional attacks, or gains access to confidential data that do not
   create organizational risk on their own.
 
