@@ -13,7 +13,7 @@ privileges:
   create:
     vulnerabilities: [impact:consumption, impact:spend]
     notes: >-
-     An attacker can create too many indexes and hit the index limits.
+      An attacker can create too many indexes and hit the index limits.
   delete:
     vulnerabilities: [impact:dos, destruction:infra]
     notes: >-
