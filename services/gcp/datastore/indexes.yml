@@ -1,29 +1,31 @@
 name: indexes
 description: >-
-  Every Firestore in Datastore mode query computes its results using one or more indexes which contain entity keys in a sequence 
-  specified by the index's properties and, optionally, the entity's ancestors. The indexes are updated to reflect any changes 
-  the application makes to its entities, so that the correct results of all queries are available with no further computation needed.
-scope: HIGH
+  Cloud Datastore indices enable fast and optimized data queries in Firestore in Datastore mode. 
+  However, altering indices can lead to increased costs, longer index build times, operation limitations, 
+  and temporary performance impacts. By default, all entity properties are automatically indexed, 
+  but creating custom indices incurs storage and operation costs. Deleting indices can negatively 
+  impact query performance, and functionality, and require index rebuilding, potentially resulting 
+  in slower queries and incomplete results, along with increased costs for index rebuilding.
+scope: MEDIUM
 privileges:
   list:
-    vulnerabilities: [discovery:infra]
-    scope: LOW
+    vulnerabilities: [discovery:infra, discovery:data]
   create:
-    vulnerabilities: [impact:dos, impact:spend]
+    vulnerabilities: [impact:consumption, impact:spend]
     notes: >-
-      attacker can create too many indexes and hit the index limits.
+     An attacker can create too many indexes and hit the index limits.
   delete:
     vulnerabilities: [impact:dos, destruction:infra]
     notes: >-
-      attacker can delete indexes and cause queries to execute slow or fail.
+      An attacker can delete indexes and cause queries to execute slowly or to fail.
   get:
-    vulnerabilities: [discovery:infra]
-    scope: LOW
+    vulnerabilities: [discovery:data]
   update:
     vulnerabilities: [impact:dos, impact:spend]
     notes: >-
-      attacker can update indexes, which can long time to build and cause queries to execute slow or fail.
-      indexes also take up storage space which impact spend.
+      An attacker can update indexes, which can consume time, or cause queries to execute slowly or to fail.
+      Indexes also incur spend.
 links:
   - https://cloud.google.com/datastore/docs/concepts/indexes#index_limits
   - https://cloud.google.com/datastore/docs/concepts/indexes#datastore-indexes-and-index-configuration-files
+  - https://cloud.google.com/datastore/docs/reference/admin/rest/v1/projects.indexes
