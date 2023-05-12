@@ -152,7 +152,7 @@ const generatePrivileges = async (base: string, vulnerabilities: string[]) => {
         const pData = {
           ...omit(data, "description", "notes", "privileges"),
           ...value,
-          parent: pick(data, "description", "notes", "privileges"),
+          parent: pick(data, "description", "notes"),
           links: [...(data.links ?? []), ...(value.links ?? [])],
         };
         const id = SERVICE_IDS[sid as keyof typeof SERVICE_IDS](
