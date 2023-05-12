@@ -3,7 +3,7 @@ description: >-
   Objects are files and folders inside Google Cloud storage buckets.
 scope: CRITICAL
 notes: >-
-  Cloud Storage objects may be used to store data of various sensitivites,
+  Cloud Storage objects may be used to store data of various sensitivities,
   from publicly available data to very sensitive confidential data.
 privileges:
   create:

@@ -8,7 +8,7 @@ Each service has an associated scope rating, indicating the potential
 scope of an attack on the service:
 
 - **CRITICAL**: The service potentially contains sensitive data from a
-  signficant fraction of organizational functions, interruption of
+  significant fraction of organizational functions, interruption of
   the service would interrupt the main function of the organization,
   or exploit of the system could lead to significant privilege escalation.
   Examples include data warehouses, application workloads, and IAM controls.

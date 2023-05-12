@@ -3,7 +3,7 @@ description: >-
   Create and manage legacy HTTP health checks used by Cloud load balancers.
 scope: MEDIUM
 notes: >-
-  Exploitation relies on multiple additional exerciseable vulnerabilities,
+  Exploitation relies on multiple additional exercisable vulnerabilities,
   including poorly secured backend endpoints, the ability to route
   to this infrastructure, and provisioned forwarding rules to the subject
   backends.

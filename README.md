@@ -2,7 +2,7 @@
 
 A mapping of IAM privileges in various systems to their potential risk of abuse.
 
-When combined with details of how a system (and its services and componenents) are
+When combined with details of how a system (and its services and components) are
 used, this catalog can help identify the risk of compromised or abused identities
 in an organization.
 

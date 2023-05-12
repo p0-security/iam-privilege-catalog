@@ -1,6 +1,6 @@
 name: Compute Engine global network endpoint groups
 description: >-
-  Manage global network endpoint groups (NEGs) for Google Cload load balancers.
+  Manage global network endpoint groups (NEGs) for Google Cloud load balancers.
 scope: HIGH
 notes: >-
   Multiple organizational functions may often reside within
@@ -34,7 +34,7 @@ privileges:
   use:
     vulnerabilities: [impact:dos]
     notes: >-
-      In combination with the ability to alter health checks, sllows creation of
+      In combination with the ability to alter health checks, slows creation of
       health checks based on NEGs. Could lead to DOS if health checks are sufficiently
       frequent, and the referenced endpoints sufficiently expensive.
     links:
