@@ -43,9 +43,9 @@ privileges:
       - impact:hijack
     notes: >-
       Creating an instance can export the instance's service account credentials to an external
-      server using the VM's local access to the instance metadata (see `get` below). Allows
-      access to network instances to which the VM is connected (e.g. VPCs). Created
-      instances can be used to hijack resources, or create extra spend.
+      server using the VM's local access to the instance metadata, including disk encryption
+      keys and service account tokens. Allows access to network instances to which the VM is
+      connected (e.g. VPCs). Created instances can be used to hijack resources, or create extra spend.
       Creating an instance with an attached service account requires permissions to impersonate the service account.
     links:
       - https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/
@@ -70,13 +70,14 @@ privileges:
     vulnerabilities: [destruction:infra]
   get:
     vulnerabilities:
+      - discovery:account
       - discovery:network
       - discovery:policy
-      - exfiltration:account
-      - exfiltration:crypto
     notes: >-
-      Allows access to a wide array of sensitive data, including: network interfaces, firewall policies,
-      policy tags, service-account tokens, and disk encryption keys
+      Allows access to a wide array of metadata including account public keys, network configuration,
+      and service account permissions. Note that, although the Google API documentation suggests that
+      access is also granted to secret material such as disk encryption keys or service-account tokens,
+      these are not included in the API response returned by the API.
     links:
       - https://cloud.google.com/compute/docs/metadata/default-metadata-values
   getEffectiveFirewalls:
@@ -127,13 +128,11 @@ privileges:
       - https://cloud.google.com/compute/shielded-vm/docs/shielded-vm
   list:
     vulnerabilities:
+      - discovery:account
       - discovery:network
       - discovery:policy
-      - exfiltration:account
-      - exfiltration:crypto
     notes: >-
-      Allows access to a wide array of sensitive data, including network interfaces, 
-      policy tags, disk encryption keys, and service-account identifiers.
+      Per compute.instances.get.
     links:
       - https://cloud.google.com/compute/docs/metadata/default-metadata-values
   listEffectiveTags:
