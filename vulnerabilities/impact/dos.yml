@@ -1,5 +1,5 @@
 name: Denial-of-service
-description: |
+description: >-
   Allows an attacker to disrupt an organization's operations.
   When applied to critical systems, can disable an organization's
   core systems.

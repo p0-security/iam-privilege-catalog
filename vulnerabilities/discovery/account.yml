@@ -1,5 +1,5 @@
 name: Account discovery
-description: |
+description: >-
   Allows an attacker to inventory system accounts. These
   accounts may then be further targeted for compromise
   to escalate access.

@@ -1,5 +1,5 @@
 name: Code exfiltration
-description: |
+description: >-
   Allows an attacker to export system source code.
 risk: HIGH
 mitigations:

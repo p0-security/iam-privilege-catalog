@@ -1,5 +1,5 @@
 name: Exfiltration of cryptographic data
-description: |
+description: >-
   Allows an attacker to export cryptographic material from a system,
   including secret keys.
 risk: CRITICAL

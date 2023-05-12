@@ -1,5 +1,5 @@
 name: Data manipulation
-description: |
+description: >-
   Allows an attacker to insert, delete, or manipulate organizational data. This may be done to evade detection or impact business/operational processes.
 risk: HIGH
 mitigations:

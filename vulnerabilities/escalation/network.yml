@@ -1,5 +1,5 @@
 name: Movement across a network
-description: |
+description: >-
   Allows an attacker to gain access to additional resources on the same network.
 risk: BOOST
 mitigations:

@@ -1,5 +1,5 @@
 name: Logs destruction
-description: |
+description: >-
   Allows an attacker to delete logs data. The most critical
   effect is that this disrupts security incident response.
   Can also disrupt support and business-intelligence

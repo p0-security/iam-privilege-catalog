@@ -1,5 +1,5 @@
 name: Network destruction
-description: |
+description: >-
   Allows an attacker to delete network components (such as endpoints,
   routes, VLANs, VPCs and the like). Implies denial-of-service when
   the network hosts a service. Removal of network firewall policies is

@@ -1,5 +1,5 @@
 name: Privilege escalation
-description: |
+description: >-
   Allows an attacker to either access an account with more
   sensitive privileges (e.g. an admin-specific account), or
   add these privileges to an account under the attacker's
