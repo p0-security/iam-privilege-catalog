@@ -45,6 +45,7 @@ jobs:
       - run: yarn ts-node scripts/generate.ts
       - run: >-
           cat dist/vulnerabilities.json | jq -c -r '.[]' > dist/vulnerabilities.jsonl && \
-            cat dist/privileges.json| jq -c -r '.gcp[]' > dist/privileges-gcp.jsonl && \
+            cat dist/privileges.json | jq -c -r '.gcp[]' > dist/privileges-gcp.jsonl && \
+            gcloud auth login --cred-file $GOOGLE_APPLICATION_CREDENTIALS && \
             bq load --project_id ${{ matrix.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk.privileges-gcp dist/privileges-gcp.jsonl && \
             bq load --project_id ${{ matrix.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk.vulnerabilities dist/vulnerabilities.jsonl
