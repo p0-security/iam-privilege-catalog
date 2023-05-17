@@ -1,5 +1,5 @@
 name: Infrastructure discovery
-description: |
+description: >-
   Allows an attacker to inventory infrastructure resources.
   May allow an attacker to focus attacks on specific resources.
   When component identifiers contain sensitive

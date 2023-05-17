@@ -1,5 +1,5 @@
 name: Defense destruction
-description: |
+description: >-
   Allows an attacker to disable or remove defense mechanism,
   such as IDS, antivirus, and the like. Note that other mechanisms
   may serve as defense mechanisms but are explicitly separate (see

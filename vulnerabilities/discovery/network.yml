@@ -1,5 +1,5 @@
 name: Network discovery
-description: |
+description: >-
   Allows an attacker to inventory network resources.
   May allow an attacker to focus attacks on specific network
   locations.

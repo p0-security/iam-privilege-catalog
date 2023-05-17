@@ -1,5 +1,5 @@
 name: Account persistence
-description: |
+description: >-
   Allows an attacker to maintain access to the target system by manipulating existing accounts or creating new accounts. This can include modifying credentials and permission groups and other activity designed to subvert security policies.
 risk: MEDIUM
 mitigations:

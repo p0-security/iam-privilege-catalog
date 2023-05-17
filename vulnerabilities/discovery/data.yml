@@ -1,5 +1,5 @@
 name: Data discovery
-description: |
+description: >-
   Allows an attacker to inventory stored data objects.
   May allow an attacker to focus attacks on specific data
   repositories. When object identifiers contain sensitive

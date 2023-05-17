@@ -1,5 +1,5 @@
 name: Metadata destruction
-description: |
+description: >-
   Allows an attacker to delete metadata. Can be impactful if those
   metadata are used operationally (e.g. timestamp filtering, customer
   identification, etc.).

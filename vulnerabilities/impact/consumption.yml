@@ -1,5 +1,5 @@
 name: Infrastructure consumption
-description: |
+description: >-
   Allows an attacker to consume resources from a potentially
   limited pool. This may impact the time to assign resources.
 risk: LOW

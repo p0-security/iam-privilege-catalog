@@ -1,5 +1,5 @@
 name: Account destruction
-description: |
+description: >-
   Allows an attacker to delete accounts in the system.
 risk: CRITICAL
 mitigations:

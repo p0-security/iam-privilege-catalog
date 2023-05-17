@@ -1,5 +1,5 @@
 name: Policy destruction
-description: |
+description: >-
   Allows an attacker to delete IAM policies. When these policies
   would otherwise deny attacker access, can allow an attacker
   both vertical and lateral privilege escalation.

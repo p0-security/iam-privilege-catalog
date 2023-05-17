@@ -1,5 +1,5 @@
 name: Lateral movement
-description: |
+description: >-
   Allows an attacker to gain access to additional components
   within a service, or to additional services within the system.
   Often occurs when an attacker can gain access to an additional

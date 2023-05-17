@@ -1,5 +1,5 @@
 name: Spend
-description: |
+description: >-
   Allows an attacker to cause increased infrastructure spend,
   without benefit to the attacker.
 risk: MEDIUM

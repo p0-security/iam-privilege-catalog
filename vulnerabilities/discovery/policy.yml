@@ -1,5 +1,5 @@
 name: Policy discovery
-description: |
+description: >-
   Allows an attacker to read access-control policies.
   May allow an attacker to focus attacks on policy weak points
   (e.g. overprovisioned accounts, or unsecured infrastructure).

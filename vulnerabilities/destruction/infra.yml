@@ -1,5 +1,5 @@
 name: Infrastructure destruction
-description: |
+description: >-
   Allows an attacker to delete infrastructure. May cause
   interruption of services (including critical operations of
   the organization). Can be similar in effect to a denial

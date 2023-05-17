@@ -1,5 +1,5 @@
 name: Code discovery
-description: |
+description: >-
   Allows an attacker to inventory source code repositories or files.
 risk: MEDIUM
 mitigations:
