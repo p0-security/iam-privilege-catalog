@@ -1,0 +1,43 @@
+name: Kubernetes Engine ReplicaSets
+description: >-
+  Control Kubernetes ReplicaSet objects in a given cluster.
+scope: CRITICAL
+notes: >-
+  One
+privileges:
+  create:
+    vulnerabilities:
+    notes: >-
+      Allows
+  delete:
+    vulnerabilities:
+    notes: >-
+      Allows
+  get:
+    vulnerabilities:
+    notes: >-
+      Allows
+  getScale:
+    vulnerabilities:
+    notes: >-
+      Allows
+  getStatus:
+    vulnerabilities:
+    notes: >-
+      Allows
+  list:
+    vulnerabilities:
+    notes: >-
+      Allows
+  update:
+    vulnerabilities:
+    notes: >-
+      Allows
+  updateScale:
+    vulnerabilities:
+    notes: >-
+      Allows
+  updateStatus:
+    vulnerabilities:
+    notes: >-
+      Allows
