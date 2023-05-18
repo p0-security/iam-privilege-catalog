@@ -8,4 +8,4 @@ mitigations:
   - Require multi-factor authentication
   - Use short-lived tokens
 links:
-  - https://attack.mitre.org/techniques/T1537/
+  - https://attack.mitre.org/techniques/T1528/
