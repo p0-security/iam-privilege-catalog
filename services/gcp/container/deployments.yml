@@ -23,6 +23,7 @@ privileges:
       - impact:hijack
       - escalation:lateral
       - escalation:network
+      - exfiltration:data
     notes: >-
       Deployments tie up compute resources in Kubernetes that cannot be allocated to
       another Kubernetes workload while the deployment is present. Deployments run a user-specified
@@ -87,13 +88,14 @@ privileges:
       - destruction:network
       - escalation:lateral
       - escalation:network
+      - exfiltration:data
       - impact:hijack
       - impact:spend
     notes: >-
       An update may set the replica count to 0 which effectively deletes the application. An update may also let an attacker
       change the container image that is running inside pods, potentially leading to a complete takeover of the
       Kubernetes cluster. Secondly, increasing the replica count in ReplicaSets drains the limited resources available to 
-      other Kubernetes workloads.
+      other Kubernetes workloads. Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
   updateScale:
     vulnerabilities:
       - destruction:data

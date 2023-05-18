@@ -17,6 +17,7 @@ privileges:
       - impact:hijack
       - escalation:lateral
       - escalation:network
+      - exfiltration:data
     notes: >-
       Creation of standalone ReplicaSet allows running an image inside the Kubernetes cluster. This may allow arbitrary code
       execution, if the cluster has access to the public internet. Secondly, creating ReplicaSets drains the limited resources available
@@ -70,6 +71,7 @@ privileges:
       - destruction:network
       - escalation:lateral
       - escalation:network
+      - exfiltration:data
       - impact:hijack
       - impact:spend
     notes: >-
@@ -77,6 +79,7 @@ privileges:
       An update may set the replica count to 0 which effectively deletes the application. An update may also let an attacker
       change the container image that is running inside pods, potentially leading to a complete takeover of the Kubernetes cluster.
       Secondly, increasing the replica count in ReplicaSets drains the limited resources available to other Kubernetes workloads.
+      Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
   updateScale:
     vulnerabilities:
       - destruction:data
