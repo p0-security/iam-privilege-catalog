@@ -1,0 +1,34 @@
+name: BackendConfig custom resource definition for Google Kubernetes Engine
+description: >-
+  BackendConfig objects are reusable configurations for Kubernetes Service objects.
+  BackendConfigs set the destination Service for incoming requests, thus they pertain to external-to-internal communcations. 
+  Other ingress parameters of a BackendConfig include service response timeout, Cloud CDN, 
+  HTTP access logging, Session Affinity.
+scope: MEDIUM
+notes: >-
+  Backend Config is a piece of reusable configuration for an Ingress object. 
+  A BackendConfig does not take effect unless it is associated with an Ingress object.
+privileges:
+  create:
+    vulnerabilities: [destruction:network]
+    notes: >-
+      An attacker may manipulate Ingress settings if they are also allowed to associate
+      BackendConfig objects with Ingress objects using container.ingresses.update or container.ingresses.create permissions.
+  delete:
+    vulnerabilities: [destruction:network]
+    notes: >-
+      BackendConfigs that are associated with a Service can be deleted without first removing the reference to them.
+      Access to a Service can be disrupted by deleting a BackendConfig that is associated with a Service.
+    scope: CRITICAL
+  get:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  list:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+  update:
+    vulnerabilities: [destruction:defense, destruction:network]
+    notes: >-
+      For BackendConfigs that are associated with Service, an update may remove a Cloud Armor Security Policy or
+      route requests to a non-existent or malicious service.
+    scope: CRITICAL
