@@ -1,4 +1,4 @@
-name: Deploy catalog
+name: Continuous Deploy
 
 on:
   push:
@@ -21,39 +21,27 @@ jobs:
   validate:
     uses: ./.github/workflows/validate.yml
     secrets: inherit
-  deploy:
+  deploy-test:
     needs: [lint, validate]
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    strategy:
-      matrix:
-        project_number: ["398809717501", "615473322806", "228132571547"]
-        environment: [test, stage, prod]
-        project_id: [p0-gcp-project, p0-stage, p0-prod]
-    steps:
-      - id: checkout
-        uses: actions/checkout@v3
-      - id: auth
-        uses: google-github-actions/auth@v1
-        with:
-          token_format: access_token
-          workload_identity_provider: projects/${{ matrix.project_number }}/locations/global/workloadIdentityPools/${{ matrix.environment }}-id-pool/providers/${{ matrix.environment }}-gha-oidc-provider
-          service_account: github-catalog-deploy-sa@${{ matrix.project_id }}.iam.gserviceaccount.com
-          access_token_lifetime: 1200s
-          create_credentials_file: true
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ^18.6.0
-          cache: yarn
-          cache-dependency-path: yarn.lock
-      - run: sudo apt install -y jq
-      - run: yarn install
-      - run: yarn ts-node scripts/generate.ts
-      - run: >-
-          cat dist/vulnerabilities.json | jq -c -r '.[]' > dist/vulnerabilities.jsonl && \
-            cat dist/privileges.json | jq -c -r '.gcp[]' > dist/privileges-gcp.jsonl && \
-            gcloud auth login --cred-file $GOOGLE_APPLICATION_CREDENTIALS && \
-            bq load --project_id ${{ matrix.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk.privileges-gcp dist/privileges-gcp.jsonl && \
-            bq load --project_id ${{ matrix.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk.vulnerabilities dist/vulnerabilities.jsonl
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
+    with:
+      project_number: "398809717501"
+      project_id: p0-gcp-project
+      environment: test
+  deploy-stage:
+    needs: [deploy-test]
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
+    with:
+      project_number: "615473322806"
+      project_id: p0-stage
+      environment: stage
+  deploy-prod:
+    needs: [deploy-stage]
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
+    with:
+      project_number: "228132571547"
+      project_id: p0-prod
+      environment: prod
