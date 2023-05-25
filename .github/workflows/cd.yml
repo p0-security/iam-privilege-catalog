@@ -29,9 +29,16 @@ jobs:
       id-token: write
     strategy:
       matrix:
-        project_number: ["398809717501", "615473322806", "228132571547"]
-        environment: [test, stage, prod]
-        project_id: [p0-gcp-project, p0-stage, p0-prod]
+        items:
+          - project_number: "398809717501"
+            environment: test
+            project_id: p0-gcp-project
+          - project_number: "615473322806"
+            environment: stage
+            project_id: p0-stage
+          - project_number: "228132571547"
+            environment: prod
+            project_id: p0-prod
     steps:
       - id: checkout
         uses: actions/checkout@v3
@@ -39,8 +46,8 @@ jobs:
         uses: google-github-actions/auth@v1
         with:
           token_format: access_token
-          workload_identity_provider: projects/${{ matrix.project_number }}/locations/global/workloadIdentityPools/${{ matrix.environment }}-id-pool/providers/${{ matrix.environment }}-gha-oidc-provider
-          service_account: github-catalog-deploy-sa@${{ matrix.project_id }}.iam.gserviceaccount.com
+          workload_identity_provider: projects/${{ matrix.items.project_number }}/locations/global/workloadIdentityPools/${{ matrix.items.environment }}-id-pool/providers/${{ matrix.items.environment }}-gha-oidc-provider
+          service_account: github-catalog-deploy-sa@${{ matrix.items.project_id }}.iam.gserviceaccount.com
           access_token_lifetime: 1200s
           create_credentials_file: true
       - uses: actions/setup-node@v3
@@ -55,5 +62,5 @@ jobs:
           cat dist/vulnerabilities.json | jq -c -r '.[]' > dist/vulnerabilities.jsonl && \
             cat dist/privileges.json | jq -c -r '.gcp[]' > dist/privileges-gcp.jsonl && \
             gcloud auth login --cred-file $GOOGLE_APPLICATION_CREDENTIALS && \
-            bq load --project_id ${{ matrix.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk.privileges-gcp dist/privileges-gcp.jsonl && \
-            bq load --project_id ${{ matrix.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk.vulnerabilities dist/vulnerabilities.jsonl
+            bq load --project_id ${{ matrix.items.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk.privileges-gcp dist/privileges-gcp.jsonl && \
+            bq load --project_id ${{ matrix.items.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk.vulnerabilities dist/vulnerabilities.jsonl
