@@ -1,30 +1,38 @@
 name: Deploy catalog
 
 on:
-  pull_request:
   push:
     branches: [main]
   workflow_dispatch:
 
+# By setting the concurrency to a constant string value,
+# only one pipeline can run at the same time.
+# Pipeline from another merge will be in pending state until
+# the current pipeline finishes.
+# If yet another merge happens, the pending pipeline is cancelled.
+# (Only one pipeline is in pending state at any time)
+# See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
+concurrency: main-deploy
+
 jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
+    secrets: inherit
+  validate:
+    uses: ./.github/workflows/validate.yml
+    secrets: inherit
   deploy:
+    needs: [lint, validate]
     runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
     strategy:
       matrix:
-        project_number: ["398809717501"] #, "615473322806", "228132571547"]
-        environment: [test] #, stage, prod]
-        project_id: [p0-gcp-project] #, p0-stage, p0-prod]
+        project_number: ["398809717501", "615473322806", "228132571547"]
+        environment: [test, stage, prod]
+        project_id: [p0-gcp-project, p0-stage, p0-prod]
     steps:
-      # - name: Install google-cloud-sdk
-      #   run: |
-      #     sudo apt-get install apt-transport-https ca-certificates gnupg && \
-      #       (echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list) && \
-      #       (curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -) && \
-      #       sudo apt-get update && \
-      #       sudo apt-get install google-cloud-sdk
       - id: checkout
         uses: actions/checkout@v3
       - id: auth
