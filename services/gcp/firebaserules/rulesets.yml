@@ -8,7 +8,7 @@ privileges:
     notes: >-
       While creating a ruleset by itself doesn't do anything, when combined with access to update security rules releases, an attacker can hijack your security rules.
   delete:
-    vulnerabiltiies: [destruction:logs]
+    vulnerabilities: [destruction:logs]
     notes: >-
       While an attacker cannot delete the currently used ruleset, they can delete older rulesets which may cause a loss of historical rules information.
   get:
@@ -18,6 +18,6 @@ privileges:
     notes: >-
       Lists metadata only.
   test:
-    vulnerabiltiies: []
+    vulnerabilities: []
     notes: >-
       Test validity of security rules source code (basically syntax/error checking).
