@@ -38,6 +38,9 @@ privileges:
   deleteTagBinding:
     vulnerabilities:
       - destruction:policy
+      - escalation:privilege
+    notes: >-
+      Tags can conditionally allow or deny IAM policies. Privilege escalation is possible since removing tags may lead to additional IAM bindings matching the principal.
   get:
     vulnerabilities:
       - escalation:privilege
@@ -64,7 +67,7 @@ privileges:
       This permission is used by the Kubernetes Engine Service Agent role (among others)
       to impersonate a Workload Identity. Thus, it is meant to be used by machine identities,
       workloads running on the Kubernetes cluster that need to access other Google Cloud services.
-      Access to this permission leads to privilege escalation by allowing human principals to 
+      Access to this permission leads to lateral movement by allowing human principals to 
       act as Kubernetes workloads.
     impact: CRITICAL
     links:
