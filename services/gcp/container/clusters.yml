@@ -1,7 +1,7 @@
 name: Kubernetes Engine Clusters
 description: >-
   Manages Kubernetes clusters on Google Kubernetes Engine
-scope: HIGH
+scope: CRITICAL
 notes: >-
   One independent instance of a Kubernetes cluster, consisting of a node-pool and the Kubernetes objects
   such as deployments, statefulsets, pods, jobs that represents workloads and configuration running on
@@ -32,7 +32,6 @@ privileges:
       Deletes a cluster and related resources: control plane resources, nodes, pods, firewalls,
       routes, ephemeral volumes. It will also attempt to delete external and internal load balancers
       created by the cluster, as well as persistent disk volumes.
-    impact: CRITICAL
     links:
       - https://cloud.google.com/sdk/gcloud/reference/container/clusters/delete
   deleteTagBinding:
@@ -43,23 +42,17 @@ privileges:
       Tags can conditionally allow or deny IAM policies. Privilege escalation is possible since removing tags may lead to additional IAM bindings matching the principal.
   get:
     vulnerabilities:
-      - escalation:privilege
-      - impact:access
       - discovery:infra
     notes: >-
       Retrieves cluster information including public and private endpoint IP address,
       and cluster certificate. The information contained allows configuring Kubernetes
       API access to the cluster, similar to the `container.clusters.getCredentials` permission.
-    impact: MEDIUM
   getCredentials:
     vulnerabilities:
-      - escalation:privilege
-      - impact:access
       - discovery:infra
     notes: >-
       Allows configuring Kubernetes API access to the cluster.
       To actually execute any API calls, other `container` permissions are also required.
-    impact: MEDIUM
   impersonate:
     vulnerabilities:
       - escalation:lateral
@@ -69,7 +62,6 @@ privileges:
       workloads running on the Kubernetes cluster that need to access other Google Cloud services.
       Access to this permission leads to lateral movement by allowing human principals to 
       act as Kubernetes workloads.
-    impact: CRITICAL
     links:
       - https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
   list:
@@ -78,15 +70,12 @@ privileges:
       - discovery:network
     notes: >-
       Reveals the master IP, and additional limited metadata about clusters.
-    impact: LOW
   listEffectiveTags:
     vulnerabilities:
       - discovery:policy
-    impact: LOW
   listTagBindings:
     vulnerabilities:
       - discovery:policy
-    impact: LOW
   update:
     vulnerabilities:
       - destruction:data
@@ -94,7 +83,6 @@ privileges:
       - destruction:infra
       - destruction:network
       - impact:spend
-    scope: CRITICAL
     notes: >-
       Allows modifying various parameters of the cluster that are critical for the
       healthy functioning and protection of the cluster. In addition, it allows resizing
