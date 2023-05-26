@@ -1,0 +1,31 @@
+name: indexes
+description: >-
+  Cloud Datastore indices enable fast and optimized data queries in Firestore in Datastore mode. 
+  However, altering indices can lead to increased costs, longer index build times, operation limitations, 
+  and temporary performance impacts. By default, all entity properties are automatically indexed, 
+  but creating custom indices incurs storage and operation costs. Deleting indices can negatively 
+  impact query performance, and functionality, and require index rebuilding, potentially resulting 
+  in slower queries and incomplete results, along with increased costs for index rebuilding.
+scope: MEDIUM
+privileges:
+  list:
+    vulnerabilities: [discovery:infra, discovery:data]
+  create:
+    vulnerabilities: [impact:consumption, impact:spend]
+    notes: >-
+      An attacker can create too many indexes and hit the index limits.
+  delete:
+    vulnerabilities: [impact:dos, destruction:infra]
+    notes: >-
+      An attacker can delete indexes and cause queries to execute slowly or to fail.
+  get:
+    vulnerabilities: [discovery:data]
+  update:
+    vulnerabilities: [impact:dos, impact:spend]
+    notes: >-
+      An attacker can update indexes, which can consume time, or cause queries to execute slowly or to fail.
+      Indexes also incur spend.
+links:
+  - https://cloud.google.com/datastore/docs/concepts/indexes#index_limits
+  - https://cloud.google.com/datastore/docs/concepts/indexes#datastore-indexes-and-index-configuration-files
+  - https://cloud.google.com/datastore/docs/reference/admin/rest/v1/projects.indexes
