@@ -79,7 +79,7 @@ privileges:
   update:
     vulnerabilities: []
     notes: >-
-      Can be used to change firewall application order, modiy BGP routing mode, or put the VPC in custom mode.
+      Can be used to change firewall application order, modify BGP routing mode, or put the VPC in custom mode.
   updatePeering:
     vulnerabilities:
       - impact:access
