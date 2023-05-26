@@ -1,0 +1,93 @@
+name: Kubernetes Engine Clusters
+description: >-
+  Manages Kubernetes clusters on Google Kubernetes Engine
+scope: CRITICAL
+notes: >-
+  One independent instance of a Kubernetes cluster, consisting of a node-pool and the Kubernetes objects
+  such as deployments, statefulsets, pods, jobs that represents workloads and configuration running on
+  the cluster, managed by Kubernetes.
+privileges:
+  create:
+    vulnerabilities:
+      - impact:spend
+      - impact:hijack
+    notes: >-
+      Allows creating a new Kubernetes cluster. Also requires access to a Compute Engine service account.
+      By default, GKE uses the Compute Engine default service account, and cluster creation fails unless
+      the user has the `iam.serviceAccounts.actAs` permission to the service account.
+  createTagBinding:
+    vulnerabilities:
+      - impact:access
+      - escalation:privilege
+    notes: >-
+      Attach a tag to a cluster as a key-value pair. Tags can conditionally allow or deny policies.
+    links:
+      - https://cloud.google.com/kubernetes-engine/docs/how-to/tags#overview
+  delete:
+    vulnerabilities:
+      - destruction:data
+      - destruction:infra
+      - destruction:network
+    notes: >-
+      Deletes a cluster and related resources: control plane resources, nodes, pods, firewalls,
+      routes, ephemeral volumes. It will also attempt to delete external and internal load balancers
+      created by the cluster, as well as persistent disk volumes.
+    links:
+      - https://cloud.google.com/sdk/gcloud/reference/container/clusters/delete
+  deleteTagBinding:
+    vulnerabilities:
+      - destruction:policy
+      - escalation:privilege
+    notes: >-
+      Tags can conditionally allow or deny IAM policies. Privilege escalation is possible since removing tags may lead to additional IAM bindings matching the principal.
+  get:
+    vulnerabilities:
+      - discovery:infra
+    notes: >-
+      Retrieves cluster information including public and private endpoint IP address,
+      and cluster certificate. The information contained allows configuring Kubernetes
+      API access to the cluster, similar to the `container.clusters.getCredentials` permission.
+  getCredentials:
+    vulnerabilities:
+      - discovery:infra
+    notes: >-
+      Allows configuring Kubernetes API access to the cluster.
+      To actually execute any API calls, other `container` permissions are also required.
+  impersonate:
+    vulnerabilities:
+      - escalation:lateral
+    notes: >-
+      This permission is used by the Kubernetes Engine Service Agent role (among others)
+      to impersonate a Workload Identity. Thus, it is meant to be used by machine identities,
+      workloads running on the Kubernetes cluster that need to access other Google Cloud services.
+      Access to this permission leads to lateral movement by allowing human principals to 
+      act as Kubernetes workloads.
+    links:
+      - https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
+  list:
+    vulnerabilities:
+      - discovery:infra
+      - discovery:network
+    notes: >-
+      Reveals the master IP, and additional limited metadata about clusters.
+  listEffectiveTags:
+    vulnerabilities:
+      - discovery:policy
+  listTagBindings:
+    vulnerabilities:
+      - discovery:policy
+  update:
+    vulnerabilities:
+      - destruction:data
+      - destruction:defense
+      - destruction:infra
+      - destruction:network
+      - impact:spend
+    notes: >-
+      Allows modifying various parameters of the cluster that are critical for the
+      healthy functioning and protection of the cluster. In addition, it allows resizing
+      the cluster node pool, and upgrading the Kubernetes version.
+    links:
+      - https://cloud.google.com/sdk/gcloud/reference/container/clusters/update
+      - https://cloud.google.com/sdk/gcloud/reference/container/clusters/resize
+      - https://cloud.google.com/sdk/gcloud/reference/container/clusters/upgrade
