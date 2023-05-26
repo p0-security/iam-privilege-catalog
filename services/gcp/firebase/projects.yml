@@ -1,0 +1,14 @@
+name: Firebase project admin
+description: >-
+  Manage Firebase projects programmatically: metadata, create, and delete.
+scope: CRITICAL
+privileges:
+  create:
+    vulnerabilities: [impact:consumption]
+    scope: HIGH
+    notes: >-
+      Firebase has a soft limit on number of projects per Google Cloud account, and an attacker could theoretically exhaust this limit.
+  delete:
+    vulnerabilities: [destruction:data, destruction:infra]
+  update:
+    vulnerabilities: []
