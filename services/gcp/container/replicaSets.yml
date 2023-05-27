@@ -1,7 +1,7 @@
 name: Kubernetes Engine ReplicaSets
 description: >-
   Control Kubernetes ReplicaSet objects in a given cluster.
-scope: CRITICAL
+scope: MEDIUM
 notes: >-
   ReplicaSets allow maintaining a desired number of replicas and handle situations like pod failures or manual scaling.
   Typically, ReplicaSets are not created directly but are managed by a Deployment. When that is the case, the ReplicaSet
@@ -36,7 +36,6 @@ privileges:
     vulnerabilities:
       - discovery:infra
       - discovery:network
-    scope: MEDIUM
     notes: >-
       Describes detailed metadata about the ReplicaSet, and Pods and Containers in it, 
       such as ports, IP address, replicas, attached volumes, containers and the images
@@ -53,7 +52,6 @@ privileges:
     vulnerabilities:
       - discovery:infra
       - discovery:network
-    scope: MEDIUM
     notes: >-
       Equivalent to `container.replicaSets.get`. Allows reading the `/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/status`
       subresource which returns the same payload as the `/apis/apps/v1/namespaces/{namespace}/replicasets/{name}` resource.
@@ -61,7 +59,6 @@ privileges:
     vulnerabilities:
       - discovery:infra
       - discovery:network
-    scope: MEDIUM
     notes: >-
       Allows listing all ReplicaSets in a namespace.
   update:

@@ -16,8 +16,9 @@ privileges:
       - escalation:network
     notes: >-
       Creation of DaemonSets allows running an image inside the Kubernetes cluster. This may allow arbitrary code
-      execution, if the cluster has access to the public internet. Secondly, creating DaemonSets drains the limited resources available
-      to other Kubernetes workloads.
+      execution, if the cluster has access to the public internet. The code will execute with service account privileges,
+      leading to new permissions that may allow access to other GCP services. 
+      Secondly, creating DaemonSets drains the limited resources available to other Kubernetes workloads.
   delete:
     vulnerabilities:
       - destruction:infra
@@ -30,7 +31,6 @@ privileges:
     vulnerabilities:
       - discovery:infra
       - discovery:network
-    scope: MEDIUM
     notes: >-
       Describes detailed metadata about the DaemonSet, and Pods and Containers in it,
       such as ports, IP address, replicas, attached volumes, containers and the images
@@ -39,7 +39,6 @@ privileges:
     vulnerabilities:
       - discovery:infra
       - discovery:network
-    scope: MEDIUM
     notes: >-
       Equivalent to `container.daemonSets.get`. Allows reading the `/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status`
       subresource which returns the same payload as the `/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}` resource.
@@ -47,7 +46,6 @@ privileges:
     vulnerabilities:
       - discovery:infra
       - discovery:network
-    scope: MEDIUM
     notes: >-
       Allows listing all ReplicaSets in a namespace.
   update:
@@ -60,9 +58,11 @@ privileges:
       - impact:hijack
       - impact:spend
     notes: >-
-      An update may let an attacker change the container image that is running inside pods. Since DaemonSet runs a pod on multiple nodes,
-      DaemonSets are especially great for a complete cluster takeover.
-      Secondly, DaemonSet pods drain the limited resources available to other Kubernetes workloads.
+      An update may let an attacker change the container image that is running inside pods. This may allow arbitrary code
+      execution, if the cluster has access to the public internet. The code will execute with service account privileges,
+      leading to new permissions that may allow access to other GCP services. Since DaemonSet runs a pod on multiple nodes,
+      DaemonSets are especially great for a complete cluster takeover. Secondly, DaemonSet pods drain the limited resources
+      available to other Kubernetes workloads.
   updateStatus:
     vulnerabilities: []
     scope: LOW
