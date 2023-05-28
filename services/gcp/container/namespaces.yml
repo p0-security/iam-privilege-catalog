@@ -1,0 +1,39 @@
+name: Kubernetes Engine Namespaces
+description: >-
+  Manages
+scope: LOW
+notes: >-
+  One
+privileges:
+  create:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  delete:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  finalize:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  get:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  getStatus:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  list:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  update:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  updateStatus:
+    vulnerabilities: []
+    notes: >-
+      Allows

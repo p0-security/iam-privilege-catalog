@@ -1,0 +1,63 @@
+name: Kubernetes Engine Pods
+description: >-
+  Manages
+scope: CRITICAL
+notes: >-
+  One
+privileges:
+  attach:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  create:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  delete:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  evict:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  exec:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  get:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  getLogs:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  getStatus:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  initialize:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  list:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  portForward:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  proxy:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  update:
+    vulnerabilities: []
+    notes: >-
+      Allows
+  updateStatus:
+    vulnerabilities: []
+    notes: >-
+      Allows
