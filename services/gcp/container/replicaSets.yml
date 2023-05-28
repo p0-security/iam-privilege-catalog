@@ -1,0 +1,96 @@
+name: Kubernetes Engine ReplicaSets
+description: >-
+  Control Kubernetes ReplicaSet objects in a given cluster.
+scope: MEDIUM
+notes: >-
+  ReplicaSets allow maintaining a desired number of replicas and handle situations like pod failures or manual scaling.
+  Typically, ReplicaSets are not created directly but are managed by a Deployment. When that is the case, the ReplicaSet
+  cannot be updated directly using the `update` endpoints. ReplicaSets expose very similar vulnerabilities to Deployments,
+  the key privilege being the ability to specify a container image to run in the Pods managed by the ReplicaSet.
+  If coupled with a cluster that can connect to the internet, this opens up arbitrary code execution by fetching and running
+  potentially malicious images. Secondly, creating or updating the replica count of ReplicaSets drains the limited resources available
+  to other Kubernetes workloads.
+privileges:
+  create:
+    vulnerabilities:
+      - impact:spend
+      - impact:hijack
+      - escalation:lateral
+      - escalation:network
+      - exfiltration:data
+    notes: >-
+      Creation of standalone ReplicaSet allows running an image inside the Kubernetes cluster. This may allow arbitrary code
+      execution, if the cluster has access to the public internet. Secondly, creating ReplicaSets drains the limited resources available
+      to other Kubernetes workloads.
+  delete:
+    vulnerabilities:
+      - destruction:infra
+      - destruction:data
+      - destruction:logs
+    notes: >-
+      Deleting a ReplicaSet deletes its pods and ephemeral volumes. PersistentVolumes
+      attached to the ReplicaSet are left intact. Logs of the deleted pods disappear
+      permanently when the pods shut down, unless they are exported to an external system
+      for persistence.
+  get:
+    vulnerabilities:
+      - discovery:infra
+      - discovery:network
+    notes: >-
+      Describes detailed metadata about the ReplicaSet, and Pods and Containers in it, 
+      such as ports, IP address, replicas, attached volumes, containers and the images
+      they are running.
+  getScale:
+    vulnerabilities:
+      - discovery:infra
+    scope: LOW
+    notes: >-
+      Allows reading the `/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/scale` subresource
+      which returns the number of desired replicas in the ReplicaSet. The `container.replicaSets.get`
+      permission already includes the ability to read this subresource.
+  getStatus:
+    vulnerabilities:
+      - discovery:infra
+      - discovery:network
+    notes: >-
+      Equivalent to `container.replicaSets.get`. Allows reading the `/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/status`
+      subresource which returns the same payload as the `/apis/apps/v1/namespaces/{namespace}/replicasets/{name}` resource.
+  list:
+    vulnerabilities:
+      - discovery:infra
+      - discovery:network
+    notes: >-
+      Allows listing all ReplicaSets in a namespace.
+  update:
+    vulnerabilities:
+      - destruction:data
+      - destruction:infra
+      - destruction:network
+      - escalation:lateral
+      - escalation:network
+      - exfiltration:data
+      - impact:hijack
+      - impact:spend
+    notes: >-
+      Only ReplicaSets without a Deployment may be updated. Updates to Replicasets owned by a Deployment will succeed but have no effect on the ReplicaSet.
+      An update may set the replica count to 0 which effectively deletes the application. An update may also let an attacker
+      change the container image that is running inside pods, potentially leading to a complete takeover of the Kubernetes cluster.
+      Secondly, increasing the replica count in ReplicaSets drains the limited resources available to other Kubernetes workloads.
+      Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
+  updateScale:
+    vulnerabilities:
+      - destruction:data
+      - destruction:infra
+      - impact:hijack
+      - impact:spend
+    notes: >-
+      Only ReplicaSets without a Deployment may be updated. Updates to Replicasets owned by a Deployment will succeed but have no effect on the ReplicaSet.
+      Allows updating the replica count, including setting replicas to 0. If properties other than replicas are updated in the PATCH
+      request, those are quietly ignored. Secondly, increasing the replica count in ReplicaSets drains the limited resources available to 
+      other Kubernetes workloads.
+  updateStatus:
+    vulnerabilities: []
+    scope: LOW
+    notes: >-
+      Allows updating the status object of the ReplicaSet with different "replicas", "updatedReplicas", "readyReplicas", and "availableReplicas"
+      counts than the actual counts in the Replicasets's current ReplicaSet. However, these values don't take effect, despite a successful API call.
