@@ -1,33 +1,33 @@
-name: Endpoint
+name: Endpoint Slice
 description: >-
-  A Kubernetes endpoint is a mapping of an IP address and a port to target reference, mostly a Pod.
+  A Kubernetes endpoint slice contains up to 100 mapping entries from an IP address and a port to target reference, mostly a Pod.
   The same IP and port may map to multiple Pods to describe a load balancing scheme.
 scope: MEDIUM
 notes: >-
-  Typically endpoints are not managed directly. Endpoints are a lower-level abstraction managed by a Service object.
+  Typically endpoint slices are not managed directly. Endpoint slices are a lower-level abstraction managed by a Service object.
   Endpoint slices are a newer addition to Kubernetes, and serve the same purpose as endpoints. However, they slice the
   potentially large Endpoint object into multiple smaller slices for reduced network traffic between nodes when
   pods are updated.
 links:
-  - https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/
+  - https://kubernetes.io/docs/concepts/services-networking/service/#endpoints
   - https://kubernetes.io/blog/2020/09/02/scaling-kubernetes-networking-with-endpointslices/
 privileges:
   create:
     vulnerabilities: [escalation:network]
     notes: >-
-      Creating an endpoint slice may open up access to Pods from the public Internet.
+      Creating an endpoint may open up access to Pods from the public Internet.
   delete:
     vulnerabilities: [destruction:network]
     notes: >-
-      Deleting an endpoint slice may partially or completely disrupt public access to Kubernetes Pods.
+      Deleting an endpoint may partially or completely disrupt public access to Kubernetes Pods.
   get:
     vulnerabilities: [discovery:network]
     notes: >-
-      Retrieve metadata about a specific endpoint slice: the IP address, port, and target reference, typically a Pod.
+      Retrieve metadata about a specific endpoint: the IP address, port, and target reference, typically a Pod.
   list:
     vulnerabilities: [discovery:network]
     notes: >-
-      Retrieve  about all endpoint slices: the IP address, port, and target reference, typically a Pod.
+      Retrieve  about all endpoints: the IP address, port, and target reference, typically a Pod.
   update:
     vulnerabilities: [destruction:network, escalation:network]
     notes: >-
