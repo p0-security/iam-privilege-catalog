@@ -20,7 +20,7 @@ privileges:
       Adding a new version of a secret can break services that
       rely on reading the latest version of the secret.
   destroy:
-    vulnerabilities: [impact:dos, destruction:secret]
+    vulnerabilities: [impact:dos, destruction:crypto]
   disable:
     vulnerabilities: [impact:dos]
   enable:
