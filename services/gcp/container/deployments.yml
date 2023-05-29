@@ -36,8 +36,8 @@ privileges:
       - destruction:data
       - destruction:logs
     notes: >-
-      Deleting a ReplicaSet deletes its pods and ephemeral volumes. PersistentVolumes
-      attached to the ReplicaSet are left intact. Logs of the deleted pods disappear
+      Deleting a Deployment deletes its pods and ephemeral volumes. Persistent Volumes
+      attached to the Deployment are left intact. Logs of the deleted pods disappear
       permanently when the pods shut down, unless they are exported to an external system
       for persistence.
   get:
@@ -94,7 +94,7 @@ privileges:
     notes: >-
       An update may set the replica count to 0 which effectively deletes the application. An update may also let an attacker
       change the container image that is running inside pods, potentially leading to a complete takeover of the
-      Kubernetes cluster. Secondly, increasing the replica count in ReplicaSets drains the limited resources available to 
+      Kubernetes cluster. Secondly, increasing the replica count in Deployments drains the limited resources available to 
       other Kubernetes workloads. Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
   updateScale:
     vulnerabilities:
@@ -104,7 +104,7 @@ privileges:
       - impact:spend
     notes: >-
       Allows updating the replica count, including setting replicas to 0. If properties other than replicas are updated in the PATCH
-      request, those are quietly ignored. Secondly, increasing the replica count in ReplicaSets drains the limited resources available to 
+      request, those are quietly ignored. Secondly, increasing the replica count in Deployments drains the limited resources available to 
       other Kubernetes workloads.
   updateStatus:
     vulnerabilities: []
