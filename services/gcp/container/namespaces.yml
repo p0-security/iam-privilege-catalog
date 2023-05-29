@@ -14,7 +14,7 @@ privileges:
   create:
     vulnerabilities: []
     notes: >-
-      Namespace is a logical resource, and does not carry risks by itself.
+      Namespace is a logical resource, and creating one does not carry risks by itself.
   delete:
     vulnerabilities:
       [

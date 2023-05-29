@@ -1,63 +1,114 @@
 name: Kubernetes Engine Pods
 description: >-
-  Manages
-scope: CRITICAL
+  A Kubernetes Pod is a logical host that encapsulates one or more Containers. It is the smallest and
+  most basic unit of deployment. Containers can communicate with each other via localhost. Pod lifecycle is typically
+  managed by a higher level controller, such as a Deployment, StatefulSet, or DaemonSet.
+scope: HIGH
 notes: >-
-  One
+  The risks associated with Pods is similar to Deployments, StatefulSets, and DaemonSets. Pods consume CPU, memory, and 
+  network resources of the cluster, thus they are susceptible to exhaustion attacks. Containers inside Pods run a specific image,
+  and may lead to arbitrary code execution in the cluster if an attacker is able to run their image. 
+  Pods also need access to other resources within the cluster, and outside the cluster, often using other services of the cloud provider.
+  In order to do so, Pods have service account credentials, which, if leaked, allow one to move laterally by authenticating as the service account.
 privileges:
   attach:
-    vulnerabilities: []
+    vulnerabilities:
+      - destruction:infra
+      - impact:access
     notes: >-
-      Allows
+      Allows attaching to a process that is already running inside an existing container. You get the stdout output,
+      and are able to send stdin input to the running process, for instance ctrl+c to stop the process.
   create:
-    vulnerabilities: []
+    vulnerabilities:
+      - impact:spend
+      - impact:hijack
+      - escalation:lateral
+      - escalation:network
+      - exfiltration:data
     notes: >-
-      Allows
+      It is possible to create standalone pods not managed by a Deployment or other controller in Kubernetes.
+      This action bears the risk of pulling in an arbitrary image (if the cluster is open to the internet) to
+      hijack resources, or to move laterally by assuming the privileges of the pod's or node's service account.
+      It also drains the cluster's limited resource pool.
   delete:
-    vulnerabilities: []
+    vulnerabilities:
+      - destruction:infra
+      - destruction:data
+      - destruction:logs
     notes: >-
-      Allows
+      Deleting a pod deletes its pods and ephemeral volumes. PersistentVolumes
+      attached to the pod are left intact. Logs of the deleted pod disappear
+      permanently when the pods shut down, unless they are exported to an external system
+      for persistence.
   evict:
-    vulnerabilities: []
+    vulnerabilities: [impact:consumption]
     notes: >-
-      Allows
+      Eviction moves the pod to another node. An attacker may disrupt normal operations
+      with many evictions, draining cluster resources.
   exec:
-    vulnerabilities: []
+    vulnerabilities:
+      - escalation:privilege
+      - escalation:lateral
+    scope: CRITICAL
     notes: >-
-      Allows
+      The exec operation is similar to the `attach` operation, but instead of attaching to an
+      existing process inside the container, it allows launching a new process from a command
+      and attaching to it. Most often this command is opening the shell, dropping an attacker in
+      a terminal inside the container. The vulnerabilities arising are container and 
+      application-specific. However, process run inside the container are authenticated as the
+      service account, leading to privilege escalation, and potentially lateral movement into other
+      cloud services.
   get:
-    vulnerabilities: []
+    vulnerabilities:
+      - discovery:infra
+      - discovery:network
+    scope: MEDIUM
     notes: >-
-      Allows
+      Describes detailed metadata about the Deployment, and Pods and Containers in it, 
+      such as ports, IP address, replicas, attached volumes, containers and the images
+      they are running.
   getLogs:
-    vulnerabilities: []
+    vulnerabilities: [discovery:infra]
     notes: >-
-      Allows
+      Logs of the application running on any of the pod's containers can be read with
+      the `getLogs` permission.
   getStatus:
-    vulnerabilities: []
+    vulnerabilities: [discovery:infra]
     notes: >-
-      Allows
+      Allows reading the same Pod metadata as `container.pods.get`.
   initialize:
     vulnerabilities: []
     notes: >-
-      Allows
+      Documentation is lacking on this permission. It may be related to init-containers, or the initialization process of a Pod.
   list:
-    vulnerabilities: []
+    vulnerabilities: [discovery:infra]
     notes: >-
-      Allows
+      List metadata about all pods.
   portForward:
-    vulnerabilities: []
+    vulnerabilities: [impact:access]
     notes: >-
-      Allows
+      Forwards a local port to a port on the Pod. This allows interaction with the application, if the application listens on
+      any ports. An attacker may exploit application vulnerabilities with the ability to port-forward.
   proxy:
-    vulnerabilities: []
+    vulnerabilities: [impact:access]
     notes: >-
-      Allows
+      The proxy action forwards the HTTP request to a specific port and request path inside the container. If a process is listening
+      on that port and path, this is similar in effect to port forwarding, and may allow an attacker to exploit application-level
+      vulnerabilities.
   update:
     vulnerabilities: []
+    scope: LOW
     notes: >-
-      Allows
+      An update is limited to a few fields in the Pod spec: may not change fields other than 
+      spec.containers[*].image, spec.initContainers[*].image, spec.activeDeadlineSeconds,
+      spec.tolerations (only additions to existing tolerations) or `spec.terminationGracePeriodSeconds`
+      (allow it to be set to 1 if it was previously negative). 
+      In practice even the image update is not possible since pods are typically run via a controller.
+      In those cases an update to the `image` field has no effect.
+    links:
+      - https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#pod-v1-core
   updateStatus:
     vulnerabilities: []
+    scope: LOW
     notes: >-
-      Allows
+      Has no effect on the actual status, as it is managed by Kubernetes.
