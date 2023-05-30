@@ -14,14 +14,14 @@ privileges:
       bucket, and a known encryption key, can allow an attacker to
       exfiltrate a disk image.
   createTagBinding:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [impact:access, escalation:privilege]
     notes: >-
       An attacker can exploit tag-based IAM policies to gain access
       to image data.
   delete:
     vulnerabilities: [destruction:data]
   deleteTagBinding:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       An attacker can exploit tag-based IAM policies to gain access
       to image data.

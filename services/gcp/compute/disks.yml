@@ -22,13 +22,13 @@ privileges:
       to disk data.
     vulnerabilities: [collection:data]
   createTagBinding:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [impact:access, escalation:privilege]
     notes: >-
       Tag bindings are used to dynamically modify IAM policies.
   delete:
     vulnerabilities: [destruction:infra, destruction:data]
   deleteTagBinding:
-    vulnerabilities: [escalation:privilege, destruction:policy]
+    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       Tag bindings are used to dynamically modify IAM policies.
   get:

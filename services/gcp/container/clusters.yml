@@ -35,9 +35,7 @@ privileges:
     links:
       - https://cloud.google.com/sdk/gcloud/reference/container/clusters/delete
   deleteTagBinding:
-    vulnerabilities:
-      - destruction:policy
-      - escalation:privilege
+    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       Tags can conditionally allow or deny IAM policies. Privilege escalation is possible since removing tags may lead to additional IAM bindings matching the principal.
   get:

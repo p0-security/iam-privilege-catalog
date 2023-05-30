@@ -9,7 +9,7 @@ privileges:
     vulnerabilities: [impact:spend]
     scope: LOW
   createTagBinding:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [impact:access, escalation:privilege]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. If the user has any
       policies that use tag bindings to enforce conditions, creating a tag on a resource allows them
@@ -18,7 +18,7 @@ privileges:
   delete:
     vulnerabilities: [impact:dos, destruction:data, destruction:infra]
   deleteTagBinding:
-    vulnerabilities: [impact:dos, destruction:metadata, impact:access]
+    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The "destruction:policy" and
       "impact:access" vulnerabilities apply if the tag is used in any policies.
@@ -31,10 +31,10 @@ privileges:
   getIamPolicy:
     vulnerabilities: [discovery:policy, discovery:account]
   listEffectiveTags:
-    vulnerabilities: [discovery:infra]
+    vulnerabilities: [discovery:policy]
     scope: LOW
   listTagBindings:
-    vulnerabilities: [discovery:policy, discovery:account]
+    vulnerabilities: [discovery:policy]
     scope: LOW
   setIamPolicy:
     vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
