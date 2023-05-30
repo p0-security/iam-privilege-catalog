@@ -1,0 +1,13 @@
+name: Google Cloud Tag Holds
+description: >-
+  A tag hold prevents the deletion of a tag value.
+scope: LOW
+privileges:
+  create:
+    vulnerabilities: []
+  delete:
+    vulnerabilities: [destruction:defense]
+  list:
+    vulnerabilities: [discovery:metadata]
+links:
+  - https://cloud.google.com/resource-manager/docs/tags/tags-overview

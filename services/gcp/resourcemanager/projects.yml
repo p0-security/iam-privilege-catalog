@@ -1,0 +1,58 @@
+name: Google Cloud Projects
+description: >-
+  A project is the base-level resource through which you interact with Google Cloud services.
+scope: CRITICAL
+notes: >-
+  This is a critical resource because impacting the project can impact any organizational functionality
+  using the project. This can include all services running in the project and all data stored within it.
+privileges:
+  create:
+    vulnerabilities: [impact:spend, impact:consumption]
+    notes: >-
+      Each organization has a limited quota of active projects they can create.
+  createBillingAssignment:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      Allows updating the billing assignment to remove the billing account. 
+      This can cause an interruption of services.
+  delete:
+    vulnerabilities:
+      - destruction:infra
+      - destruction:crypto
+      - destruction:data
+      - destruction:logs
+      - destruction:metadata
+      - destruction:policy
+  deleteBillingAssignment:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      Removing a billing assignment can cause an interruption of services.
+  get:
+    vulnerabilities: [discovery:infra]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list:
+    vulnerabilities: [discovery:infra]
+  move:
+    vulnerabilities: [impact:dos, impact:access, destruction:defense]
+    notes: >-
+      Moving a project can impact both user and system access that was inherited from the old parent.
+      This can cause a DOS if service account accesses are impaired. Moving a project also removes any 
+      security policies that were inherited from the parent.
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+  undelete:
+    vulnerabilities: [impact:spend]
+  update:
+    vulnerabilities: [destruction:metadata]
+    notes: >-
+      Can only update project display name and labels.
+  updateLiens:
+    vulnerabilities: [destruction:defense]
+    notes: >-
+      Liens are used to prevention deletion of projects. This permission
+      allows removing a lien from a project.
+
+links:
+  - https://cloud.google.com/resource-manager/docs/access-control-proj
+  - https://cloud.google.com/billing/docs/reference/rest/v1/projects/updateBillingInfo

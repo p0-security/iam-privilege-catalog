@@ -11,14 +11,14 @@ privileges:
   create:
     vulnerabilities: []
   createTagBinding:
-    vulnerabilities: [escalation:privilege]
+    vulnerabilities: [impact:access, escalation:privilege]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The
       vulnerabilities apply if the tag is used in any policies.
   delete:
     vulnerabilities: [destruction:data]
   deleteTagBinding:
-    vulnerabilities: [destruction:policy, impact:access]
+    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The
       vulnerabilities apply if the tag is used in any policies.
@@ -35,9 +35,9 @@ privileges:
     links:
       - https://cloud.google.com/bigquery/docs/reference/analytics-hub/rest/v1/projects.locations.dataExchanges/create
   listEffectiveTags:
-    vulnerabilities: [discovery:metadata]
+    vulnerabilities: [discovery:policy]
   listTagBindings:
-    vulnerabilities: [discovery:metadata]
+    vulnerabilities: [discovery:policy]
   setIamPolicy:
     vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   update:

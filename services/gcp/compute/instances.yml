@@ -62,7 +62,7 @@ privileges:
     notes: >-
       Can remove public IP addresses from the instance.
   deleteTagBinding:
-    vulnerabilities: [destruction:policy, impact:access, escalation:privilege]
+    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       Depending on IAM policy configuration, can gain access to, or remove access from, the
       instance.
@@ -140,9 +140,7 @@ privileges:
   listReferrers:
     vulnerabilities: [discovery:infra]
   listTagBindings:
-    vulnerabilities: []
-    notes: >-
-      No known use.
+    vulnerabilities: [discovery:policy]
   osAdminLogin:
     vulnerabilities:
       - collection:data
