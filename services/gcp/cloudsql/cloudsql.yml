@@ -70,3 +70,5 @@ privileges:
 
 links:
   - https://cloud.google.com/sql/docs/mysql/iam-permissions
+  - https://cloud.google.com/sql/docs/mysql/iam-overview
+  - https://cloud.google.com/sql/docs/mysql/roles-and-permissions
