@@ -1,0 +1,18 @@
+name: Cloud Billing Resource Associations
+description: >-
+  A "resource association" associates a project with the billing account used for it.
+scope: MEDIUM
+privileges:
+  list:
+    vulnerabilities: [discovery:infra]
+  create:
+    vulnerabilities: [impact:spend]
+    notes: >-
+      Can be used to associate the billing account with another project.
+  delete:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      Can render the project without a billing method, interrupting service.
+
+links:
+  - https://cloud.google.com/billing/docs/how-to/custom-roles

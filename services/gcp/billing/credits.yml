@@ -1,0 +1,12 @@
+name: Cloud Billing Credits
+description: >-
+  Credits include various ways to save on cloud spend, such as free-tier, committed use discounts, etc.
+scope: LOW
+privileges:
+  list:
+    vulnerabilities: [discovery:finance]
+    notes: >-
+      Allows viewing both the original credit and the current usage amount.
+
+links:
+  - https://cloud.google.com/billing/docs/how-to/custom-roles

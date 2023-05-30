@@ -1,0 +1,9 @@
+name: Cloud Billing Resource Costs
+description: >-
+  Resource costs include costs and usage information for Google Cloud resources.
+scope: LOW
+privileges:
+  list:
+    vulnerabilities: [discovery:finance]
+links:
+  - https://cloud.google.com/billing/docs/how-to/custom-roles

@@ -1,0 +1,21 @@
+name: Cloud Billing Budgets
+description: >-
+  Budgets allow you to monitor cloud spend by triggering alerts if spend reaches thresholds.
+  This does not automatically usage.
+scope: LOW
+privileges:
+  get:
+    vulnerabilities: [discovery:finance]
+    notes: >-
+      This includes monthly spend info
+  list:
+    vulnerabilities: [discovery:finance]
+    notes: >-
+      This includes monthly spend info
+  create:
+    vulnerabilities: []
+  update:
+    vulnerabilities: []
+
+links:
+  - https://cloud.google.com/billing/docs/how-to/custom-roles
