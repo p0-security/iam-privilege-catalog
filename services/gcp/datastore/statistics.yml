@@ -1,0 +1,17 @@
+name: Statistics
+description: >-
+  Firestore in Datastore mode maintains statistics about the data stored in an application. 
+  An attacker could use the statistics to gain information about the application's data, 
+  such as the number of entities in each kind, the total size of the data, and 
+  the most recent time the data was updated.
+scope: LOW
+privileges:
+  get:
+    vulnerabilities: [discovery:metadata]
+    scope: LOW
+  list:
+    vulnerabilities: [discovery:metadata]
+    scope: LOW
+links:
+  - https://cloud.google.com/datastore/docs/concepts/stats
+  - https://cloud.google.com/datastore/docs/console/datastore-statistics
