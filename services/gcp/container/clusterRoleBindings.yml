@@ -1,0 +1,40 @@
+name: Kubernetes Engine ClusterRole Bindings
+description: >-
+  A ClusterRoleBinding is used to associate a ClusterRole with one or more principals (users, groups, or service accounts). 
+  It establishes a connection between a set of permissions defined in a ClusterRole and the entities that should have those permissions.
+  ClusterRoles are scoped to the entire Kubernetes cluster.
+scope: CRITICAL
+notes: >-
+  ClusterRoles are only definitions of permissions. A role does not take effect unless
+  assigned to principal via a ClusterRoleBinding.
+privileges:
+  create:
+    vulnerabilities: [escalation:privilege]
+    scope: MEDIUM
+    notes: >-
+      Kubernetes does not allow the creation or update of a ClusterRoleBinding unless at least one of the following two conditions is met:
+      1) the caller has the permission it is granting
+      2) the caller has the `containers.clusterRoles.bind` permission
+    links:
+      - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-binding-creation-or-update
+  delete:
+    vulnerabilities: [destruction:policy]
+    notes: >-
+      Deleting a ClusterRoleBinding removes the permissions of the ClusterRole from a list of principals
+  get:
+    vulnerabilities: [discovery:policy]
+    scope: LOW
+    notes: >-
+      Retrieves the list of principals and the role in a specific ClusterRoleBinding
+  list:
+    vulnerabilities: [discovery:policy]
+    scope: LOW
+    notes: >-
+      List all ClusterRoleBindings within a namespace
+  update:
+    vulnerabilities: [escalation:privilege]
+    scope: MEDIUM
+    notes: >-
+      Kubernetes does not allow the creation or update of a ClusterRoleBinding unless one of the following two conditions are met:
+      1) the caller has the permission it is granting
+      2) the caller has the `containers.clusterRoles.bind` permission
