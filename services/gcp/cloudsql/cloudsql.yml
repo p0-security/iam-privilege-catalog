@@ -4,8 +4,8 @@ description: >-
   maintain, manage, and administer relational databases.
 scope: CRITICAL
 notes: >-
-  Cloud SQL provides a secure and scalable solution for storing and 
-  accessing relational data in the cloud. It supports various database engines, such as MySQL, PostgreSQL, and SQL Server.
+  Cloud SQL provides a secure and scalable solution for storing and accessing relational data in the cloud. It supports various database engines, such as MySQL, PostgreSQL, and SQL Server. 
+  The CRITICAL scope is assigned to reflect the criticality of the service to the organization's operations and data. Any compromise or disruption to the Cloud SQL instances can have severe impacts on business continuity, data integrity, and overall system availability.
 
 privileges:
   createInstance:
@@ -21,14 +21,12 @@ privileges:
   createDatabase:
     vulnerabilities: [impact:spend]
     notes: >-
-      This privilege enables users to create databases within a Cloud SQL instance. 
-      It involves the potential excessive costs due to resource usage.
+      This privilege enables users to create databases within a Cloud SQL instance. It involves the potential excessive costs due to resource usage.
 
   deleteDatabase:
     vulnerabilities: [destruction:data, destruction:infra]
     notes: >-
-      With this privilege, users can delete databases within a Cloud SQL instance. 
-      It poses risks to data integrity and potential impact on the infrastructure.
+      With this privilege, users can delete databases within a Cloud SQL instance. It poses risks to data integrity and potential impact on the infrastructure.
 
   deleteUser:
     vulnerabilities: [destruction:data]
