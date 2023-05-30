@@ -57,14 +57,14 @@ privileges:
       The vulnerabilities indicate the potential impact on unauthorized access to SSL certificates.
 
   manageReplication:
-    vulnerabilities: [impact:infra]
+    vulnerabilities: [impact:spend]
     notes: >-
       This privilege enables users to manage replication settings for a Cloud SQL instance, 
       including configuring replica instances and replication types. The vulnerabilities suggest the risks of privilege escalation, 
       potential impact on data integrity, and infrastructure changes related to replication.
 
   manageBackups:
-    vulnerabilities: [destruction:data, impact:infra]
+    vulnerabilities: [destruction:data, impact:spend]
     notes: >-
       Users with this privilege can manage backups for Cloud SQL instances, 
       including scheduling backups, configuring retention policies, and managing backup storage. 
