@@ -72,7 +72,7 @@ privileges:
       - impact:hijack
       - impact:spend
     notes: >-
-      Only ReplicaSets without a Deployment may be updated. Updates to Replicasets owned by a Deployment will succeed but have no effect on the ReplicaSet.
+      Only ReplicaSets without a Deployment may be updated. Updates to ReplicaSets owned by a Deployment will succeed but have no effect on the ReplicaSet.
       An update may set the replica count to 0 which effectively deletes the application. An update may also let an attacker
       change the container image that is running inside pods, potentially leading to a complete takeover of the Kubernetes cluster.
       Secondly, increasing the replica count in ReplicaSets drains the limited resources available to other Kubernetes workloads.
@@ -84,7 +84,7 @@ privileges:
       - impact:hijack
       - impact:spend
     notes: >-
-      Only ReplicaSets without a Deployment may be updated. Updates to Replicasets owned by a Deployment will succeed but have no effect on the ReplicaSet.
+      Only ReplicaSets without a Deployment may be updated. Updates to ReplicaSets owned by a Deployment will succeed but have no effect on the ReplicaSet.
       Allows updating the replica count, including setting replicas to 0. If properties other than replicas are updated in the PATCH
       request, those are quietly ignored. Secondly, increasing the replica count in ReplicaSets drains the limited resources available to 
       other Kubernetes workloads.

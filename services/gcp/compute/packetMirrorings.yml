@@ -1,0 +1,39 @@
+name: Compute Engine packet mirroring
+description: >-
+  Packet mirroring allows duplication and forwarding of packets on a virtual private cloud.
+scope: MEDIUM
+notes: >-
+  Packet mirroring allows inspection of network traffic, allowing access to unencrypted network
+  data.
+privileges:
+  create:
+    vulnerabilities:
+      - collection:data
+      - impact:consumption
+      - impact:spend
+    notes: >-
+      Consumes mirroring quota and incurs spend proportional to the amount of mirrored network
+      data. When combined with a compromised instance (used as the packet collector), allows collection
+      of network data.
+  delete:
+    vulnerabilities: [destruction:defense]
+    notes:
+      Primary packet-mirroring use cases include intrusion-detection systems (IDS) and deep-packet
+      inspection (DPI) tools. Disabling packet-mirroring prevents these systems from functioning.
+  get:
+    vulnerabilities: [discovery:network]
+  list:
+    vulnerabilities: [discovery:network]
+  update:
+    vulnerabilities:
+      - collection:data
+      - destruction:defense
+      - impact:consumption
+      - impact:spend
+    notes: >-
+      Can be used to modify which network components are mirrored and how they are filtered, leading to
+      either increased network collection or defeated security monitoring.
+links:
+  - https://cloud.google.com/vpc/docs/packet-mirroring
+  - https://cloud.google.com/sdk/gcloud/reference/compute/packet-mirrorings
+  - https://cloud.google.com/compute/docs/reference/rest/v1/packetMirrorings

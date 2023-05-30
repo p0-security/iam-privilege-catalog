@@ -1,7 +1,7 @@
 name: BackendConfig custom resource definition for Google Kubernetes Engine
 description: >-
   BackendConfig objects are reusable configurations for Kubernetes Service objects.
-  BackendConfigs set the destination Service for incoming requests, thus they pertain to external-to-internal communcations. 
+  BackendConfigs set the destination Service for incoming requests, thus they pertain to external-to-internal communications. 
   Other ingress parameters of a BackendConfig include service response timeout, Cloud CDN, 
   HTTP access logging, Session Affinity.
 scope: MEDIUM

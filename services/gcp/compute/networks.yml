@@ -1,0 +1,106 @@
+name: Compute Engine virtual-private-cloud networks
+description: >-
+  Allows management of virtual-private-cloud networks (VPCs). A VPC is a logically isolated
+  network, allowing communication of instances within the network, isolation of instances from
+  entities outside the network, and policy-based network controls between instances within the
+  network, and entities outside of it.
+scope: HIGH
+notes: >-
+  VPCs are generally highly sensitive. Alterations to, or destruction of, the VPC can prevent
+  instances from serving applications, processing data, and the like. Obtaining access to the VPC
+  can allow access to attached instance services. Finally, altering a VPC can allow data to be
+  extracted from an otherwise compromised instance.
+privileges:
+  access:
+    vulnerabilities: []
+    notes: >-
+      The use of this permission within Google Cloud is unknown, although may be related to
+      VPC access connectors (see the `vpcaccess` service).
+  addPeering:
+    vulnerabilities: [escalation:network]
+    notes: >-
+      Connects two VPCs into one effective network. Allows access to one network when the other
+      is already compromised.
+  create:
+    vulnerabilities: []
+    notes: >-
+      Newly created networks must be connected to resources to be exploitable. A network
+      generally incurs cost only when it serves traffic.
+  delete:
+    vulnerabilities: [destruction:network]
+  get:
+    vulnerabilities: [discovery:network]
+    scope: MEDIUM
+    notes: >-
+      Only allows discovery of peered VPC identifiers.
+  getEffectiveFirewalls:
+    vulnerabilities: [discovery:policy]
+  getRegionEffectiveFirewalls:
+    vulnerabilities: [discovery:policy]
+    notes: >-
+      No documented use, but may reasonably be assumed to yield similar information as the `getEffectiveFirewalls`
+      privilege.
+  list:
+    vulnerabilities: [discovery:network]
+    scope: MEDIUM
+    notes: See `get`.
+  listPeeringRoutes:
+    vulnerabilities: [discovery:network]
+  mirror:
+    vulnerabilities:
+      - collection:data
+      - impact:spend
+    notes: >-
+      Packet mirroring duplicates packets sent over the VPC and forwards them to another instance. If that instance
+      is compromised, can allow direct read access on all network traffic. Since networks are billed by network traffic,
+      can also significantly increase cloud spend. Exploitation requires additional compute.packetMirrorings
+      permissions.
+    links:
+      - https://cloud.google.com/sdk/gcloud/reference/compute/packet-mirrorings
+  removePeering:
+    vulnerabilities: [destruction:network]
+    notes: >-
+      Disconnects two VPCs from each other. Prevents communication between network resources split between the
+      disconnected VPCs.
+  setFirewallPolicy:
+    vulnerabilities:
+      - destruction:policy
+      - escalation:network
+      - impact:access
+      - impact:dos
+    notes: >-
+      When used to allow additional access, can either allow access to compute network endpoints, or allow
+      outbound exfiltration of data from otherwise compromised instances. When used to remove access, can
+      prevent service operation or account access.
+  switchToCustomMode:
+    vulnerabilities: []
+    notes: >-
+      Custom mode VPCs are not automatically created with subnets.
+  update:
+    vulnerabilities: []
+    notes: >-
+      Can be used to change firewall application order, modify BGP routing mode, or put the VPC in custom mode.
+  updatePeering:
+    vulnerabilities:
+      - impact:access
+    scope: MEDIUM
+    notes: >-
+      Can be used to alter how routes are shared between VPCs, or prevent IPv6 traffic between VPCs.
+  updatePolicy:
+    vulnerabilities: []
+    notes: >-
+      No documented use.
+  use:
+    vulnerabilities:
+      - escalation:network
+    notes: >-
+      Likely necessary to add an instance to a VPC. Can gain access to an instance from a compromised network or
+      vice-versa.
+  useExternalIp:
+    vulnerabilities: []
+    notes: >-
+      No documented use (external IPs are generally attached directly to instances).
+links:
+  - https://cloud.google.com/vpc/docs/vpc
+  - https://cloud.google.com/sdk/gcloud/reference/compute/networks
+  - https://cloud.google.com/compute/docs/reference/rest/v1/networks

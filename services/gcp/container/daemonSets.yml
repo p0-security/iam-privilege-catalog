@@ -5,7 +5,7 @@ scope: CRITICAL
 notes: >-
   DaemonSets manage pods, similar to ReplicaSets and StatefulSets. A DaemonSet ensures
   there is the desired number of pods running on each node. If DaemonSets are allowed to connect
-  to the public internet, it may open up the door for arbirary code execution for an attacker.
+  to the public internet, it may open up the door for arbitrary code execution for an attacker.
   See notes on `container/deployments` for mitigations.
 privileges:
   create:
