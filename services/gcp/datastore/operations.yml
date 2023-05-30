@@ -1,0 +1,28 @@
+name: Operations
+description: >-
+  Manages Cloud Datastore admin operations that include importing and exporting large amounts of data, running complex queries
+  analyze data and generate reports.
+scope: MEDIUM
+notes: >-
+
+privileges:
+  cancel:
+    vulnerabilities: [impact:spend]
+    notes: >-
+      Cancel a currently-running Cloud Datastore admin operation. Cancelling a long running operation might result in the operation being re-run thereby incurring spend.
+  delete:
+    vulnerabilities: [destruction:logs]
+    notes: >-
+      Deletes a completed Cloud Datastore admin operation. This results in loss of history of operations that are performed in the system.
+  get:
+    vulnerabilities: [discovery:metadata]
+    notes: >-
+      Gets the latest state of a long-running operation.
+  list:
+    vulnerabilities: []
+    notes: >-
+      	Lists operations that match the specified filter in the request.
+
+links:
+  - https://cloud.google.com/datastore/docs/export-import-entities#listing_all_long-running_operations
+  - https://cloud.google.com/datastore/docs/reference/admin/rest/v1/projects.operations
