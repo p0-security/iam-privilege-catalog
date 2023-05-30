@@ -34,7 +34,7 @@ privileges:
       - discovery:network
     scope: MEDIUM
     notes: >-
-      Describes detailed metadata about the StatfulSet, and Pods and Containers in it,
+      Describes detailed metadata about the StatefulSet, and Pods and Containers in it,
       such as ports, IP address, replicas, attached volumes, containers and the images
       they are running.
   getScale:
