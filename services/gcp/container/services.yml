@@ -1,9 +1,12 @@
 name: Kubernetes Engine Services
 description: >-
-  Exposes
+  Services provide a stable network endpoint for one or more pods, allowing them to be 
+  accessed by other pods or external clients.
 scope: CRITICAL
 notes: >-
   Services control how your Kubernetes Pods are exposed on the Kubernetes network.
+links:
+  - https://kubernetes.io/docs/concepts/services-networking/service
 privileges:
   create:
     vulnerabilities:
