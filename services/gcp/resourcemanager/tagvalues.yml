@@ -1,0 +1,26 @@
+name: Google Cloud Tag Values
+description: >-
+  Tags are metadata attached to resources in the form of key-value pairs, and are frequently used with conditional IAM policies.
+scope: LOW
+privileges:
+  create:
+    vulnerabilities: [impact:consumption]
+  delete:
+    vulnerabilities: []
+    notes: >-
+      Tag values in use by any tag bindings cannot be deleted.
+  get:
+    vulnerabilities: [discovery:metadata]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list:
+    vulnerabilities: [discovery:metadata]
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    vulnerabilities: []
+    notes: >
+      Only allows updating the tag description.
+
+links:
+  - https://cloud.google.com/resource-manager/docs/tags/tags-overview
