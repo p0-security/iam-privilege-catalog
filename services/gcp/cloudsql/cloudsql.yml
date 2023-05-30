@@ -42,7 +42,7 @@ privileges:
     notes: >-
       This privilege enables users to establish a connection to a Cloud SQL instance. 
       The vulnerability "data discovery" implies the risk of unauthorized access to sensitive data.
-  
+
   viewLogs:
     vulnerabilities: [discovery:data]
     notes: >-
@@ -62,7 +62,7 @@ privileges:
       This privilege enables users to manage replication settings for a Cloud SQL instance, 
       including configuring replica instances and replication types. The vulnerabilities suggest the risks of privilege escalation, 
       potential impact on data integrity, and infrastructure changes related to replication.
-  
+
   manageBackups:
     vulnerabilities: [destruction:data, impact:infra]
     notes: >-
