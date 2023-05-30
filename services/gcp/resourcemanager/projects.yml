@@ -2,9 +2,14 @@ name: Google Cloud Projects
 description: >-
   A project is the base-level resource through which you interact with Google Cloud services.
 scope: CRITICAL
+notes: >-
+  This is a critical resource because impacting the project can impact any organizational functionality
+  using the project. This can include all services running in the project and all data stored within it.
 privileges:
   create:
     vulnerabilities: [impact:spend, impact:consumption]
+    notes: >-
+      Each organization has a limited quota of active projects they can create.
   createBillingAssignment:
     vulnerabilities: [impact:dos]
     notes: >-
@@ -37,7 +42,7 @@ privileges:
   setIamPolicy:
     vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
   undelete:
-    vulnerabilities: []
+    vulnerabilities: [impact:spend]
   update:
     vulnerabilities: [destruction:metadata]
     notes: >-
