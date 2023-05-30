@@ -26,13 +26,12 @@ privileges:
     notes: >-
       Users with this privilege can delete database users within a Cloud SQL instance. It poses risks to data integrity.
   getConnection:
-    vulnerabilities: [discovery:data]
-    notes: >-
-      This privilege enables users to establish a connection to a Cloud SQL instance. The vulnerability "Data discovery" implies the risk of unauthorized access to sensitive data.
+    vulnerabilities: [discovery:data, escalation:network]
   viewLogs:
     vulnerabilities: [discovery:data]
     notes: >-
-      This privilege allows users to view logs and monitoring information for a Cloud SQL instance. The vulnerability "data discovery" implies the risk of unauthorized access to log data containing potentially sensitive information.
+      This privilege allows users to view logs and monitoring information for a Cloud SQL instance. It grants visibility into system activities, database events, and performance metrics.
+       - Data Discovery: Unauthorized access to log data containing potentially sensitive information, such as queries, IP addresses, or user activity.
   manageSslCerts:
     vulnerabilities: [destruction:account]
     notes: >-
@@ -45,7 +44,6 @@ privileges:
     vulnerabilities: [collection:data, destruction:data, impact:spend]
     notes: >-
       Users with this privilege can manage backups for Cloud SQL instances, including scheduling backups, configuring retention policies, and managing backup storage. The vulnerabilities suggest the risks of potential impact on data integrity, and potential infrastructure changes related to backups.
-
   manageBackupRetention:
     vulnerabilities: [destruction:data]
     notes: >-
