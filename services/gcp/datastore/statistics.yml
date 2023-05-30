@@ -8,10 +8,8 @@ scope: LOW
 privileges:
   get:
     vulnerabilities: [discovery:metadata]
-    scope: LOW
   list:
     vulnerabilities: [discovery:metadata]
-    scope: LOW
 links:
   - https://cloud.google.com/datastore/docs/concepts/stats
   - https://cloud.google.com/datastore/docs/console/datastore-statistics
