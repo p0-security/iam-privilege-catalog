@@ -1,0 +1,6 @@
+name: Crypto destruction
+description: |
+  Allows an attacker to delete secret data, such as credentials and API keys.
+risk: CRITICAL
+mitigations:
+links:
