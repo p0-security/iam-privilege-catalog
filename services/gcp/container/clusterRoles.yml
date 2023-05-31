@@ -33,12 +33,10 @@ privileges:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-creation-or-update
   get:
     vulnerabilities: [discovery:policy]
-    scope: LOW
     notes: >-
       Retrieves the permissions contained in a specific ClusterRole.
   list:
     vulnerabilities: [discovery:policy]
-    scope: LOW
     notes: >-
       List all ClusterRoles
   update:
@@ -46,6 +44,6 @@ privileges:
     scope: MEDIUM
     notes: >-
       ClusterRole updates are dangerous because the updated role may already be assigned to principals,
-      leading to privilege escalation. However, the Kuberentes API prevents escalating privileges of
+      leading to privilege escalation. However, the Kubernetes API prevents escalating privileges of
       the current or another user via a ClusterRole creation or update, unless the user already has 
       the permission, or has the `escalate` permission.

@@ -17,7 +17,6 @@ privileges:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-binding-creation-or-update
   create:
     vulnerabilities: []
-    scope: LOW
     notes: >-
       Roles are only definitions of permissions. A role does not take effect unless
       assigned to principal via a RoleBinding.
@@ -33,12 +32,10 @@ privileges:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-creation-or-update
   get:
     vulnerabilities: [discovery:policy]
-    scope: LOW
     notes: >-
       Retrieves the permissions contained in a specific role.
   list:
     vulnerabilities: [discovery:policy]
-    scope: LOW
     notes: >-
       List all roles within a namespace
   update:
@@ -46,6 +43,6 @@ privileges:
     scope: MEDIUM
     notes: >-
       Role updates are dangerous because the updated role may already be assigned to principals,
-      leading to privilege escalation. However, the Kuberentes API prevents escalating privileges of
+      leading to privilege escalation. However, the Kubernetes API prevents escalating privileges of
       the current or another user via a Role creation or update, unless the user already has 
       the permission, or has the `escalate` permission.

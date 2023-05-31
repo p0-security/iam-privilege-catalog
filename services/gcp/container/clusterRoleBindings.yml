@@ -23,12 +23,10 @@ privileges:
       Deleting a ClusterRoleBinding removes the permissions of the ClusterRole from a list of principals
   get:
     vulnerabilities: [discovery:policy]
-    scope: LOW
     notes: >-
       Retrieves the list of principals and the role in a specific ClusterRoleBinding
   list:
     vulnerabilities: [discovery:policy]
-    scope: LOW
     notes: >-
       List all ClusterRoleBindings within a namespace
   update:
