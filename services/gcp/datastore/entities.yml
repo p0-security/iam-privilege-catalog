@@ -1,0 +1,33 @@
+name: Entities
+description: >-
+  Data objects in Firestore in Datastore mode are known as entities. An entity has one or more named properties, 
+  each of which can have one or more values. Properties can store data of various types, including strings, numbers, 
+  dates, and binary data. An entity is limited to 1 megabyte when stored. Entities operations are billed per operation 
+  and per gigabyte per month.
+scope: HIGH
+notes: >-
+  Permissions to create, edit and delete entities can result in spend towards write, read and storage quotas. Access to Entities storing
+  sensitive information can result in data exfiltration.
+privileges:
+  allocateIds:
+    vulnerabilities: []
+  create:
+    vulnerabilities: [impact:consumption, impact:spend]
+    notes: >-
+      Creating an entity also uses storage quota, which is billed per gigabyte per month along with write to the datastore.
+  delete:
+    vulnerabilities: [destruction:data, impact:spend]
+  get:
+    vulnerabilities:
+      [discovery:data, collection:data, exfiltration:data, impact:spend]
+    notes: >-
+      Getting an entity also uses read quota from the datastore.
+  list:
+    vulnerabilities: [discovery:data, impact:spend]
+  update:
+    vulnerabilities: [destruction:data, impact:spend]
+    notes: >-
+      Entity fields can be deleted by updating the document without fields. this will delete all fields in the entity.
+links:
+  - https://cloud.google.com/datastore/docs/concepts/entities
+  - https://cloud.google.com/datastore/pricing
