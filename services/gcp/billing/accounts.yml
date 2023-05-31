@@ -1,0 +1,70 @@
+name: Cloud Billing Accounts
+description: >-
+  A cloud billing account is used to define who pays for a given set of Google Cloud resources and APIs.
+  It is connected to a Google payments profile through which costs are charged.
+scope: MEDIUM
+notes: >-
+  Removing or updating billing information may render billable Google services or APIs unavailable.
+privileges:
+  close:
+    vulnerabilities: [impact:dos]
+    scope: HIGH
+    notes: >-
+      It is possible to close an active account. This stops all billable services in linked projects.
+    links:
+      - https://cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account
+  create:
+    vulnerabilities: []
+  get:
+    vulnerabilities: [discovery:account]
+    notes: >-
+      This includes only the resource name of the billing account and whether it's open.
+  getCarbonInformation:
+    vulnerabilities: []
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  getPaymentInfo:
+    vulnerabilities: [discovery:data]
+    notes: >-
+      Allows viewing full name and address associated with payment information.
+  getPricing:
+    vulnerabilities: []
+    notes: >-
+      Only exposes Google's pricing for your organization.
+  getSpendingInformation:
+    vulnerabilities: [discovery:finance]
+  getUsageExportSpec:
+    vulnerabilities: [discovery:infra]
+    scope: LOW
+    notes: >-
+      Shows where usage data is currently exported to (Cloud Storage Bucket or BigQuery table)
+  list:
+    vulnerabilities: [discovery:account]
+    notes: >-
+      This includes only the resource name of the billing account and whether it's open.
+  move:
+    vulnerabilities: [impact:spend]
+    notes: >-
+      Along with billing.accounts.removeFromOrganization, allows moving the account to a new organization. 
+      This could allow the new organization to use the account and existing payment info for billing.
+  redeemPromotion:
+    vulnerabilities: []
+  removeFromOrganization:
+    vulnerabilities: [impact:dos]
+  reopen:
+    vulnerabilities: []
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    vulnerabilities: [impact:spend]
+    notes: >-
+      Only allows changing display name, upgrading from a free trial, or redeeming promotional codes.
+  updatePaymentInfo:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      An account must have at least one payment method at all times, so the only payment method cannot be removed.
+      However, the payment method could be updated to a card that will get declined, causing a DOS.
+links:
+  - https://cloud.google.com/billing/docs/how-to/billing-access
+  - https://cloud.google.com/billing/docs/reference/rest/v1/billingAccounts
+  - https://cloud.google.com/billing/docs/how-to/custom-roles
