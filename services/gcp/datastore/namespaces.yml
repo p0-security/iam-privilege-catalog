@@ -1,0 +1,15 @@
+name: namespaces
+description: >-
+  Datastore mode enables multi-tenancy using namespaces. Namespaces are only for organizing data and are not security boundaries.
+scope: BOOST
+notes: >-
+  Information of namespaces has minimal impact without access to the data in the namespace, 
+  although in a misconfigured system using client names as namespaces leads to client enumeration.
+privileges:
+  get:
+    vulnerabilities: [discovery:data]
+  list:
+    vulnerabilities: [discovery:data]
+
+links:
+  - https://cloud.google.com/datastore/docs/concepts/multitenancy
