@@ -6,8 +6,8 @@ description: >-
 scope: CRITICAL
 notes: >-
   The security implications of Jobs are similar to other controllers, like Deployments. Jobs ultimately lead to
-  running a container image, and may allow arbitrary code execution in the cluster. That code runs with the service
-  account privileges that the Pod runs with, thus may lead to privilege escalation. Creating Jobs drains the 
+  running a container image, and may allow arbitrary code execution in the cluster. That code runs with the
+  service-account privileges that the Pod runs with, thus may lead to privilege escalation. Creating Jobs drains the 
   limited resources available to other Kubernetes workloads. Attaching Persistent Volumes to a Job may expose 
   the data on that volume to attackers.
 links:
@@ -40,7 +40,6 @@ privileges:
     vulnerabilities:
       - discovery:infra
       - discovery:network
-    scope: MEDIUM
     notes: >-
       Describes detailed metadata about the Job, Pods and Containers in it, 
       such as ports, IP address, replicas, attached volumes, containers and the images
@@ -49,7 +48,6 @@ privileges:
     vulnerabilities:
       - discovery:infra
       - discovery:network
-    scope: MEDIUM
     notes: >-
       Equivalent to `container.jobs.get`. Allows reading the `/apis/batch/v1/namespaces/{namespace}/deployments/{name}/status`
       subresource which returns the same payload as the `/apis/batch/v1/namespaces/{namespace}/deployments/{name}` resource.
@@ -57,7 +55,6 @@ privileges:
     vulnerabilities:
       - discovery:infra
       - discovery:network
-    scope: MEDIUM
     notes: >-
       Allows listing all Jobs in a namespace.
   update:

@@ -16,8 +16,8 @@ privileges:
       - destruction:infra
       - impact:access
     notes: >-
-      Allows attaching to a process that is already running inside an existing container. You get the stdout output,
-      and are able to send stdin input to the running process, for instance ctrl+c to stop the process.
+      Allows attaching to a process that is already running inside an existing container. An attacker accesses the stdout output,
+      and is able to send stdin input to the running process, for instance ctrl+c to stop the process.
   create:
     vulnerabilities:
       - impact:spend
@@ -35,6 +35,7 @@ privileges:
       - destruction:infra
       - destruction:data
       - destruction:logs
+    scope: MEDIUM
     notes: >-
       Deleting a pod deletes its pods and ephemeral volumes. PersistentVolumes
       attached to the pod are left intact. Logs of the deleted pod disappear
@@ -85,19 +86,18 @@ privileges:
     notes: >-
       List metadata about all pods.
   portForward:
-    vulnerabilities: [impact:access]
+    vulnerabilities: [escalation:network, impact:access]
     notes: >-
       Forwards a local port to a port on the Pod. This allows interaction with the application, if the application listens on
       any ports. An attacker may exploit application vulnerabilities with the ability to port-forward.
   proxy:
-    vulnerabilities: [impact:access]
+    vulnerabilities: [escalation:network, impact:access]
     notes: >-
       The proxy action forwards the HTTP request to a specific port and request path inside the container. If a process is listening
       on that port and path, this is similar in effect to port forwarding, and may allow an attacker to exploit application-level
       vulnerabilities.
   update:
     vulnerabilities: []
-    scope: LOW
     notes: >-
       An update is limited to a few fields in the Pod spec: may not change fields other than 
       spec.containers[*].image, spec.initContainers[*].image, spec.activeDeadlineSeconds,
@@ -109,6 +109,5 @@ privileges:
       - https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#pod-v1-core
   updateStatus:
     vulnerabilities: []
-    scope: LOW
     notes: >-
       Has no effect on the actual status, as it is managed by Kubernetes.

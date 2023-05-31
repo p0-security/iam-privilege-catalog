@@ -18,7 +18,7 @@ privileges:
     vulnerabilities: []
     notes: >-
       There are two ways to create a node: self-registration from the kubelet running on the node using
-      a kubeconfig file or by manually registering the node via the Kubernete API. The `containers.node.create` 
+      a kubeconfig file or by manually registering the node via the Kubernetes API. The `containers.node.create` 
       permission allows the latter. Creating a node object manually only creates an internal node representation.
       The control plane then ensures that a node object described is valid: is available and healthy. Only then
       does it become eligible to run a Pod. This permission alone is not enough to add a new Node to a cluster.
@@ -39,7 +39,7 @@ privileges:
   get:
     vulnerabilities: [discovery:infra, discovery:network]
     notes: >-
-      The response payload contains container images stored on the nodes, as well as IP addresses, Pod CIDR ranges,
+      The response payload contains container image IDs stored on the nodes, as well as IP addresses, Pod CIDR ranges,
       health check statuses, and other metadata.
   getStatus:
     vulnerabilities: [discovery:infra, discovery:network]
@@ -52,7 +52,7 @@ privileges:
   proxy:
     vulnerabilities: [escalation:privilege, escalation:lateral]
     notes: >-
-      This permission allows calling the `api/v1/nodes/{{node}}/proxy/{{path?}}` endpoint with any HTTP method,
+      This permission allows calling the `api/v1/nodes/{node}/proxy/{path?}` endpoint with any HTTP method,
       which executes the request directly against the kubelet API on the kubelet running on the node, without further
       authorization checks. It is theoretically possible to call other endpoints of the kubelet API, such as `/exec`
       `/portForward`, that allow reading the node service account token to act as the service account, or executing

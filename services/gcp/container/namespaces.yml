@@ -17,13 +17,11 @@ privileges:
       Namespace is a logical resource, and creating one does not carry risks by itself.
   delete:
     vulnerabilities:
-      [
-        destruction:data,
-        destruction:infra,
-        destruction:logs,
-        destruction:network,
-        destruction:policy,
-      ]
+      - destruction:data
+      - destruction:infra
+      - destruction:logs
+      - destruction:network
+      - destruction:policy
     scope: CRITICAL
     notes: >-
       Deleting a namespace also deletes all other Kubernetes resources inside it.
@@ -33,7 +31,7 @@ privileges:
       Allows updating the list of finalizers. Finalizers check if a certain condition is met before deleting a 
       namespace. They may either implement garbage-collection, and are responsible for cleaning up all resources inside 
       a namespace when that namespace is deleted. Or, they may implement a protective measure and prevent the deletion
-      of a namespace, for instance the `kubernetes.io/pvc-protection` finalizer prevents accidental deletion of datra.
+      of a namespace, for instance the `kubernetes.io/pvc-protection` finalizer prevents accidental deletion of data.
       As such, the edit and removal of finalizers may remove protection measures.
     links:
       - https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/
