@@ -1,0 +1,76 @@
+name: Kubernetes Engine Nodes
+description: >-
+  Nodes are physical or virtual machines that serve as a worker in the cluster.
+  Nodes provide the underlying pool of CPU, memory, storage, and network connectivity 
+  resources for running containers and other tasks assigned by the control plane.
+scope: CRITICAL
+notes: >-
+  Kubernetes Engine can be configured in multiple ways, and the configuration has a significant
+  impact on Node security. In general, nodes should not be publicly accessible, block ssh access
+  if possible (already enforced in AutoPilot mode), isolation between containers running on the 
+  same node, isolation between the host operating system on the node and the workload running inside
+  a container, performing timely upgrades of the node OS, Kubernetes, and the container runtime.
+links:
+  - https://kubernetes.io/docs/concepts/architecture/nodes/
+  - https://cloud.google.com/kubernetes-engine/docs/concepts/security-overview
+privileges:
+  create:
+    vulnerabilities: []
+    notes: >-
+      There are two ways to create a node: self-registration from the kubelet running on the node using
+      a kubeconfig file or by manually registering the node via the Kubernetes API. The `containers.node.create` 
+      permission allows the latter. Creating a node object manually only creates an internal node representation.
+      The control plane then ensures that a node object described is valid: is available and healthy. Only then
+      does it become eligible to run a Pod. This permission alone is not enough to add a new Node to a cluster.
+    links:
+      - https://kubernetes.io/docs/concepts/architecture/nodes/#management
+      - https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
+  delete:
+    vulnerabilities: [destruction:infra, destruction:data, destruction:logs]
+    notes: >-
+      Deleting a node immediately destroys all workloads running on it. This is an unsafe action and is
+      likely to disrupt normal operations. Instead, a node can be cordoned to prevent new pods from being
+      scheduled on it. Cordoning requires the `container.nodes.update` permission.
+      To safely move workloads to other nodes, the node must be drained. The `kubectl drain` command uses
+      listing commands (list pods, replicasets, daemonsets, etc.), and the `container.pods.evict` permission.
+    links:
+      - https://kubernetes.io/docs/concepts/architecture/nodes/#manual-node-administration
+      - https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+  get:
+    vulnerabilities: [discovery:infra, discovery:network]
+    notes: >-
+      The response payload contains container image IDs stored on the nodes, as well as IP addresses, Pod CIDR ranges,
+      health check statuses, and other metadata.
+  getStatus:
+    vulnerabilities: [discovery:infra, discovery:network]
+    notes: >-
+      Allows access to the same information as `containers.nodes.get`.
+  list:
+    vulnerabilities: [discovery:infra, discovery:network]
+    notes: >-
+      List all nodes.
+  proxy:
+    vulnerabilities: [escalation:privilege, escalation:lateral]
+    notes: >-
+      This permission allows calling the `api/v1/nodes/{node}/proxy/{path?}` endpoint with any HTTP method,
+      which executes the request directly against the kubelet API on the kubelet running on the node, without further
+      authorization checks. It is theoretically possible to call other endpoints of the kubelet API, such as `/exec`
+      `/portForward`, that allow reading the node service account token to act as the service account, or executing
+      code on the node.
+    links:
+      - https://www.deepnetwork.com/blog/2020/01/13/kubelet-api.html
+      - https://blog.aquasec.com/privilege-escalation-kubernetes-rbac
+  update:
+    vulnerabilities: [impact:manipulation, destruction:metadata]
+    notes: >-
+      The things that you can typically update are the metadata labels and annotations, and fields in the `spec`
+      section of the node manifest: taints, which prevent certain pods to be scheduled on the node, and the 
+      `unschedulable` property, which effectively cordons the node.  With enough nodes cordoned or tainted the 
+      cluster may become "paralyzed" because workloads cannot be scheduled efficiently or not at all.
+    links:
+      - https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#nodespec-v1-core
+  updateStatus:
+    vulnerabilities: []
+    notes: >-
+      Allows updating only the status component of a node. Does not have any real effect since status
+      is managed by Kubernetes.
