@@ -1,7 +1,7 @@
 name: Cloud Billing Budgets
 description: >-
   Budgets allow you to monitor cloud spend by triggering alerts if spend reaches thresholds.
-  This does not automatically usage.
+  This does not automatically cap usage.
 scope: LOW
 privileges:
   get:

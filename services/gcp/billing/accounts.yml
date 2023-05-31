@@ -8,6 +8,7 @@ notes: >-
 privileges:
   close:
     vulnerabilities: [impact:dos]
+    scope: HIGH
     notes: >-
       It is possible to close an active account. This stops all billable services in linked projects.
     links:
