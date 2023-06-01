@@ -1,0 +1,23 @@
+name: Cloud DNS Changes
+description: >-
+  A Cloud DNS Change contains a set of additions and deletions atomically applied to a record managed by Cloud DNS.
+scope: LOW
+privileges:
+  create:
+    vulnerabilities: []
+    notes: >-
+      In order to actually update or delete DNS records, you need permissions on the appropriate ResourceRecordSet,
+      so changes.create on its own has no vulnerabilities.
+  get:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Allows viewing DNS record changelogs. This includes private DNS records.
+  list:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Allows viewing DNS record changelogs. This includes private DNS records.
+
+links:
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/reference/v1/changes#resource
+  - https://cloud.google.com/dns/docs/records

@@ -36,8 +36,9 @@ privileges:
     vulnerabilities:
       - discovery:network
       - discovery:policy
-      - exfiltration:account
+      - takeover:account
       - exfiltration:crypto
+      - takeover:account
       - escalation:network
       - impact:spend
       - impact:hijack
@@ -150,9 +151,10 @@ privileges:
       - discovery:network
       - discovery:policy
       - escalation:lateral
-      - exfiltration:account
+      - takeover:account
       - exfiltration:data
       - exfiltration:crypto
+      - takeover:account
       - impact:defacement
       - impact:hijack
     notes: >-

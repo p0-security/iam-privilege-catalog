@@ -1,0 +1,29 @@
+name: Response Policy Rule
+description: >-
+  A response policy rule contains a selector and optionally DNS records or 
+  configured behavior for answering DNS queries that match the selector.
+scope: MEDIUM
+privileges:
+  create:
+    vulnerabilities: [impact:dos, takeover:domain]
+    scope: HIGH
+    notes: >-
+      A response policy rule can effectively be used by an attacker to redirect traffic on a domain 
+      within the VPC network the policy is attached to.
+  delete:
+    vulnerabilities: [impact:dos, destruction:network]
+  get:
+    vulnerabilities: [discovery:policy]
+  list:
+    vulnerabilities: [discovery:policy]
+  update:
+    vulnerabilities: [impact:dos, takeover:domain]
+    scope: HIGH
+    notes: >-
+      A response policy rule can effectively be used by an attacker to redirect traffic on a domain 
+      within the VPC network the policy is attached to.
+
+links:
+  - https://cloud.google.com/dns/docs/reference/v1beta2/responsePolicyRules
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/zones/manage-response-policies

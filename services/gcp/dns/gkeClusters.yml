@@ -1,0 +1,22 @@
+name: Cloud DNS GKE Clusters
+description: >-
+  Resources used by Cloud DNS to bind a private DNS zone or a DNS response policy with a GKE cluster.
+scope: MEDIUM
+privileges:
+  bindDNSResponsePolicy:
+    vulnerabilities: [impact:dos, takeover:domain]
+    notes: >-
+      If the cluster is in a private DNS zone, an attacker can change DNS 
+      resolution behavior by binding a response policy. This can create a DOS.
+      If the attacker additionally has permissions to create or update response policy rules,
+      allows domain takeover.
+  bindPrivateDNSZone:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      If Cloud DNS is enabled on the cluster already, 
+      binding a new private DNS zone can change DNS resolution behavior, potentially creating a DOS.
+      If the attacker additionally has permissions to create or update records in any zone, allows domain takeover.
+
+links:
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/zones/configure-scopes

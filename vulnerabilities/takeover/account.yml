@@ -1,4 +1,4 @@
-name: Account exfiltration
+name: Account takeover
 description: >-
   Allows an attacker to export account identification credentials
   from a system.

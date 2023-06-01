@@ -1,0 +1,10 @@
+name: Domain takeover
+description: >-
+  Allows an attacker to arbitrarily route traffic on a domain or subdomain.
+risk: CRITICAL
+mitigations:
+  - Restrict edit access to DNS records
+  - Use firewalls for internal networks
+links:
+  - https://attack.mitre.org/techniques/T1584/002/
+  - https://attack.mitre.org/techniques/T1583/002/

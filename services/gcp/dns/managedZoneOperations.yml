@@ -1,0 +1,16 @@
+name: Cloud DNS Managed Zone Operations
+description: >-
+  An operation represents a successful mutation performed on a Cloud DNS resource.
+scope: LOW
+privileges:
+  get:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      May expose information about private Cloud DNS zones.
+  list:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      May expose information about private Cloud DNS zones.
+links:
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/reference/v1/managedZoneOperations
