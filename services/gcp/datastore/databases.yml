@@ -1,0 +1,31 @@
+name: Databases
+description: >-
+  Databases are the top level containers for data in Datastore mode. A datastore mode database is a type of database 
+  that uses the Google Cloud Datastore API to access data stored in Firestore databases.
+scope: MEDIUM
+notes: >-
+  Datastore mode quotas can be viewed in the GCP console at https://console.cloud.google.com/appengine/quotadetails.
+privileges:
+  get:
+    vulnerabilities: []
+  getMetadata:
+    vulnerabilities: []
+  list:
+    vulnerabilities: []
+  export:
+    vulnerabilities: [impact:spend]
+    notes: >-
+      Principal with this permission can export entities to a Cloud Storage bucket.
+  import:
+    vulnerabilities: [impact:consumption, impact:spend, destruction:data]
+    notes: >-
+      Principal with this permission can import entities from a file, this can consume the quota limits for entity writes and storage.
+      Existing entities with the same keys are overwritten resulting in destruction of data.
+  create:
+    vulnerabilities: []
+  update:
+    vulnerabilities: []
+links:
+  - https://cloud.google.com/datastore
+  - https://console.cloud.google.com/appengine/quotadetails
+  - https://cloud.google.com/datastore/docs/store-query-data

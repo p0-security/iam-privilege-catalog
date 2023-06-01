@@ -1,0 +1,16 @@
+name: Locations
+description: >-
+  Physical Locations of the Datastore instances.
+scope: LOW
+privileges:
+  get:
+    vulnerabilities: []
+    notes: >-
+      The information of location has minimal impact without access physical access to the location.
+  list:
+    vulnerabilities: []
+    scope: PUBLIC
+    notes: >-
+      Publicly available information about location of datastores.
+links:
+  - https://cloud.google.com/datastore/docs/locations
