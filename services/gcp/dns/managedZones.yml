@@ -1,0 +1,38 @@
+name: Cloud DNS Managed Zone
+description: >-
+  A DNS zone hosted and managed by the Cloud DNS service.
+scope: MEDIUM
+notes: >-
+  Cloud DNS supports a variety of different public and private zones, including forwarding zones and peering zones.
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+  delete:
+    vulnerabilities: [impact:dos, destruction:network, takeover:domain]
+    notes: >-
+      Deleting the managed zone without deleting the records inside it leave those domains 
+      open for takeover.
+    links:
+      - https://xebia.com/blog/how-to-take-over-a-subdomain-in-google-cloud-dns/
+  get:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Can expose information about private DNS zones.
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Can expose information about private DNS zones.
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    vulnerabilities:
+      [impact:dos, discovery:network, destruction:defense, destruction:metadata]
+    notes: >-
+      Can change the forwarding config, peering config, or visibility in order to create a DOS. 
+      Can change the visibility of the zone to public. Can update metadata.
+
+links:
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/reference/v1/managedZones#resource

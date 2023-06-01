@@ -1,0 +1,15 @@
+name: DNS Keys
+description: >-
+  Automatically managed DNS keys for Cloud DNS records.
+scope: PUBLIC
+notes: >-
+  Private keys are automatically managed by Google. Only public keys and metadata are viewable.
+privileges:
+  get:
+    vulnerabilities: []
+  list:
+    vulnerabilities: []
+links:
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/dnskeys
+  - https://cloud.google.com/dns/docs/reference/v1/dnsKeys

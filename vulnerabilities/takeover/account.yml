@@ -1,8 +1,8 @@
-name: Account exfiltration
+name: Account takeover
 description: >-
   Allows an attacker to export account identification credentials
   from a system.
-risk: CRITICAL
+risk: HIGH
 mitigations:
   - Rotate account credentials
   - Require multi-factor authentication

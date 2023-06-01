@@ -15,7 +15,7 @@ privileges:
   delete:
     vulnerabilities: [destruction:infra]
   get:
-    vulnerabilities: [discovery:infra, exfiltration:account]
+    vulnerabilities: [discovery:infra, takeover:account]
     notes: >-
       In the case of connections to Cloud SQL, directly exposes the database username and password.
   getIamPolicy:

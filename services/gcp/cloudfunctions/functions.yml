@@ -56,7 +56,7 @@ privileges:
       - discovery:infra
       - discovery:data
       - exfiltration:data
-      - exfiltration:account
+      - takeover:account
       - impact:spend
       - impact:hijack
     notes: >-
@@ -81,7 +81,7 @@ privileges:
       - discovery:infra
       - discovery:data
       - exfiltration:data
-      - exfiltration:account
+      - takeover:account
     notes: >-
       Allows for updating ingress and egress network traffic settings as well as updating encryption keys 
       Additionally includes the same set of vulnerabilities as create when the user also has sourceCodeSet permissions.
@@ -95,7 +95,7 @@ privileges:
       - discovery:infra
       - discovery:data
       - exfiltration:data
-      - exfiltration:account
+      - takeover:account
     notes: >-
       Includes DOS, data manipulation, spend, and hijack vulnerabilities.
       Additionally includes the same set of vulnerabilities as create when the user also has update permissions.

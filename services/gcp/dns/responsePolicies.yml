@@ -1,0 +1,26 @@
+name: Cloud DNS Response Policies
+description: >-
+  A Response Policy is a collection of rules attached to a VPC network that will be used for DNS lookups.
+scope: MEDIUM
+privileges:
+  create:
+    vulnerabilities: []
+  notes: >-
+    A created response policy cannot be used on a VPC networks without permissions on the network.
+    Creating a response policy just attaches it to the network, adding any rules requires separate
+    permissions on rules.
+  delete:
+    vulnerabilities: [impact:dos, destruction:policy]
+  get:
+    vulnerabilities: [discovery:policy]
+  list:
+    vulnerabilities: [discovery:policy]
+  update:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      Updating an existing response policy can create a DOS by removing it from the attached network.
+      Updating any rules requires permissions on rules.
+links:
+  - https://cloud.google.com/dns/docs/reference/v1/responsePolicies
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/zones/manage-response-policies

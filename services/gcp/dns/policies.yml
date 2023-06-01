@@ -1,0 +1,32 @@
+name: Cloud DNS Server Policies
+description: >-
+  Specifies inbound and DNS forwarding for a VPC network.
+  Each VPC network can have up to one server policy configured.
+scope: MEDIUM
+privileges:
+  create:
+    vulnerabilities: []
+    notes: >-
+      Creation does nothing without permission to bind the policy to a network.
+  delete:
+    vulnerabilities: [impact:dos, destruction:policy]
+    notes: >-
+      Removing the correct DNS forwarding rules may cause a DOS.
+  get:
+    vulnerabilities: [discovery:network]
+  getIamPolicy:
+    vulnerabilities: [discovery:policy, discovery:account]
+  list:
+    vulnerabilities: [discovery:network]
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      Update allows enabling or disabling both inbound or outbound forwarding, which can impact
+      proper name resolution.
+
+links:
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/server-policies-overview
+  - https://cloud.google.com/dns/docs/reference/v1beta2/policies

@@ -1,0 +1,25 @@
+name: Resource Record Set
+description: >-
+  A resource record set either contains a DNS record managed by Cloud DNS or a routing policy.
+scope: HIGH
+privileges:
+  create:
+    vulnerabilities: [takeover:domain]
+    notes: >-
+      By creating DNS records in an active managed zone, an attacker can cause some of the traffic to your 
+      domains to be directed to them.
+  delete:
+    vulnerabilities: [impact:dos, destruction:network]
+  get:
+    vulnerabilities: [discovery:network]
+  list:
+    vulnerabilities: [discovery:network]
+  update:
+    vulnerabilities: [impact:dos, takeover:domain]
+    notes: >-
+      Edit access to DNS records.
+links:
+  - https://cloud.google.com/dns/docs/reference/v1/resourceRecordSets
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/records
+  - https://cloud.google.com/dns/docs/zones/manage-routing-policies

@@ -1,0 +1,13 @@
+name: Cloud DNS Projects
+description: >-
+  A DNS project is the top-level resource that contains all Cloud DNS resources within the Google project.
+scope: LOW
+privileges:
+  get:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Allows viewing statistics about the total number of DNS records, zones, policies of each type in the project.
+
+links:
+  - https://cloud.google.com/dns/docs/access-control
+  - https://cloud.google.com/dns/docs/reference/v1/projects
