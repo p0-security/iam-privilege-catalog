@@ -1,0 +1,20 @@
+name: Cloud domains operations
+description: >-
+  Operations represent long-running cloud domain API calls. 
+  They are used for create, delete, update, and configuration operations on domain registrations.
+scope: PUBLIC
+notes: >-
+  Domain registrations are public, so though operations expose registration info, it is not sensitive.
+privileges:
+  get:
+    vulnerabilities: []
+  list:
+    vulnerabilities: []
+  cancel:
+    vulnerabilities: [impact:dos]
+    notes: >-
+      Can cancel running operations on registrations, such as configuration changes.
+
+links:
+  - https://cloud.google.com/domains/docs/access-control
+  - https://cloud.google.com/domains/docs/reference/rest/v1beta1/projects.locations.operations
