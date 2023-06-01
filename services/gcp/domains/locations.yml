@@ -1,0 +1,11 @@
+name: Cloud Domains Locations
+description: >-
+  Infrastructure regions available for Google Cloud Domains.
+scope: PUBLIC
+notes: >-
+  This resource contains public information about Google's location offerings for Cloud Domains.
+privileges:
+  list:
+    vulnerabilities: []
+links:
+  - https://cloud.google.com/domains/docs/access-control

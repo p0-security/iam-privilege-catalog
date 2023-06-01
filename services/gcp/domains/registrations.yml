@@ -1,0 +1,70 @@
+name: Cloud domains registration
+description: >-
+  A registration is a resource representing a domain registration managed by Cloud Domains. 
+  It facilitates managing and configuring domain name registrations
+scope: HIGH
+notes: >-
+  Though the contents of domain registrations are public, this resource contains many permissions
+  to update and configure domain registrations which are highly sensitive.
+privileges:
+  configureContact:
+    vulnerabilities: []
+    notes: >-
+      Only allows updating a registration's contact settings.
+  configureDns:
+    vulnerabilities: [impact:dos, takeover:domain]
+    notes: >-
+      Allows updating DNS settings, including specifying custom name servers. 
+      Allows an attacker to route traffic on the domain.
+  configureManagement:
+    vulnerabilities: [destruction:infra, takeover:domain]
+    notes: >-
+      Allows updating domain settings, such as 
+      renewal settings and whether the domain is locked from being transferred to another registrar.
+      Also allows exporting the domain so that it is no longer managed by Cloud Domains (it is still
+      accessible through Google Domains).
+      Additionally allows retrieving the authorization code for transferring the domain to another registrar.
+      These permissions combined can allow an attacker to gain control over the domain by transferring it 
+      to another registrar.
+  create:
+    vulnerabilities: [impact:spend]
+  createTagBinding:
+    vulnerabilities: [impact:access, escalation:privilege]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The
+      vulnerabilities apply if the tag is used in any policies.
+  delete:
+    vulnerabilities: [destruction:infra]
+    notes: >-
+      If an active domain registration is deleted, the domain can still be managed through Google Domains
+      until its expiry. This just deletes the domain's managed registration in Cloud Domains.
+    links:
+      - https://cloud.google.com/domains/docs/delete-domain
+  deleteTagBinding:
+    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The
+      vulnerabilities apply if the tag is used in any policies
+  get:
+    vulnerabilities: []
+    scope: PUBLIC
+  getIamPolicy:
+    vulnerabilities: [discovery:account, discovery:policy]
+  list:
+    vulnerabilities: []
+    scope: PUBLIC
+  listEffectiveTags:
+    vulnerabilities: [discovery:policy]
+  listTagBindings:
+    vulnerabilities: [discovery:policy]
+  setIamPolicy:
+    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    vulnerabilities: [destruction:metadata]
+    notes: >-
+      Only allows updating labels on the registration.
+
+links:
+  - https://cloud.google.com/domains/docs/access-control
+  - https://cloud.google.com/domains/docs/reference/rest/v1beta1/projects.locations.registrations
+  - https://cloud.google.com/domains/docs/overview
