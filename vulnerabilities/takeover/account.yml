@@ -2,7 +2,7 @@ name: Account takeover
 description: >-
   Allows an attacker to export account identification credentials
   from a system.
-risk: HIGH
+risk: CRITICAL
 mitigations:
   - Rotate account credentials
   - Require multi-factor authentication

@@ -1,10 +1,12 @@
 name: Resource Record Set
 description: >-
-  A resource record set either contains a DNS record managed by Cloud DNS or a routing policy.
-scope: HIGH
+  A resource record set either contains a DNS record managed by Cloud DNS or a routing policy. 
+  This includes both public and private DNS records.
+scope: MEDIUM
 privileges:
   create:
     vulnerabilities: [takeover:domain]
+    scope: CRITICAL
     notes: >-
       By creating DNS records in an active managed zone, an attacker can cause some of the traffic to your 
       domains to be directed to them.
@@ -16,6 +18,7 @@ privileges:
     vulnerabilities: [discovery:network]
   update:
     vulnerabilities: [impact:dos, takeover:domain]
+    scope: CRITICAL
     notes: >-
       Edit access to DNS records.
 links:

@@ -2,10 +2,11 @@ name: Response Policy Rule
 description: >-
   A response policy rule contains a selector and optionally DNS records or 
   configured behavior for answering DNS queries that match the selector.
-scope: HIGH
+scope: MEDIUM
 privileges:
   create:
     vulnerabilities: [impact:dos, takeover:domain]
+    scope: HIGH
     notes: >-
       A response policy rule can effectively be used by an attacker to redirect traffic on a domain 
       within the VPC network the policy is attached to.
@@ -17,6 +18,7 @@ privileges:
     vulnerabilities: [discovery:policy]
   update:
     vulnerabilities: [impact:dos, takeover:domain]
+    scope: HIGH
     notes: >-
       A response policy rule can effectively be used by an attacker to redirect traffic on a domain 
       within the VPC network the policy is attached to.
