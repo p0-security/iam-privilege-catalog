@@ -1,0 +1,17 @@
+name: Cloud Logging Logs
+description: >-
+  A Cloud Logging log contains log entries.
+scope: MEDIUM
+privileges:
+  delete:
+    vulnerabilities: [destruction:logs]
+    notes: >-
+      Destroys all log entries.
+  list:
+    vulnerabilities: []
+    notes: >-
+      Does not allow viewing log entries.
+
+links:
+  - https://cloud.google.com/logging/docs/reference/v2/rest/v2/organizations.logs
+  - https://cloud.google.com/logging/docs/access-control

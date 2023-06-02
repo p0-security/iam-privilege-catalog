@@ -1,0 +1,34 @@
+name: Cloud Logging Buckets
+description: >-
+  A Cloud logging bucket is a container used by Cloud Logging to store and organize logs data.
+scope: MEDIUM
+privileges:
+  copyLogEntries:
+    vulnerabilities: [exfiltration:logs]
+  create:
+    vulnerabilities: [impact:spend, impact:consumption]
+  delete:
+    vulnerabilities: [destruction:logs]
+  undelete:
+    vulnerabilities: [impact:spend, impact:consumption]
+  update:
+    vulnerabilities: [impact:encryption]
+    notes: >-
+      Allows updating or adding a customer-managed encryption key 
+      used to encrypt the bucket.
+  write:
+    vulnerabilities: [impact:spend]
+    notes: >-
+      Allows routing logs to the bucket
+  get:
+    vulnerabilities: [discovery:infra]
+    notes: >-
+      Does not allow viewing logs in the bucket.
+  list:
+    vulnerabilities: [discovery:infra]
+    notes: >-
+      Does not allow viewing logs in the bucket.
+links:
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/buckets
+  - https://cloud.google.com/logging/docs/routing/overview

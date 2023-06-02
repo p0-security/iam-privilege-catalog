@@ -1,0 +1,13 @@
+name: Cloud Logging Fields
+description: >-
+  Individual fields in Cloud Logging entries
+scope: MEDIUM
+notes: >-
+  Cloud logging supports field-level access control.
+  This resource is used to restrict access to sensitive fields.
+privileges:
+  access:
+    vulnerabilities: [exfiltration:logs]
+links:
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/field-level-acl

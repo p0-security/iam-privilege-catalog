@@ -1,0 +1,48 @@
+name: Cloud Logging Views
+description: >-
+  A log view is a filtered view of log entries in a bucket. This provides more granular access
+  control over logs.
+scope: MEDIUM
+privileges:
+  access:
+    vulnerabilities: []
+    notes: >-
+      The specfic use of this permission is unknown.
+  create:
+    vulnerabilities: [impact:spend, impact:consumption]
+    notes: >-
+      You can only have 30 log views on a bucket.
+  delete:
+    vulnerabilities: [destruction:infra, impact:access]
+    notes: >-
+      Does not delete the log entries.. 
+      Because the primary use case of a view is to provide limited access to logs,
+      deleting a view can result in users losing access to logs.
+  get:
+    vulnerabilities: [discovery:logs]
+    notes: >-
+      Does not provide access to log entries.
+  list:
+    vulnerabilities: [discovery:logs]
+    notes: >-
+      Does not provide access to log entries.
+  listLogs:
+    vulnerabilities: [exfiltration:logs]
+  listResourceKeys:
+    vulnerabilities: []
+    notes: >-
+      The specfic use of this permission is unknown.
+  listResourceValues:
+    vulnerabilities: []
+    notes: >-
+      The specfic use of this permission is unknown.
+  update:
+    vulnerabilities: [exfiltration:logs]
+    notes: >-
+      Allows updating the log filter on a view. If combined with listLogs access
+      on any view, can allow arbitrary logs access.
+
+links:
+  - https://cloud.google.com/logging/docs/routing/overview#log-views
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/logs-views

@@ -1,0 +1,24 @@
+name: Cloud Logging Sinks
+description: >-
+  Logging sinks control how logs are routed. They can be used to export logs to Cloud Storage,
+  BigQuery, a Cloud Logging bucket, or a Pub/Sub topic.
+scope: MEDIUM
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+  delete:
+    vulnerabilities: [destruction:infra]
+  get:
+    vulnerabilities: [discovery:logs]
+  list:
+    vulnerabilities: [discovery:logs]
+  update:
+    vulnerabilities: [destruction:defense]
+    notes: >-
+      Updating a log sink can update the filter used to exclude logs from being
+      routed by the sink. This can impair defenses by allowing an attacker to filter 
+      out their activity in the system.
+links:
+  - https://cloud.google.com/logging/docs/routing/overview#sinks
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/reference/v2/rest/v2/sinks
