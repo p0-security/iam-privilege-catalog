@@ -7,7 +7,7 @@ privileges:
   access:
     vulnerabilities: []
     notes: >-
-      The specfic use of this permission is unknown.
+      The specific use of this permission is unknown.
   create:
     vulnerabilities: [impact:spend, impact:consumption]
     notes: >-
@@ -31,11 +31,11 @@ privileges:
   listResourceKeys:
     vulnerabilities: []
     notes: >-
-      The specfic use of this permission is unknown.
+      The specific use of this permission is unknown.
   listResourceValues:
     vulnerabilities: []
     notes: >-
-      The specfic use of this permission is unknown.
+      The specific use of this permission is unknown.
   update:
     vulnerabilities: [exfiltration:logs]
     notes: >-
