@@ -1,0 +1,21 @@
+name: Cloud Logging Exclusion
+description: >-
+  A Cloud Logging Exclusion specifies a set of log entries that are filtered out by a sink.
+scope: MEDIUM
+notes: >-
+  Exclusion operations apply to the _Default logging sink.
+  An attacker may manipulate exclusions to hide their activity in order to evade detection.
+privileges:
+  create:
+    vulnerabilities: [destruction:defense]
+  get:
+    vulnerabilities: [discovery:infra]
+  delete:
+    vulnerabilities: [impact:spend]
+  list:
+    vulnerabilities: [discovery:infra]
+  update:
+    vulnerabilities: [destruction:defense]
+links:
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/reference/v2/rest/v2/projects.exclusions

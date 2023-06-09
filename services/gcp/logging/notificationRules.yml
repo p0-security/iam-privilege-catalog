@@ -1,0 +1,22 @@
+name: Cloud Logging Notification Rules
+description: >-
+  Notification rules allow configuring automated alerts based on logs.
+notes: >-
+  By changing notification rules, an attacker can evade detection by preventing any alerts 
+  that may be triggered by their activity.
+scope: MEDIUM
+privileges:
+  create:
+    vulnerabilities: []
+  delete:
+    vulnerabilities: [destruction:defense]
+  get:
+    vulnerabilities: [discovery:logs]
+  list:
+    vulnerabilities: [discovery:logs]
+  update:
+    vulnerabilities: [destruction:defense]
+
+links:
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/alerting/log-based-alerts

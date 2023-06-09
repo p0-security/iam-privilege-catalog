@@ -1,0 +1,29 @@
+name: Cloud Logging Queries
+description: >-
+  Logging queries allow you to retrieve a specific set of logs.
+scope: LOW
+notes: >-
+  Permissions on queries is not sufficient in order to read log entries.
+  To actually read log entries/view the result of queries, you additionally need permissions on the
+  logs or log entries.
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+  list:
+    vulnerabilities: [discovery:logs]
+  get:
+    vulnerabilities: [discovery:logs]
+  share:
+    vulnerabilities: []
+  listShared:
+    vulnerabilities: [discovery:logs]
+  update:
+    vulnerabilities: [destruction:infra]
+  updateShared:
+    vulnerabilities: [destruction:infra]
+  delete:
+    vulnerabilities: [destruction:infra]
+
+links:
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/view/building-queries

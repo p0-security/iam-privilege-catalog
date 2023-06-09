@@ -1,0 +1,13 @@
+name: Cloud Logging Locations
+description: >-
+  Infrastructure regions available for Google Cloud logging.
+scope: PUBLIC
+notes: >-
+  This resource contains public information about Google's location offerings for Cloud logging.
+privileges:
+  list:
+    vulnerabilities: []
+  get:
+    vulnerabilities: []
+links:
+  - https://cloud.google.com/logging/docs/access-control

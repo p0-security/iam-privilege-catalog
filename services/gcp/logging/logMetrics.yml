@@ -1,0 +1,19 @@
+name: Cloud Log Metrics
+description: >-
+  Log metrics allow viewing statistics about the number of log entries that match filters.
+scope: LOW
+privileges:
+  create:
+    vulnerabilities: [discovery:infra]
+  delete:
+    vulnerabilities: [discovery:infra]
+  get:
+    vulnerabilities: [discovery:infra, exfiltration:metadata]
+  list:
+    vulnerabilities: [discovery:infra, exfiltration:metadata]
+  update:
+    vulnerabilities: [discovery:infra]
+
+links:
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/reference/v2/rest/v2/projects.metrics

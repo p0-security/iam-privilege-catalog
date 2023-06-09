@@ -1,0 +1,23 @@
+name: Cloud Logging Entries
+description: >-
+  Log entries ingested and stored by Cloud Logging
+scope: MEDIUM
+privileges:
+  create:
+    vulnerabilities: [impact:spend]
+    notes: >-
+      Create and route together allow writing log entries via the Logging API
+  download:
+    vulnerabilities: [exfiltration:logs]
+  list:
+    vulnerabilities: [exfiltration:logs]
+    notes: >-
+      This provides access to log entries.
+  route:
+    vulnerabilities: [impact:spend]
+    notes: >-
+      Create and route together allow writing log entries via the Logging API
+
+links:
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/reference/v2/rest/v2/entries/list

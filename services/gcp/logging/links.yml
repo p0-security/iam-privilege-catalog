@@ -1,0 +1,17 @@
+name: Cloud Logging Links
+description: >-
+  A Cloud Logging link is a link between a logs bucket and a BigQuery dataset 
+  so that logs can be read from BigQuery.
+scope:
+privileges:
+  create:
+    vulnerabilities: [exfiltration:logs]
+  delete:
+    vulnerabilities: [destruction:infra]
+  get:
+    vulnerabilities: [discovery:infra]
+  list:
+    vulnerabilities: [discovery:infra]
+links:
+  - https://cloud.google.com/logging/docs/access-control
+  - https://cloud.google.com/logging/docs/reference/v2/rest/v2/folders.locations.buckets.links
