@@ -1,7 +1,7 @@
 name: Account persistence
 description: >-
   Allows an attacker to maintain access to the target system by manipulating existing accounts or creating new accounts. This can include modifying credentials and permission groups and other activity designed to subvert security policies.
-risk: MEDIUM
+risk: BOOST
 mitigations:
   - Use least-privileged access
   - Use multi-factor authentication for user and privileged accounts

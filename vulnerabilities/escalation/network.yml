@@ -1,7 +1,8 @@
-name: Movement across a network
+name: Network movement
 description: >-
   Allows an attacker to gain access to additional resources on the same network.
 risk: BOOST
 mitigations:
   - Use network segmentation
 links:
+  - https://attack.mitre.org/techniques/T1021/
