@@ -6,11 +6,11 @@ privileges:
   copyLogEntries:
     vulnerabilities: [exfiltration:logs]
   create:
-    vulnerabilities: [impact:spend, impact:consumption]
+    vulnerabilities: [impact:consumption]
   delete:
     vulnerabilities: [destruction:logs]
   undelete:
-    vulnerabilities: [impact:spend, impact:consumption]
+    vulnerabilities: [impact:consumption]
   update:
     vulnerabilities: [impact:encryption]
     notes: >-

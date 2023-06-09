@@ -8,9 +8,9 @@ privileges:
   delete:
     vulnerabilities: [discovery:infra]
   get:
-    vulnerabilities: [discovery:infra]
+    vulnerabilities: [discovery:infra, exfiltration:metadata]
   list:
-    vulnerabilities: [discovery:infra]
+    vulnerabilities: [discovery:infra, exfiltration:metadata]
   update:
     vulnerabilities: [discovery:infra]
 
