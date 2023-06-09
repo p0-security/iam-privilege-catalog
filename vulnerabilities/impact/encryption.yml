@@ -1,4 +1,4 @@
-name: Encryption
+name: Data encryption
 description: >-
   Allows an attacker to encrypt data within a system. This can be used to
   either make data permanently inaccessible, or extort compensation for
