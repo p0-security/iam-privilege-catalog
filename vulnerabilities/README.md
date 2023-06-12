@@ -10,11 +10,9 @@ Each vulnerability is tagged with a risk score. This score indicates the risk as
 with exploit independent of the size and scope of the system exploited, or the sensitivity
 of the exploited system.
 
-- **CRITICAL**: Used alone, has the potential to disrupt central organizational operations,
-  destroy trust, or create significant liability. Additionally, includes vulnerabilities
-  that give attackers access to broadly provisioned identities that enable the above impacts
-  (such as root privilege escalation vulnerabilities).
-- **HIGH**: Used alone, has the potential to disrupt ancillary organization operations,
+- **CRITICAL**: Assigned to vulnerabilities that result in loss of data or policy control,
+  such as exfiltration, escalation, and takeover vulnerabilities.
+- **HIGH**: Used alone, has the potential to disrupt organizational operations,
   cause reputational damage, or run afoul of compliance requirements.
 - **MEDIUM**: Used alone, has the potential to create operational burden or monetary costs,
   or access organizational secrets.

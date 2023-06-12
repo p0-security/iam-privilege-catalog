@@ -3,7 +3,7 @@ description: >-
   Allows an attacker to disrupt an organization's operations.
   When applied to critical systems, can disable an organization's
   core systems.
-risk: CRITICAL
+risk: HIGH
 mitigations:
   - Redundant infrastructure
   - Rate limiting
