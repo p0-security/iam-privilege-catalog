@@ -32,4 +32,4 @@ privileges:
   update:
     vulnerabilities: [destruction:network]
     notes: >-
-      For FrontendConfigs that are associated with an Ingress, an update may remove SSL proxying or HTTPS redirect configuration.
+      For FrontendConfigs that are associated with an Ingress, an update may remove SSL proxy or HTTPS redirect configuration.

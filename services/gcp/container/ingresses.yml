@@ -5,7 +5,7 @@ description: >-
 scope: CRITICAL
 notes: >-
   Creating an Ingress does not automatically expose Services. It also needs an Ingress Controller.
-  Kubernetes Engine ships with a Google-hosted Ingeress Controller. However, you can also choose to
+  Kubernetes Engine ships with a Google-hosted Ingress Controller. However, you can also choose to
   deploy another Ingress Controller, such as Nginx. Configuring other controllers requires manual setup
   of other Google Cloud components, like NAT gateway, Firewall rules, and VPC network.
 links:
