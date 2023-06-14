@@ -11,9 +11,6 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: true
-          token: ${{ secrets.READ_P0_REPOS }}
       - uses: actions/setup-node@v3
         with:
           node-version: ^18.6.0
