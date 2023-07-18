@@ -79,4 +79,4 @@ A script is provided to convert the catalog to JSON format. To use this script:
 ## Contributing
 
 Contributions are welcome. By contributing you are agreeing to release your
-contribution under this repository's license.
+contribution under this repository's [license](https://github.com/p0-security/iam-privilege-catalog/blob/main/LICENSE).
