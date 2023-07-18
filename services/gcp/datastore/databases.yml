@@ -8,12 +8,14 @@ notes: >-
 privileges:
   get:
     vulnerabilities: []
+    notes: >-
+      Principal with this permission can begin and rollback transaction. the privilege by itself has no impact, given transactions are isolated.
   getMetadata:
     vulnerabilities: []
   list:
     vulnerabilities: []
   export:
-    vulnerabilities: [impact:spend]
+    vulnerabilities: [collection:data, impact:spend]
     notes: >-
       Principal with this permission can export entities to a Cloud Storage bucket.
   import:

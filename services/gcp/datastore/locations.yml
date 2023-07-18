@@ -6,7 +6,9 @@ privileges:
   get:
     vulnerabilities: []
     notes: >-
-      The information of location has minimal impact without access physical access to the location.
+      The information of location has minimal impact without access physical access to the location. 
+      The attack vector needs either physical access or DDOS attack against the data center 
+      to perform anything significant.
   list:
     vulnerabilities: []
     scope: PUBLIC
