@@ -11,9 +11,13 @@ privileges:
     notes: >-
       Principal with this permission can begin and rollback transaction. the privilege by itself has no impact, given transactions are isolated.
   getMetadata:
-    vulnerabilities: []
+    vulnerabilities: [discovery:metadata]
+    notes: >-
+      Principal with this permission can get metadata of the database.
   list:
-    vulnerabilities: []
+    vulnerabilities: [discovery:infra]
+    notes: >-
+      Principal with this permission can list databases. This can be used to discover databases.
   export:
     vulnerabilities: [collection:data, impact:spend]
     notes: >-
@@ -24,10 +28,19 @@ privileges:
       Principal with this permission can import entities from a file, this can consume the quota limits for entity writes and storage.
       Existing entities with the same keys are overwritten resulting in destruction of data.
   create:
-    vulnerabilities: []
+    vulnerabilities: [impact:consumption, impact:spend]
+    notes: >-
+      Principal with this permission can create a new database. This can consume the quota limits for database creation.
   update:
-    vulnerabilities: []
+    vulnerabilities: [destruction:defense]
+    notes: >-
+      Principal with this permission can update the database. Updating the database can involve removing delete protection.
+  delete:
+    vulnerabilities: [destruction:data]
+    notes: >-
+      Principal with this permission can delete the database. Deleting the database can involve removing delete protection.
 links:
   - https://cloud.google.com/datastore
+  - https://cloud.google.com/datastore/docs/manage-databases
   - https://console.cloud.google.com/appengine/quotadetails
   - https://cloud.google.com/datastore/docs/store-query-data
