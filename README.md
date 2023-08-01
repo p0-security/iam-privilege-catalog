@@ -14,6 +14,11 @@ This catalog is broken into two main components:
 2. A catalog of privileges in IAM systems, with details on potential abuses and scopes
    of impact
 
+## Viewing this catalog
+
+Visit [p0.app/catalog](https://p0.app/catalog) for a navigable presentation of this
+catalog.
+
 ## How to use this catalog
 
 This catalog has multiple intended purposes:
