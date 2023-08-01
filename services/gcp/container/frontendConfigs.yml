@@ -1,0 +1,35 @@
+name: Frontend config custom resource definition for Google Kubernetes Engine
+description: >-
+  FrontendConfig objects configure two ingress features on Kubernetes Engine:
+  1) SSL proxy
+  2) HTTPS-to-HTTP redirect
+scope: HIGH
+notes: >-
+  FrontendConfig is a piece of reusable configuration for an Ingress object. 
+  A FrontendConfig does not take effect unless it is associated with an Ingress object via annotations.
+links:
+  - https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration#configuring_ingress_features_through_frontendconfig_parameters
+  - https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration#associating_frontendconfig_with_your_ingress
+privileges:
+  create:
+    vulnerabilities: [destruction:network]
+    notes: >-
+      An attacker may manipulate Ingress settings if they are also allowed to associate
+      BackendConfig objects with Ingress objects using container.ingresses.update or container.ingresses.create permissions.
+  delete:
+    vulnerabilities: [destruction:network]
+    notes: >-
+      FrontendConfigs that are associated with an Ingress can be deleted without first removing the reference to them.
+      Access to a Service can be disrupted by deleting a BackendConfig that is associated with an Ingress.
+  get:
+    vulnerabilities: []
+    notes: >-
+      Retrieve metadata about a specific FrontendConfig.
+  list:
+    vulnerabilities: []
+    notes: >-
+      Retrieve metadata about all FrontendConfigs.
+  update:
+    vulnerabilities: [destruction:network]
+    notes: >-
+      For FrontendConfigs that are associated with an Ingress, an update may remove SSL proxy or HTTPS redirect configuration.

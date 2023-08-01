@@ -1,0 +1,46 @@
+name: Ingress for Google Kubernetes Engine
+description: >-
+  Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
+  Traffic routing is controlled by rules defined on the Ingress resource.
+scope: CRITICAL
+notes: >-
+  Creating an Ingress does not automatically expose Services. It also needs an Ingress Controller.
+  Kubernetes Engine ships with a Google-hosted Ingress Controller. However, you can also choose to
+  deploy another Ingress Controller, such as Nginx. Configuring other controllers requires manual setup
+  of other Google Cloud components, like NAT gateway, Firewall rules, and VPC network.
+links:
+  - https://kubernetes.io/docs/concepts/services-networking/ingress
+  - https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration
+  - https://cloud.google.com/community/tutorials/nginx-ingress-gke
+privileges:
+  create:
+    vulnerabilities: [escalation:network]
+    notes: >-
+      Ingress configures public access to a Kubernetes backend service.
+  delete:
+    vulnerabilities: [destruction:network]
+    notes: >-
+      Deleting an Ingress removes public access to potentially business-critical Kubernetes services.
+  get:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Retrieve metadata about Ingress configuration, such as references to FrontendConfig, BackendConfig, and routing rules.
+  getStatus:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Retrieve metadata about Ingress configuration, such as references to FrontendConfig, BackendConfig, and routing rules.
+      This endpoint returns the same data as `
+  list:
+    vulnerabilities: [discovery:network]
+    notes: >-
+      Retrieve metadata about Ingress configuration, such as references to FrontendConfig, BackendConfig, and routing rules.
+  update:
+    vulnerabilities: [destruction:network, escalation:network]
+    notes: >-
+      Ingress updates may take down public internet connection to Kubernetes services, or establish new connections, potentially
+      opening up services for further exploitation by an attacker.
+  updateStatus:
+    vulnerabilities: []
+    notes: >-
+      While this permission is exposed, updating the status of an Ingress does not take effect.
+      Status is managed by Kubernetes.
