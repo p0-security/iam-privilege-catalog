@@ -1,0 +1,17 @@
+name: Privilege escalation
+description: >-
+  Allows an attacker to either access an account with more
+  sensitive privileges (e.g. an admin-specific account), or
+  add these privileges to an account under the attacker's
+  control.
+score: CRITICAL
+mitigations:
+  - Avoid use of admin or root accounts
+  - Securely store admin and root account credentials
+  - Scan for insecurely stored account credentials
+  - Use ephemeral entitlement grants for sensitive operations
+  - Apply permission boundaries to identity entitlements
+links:
+  - https://attack.mitre.org/techniques/T1078/
+  - https://attack.mitre.org/techniques/T1098/
+  - https://attack.mitre.org/techniques/T1552/

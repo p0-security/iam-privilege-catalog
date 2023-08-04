@@ -8,17 +8,17 @@ notes: >-
   Compute Engine.
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   setLabels:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   use:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       Can be used to gain network access when the attacker has
       access to both the gateway in question, and the ability to

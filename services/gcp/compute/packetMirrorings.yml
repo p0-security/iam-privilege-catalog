@@ -7,7 +7,7 @@ notes: >-
   data.
 privileges:
   create:
-    vulnerabilities:
+    risks:
       - collection:data
       - impact:consumption
       - impact:spend
@@ -16,16 +16,16 @@ privileges:
       data. When combined with a compromised instance (used as the packet collector), allows collection
       of network data.
   delete:
-    vulnerabilities: [destruction:defense]
+    risks: [destruction:defense]
     notes:
       Primary packet-mirroring use cases include intrusion-detection systems (IDS) and deep-packet
       inspection (DPI) tools. Disabling packet-mirroring prevents these systems from functioning.
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   update:
-    vulnerabilities:
+    risks:
       - collection:data
       - destruction:defense
       - impact:consumption

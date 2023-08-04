@@ -6,7 +6,7 @@ notes: >-
   This resource contains public information about Google's runtime offerings for Cloud Functions.
 privileges:
   list:
-    vulnerabilities: []
+    risks: []
 links:
   - https://cloud.google.com/functions/docs/runtime-support
   - https://cloud.google.com/functions/docs/reference/iam/permissions

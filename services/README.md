@@ -48,7 +48,7 @@ Each component has the following data:
 - **privileges**: Privileges available on the component; this is an object where
   each key is the privilege's identifier within the component, and each value
   obeys the following schema:
-  - **vulnerabilities**: An array of vulnerabilities described within this catalog
+  - **risks**: An array of risks described within this catalog
   - **scope**: If present, overrides the component-wide scope; used, for example,
     when read privileges have differing scope from write privileges (such as DNS
     records, public web assets, SSL certificates, and the like)

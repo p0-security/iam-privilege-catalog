@@ -4,8 +4,8 @@ description: >-
 scope: LOW
 privileges:
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   update:
-    vulnerabilities: [impact:dos, impact:spend]
+    risks: [impact:dos, impact:spend]
 links:
   - https://cloud.google.com/service-usage/docs/access-control

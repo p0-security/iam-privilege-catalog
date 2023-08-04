@@ -6,17 +6,17 @@ notes: >-
 scope: CRITICAL
 privileges:
   create:
-    vulnerabilities: [impact:hijack, impact:spend]
+    risks: [impact:hijack, impact:spend]
     notes: >-
       Creating a version will deploy the provided source code to App Engine. 
       This does not route any external traffic to the new version, but allows for resource hijacking.
   delete:
-    vulnerabilities: [impact:dos, destruction:infra]
+    risks: [impact:dos, destruction:infra]
     notes: >-
       App Engine does not allow deleting the default version for the application. However,
       non-default versions may still be configured to receive traffic and can be deleted.
   get:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:policy
       - discovery:network
@@ -25,11 +25,11 @@ privileges:
       Includes data discovery since it exposes names of Cloud Storage buckets, policy discovery since it includes VPC egress settings,
       and network discovery for network settings in the application environment..
   getFileContents:
-    vulnerabilities: [exfiltration:code]
+    risks: [exfiltration:code]
     notes: >-
       Read access to deployed source code.
   list:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:policy
       - discovery:network
@@ -37,7 +37,7 @@ privileges:
     notes: >-
       See get
   update:
-    vulnerabilities:
+    risks:
       - impact:spend
     notes: >-
       Only allows updating scaling settings for the version.

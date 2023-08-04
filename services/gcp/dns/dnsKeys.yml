@@ -6,9 +6,9 @@ notes: >-
   Private keys are automatically managed by Google. Only public keys and metadata are viewable.
 privileges:
   get:
-    vulnerabilities: []
+    risks: []
   list:
-    vulnerabilities: []
+    risks: []
 links:
   - https://cloud.google.com/dns/docs/access-control
   - https://cloud.google.com/dns/docs/dnskeys

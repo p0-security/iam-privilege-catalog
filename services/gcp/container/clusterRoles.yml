@@ -9,38 +9,38 @@ notes: >-
   assigned to principal via a ClusterRoleBinding.
 privileges:
   bind:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     notes: >-
       Kubernetes does not allow the creation or update of a ClusterRoleBinding if that grants permissions
       the caller user does not already have. However, the `bind` permission allows this action.
     links:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-binding-creation-or-update
   create:
-    vulnerabilities: []
+    risks: []
     scope: LOW
     notes: >-
       ClusterRoles are only definitions of permissions. A role does not take effect unless
       assigned to principal via a ClusterRoleBinding.
   delete:
-    vulnerabilities: [destruction:policy]
+    risks: [destruction:policy]
     notes: >-
       ClusterRoles that are attached to principals via a ClusterRoleBinding can be deleted in Kubernetes.
   escalate:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     notes: >-
       Allows escalating the current or other users' permissions via a ClusterRole creation or update.
     links:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-creation-or-update
   get:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
     notes: >-
       Retrieves the permissions contained in a specific ClusterRole.
   list:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
     notes: >-
       List all ClusterRoles
   update:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     scope: MEDIUM
     notes: >-
       ClusterRole updates are dangerous because the updated role may already be assigned to principals,

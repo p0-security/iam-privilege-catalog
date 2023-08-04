@@ -1,0 +1,10 @@
+name: Metadata destruction
+description: >-
+  Allows an attacker to delete metadata. Can be impactful if those
+  metadata are used operationally (e.g. timestamp filtering, customer
+  identification, etc.).
+score: MEDIUM
+mitigations:
+  - Backup metadata
+  - Define metadata using infrastructure-as-code
+links: []

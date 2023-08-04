@@ -9,11 +9,11 @@ notes: >-
   groups, and service accounts.
 privileges:
   get:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   update:
-    vulnerabilities: []
+    risks: []
     scope: LOW
     notes: >-
       Updating a recommendation is only updates the recommendation

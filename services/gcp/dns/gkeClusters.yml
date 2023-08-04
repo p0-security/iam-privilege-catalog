@@ -4,14 +4,14 @@ description: >-
 scope: MEDIUM
 privileges:
   bindDNSResponsePolicy:
-    vulnerabilities: [impact:dos, takeover:domain]
+    risks: [impact:dos, takeover:domain]
     notes: >-
       If the cluster is in a private DNS zone, an attacker can change DNS 
       resolution behavior by binding a response policy. This can create a DOS.
       If the attacker additionally has permissions to create or update response policy rules,
       allows domain takeover.
   bindPrivateDNSZone:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       If Cloud DNS is enabled on the cluster already, 
       binding a new private DNS zone can change DNS resolution behavior, potentially creating a DOS.

@@ -11,9 +11,9 @@ notes: >-
   default settings.
 privileges:
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   update:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Can cause query timeouts.
 links:

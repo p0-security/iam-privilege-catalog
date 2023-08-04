@@ -8,30 +8,30 @@ notes: >-
   operations. Reading connection metadata can expose database accounts.
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   delegate:
     notes: May be unused.
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   get:
-    vulnerabilities: [discovery:infra, takeover:account]
+    risks: [discovery:infra, takeover:account]
     notes: >-
       In the case of connections to Cloud SQL, directly exposes the database username and password.
   getIamPolicy:
-    vulnerabilities: [discovery:account, discovery:policy]
+    risks: [discovery:account, discovery:policy]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     scope: LOW
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   updateTag:
     notes: Appears unused.
-    vulnerabilities: []
+    risks: []
   use:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
     scope: LOW
     notes: >
       In order to exploit a connection to read data from a third-party source, all of the following must be true:

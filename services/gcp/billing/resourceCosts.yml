@@ -4,6 +4,6 @@ description: >-
 scope: LOW
 privileges:
   list:
-    vulnerabilities: [discovery:finance]
+    risks: [discovery:finance]
 links:
   - https://cloud.google.com/billing/docs/how-to/custom-roles

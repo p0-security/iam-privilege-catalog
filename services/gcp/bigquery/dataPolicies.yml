@@ -7,18 +7,18 @@ notes: >-
   sensitive data or deny access to necessary data.
 privileges:
   create:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
   delete:
-    vulnerabilities: [escalation:data]
+    risks: [escalation:data]
   get:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [impact:dos, escalation:data]
+    risks: [impact:dos, escalation:data]
 links:
   - https://cloud.google.com/bigquery/docs/access-control

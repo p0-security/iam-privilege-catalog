@@ -4,23 +4,23 @@ description: >-
 scope: CRITICAL
 privileges:
   create:
-    vulnerabilities: [escalation:data]
+    risks: [escalation:data]
     notes: >-
       Allows you to sign requests to cloud storage as a service account, allowing for escalation.
     links:
       - https://rhinosecuritylabs.com/cloud-security/privilege-escalation-google-cloud-platform-part-2/
   delete:
-    vulnerabilities: [impact:dos, destruction:crypto]
+    risks: [impact:dos, destruction:crypto]
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     notes: >-
       This does not include the secret.
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     notes: >-
       This does not include the secret.
   update:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Allows updating the key to be inactive.
 links:

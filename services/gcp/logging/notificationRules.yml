@@ -7,15 +7,15 @@ notes: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [destruction:defense]
+    risks: [destruction:defense]
   get:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
   list:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
   update:
-    vulnerabilities: [destruction:defense]
+    risks: [destruction:defense]
 
 links:
   - https://cloud.google.com/logging/docs/access-control

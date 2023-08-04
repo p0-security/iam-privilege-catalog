@@ -1,0 +1,11 @@
+name: Automated data collection
+description: >-
+  Allows an attacker to collect organizational data in a central
+  location, or in an automatic fashion over time.
+  Organizational data include application, customer, financial
+  and operational data.
+score: BOOST
+mitigations: []
+links:
+  - https://attack.mitre.org/techniques/T1119/
+  - https://attack.mitre.org/techniques/T1530/

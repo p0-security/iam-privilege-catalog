@@ -4,31 +4,31 @@ description: >-
 scope: MEDIUM
 privileges:
   bindDNSResponsePolicy:
-    vulnerabilities: [impact:dos, takeover:domain]
+    risks: [impact:dos, takeover:domain]
     notes: >-
       If the network is in a private DNS zone, an attacker can change DNS 
       resolution behavior by binding a response policy. This can create a DOS.
       If the attacker additionally has permissions to create or update response policy rules,
       allows domain takeover.
   bindPrivateDNSZone:
-    vulnerabilities: [impact:dos, takeover:domain]
+    risks: [impact:dos, takeover:domain]
     notes: >-
       Binding a new private DNS zone can change DNS resolution behavior, potentially creating a DOS.
       If the attacker additionally has permissions to create or update records in any zone, allows domain takeover.
   bindPrivateDNSPolicy:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Allows binding a server policy to a VPC network. This can create a DOS because it can disable 
       resolution with any name servers other than the ones specified in the policy.
   targetWithPeeringZone:
-    vulnerabilities: [impact:dos, takeover:domain]
+    risks: [impact:dos, takeover:domain]
     notes: >-
       This permission allows you to configure a network with DNS peering, so that
       DNS requests in the network "forwarded" to the peer network. This can change DNS
       resolution behavior, which can potentially create a DOS.
       If the attacker additionally has permissions to create or update records in any zone, allows domain takeover.
   useHealthSignals:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Allows using Cloud DNS health checking on the network. 
       This is used to create routing policies that will automatically failover to healthy endpoints

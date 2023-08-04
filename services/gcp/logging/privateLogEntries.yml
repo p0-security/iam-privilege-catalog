@@ -4,6 +4,6 @@ description: >-
 scope: MEDIUM
 privileges:
   list:
-    vulnerabilities: [exfiltration:logs]
+    risks: [exfiltration:logs]
 links:
   - https://cloud.google.com/logging/docs/access-control

@@ -9,7 +9,7 @@ notes: >-
   assigned to principal via a RoleBinding.
 privileges:
   create:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     scope: MEDIUM
     notes: >-
       Kubernetes does not allow the creation or update of a RoleBinding unless at least one of the following two conditions is met:
@@ -18,19 +18,19 @@ privileges:
     links:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-binding-creation-or-update
   delete:
-    vulnerabilities: [destruction:policy]
+    risks: [destruction:policy]
     notes: >-
       Deleting a RoleBinding removes the permissions of the Role from a list of principals
   get:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
     notes: >-
       Retrieves the list of principals and the role in a specific RoleBinding
   list:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
     notes: >-
       List all RoleBindings within a namespace
   update:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     scope: MEDIUM
     notes: >-
       Kubernetes does not allow the creation or update of a RoleBinding unless one of the following two conditions are met:

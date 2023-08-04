@@ -9,7 +9,7 @@ notes: >-
   See notes on `container/deployments` for mitigations.
 privileges:
   create:
-    vulnerabilities:
+    risks:
       - impact:spend
       - impact:hijack
       - escalation:lateral
@@ -20,7 +20,7 @@ privileges:
       leading to new permissions that may allow access to other GCP services. 
       Secondly, creating DaemonSets drains the limited resources available to other Kubernetes workloads.
   delete:
-    vulnerabilities:
+    risks:
       - destruction:infra
       - destruction:data
       - destruction:logs
@@ -28,7 +28,7 @@ privileges:
       Deleting a DaemonSets deletes its pods and ephemeral volumes. Logs of the deleted pods disappear
       permanently when the pods shut down, unless they are exported to an external system for persistence.
   get:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     notes: >-
@@ -36,20 +36,20 @@ privileges:
       such as ports, IP address, replicas, attached volumes, containers and the images
       they are running.
   getStatus:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     notes: >-
       Equivalent to `container.daemonSets.get`. Allows reading the `/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status`
       subresource which returns the same payload as the `/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}` resource.
   list:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     notes: >-
       Allows listing all ReplicaSets in a namespace.
   update:
-    vulnerabilities:
+    risks:
       - destruction:data
       - destruction:infra
       - destruction:network
@@ -64,7 +64,7 @@ privileges:
       DaemonSets are especially great for a complete cluster takeover. Secondly, DaemonSet pods drain the limited resources
       available to other Kubernetes workloads.
   updateStatus:
-    vulnerabilities: []
+    risks: []
     scope: LOW
     notes: >-
       This subresource has no effect on the actual DaemonSets.

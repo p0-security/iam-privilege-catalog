@@ -7,82 +7,82 @@ notes: >-
   Compute Engine.
 privileges:
   addResourcePolicies:
-    vulnerabilities: [impact:spend, collection:data]
+    risks: [impact:spend, collection:data]
     notes: >-
       Requires a useful resource policy to otherwise exist.
     links:
       - https://cloud.google.com/compute/docs/reference/rest/v1/resourcePolicies
       - https://cloud.google.com/compute/docs/disks/scheduled-snapshots
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   createSnapshot:
     scope: HIGH
     notes: >-
       When combined with the ability to read disk images, can allow access
       to disk data.
-    vulnerabilities: [collection:data]
+    risks: [collection:data]
   createTagBinding:
-    vulnerabilities: [impact:access, escalation:privilege]
+    risks: [impact:access, escalation:privilege]
     notes: >-
       Tag bindings are used to dynamically modify IAM policies.
   delete:
-    vulnerabilities: [destruction:infra, destruction:data]
+    risks: [destruction:infra, destruction:data]
   deleteTagBinding:
-    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
+    risks: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       Tag bindings are used to dynamically modify IAM policies.
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:account, discovery:policy]
+    risks: [discovery:account, discovery:policy]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   listEffectiveTags:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   listTagBindings:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   removeResourceBindings:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     links:
       - https://cloud.google.com/compute/docs/reference/rest/v1/resourcePolicies
       - https://cloud.google.com/compute/docs/disks/scheduled-snapshots
   resize:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     notes: >-
       Disks can only be increased in size.
     links:
       - https://cloud.google.com/compute/docs/reference/rest/v1/disks/resize
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   setLabels:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   startAsyncReplication:
-    vulnerabilities: []
+    risks: []
     links:
       - https://cloud.google.com/compute/docs/disks/async-pd/about
   stopAsyncReplication:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     notes: >-
       Can effectively turn off disk replication if applied repeatedly.
     links:
       - https://cloud.google.com/compute/docs/disks/async-pd/about
   stopGroupAsyncReplication:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     notes: >-
       Can effectively turn off disk replication if applied repeatedly.
     links:
       - https://cloud.google.com/compute/docs/disks/async-pd/about
   update:
-    vulnerabilities: [escalation:data, destruction:infra]
+    risks: [escalation:data, destruction:infra]
     notes: >-
       Can allow data access via modifying disk or snapshot encryption keys.
   use:
-    vulnerabilities: [collection:data, destruction:data]
+    risks: [collection:data, destruction:data]
     notes: >-
       Can allow data access if the attacker can attach the disk to an additionally
       compromised instance.
   useReadOnly:
-    vulnerabilities: [collection:data]
+    risks: [collection:data]
     notes: >-
       Can allow data access if the attacker can attach the disk to an additionally
       compromised instance.

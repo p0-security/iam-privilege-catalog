@@ -12,30 +12,30 @@ notes: >-
   unauthenticated communication with the custom resource's endpoints.
 privileges:
   create:
-    vulnerabilities: [escalation:network]
+    risks: [escalation:network]
     notes: >-
       Together with the ability to deploy a new Kubernetes service in the cluster an attacker
       can configure an APIService to expose that new service with custom authentication settings
       which opens a backdoor to the cluster.
   delete:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     notes: >-
       Only API Services that expose custom CRDs can be deleted. API Services automanaged by
       Kubernetes, such as core v1, apps/v1, batch/v1, extensions/v1beta1 APIs cannot be deleted
       or modified.
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     scope: LOW
   getStatus:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     scope: LOW
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     scope: LOW
   update:
-    vulnerabilities: [escalation:network]
+    risks: [escalation:network]
   updateStatus:
-    vulnerabilities: []
+    risks: []
     notes: >-
       While this permission is exposed, updating the status of a custom APIService is not allowed.
       Status is managed by Kubernetes.

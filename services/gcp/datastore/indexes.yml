@@ -9,19 +9,19 @@ description: >-
 scope: MEDIUM
 privileges:
   list:
-    vulnerabilities: [discovery:infra, discovery:data]
+    risks: [discovery:infra, discovery:data]
   create:
-    vulnerabilities: [impact:consumption, impact:spend]
+    risks: [impact:consumption, impact:spend]
     notes: >-
       An attacker can create too many indexes and hit the index limits.
   delete:
-    vulnerabilities: [impact:dos, destruction:infra]
+    risks: [impact:dos, destruction:infra]
     notes: >-
       An attacker can delete indexes and cause queries to execute slowly or to fail.
   get:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
   update:
-    vulnerabilities: [impact:dos, impact:spend]
+    risks: [impact:dos, impact:spend]
     notes: >-
       An attacker can update indexes, which can consume time, or cause queries to execute slowly or to fail.
       Indexes also incur spend.

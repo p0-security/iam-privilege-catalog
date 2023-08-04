@@ -5,17 +5,17 @@ description: >-
 scope: LOW
 privileges:
   get:
-    vulnerabilities: [discovery:finance]
+    risks: [discovery:finance]
     notes: >-
       This includes monthly spend info
   list:
-    vulnerabilities: [discovery:finance]
+    risks: [discovery:finance]
     notes: >-
       This includes monthly spend info
   create:
-    vulnerabilities: []
+    risks: []
   update:
-    vulnerabilities: []
+    risks: []
 
 links:
   - https://cloud.google.com/billing/docs/how-to/custom-roles

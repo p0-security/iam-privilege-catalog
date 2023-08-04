@@ -1,0 +1,10 @@
+name: Cryptographic exfiltration
+description: >-
+  Allows an attacker to export cryptographic material from a system,
+  including secret keys.
+score: CRITICAL
+mitigations:
+  - Rotate credentials
+  - Avoid secret re-use
+links:
+  - https://attack.mitre.org/techniques/T1552/

@@ -4,15 +4,15 @@ description: >-
 scope: LOW
 privileges:
   create:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   delete:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   get:
-    vulnerabilities: [discovery:infra, exfiltration:metadata]
+    risks: [discovery:infra, exfiltration:metadata]
   list:
-    vulnerabilities: [discovery:infra, exfiltration:metadata]
+    risks: [discovery:infra, exfiltration:metadata]
   update:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
 
 links:
   - https://cloud.google.com/logging/docs/access-control

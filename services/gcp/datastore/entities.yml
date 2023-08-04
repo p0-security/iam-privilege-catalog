@@ -10,22 +10,21 @@ notes: >-
   sensitive information can result in data exfiltration.
 privileges:
   allocateIds:
-    vulnerabilities: []
+    risks: []
   create:
-    vulnerabilities: [impact:consumption, impact:spend]
+    risks: [impact:consumption, impact:spend]
     notes: >-
       Creating an entity also uses storage quota, which is billed per gigabyte per month along with write to the datastore.
   delete:
-    vulnerabilities: [destruction:data, impact:spend]
+    risks: [destruction:data, impact:spend]
   get:
-    vulnerabilities:
-      [discovery:data, collection:data, exfiltration:data, impact:spend]
+    risks: [discovery:data, collection:data, exfiltration:data, impact:spend]
     notes: >-
       Getting an entity also uses read quota from the datastore.
   list:
-    vulnerabilities: [discovery:data, impact:spend]
+    risks: [discovery:data, impact:spend]
   update:
-    vulnerabilities: [destruction:data, impact:spend]
+    risks: [destruction:data, impact:spend]
     notes: >-
       Entity fields can be deleted by updating the document without fields. this will delete all fields in the entity.
 links:

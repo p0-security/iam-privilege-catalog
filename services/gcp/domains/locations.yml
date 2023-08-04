@@ -6,6 +6,6 @@ notes: >-
   This resource contains public information about Google's location offerings for Cloud Domains.
 privileges:
   list:
-    vulnerabilities: []
+    risks: []
 links:
   - https://cloud.google.com/domains/docs/access-control

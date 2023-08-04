@@ -4,7 +4,7 @@ description: >-
 scope: CRITICAL
 privileges:
   get:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
       - discovery:data
@@ -17,7 +17,7 @@ privileges:
         - configuration for events that trigger the function (service info for the service that triggers the info, filters on event fields)
         - encryption key name
   list:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
       - discovery:data
@@ -25,7 +25,7 @@ privileges:
     notes: >-
       See notes for get
   call:
-    vulnerabilities:
+    risks:
       - discovery:account
       - discovery:infra
       - discovery:data
@@ -35,10 +35,10 @@ privileges:
       - impact:manipulation
     notes: >-
       Allows execution of a cloud function.
-      Can expose a variety of vulnerabilities depending on the contents of the cloud function.
+      Can expose a variety of risks depending on the contents of the cloud function.
       Also allows for DOS via spamming executions and data injection via execution with fake parameters.
   invoke:
-    vulnerabilities:
+    risks:
       - discovery:account
       - discovery:infra
       - discovery:data
@@ -48,10 +48,10 @@ privileges:
       - impact:manipulation
     notes: >-
       Allows execution of a cloud function. 
-      Can expose a variety of vulnerabilities depending on the contents of the cloud function. 
+      Can expose a variety of risks depending on the contents of the cloud function. 
       Also allows for DOS via spamming executions and data injection via execution with fake parameters.
   create:
-    vulnerabilities:
+    risks:
       - discovery:account
       - discovery:infra
       - discovery:data
@@ -62,17 +62,17 @@ privileges:
     notes: >-
       Creating a cloud function requires permissions on the cloud functions runtime service account.
       It then allows you to export credentials to the service account.
-      Vulnerabilities also require the sourceCodeSet permission.
+      Risks also require the sourceCodeSet permission.
     links:
       - https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/
       - https://cloud.google.com/functions/docs/calling
       - https://cloud.google.com/functions/docs/reference/iam/roles#additional-configuration
   delete:
-    vulnerabilities: [destruction:infra, destruction:data]
+    risks: [destruction:infra, destruction:data]
   sourceCodeGet:
-    vulnerabilities: [exfiltration:code]
+    risks: [exfiltration:code]
   update:
-    vulnerabilities:
+    risks:
       - impact:encryption
       - impact:dos
       - impact:spend
@@ -84,9 +84,9 @@ privileges:
       - takeover:account
     notes: >-
       Allows for updating ingress and egress network traffic settings as well as updating encryption keys 
-      Additionally includes the same set of vulnerabilities as create when the user also has sourceCodeSet permissions.
+      Additionally includes the same set of risks as create when the user also has sourceCodeSet permissions.
   sourceCodeSet:
-    vulnerabilities:
+    risks:
       - impact:dos
       - impact:manipulation
       - impact:spend
@@ -97,12 +97,12 @@ privileges:
       - exfiltration:data
       - takeover:account
     notes: >-
-      Includes DOS, data manipulation, spend, and hijack vulnerabilities.
-      Additionally includes the same set of vulnerabilities as create when the user also has update permissions.
+      Includes DOS, data manipulation, spend, and hijack risks.
+      Additionally includes the same set of risks as create when the user also has update permissions.
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
 links:
   - https://cloud.google.com/functions/docs/reference/iam/permissions
   - https://cloud.google.com/functions/docs/reference/rest/v2/projects.locations.functions

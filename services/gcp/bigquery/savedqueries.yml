@@ -6,20 +6,20 @@ notes: >-
   Queries can expose relation identifiers and schemata.
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   get:
-    vulnerabilities: [discovery:data, discovery:infra]
+    risks: [discovery:data, discovery:infra]
   list:
-    vulnerabilities: [discovery:data, discovery:infra]
+    risks: [discovery:data, discovery:infra]
   update:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   updateTag:
     notes: Appears unused.
-    vulnerabilities: []
+    risks: []
   use:
-    vulnerabilities: []
+    risks: []
     notes: Appears unused.
 links:
   - https://cloud.google.com/bigquery/docs/work-with-saved-queries

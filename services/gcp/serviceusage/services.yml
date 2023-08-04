@@ -4,21 +4,21 @@ description: >-
 scope: LOW
 privileges:
   disable:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     scope: CRITICAL
     notes: >-
       Depends on the service: disabling a service the organization relies on is a critical impact.
   enable:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     scope: CRITICAL
     notes: >-
-      Depends on the service. The attacker could enable a service that contains vulnerabilities
+      Depends on the service. The attacker could enable a service that contains risks
       (such as an overprovisioned default service account) that allows themselves to escalate permissions.
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   use:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
 links:
   - https://cloud.google.com/service-usage/docs/access-control

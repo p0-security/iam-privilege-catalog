@@ -9,23 +9,23 @@ notes: >-
 scope: HIGH
 privileges:
   addKey:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   flush:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       This removes all key-value pairs from the cache, but it does not cause destruction since
       values may expire anytime and applications need to design around that.
       Repeated flushes may result in a DoS.
   get:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
   getKey:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
     notes: >-
       The difference between getKey and get is not clear in Google's documentation.
   list:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
   update:
-    vulnerabilities: [impact:manipulation]
+    risks: [impact:manipulation]
     notes: >-
       Destruction is not a concern since memcache is only intended for temporary storage.
 links:

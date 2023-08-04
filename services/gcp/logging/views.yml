@@ -5,39 +5,39 @@ description: >-
 scope: MEDIUM
 privileges:
   access:
-    vulnerabilities: []
+    risks: []
     notes: >-
       The specific use of this permission is unknown.
   create:
-    vulnerabilities: [impact:spend, impact:consumption]
+    risks: [impact:spend, impact:consumption]
     notes: >-
       You can only have 30 log views on a bucket.
   delete:
-    vulnerabilities: [destruction:infra, impact:access]
+    risks: [destruction:infra, impact:access]
     notes: >-
       Does not delete the log entries.. 
       Because the primary use case of a view is to provide limited access to logs,
       deleting a view can result in users losing access to logs.
   get:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
     notes: >-
       Does not provide access to log entries.
   list:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
     notes: >-
       Does not provide access to log entries.
   listLogs:
-    vulnerabilities: [exfiltration:logs]
+    risks: [exfiltration:logs]
   listResourceKeys:
-    vulnerabilities: []
+    risks: []
     notes: >-
       The specific use of this permission is unknown.
   listResourceValues:
-    vulnerabilities: []
+    risks: []
     notes: >-
       The specific use of this permission is unknown.
   update:
-    vulnerabilities: [exfiltration:logs]
+    risks: [exfiltration:logs]
     notes: >-
       Allows updating the log filter on a view. If combined with listLogs access
       on any view, can allow arbitrary logs access.

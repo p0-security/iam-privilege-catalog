@@ -7,16 +7,16 @@ notes: >-
   using the project. This can include all services running in the project and all data stored within it.
 privileges:
   create:
-    vulnerabilities: [impact:spend, impact:consumption]
+    risks: [impact:spend, impact:consumption]
     notes: >-
       Each organization has a limited quota of active projects they can create.
   createBillingAssignment:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Allows updating the billing assignment to remove the billing account. 
       This can cause an interruption of services.
   delete:
-    vulnerabilities:
+    risks:
       - destruction:infra
       - destruction:crypto
       - destruction:data
@@ -24,31 +24,31 @@ privileges:
       - destruction:metadata
       - destruction:policy
   deleteBillingAssignment:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Removing a billing assignment can cause an interruption of services.
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   move:
-    vulnerabilities: [impact:dos, impact:access, destruction:defense]
+    risks: [impact:dos, impact:access, destruction:defense]
     notes: >-
       Moving a project can impact both user and system access that was inherited from the old parent.
       This can cause a DOS if service account accesses are impaired. Moving a project also removes any 
       security policies that were inherited from the parent.
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   undelete:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   update:
-    vulnerabilities: [destruction:metadata]
+    risks: [destruction:metadata]
     notes: >-
       Can only update project display name and labels.
   updateLiens:
-    vulnerabilities: [destruction:defense]
+    risks: [destruction:defense]
     notes: >-
       Liens are used to prevention deletion of projects. This permission
       allows removing a lien from a project.

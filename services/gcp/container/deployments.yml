@@ -18,7 +18,7 @@ links:
   - https://cloud.google.com/binary-authorization/docs/setting-up
 privileges:
   create:
-    vulnerabilities:
+    risks:
       - impact:spend
       - impact:hijack
       - escalation:lateral
@@ -31,7 +31,7 @@ privileges:
       code inside the Kubernetes workload. Secondly, creating Deployments drains the limited resources available
       to other Kubernetes workloads.
   delete:
-    vulnerabilities:
+    risks:
       - destruction:infra
       - destruction:data
       - destruction:logs
@@ -41,7 +41,7 @@ privileges:
       permanently when the pods shut down, unless they are exported to an external system
       for persistence.
   get:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     scope: MEDIUM
@@ -50,7 +50,7 @@ privileges:
       such as ports, IP address, replicas, attached volumes, containers and the images
       they are running.
   getScale:
-    vulnerabilities:
+    risks:
       - discovery:infra
     scope: LOW
     notes: >-
@@ -60,7 +60,7 @@ privileges:
     links:
       - https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#types-kinds
   getStatus:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     scope: MEDIUM
@@ -68,21 +68,21 @@ privileges:
       Equivalent to `container.deployments.get`. Allows reading the `/apis/apps/v1/namespaces/{namespace}/deployments/{name}/status`
       subresource which returns the same payload as the `/apis/apps/v1/namespaces/{namespace}/deployments/{name}` resource.
   list:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     scope: MEDIUM
     notes: >-
       Allows listing all Deployments in a namespace.
   rollback:
-    vulnerabilities:
+    risks:
       - destruction:infra
     notes: >-
       Allows reverting to a previous version of the Deployment spec from the rollout history.
     links:
       - https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#checking-rollout-history-of-a-deployment
   update:
-    vulnerabilities:
+    risks:
       - destruction:data
       - destruction:infra
       - destruction:network
@@ -97,7 +97,7 @@ privileges:
       Kubernetes cluster. Secondly, increasing the replica count in Deployments drains the limited resources available to 
       other Kubernetes workloads. Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
   updateScale:
-    vulnerabilities:
+    risks:
       - destruction:data
       - destruction:infra
       - impact:hijack
@@ -107,7 +107,7 @@ privileges:
       request, those are quietly ignored. Secondly, increasing the replica count in Deployments drains the limited resources available to 
       other Kubernetes workloads.
   updateStatus:
-    vulnerabilities: []
+    risks: []
     scope: LOW
     notes: >-
       Allows updating the status object of the Deployment with different "replicas", "updatedReplicas", "readyReplicas", and "availableReplicas"

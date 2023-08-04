@@ -4,21 +4,21 @@ description: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Build is priced per build minute, so just creating a worker pool does not add spend.
   delete:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
   get:
-    vulnerabilities: [discovery:infra, discovery:network]
+    risks: [discovery:infra, discovery:network]
   list:
-    vulnerabilities: [discovery:infra, discovery:network]
+    risks: [discovery:infra, discovery:network]
   update:
-    vulnerabilities: [impact:dos, impact:spend]
+    risks: [impact:dos, impact:spend]
     notes: >-
       Can effectively create a DOS by reducing disk size. Spend impact via increasing disk size or changing machine type.
   use:
-    vulnerabilities: [impact:spend, escalation:network]
+    risks: [impact:spend, escalation:network]
     notes: >-
       This also requires builds.create. Allows a user to run a build on the worker pool. If the worker pool has access to a VPC network, provides an opportunity for network escalation.
 links:

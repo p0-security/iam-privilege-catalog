@@ -5,23 +5,23 @@ description: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Creation does nothing without permission to bind the policy to a network.
   delete:
-    vulnerabilities: [impact:dos, destruction:policy]
+    risks: [impact:dos, destruction:policy]
     notes: >-
       Removing the correct DNS forwarding rules may cause a DOS.
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Update allows enabling or disabling both inbound or outbound forwarding, which can impact
       proper name resolution.

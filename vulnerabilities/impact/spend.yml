@@ -1,8 +1,0 @@
-name: Spend
-description: >-
-  Allows an attacker to cause increased infrastructure spend,
-  without benefit to the attacker.
-risk: MEDIUM
-mitigations:
-  - Add billing plan limits
-links: []

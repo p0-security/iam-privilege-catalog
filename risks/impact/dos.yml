@@ -1,0 +1,11 @@
+name: Denial-of-service
+description: >-
+  Allows an attacker to disrupt an organization's operations.
+  When applied to critical systems, can disable an organization's
+  core systems.
+score: HIGH
+mitigations:
+  - Redundant infrastructure
+  - Rate limiting
+links:
+  - https://attack.mitre.org/techniques/T1499/

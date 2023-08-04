@@ -4,10 +4,10 @@ description: >-
 scope: LOW
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [destruction:defense]
+    risks: [destruction:defense]
   list:
-    vulnerabilities: [discovery:metadata]
+    risks: [discovery:metadata]
 links:
   - https://cloud.google.com/resource-manager/docs/tags/tags-overview

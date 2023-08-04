@@ -9,17 +9,17 @@ notes: >-
   have semantic differences within these privileges.
 privileges:
   addAccessConfig:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     scope: HIGH
     notes: >-
       Allows a public IP address to be assigned to the instance. Further access depends on
       the instance's firewall rules.
   addMaintenancePolicies:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Appears to be unused, or replaced with `setScheduling`.
   addResourcePolicies:
-    vulnerabilities: [impact:dos, impact:spend]
+    risks: [impact:dos, impact:spend]
     scope: HIGH
     notes: >-
       Requires an existing resource policy and `compute.resourcePolicies.use` or
@@ -28,12 +28,12 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/instances/schedule-instance-start-stop
   attachDisk:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     scope: HIGH
     notes: >-
       When combined with `compute.disks.use`, can escalate access to disk data.
   create:
-    vulnerabilities:
+    risks:
       - discovery:network
       - discovery:policy
       - takeover:account
@@ -52,25 +52,25 @@ privileges:
       - https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/
       - https://cloud.google.com/compute/docs/metadata/default-metadata-values
   createTagBinding:
-    vulnerabilities: [impact:access, escalation:privilege]
+    risks: [impact:access, escalation:privilege]
     notes: >-
       Depending on IAM policy configuration, can gain access to, or remove access from, the
       instance.
   delete:
-    vulnerabilities: [destruction:infra, destruction:data, destruction:logs]
+    risks: [destruction:infra, destruction:data, destruction:logs]
   deleteAccessConfig:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
     notes: >-
       Can remove public IP addresses from the instance.
   deleteTagBinding:
-    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
+    risks: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       Depending on IAM policy configuration, can gain access to, or remove access from, the
       instance.
   detachDisk:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   get:
-    vulnerabilities:
+    risks:
       - discovery:account
       - discovery:network
       - discovery:policy
@@ -82,25 +82,25 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/metadata/default-metadata-values
   getEffectiveFirewalls:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   getGuestAttributes:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
     scope: MEDIUM
     notes: >-
       Guest attributes may be used by applications to store small quantities of quasi-static data.
     links:
       - https://cloud.google.com/compute/docs/metadata/overview
   getIamPolicy:
-    vulnerabilities: [discovery:account, discovery:policy]
+    risks: [discovery:account, discovery:policy]
   getScreenshot:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
     scope: HIGH
     notes: >-
       Requires sensitive data to appear in the VM's screen output.
     links:
       - https://cloud.google.com/compute/docs/troubleshooting/capturing-vm-screenshots
   getSerialPortOutput:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
     scope: HIGH
     notes: >-
       Allows reading data from an instance even if exfiltration is otherwise prevented via
@@ -110,7 +110,7 @@ privileges:
       - https://cloud.google.com/compute/docs/troubleshooting/viewing-serial-port-output
       - https://www.mitiga.io/blog/misconfiguration-hidden-dangers-cloud-control-plane
   getShieldedInstanceIdentity:
-    vulnerabilities: [discovery:account]
+    risks: [discovery:account]
     scope: LOW
     notes: >-
       Provides access to the public components of the instance's virtual trusted platform module
@@ -119,7 +119,7 @@ privileges:
     links:
       - https://cloud.google.com/compute/shielded-vm/docs/shielded-vm
   getShieldedVmIdentity:
-    vulnerabilities: [discovery:account]
+    risks: [discovery:account]
     scope: LOW
     notes: >-
       Provides access to the public components of the VM's virtual trusted platform module
@@ -128,7 +128,7 @@ privileges:
     links:
       - https://cloud.google.com/compute/shielded-vm/docs/shielded-vm
   list:
-    vulnerabilities:
+    risks:
       - discovery:account
       - discovery:network
       - discovery:policy
@@ -137,13 +137,13 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/metadata/default-metadata-values
   listEffectiveTags:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   listReferrers:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   listTagBindings:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   osAdminLogin:
-    vulnerabilities:
+    risks:
       - collection:data
       - destruction:data
       - destruction:logs
@@ -160,14 +160,14 @@ privileges:
     notes: >-
       Allows root-level access to the instance, effectively allowing full control of
       all services hosted on the instance. Allows full access to instance metadata,
-      similar to vulnerabilities of `get`. Allows access to all data stored on the
+      similar to risks of `get`. Allows access to all data stored on the
       instance. Allows access to bound service accounts, granting access to all resources
       accessible by the service account (potentially including data repositories). Allows
       access to any networks to which the instance is bound. Allows alteration of logs,
       potentially allowing the attacker to conceal their presence. If the instance has a
       service account, additionally requires permission to act as that service account.
   osLogin:
-    vulnerabilities:
+    risks:
       - collection:data
       - destruction:data
       - discovery:network
@@ -177,8 +177,8 @@ privileges:
       - impact:defacement
       - impact:hijack
     notes: >-
-      Specific vulnerabilities depend on the instance configuration, but can include most
-      of the vulnerabilities of `osAdminLogin`, subject to privileges granted within the
+      Specific risks depend on the instance configuration, but can include most
+      of the risks of `osAdminLogin`, subject to privileges granted within the
       instance OS and file systems. If the instance has a service account, additionally
       requires permission to act as that service account. Assuming traditionally root-level
       permissions are unavailable to users that log in via this privilege, alteration of
@@ -187,11 +187,11 @@ privileges:
       limits. Backend services that serve or store data in accessible locations may be
       altered, or their data collected.
   removeMaintenancePolicies:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Appears to be unused, or replaced with `setScheduling`.
   removeResourcePolicies:
-    vulnerabilities: [impact:dos, impact:spend]
+    risks: [impact:dos, impact:spend]
     notes: >-
       Resource policies can automatically start or stop instances, leading to denial-of-service
       (if instances are no longer started), or additional spend (if instances are no longer
@@ -199,11 +199,11 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/instances/schedule-instance-start-stop
   reset:
-    vulnerabilities: [destruction:data, impact:dos]
+    risks: [destruction:data, impact:dos]
   resume:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   sendDiagnosticInterrupt:
-    vulnerabilities: [collection:data]
+    risks: [collection:data]
     scope: HIGH
     notes: >-
       Requires additional privileges to exploit: for Linux systems, the ability to configure
@@ -212,52 +212,52 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/troubleshooting/collecting-core-dumps
   setDeletionProtection:
-    vulnerabilities: [destruction:infra, destruction:data, destruction:logs]
+    risks: [destruction:infra, destruction:data, destruction:logs]
     scope: HIGH
     notes: >-
       Additionally requires the ability to delete the instance.
   setDiskAutoDelete:
-    vulnerabilities: [destruction:infra, destruction:data, destruction:logs]
+    risks: [destruction:infra, destruction:data, destruction:logs]
     notes: >-
       Leads to destruction when the instance is deleted.
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   setLabels:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     scope: LOW
     notes: >-
       Used generally for filtering instance lists.
   setMachineResources:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     scope: MEDIUM
     notes: >-
       Allows the replacement of attached GPUs. The machine must be stopped. Could potentially
       lead to a denial-of-service if the instance is restarted and is undersized for its workload.
   setMachineType:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     scope: MEDIUM
     notes: >-
       Allows reconfiguration of the instance machine type. The machine must be stopped. Could potentially
       lead to a denial-of-service if the instance is restarted and is undersized for its workload.
   setMetadata:
-    vulnerabilities: [destruction:data]
+    risks: [destruction:data]
     scope: LOW
     notes: >-
       Only allows setting of custom metadata.
   setMinCpuPlatform:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     scope: MEDIUM
     notes: >-
       Allows reconfiguration of the minimum CPU platform (microarchitecture) the instance can use.
       The machine must be stopped. Could potentially interrupt services that require features from a
       specific CPU platform (e.g. a specific number of available threads, vCPUs, or instructions).
   setName:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     scope: MEDIUM
     notes: >-
       Can break instance references when instances are referred to by name rather than resource ID.
   setScheduling:
-    vulnerabilities: [destruction:data, destruction:logs]
+    risks: [destruction:data, destruction:logs]
     scope: MEDIUM
     notes: >-
       Can lead to data or log destruction when the instance is configured to terminate on host
@@ -266,7 +266,7 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/instances/setting-vm-host-options
   setServiceAccount:
-    vulnerabilities: [destruction:infra, escalation:lateral]
+    risks: [destruction:infra, escalation:lateral]
     notes: >-
       Set a service account removes any existing service account access from the machine, preventing
       any requests to other resources that rely on that account. When the newly attached service account
@@ -274,45 +274,45 @@ privileges:
     links:
       - https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances
   setShieldedInstanceIntegrityPolicy:
-    vulnerabilities: [destruction:defense]
+    risks: [destruction:defense]
     notes: >-
       Resets the baseline for monitoring instance integrity, allowing an attacker to evade detection.
       The instance must be running.
     links:
       - https://cloud.google.com/compute/shielded-vm/docs/integrity-monitoring
   setShieldedVmIntegrityPolicy:
-    vulnerabilities: [destruction:defense]
+    risks: [destruction:defense]
     notes: >-
       Can be used to disable integrity monitoring on a shielded instance. The instance must be stopped.
     links:
       - https://cloud.google.com/compute/shielded-vm/docs/modifying-shielded-vm
   setTags:
-    vulnerabilities: [destruction:policy, escalation:lateral]
+    risks: [destruction:policy, escalation:lateral]
     notes: >-
       Tags are used to control access.
   simulateMaintenanceEvent:
-    vulnerabilities: [destruction:data, destruction:network, impact:dos]
+    risks: [destruction:data, destruction:network, impact:dos]
     notes: >-
       Executes maintenance events, which can move instances between hosts, preempt jobs,
-      or stop or restart instances. Inherits the vulnerabilities of those actions.
+      or stop or restart instances. Inherits the risks of those actions.
     links:
       - https://cloud.google.com/compute/docs/instances/simulating-host-maintenance
   start:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     notes: >-
       Can induce spend with arbitrary instances.
   startWithEncryptionKey:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     notes: >-
       The specified disk encryption key must be already known.
   stop:
-    vulnerabilities: [destruction:data, impact:dos]
+    risks: [destruction:data, impact:dos]
   suspend:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Ephemeral machine state is saved on suspend.
   update:
-    vulnerabilities:
+    risks:
       - destruction:data
       - destruction:infra
       - destruction:network
@@ -326,17 +326,17 @@ privileges:
       - https://cloud.google.com/compute/docs/instances/update-instance-properties#updatable-properties
       - https://cloud.google.com/compute/docs/reference/rest/v1/instances/update
   updateAccessConfig:
-    vulnerabilities: [destruction:network, escalation:privilege]
+    risks: [destruction:network, escalation:privilege]
     scope: HIGH
     notes: >-
       Allows a public IP address to be assigned to or removed from the instance. Further access depends on
       the instance's firewall rules.
   updateDisplayDevice:
-    vulnerabilities: []
+    risks: []
     notes: >-
-      No known vulnerabilities.
+      No known risks.
   updateNetworkInterface:
-    vulnerabilities:
+    risks:
       - destruction:network
       - escalation:lateral
       - escalation:privilege
@@ -345,28 +345,28 @@ privileges:
       VPC), external IP addresses, and DNS records. May allow access to infrastructure on new networks.
       Further access depends on this and other instance's firewall rules.
   updateSecurity:
-    vulnerabilities: []
+    risks: []
     notes: >-
       No known usage of this privilege.
   updateShieldedInstanceConfig:
-    vulnerabilities: [destruction:infra, destruction:defense]
+    risks: [destruction:infra, destruction:defense]
     notes: >-
       Can be used to disable secure boot, remove the vTPM from the instance, or disable integrity
       monitoring. Requires the instance to be stopped.
   updateShieldedVmConfig:
-    vulnerabilities: [destruction:infra, destruction:defense]
+    risks: [destruction:infra, destruction:defense]
     notes: >-
       Can be used to disable secure boot, remove the vTPM from the instance, or disable integrity
       monitoring. Requires the instance to be stopped.
   use:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     scope: HIGH
     notes: >-
       Can be used to connect the instance to other components, potentially allowing additional
       access. For example, adding the instance to an instance group can allow the instance's
       network to be accessible.
   useReadOnly:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     scope: HIGH
     notes: >-
       Can be used to connect the instance to other components, potentially allowing additional

@@ -1,0 +1,12 @@
+name: Data destruction
+description: >-
+  Allows an attacker to delete organizational data. May cause
+  interruption of services (including critical operations of
+  the organization) and significant legal liability. Data loss
+  can be either permanent or temporary, and is mitigated by
+  frequent data backup.
+score: CRITICAL
+mitigations:
+  - Data backup
+links:
+  - https://attack.mitre.org/techniques/T1485/

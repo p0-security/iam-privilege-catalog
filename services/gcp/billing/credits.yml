@@ -4,7 +4,7 @@ description: >-
 scope: LOW
 privileges:
   list:
-    vulnerabilities: [discovery:finance]
+    risks: [discovery:finance]
     notes: >-
       Allows viewing both the original credit and the current usage amount.
 

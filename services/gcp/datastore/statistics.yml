@@ -7,9 +7,9 @@ description: >-
 scope: LOW
 privileges:
   get:
-    vulnerabilities: [discovery:metadata]
+    risks: [discovery:metadata]
   list:
-    vulnerabilities: [discovery:metadata]
+    risks: [discovery:metadata]
 links:
   - https://cloud.google.com/datastore/docs/concepts/stats
   - https://cloud.google.com/datastore/docs/console/datastore-statistics

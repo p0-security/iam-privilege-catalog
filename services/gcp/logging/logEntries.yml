@@ -4,17 +4,17 @@ description: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     notes: >-
       Create and route together allow writing log entries via the Logging API
   download:
-    vulnerabilities: [exfiltration:logs]
+    risks: [exfiltration:logs]
   list:
-    vulnerabilities: [exfiltration:logs]
+    risks: [exfiltration:logs]
     notes: >-
       This provides access to log entries.
   route:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     notes: >-
       Create and route together allow writing log entries via the Logging API
 

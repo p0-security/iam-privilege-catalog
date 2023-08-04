@@ -4,21 +4,21 @@ description: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: [impact:consumption]
+    risks: [impact:consumption]
   delete:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Tag keys in use by any tag bindings cannot be deleted.
   get:
-    vulnerabilities: [discovery:metadata]
+    risks: [discovery:metadata]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:metadata]
+    risks: [discovery:metadata]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: []
+    risks: []
     notes: >
       Only allows updating the tag description.
 

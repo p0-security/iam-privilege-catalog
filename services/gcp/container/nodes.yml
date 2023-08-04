@@ -15,7 +15,7 @@ links:
   - https://cloud.google.com/kubernetes-engine/docs/concepts/security-overview
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
     notes: >-
       There are two ways to create a node: self-registration from the kubelet running on the node using
       a kubeconfig file or by manually registering the node via the Kubernetes API. The `containers.node.create` 
@@ -26,7 +26,7 @@ privileges:
       - https://kubernetes.io/docs/concepts/architecture/nodes/#management
       - https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
   delete:
-    vulnerabilities: [destruction:infra, destruction:data, destruction:logs]
+    risks: [destruction:infra, destruction:data, destruction:logs]
     notes: >-
       Deleting a node immediately destroys all workloads running on it. This is an unsafe action and is
       likely to disrupt normal operations. Instead, a node can be cordoned to prevent new pods from being
@@ -37,20 +37,20 @@ privileges:
       - https://kubernetes.io/docs/concepts/architecture/nodes/#manual-node-administration
       - https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
   get:
-    vulnerabilities: [discovery:infra, discovery:network]
+    risks: [discovery:infra, discovery:network]
     notes: >-
       The response payload contains container image IDs stored on the nodes, as well as IP addresses, Pod CIDR ranges,
       health check statuses, and other metadata.
   getStatus:
-    vulnerabilities: [discovery:infra, discovery:network]
+    risks: [discovery:infra, discovery:network]
     notes: >-
       Allows access to the same information as `containers.nodes.get`.
   list:
-    vulnerabilities: [discovery:infra, discovery:network]
+    risks: [discovery:infra, discovery:network]
     notes: >-
       List all nodes.
   proxy:
-    vulnerabilities: [escalation:privilege, escalation:lateral]
+    risks: [escalation:privilege, escalation:lateral]
     notes: >-
       This permission allows calling the `api/v1/nodes/{node}/proxy/{path?}` endpoint with any HTTP method,
       which executes the request directly against the kubelet API on the kubelet running on the node, without further
@@ -61,7 +61,7 @@ privileges:
       - https://www.deepnetwork.com/blog/2020/01/13/kubelet-api.html
       - https://blog.aquasec.com/privilege-escalation-kubernetes-rbac
   update:
-    vulnerabilities: [impact:manipulation, destruction:metadata]
+    risks: [impact:manipulation, destruction:metadata]
     notes: >-
       The things that you can typically update are the metadata labels and annotations, and fields in the `spec`
       section of the node manifest: taints, which prevent certain pods to be scheduled on the node, and the 
@@ -70,7 +70,7 @@ privileges:
     links:
       - https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#nodespec-v1-core
   updateStatus:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Allows updating only the status component of a node. Does not have any real effect since status
       is managed by Kubernetes.

@@ -4,38 +4,38 @@ description: >-
 scope: HIGH
 notes: >-
   Limited attack compared to direct VM access; exploitation involves
-  also exercising vulnerabilities in load-balancer routing.
+  also exercising risks in load-balancer routing.
 privileges:
   create:
-    vulnerabilities: [impact:consumption]
+    risks: [impact:consumption]
     notes: >-
       Reserves a global IP address, but does not assign it to any
       infrastructure.
   createInternal:
-    vulnerabilities: [impact:consumption]
+    risks: [impact:consumption]
     notes: >-
       Reserves a global IP address, but does not assign it to any
       infrastructure. Requires access to the internal network
       for exploitation.
   delete:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
     scope: LOW
     notes: >-
       An address can only be released if it is not in use.
   deleteInternal:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
     scope: LOW
     notes: >-
       An address can only be released if it is not in use.
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   setLabels:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     scope: LOW
   use:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       Requires an attacker to also be able to manipulate load-balancer
       routing rules to gain access to any network resource.

@@ -6,7 +6,7 @@ scope: HIGH
 notes: >-
   This privilege set may allow connection or disconnection of networks between
   multiple critical systems. To abuse creation of interconnects, multiple concurrent
-  vulnerabilities must be exploited, as abusing interconnects require access to a valid
+  risks must be exploited, as abusing interconnects require access to a valid
   target on-premise facility, the ability to create interconnects, the ability to attach
   interconnects, and the ability to map interconnects to a compute router VLAN. The full
   set of privileges necessary to connect to a VLAN are: compute.interconnects.create,
@@ -14,28 +14,28 @@ notes: >-
   compute.routers.create, compute.routers.get, compute.routers.update.
 privileges:
   create:
-    vulnerabilities: [escalation:network, impact:spend]
+    risks: [escalation:network, impact:spend]
     scope: MEDIUM
     notes: >-
       Additionally requires the privileges described in this component's notes.
   delete:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Exposes router IP addresses and VLAN tags.
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: Per get.
   setLabels:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     scope: LOW
   update:
-    vulnerabilities: [impact:dos, escalation:network]
+    risks: [impact:dos, escalation:network]
     notes: >-
       Can be used to resize or reroute the interconnect.
   use:
-    vulnerabilities: [escalation:network]
+    risks: [escalation:network]
     scope: MEDIUM
     notes: >-
       May allow an attachment to be used by an already compromised cloud router.

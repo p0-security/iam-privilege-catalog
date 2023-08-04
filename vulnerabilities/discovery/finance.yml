@@ -1,7 +1,0 @@
-name: Financial discovery
-description: >-
-  Allows an attacker gain information related to organizational finances and spending,
-  such as invoices and spending history.
-risk: LOW
-mitigations: []
-links: []

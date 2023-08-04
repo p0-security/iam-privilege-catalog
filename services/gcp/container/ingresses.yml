@@ -14,33 +14,33 @@ links:
   - https://cloud.google.com/community/tutorials/nginx-ingress-gke
 privileges:
   create:
-    vulnerabilities: [escalation:network]
+    risks: [escalation:network]
     notes: >-
       Ingress configures public access to a Kubernetes backend service.
   delete:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
     notes: >-
       Deleting an Ingress removes public access to potentially business-critical Kubernetes services.
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Retrieve metadata about Ingress configuration, such as references to FrontendConfig, BackendConfig, and routing rules.
   getStatus:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Retrieve metadata about Ingress configuration, such as references to FrontendConfig, BackendConfig, and routing rules.
       This endpoint returns the same data as `
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Retrieve metadata about Ingress configuration, such as references to FrontendConfig, BackendConfig, and routing rules.
   update:
-    vulnerabilities: [destruction:network, escalation:network]
+    risks: [destruction:network, escalation:network]
     notes: >-
       Ingress updates may take down public internet connection to Kubernetes services, or establish new connections, potentially
       opening up services for further exploitation by an attacker.
   updateStatus:
-    vulnerabilities: []
+    risks: []
     notes: >-
       While this permission is exposed, updating the status of an Ingress does not take effect.
       Status is managed by Kubernetes.

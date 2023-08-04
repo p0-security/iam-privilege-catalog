@@ -21,4 +21,4 @@ jobs:
       - name: Verify format
         run: yarn prettier --check .
       - name: Spell check
-        run: yarn cspell ./vulnerabilities ./services
+        run: yarn cspell ./risks ./services

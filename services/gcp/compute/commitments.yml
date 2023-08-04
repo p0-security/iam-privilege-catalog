@@ -6,16 +6,16 @@ notes: >-
   Commitments affect operational cost.
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     scope: LOW
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     scope: LOW
   update:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   updateReservations:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
 links:
   - https://cloud.google.com/compute/docs/instances/committed-use-discounts-overview

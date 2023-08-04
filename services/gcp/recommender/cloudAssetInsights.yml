@@ -9,8 +9,8 @@ notes: >-
   about users, groups, and service accounts.
 privileges:
   get:
-    vulnerabilities: [discovery:policy, discovery:account, discovery:infra]
+    risks: [discovery:policy, discovery:account, discovery:infra]
   list:
-    vulnerabilities: [discovery:policy, discovery:account, discovery:infra]
+    risks: [discovery:policy, discovery:account, discovery:infra]
 links:
   - https://cloud.google.com/asset-inventory/docs/using-asset-insights

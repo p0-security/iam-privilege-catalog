@@ -4,23 +4,23 @@ description: >-
 scope: MEDIUM
 privileges:
   accessReadToken:
-    vulnerabilities: [exfiltration:code]
+    risks: [exfiltration:code]
     notes: >-
       Fetches the read token for the connected repository
   accessReadWriteToken:
-    vulnerabilities: [exfiltration:code, impact:defacement, impact:dos]
+    risks: [exfiltration:code, impact:defacement, impact:dos]
     notes: >-
       Fetches the read/write token for the connected repository
   create:
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
   fetchGitRefs:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Could not find any documentation on this and it is not included in any Cloud Build roles, so I think this permission is unused.
-  get: vulnerabilities:[discovery:infra, discovery:code]
-  list: vulnerabilities:[discovery:infra, discovery:code]
+  get: risks:[discovery:infra, discovery:code]
+  list: risks:[discovery:infra, discovery:code]
 links:
   - https://cloud.google.com/build/docs/iam-roles-permissions
   - https://cloud.google.com/build/docs/api/reference/rest/v2/projects.locations.connections.repositories

@@ -4,11 +4,11 @@ description: >-
 scope: MEDIUM
 privileges:
   delete:
-    vulnerabilities: [destruction:logs]
+    risks: [destruction:logs]
     notes: >-
       Destroys all log entries.
   list:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Does not allow viewing log entries.
 

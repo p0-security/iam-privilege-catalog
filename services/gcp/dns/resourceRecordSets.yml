@@ -5,19 +5,19 @@ description: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: [takeover:domain]
+    risks: [takeover:domain]
     scope: CRITICAL
     notes: >-
       By creating DNS records in an active managed zone, an attacker can cause some of the traffic to your 
       domains to be directed to them.
   delete:
-    vulnerabilities: [impact:dos, destruction:network]
+    risks: [impact:dos, destruction:network]
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   update:
-    vulnerabilities: [impact:dos, takeover:domain]
+    risks: [impact:dos, takeover:domain]
     scope: CRITICAL
     notes: >-
       Edit access to DNS records.

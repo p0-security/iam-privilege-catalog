@@ -1,0 +1,8 @@
+name: Metadata discovery
+description: >-
+  Allows an attacker to inventory metadata schema.
+  May allow an attacker to focus attacks on specific metadata
+  objects.
+score: LOW
+mitigations: []
+links: []

@@ -8,7 +8,7 @@ import { sys } from "typescript";
 
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_PATH = "dist";
-const VULNERABILITIES_FOLDER = "vulnerabilities";
+const VULNERABILITIES_FOLDER = "risks";
 const SERVICES_FOLDER = "services";
 
 const SERVICE_IDS = {
@@ -51,44 +51,41 @@ const generateVulns = async (base: string) => {
   });
   await fs.mkdir(OUTPUT_PATH, { recursive: true });
   await fs.writeFile(
-    path.join(OUTPUT_PATH, "vulnerabilities.json"),
+    path.join(OUTPUT_PATH, "risks.json"),
     JSON.stringify(model, undefined, 2),
     { encoding: "utf-8" }
   );
-  console.log(`Wrote ${size(model)} vulnerabilities`);
+  console.log(`Wrote ${size(model)} risks`);
   return model;
 };
 
 const generateVulnMd = async (model: Record<string, any>[]) => {
   const sorted = sortBy(model, (m) => m.id);
-  const header = `# Vulnerability reference
+  const header = `# Risk reference
 
 `;
   const texts = sorted.map(
     (m) => `
 #### \`${m.id}\` - ${m.name}
 
-*Risk*: \`${m.risk}\`
+*Score*: \`${m.score}\`
 
 ${m.description}
 
 *Mitigations*:
 ${
   m.mitigations?.map((m: any) => `- ${m}`).join("\n") ??
-  "(no mitigations for this vulnerability)"
+  "(no mitigations for this risk)"
 }
 
 *Links*:
-${
-  m.links?.map((m: any) => `- ${m}`).join("\n") ??
-  "(no links for this vulnerability)"
-}
+${m.links?.map((m: any) => `- ${m}`).join("\n") ?? "(no links for this risk)"}
 `
   );
   const all = header + texts.join("\n\n");
 
   await fs.mkdir(OUTPUT_PATH, { recursive: true });
-  await fs.writeFile(path.join(OUTPUT_PATH, "vulnerabilities.md"), all, {
+  await fs.writeFile(path.join(OUTPUT_PATH, "risks.md"), all, {
     encoding: "utf-8",
   });
 };
@@ -106,11 +103,11 @@ ${privilege.parent.notes ?? "(no notes for this component)"}
 
 *Scope*: \`${privilege.scope}\`
 
-${privilege.description ? `${privilege.description}\n\n` : ""}*Vulnerabilities*:
+${privilege.description ? `${privilege.description}\n\n` : ""}*Risks*:
 ${
-  (privilege.vulnerabilities?.length ?? 0) > 0
-    ? privilege.vulnerabilities?.map((v: any) => `- \`${v}\``).join("\n")
-    : "(no known vulnerabilities for this privilege)"
+  (privilege.risks?.length ?? 0) > 0
+    ? privilege.risks?.map((v: any) => `- \`${v}\``).join("\n")
+    : "(no known risks for this privilege)"
 }
 
 *Notes*:
@@ -124,7 +121,7 @@ ${
 }
 `.trim();
 
-const generatePrivileges = async (base: string, vulnerabilities: string[]) => {
+const generatePrivileges = async (base: string, risks: string[]) => {
   const model: Record<string, Record<string, any>[]> = {};
   await fs.mkdir(OUTPUT_PATH, { recursive: true });
   for (const sid of Object.keys(SERVICE_IDS)) {
@@ -138,13 +135,10 @@ const generatePrivileges = async (base: string, vulnerabilities: string[]) => {
           exitFlag |= 2;
           continue;
         }
-        for (const vuln of value.vulnerabilities) {
-          if (!vulnerabilities.includes(vuln)) {
+        for (const vuln of value.risks) {
+          if (!risks.includes(vuln)) {
             console.warn(
-              `Missing vulnerability ${vuln} at ${path.relative(
-                ROOT,
-                file
-              )} ${key}`
+              `Missing risk ${vuln} at ${path.relative(ROOT, file)} ${key}`
             );
             exitFlag |= 4;
           }
