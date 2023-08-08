@@ -1,6 +1,0 @@
-name: Cryptographic destruction
-description: |
-  Allows an attacker to delete secret data, such as encryption keys, or private components of asymmetric keys.
-risk: CRITICAL
-mitigations:
-links:

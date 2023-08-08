@@ -5,19 +5,19 @@ description: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: [impact:dos, takeover:domain]
+    risks: [impact:dos, takeover:domain]
     scope: HIGH
     notes: >-
       A response policy rule can effectively be used by an attacker to redirect traffic on a domain 
       within the VPC network the policy is attached to.
   delete:
-    vulnerabilities: [impact:dos, destruction:network]
+    risks: [impact:dos, destruction:network]
   get:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   list:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   update:
-    vulnerabilities: [impact:dos, takeover:domain]
+    risks: [impact:dos, takeover:domain]
     scope: HIGH
     notes: >-
       A response policy rule can effectively be used by an attacker to redirect traffic on a domain 

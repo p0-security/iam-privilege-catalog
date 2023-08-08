@@ -9,29 +9,29 @@ notes: >-
   extremely sensitive data.
 privileges:
   access:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       Escalation possibilities depend on the contents of secrets inside
       the Secret Manager, but for most systems this will include at
       least some opportunities for lateral escalation.
   add:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Adding a new version of a secret can break services that
       rely on reading the latest version of the secret.
   destroy:
-    vulnerabilities: [impact:dos, destruction:crypto]
+    risks: [impact:dos, destruction:crypto]
   disable:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
   enable:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       This can be used for a DOS by enabling a out-of-date or
       otherwise incorrect version of the secret.
   get:
-    vulnerabilities: [discovery:infra, discovery:account]
+    risks: [discovery:infra, discovery:account]
     notes: >-
       This includes account discovery because the names of secrets
       may expose accounts that the secrets are associated with.
   list:
-    vulnerabilities: [discovery:infra, discovery:account]
+    risks: [discovery:infra, discovery:account]

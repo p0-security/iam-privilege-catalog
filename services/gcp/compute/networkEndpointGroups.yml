@@ -5,34 +5,34 @@ scope: HIGH
 notes: >-
   Multiple organizational functions may often reside within
   Compute Engine. However, abuse of network-endpoint rules requires
-  leveraging additional vulnerabilities in VM / VPC configuration,
+  leveraging additional risks in VM / VPC configuration,
   such as sensitive data or access broadcast on open VPC ports.
 privileges:
   attachNetworkEndpoints:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       With a NEG on an already accessible network, can be used to connect
       to sensitive backend services. Can be combined with `create` to broaden
       attack surface.
   create:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       When combined with attachNetworkEndpoints, can be used to connect to
       sensitive backend services.
   delete:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
   detachNetworkEndpoints:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   getIamPolicy:
-    vulnerabilities: [discovery:account, discovery:policy]
+    risks: [discovery:account, discovery:policy]
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   use:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       In combination with the ability to alter health checks, allows creation of
       health checks based on NEGs. Could lead to DOS if health checks are sufficiently

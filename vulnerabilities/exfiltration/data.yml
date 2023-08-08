@@ -1,9 +1,0 @@
-name: Data exfiltration
-description: >-
-  Allows an attacker to export sensitive data from a system.
-  Often combined with data-collection exploits (see `collection:data`).
-risk: CRITICAL
-mitigations:
-  - Filter network traffic
-links:
-  - https://attack.mitre.org/techniques/T1537/

@@ -12,38 +12,38 @@ notes: >-
   publicly accessible data are contained within these buckets.
 privileges:
   addSignedUrlKey:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     notes: >-
       Allows an attacker to forge signed URLs, potentially gaining access to additional
       data.
   create:
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [destruction:infra, destruction:data]
+    risks: [destruction:infra, destruction:data]
   deleteSignedUrlKey:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   setSecurityPolicy:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     notes: >-
       Allows an attacker to defeat content security, gaining access to bucket contents.
     links:
       - https://cloud.google.com/armor/docs/security-policy-overview
   update:
-    vulnerabilities: [destruction:infra, destruction:data, escalation:privilege]
+    risks: [destruction:infra, destruction:data, escalation:privilege]
     notes: >-
       May allow modifications to CDN and edge security policies.
     links:
       - https://cloud.google.com/armor/docs/security-policy-overview
   use:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       When combined with the ability to edit URL maps, allows an attacker to point a
       load-balancer URL to a backend bucket.

@@ -1,9 +1,0 @@
-name: Denial-of-access
-description: >-
-  Allows an attacker to prevent authorized operational
-  access. This can allow an attacker to continue system
-  abuse.
-risk: EVASION
-mitigations: []
-links:
-  - https://attack.mitre.org/techniques/T1531/

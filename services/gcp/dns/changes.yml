@@ -4,16 +4,16 @@ description: >-
 scope: LOW
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
     notes: >-
       In order to actually update or delete DNS records, you need permissions on the appropriate ResourceRecordSet,
-      so changes.create on its own has no vulnerabilities.
+      so changes.create on its own has no risks.
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Allows viewing DNS record changelogs. This includes private DNS records.
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Allows viewing DNS record changelogs. This includes private DNS records.
 

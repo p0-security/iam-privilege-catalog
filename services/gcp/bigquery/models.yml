@@ -10,31 +10,31 @@ notes: >-
   depends on machine learning implemented within BigQuery models.
 privileges:
   create:
-    vulnerabilities: [impact:hijack, impact:spend]
+    risks: [impact:hijack, impact:spend]
     notes: 'From Google: "Create new models.". Requires read access to any source data.'
   delete:
-    vulnerabilities: [destruction:data, destruction:infra]
+    risks: [destruction:data, destruction:infra]
     notes: 'From Google: "Delete models."'
   getData:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
     notes: 'From Google: "Get model data."'
   getMetadata:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     notes: 'From Google: "Get model metadata."'
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     notes: 'From Google: "List models and metadata on models."'
   updateData:
-    vulnerabilities: []
+    risks: []
     notes: 'From Google: "Update model data.". Appears unused.'
   updateMetadata:
-    vulnerabilities: [escalation:data, destruction:data, destruction:infra]
+    risks: [escalation:data, destruction:data, destruction:infra]
     notes: 'From Google: "Update model metadata.". Allows a user to modify encryption keys or change model expiration intervals.'
     links:
       - https://cloud.google.com/bigquery/docs/updating-model-metadata
       - https://cloud.google.com/bigquery/docs/reference/rest/v2/models/patch
   export:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
     notes: 'From Google: "Export a model.". Requires bigquery.jobs.create in order to create the export job.'
     links:
       - https://cloud.google.com/bigquery/docs/exporting-models

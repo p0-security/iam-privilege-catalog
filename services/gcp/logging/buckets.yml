@@ -4,28 +4,28 @@ description: >-
 scope: MEDIUM
 privileges:
   copyLogEntries:
-    vulnerabilities: [exfiltration:logs]
+    risks: [exfiltration:logs]
   create:
-    vulnerabilities: [impact:consumption]
+    risks: [impact:consumption]
   delete:
-    vulnerabilities: [destruction:logs]
+    risks: [destruction:logs]
   undelete:
-    vulnerabilities: [impact:consumption]
+    risks: [impact:consumption]
   update:
-    vulnerabilities: [impact:encryption]
+    risks: [impact:encryption]
     notes: >-
       Allows updating or adding a customer-managed encryption key 
       used to encrypt the bucket.
   write:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     notes: >-
       Allows routing logs to the bucket
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     notes: >-
       Does not allow viewing logs in the bucket.
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
     notes: >-
       Does not allow viewing logs in the bucket.
 links:

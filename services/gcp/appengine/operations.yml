@@ -3,15 +3,15 @@ description: >-
   Operations represent long-running App Engine API calls. They are used for operations on applications, domainMappings, services, and versions.
 scope: MEDIUM
 notes: >-
-  The operation includes the data returned from the API call the operation is associated with. This means that viewing an operation includes access to view resource metadata, and would be the same vulnerability as get and list on the resources.
+  The operation includes the data returned from the API call the operation is associated with. This means that viewing an operation includes access to view resource metadata, and would be the same risk as get and list on the resources.
 privileges:
   get:
-    vulnerabilities:
+    risks:
       [discovery:infra, discovery:network, discovery:data, discovery:policy]
     notes: >-
       See applications.get, services.get, versions.get
   list:
-    vulnerabilities:
+    risks:
       [discovery:infra, discovery:network, discovery:data, discovery:policy]
     notes: >-
       See notes for functions.get

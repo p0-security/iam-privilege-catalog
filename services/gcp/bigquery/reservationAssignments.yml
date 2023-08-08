@@ -7,13 +7,13 @@ notes: >-
   purchased reservations.
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   search:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
 links:
   - https://cloud.google.com/bigquery/docs/reservations-intro
   - https://cloud.google.com/bigquery/docs/access-control

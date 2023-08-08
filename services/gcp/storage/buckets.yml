@@ -6,47 +6,47 @@ notes: >-
   Buckets may be used to store data of various sensitivities, from publicly available data to very sensitive confidential data.
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     scope: LOW
   createTagBinding:
-    vulnerabilities: [impact:access, escalation:privilege]
+    risks: [impact:access, escalation:privilege]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. If the user has any
       policies that use tag bindings to enforce conditions, creating a tag on a resource allows them
       to escalate their access to that resource. Also requires getIamPolicy or knowledge of the IAM
       policy from some other means.
   delete:
-    vulnerabilities: [impact:dos, destruction:data, destruction:infra]
+    risks: [impact:dos, destruction:data, destruction:infra]
   deleteTagBinding:
-    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
+    risks: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The "destruction:policy" and
-      "impact:access" vulnerabilities apply if the tag is used in any policies.
+      "impact:access" risks apply if the tag is used in any policies.
   get:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
     scope: LOW
   list:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
     scope: MEDIUM
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   listEffectiveTags:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
     scope: LOW
   listTagBindings:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
     scope: LOW
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [impact:encryption, destruction:metadata]
+    risks: [impact:encryption, destruction:metadata]
     notes: >-
       Even though certain access-related controls are part of the bucket metadata (ACLs, public access
       settings), those cannot be updated without setIamPolicy. However, the encryption key can be updated
       with just this permission. An attacker could use their own key (in their own project) to encrypt
       the data, then disable or delete it, rendering the data unusable until the user can recover the key.
   getObjectInsights:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
     notes: >-
       This includes access to object metadata, but not objects themselves.
 

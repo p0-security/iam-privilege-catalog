@@ -4,22 +4,22 @@ description: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
   fetchLinkableRepositories:
-    vulnerabilities: [discovery:code]
+    risks: [discovery:code]
     notes: >-
       This fetches repositories from the system the connection is with.
   get:
-    vulnerabilities: [discovery:infra, discovery:code]
+    risks: [discovery:infra, discovery:code]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
-  list: vulnerabilities:[discovery:infra, discovery:code]
+    risks: [discovery:policy, discovery:account]
+  list: risks:[discovery:infra, discovery:code]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       You can change the user token secret used for the connection, effectively resulting in a DOS.
 links:

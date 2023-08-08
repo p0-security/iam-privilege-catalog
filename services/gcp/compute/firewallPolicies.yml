@@ -8,55 +8,55 @@ notes: >-
   Compute Engine.
 privileges:
   addAssociation:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       Appears to be an alias for compute.firewallPolicies.use.
     links:
       - https://cloud.google.com/vpc/docs/use-network-firewall-policies#associate
   cloneRules:
-    vulnerabilities: [destruction:policy, escalation:lateral]
+    risks: [destruction:policy, escalation:lateral]
     notes: >-
       Simultaneously deletes a firewall policy and creates a
       new policy. Allows escalation when the new policy is overly
       permissive, or the attacker additionally can alter the copied
       policy.
   copyRules:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Unknown or undocumented functionality. Likely unused.
   create:
-    vulnerabilities: []
+    risks: []
     notes: >-
-      No direct vulnerabilities, but may increase the severity of
+      No direct risks, but may increase the severity of
       attacks using other privileges (see addAssociation, cloneRules,
       and move).
   delete:
-    vulnerabilities: [destruction:policy]
+    risks: [destruction:policy]
     scope: LOW
     notes: >-
       All associations must be removed prior to deletion.
   get:
-    vulnerabilities: [discovery:network, discovery:policy]
+    risks: [discovery:network, discovery:policy]
   getIamPolicy:
-    vulnerabilities: [discovery:account, discovery:policy]
+    risks: [discovery:account, discovery:policy]
   list:
-    vulnerabilities: [discovery:network, discovery:policy]
+    risks: [discovery:network, discovery:policy]
   move:
-    vulnerabilities: []
+    risks: []
     # TODO: Validate requires no existing associations
   removeAssociation:
-    vulnerabilities: [destruction:policy, escalation:lateral]
+    risks: [destruction:policy, escalation:lateral]
     notes: >-
       Allows removal of a policy from a VPC.
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     scope: LOW
     notes: >-
       Only allows for modification of a policy's description.
   use:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       Allows application of a firewall policy to a VPC.
     links:

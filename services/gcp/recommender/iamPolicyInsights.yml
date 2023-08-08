@@ -9,11 +9,11 @@ notes: >-
   about users, groups, and service accounts.
 privileges:
   get:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   update:
-    vulnerabilities: []
+    risks: []
     scope: LOW
     notes: >-
       Updating an insight is extremely low impact since it only

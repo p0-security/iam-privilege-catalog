@@ -8,21 +8,21 @@ notes: >-
   logs or log entries.
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   list:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
   get:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
   share:
-    vulnerabilities: []
+    risks: []
   listShared:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
   update:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   updateShared:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   delete:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
 
 links:
   - https://cloud.google.com/logging/docs/access-control

@@ -7,19 +7,19 @@ notes: >-
   Long running operations incur costs and infrastructure, having cancel privileges results in spend.
 privileges:
   cancel:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     notes: >-
       Cancel a currently-running Cloud Datastore admin operation. Cancelling a long running operation might result in the operation being re-run thereby incurring spend.
   delete:
-    vulnerabilities: [destruction:logs]
+    risks: [destruction:logs]
     notes: >-
       Deletes a completed Cloud Datastore admin operation. This results in loss of history of operations that are performed in the system.
   get:
-    vulnerabilities: [discovery:metadata]
+    risks: [discovery:metadata]
     notes: >-
       Gets the latest state of a long-running operation.
   list:
-    vulnerabilities: []
+    risks: []
     notes: >-
       	Lists operations that match the specified filter in the request.
 

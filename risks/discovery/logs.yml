@@ -1,0 +1,7 @@
+name: Logs discovery
+description: >-
+  Allows an attacker to inventory logs, such as viewing the types of logs collected,
+  log fields, and aggregate statistics on logs.
+mitigations:
+score: LOW
+links:

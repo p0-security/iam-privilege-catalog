@@ -14,7 +14,7 @@ links:
   - https://kubernetes.io/docs/concepts/workloads/controllers/job
 privileges:
   create:
-    vulnerabilities:
+    risks:
       - impact:spend
       - impact:hijack
       - escalation:lateral
@@ -27,7 +27,7 @@ privileges:
       code inside the Kubernetes workload with service account privileges. Persistent Volumes may be 
       attached to jobs, meaning data can be exposed to the Kubernetes workload.
   delete:
-    vulnerabilities:
+    risks:
       - destruction:infra
       - destruction:data
       - destruction:logs
@@ -37,7 +37,7 @@ privileges:
       permanently when the job completes and the pods shut down, unless they are exported to an external system
       for persistence.
   get:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     notes: >-
@@ -45,20 +45,20 @@ privileges:
       such as ports, IP address, replicas, attached volumes, containers and the images
       they are running.
   getStatus:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     notes: >-
       Equivalent to `container.jobs.get`. Allows reading the `/apis/batch/v1/namespaces/{namespace}/deployments/{name}/status`
       subresource which returns the same payload as the `/apis/batch/v1/namespaces/{namespace}/deployments/{name}` resource.
   list:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     notes: >-
       Allows listing all Jobs in a namespace.
   update:
-    vulnerabilities:
+    risks:
       - destruction:infra
       - escalation:lateral
       - escalation:network
@@ -72,7 +72,7 @@ privileges:
       limited resources available to other Kubernetes workloads. Also, persistent volumes may be attached to the Pods, 
       which may provide access to sensitive data.
   updateStatus:
-    vulnerabilities: []
+    risks: []
     scope: LOW
     notes: >-
       Allows updating the status object of the Jobs with different "active", "failed", "ready", and "succeeded"

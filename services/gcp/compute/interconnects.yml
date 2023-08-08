@@ -8,31 +8,31 @@ notes: >-
   to an already compromised system. For more information see compute.interconnectsAttachments.
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   delete:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     notes: >-
       Interconnects can only be deleted when no attachments use them.
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Exposes interconnect IP and MAC address.
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Per get.
   setLabels:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     scope: LOW
   update:
-    vulnerabilities: [impact:dos, escalation:network]
+    risks: [impact:dos, escalation:network]
     scope: HIGH
     notes: >-
       Can be used to enable, disable, or resize attached interconnects. Requires the interconnect
       to be attached.
   use:
     scope: HIGH
-    vulnerabilities: [escalation:network]
+    risks: [escalation:network]
     notes: >-
       When combined with the ability to attach the interconnect, allows network escalation.
       When further combined with the ability to create an interconnect, may allow for arbitrary

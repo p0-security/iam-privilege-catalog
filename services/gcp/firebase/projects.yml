@@ -4,11 +4,11 @@ description: >-
 scope: CRITICAL
 privileges:
   create:
-    vulnerabilities: [impact:consumption]
+    risks: [impact:consumption]
     scope: HIGH
     notes: >-
       Firebase has a soft limit on number of projects per Google Cloud account, and an attacker could theoretically exhaust this limit.
   delete:
-    vulnerabilities: [destruction:data, destruction:infra]
+    risks: [destruction:data, destruction:infra]
   update:
-    vulnerabilities: []
+    risks: []

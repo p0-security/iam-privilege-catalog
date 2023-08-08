@@ -3,34 +3,34 @@ description: >-
   Create and manage health checks used by Cloud load balancers.
 scope: MEDIUM
 notes: >-
-  Exploitation relies on multiple additional exercisable vulnerabilities,
+  Exploitation relies on multiple additional exercisable risks,
   including poorly secured backend endpoints, the ability to route
   to this infrastructure, and provisioned forwarding rules to the subject
   backends.
 privileges:
   create:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
   delete:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
     scope: HIGH
     notes: >-
       May make backend infrastructure unroutable for intended uses.
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
   update:
-    vulnerabilities: [destruction:infra, destruction:network, impact:dos]
+    risks: [destruction:infra, destruction:network, impact:dos]
     scope: HIGH
     notes: >-
       May make backend infrastructure unroutable for intended uses.
   use:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       When combined with tailored health checks, may make backend infrastructure
       unroutable for intended uses.
   useReadOnly:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       When combined with tailored health checks, may make backend infrastructure
       unroutable for intended uses.

@@ -6,17 +6,17 @@ notes: >-
   Application functionality relies on services: deleting or updating services can prevent normal application function.
 privileges:
   delete:
-    vulnerabilities: [impact:dos, destruction:infra]
+    risks: [impact:dos, destruction:infra]
   get:
-    vulnerabilities: [discovery:infra, discovery:policy]
+    risks: [discovery:infra, discovery:policy]
     notes: >-
       Includes network discovery since it allows viewing of ingress traffic policies.
   list:
-    vulnerabilities: [discovery:infra, discovery:policy]
+    risks: [discovery:infra, discovery:policy]
     notes: >-
       See get
   update:
-    vulnerabilities:
+    risks:
       [
         impact:dos,
         destruction:policy,
@@ -30,7 +30,7 @@ privileges:
       Also allows modifying ingress traffic settings, which could either lead to escalation by making access public, 
       or restrict previously authorized access by narrowing the policy.
   create:
-    vulnerabilities: []
+    risks: []
     notes: >-
       This permission is part of some predefined roles but doesn't do anything.
 links:

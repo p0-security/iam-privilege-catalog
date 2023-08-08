@@ -5,9 +5,9 @@ description: >-
 scope: MEDIUM
 privileges:
   get:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
   update:
-    vulnerabilities: [destruction:logs, impact:encryption]
+    risks: [destruction:logs, impact:encryption]
     notes: >-
       Disabling the _Default log sink can cause loss of log entry data.
 links:

@@ -1,8 +1,0 @@
-name: Metadata exfiltration
-description: >-
-  Allows an attacker to read object metadata. This may
-  contain sensitive data (for example customer identifiers
-  or the like).
-risk: MEDIUM
-mitigations: []
-links: []

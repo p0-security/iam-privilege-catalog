@@ -3,15 +3,15 @@ description: >-
   Operations represent long-running cloud functions API calls. They are used for create, delete, and update operations on cloud functions.
 scope: CRITICAL
 notes: >-
-  The operation includes the data returned from the API call the operation is associated with. This means that viewing an operation includes access to view function metadata, and contains the same vulnerabilities as get and list operations directly on functions.
+  The operation includes the data returned from the API call the operation is associated with. This means that viewing an operation includes access to view function metadata, and contains the same risks as get and list operations directly on functions.
 privileges:
   get:
-    vulnerabilities:
+    risks:
       [discovery:infra, discovery:network, discovery:data, discovery:policy]
     notes: >-
       See notes for functions.get
   list:
-    vulnerabilities:
+    risks:
       [discovery:infra, discovery:network, discovery:data, discovery:policy]
     notes: >-
       See notes for functions.get

@@ -1,7 +1,0 @@
-name: Logs exfiltration
-description: >-
-  Allows an attacker to export logs from a system.
-  Logs may contain sensitive customer or organizational data.
-risk: MEDIUM
-mitigations:
-links:

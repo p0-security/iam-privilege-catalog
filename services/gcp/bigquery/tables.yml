@@ -7,49 +7,49 @@ notes: >-
   across an organization's functions.
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
   createIndex:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   createSnapshot:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   delete:
-    vulnerabilities: [destruction:data]
+    risks: [destruction:data]
   deleteIndex:
-    vulnerabilities: [destruction:infra, impact:spend, impact:dos]
+    risks: [destruction:infra, impact:spend, impact:dos]
     notes: >-
       Can cause service interruptions by reducing query performance.
   deleteSnapshot:
-    vulnerabilities: [destruction:data]
+    risks: [destruction:data]
   export:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   getData:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   restoreSnapshot:
-    vulnerabilities: [destruction:data]
+    risks: [destruction:data]
     notes: >-
       Can destroy data more recent than the restored snapshot.
   setCategory:
-    vulnerabilities: [escalation:privilege, impact:access]
+    risks: [escalation:privilege, impact:access]
     notes: >-
       Categories alter table access.
     links:
       - https://cloud.google.com/bigquery/docs/managing-policy-tags-across-locations
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   updateData:
-    vulnerabilities: [destruction:data]
+    risks: [destruction:data]
   updateTag:
-    vulnerabilities: [escalation:privilege, impact:access]
+    risks: [escalation:privilege, impact:access]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The
-      vulnerabilities apply if the tag is used in any policies.
+      risks apply if the tag is used in any policies.
 links:
   - https://cloud.google.com/bigquery/docs/access-control

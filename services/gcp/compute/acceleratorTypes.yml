@@ -6,8 +6,8 @@ notes: >-
   Reads publicly available data from Google Cloud
 privileges:
   get:
-    vulnerabilities: []
+    risks: []
   list:
-    vulnerabilities: []
+    risks: []
 links:
   - https://cloud.google.com/compute/docs/accelerator-optimized-machines

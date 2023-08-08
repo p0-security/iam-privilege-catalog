@@ -9,9 +9,9 @@ notes: >-
   Service must be enabled separately from BigQuery itself.
 privileges:
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   update:
-    vulnerabilities: [impact:dos, impact:spend]
+    risks: [impact:dos, impact:spend]
     notes: >-
       Can interrupt services that rely on data transfers.
 links:

@@ -13,22 +13,22 @@ links:
   - https://kubernetes.io/blog/2020/09/02/scaling-kubernetes-networking-with-endpointslices/
 privileges:
   create:
-    vulnerabilities: [escalation:network]
+    risks: [escalation:network]
     notes: >-
       Creating an endpoint may open up access to Pods from the public Internet.
   delete:
-    vulnerabilities: [destruction:network]
+    risks: [destruction:network]
     notes: >-
       Deleting an endpoint may partially or completely disrupt public access to Kubernetes Pods.
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Retrieve metadata about a specific endpoint: the IP address, port, and target reference, typically a Pod.
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Retrieve  about all endpoints: the IP address, port, and target reference, typically a Pod.
   update:
-    vulnerabilities: [destruction:network, escalation:network]
+    risks: [destruction:network, escalation:network]
     notes: >-
       An endpoint update allows remapping IP addresses and ports to different Pods.

@@ -1,9 +1,0 @@
-name: Defacement
-description: >-
-  Allows an attacker to alter an organization's public-facing
-  assets. Often used to vandalize these properties.
-risk: HIGH
-mitigations:
-  - Data backup
-links:
-  - https://attack.mitre.org/techniques/T1491/

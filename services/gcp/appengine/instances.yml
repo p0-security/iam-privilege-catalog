@@ -5,13 +5,13 @@ description: >-
 scope: CRITICAL
 privileges:
   delete:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       App Engine will recreate the instance based on the scaling settings for the app, 
       but repeated deletions could still cause a DOS since in-flight requests may be dropped on deletion 
       (the app has 30 seconds to finish processing in-flight requests.)
   enableDebug:
-    vulnerabilities:
+    risks:
       - collection:data
       - discovery:network
       - discovery:policy
@@ -21,20 +21,20 @@ privileges:
       - impact:hijack
     notes: >-
       Allows the user to SSH into the VM where the instance lives. 
-      Specific vulnerabilities depend on instance and application configuration (and may require additional permissions based on configuration), 
+      Specific risks depend on instance and application configuration (and may require additional permissions based on configuration), 
       but can potentially allow data exfiltration from the application or defacement of the application.
-      There are no destruction vulnerabilities since instances are intended to be short-lived (deleted/created according to demand)
+      There are no destruction risks since instances are intended to be short-lived (deleted/created according to demand)
       and do not store data intended to be persistent.
   get:
-    vulnerabilities: [discovery:infra, discovery:network]
+    risks: [discovery:infra, discovery:network]
     notes: >-
       This only exposes basic information about the VM it is running on (ID, zone, IP, etc) and application metrics (requests, errors, memory usage, etc)
   list:
-    vulnerabilities: [discovery:infra, discovery:network]
+    risks: [discovery:infra, discovery:network]
     notes: >-
       This only exposes basic information about the VM it is running on (ID, zone, IP, etc) and application metrics (requests, errors, memory usage, etc)
   update:
-    vulnerabilities: []
+    risks: []
     notes: >-
       This permission is part of some predefined roles but doesn't do anything.
 links:

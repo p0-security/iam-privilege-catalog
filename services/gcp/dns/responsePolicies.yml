@@ -4,19 +4,19 @@ description: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
   notes: >-
     A created response policy cannot be used on a VPC networks without permissions on the network.
     Creating a response policy just attaches it to the network, adding any rules requires separate
     permissions on rules.
   delete:
-    vulnerabilities: [impact:dos, destruction:policy]
+    risks: [impact:dos, destruction:policy]
   get:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   list:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   update:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Updating an existing response policy can create a DOS by removing it from the attached network.
       Updating any rules requires permissions on rules.

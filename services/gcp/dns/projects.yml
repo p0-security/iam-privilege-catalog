@@ -4,7 +4,7 @@ description: >-
 scope: LOW
 privileges:
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Allows viewing statistics about the total number of DNS records, zones, policies of each type in the project.
 

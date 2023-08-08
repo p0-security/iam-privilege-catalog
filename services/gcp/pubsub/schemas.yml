@@ -4,33 +4,33 @@ description: >-
 scope: MEDIUM
 privileges:
   attach:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Can cause service interruptions by attaching an invalid schema.
   commit:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Can cause service interruptions by updating an existing schema to be invalid.
   create:
-    vulnerabilities: []
+    risks: []
   delete:
-    vulnerabilities: [destruction:infra, impact:dos]
+    risks: [destruction:infra, impact:dos]
   get:
-    vulnerabilities: [discovery:data, discovery:infra]
+    risks: [discovery:data, discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   listRevisions:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   rollback:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Can cause service interruptions by rolling back to an incompatible schema.
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   validate:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Validating lets you validate messages against a schema.
 links:

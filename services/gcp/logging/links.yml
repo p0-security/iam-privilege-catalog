@@ -5,13 +5,13 @@ description: >-
 scope:
 privileges:
   create:
-    vulnerabilities: [exfiltration:logs]
+    risks: [exfiltration:logs]
   delete:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
 links:
   - https://cloud.google.com/logging/docs/access-control
   - https://cloud.google.com/logging/docs/reference/v2/rest/v2/folders.locations.buckets.links

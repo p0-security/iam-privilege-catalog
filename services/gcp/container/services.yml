@@ -9,18 +9,18 @@ links:
   - https://kubernetes.io/docs/concepts/services-networking/service
 privileges:
   create:
-    vulnerabilities:
+    risks:
       - escalation:network
     notes: >-
       Services open up communication to your pods from other Kubernetes workloads. Depending on other
       settings in the Kubernetes cluster and the presence of ingress controllers, it may allow public exposure as well.
   delete:
-    vulnerabilities:
+    risks:
       - destruction:network
     notes: >-
       Deleting a service may disrupt communication to Pods, taking down an application completely.
   get:
-    vulnerabilities:
+    risks:
       - discovery:network
     scope: MEDIUM
     notes: >-
@@ -29,20 +29,20 @@ privileges:
     links:
       - https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#loadbalancerstatus-v1-core
   getStatus:
-    vulnerabilities:
+    risks:
       - discovery:network
     scope: MEDIUM
     notes: >-
       While this is a different permission from `container.services.get`, calling the `GET api/v1/namespaces/default/services/{{service-name}}/status`
       endpoint retrieves the same information as the `GET api/v1/namespaces/default/services/{{service-name}}` endpoint.
   list:
-    vulnerabilities:
+    risks:
       - discovery:network
     scope: MEDIUM
     notes: >-
       List all services and their description to the same detail as the `GET api/v1/namespaces/default/services/{{service-name}}` endpoint.
   proxy:
-    vulnerabilities:
+    risks:
       - escalation:lateral
       - escalation:network
       - exfiltration:data
@@ -59,13 +59,13 @@ privileges:
       - https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#create-connect-proxy-service-v1-core
       - https://kubernetes.io/docs/concepts/cluster-administration/proxies/
   update:
-    vulnerabilities:
+    risks:
       - destruction:network
       - escalation:network
     notes: >-
       Modifying a Service may render Pods unreachable to other Kubernetes workloads or establish new connections to Pods.
   updateStatus:
-    vulnerabilities:
+    risks:
       - discovery:network
     scope: MEDIUM
     notes: >-

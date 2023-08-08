@@ -9,25 +9,25 @@ notes: >-
   across an organization's functions.
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
   createTagBinding:
-    vulnerabilities: [impact:access, escalation:privilege]
+    risks: [impact:access, escalation:privilege]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The
-      vulnerabilities apply if the tag is used in any policies.
+      risks apply if the tag is used in any policies.
   delete:
-    vulnerabilities: [destruction:data]
+    risks: [destruction:data]
   deleteTagBinding:
-    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
+    risks: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The
-      vulnerabilities apply if the tag is used in any policies.
+      risks apply if the tag is used in any policies.
   get:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   link:
-    vulnerabilities: []
+    risks: []
     notes: >-
       Possibly used by the AnalyticsHub API projects.locations.dataExchanges/create, although this is
       undocumented by Google. More likely is that creating linked datasets is actually solely enabled by
@@ -35,19 +35,19 @@ privileges:
     links:
       - https://cloud.google.com/bigquery/docs/reference/analytics-hub/rest/v1/projects.locations.dataExchanges/create
   listEffectiveTags:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   listTagBindings:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [destruction:data]
+    risks: [destruction:data]
     notes: >-
       Data can be destroyed if default table expiration is modified.
   updateTag:
-    vulnerabilities: [escalation:privilege, impact:access]
+    risks: [escalation:privilege, impact:access]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. The
-      vulnerabilities apply if the tag is used in any policies.
+      risks apply if the tag is used in any policies.
 links:
   - https://cloud.google.com/bigquery/docs/access-control

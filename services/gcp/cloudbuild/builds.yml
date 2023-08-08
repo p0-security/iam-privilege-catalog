@@ -6,19 +6,19 @@ notes: >-
   Code and artifacts are generally stored in other services, such as Cloud storage.
 privileges:
   approve:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       This allows the user to both approve or deny an existing build.
   create:
-    vulnerabilities: [impact:spend, impact:dos, escalation:privilege]
+    risks: [impact:spend, impact:dos, escalation:privilege]
     notes: >-
       This permission allows users to run builds as the Cloud Build service account. This can allow the user to have escalated build-time privileges.
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   update:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       This allows the user to cancel a build.
 links:

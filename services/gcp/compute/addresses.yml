@@ -9,35 +9,35 @@ notes: >-
 privileges:
   create:
     scope: LOW
-    vulnerabilities: [impact:consumption]
+    risks: [impact:consumption]
   createInternal:
     scope: LOW
-    vulnerabilities: [impact:consumption]
+    risks: [impact:consumption]
   delete:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     notes: >-
       Can not delete an address that is in use by an instance.
   deleteInternal:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
     notes: >-
       Can not delete an address that is in use by an instance.
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       May allow an attacker to identify network resources to target.
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       May allow an attacker to identify network resources to target.
   setLabels:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   use:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       If used to attach a network address to an already compromised access, can
       allow lateral movement across a network.
   useInternal:
-    vulnerabilities: [escalation:lateral]
+    risks: [escalation:lateral]
     notes: >-
       If used to attach a network address to an already compromised access, can
       allow lateral movement across a network.

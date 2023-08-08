@@ -4,13 +4,13 @@ description: >-
 scope: MEDIUM
 privileges:
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     notes: >-
       Can be used to associate the billing account with another project.
   delete:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     notes: >-
       Can render the project without a billing method, interrupting service.
 

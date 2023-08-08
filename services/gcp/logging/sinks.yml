@@ -5,15 +5,15 @@ description: >-
 scope: MEDIUM
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   delete:
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   get:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
   list:
-    vulnerabilities: [discovery:logs]
+    risks: [discovery:logs]
   update:
-    vulnerabilities: [destruction:defense]
+    risks: [destruction:defense]
     notes: >-
       Updating a log sink can update the filter used to exclude logs from being
       routed by the sink. This can impair defenses by allowing an attacker to filter 

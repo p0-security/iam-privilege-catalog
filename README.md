@@ -10,7 +10,7 @@ in an organization.
 
 This catalog is broken into two main components:
 
-1. A catalog of general privilege vulnerabilities, with assigned risk ratings
+1. A catalog of general privilege risks, with assigned risk ratings
 2. A catalog of privileges in IAM systems, with details on potential abuses and scopes
    of impact
 
@@ -23,6 +23,10 @@ This catalog has multiple intended purposes:
   security posture
 - Discover references detailing the security effects of specific privileges
 
+### Viewing online
+
+To view this catalog online, visit [p0.app/catalog](https://p0.app/catalog).
+
 #### Example: account-compromise reach
 
 As an example, consider using this catalog to understand the security posture
@@ -32,12 +36,12 @@ the potential reach of an attack wherein a single principal is compromised?
 To answer this question:
 
 1. Assemble all privileges that are granted to the account in question.
-1. Map each privilege to the associated vulnerabilities and scopes using this catalog.
+1. Map each privilege to the associated risks and scopes using this catalog.
 1. For each resource reachable from the account, determine a scope. E.g.
    resources containing critical data should be assigned "CRITICAL", low-sensitivity
    resources should be assigned lower scores in accordance with the values in
    [services/README.md](https://github.com/p0-security/services/README.md).
-1. Assemble the unique tuples of account, service, resource, and vulnerability
+1. Assemble the unique tuples of account, service, resource, and risks
    reachable from this account, assigning each tuple a scope score equal to the
    minimum of the resource's and the privilege's scope score.
 1. For each tuple, assign a reach score by converting risks and scopes to numerical

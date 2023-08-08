@@ -7,9 +7,9 @@ notes: >-
   although in a misconfigured system using client names as namespaces leads to client enumeration.
 privileges:
   get:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
   list:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
 
 links:
   - https://cloud.google.com/datastore/docs/concepts/multitenancy

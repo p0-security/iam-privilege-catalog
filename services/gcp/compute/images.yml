@@ -4,59 +4,59 @@ description: >-
 scope: HIGH
 notes: >-
   Multiple organizational functions may often reside within
-  Compute Engine. Vulnerabilities generally require exploiting
+  Compute Engine. Risks generally require exploiting
   multiple privileges.
 privileges:
   create:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
     notes: >-
       When combined with a compromised source, a compromised storage
       bucket, and a known encryption key, can allow an attacker to
       exfiltrate a disk image.
   createTagBinding:
-    vulnerabilities: [impact:access, escalation:privilege]
+    risks: [impact:access, escalation:privilege]
     notes: >-
       An attacker can exploit tag-based IAM policies to gain access
       to image data.
   delete:
-    vulnerabilities: [destruction:data]
+    risks: [destruction:data]
   deleteTagBinding:
-    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
+    risks: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       An attacker can exploit tag-based IAM policies to gain access
       to image data.
   deprecate:
-    vulnerabilities: []
+    risks: []
     notes: >-
       No particular impact.
   get:
-    vulnerabilities: [exfiltration:crypto]
+    risks: [exfiltration:crypto]
     notes: >-
       Potentially gives access to raw encryption keys.
   getFromFamily:
-    vulnerabilities: [exfiltration:crypto]
+    risks: [exfiltration:crypto]
     notes: >-
       Potentially gives access to raw encryption keys.
   getIamPolicy:
-    vulnerabilities: [discovery:account, discovery:policy]
+    risks: [discovery:account, discovery:policy]
   list:
-    vulnerabilities: [exfiltration:crypto]
+    risks: [exfiltration:crypto]
     notes: >-
       Potentially gives access to raw encryption keys.
   listEffectiveTags:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   listTagBindings:
-    vulnerabilities: [discovery:policy]
+    risks: [discovery:policy]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   setLabels:
     scope: LOW
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   update:
     scope: LOW
-    vulnerabilities: [destruction:infra]
+    risks: [destruction:infra]
   useReadOnly:
-    vulnerabilities: [escalation:data]
+    risks: [escalation:data]
     notes: >-
       When combined with compute.instances.create, can allow
       access to image data.

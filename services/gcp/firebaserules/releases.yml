@@ -6,29 +6,29 @@ links:
   - https://firebase.google.com/docs/rules
 privileges:
   create:
-    vulnerabilities: []
+    risks: []
     notes: >-
-      You can technically create new releases for additional services that use security rules, but if one didn't already exist for that service, that means that the service is not in use and therefore does not represent a vulnerability.
+      You can technically create new releases for additional services that use security rules, but if one didn't already exist for that service, that means that the service is not in use and therefore does not represent a risk.
   delete:
-    vulnerabilities: [destruction:policy, impact:access]
+    risks: [destruction:policy, impact:access]
     notes: >-
       If an attacker deletes a project's firestore security rules, it will reset the rules to a default which denies all requests, therefore making the app unusable.
   get:
-    vulnerabilities: []
+    risks: []
     scope: LOW
     notes: >-
       Allows reading metadata about the release and a pointer to the ruleset, but not the rules themselves
     links:
       - https://firebase.google.com/docs/reference/rules/rest/v1/projects.releases#Release
   getExecutable:
-    vulnerabilities: []
+    risks: []
     scope: LOW
     notes: >-
       Gets an encoded executable string, not useful for an attacker.
   list:
-    vulnerabilities: []
+    risks: []
     scope: LOW
   update:
-    vulnerabilities: [destruction:policy, escalation:data, impact:access]
+    risks: [destruction:policy, escalation:data, impact:access]
     notes: >-
       When combined with the ability to create arbitrary ruleset context, can allow data escalation. Used alone, an attacker could revert your environment to a known old, insecure ruleset.

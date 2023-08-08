@@ -7,20 +7,20 @@ notes: >-
   from publicly available data to very sensitive confidential data.
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     scope: LOW
   delete:
-    vulnerabilities: [impact:dos, destruction:data]
+    risks: [impact:dos, destruction:data]
   get:
-    vulnerabilities: [exfiltration:data, discovery:data]
+    risks: [exfiltration:data, discovery:data]
   list:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [destruction:metadata]
+    risks: [destruction:metadata]
 
 links:
   - https://cloud.google.com/storage/docs/access-control/iam-permissions

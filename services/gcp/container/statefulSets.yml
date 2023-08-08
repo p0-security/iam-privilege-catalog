@@ -8,7 +8,7 @@ notes: >-
   running on these Pods, and the resources the Pods consume from the Kubernetes cluster.
 privileges:
   create:
-    vulnerabilities:
+    risks:
       - impact:spend
       - impact:hijack
       - escalation:lateral
@@ -20,7 +20,7 @@ privileges:
       resources available to other Kubernetes workloads. Persistent volumes may be attached to the Pods, which may provide access
       to sensitive data.
   delete:
-    vulnerabilities:
+    risks:
       - destruction:infra
       - destruction:data
       - destruction:logs
@@ -29,7 +29,7 @@ privileges:
       Logs of the deleted pods disappear permanently when the pods shut down, unless they are exported to
       an external system for persistence.
   get:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     scope: MEDIUM
@@ -38,7 +38,7 @@ privileges:
       such as ports, IP address, replicas, attached volumes, containers and the images
       they are running.
   getScale:
-    vulnerabilities:
+    risks:
       - discovery:infra
     scope: LOW
     notes: >-
@@ -46,7 +46,7 @@ privileges:
       which returns the number of desired replicas in the StatefulSet. The `container.statefulSets.get`
       permission already includes the ability to read this subresource.
   getStatus:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     scope: MEDIUM
@@ -54,14 +54,14 @@ privileges:
       Equivalent to `container.statefulSets.get`. Allows reading the `/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status`
       subresource which returns the same payload as the `/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}` resource.
   list:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     scope: MEDIUM
     notes: >-
       Allows listing all StatefulSets in a namespace.
   update:
-    vulnerabilities:
+    risks:
       - destruction:data
       - destruction:infra
       - destruction:network
@@ -77,7 +77,7 @@ privileges:
       the stateful service in a scaling event. Scaling may drain the limited resources available to other Kubernetes workloads.
       Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
   updateScale:
-    vulnerabilities:
+    risks:
       - destruction:data
       - destruction:infra
       - impact:hijack
@@ -87,6 +87,6 @@ privileges:
       Secondly, increasing the replica count in StatefulSets may disrupt stateful service and/or drain the limited resources 
       available to other Kubernetes workloads.
   updateStatus:
-    vulnerabilities:
+    risks:
     notes: >-
       This subresource has no effect on the actual StatefulSets.

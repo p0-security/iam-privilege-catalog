@@ -4,25 +4,25 @@ description: >-
 scope: HIGH
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   delete:
-    vulnerabilities: [impact:dos, destruction:data]
+    risks: [impact:dos, destruction:data]
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   seek:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
     notes: >-
       The seek functionality allows for replay/redelivery of the messages in the snapshot. This can allow an attacker to read Pub/Sub messages, which may be sensitive.
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [impact:dos, destruction:data]
+    risks: [impact:dos, destruction:data]
     notes: >-
-      This allows updating snapshot metadata. Potential DOS and data destruction vulnerabilities if the expiration time is updated.
+      This allows updating snapshot metadata. Potential DOS and data destruction risks if the expiration time is updated.
 links:
   - https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_snapshot
   - https://cloud.google.com/sdk/gcloud/reference/pubsub/snapshots/create

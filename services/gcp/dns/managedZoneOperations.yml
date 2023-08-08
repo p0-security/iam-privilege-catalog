@@ -4,11 +4,11 @@ description: >-
 scope: LOW
 privileges:
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       May expose information about private Cloud DNS zones.
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       May expose information about private Cloud DNS zones.
 links:

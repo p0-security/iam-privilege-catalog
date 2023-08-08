@@ -7,11 +7,11 @@ notes: >-
   Domain registrations are public, so though operations expose registration info, it is not sensitive.
 privileges:
   get:
-    vulnerabilities: []
+    risks: []
   list:
-    vulnerabilities: []
+    risks: []
   cancel:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
     scope: MEDIUM
     notes: >-
       Can cancel running operations on registrations, such as configuration changes.

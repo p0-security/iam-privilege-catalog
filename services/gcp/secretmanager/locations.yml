@@ -6,8 +6,8 @@ notes: >-
   This resource contains public information about Google's location offerings for Secret Manager
 privileges:
   list:
-    vulnerabilities: []
+    risks: []
   get:
-    vulnerabilities: []
+    risks: []
 links:
   - https://cloud.google.com/secret-manager/docs/locations

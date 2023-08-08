@@ -6,28 +6,28 @@ notes: >-
   Pub/Sub messages may contain sensitive information.
 privileges:
   attachSubscription:
-    vulnerabilities: [exfiltration:data]
+    risks: [exfiltration:data]
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     scope: LOW
   delete:
-    vulnerabilities: [impact:dos, destruction:data]
+    risks: [impact:dos, destruction:data]
   detachSubscription:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
   get:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:infra]
+    risks: [discovery:infra]
   publish:
-    vulnerabilities: [impact:dos, impact:manipulation]
+    risks: [impact:dos, impact:manipulation]
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
   updateTag:
-    vulnerabilities: [escalation:privilege]
+    risks: [escalation:privilege]
     notes: >-
       A common use case of tag bindings is for use in IAM policy conditions. If the user has any
       policies that use tag bindings to enforce conditions, creating a tag on a resource allows them

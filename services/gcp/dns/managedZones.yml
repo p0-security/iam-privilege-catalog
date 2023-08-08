@@ -6,28 +6,28 @@ notes: >-
   Cloud DNS supports a variety of different public and private zones, including forwarding zones and peering zones.
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
   delete:
-    vulnerabilities: [impact:dos, destruction:network, takeover:domain]
+    risks: [impact:dos, destruction:network, takeover:domain]
     notes: >-
       Deleting the managed zone without deleting the records inside it leave those domains 
       open for takeover.
     links:
       - https://xebia.com/blog/how-to-take-over-a-subdomain-in-google-cloud-dns/
   get:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Can expose information about private DNS zones.
   getIamPolicy:
-    vulnerabilities: [discovery:policy, discovery:account]
+    risks: [discovery:policy, discovery:account]
   list:
-    vulnerabilities: [discovery:network]
+    risks: [discovery:network]
     notes: >-
       Can expose information about private DNS zones.
   setIamPolicy:
-    vulnerabilities: [escalation:privilege, impact:access, destruction:policy]
+    risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    vulnerabilities:
+    risks:
       [impact:dos, discovery:network, destruction:defense, destruction:metadata]
     notes: >-
       Can change the forwarding config, peering config, or visibility in order to create a DOS. 

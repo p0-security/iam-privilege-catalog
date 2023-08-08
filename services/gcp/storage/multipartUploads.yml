@@ -4,15 +4,15 @@ description: >-
 scope: LOW
 privileges:
   create:
-    vulnerabilities: [impact:spend]
+    risks: [impact:spend]
     notes: >-
       Also requires storage.objects.create permission.
   abort:
-    vulnerabilities: [impact:dos]
+    risks: [impact:dos]
   list:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
   listParts:
-    vulnerabilities: [discovery:data]
+    risks: [discovery:data]
 
 links:
   - https://cloud.google.com/storage/docs/access-control/iam-permissions

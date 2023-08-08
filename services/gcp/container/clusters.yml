@@ -8,7 +8,7 @@ notes: >-
   the cluster, managed by Kubernetes.
 privileges:
   create:
-    vulnerabilities:
+    risks:
       - impact:spend
       - impact:hijack
     notes: >-
@@ -16,7 +16,7 @@ privileges:
       By default, GKE uses the Compute Engine default service account, and cluster creation fails unless
       the user has the `iam.serviceAccounts.actAs` permission to the service account.
   createTagBinding:
-    vulnerabilities:
+    risks:
       - impact:access
       - escalation:privilege
     notes: >-
@@ -24,7 +24,7 @@ privileges:
     links:
       - https://cloud.google.com/kubernetes-engine/docs/how-to/tags#overview
   delete:
-    vulnerabilities:
+    risks:
       - destruction:data
       - destruction:infra
       - destruction:network
@@ -35,24 +35,24 @@ privileges:
     links:
       - https://cloud.google.com/sdk/gcloud/reference/container/clusters/delete
   deleteTagBinding:
-    vulnerabilities: [escalation:privilege, destruction:policy, impact:access]
+    risks: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
       Tags can conditionally allow or deny IAM policies. Privilege escalation is possible since removing tags may lead to additional IAM bindings matching the principal.
   get:
-    vulnerabilities:
+    risks:
       - discovery:infra
     notes: >-
       Retrieves cluster information including public and private endpoint IP address,
       and cluster certificate. The information contained allows configuring Kubernetes
       API access to the cluster, similar to the `container.clusters.getCredentials` permission.
   getCredentials:
-    vulnerabilities:
+    risks:
       - discovery:infra
     notes: >-
       Allows configuring Kubernetes API access to the cluster.
       To actually execute any API calls, other `container` permissions are also required.
   impersonate:
-    vulnerabilities:
+    risks:
       - escalation:lateral
     notes: >-
       This permission is used by the Kubernetes Engine Service Agent role (among others)
@@ -63,19 +63,19 @@ privileges:
     links:
       - https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
   list:
-    vulnerabilities:
+    risks:
       - discovery:infra
       - discovery:network
     notes: >-
       Reveals the master IP, and additional limited metadata about clusters.
   listEffectiveTags:
-    vulnerabilities:
+    risks:
       - discovery:policy
   listTagBindings:
-    vulnerabilities:
+    risks:
       - discovery:policy
   update:
-    vulnerabilities:
+    risks:
       - destruction:data
       - destruction:defense
       - destruction:infra
