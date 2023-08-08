@@ -23,6 +23,10 @@ This catalog has multiple intended purposes:
   security posture
 - Discover references detailing the security effects of specific privileges
 
+### Viewing online
+
+To view this catalog online, visit [p0.app/catalog](https://p0.app/catalog).
+
 #### Example: account-compromise reach
 
 As an example, consider using this catalog to understand the security posture

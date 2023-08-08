@@ -8,7 +8,7 @@ import { sys } from "typescript";
 
 const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_PATH = "dist";
-const VULNERABILITIES_FOLDER = "risks";
+const RISKS_FOLDER = "risks";
 const SERVICES_FOLDER = "services";
 
 const SERVICE_IDS = {
@@ -43,7 +43,7 @@ const recursiveRead = async (
   }
 };
 
-const generateVulns = async (base: string) => {
+const generateRisks = async (base: string) => {
   const model: Record<string, any>[] = [];
   await recursiveRead(base, base, async (data, file) => {
     const id = path.relative(base, file).replace("/", ":").slice(0, -4);
@@ -59,7 +59,7 @@ const generateVulns = async (base: string) => {
   return model;
 };
 
-const generateVulnMd = async (model: Record<string, any>[]) => {
+const generateRiskMd = async (model: Record<string, any>[]) => {
   const sorted = sortBy(model, (m) => m.id);
   const header = `# Risk reference
 
@@ -135,10 +135,10 @@ const generatePrivileges = async (base: string, risks: string[]) => {
           exitFlag |= 2;
           continue;
         }
-        for (const vuln of value.risks) {
-          if (!risks.includes(vuln)) {
+        for (const risk of value.risks) {
+          if (!risks.includes(risk)) {
             console.warn(
-              `Missing risk ${vuln} at ${path.relative(ROOT, file)} ${key}`
+              `Missing risk ${risk} at ${path.relative(ROOT, file)} ${key}`
             );
             exitFlag |= 4;
           }
@@ -176,11 +176,11 @@ const generatePrivileges = async (base: string, risks: string[]) => {
 };
 
 void (async () => {
-  const vulns = await generateVulns(path.join(ROOT, VULNERABILITIES_FOLDER));
+  const risks = await generateRisks(path.join(ROOT, RISKS_FOLDER));
   await generatePrivileges(
     path.join(ROOT, SERVICES_FOLDER),
-    vulns.map((v) => v.id)
+    risks.map((v) => v.id)
   );
-  await generateVulnMd(vulns);
+  await generateRiskMd(risks);
   sys.exit(exitFlag);
 })().catch(console.error);
