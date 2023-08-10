@@ -38,7 +38,6 @@ privileges:
       - discovery:policy
       - takeover:account
       - exfiltration:crypto
-      - takeover:account
       - escalation:network
       - impact:spend
       - impact:hijack

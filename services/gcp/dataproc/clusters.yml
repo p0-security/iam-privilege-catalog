@@ -1,0 +1,65 @@
+name: Dataproc clusters
+description: >-
+  Create and manage Dataproc clusters. Dataproc clusters provide a platform for
+  running Apache Hadoop, Hive, Pig, and Spark jobs.
+scope: MEDIUM
+notes: >-
+  Allows access to machine-learning pipelines. Creating a cluster allows takeover of
+  the default Dataproc service account.
+privileges:
+  create:
+    scope: CRITICAL
+    risks:
+      - exfiltration:crypto
+      - takeover:account
+      - impact:spend
+    notes: >-
+      Creating a Dataproc cluster allows the ability to takeover the
+      Dataproc service account.
+    links:
+      - https://www.youtube.com/watch?v=kyqeBGNSEIc
+      - https://www.blackhat.com/us-20/briefings/schedule/#lateral-movement-and-privilege-escalation-in-gcp-compromise-any-organization-without-dropping-an-implant-19435
+  delete:
+    risks:
+      - destruction:infra
+  get:
+    risks: []
+    notes: >-
+      Allows retrieval of the cluster's configuration and status only.
+  getIamPolicy:
+    risks:
+      - discovery:account
+      - discovery:policy
+  list:
+    risks: [discovery:infra]
+    notes: See `get`.
+  setIamPolicy:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+      - impact:access
+  start:
+    risks: [impact:spend]
+  stop:
+    risks: []
+    notes: >-
+      Job state will be lost, but in general jobs will be idempotent.
+  update:
+    risks: [impact:spend]
+    notes: >-
+      Allows the caller to update the number of instances the job uses.
+  use:
+    risks:
+      - exfiltration:crypto
+      - takeover:account
+      - impact:spend
+    notes: >-
+      Allows the caller to submit a job to the cluster. Jobs may gain access
+      to the cluster's service account.
+    links:
+      - https://www.youtube.com/watch?v=kyqeBGNSEIc
+      - https://www.blackhat.com/us-20/briefings/schedule/#lateral-movement-and-privilege-escalation-in-gcp-compromise-any-organization-without-dropping-an-implant-19435
+links:
+  - https://cloud.google.com/dataproc/docs/concepts/overview
+  - https://cloud.google.com/sdk/gcloud/reference/dataproc/clusters
+  - https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.clusters
