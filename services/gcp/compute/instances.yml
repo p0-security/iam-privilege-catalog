@@ -36,15 +36,13 @@ privileges:
     risks:
       - discovery:network
       - discovery:policy
-      - takeover:account
-      - exfiltration:crypto
       - escalation:network
       - impact:spend
       - impact:hijack
     notes: >-
       Creating an instance can export the instance's service account credentials to an external
       server using the VM's local access to the instance metadata, including disk encryption
-      keys and service account tokens. Allows access to network instances to which the VM is
+      keys and short-lived service account tokens. Allows access to network instances to which the VM is
       connected (e.g. VPCs). Created instances can be used to hijack resources, or create extra spend.
       Creating an instance with an attached service account requires permissions to impersonate the service account.
     links:
@@ -150,10 +148,7 @@ privileges:
       - discovery:network
       - discovery:policy
       - escalation:lateral
-      - takeover:account
       - exfiltration:data
-      - exfiltration:crypto
-      - takeover:account
       - impact:defacement
       - impact:hijack
     notes: >-
@@ -358,14 +353,14 @@ privileges:
       Can be used to disable secure boot, remove the vTPM from the instance, or disable integrity
       monitoring. Requires the instance to be stopped.
   use:
-    risks: [escalation:privilege]
+    risks: [escalation:lateral]
     scope: HIGH
     notes: >-
       Can be used to connect the instance to other components, potentially allowing additional
       access. For example, adding the instance to an instance group can allow the instance's
       network to be accessible.
   useReadOnly:
-    risks: [escalation:privilege]
+    risks: [escalation:lateral]
     scope: HIGH
     notes: >-
       Can be used to connect the instance to other components, potentially allowing additional
