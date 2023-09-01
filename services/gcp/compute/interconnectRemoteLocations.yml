@@ -4,6 +4,8 @@ description: >-
   interconnectLocations.
 scope: PUBLIC
 privileges:
-  get: []
-  list: []
+  get:
+    risks: []
+  list:
+    risks: []
 links: []

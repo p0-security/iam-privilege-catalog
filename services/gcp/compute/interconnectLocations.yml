@@ -5,7 +5,9 @@ scope: PUBLIC
 notes: >-
   Access to public data only.
 privileges:
-  get: []
-  list: []
+  get:
+    risks: []
+  list:
+    risks: []
 links:
   - https://cloud.google.com/network-connectivity/docs/interconnect/how-to/dedicated/listing-locations
