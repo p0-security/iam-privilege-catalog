@@ -36,18 +36,17 @@ privileges:
     risks:
       - discovery:network
       - discovery:policy
-      - takeover:account
       - exfiltration:crypto
-      - takeover:account
       - escalation:network
       - impact:spend
       - impact:hijack
     notes: >-
       Creating an instance can export the instance's service account credentials to an external
       server using the VM's local access to the instance metadata, including disk encryption
-      keys and service account tokens. Allows access to network instances to which the VM is
+      keys and service-account tokens. Allows access to network instances to which the VM is
       connected (e.g. VPCs). Created instances can be used to hijack resources, or create extra spend.
-      Creating an instance with an attached service account requires permissions to impersonate the service account.
+      Creating an instance with an attached service account requires permissions to impersonate the service account,
+      so access to the service-account token does not present a privilege escalation.
     links:
       - https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/
       - https://cloud.google.com/compute/docs/metadata/default-metadata-values
