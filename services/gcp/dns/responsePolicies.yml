@@ -5,10 +5,10 @@ scope: MEDIUM
 privileges:
   create:
     risks: []
-  notes: >-
-    A created response policy cannot be used on a VPC networks without permissions on the network.
-    Creating a response policy just attaches it to the network, adding any rules requires separate
-    permissions on rules.
+    notes: >-
+      A created response policy cannot be used on a VPC networks without permissions on the network.
+      Creating a response policy just attaches it to the network, adding any rules requires separate
+      permissions on rules.
   delete:
     risks: [impact:dos, destruction:policy]
   get:

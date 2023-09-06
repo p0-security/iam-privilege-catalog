@@ -15,7 +15,8 @@ privileges:
     risks: [discovery:infra, discovery:code]
   getIamPolicy:
     risks: [discovery:policy, discovery:account]
-  list: risks:[discovery:infra, discovery:code]
+  list:
+    risks: [discovery:infra, discovery:code]
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   update:

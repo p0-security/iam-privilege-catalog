@@ -87,6 +87,6 @@ privileges:
       Secondly, increasing the replica count in StatefulSets may disrupt stateful service and/or drain the limited resources 
       available to other Kubernetes workloads.
   updateStatus:
-    risks:
+    risks: []
     notes: >-
       This subresource has no effect on the actual StatefulSets.
