@@ -9,36 +9,36 @@ privileges:
   get:
     vulnerabilities: []
     notes: >-
-      Principal with this permission can begin and rollback transaction. the privilege by itself has no impact, given transactions are isolated.
+      A principal with this permission can begin and rollback transaction. The privilege by itself has no impact, given transactions are isolated.
   getMetadata:
     vulnerabilities: [discovery:metadata]
     notes: >-
-      Principal with this permission can get metadata of the database.
+      A principal with this permission can read the metadata of the database.
   list:
     vulnerabilities: [discovery:infra]
     notes: >-
-      Principal with this permission can list databases. This can be used to discover databases.
+      A principal with this permission can list databases, enabling database discovery.
   export:
     vulnerabilities: [collection:data, impact:spend]
     notes: >-
-      Principal with this permission can export entities to a Cloud Storage bucket.
+      A principal with this permission can export entities to  cloud storage buckets.
   import:
     vulnerabilities: [impact:consumption, impact:spend, destruction:data]
     notes: >-
-      Principal with this permission can import entities from a file, this can consume the quota limits for entity writes and storage.
+      A principal with this permission can import entities from a file, consuming the quota limits for entity writes and storage.
       Existing entities with the same keys are overwritten resulting in destruction of data.
   create:
     vulnerabilities: [impact:consumption, impact:spend]
     notes: >-
-      Principal with this permission can create a new database. This can consume the quota limits for database creation.
+      A principal with this permission can create a new database, consuming the quota limits for database creation.
   update:
     vulnerabilities: [destruction:defense]
     notes: >-
-      Principal with this permission can update the database. Updating the database can involve removing delete protection.
+      A principal with this permission can update the database, removing delete protection.
   delete:
     vulnerabilities: [destruction:data]
     notes: >-
-      Principal with this permission can delete the database. Deleting the database can involve removing delete protection.
+      A principal with this permission can delete the database, destroying all data.
 links:
   - https://cloud.google.com/datastore
   - https://cloud.google.com/datastore/docs/manage-databases
