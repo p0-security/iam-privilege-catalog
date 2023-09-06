@@ -11,7 +11,7 @@ privileges:
     notes: >-
       A principal with this permission can begin and rollback transaction. The privilege by itself has no impact, given transactions are isolated.
   getMetadata:
-    vulnerabilities: [discovery:metadata]
+    vulnerabilities: []
     notes: >-
       A principal with this permission can read the metadata of the database.
   list:
