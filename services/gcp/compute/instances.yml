@@ -308,7 +308,7 @@ privileges:
   stop:
     risks: [destruction:data, impact:dos]
     notes: >-
-      Stopping instances with local SSD will result in data loss if the command is issued where the `discard-local-ssd` flag is not provided or false.
+      Stopping instances with local SSD will result in data loss if the command is issued without the `discard-local-ssd` flag set to false.
     mitigation: >-
       To prevent data loss, move the data from the ephemeral storage to a persistent storage.
     links:
