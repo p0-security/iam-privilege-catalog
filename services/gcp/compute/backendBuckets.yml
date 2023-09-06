@@ -37,11 +37,12 @@ privileges:
     links:
       - https://cloud.google.com/armor/docs/security-policy-overview
   update:
-    risks: [destruction:infra, destruction:data, escalation:privilege]
+    risks: [destruction:infra, destruction:data]
     notes: >-
-      May allow modifications to CDN and edge security policies.
+      Does not allow modification to edge security policies. Allows modifying some CDN policies, but not
+      anything that impacts access control.
     links:
-      - https://cloud.google.com/armor/docs/security-policy-overview
+      - https://cloud.google.com/compute/docs/reference/rest/v1/backendBuckets/update
   use:
     risks: [escalation:lateral]
     notes: >-
