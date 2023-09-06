@@ -11,16 +11,18 @@ privileges:
   bind:
     risks: [escalation:privilege]
     notes: >-
-      Kubernetes does not allow the creation or update of a ClusterRoleBinding if that grants permissions
-      the caller user does not already have. However, the `bind` permission allows this action.
+      Allows escalating the current or other users' permissions by binding a ClusterRole to them. 
+      Also requires the `container.clusterRoleBindings.create` or `container.clusterRoleBindings.update` permission.
     links:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-binding-creation-or-update
   create:
     risks: []
-    scope: LOW
     notes: >-
       ClusterRoles are only definitions of permissions. A role does not take effect unless
       assigned to principal via a ClusterRoleBinding.
+      Kubernetes does not allow the creation or update of a ClusterRole unless one of the following two conditions are met:
+      1) the caller already has the permissions contained in the role
+      2) the caller has the `container.clusterRoles.escalate` permission
   delete:
     risks: [destruction:policy]
     notes: >-
@@ -28,7 +30,8 @@ privileges:
   escalate:
     risks: [escalation:privilege]
     notes: >-
-      Allows escalating the current or other users' permissions via a ClusterRole creation or update.
+      Allows escalating the current or other users' permissions by creating a new ClusterRole or updating an existing ClusterRole.
+      Also requires the `container.clusterRoles.create` or `container.clusterRoles.update` permission.
     links:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-creation-or-update
   get:
@@ -40,10 +43,8 @@ privileges:
     notes: >-
       List all ClusterRoles
   update:
-    risks: [escalation:privilege]
-    scope: MEDIUM
+    risks: []
     notes: >-
-      ClusterRole updates are dangerous because the updated role may already be assigned to principals,
-      leading to privilege escalation. However, the Kubernetes API prevents escalating privileges of
-      the current or another user via a ClusterRole creation or update, unless the user already has 
-      the permission, or has the `escalate` permission.
+      Kubernetes does not allow the creation or update of a ClusterRole unless one of the following two conditions are met:
+      1) the caller already has the permissions contained in the role
+      2) the caller has the `container.clusterRoles.escalate` permission

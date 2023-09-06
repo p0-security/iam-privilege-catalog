@@ -9,12 +9,11 @@ notes: >-
   assigned to principal via a ClusterRoleBinding.
 privileges:
   create:
-    risks: [escalation:privilege]
-    scope: MEDIUM
+    risks: []
     notes: >-
       Kubernetes does not allow the creation or update of a ClusterRoleBinding unless at least one of the following two conditions is met:
       1) the caller has the permission it is granting
-      2) the caller has the `containers.clusterRoles.bind` permission
+      2) the caller has the `container.clusterRoles.bind` permission
     links:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-binding-creation-or-update
   delete:
@@ -30,9 +29,9 @@ privileges:
     notes: >-
       List all ClusterRoleBindings within a namespace
   update:
-    risks: [escalation:privilege]
+    risks: []
     scope: MEDIUM
     notes: >-
       Kubernetes does not allow the creation or update of a ClusterRoleBinding unless one of the following two conditions are met:
       1) the caller has the permission it is granting
-      2) the caller has the `containers.clusterRoles.bind` permission
+      2) the caller has the `container.clusterRoles.bind` permission
