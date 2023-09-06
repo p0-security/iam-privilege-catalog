@@ -22,7 +22,6 @@ privileges:
   delete:
     risks:
       - destruction:infra
-      - destruction:data
       - destruction:logs
     notes: >-
       Deleting a DaemonSets deletes its pods and ephemeral volumes. Logs of the deleted pods disappear
@@ -50,7 +49,6 @@ privileges:
       Allows listing all ReplicaSets in a namespace.
   update:
     risks:
-      - destruction:data
       - destruction:infra
       - destruction:network
       - escalation:lateral

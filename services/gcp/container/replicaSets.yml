@@ -25,7 +25,6 @@ privileges:
   delete:
     risks:
       - destruction:infra
-      - destruction:data
       - destruction:logs
     notes: >-
       Deleting a ReplicaSet deletes its pods and ephemeral volumes. PersistentVolumes
@@ -63,7 +62,6 @@ privileges:
       Allows listing all ReplicaSets in a namespace.
   update:
     risks:
-      - destruction:data
       - destruction:infra
       - destruction:network
       - escalation:lateral
@@ -79,7 +77,6 @@ privileges:
       Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
   updateScale:
     risks:
-      - destruction:data
       - destruction:infra
       - impact:hijack
       - impact:spend
