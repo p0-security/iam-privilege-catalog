@@ -366,14 +366,14 @@ privileges:
       Can be used to disable secure boot, remove the vTPM from the instance, or disable integrity
       monitoring. Requires the instance to be stopped.
   use:
-    risks: [escalation:privilege]
+    risks: [escalation:network]
     scope: HIGH
     notes: >-
       Can be used to connect the instance to other components, potentially allowing additional
       access. For example, adding the instance to an instance group can allow the instance's
       network to be accessible.
   useReadOnly:
-    risks: [escalation:privilege]
+    risks: [escalation:network]
     scope: HIGH
     notes: >-
       Can be used to connect the instance to other components, potentially allowing additional
