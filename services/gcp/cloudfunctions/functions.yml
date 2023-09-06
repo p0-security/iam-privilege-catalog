@@ -56,7 +56,10 @@ privileges:
       - impact:hijack
     notes: >-
       Creating a cloud function requires permissions on the cloud functions runtime service account.
+      Includes a vulnerability where the user can export service account credentials, but exploiting this 
+      vulnerability requires the user to already have iam.serviceAccounts.actAs on the target service account.
     links:
+      - https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/
       - https://cloud.google.com/functions/docs/calling
       - https://cloud.google.com/functions/docs/reference/iam/roles#additional-configuration
   delete:
