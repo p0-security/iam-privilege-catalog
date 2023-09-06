@@ -21,7 +21,7 @@ privileges:
   export:
     vulnerabilities: [collection:data, impact:spend]
     notes: >-
-      A principal with this permission can export entities to  cloud storage buckets.
+      A principal with this permission can export entities to cloud storage buckets.
   import:
     vulnerabilities: [impact:consumption, impact:spend, destruction:data]
     notes: >-
@@ -30,7 +30,7 @@ privileges:
   create:
     vulnerabilities: [impact:consumption, impact:spend]
     notes: >-
-      A principal with this permission can create a new database, consuming the quota limits for database creation.
+      A principal with this permission can create new databases, consuming the quota limits for database creation.
   update:
     vulnerabilities: [destruction:defense]
     notes: >-
