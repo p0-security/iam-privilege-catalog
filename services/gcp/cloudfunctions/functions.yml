@@ -52,19 +52,11 @@ privileges:
       Also allows for DOS via spamming executions and data injection via execution with fake parameters.
   create:
     risks:
-      - discovery:account
-      - discovery:infra
-      - discovery:data
-      - exfiltration:data
-      - takeover:account
       - impact:spend
       - impact:hijack
     notes: >-
       Creating a cloud function requires permissions on the cloud functions runtime service account.
-      It then allows you to export credentials to the service account.
-      Risks also require the sourceCodeSet permission.
     links:
-      - https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/
       - https://cloud.google.com/functions/docs/calling
       - https://cloud.google.com/functions/docs/reference/iam/roles#additional-configuration
   delete:
@@ -76,29 +68,16 @@ privileges:
       - impact:encryption
       - impact:dos
       - impact:spend
-      - impact:hijack
-      - discovery:account
-      - discovery:infra
-      - discovery:data
-      - exfiltration:data
-      - takeover:account
     notes: >-
-      Allows for updating ingress and egress network traffic settings as well as updating encryption keys 
-      Additionally includes the same set of risks as create when the user also has sourceCodeSet permissions.
+      Allows for updating ingress and egress network traffic settings as well as updating encryption keys
   sourceCodeSet:
     risks:
       - impact:dos
       - impact:manipulation
       - impact:spend
       - impact:hijack
-      - discovery:account
-      - discovery:infra
-      - discovery:data
-      - exfiltration:data
-      - takeover:account
     notes: >-
       Includes DOS, data manipulation, spend, and hijack risks.
-      Additionally includes the same set of risks as create when the user also has update permissions.
   getIamPolicy:
     risks: [discovery:policy, discovery:account]
   setIamPolicy:

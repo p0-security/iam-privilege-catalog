@@ -12,6 +12,9 @@ privileges:
     scope: LOW
   delete:
     risks: [impact:dos, destruction:data]
+    notes: >-
+      This will delete any messages retained in the Pub/Sub topic. Depending on the configuration, this could be 
+      up to 31 days of messages.
   detachSubscription:
     risks: [impact:dos]
   get:
