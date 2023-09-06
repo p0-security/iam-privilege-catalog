@@ -1,0 +1,6 @@
+name: Artifact destruction
+description: |
+  Allows an attacker to delete artifacts like machine learning models.
+score: MEDIUM
+mitigations:
+links:

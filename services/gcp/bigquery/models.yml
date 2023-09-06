@@ -28,8 +28,10 @@ privileges:
     risks: []
     notes: 'From Google: "Update model data.". Appears unused.'
   updateMetadata:
-    risks: [escalation:data, destruction:data, destruction:infra]
-    notes: 'From Google: "Update model metadata.". Allows a user to modify encryption keys or change model expiration intervals.'
+    risks: [destruction:artifact]
+    notes: >-
+      'From Google: "Update model metadata.". Allows users to update description, labels and change model expiration time.'
+      Allows users to destroy a model by setting its expiration to 0.
     links:
       - https://cloud.google.com/bigquery/docs/updating-model-metadata
       - https://cloud.google.com/bigquery/docs/reference/rest/v2/models/patch
