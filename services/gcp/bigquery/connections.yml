@@ -15,9 +15,10 @@ privileges:
   delete:
     risks: [destruction:infra]
   get:
-    risks: [discovery:infra, takeover:account]
+    risks: [discovery:infra]
     notes: >-
-      In the case of connections to Cloud SQL, directly exposes the database username and password.
+      Exposes SQL connection metadata. Per Google documentation, SQL credentials are
+      omitted.
   getIamPolicy:
     risks: [discovery:account, discovery:policy]
   list:
