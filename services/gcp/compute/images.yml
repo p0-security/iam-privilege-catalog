@@ -33,6 +33,8 @@ privileges:
     risks: [exfiltration:crypto]
     notes: >-
       Potentially gives access to raw encryption keys.
+    links:
+      - https://cloud.google.com/compute/docs/reference/rest/v1/images/get#body.Image.FIELDS.image_encryption_key
   getFromFamily:
     risks: [exfiltration:crypto]
     notes: >-
