@@ -9,7 +9,7 @@ notes: >-
   extremely sensitive data.
 privileges:
   access:
-    risks: [escalation:lateral]
+    risks: [exfiltration:crypto]
     notes: >-
       Escalation possibilities depend on the contents of secrets inside
       the Secret Manager, but for most systems this will include at
