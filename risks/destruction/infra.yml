@@ -1,10 +1,10 @@
 name: Infrastructure destruction
 description: >-
   Allows an attacker to delete infrastructure. May cause
-  interruption of services (including critical operations of
+  interruption of services (including central operations of
   the organization). Can be similar in effect to a denial
   of service.
-score: CRITICAL
+score: HIGH
 mitigations:
   - Define infrastructure as code
 links: []
