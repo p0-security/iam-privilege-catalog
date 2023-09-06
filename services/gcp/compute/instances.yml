@@ -307,6 +307,13 @@ privileges:
       The specified disk encryption key must be already known.
   stop:
     risks: [destruction:data, impact:dos]
+    notes: >-
+      Stopping instances with local SSD will result in data loss if the command is issued where the `discard-local-ssd` flag is not provided or false.
+    mitigation: >-
+      To prevent data loss, move the data from the ephemeral storage to a persistent storage.
+    links:
+      - https://cloud.google.com/sdk/gcloud/reference/compute/instances/stop
+      - https://cloud.google.com/compute/docs/disks/local-ssd#local_ssd_performance
   suspend:
     risks: [impact:dos]
     notes: >-
