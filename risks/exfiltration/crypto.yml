@@ -1,7 +1,8 @@
 name: Cryptographic exfiltration
 description: >-
-  Allows an attacker to export cryptographic material from a system,
-  including secret keys.
+  Allows an attacker to export cryptographic material from a system.
+  Implies "Account Takeover" when the cryptographic material is an
+  account credential.
 score: CRITICAL
 mitigations:
   - Rotate credentials
