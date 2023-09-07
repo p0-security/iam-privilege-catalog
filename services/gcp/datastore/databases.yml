@@ -13,7 +13,7 @@ privileges:
   getMetadata:
     vulnerabilities: []
     notes: >-
-      A principal with this permission can read the metadata of the database.
+      A principal with this permission can read non-sensitive metadata of the database.
   list:
     vulnerabilities: [discovery:infra]
     notes: >-
