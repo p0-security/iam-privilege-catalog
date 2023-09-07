@@ -1,7 +1,7 @@
 name: Redis Instances
 description: >-
   Redis instances in Google Cloud Platform (GCP) provide an in-memory data store that can be used for caching and high-performance data processing. Redis instances store data in key-value pairs and support various data types, including strings, lists, sets, and hashes. Redis instances are used to store and retrieve data rapidly and can be accessed by applications running on GCP or external systems.
-scope: CRITICAL
+scope: HIGH
 notes: >-
   Permissions to create, edit, and delete Redis instances can impact resource allocation, consumption, and spend. Access to Redis instances storing sensitive information can result in data exfiltration.
 privileges:
@@ -13,17 +13,9 @@ privileges:
     vulnerabilities: [destruction:data]
     notes: >-
       Deleting a Redis instance permanently removes all data stored within it.
-  get:
-    vulnerabilities: [discovery:data, exfiltration:data, impact:spend]
-    notes: >-
-      Retrieving data from a Redis instance consumes read resources and may result in data leakage.
   list:
     vulnerabilities: [discovery:data]
     notes: >-
       Listing Redis instances consumes resources and may reveal information about the available instances.
-  update:
-    vulnerabilities: [destruction:data]
-    notes: >-
-      Updating data in a Redis instance consumes write resources and may modify existing data.
 links:
   - https://cloud.google.com/memorystore/docs/redis
