@@ -22,7 +22,6 @@ privileges:
   delete:
     risks:
       - destruction:infra
-      - destruction:data
       - destruction:logs
     notes: >-
       Deleting a DaemonSets deletes its pods and ephemeral volumes. Persistent Volumes are retained.
@@ -62,7 +61,6 @@ privileges:
       Allows listing all StatefulSets in a namespace.
   update:
     risks:
-      - destruction:data
       - destruction:infra
       - destruction:network
       - escalation:lateral
@@ -78,7 +76,6 @@ privileges:
       Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
   updateScale:
     risks:
-      - destruction:data
       - destruction:infra
       - impact:hijack
       - impact:spend
@@ -87,6 +84,6 @@ privileges:
       Secondly, increasing the replica count in StatefulSets may disrupt stateful service and/or drain the limited resources 
       available to other Kubernetes workloads.
   updateStatus:
-    risks:
+    risks: []
     notes: >-
       This subresource has no effect on the actual StatefulSets.

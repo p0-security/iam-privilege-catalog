@@ -33,7 +33,6 @@ privileges:
   delete:
     risks:
       - destruction:infra
-      - destruction:data
       - destruction:logs
     notes: >-
       Deleting a Deployment deletes its pods and ephemeral volumes. Persistent Volumes
@@ -83,7 +82,6 @@ privileges:
       - https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#checking-rollout-history-of-a-deployment
   update:
     risks:
-      - destruction:data
       - destruction:infra
       - destruction:network
       - escalation:lateral
@@ -98,7 +96,6 @@ privileges:
       other Kubernetes workloads. Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
   updateScale:
     risks:
-      - destruction:data
       - destruction:infra
       - impact:hijack
       - impact:spend

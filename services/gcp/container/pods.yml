@@ -33,7 +33,6 @@ privileges:
   delete:
     risks:
       - destruction:infra
-      - destruction:data
       - destruction:logs
     scope: MEDIUM
     notes: >-

@@ -1,6 +1,6 @@
 name: Secret Manager Locations
 description: >-
-  Infrastructure regions available for  Secret Manager resources
+  Infrastructure regions available for Secret Manager resources
 scope: PUBLIC
 notes: >-
   This resource contains public information about Google's location offerings for Secret Manager

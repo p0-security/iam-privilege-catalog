@@ -29,7 +29,6 @@ privileges:
   delete:
     risks:
       - destruction:infra
-      - destruction:data
       - destruction:logs
     notes: >-
       Deleting a Job deletes its pods and ephemeral volumes. Persistent Volumes

@@ -44,7 +44,8 @@ privileges:
       server using the VM's local access to the instance metadata, including disk encryption
       keys and short-lived service account tokens. Allows access to network instances to which the VM is
       connected (e.g. VPCs). Created instances can be used to hijack resources, or create extra spend.
-      Creating an instance with an attached service account requires permissions to impersonate the service account.
+      Creating an instance with an attached service account requires permissions to impersonate the service account,
+      so access to the service-account token does not present a privilege escalation.
     links:
       - https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/
       - https://cloud.google.com/compute/docs/metadata/default-metadata-values
@@ -301,6 +302,14 @@ privileges:
       The specified disk encryption key must be already known.
   stop:
     risks: [destruction:data, impact:dos]
+    notes: >-
+      Stopping instances with local SSD will delete the disk and result in data loss if the command is issued without the `discard-local-ssd=false`.
+      Instances with persistent storage are not impacted.
+    mitigation: >-
+      To prevent data loss, move the data from ephemeral storage to persistent storage.
+    links:
+      - https://cloud.google.com/sdk/gcloud/reference/compute/instances/stop
+      - https://cloud.google.com/compute/docs/disks/local-ssd#local_ssd_performance
   suspend:
     risks: [impact:dos]
     notes: >-
@@ -353,14 +362,14 @@ privileges:
       Can be used to disable secure boot, remove the vTPM from the instance, or disable integrity
       monitoring. Requires the instance to be stopped.
   use:
-    risks: [escalation:lateral]
+    risks: [escalation:network]
     scope: HIGH
     notes: >-
       Can be used to connect the instance to other components, potentially allowing additional
       access. For example, adding the instance to an instance group can allow the instance's
       network to be accessible.
   useReadOnly:
-    risks: [escalation:lateral]
+    risks: [escalation:network]
     scope: HIGH
     notes: >-
       Can be used to connect the instance to other components, potentially allowing additional

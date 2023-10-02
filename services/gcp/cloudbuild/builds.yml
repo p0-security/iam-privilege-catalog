@@ -13,6 +13,7 @@ privileges:
     risks: [impact:spend, impact:dos, escalation:privilege]
     notes: >-
       This permission allows users to run builds as the Cloud Build service account. This can allow the user to have escalated build-time privileges.
+      Google explicitly cautions against granting this permission for that reason.
   get:
     risks: [discovery:infra]
   list:

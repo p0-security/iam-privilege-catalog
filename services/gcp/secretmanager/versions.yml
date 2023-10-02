@@ -9,11 +9,11 @@ notes: >-
   extremely sensitive data.
 privileges:
   access:
-    risks: [escalation:lateral]
+    risks:
+      - exfiltration:crypto
+      - exfiltration:data
     notes: >-
-      Escalation possibilities depend on the contents of secrets inside
-      the Secret Manager, but for most systems this will include at
-      least some opportunities for lateral escalation.
+      Gives direct read access to secrets data (which often include keys and tokens).
   add:
     risks: [impact:dos]
     notes: >-

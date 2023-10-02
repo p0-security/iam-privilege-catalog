@@ -25,7 +25,7 @@ This catalog has multiple intended purposes:
 
 ### Viewing online
 
-To view this catalog online, visit [p0.app/catalog](https://p0.app/catalog).
+To view this catalog online, visit [https://catalog.p0.dev](https://catalog.p0.dev).
 
 #### Example: account-compromise reach
 
