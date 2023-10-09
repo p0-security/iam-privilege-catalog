@@ -30,11 +30,9 @@ privileges:
     notes: >-
       No particular impact.
   get:
-    risks: [exfiltration:crypto]
+    risks: [discovery:metadata]
     notes: >-
-      Potentially gives access to raw encryption keys.
-    links:
-      - https://cloud.google.com/compute/docs/reference/rest/v1/images/get#body.Image.FIELDS.image_encryption_key
+      The customer managed key ids, configured for the image, are be returned in the api. No raw encryption keys are exposed.
   getFromFamily:
     risks: [exfiltration:crypto]
     notes: >-
