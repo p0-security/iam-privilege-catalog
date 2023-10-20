@@ -30,9 +30,9 @@ privileges:
     notes: >-
       No particular impact.
   get:
-    risks: [exfiltration:crypto]
+    risks: [discovery:metadata]
     notes: >-
-      Potentially gives access to raw encryption keys.
+      The customer managed key ids, configured for the image, are be returned in the api. No raw encryption keys are exposed.
   getFromFamily:
     risks: [exfiltration:crypto]
     notes: >-
