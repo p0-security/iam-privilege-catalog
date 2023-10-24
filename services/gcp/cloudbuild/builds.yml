@@ -10,7 +10,7 @@ privileges:
     notes: >-
       This allows the user to both approve or deny an existing build.
   create:
-    risks: [impact:spend, impact:dos, escalation:privilege]
+    risks: [impact:spend, impact:dos, escalation:lateral]
     notes: >-
       This permission allows users to run builds as the Cloud Build service account. This can allow the user to have escalated build-time privileges.
       Google explicitly cautions against granting this permission for that reason.
@@ -25,4 +25,5 @@ privileges:
 links:
   - https://cloud.google.com/build/docs/iam-roles-permissions
   - https://cloud.google.com/build/docs/overview#how_builds_work
+  - https://cloud.google.com/build/docs/cloud-build-service-account#default_permissions_of_service_account
   - https://cloud.google.com/build/docs/api/reference/rest/v1/projects.builds#Build

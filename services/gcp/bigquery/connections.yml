@@ -40,7 +40,7 @@ privileges:
         - The attacker must already have read access to the target data system, or have a mechanism to give
           the connection read access to the target data system
         - The attacker can then use this permission to run queries against the connection
-      In general, therefore, exfiltration is only possible when the attacker already otherwise has access ot the
+      In general, therefore, exfiltration is only possible when the attacker already otherwise has access to the
       target system.
 links:
   - https://cloud.google.com/bigquery/docs/access-control

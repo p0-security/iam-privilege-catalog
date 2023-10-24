@@ -17,7 +17,12 @@ privileges:
     notes: >-
       Deleting a custom role is possible even when it's present in bindings. The bindings remain, but are ineffectual.
   update:
-    risks: [escalation:privilege, impact:access]
+    risks: [escalation:lateral, escalation:privilege, impact:access]
+    notes: >-
+      Only custom roles can be updated. An update automatically grants additional access for principals to resources 
+      that the role is bound to. An attacker is able to grant additional permissions to a role they already have.
+      Note that permissions are inherited by child resources. For example, updating role bound to a project can grant
+      permissions on new services and new resources.
   get:
     risks: [discovery:policy]
   list:

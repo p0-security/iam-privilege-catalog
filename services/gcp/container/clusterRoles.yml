@@ -9,7 +9,7 @@ notes: >-
   assigned to principal via a ClusterRoleBinding.
 privileges:
   bind:
-    risks: [escalation:privilege]
+    risks: [escalation:lateral, escalation:privilege]
     notes: >-
       Allows escalating the current or other users' permissions by binding a ClusterRole to them. 
       Also requires the `container.clusterRoleBindings.create` or `container.clusterRoleBindings.update` permission.
@@ -28,7 +28,7 @@ privileges:
     notes: >-
       ClusterRoles that are attached to principals via a ClusterRoleBinding can be deleted in Kubernetes.
   escalate:
-    risks: [escalation:privilege]
+    risks: [escalation:lateral, escalation:privilege]
     notes: >-
       Allows escalating the current or other users' permissions by creating a new ClusterRole or updating an existing ClusterRole.
       Also requires the `container.clusterRoles.create` or `container.clusterRoles.update` permission.
