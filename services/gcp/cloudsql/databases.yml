@@ -1,0 +1,17 @@
+name: Google Cloud SQL
+description: >-
+  Google Cloud SQL is a fully managed database service that makes it easy to set up, maintain, manage, and administer relational databases.
+scope: CRITICAL
+notes: >-
+  Cloud SQL is used to store and serve sensitive and application-critical data. Breach of a cloud SQL database can lead to exfiltration of highly sensitive data, or interruption of mission-critical applications.
+privileges:
+  create:
+  delete:
+  get:
+  list:
+  update:
+
+links:
+  - https://cloud.google.com/sql/docs/mysql/iam-permissions
+  - https://cloud.google.com/sql/docs/mysql/iam-overview
+  - https://cloud.google.com/sql/docs/mysql/roles-and-permissions
