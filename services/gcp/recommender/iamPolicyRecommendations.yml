@@ -1,6 +1,6 @@
-name: IAM Policy Insights
+name: IAM Policy Recommendations
 description: >-
-  Cloud Asset Insights include changes to the IAM policies of your
+  IAM Policy Recommendations include changes to the IAM policies of your
   projects suggested by Google in order to improve your security posture.
 scope: HIGH
 notes: >-
