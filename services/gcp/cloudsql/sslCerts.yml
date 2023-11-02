@@ -1,16 +1,31 @@
 name: Google Cloud SQL
 description: >-
-  Google Cloud SQL is a fully managed database service that makes it easy to set up, maintain, manage, and administer relational databases.
+  SSL client certificates for connecting to a Cloud SQL instance. Each instance can have 10 client certificates.
 scope: CRITICAL
 notes: >-
   Cloud SQL is used to store and serve sensitive and application-critical data. Breach of a cloud SQL database can lead to exfiltration of highly sensitive data, or interruption of mission-critical applications.
 privileges:
   create:
+    risks: [impact:consumption, escalation:network]
+    notes: >-
+      By creating a client SSL certificate for the instance, they will be able to establish a connection to the instance.
+      Note that authentication into the database is still separate, so this does not provide access to data.
   createEphemeral:
+    risks: [escalation:network]
+    notes: >-
+      By creating an emphemeral client SSL certificate for the instance, they will be able to establish a connection to the instance.
+      Note that authentication into the database is still separate, so this does not provide access to data.
   delete:
+    risks: [impact:dos]
   get:
+    risks: []
+    notes: >-
+      Does not include privae keys.
   list:
- 
+    risks: []
+    notes: >-
+      Does not include privae keys.
+
 links:
   - https://cloud.google.com/sql/docs/mysql/iam-permissions
   - https://cloud.google.com/sql/docs/mysql/iam-overview

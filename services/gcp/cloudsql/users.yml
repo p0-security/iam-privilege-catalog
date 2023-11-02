@@ -1,19 +1,45 @@
 name: Google Cloud SQL
 description: >-
-  Google Cloud SQL is a fully managed database service that makes it easy to set up, maintain, manage, and administer relational databases.
+  Cloud SQL users are used to authenticate into Cloud SQL databases.
 scope: CRITICAL
 notes: >-
   Cloud SQL is used to store and serve sensitive and application-critical data. Breach of a cloud SQL database can lead to exfiltration of highly sensitive data, or interruption of mission-critical applications.
 privileges:
   create:
-  get:
-  list:
-  update:
-  delete:
-    risks: [destruction:data]
+    risks:
+      [
+        destruction:data,
+        destruction:logs,
+        exfiltration:data,
+        exfiltration:logs,
+        impact:manipulation,
+      ]
     notes: >-
-      Users with this privilege can delete database users within a Cloud SQL instance. It poses risks to data integrity.
-  
+      This permission allows creating a new user with a provided username/password. 
+      It grants the created user super user privileges on the database.
+    links:
+      - https://cloud.google.com/sql/docs/postgres/create-manage-users
+  get:
+    risks: [discovery:account]
+  list:
+    risks: [discovery:account]
+  update:
+    risks:
+      [
+        impact:access,
+        destruction:data,
+        destruction:logs,
+        exfiltration:data,
+        exfiltration:logs,
+        impact:manipulation,
+      ]
+    notes: >-
+      Allows updating the password of an existing user.
+  delete:
+    risks: [destruction:account]
+    notes: >-
+      Users with this privilege can delete database users within a Cloud SQL instance.
+
 links:
   - https://cloud.google.com/sql/docs/mysql/iam-permissions
   - https://cloud.google.com/sql/docs/mysql/iam-overview
