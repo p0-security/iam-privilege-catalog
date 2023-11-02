@@ -9,7 +9,7 @@ notes: >-
   assigned to principal via a ClusterRoleBinding.
 privileges:
   bind:
-    risks: [escalation:lateral, escalation:privilege]
+    risks: [escalation:privilege]
     notes: >-
       Allows escalating the current or other users' permissions by binding a ClusterRole to them. 
       Also requires the `container.clusterRoleBindings.create` or `container.clusterRoleBindings.update` permission.
