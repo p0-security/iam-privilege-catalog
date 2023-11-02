@@ -141,7 +141,7 @@ privileges:
     links:
       - https://cloud.google.com/sql/docs/postgres/replication/manage-replicas
   stopReplica:
-    risks: [impact:dos]
+    risks: [destruction:defense]
     notes: >-
       Stops replication from the primary instance on a read replica. Requests are made directly to a replica, 
       so any subsequent requests to that read replica will get outdated data.
