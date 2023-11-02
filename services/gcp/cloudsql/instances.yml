@@ -129,7 +129,7 @@ privileges:
     notes: >-
       Rotates the server certificate to one signed by the certificate authority version previously added. 
       Can cause a denial of service if clients have not been updated to use the new certificate.
-      There must be another certifcate authority already added to exploit this.
+      There must be another certificate authority already added to exploit this.
     links:
       - https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/addServerCa
   startReplica:

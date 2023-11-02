@@ -13,18 +13,18 @@ privileges:
   createEphemeral:
     risks: [escalation:network]
     notes: >-
-      By creating an emphemeral client SSL certificate for the instance, they will be able to establish a connection to the instance.
+      By creating an ephemeral client SSL certificate for the instance, they will be able to establish a connection to the instance.
       Note that authentication into the database is still separate, so this does not provide access to data.
   delete:
     risks: [impact:dos]
   get:
     risks: []
     notes: >-
-      Does not include privae keys.
+      Does not include private keys.
   list:
     risks: []
     notes: >-
-      Does not include privae keys.
+      Does not include private keys.
 
 links:
   - https://cloud.google.com/sql/docs/mysql/iam-permissions
