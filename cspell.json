@@ -36,6 +36,7 @@
     "unmanaged",
     "unroutable",
     "vpcaccess",
-    "VM"
+    "VM",
+    "reencrypt"
   ]
 }

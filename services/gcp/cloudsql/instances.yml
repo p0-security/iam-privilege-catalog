@@ -52,6 +52,8 @@ privileges:
       - https://cloud.google.com/sql/docs/mysql/replication
   export:
     risks: [exfiltration:data]
+    notes: >-
+      This permission allows exporting the results of a SQL query run on the instance database as a CSV, or exporting the entire database as a SQL dump.
   failover:
     risks: [impact:dos]
     notes: >-
@@ -133,7 +135,7 @@ privileges:
     links:
       - https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/addServerCa
   startReplica:
-    risks: [impact:spend]
+    risks: []
     notes: >-
       Starts replication from the primary instance on a read replica.
     links:

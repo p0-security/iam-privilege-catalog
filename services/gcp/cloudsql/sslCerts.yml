@@ -8,12 +8,12 @@ privileges:
   create:
     risks: [impact:consumption, escalation:network]
     notes: >-
-      By creating a client SSL certificate for the instance, they will be able to establish a connection to the instance.
+      This permission allows creating a client SSL certificate for the instance, which allows the user to establish a connection to the instance.
       Note that authentication into the database is still separate, so this does not provide access to data.
   createEphemeral:
     risks: [escalation:network]
     notes: >-
-      By creating an ephemeral client SSL certificate for the instance, they will be able to establish a connection to the instance.
+      This permission allows creating an ephemeral client SSL certificate for the instance, which allows the user to establish a connection to the instance.
       Note that authentication into the database is still separate, so this does not provide access to data.
   delete:
     risks: [impact:dos]
