@@ -1,0 +1,22 @@
+name: Google Cloud SQL
+description: >-
+  Cloud SQL backups contain the data stored in your Cloud SQL instance, to be used for recovery and rollback purposes.
+scope: LOW
+privileges:
+  create:
+    risks: [impact:spend]
+  delete:
+    risks: [destruction:defense]
+  get:
+    risks: [discovery:infra]
+    notes: >-
+      Access to backup metadata.
+  list:
+    risks: [discovery:infra]
+    notes: >-
+      Access to backup metadata.
+
+links:
+  - https://cloud.google.com/sql/docs/mysql/iam-permissions
+  - https://cloud.google.com/sql/docs/mysql/iam-overview
+  - https://cloud.google.com/sql/docs/mysql/roles-and-permissions

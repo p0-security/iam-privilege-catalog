@@ -1,0 +1,165 @@
+name: Google Cloud SQL
+description: >-
+  A Cloud SQL instance is a VM managed by Google that runs the SQL database instance (as well as any accompanying containers)
+scope: CRITICAL
+notes: >-
+  Cloud SQL is used to store and serve sensitive and application-critical data. Breach of a cloud SQL database can lead to exfiltration of highly sensitive data, or interruption of mission-critical applications.
+privileges:
+  addServerCa:
+    risks: []
+    notes: >-
+      Adds a new trusted Certificate Authority version for the specified instance. It does not actually update the existing CA, 
+      that requires a separate permission (rotateServerCa), so this poses no risks.
+    links:
+      - https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/addServerCa
+  clone:
+    risks: [impact:spend]
+    notes: >-
+      Cloning an instance also requires the create privilege.
+  connect:
+    risks: [escalation:network]
+    notes: >-
+      This command temporarily changes the authorized networks for this instance to allow connections from your IP address.
+      Note that authentication into the database is still separate, so this does not provide access to data.
+    links:
+      - https://cloud.google.com/sdk/gcloud/reference/sql/connect
+  create:
+    risks: [impact:spend]
+    notes: >-
+      This privilege allows users to create new Cloud SQL instances, potentially incurring cost due to resource usage.
+  createTagBinding:
+    risks: [impact:access, escalation:privilege]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. If the user has any
+      policies that use tag bindings to enforce conditions, creating a tag on a resource allows them
+      to escalate their access to that resource. Also requires getIamPolicy or knowledge of the IAM
+      policy from some other means.
+  delete:
+    risks: [destruction:data, destruction:infra]
+    notes: >-
+      With this privilege, users can delete Cloud SQL instances. It poses risks of service disruption, permanent data loss, and infrastructure damage.
+  deleteTagBinding:
+    risks: [escalation:privilege, destruction:policy, impact:access]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The "destruction:policy" and
+      "impact:access" risks apply if the tag is used in any policies.
+  demoteMaster:
+    risks: [impact:dos]
+    notes: >-
+      This permission allows converting an instance to a read replica. Since read replicas do not allow write requests, this
+      can cause a denial of service if the instance is handling write requests.
+    links:
+      - https://cloud.google.com/sql/docs/mysql/replication
+  export:
+    risks: [exfiltration:data]
+    notes: >-
+      This permission allows exporting the results of a SQL query run on the instance database as a CSV, or exporting the entire database as a SQL dump.
+  failover:
+    risks: [impact:dos]
+    notes: >-
+      This causes Cloud SQL to switch to serving data from a secondary instance instead of the primary.
+      Google expects the failover operation to render the instance inaccessible for about 60 seconds, so this could 
+      produce a DOS if executed repeatedly.
+  get:
+    risks: [discovery:infra, discovery:policy]
+    notes: >-
+      Allows access to instance metadata and settings, including IP addresses, authorized networks, and backup settings.
+  getDiskShrinkConfig:
+    risks: []
+    notes: >-
+      The specific use of this permission is unknown.
+  import:
+    risks: [impact:consumption, impact:dos, impact:manipulation]
+    notes: >-
+      Allows importing data to an instance. If enough data is imported to exceed the disk space of the instance, 
+      will cause a DOS until the instance is manually resized.
+  list:
+    risks: [discovery:infra, discovery:policy]
+    notes: >-
+      Allows access to instance metadata and settings, including IP addresses, authorized networks, and backup settings.
+  listEffectiveTags:
+    risks: [discovery:policy]
+  listServerCas:
+    risks: []
+  listTagBindings:
+    risks: [discovery:policy]
+  login:
+    risks: []
+    notes: >-
+      The specific use of this permission is unknown.
+  migrate:
+    risks: []
+    notes: >-
+      The specific use of this permission is unknown.
+  performDiskShrink:
+    risks: []
+    notes: >-
+      The specific use of this permission is unknown.
+  promoteReplica:
+    risks: [impact:spend]
+    notes: >-
+      This permission allows converting a read replica to a primary instance.
+    links:
+      - https://cloud.google.com/sql/docs/mysql/replication
+  reencrypt:
+    risks: []
+    notes: >-
+      This permission re-encrypts the instance with the existing primary key.
+  resetReplicaSize:
+    risks: []
+    notes: >-
+      The specific use of this permission is unknown.
+  resetSslConfig:
+    risks: [impact:dos]
+    notes: >-
+      Deletes all client certificates and generates a new server SSL certificate for the instance.
+      This can cause a denial of service since clients will not be updated to use the new certificate.
+    links:
+      - https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/resetSslConfig
+  restart:
+    risks: [impact:dos]
+    notes: >-
+      Restarts the instance. This can cause a denial of service since it closes all existing connections.
+  restoreBackup:
+    risks: [destruction:data, destruction:logs]
+    notes: >-
+      The restore process overwrites all the current data on the instance and it cannot be recovered.
+    links:
+      - https://cloud.google.com/sql/docs/mysql/backup-recovery/restoring
+  rotateServerCa:
+    risks: [impact:dos]
+    notes: >-
+      Rotates the server certificate to one signed by the certificate authority version previously added. 
+      Can cause a denial of service if clients have not been updated to use the new certificate.
+      There must be another certificate authority already added to exploit this.
+    links:
+      - https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1beta4/instances/addServerCa
+  startReplica:
+    risks: []
+    notes: >-
+      Starts replication from the primary instance on a read replica.
+    links:
+      - https://cloud.google.com/sql/docs/postgres/replication/manage-replicas
+  stopReplica:
+    risks: [destruction:defense]
+    notes: >-
+      Stops replication from the primary instance on a read replica. Requests are made directly to a replica, 
+      so any subsequent requests to that read replica will get outdated data.
+    links:
+      - https://cloud.google.com/sql/docs/postgres/replication/manage-replicas
+  truncateLog:
+    risks: [destruction:logs]
+    notes: >-
+      This allows truncating log entries from the instance.
+      Will only pose a risk to logs that are stored as tables in the database,
+      which is configured in database settings.
+  update:
+    risks: [impact:dos, destruction:defense, impact:spend, impact:encryption]
+    notes: >-
+      Allows updating various instance metadata and settings, including authorized networks, backup settings, 
+      and encryption keys.
+
+links:
+  - https://cloud.google.com/sql/docs/mysql/iam-permissions
+  - https://cloud.google.com/sql/docs/mysql/iam-overview
+  - https://cloud.google.com/sql/docs/mysql/roles-and-permissions
