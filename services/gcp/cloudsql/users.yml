@@ -7,13 +7,11 @@ notes: >-
 privileges:
   create:
     risks:
-      [
-        destruction:data,
-        destruction:logs,
-        exfiltration:data,
-        exfiltration:logs,
-        impact:manipulation,
-      ]
+      - destruction:data
+      - destruction:logs
+      - exfiltration:data
+      - exfiltration:logs
+      - impact:manipulation
     notes: >-
       This permission allows creating a new user with a provided username/password. 
       It grants the created user super user privileges on the database.

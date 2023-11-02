@@ -8,11 +8,11 @@ privileges:
   create:
     risks: [impact:spend, impact:consumption]
     notes: >-
-      This privilege enables users to create databases within a Cloud SQL instance. It involves the potential excessive costs due to resource usage.
+      This privilege enables users to create databases within a Cloud SQL instance. Adding databases can increase spend.
   delete:
     risks: [destruction:data, destruction:infra, destruction:logs]
     notes: >-
-      With this privilege, users can delete databases within a Cloud SQL instance. It poses risks to data integrity and potential impact on the infrastructure.
+      With this privilege, users can delete databases within a Cloud SQL instance.
   get:
     risks: [discovery:infra]
     notes: >-

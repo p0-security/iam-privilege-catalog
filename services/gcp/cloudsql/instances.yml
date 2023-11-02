@@ -19,7 +19,7 @@ privileges:
   connect:
     risks: [escalation:network]
     notes: >-
-      This command temporarily changes the authorized networks for this instance to allow the connection from your IP address.
+      This command temporarily changes the authorized networks for this instance to allow connections from your IP address.
       Note that authentication into the database is still separate, so this does not provide access to data.
     links:
       - https://cloud.google.com/sdk/gcloud/reference/sql/connect
@@ -37,7 +37,7 @@ privileges:
   delete:
     risks: [destruction:data, destruction:infra]
     notes: >-
-      With this privilege, users can delete Cloud SQL instances. It poses the risks of service disruption, permanent data loss, and infrastructure damage.
+      With this privilege, users can delete Cloud SQL instances. It poses risks of service disruption, permanent data loss, and infrastructure damage.
   deleteTagBinding:
     risks: [escalation:privilege, destruction:policy, impact:access]
     notes: >-
@@ -55,7 +55,7 @@ privileges:
   failover:
     risks: [impact:dos]
     notes: >-
-      This causes Cloud SQL to switch serving data from a secondary instance instead of the primary.
+      This causes Cloud SQL to switch to serving data from a secondary instance instead of the primary.
       Google expects the failover operation to render the instance inaccessible for about 60 seconds, so this could 
       produce a DOS if executed repeatedly.
   get:
