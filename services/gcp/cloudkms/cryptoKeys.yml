@@ -1,0 +1,37 @@
+name: Cloud KMS Crypto Keys
+description: >-
+  A key contains one or more versions along with metadata. 
+  The actual contents of the key are stored in the version.
+scope: CRITICAL
+notes: >-
+  Cloud KMS is an extremely sensitive service. Keys can be used for encryption/decryption of 
+  sensitive data or for the creation or verification of digital signatures.
+privileges:
+  create:
+    risks: []
+    notes: >-
+      Billing is based on key versions, so keys do not incur billing.
+  get:
+    risks: [discovery:infra]
+    notes: >-
+      Does not provide access to keys: raw key material can never be viewed.
+    links:
+      - https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions#CryptoKeyVersion
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  list:
+    risks: [discovery:infra]
+    notes: >-
+      Does not provide access to keys: raw key material can never be viewed.
+    links:
+      - https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions#CryptoKeyVersion
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    risks: [destruction:defense, destruction:metadata]
+    notes: >-
+      Can be used to change key rotation settings, impairing defense.
+links:
+  - https://cloud.google.com/kms/docs/resource-hierarchy
+  - https://cloud.google.com/kms/docs/iam
+  - https://cloud.google.com/kms/docs/reference/rest

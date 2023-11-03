@@ -1,0 +1,20 @@
+name: Cloud KMS EKM Configs
+description: >-
+  A Cloud KMS EKM config applies to all keys with a protection level of EXTERNAL_VPC
+  in a given project or location. These are keys managed by and stored in an external key
+  management system and accessed by Cloud KMS over VPC.
+scope: MEDIUM
+privileges:
+  get:
+    risks: [discovey:infra]
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    risks: [impact:dos]
+    notes: >-
+      Allows changing or removing the default EKM connection for this project and
+      location. This may cause keys to be inaccessible, creating a DOS.
+links:
+  - https://cloud.google.com/kms/docs/reference/rest/v1/EkmConfig

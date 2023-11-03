@@ -1,0 +1,22 @@
+name: Cloud KMS Import Jobs
+description: >-
+  A Cloud KMS import job is used to create KMS Crypto Keys and Crypto Key Versions
+  using pre-existing key material.
+scope: MEDIUM
+privileges:
+  create:
+    risks: [impact:spend]
+  get:
+    risks: [discovery:infra]
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  list:
+    risks: [discovery:infra]
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  useToImport:
+    risks: []
+    notes: >-
+      The specific use of this permission is unknown.
+links:
+  - https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.importJobs
