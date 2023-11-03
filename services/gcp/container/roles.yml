@@ -9,7 +9,7 @@ notes: >-
   assigned to principal via a RoleBinding.
 privileges:
   bind:
-    risks: [escalation:privilege]
+    risks: [escalation:lateral, escalation:privilege]
     notes: >-
       Allows escalating the current or other users' permissions by binding a Role to them. 
       Also requires the `container.roleBindings.create` or `container.roleBindings.update` permission.
@@ -28,7 +28,7 @@ privileges:
     notes: >-
       Roles that are attached to principals via a RoleBinding can be deleted in Kubernetes.
   escalate:
-    risks: [escalation:privilege]
+    risks: [escalation:lateral, escalation:privilege]
     notes: >-
       Allows escalating the current or other users' permissions by creating a new Role or updating an existing Role.
       Also requires the `container.roles.create` or `container.roles.update` permission.

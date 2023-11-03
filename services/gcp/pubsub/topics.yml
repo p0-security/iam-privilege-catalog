@@ -30,12 +30,9 @@ privileges:
   update:
     risks: [impact:dos]
   updateTag:
-    risks: [escalation:privilege]
+    risks: []
     notes: >-
-      A common use case of tag bindings is for use in IAM policy conditions. If the user has any
-      policies that use tag bindings to enforce conditions, creating a tag on a resource allows them
-      to escalate their access to that resource. Also requires getIamPolicy or knowledge of the IAM
-      policy from some other means.
+      This IAM permission doesn't have a corresponding API method. It's unclear what this permission is for.
 links:
   - https://cloud.google.com/pubsub/docs/create-topic
   - https://cloud.google.com/pubsub/docs/access-control
