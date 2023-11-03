@@ -1,6 +1,6 @@
 name: Google API Keys
 description: >-
-  An API Key can be used to authenticate to supported Google REST APIs. Not all Google APIs supported authneitcation via API key.
+  An API Key can be used to authenticate to supported Google REST APIs. Not all Google APIs support authentication via API key.
 scope: CRITICAL
 notes: >-
   Because API keys do not provide a principal or check any additional authorization information, an individual that
@@ -31,7 +31,7 @@ privileges:
   undelete:
     risks: [impact:spend, impact:consumption]
   update:
-    risks: [impact:dos, desturction:defense]
+    risks: [impact:dos, destruction:defense]
     notes: >-
       Can be used to add or remove restrictions (API restrictions or application restrictions) on how the key can be used.
 links:
