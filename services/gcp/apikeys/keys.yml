@@ -1,0 +1,40 @@
+name: Google API Keys
+description: >-
+  An API Key can be used to authenticate to supported Google REST APIs. Not all Google APIs supported authneitcation via API key.
+scope: CRITICAL
+notes: >-
+  Because API keys do not provide a principal or check any additional authorization information, an individual that
+  gains access to an API key will be able to use it to call supported Google APIs without detection.
+privileges:
+  create:
+    risks: [impact:spend, impact:consumption]
+    notes: >-
+      There is a maximum of 300 API keys per project that cannot be increased.
+      The key creation API response does not actually return the key.
+  delete:
+    risks: [impact:dos]
+  get:
+    risks: [discovery:infra]
+    notes: >-
+      Does not include the key value.
+  getKeyString:
+    risks: [escalation:privilege]
+  list:
+    risks: [discovery:infra]
+    notes: >-
+      Does not include the key value.
+  lookup:
+    risks: []
+    notes: >-
+      This is used to look-up the key from the key value. 
+      It is not useful unless someone already has the key value.
+  undelete:
+    risks: [impact:spend, impact:consumption]
+  update:
+    risks: [impact:dos, desturction:defense]
+    notes: >-
+      Can be used to add or remove restrictions (API restrictions or application restrictions) on how the key can be used.
+links:
+  - https://cloud.google.com/docs/authentication/api-keys
+  - https://cloud.google.com/api-keys/docs/reference/rest/v2/keys
+  - https://cloud.google.com/api-keys/docs/overview

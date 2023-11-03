@@ -34,15 +34,11 @@ privileges:
     notes: >-
       The customer managed key ids, configured for the image, are be returned in the api. No raw encryption keys are exposed.
   getFromFamily:
-    risks: [exfiltration:crypto]
-    notes: >-
-      Potentially gives access to raw encryption keys.
+    risks: [discovery:infra]
   getIamPolicy:
     risks: [discovery:account, discovery:policy]
   list:
-    risks: [exfiltration:crypto]
-    notes: >-
-      Potentially gives access to raw encryption keys.
+    risks: [discovery:infra]
   listEffectiveTags:
     risks: [discovery:policy]
   listTagBindings:
