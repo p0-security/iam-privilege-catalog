@@ -1,0 +1,15 @@
+name: Cloud Run Configurations
+description: >-
+  A cloud run configuration contains basic metadata and 
+  information about the latest revision for a service.
+scope: MEDIUM
+privileges:
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+links:
+  - https://cloud.google.com/run/docs/resource-model
+  - https://cloud.google.com/run/docs/reference/rest/v1/namespaces.configurations
+  - https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions
+

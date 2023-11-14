@@ -1,0 +1,22 @@
+name: Cloud Run Revisions
+description: >-
+  A revision is a deployment to a Cloud Run service. 
+  It consists of a container image along with environment settings.
+  Revisions are immutable.
+scope: MEDIUM
+privileges:
+  delete:
+    risks: [destruction:infra]
+    notes: >- 
+      Revisions that can receive traffic, are the only revision of the service,
+      or are the latest revision of the service cannot be deleted.
+  get:
+    risks:
+      [discovery:infra]
+  list:
+    risks:
+      [discovery:infra]
+links:
+  - https://cloud.google.com/run/docs/resource-model
+  - https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions
+  - https://cloud.google.com/run/docs/managing/revisions

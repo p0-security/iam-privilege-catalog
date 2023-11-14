@@ -1,0 +1,19 @@
+name: Cloud Run Executions
+description: >-
+  A Cloud Run execution is a resource created when a cloud run job is executed in order to track the execution. 
+scope: HIGH
+notes: >-
+  Cloud run jobs may be used for important organizational tasks, such as processing of sensitive data.
+privileges:
+  delete:
+    risks: [impact:dos]
+    notes: >-
+      A currently running execution can be deleted. This will halt execution of the job.
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+links:
+  - https://cloud.google.com/run/docs/resource-model
+  - https://cloud.google.com/run/docs/reference/rest/v1/namespaces.executions
+  - https://cloud.google.com/run/docs/managing/job-executions
