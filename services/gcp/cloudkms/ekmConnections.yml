@@ -3,10 +3,7 @@ description: >-
   An EKM connection organizes VPC connections to your on-premises external key managers 
   in a specific Google Cloud location. An EKM connection allows you to connect to and use keys 
   from an external key manager over a VPC network
-scope: CRITICAL
-notes: >-
-  Cloud KMS is an extremely sensitive service. Keys can be used for encryption/decryption of 
-  sensitive data or for the creation or verification of digital signatures.
+scope: MEDIUM
 privileges:
   create:
     risks: []

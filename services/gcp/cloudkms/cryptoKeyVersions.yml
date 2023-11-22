@@ -47,7 +47,8 @@ privileges:
     risks: [impact:dos, destruction:metadata]
     notes: >-
       Can be used to disable a key version. While a key version is disabled,
-      data encrypted with it cannot be accessed.
+      data encrypted with it cannot be accessed. The secret content of the key
+      cannot be edited or destroyed via this method.
   useToDecrypt:
     risks: [impact:spend, exfiltration:data]
     notes: >-
