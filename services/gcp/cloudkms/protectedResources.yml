@@ -1,0 +1,13 @@
+name: Cloud KMS Protected Resources
+description: >-
+  Cloud KMS Protected Resources are Google Cloud resources secured with Cloud KMS keys.
+scope: MEDIUM
+notes: >-
+  This resource may contain information about a broad range of Google Cloud resources.
+privileges:
+  search:
+    risks: [discovery:infra]
+    notes: >-
+      Allows searching resources secured by Cloud KMS keys.
+links:
+  - https://cloud.google.com/kms/docs/reference/inventory/rest/v1/organizations.protectedResources

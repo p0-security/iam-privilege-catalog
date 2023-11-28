@@ -1,0 +1,37 @@
+name: Cloud KMS EKM Connections
+description: >-
+  An EKM connection organizes VPC connections to your on-premises external key managers 
+  in a specific Google Cloud location. An EKM connection allows you to connect to and use keys 
+  from an external key manager over a VPC network
+scope: MEDIUM
+privileges:
+  create:
+    risks: []
+    notes: >-
+      EKM connections do not incur storage costs.
+  get:
+    risks: [discovery:infra]
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  list:
+    risks: [discovery:infra]
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    risks: [impact:dos]
+    notes: >-
+      Can update the settings used connect to the external key management instance,
+      such as the EKM hostname and the server hostname. Changing these settings can render
+      keys inaccessible.
+  use:
+    risks: []
+    notes: >-
+      The specific use of this permission is unknown.
+  verifyConnectivity:
+    risks: []
+    notes: >-
+      Returns only a success or failure indicating whether Cloud KMS can connect
+      to the external key manager.
+links:
+  - https://cloud.google.com/kms/docs/resource-hierarchy
+  - https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.ekmConnections

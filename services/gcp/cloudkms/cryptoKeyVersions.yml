@@ -1,0 +1,84 @@
+name: Cloud KMS Crypto Key Versions
+description: >-
+  A key version contains key material used for encryption or signing.
+scope: CRITICAL
+notes: >-
+  Cloud KMS is an extremely sensitive service. Keys can be used for encryption/decryption of 
+  sensitive data or for the creation or verification of digital signatures.
+privileges:
+  create:
+    risks: [impact:spend]
+  destroy:
+    risks: [destruction:crypto, impact:encryption]
+    notes: >-
+      Destroyed key versions cannot be recovered.
+      Any data encrypted with the key version will no longer be able to be decrypted.
+  get:
+    risks: [discovery:infra]
+    notes: >-
+      This includes infra discovery because key metadata such as the algorithm are exposed. Does not give access to keys.
+  list:
+    risks: [discovery:infra]
+    notes: >-
+      See get.
+  manageRawAesCbcKeys:
+    risks: []
+    notes: >-
+      This permission is required to manage AES CBC keys. 
+      It has no risks because it provides no access on its own: the user
+      still needs permissions on the keys.
+  manageRawAesCtrKeys:
+    risks: []
+    notes: >-
+      This permission is required to manage AES CTR keys. 
+      It has no risks because it provides no access on its own: the user
+      still needs permissions on the keys.
+  manageRawPKCS1Keys:
+    risks: []
+    notes: >-
+      This permission is required to manage AES CTR keys. 
+      It has no risks because it provides no access on its own: the user
+      still needs permissions on the keys.
+  restore:
+    risks: [impact:spend]
+    notes: >-
+      Restores a key that was scheduled for destruction.
+  update:
+    risks: [impact:dos, destruction:metadata]
+    notes: >-
+      Can be used to disable a key version. While a key version is disabled,
+      data encrypted with it cannot be accessed. The secret content of the key
+      cannot be edited or destroyed via this method.
+  useToDecrypt:
+    risks: [impact:spend, exfiltration:data]
+    notes: >-
+      Can be used to decrypt data encrypted with the key version.
+  useToDecryptViaDelegation:
+    risks: [impact:spend, exfiltration:data]
+    notes: >-
+      Can be used to decrypt data encrypted with the key version through other Google Services.
+  useToEncrypt:
+    risks: [impact:spend]
+    notes: >-
+      Can be used to encrypt data with the key version.
+  useToEncryptViaDelegation:
+    risks: [impact:spend]
+    notes: >-
+      Can be used to encrypt data with the key version through other Google Services.
+  useToSign:
+    risks: [impact:spend, impact:manipulation]
+    notes: >-
+      Can be used to sign data with the key version.
+  useToVerify:
+    risks: [impact:spend]
+    notes: >-
+      Can be used to verify data signed with the key version.
+  viewPublicKey:
+    risks: []
+    notes: >-
+      This only shows public keys
+
+links:
+  - https://cloud.google.com/kms/docs/resource-hierarchy
+  - https://cloud.google.com/kms/docs/iam
+  - https://cloud.google.com/kms/docs/reference/rest

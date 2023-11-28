@@ -1,0 +1,36 @@
+name: Cloud KMS Key Rings
+description: >-
+  A Cloud KMS key ring is a logical grouping of keys in the same location.
+scope: CRITICAL
+notes: >-
+  Cloud KMS is an extremely sensitive service. Keys can be used for encryption/decryption of 
+  sensitive data or for the creation or verification of digital signatures.
+privileges:
+  create:
+    risks: []
+    notes: >-
+      Billing is based on key versions, so key rings do not incur billing.
+  createTagBinding:
+    risks: [impact:access, escalation:privilege]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The
+      risks apply if the tag is used in any policies.
+  deleteTagBinding:
+    risks: [escalation:privilege, destruction:policy, impact:access]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The
+      risks apply if the tag is used in any policies.
+  get:
+    risks: [discovery:infra]
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  list:
+    risks: [discovery:infra]
+  listEffectiveTags:
+    risks: [discovery:policy]
+  listTagBindings:
+    risks: [discovery:policy]
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+links:
+  - https://cloud.google.com/secret-manager/docs/locations
