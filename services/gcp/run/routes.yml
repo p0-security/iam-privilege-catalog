@@ -1,0 +1,16 @@
+name: Cloud run routes
+description: >-
+  Cloud run routes contain rules for routing ingress traffic to specific revisions of a service.
+scope: MEDIUM
+privileges:
+  get:
+    risks: [discovery:infra]
+  invoke:
+    risks: [escalation:network]
+    notes: >-
+      Allows a user to make curl requests to the service that the route is associated with.
+  list:
+    risks: [discovery:infra]
+links:
+  - https://cloud.google.com/run/docs/reference/rest/v1/namespaces.routes
+  - https://cloud.google.com/run/docs/authenticating/developers

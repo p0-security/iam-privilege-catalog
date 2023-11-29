@@ -1,0 +1,13 @@
+name: Cloud Run tasks
+description: >-
+  A Cloud Run task represents a single run of a container to completion. 
+  A Cloud Run job contains some number of tasks.
+scope: MEDIUM
+privileges:
+  list:
+    risks: [discovery:infra]
+  get:
+    risks: [discovery:infra]
+links:
+  - https://cloud.google.com/run/docs/reference/rest/v1/namespaces.tasks
+  - https://cloud.google.com/run/docs/resource-model

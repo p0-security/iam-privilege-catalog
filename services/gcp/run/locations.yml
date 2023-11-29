@@ -1,0 +1,13 @@
+name: Cloud Run Locations
+description: >-
+  Infrastructure regions available for Cloud Run resources
+scope: PUBLIC
+notes: >-
+  This resource contains public information about Google's location offerings for Cloud Run
+privileges:
+  list:
+    risks: []
+  get:
+    risks: []
+links:
+  - https://cloud.google.com/run/docs/reference/rest/v1/projects.locations
