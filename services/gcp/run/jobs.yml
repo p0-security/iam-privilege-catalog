@@ -4,13 +4,13 @@ description: >-
   Jobs may be executed on a one-off basis, a recurring schedule, or as part of a workflow.
 scope: HIGH
 notes: >-
-  Cloud run jobs may be used for important organizational tasks, such as processing of sensitive data. 
+  Cloud run jobs may be used for important organizational tasks, such as processing of sensitive data.
 privileges:
   create:
     risks: []
     notes: >-
       Executing a job requires the run permission, so create on its own does not allow execution of the newly created job.
-      Cloud Run billing is based on execution of jobs and services, so creation does not incur spend. 
+      Cloud Run billing is based on execution of jobs and services, so creation does not incur spend.
   createTagBinding:
     risks: [impact:access, escalation:privilege]
     notes: >-
@@ -18,7 +18,7 @@ privileges:
       risks apply if the tag is used in any policies.
   delete:
     risks: [impact:dos, destruction:infra]
-    notes: >- 
+    notes: >-
       You can only delete a job if there are no executions in progress.
       However, certain services may rely on a job that runs on a schedule, so 
       deleting a job can create a DOS even if at deletion time there are no executions in progress.
@@ -48,12 +48,19 @@ privileges:
       Depending on the job and the contents of environment variables and arguments, this may 
       allow the attacker to hijack the job for their own purposes, manipulate organizational data, 
       or store output data in a location accessible to the attacker.
-      Also includes a resource hijacking risk if combined with the create permission and iam.serviceAccounts.actAs on the Cloud Run service account. 
+      Also includes a resource hijacking risk if combined with the create permission and iam.serviceAccounts.actAs on the Cloud Run service account.
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    risks: [impact:spend, impact:dos, impact:hijack, impact:manipulation, exfiltration:data]
-    notes: >- 
+    risks:
+      [
+        impact:spend,
+        impact:dos,
+        impact:hijack,
+        impact:manipulation,
+        exfiltration:data,
+      ]
+    notes: >-
       Allows an attacker to update settings for a job, including CPU/memory limits, timeouts, retries, 
       the values of environment variables, and the container entrypoint command and arguments.
       Depending on the job and the contents of environment variables and arguments, this may 
@@ -63,7 +70,6 @@ privileges:
       retries, or manipulating arguments/environment variables can create a DOS.
 links:
   - https://cloud.google.com/run/docs/resource-model
-  - https://cloud.google.com/run/docs/managing/jobs 
+  - https://cloud.google.com/run/docs/managing/jobs
   - https://cloud.google.com/run/docs/reference/rest/v1/namespaces.jobs
   - https://cloud.google.com/run/docs/create-jobs
-

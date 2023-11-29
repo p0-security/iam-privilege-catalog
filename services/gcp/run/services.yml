@@ -1,4 +1,4 @@
-name: Cloud Run Services 
+name: Cloud Run Services
 description: >-
   A Cloud Run service continuously runs code that responds to web requests or events.
   It will automatically scale the number of instances to match incoming requests.
@@ -43,8 +43,17 @@ privileges:
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    risks: [impact:spend, impact:dos, impact:hijack, impact:manipulation, exfiltration:data, escalation:network, destruction:defense]
-    notes: >- 
+    risks:
+      [
+        impact:spend,
+        impact:dos,
+        impact:hijack,
+        impact:manipulation,
+        exfiltration:data,
+        escalation:network,
+        destruction:defense,
+      ]
+    notes: >-
       Allows an attacker to update settings for a service, including CPU/memory limits, autoscaling settings, 
       the values of environment variables, the container entrypoint command and arguments, and egress/ingress network policy settings.
       Depending on the job and the contents of environment variables and arguments, this may 
@@ -52,9 +61,9 @@ privileges:
       or store output data in a location accessible to the attacker.
       Changing ingress/egress network policies can allow an attacker to make private services public or vice versa.
       Changing CPU/memory limits or autoscaling settings can incur spend, 
-      and changing autoscaling settings, network settings, or manipulating arguments/environment variables can create a DOS. 
+      and changing autoscaling settings, network settings, or manipulating arguments/environment variables can create a DOS.
 
-links: 
+links:
   - https://cloud.google.com/run/docs/resource-model
   - https://cloud.google.com/run/docs/deploying
   - https://cloud.google.com/run/docs/managing/services

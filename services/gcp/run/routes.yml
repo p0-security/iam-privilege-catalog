@@ -3,12 +3,12 @@ description: >-
   Cloud run routes contain rules for routing ingress traffic to specific revisions of a service.
 scope: MEDIUM
 privileges:
-  get:  
+  get:
     risks: [discovery:infra]
   invoke:
     risks: [escalation:network]
     notes: >-
-      Allows a user to make curl requests to the service that the route is associated with. 
+      Allows a user to make curl requests to the service that the route is associated with.
   list:
     risks: [discovery:infra]
 links:

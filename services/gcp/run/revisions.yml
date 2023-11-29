@@ -7,15 +7,13 @@ scope: MEDIUM
 privileges:
   delete:
     risks: [destruction:infra]
-    notes: >- 
+    notes: >-
       Revisions that can receive traffic, are the only revision of the service,
       or are the latest revision of the service cannot be deleted.
   get:
-    risks:
-      [discovery:infra]
+    risks: [discovery:infra]
   list:
-    risks:
-      [discovery:infra]
+    risks: [discovery:infra]
 links:
   - https://cloud.google.com/run/docs/resource-model
   - https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions

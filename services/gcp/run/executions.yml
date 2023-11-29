@@ -1,6 +1,6 @@
 name: Cloud Run Executions
 description: >-
-  A Cloud Run execution is a resource created when a cloud run job is executed in order to track the execution. 
+  A Cloud Run execution is a resource created when a cloud run job is executed in order to track the execution.
 scope: HIGH
 notes: >-
   Cloud Run jobs may be used for important organizational tasks, such as processing of sensitive data.
