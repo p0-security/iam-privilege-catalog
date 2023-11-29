@@ -1,7 +1,7 @@
-name: Cloud run tasks
+name: Cloud Run tasks
 description: >-
-  A cloud run task represents a single run of a container to completion. 
-  A cloud run job contains some number of tasks.
+  A Cloud Run task represents a single run of a container to completion. 
+  A Cloud Run job contains some number of tasks.
 scope: MEDIUM
 privileges:
   list:
