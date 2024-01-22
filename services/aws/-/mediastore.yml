@@ -1,0 +1,17 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/mediastore
+name: mediastore
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  DeleteContainerPolicy:
+    risks:
+      - destruction:policy
+  GetObject:
+    risks:
+      - exfiltration:data
+  PutContainerPolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

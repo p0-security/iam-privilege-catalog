@@ -1,0 +1,17 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/imagebuilder
+name: imagebuilder
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  PutComponentPolicy:
+    risks:
+      - destruction:policy
+  PutImagePolicy:
+    risks:
+      - destruction:policy
+  PutImageRecipePolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

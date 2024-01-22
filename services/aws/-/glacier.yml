@@ -1,0 +1,26 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/glacier
+name: glacier
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AbortVaultLock:
+    risks:
+      - destruction:policy
+  CompleteVaultLock:
+    risks:
+      - destruction:policy
+  DeleteVaultAccessPolicy:
+    risks:
+      - destruction:policy
+  InitiateVaultLock:
+    risks:
+      - destruction:policy
+  SetDataRetrievalPolicy:
+    risks:
+      - destruction:policy
+  SetVaultAccessPolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

@@ -1,0 +1,23 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/sts
+name: sts
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AssumeRole:
+    risks:
+      - exfiltration:crypto
+  AssumeRoleWithSAML:
+    risks:
+      - exfiltration:crypto
+  AssumeRoleWithWebIdentity:
+    risks:
+      - exfiltration:crypto
+  GetFederationToken:
+    risks:
+      - exfiltration:crypto
+  GetSessionToken:
+    risks:
+      - exfiltration:crypto
+scope: HIGH

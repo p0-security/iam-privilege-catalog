@@ -1,0 +1,56 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/quicksight
+name: quicksight
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  CreateAdmin:
+    risks:
+      - destruction:policy
+  CreateGroup:
+    risks:
+      - destruction:policy
+  CreateGroupMembership:
+    risks:
+      - destruction:policy
+  CreateIAMPolicyAssignment:
+    risks:
+      - destruction:policy
+  CreateUser:
+    risks:
+      - destruction:policy
+  DeleteGroup:
+    risks:
+      - destruction:policy
+  DeleteGroupMembership:
+    risks:
+      - destruction:policy
+  DeleteIAMPolicyAssignment:
+    risks:
+      - destruction:policy
+  DeleteUser:
+    risks:
+      - destruction:policy
+  DeleteUserByPrincipalId:
+    risks:
+      - destruction:policy
+  RegisterUser:
+    risks:
+      - destruction:policy
+  UpdateDashboardPermissions:
+    risks:
+      - destruction:policy
+  UpdateGroup:
+    risks:
+      - destruction:policy
+  UpdateIAMPolicyAssignment:
+    risks:
+      - destruction:policy
+  UpdateTemplatePermissions:
+    risks:
+      - destruction:policy
+  UpdateUser:
+    risks:
+      - destruction:policy
+scope: HIGH

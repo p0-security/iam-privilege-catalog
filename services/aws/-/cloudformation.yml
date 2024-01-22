@@ -1,0 +1,14 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/cloudformation
+name: cloudformation
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  GetTemplate:
+    risks:
+      - exfiltration:data
+  SetStackPolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

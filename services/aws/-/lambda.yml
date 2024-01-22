@@ -1,0 +1,32 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/lambda
+name: lambda
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AddLayerVersionPermission:
+    risks:
+      - destruction:policy
+  AddPermission:
+    risks:
+      - destruction:policy
+  DisableReplication:
+    risks:
+      - destruction:policy
+  EnableReplication:
+    risks:
+      - destruction:policy
+  GetFunction:
+    risks:
+      - exfiltration:data
+  GetLayerVersion:
+    risks:
+      - exfiltration:data
+  RemoveLayerVersionPermission:
+    risks:
+      - destruction:policy
+  RemovePermission:
+    risks:
+      - destruction:policy
+scope: HIGH

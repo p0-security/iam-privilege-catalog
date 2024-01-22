@@ -1,0 +1,23 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/workmail
+name: workmail
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  ListGroupMembers:
+    risks:
+      - exfiltration:data
+  ListGroups:
+    risks:
+      - exfiltration:data
+  ListUsers:
+    risks:
+      - exfiltration:data
+  ResetPassword:
+    risks:
+      - destruction:policy
+  ResetUserPassword:
+    risks:
+      - destruction:policy
+scope: HIGH

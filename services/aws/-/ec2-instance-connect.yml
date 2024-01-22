@@ -1,0 +1,12 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/ec2-instance-connect
+name: ec2-instance-connect
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  SendSSHPublicKey:
+    risks:
+      - escalation:privilege
+      - exfiltration:crypto
+scope: HIGH

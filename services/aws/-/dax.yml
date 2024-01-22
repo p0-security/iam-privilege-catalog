@@ -1,0 +1,20 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/dax
+name: dax
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  BatchGetItem:
+    risks:
+      - exfiltration:data
+  GetItem:
+    risks:
+      - exfiltration:data
+  Query:
+    risks:
+      - exfiltration:data
+  Scan:
+    risks:
+      - exfiltration:data
+scope: HIGH

@@ -1,0 +1,11 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/route53resolver
+name: route53resolver
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  PutResolverRulePolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

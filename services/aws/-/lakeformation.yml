@@ -1,0 +1,23 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/lakeformation
+name: lakeformation
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  BatchGrantPermissions:
+    risks:
+      - destruction:policy
+  BatchRevokePermissions:
+    risks:
+      - destruction:policy
+  GrantPermissions:
+    risks:
+      - destruction:policy
+  PutDataLakeSettings:
+    risks:
+      - destruction:policy
+  RevokePermissions:
+    risks:
+      - destruction:policy
+scope: HIGH

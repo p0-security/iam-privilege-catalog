@@ -1,0 +1,11 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/license-manager
+name: license-manager
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  UpdateServiceSettings:
+    risks:
+      - destruction:policy
+scope: HIGH

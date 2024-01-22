@@ -1,0 +1,17 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/iotsitewise
+name: iotsitewise
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  CreateAccessPolicy:
+    risks:
+      - destruction:policy
+  DeleteAccessPolicy:
+    risks:
+      - destruction:policy
+  UpdateAccessPolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

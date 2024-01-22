@@ -1,0 +1,268 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/iam
+name: iam
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AddClientIDToOpenIDConnectProvider:
+    risks:
+      - destruction:policy
+  AddRoleToInstanceProfile:
+    risks:
+      - destruction:policy
+  AddUserToGroup:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  AttachGroupPolicy:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  AttachRolePolicy:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  AttachUserPolicy:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  ChangePassword:
+    risks:
+      - destruction:policy
+  CreateAccessKey:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+      - exfiltration:crypto
+  CreateAccountAlias:
+    risks:
+      - destruction:policy
+  CreateGroup:
+    risks:
+      - destruction:policy
+  CreateInstanceProfile:
+    risks:
+      - destruction:policy
+  CreateLoginProfile:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+      - exfiltration:crypto
+  CreateOpenIDConnectProvider:
+    risks:
+      - destruction:policy
+  CreatePolicy:
+    risks:
+      - destruction:policy
+  CreatePolicyVersion:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  CreateRole:
+    risks:
+      - destruction:policy
+  CreateSAMLProvider:
+    risks:
+      - destruction:policy
+  CreateServiceLinkedRole:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  CreateServiceSpecificCredential:
+    risks:
+      - destruction:policy
+      - exfiltration:crypto
+  CreateUser:
+    risks:
+      - destruction:policy
+  CreateVirtualMFADevice:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  DeactivateMFADevice:
+    risks:
+      - destruction:policy
+  DeleteAccessKey:
+    risks:
+      - destruction:policy
+  DeleteAccountAlias:
+    risks:
+      - destruction:policy
+  DeleteAccountPasswordPolicy:
+    risks:
+      - destruction:policy
+  DeleteGroup:
+    risks:
+      - destruction:policy
+  DeleteGroupPolicy:
+    risks:
+      - destruction:policy
+  DeleteInstanceProfile:
+    risks:
+      - destruction:policy
+  DeleteLoginProfile:
+    risks:
+      - destruction:policy
+  DeleteOpenIDConnectProvider:
+    risks:
+      - destruction:policy
+  DeletePolicy:
+    risks:
+      - destruction:policy
+  DeletePolicyVersion:
+    risks:
+      - destruction:policy
+  DeleteRole:
+    risks:
+      - destruction:policy
+  DeleteRolePermissionsBoundary:
+    risks:
+      - destruction:policy
+  DeleteRolePolicy:
+    risks:
+      - destruction:policy
+  DeleteSAMLProvider:
+    risks:
+      - destruction:policy
+  DeleteSSHPublicKey:
+    risks:
+      - destruction:policy
+  DeleteServerCertificate:
+    risks:
+      - destruction:policy
+  DeleteServiceLinkedRole:
+    risks:
+      - destruction:policy
+  DeleteServiceSpecificCredential:
+    risks:
+      - destruction:policy
+  DeleteSigningCertificate:
+    risks:
+      - destruction:policy
+  DeleteUser:
+    risks:
+      - destruction:policy
+  DeleteUserPermissionsBoundary:
+    risks:
+      - destruction:policy
+  DeleteUserPolicy:
+    risks:
+      - destruction:policy
+  DeleteVirtualMFADevice:
+    risks:
+      - destruction:policy
+  DetachGroupPolicy:
+    risks:
+      - destruction:policy
+  DetachRolePolicy:
+    risks:
+      - destruction:policy
+  DetachUserPolicy:
+    risks:
+      - destruction:policy
+  EnableMFADevice:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  PassRole:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  PutGroupPolicy:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  PutRolePermissionsBoundary:
+    risks:
+      - destruction:policy
+  PutRolePolicy:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  PutUserPermissionsBoundary:
+    risks:
+      - destruction:policy
+  PutUserPolicy:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  RemoveClientIDFromOpenIDConnectProvider:
+    risks:
+      - destruction:policy
+  RemoveRoleFromInstanceProfile:
+    risks:
+      - destruction:policy
+  RemoveUserFromGroup:
+    risks:
+      - destruction:policy
+  ResetServiceSpecificCredential:
+    risks:
+      - destruction:policy
+      - exfiltration:crypto
+  ResyncMFADevice:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  SetDefaultPolicyVersion:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  SetSecurityTokenServicePreferences:
+    risks:
+      - destruction:policy
+  UpdateAccessKey:
+    risks:
+      - destruction:policy
+      - exfiltration:crypto
+  UpdateAccountPasswordPolicy:
+    risks:
+      - destruction:policy
+  UpdateAssumeRolePolicy:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  UpdateGroup:
+    risks:
+      - destruction:policy
+  UpdateLoginProfile:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  UpdateOpenIDConnectProviderThumbprint:
+    risks:
+      - destruction:policy
+  UpdateRole:
+    risks:
+      - destruction:policy
+  UpdateRoleDescription:
+    risks:
+      - destruction:policy
+  UpdateSAMLProvider:
+    risks:
+      - destruction:policy
+  UpdateSSHPublicKey:
+    risks:
+      - destruction:policy
+  UpdateServerCertificate:
+    risks:
+      - destruction:policy
+  UpdateServiceSpecificCredential:
+    risks:
+      - destruction:policy
+  UpdateSigningCertificate:
+    risks:
+      - destruction:policy
+  UpdateUser:
+    risks:
+      - destruction:policy
+  UploadSSHPublicKey:
+    risks:
+      - destruction:policy
+  UploadServerCertificate:
+    risks:
+      - destruction:policy
+  UploadSigningCertificate:
+    risks:
+      - destruction:policy
+scope: HIGH

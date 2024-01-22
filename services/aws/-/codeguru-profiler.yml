@@ -1,0 +1,17 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/codeguru-profiler
+name: codeguru-profiler
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  GetRecommendations:
+    risks:
+      - exfiltration:data
+  PutPermission:
+    risks:
+      - destruction:policy
+  RemovePermission:
+    risks:
+      - destruction:policy
+scope: HIGH

@@ -1,0 +1,17 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/waf
+name: waf
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  DeletePermissionPolicy:
+    risks:
+      - destruction:policy
+  GetChangeToken:
+    risks:
+      - exfiltration:crypto
+  PutPermissionPolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

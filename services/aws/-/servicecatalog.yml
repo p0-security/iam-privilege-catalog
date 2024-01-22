@@ -1,0 +1,14 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/servicecatalog
+name: servicecatalog
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  CreatePortfolioShare:
+    risks:
+      - destruction:policy
+  DeletePortfolioShare:
+    risks:
+      - destruction:policy
+scope: HIGH

@@ -1,0 +1,62 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/sso-directory
+name: sso-directory
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AddMemberToGroup:
+    risks:
+      - destruction:policy
+  CreateAlias:
+    risks:
+      - destruction:policy
+  CreateGroup:
+    risks:
+      - destruction:policy
+  CreateUser:
+    risks:
+      - destruction:policy
+  DeleteGroup:
+    risks:
+      - destruction:policy
+  DeleteUser:
+    risks:
+      - destruction:policy
+  DescribeGroup:
+    risks:
+      - exfiltration:data
+  DescribeUser:
+    risks:
+      - exfiltration:data
+  DisableUser:
+    risks:
+      - destruction:policy
+  EnableUser:
+    risks:
+      - destruction:policy
+  ListBearerTokens:
+    risks:
+      - exfiltration:crypto
+  RemoveMemberFromGroup:
+    risks:
+      - destruction:policy
+  SearchGroups:
+    risks:
+      - exfiltration:data
+  SearchUsers:
+    risks:
+      - exfiltration:data
+  UpdateGroup:
+    risks:
+      - destruction:policy
+  UpdatePassword:
+    risks:
+      - destruction:policy
+  UpdateUser:
+    risks:
+      - destruction:policy
+  VerifyEmail:
+    risks:
+      - destruction:policy
+scope: HIGH

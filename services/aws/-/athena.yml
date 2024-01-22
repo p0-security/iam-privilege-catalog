@@ -1,0 +1,20 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/athena
+name: athena
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  GetQueryExecution:
+    risks:
+      - exfiltration:data
+  GetQueryResults:
+    risks:
+      - exfiltration:data
+  GetQueryResultsStream:
+    risks:
+      - exfiltration:data
+  GetSession:
+    risks:
+      - exfiltration:crypto
+scope: HIGH

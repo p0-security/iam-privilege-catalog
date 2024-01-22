@@ -1,0 +1,23 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/storagegateway
+name: storagegateway
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  DeleteChapCredentials:
+    risks:
+      - destruction:policy
+  DescribeChapCredentials:
+    risks:
+      - exfiltration:crypto
+  SetLocalConsolePassword:
+    risks:
+      - destruction:policy
+  SetSMBGuestPassword:
+    risks:
+      - destruction:policy
+  UpdateChapCredentials:
+    risks:
+      - destruction:policy
+scope: HIGH

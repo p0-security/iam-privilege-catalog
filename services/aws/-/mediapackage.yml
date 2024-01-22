@@ -1,0 +1,15 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/mediapackage
+name: mediapackage
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  RotateChannelCredentials:
+    risks:
+      - exfiltration:crypto
+  RotateIngestEndpointCredentials:
+    risks:
+      - destruction:policy
+      - exfiltration:crypto
+scope: HIGH

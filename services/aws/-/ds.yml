@@ -1,0 +1,23 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/ds
+name: ds
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  CreateConditionalForwarder:
+    risks:
+      - destruction:policy
+  CreateDirectory:
+    risks:
+      - destruction:policy
+  CreateMicrosoftAD:
+    risks:
+      - destruction:policy
+  CreateTrust:
+    risks:
+      - destruction:policy
+  ShareDirectory:
+    risks:
+      - destruction:policy
+scope: HIGH

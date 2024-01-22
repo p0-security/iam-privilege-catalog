@@ -1,0 +1,25 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/codestar
+name: codestar
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AssociateTeamMember:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  CreateProject:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+  DeleteProject:
+    risks:
+      - destruction:policy
+  DisassociateTeamMember:
+    risks:
+      - destruction:policy
+  UpdateTeamMember:
+    risks:
+      - destruction:policy
+scope: HIGH

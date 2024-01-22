@@ -1,0 +1,20 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/sns
+name: sns
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AddPermission:
+    risks:
+      - destruction:policy
+  CreateTopic:
+    risks:
+      - destruction:policy
+  RemovePermission:
+    risks:
+      - destruction:policy
+  SetTopicAttributes:
+    risks:
+      - destruction:policy
+scope: HIGH
