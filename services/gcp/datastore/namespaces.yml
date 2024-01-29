@@ -1,7 +1,7 @@
 name: namespaces
 description: >-
   Datastore mode enables multi-tenancy using namespaces. Namespaces are only for organizing data and are not security boundaries.
-scope: BOOST
+scope: LOW
 notes: >-
   Information of namespaces has minimal impact without access to the data in the namespace, 
   although in a misconfigured system using client names as namespaces leads to client enumeration.
