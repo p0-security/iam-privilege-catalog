@@ -1,0 +1,32 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/es
+name: es
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  CreateElasticsearchDomain:
+    risks:
+      - destruction:policy
+  ESHttpDelete:
+    risks:
+      - exfiltration:data
+  ESHttpGet:
+    risks:
+      - exfiltration:data
+  ESHttpHead:
+    risks:
+      - exfiltration:data
+  ESHttpPatch:
+    risks:
+      - exfiltration:data
+  ESHttpPost:
+    risks:
+      - exfiltration:data
+  ESHttpPut:
+    risks:
+      - exfiltration:data
+  UpdateElasticsearchDomainConfig:
+    risks:
+      - destruction:policy
+scope: HIGH

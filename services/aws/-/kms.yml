@@ -1,0 +1,20 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/kms
+name: kms
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  CreateGrant:
+    risks:
+      - destruction:policy
+  PutKeyPolicy:
+    risks:
+      - destruction:policy
+  RetireGrant:
+    risks:
+      - destruction:policy
+  RevokeGrant:
+    risks:
+      - destruction:policy
+scope: HIGH

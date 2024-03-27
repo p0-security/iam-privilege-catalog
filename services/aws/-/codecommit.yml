@@ -1,0 +1,92 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/codecommit
+name: codecommit
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  BatchGetCommits:
+    risks:
+      - exfiltration:data
+  BatchGetPullRequests:
+    risks:
+      - exfiltration:data
+  BatchGetRepositories:
+    risks:
+      - exfiltration:data
+  DescribeMergeConflicts:
+    risks:
+      - exfiltration:data
+  DescribePullRequestEvents:
+    risks:
+      - exfiltration:data
+  GetApprovalRuleTemplate:
+    risks:
+      - exfiltration:data
+  GetBlob:
+    risks:
+      - exfiltration:data
+  GetBranch:
+    risks:
+      - exfiltration:data
+  GetComment:
+    risks:
+      - exfiltration:data
+  GetCommentReactions:
+    risks:
+      - exfiltration:data
+  GetCommentsForComparedCommit:
+    risks:
+      - exfiltration:data
+  GetCommentsForPullRequest:
+    risks:
+      - exfiltration:data
+  GetCommit:
+    risks:
+      - exfiltration:data
+  GetCommitHistory:
+    risks:
+      - exfiltration:data
+  GetCommitsFromMergeBase:
+    risks:
+      - exfiltration:data
+  GetDifferences:
+    risks:
+      - exfiltration:data
+  GetFile:
+    risks:
+      - exfiltration:data
+  GetFolder:
+    risks:
+      - exfiltration:data
+  GetMergeCommit:
+    risks:
+      - exfiltration:data
+  GetMergeConflicts:
+    risks:
+      - exfiltration:data
+  GetMergeOptions:
+    risks:
+      - exfiltration:data
+  GetObjectIdentifier:
+    risks:
+      - exfiltration:data
+  GetPullRequest:
+    risks:
+      - exfiltration:data
+  GetPullRequestApprovalStates:
+    risks:
+      - exfiltration:data
+  GetPullRequestOverrideState:
+    risks:
+      - exfiltration:data
+  GetReferences:
+    risks:
+      - exfiltration:data
+  GetTree:
+    risks:
+      - exfiltration:data
+  GitPull:
+    risks:
+      - exfiltration:data
+scope: HIGH

@@ -1,0 +1,26 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/chatbot
+name: chatbot
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  DescribeSlackChannels:
+    risks:
+      - exfiltration:data
+  DescribeSlackUserIdentities:
+    risks:
+      - exfiltration:data
+  GetMicrosoftTeamsOauthParameters:
+    risks:
+      - exfiltration:crypto
+  GetSlackOauthParameters:
+    risks:
+      - exfiltration:crypto
+  ListMicrosoftTeamsConfiguredTeams:
+    risks:
+      - exfiltration:data
+  ListMicrosoftTeamsUserIdentities:
+    risks:
+      - exfiltration:data
+scope: HIGH

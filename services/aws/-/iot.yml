@@ -1,0 +1,26 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/iot
+name: iot
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AttachPolicy:
+    risks:
+      - destruction:policy
+  AttachPrincipalPolicy:
+    risks:
+      - destruction:policy
+  DetachPolicy:
+    risks:
+      - destruction:policy
+  DetachPrincipalPolicy:
+    risks:
+      - destruction:policy
+  SetDefaultAuthorizer:
+    risks:
+      - destruction:policy
+  SetDefaultPolicyVersion:
+    risks:
+      - destruction:policy
+scope: HIGH

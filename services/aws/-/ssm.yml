@@ -1,0 +1,26 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/ssm
+name: ssm
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  GetDocument:
+    risks:
+      - exfiltration:data
+  GetParameter:
+    risks:
+      - exfiltration:data
+  GetParameterHistory:
+    risks:
+      - exfiltration:data
+  GetParameters:
+    risks:
+      - exfiltration:data
+  GetParametersByPath:
+    risks:
+      - exfiltration:data
+  ModifyDocumentPermission:
+    risks:
+      - destruction:policy
+scope: HIGH

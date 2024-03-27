@@ -1,0 +1,21 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/gamelift
+name: gamelift
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  GetComputeAuthToken:
+    risks:
+      - exfiltration:crypto
+  GetGameSessionLogUrl:
+    risks:
+      - exfiltration:crypto
+  GetInstanceAccess:
+    risks:
+      - exfiltration:crypto
+      - exfiltration:data
+  RequestUploadCredentials:
+    risks:
+      - exfiltration:crypto
+scope: HIGH

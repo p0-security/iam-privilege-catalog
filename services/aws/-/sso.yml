@@ -1,0 +1,101 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/sso
+name: sso
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AssociateDirectory:
+    risks:
+      - destruction:policy
+  AssociateProfile:
+    risks:
+      - destruction:policy
+  CreateApplicationInstance:
+    risks:
+      - destruction:policy
+  CreateApplicationInstanceCertificate:
+    risks:
+      - destruction:policy
+  CreatePermissionSet:
+    risks:
+      - destruction:policy
+  CreateProfile:
+    risks:
+      - destruction:policy
+  CreateTrust:
+    risks:
+      - destruction:policy
+  DeleteApplicationInstance:
+    risks:
+      - destruction:policy
+  DeleteApplicationInstanceCertificate:
+    risks:
+      - destruction:policy
+  DeletePermissionSet:
+    risks:
+      - destruction:policy
+  DeletePermissionsPolicy:
+    risks:
+      - destruction:policy
+  DeleteProfile:
+    risks:
+      - destruction:policy
+  DisassociateDirectory:
+    risks:
+      - destruction:policy
+  DisassociateProfile:
+    risks:
+      - destruction:policy
+  ImportApplicationInstanceServiceProviderMetadata:
+    risks:
+      - destruction:policy
+  PutPermissionsPolicy:
+    risks:
+      - destruction:policy
+  SearchGroups:
+    risks:
+      - exfiltration:data
+  SearchUsers:
+    risks:
+      - exfiltration:data
+  StartSSO:
+    risks:
+      - destruction:policy
+  UpdateApplicationInstanceActiveCertificate:
+    risks:
+      - destruction:policy
+  UpdateApplicationInstanceDisplayData:
+    risks:
+      - destruction:policy
+  UpdateApplicationInstanceResponseConfiguration:
+    risks:
+      - destruction:policy
+  UpdateApplicationInstanceResponseSchemaConfiguration:
+    risks:
+      - destruction:policy
+  UpdateApplicationInstanceSecurityConfiguration:
+    risks:
+      - destruction:policy
+  UpdateApplicationInstanceServiceProviderConfiguration:
+    risks:
+      - destruction:policy
+  UpdateApplicationInstanceStatus:
+    risks:
+      - destruction:policy
+  UpdateDirectoryAssociation:
+    risks:
+      - destruction:policy
+  UpdatePermissionSet:
+    risks:
+      - destruction:policy
+  UpdateProfile:
+    risks:
+      - destruction:policy
+  UpdateSSOConfiguration:
+    risks:
+      - destruction:policy
+  UpdateTrust:
+    risks:
+      - destruction:policy
+scope: HIGH

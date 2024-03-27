@@ -1,0 +1,56 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/chime
+name: chime
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  CreateApiKey:
+    risks:
+      - exfiltration:crypto
+  DeleteVoiceConnectorTerminationCredentials:
+    risks:
+      - destruction:policy
+  GetAttendee:
+    risks:
+      - exfiltration:data
+  GetChannelMessage:
+    risks:
+      - exfiltration:data
+  GetMeeting:
+    risks:
+      - exfiltration:data
+  GetMeetingDetail:
+    risks:
+      - exfiltration:data
+  GetRoom:
+    risks:
+      - exfiltration:data
+  GetUser:
+    risks:
+      - exfiltration:data
+  GetUserActivityReportData:
+    risks:
+      - exfiltration:data
+  GetUserByEmail:
+    risks:
+      - exfiltration:data
+  GetUserSettings:
+    risks:
+      - exfiltration:data
+  ListAttendees:
+    risks:
+      - exfiltration:data
+  ListMeetingEvents:
+    risks:
+      - exfiltration:data
+  ListMeetings:
+    risks:
+      - exfiltration:data
+  ListUsers:
+    risks:
+      - exfiltration:data
+  PutVoiceConnectorTerminationCredentials:
+    risks:
+      - destruction:policy
+scope: HIGH

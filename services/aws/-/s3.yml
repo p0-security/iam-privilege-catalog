@@ -1,0 +1,47 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/s3
+name: s3
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  BypassGovernanceRetention:
+    risks:
+      - destruction:policy
+  DeleteAccessPointPolicy:
+    risks:
+      - destruction:policy
+  DeleteBucketPolicy:
+    risks:
+      - destruction:policy
+  GetObject:
+    risks:
+      - exfiltration:data
+  GetObjectVersion:
+    risks:
+      - exfiltration:data
+  ObjectOwnerOverrideToBucketOwner:
+    risks:
+      - destruction:policy
+  PutAccessPointPolicy:
+    risks:
+      - destruction:policy
+  PutAccountPublicAccessBlock:
+    risks:
+      - destruction:policy
+  PutBucketAcl:
+    risks:
+      - destruction:policy
+  PutBucketPolicy:
+    risks:
+      - destruction:policy
+  PutBucketPublicAccessBlock:
+    risks:
+      - destruction:policy
+  PutObjectAcl:
+    risks:
+      - destruction:policy
+  PutObjectVersionAcl:
+    risks:
+      - destruction:policy
+scope: HIGH

@@ -1,0 +1,17 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/appsync
+name: appsync
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  GetDataSource:
+    risks:
+      - exfiltration:data
+  GetFunction:
+    risks:
+      - exfiltration:data
+  ListApiKeys:
+    risks:
+      - exfiltration:crypto
+scope: HIGH

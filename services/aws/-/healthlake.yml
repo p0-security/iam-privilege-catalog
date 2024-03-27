@@ -1,0 +1,17 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/healthlake
+name: healthlake
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  ReadResource:
+    risks:
+      - exfiltration:data
+  SearchWithGet:
+    risks:
+      - exfiltration:data
+  SearchWithPost:
+    risks:
+      - exfiltration:data
+scope: HIGH

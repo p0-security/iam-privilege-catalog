@@ -1,0 +1,32 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/ram
+name: ram
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AcceptResourceShareInvitation:
+    risks:
+      - destruction:policy
+  AssociateResourceShare:
+    risks:
+      - destruction:policy
+  CreateResourceShare:
+    risks:
+      - destruction:policy
+  DeleteResourceShare:
+    risks:
+      - destruction:policy
+  DisassociateResourceShare:
+    risks:
+      - destruction:policy
+  EnableSharingWithAwsOrganization:
+    risks:
+      - destruction:policy
+  RejectResourceShareInvitation:
+    risks:
+      - destruction:policy
+  UpdateResourceShare:
+    risks:
+      - destruction:policy
+scope: HIGH

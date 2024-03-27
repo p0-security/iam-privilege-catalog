@@ -1,0 +1,47 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/cognito-identity
+name: cognito-identity
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  CreateIdentityPool:
+    risks:
+      - destruction:policy
+  DeleteIdentities:
+    risks:
+      - destruction:policy
+  DeleteIdentityPool:
+    risks:
+      - destruction:policy
+  GetCredentialsForIdentity:
+    risks:
+      - exfiltration:crypto
+  GetId:
+    risks:
+      - destruction:policy
+  GetOpenIdToken:
+    risks:
+      - exfiltration:crypto
+  GetOpenIdTokenForDeveloperIdentity:
+    risks:
+      - exfiltration:crypto
+  LookupDeveloperIdentity:
+    risks:
+      - exfiltration:data
+  MergeDeveloperIdentities:
+    risks:
+      - destruction:policy
+  SetIdentityPoolRoles:
+    risks:
+      - destruction:policy
+  UnlinkDeveloperIdentity:
+    risks:
+      - destruction:policy
+  UnlinkIdentity:
+    risks:
+      - destruction:policy
+  UpdateIdentityPool:
+    risks:
+      - destruction:policy
+scope: HIGH

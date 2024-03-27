@@ -1,0 +1,11 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/worklink
+name: worklink
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  UpdateDevicePolicyConfiguration:
+    risks:
+      - destruction:policy
+scope: HIGH

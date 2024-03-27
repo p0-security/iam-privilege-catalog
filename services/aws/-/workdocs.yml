@@ -1,0 +1,17 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/workdocs
+name: workdocs
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  GetDocument:
+    risks:
+      - exfiltration:data
+  GetDocumentPath:
+    risks:
+      - exfiltration:data
+  GetDocumentVersion:
+    risks:
+      - exfiltration:data
+scope: HIGH

@@ -1,0 +1,20 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/ecr
+name: ecr
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  DeleteRepositoryPolicy:
+    risks:
+      - destruction:policy
+  GetAuthorizationToken:
+    risks:
+      - exfiltration:crypto
+  GetDownloadUrlForLayer:
+    risks:
+      - exfiltration:data
+  SetRepositoryPolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

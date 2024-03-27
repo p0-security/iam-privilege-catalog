@@ -1,0 +1,27 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/lightsail
+name: lightsail
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  DownloadDefaultKeyPair:
+    risks:
+      - exfiltration:crypto
+  GetBucketAccessKeys:
+    risks:
+      - exfiltration:crypto
+  GetContainerImages:
+    risks:
+      - exfiltration:data
+  GetKeyPair:
+    risks:
+      - exfiltration:crypto
+  GetKeyPairs:
+    risks:
+      - exfiltration:crypto
+  GetRelationalDatabaseMasterUserPassword:
+    risks:
+      - destruction:policy
+      - exfiltration:crypto
+scope: HIGH

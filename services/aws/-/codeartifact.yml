@@ -1,0 +1,26 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/codeartifact
+name: codeartifact
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  DeleteDomainPermissionsPolicy:
+    risks:
+      - destruction:policy
+  DeleteRepositoryPermissionsPolicy:
+    risks:
+      - destruction:policy
+  GetAuthorizationToken:
+    risks:
+      - exfiltration:crypto
+  GetPackageVersionAsset:
+    risks:
+      - exfiltration:data
+  GetPackageVersionReadme:
+    risks:
+      - exfiltration:data
+  ReadFromRepository:
+    risks:
+      - exfiltration:data
+scope: HIGH

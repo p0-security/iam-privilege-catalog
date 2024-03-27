@@ -1,0 +1,14 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/cloudtrail
+name: cloudtrail
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  GetQueryResults:
+    risks:
+      - exfiltration:data
+  LookupEvents:
+    risks:
+      - exfiltration:data
+scope: HIGH

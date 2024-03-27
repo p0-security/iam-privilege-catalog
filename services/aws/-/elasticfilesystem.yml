@@ -1,0 +1,14 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/elasticfilesystem
+name: elasticfilesystem
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  DeleteFileSystemPolicy:
+    risks:
+      - destruction:policy
+  PutFileSystemPolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

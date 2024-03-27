@@ -1,0 +1,23 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/sqs
+name: sqs
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  AddPermission:
+    risks:
+      - destruction:policy
+  CreateQueue:
+    risks:
+      - destruction:policy
+  ReceiveMessage:
+    risks:
+      - exfiltration:data
+  RemovePermission:
+    risks:
+      - destruction:policy
+  SetQueueAttributes:
+    risks:
+      - destruction:policy
+scope: HIGH

@@ -1,0 +1,26 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/codebuild
+name: codebuild
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  BatchGetReportGroups:
+    risks:
+      - exfiltration:data
+  BatchGetReports:
+    risks:
+      - exfiltration:data
+  DeleteResourcePolicy:
+    risks:
+      - destruction:policy
+  DeleteSourceCredentials:
+    risks:
+      - destruction:policy
+  ImportSourceCredentials:
+    risks:
+      - destruction:policy
+  PutResourcePolicy:
+    risks:
+      - destruction:policy
+scope: HIGH

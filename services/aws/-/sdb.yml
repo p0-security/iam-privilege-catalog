@@ -1,0 +1,11 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/sdb
+name: sdb
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  Select:
+    risks:
+      - exfiltration:data
+scope: HIGH

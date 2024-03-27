@@ -1,0 +1,29 @@
+description: Automatically imported from aws.permissions.cloud.
+links:
+  - https://aws.permissions.cloud/iam/ec2
+name: ec2
+notes: The contents of this file were automatically generated using the data
+  hosted on aws.permissions.cloud (see links).
+privileges:
+  CreateNetworkInterfacePermission:
+    risks:
+      - destruction:policy
+  DeleteNetworkInterfacePermission:
+    risks:
+      - destruction:policy
+  DisableImageBlockPublicAccess:
+    risks:
+      - destruction:policy
+  GetPasswordData:
+    risks:
+      - exfiltration:crypto
+  ModifySnapshotAttribute:
+    risks:
+      - destruction:policy
+  ModifyVpcEndpointServicePermissions:
+    risks:
+      - destruction:policy
+  ResetSnapshotAttribute:
+    risks:
+      - destruction:policy
+scope: HIGH
