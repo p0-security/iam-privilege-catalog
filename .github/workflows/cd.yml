@@ -61,6 +61,7 @@ jobs:
       - run: >-
           cat dist/risks.json | jq -c -r '.[]' > dist/risks.jsonl && \
             cat dist/privileges.json | jq -c -r '.gcp[]' > dist/privileges-gcp.jsonl && \
+            cat dist/privileges.json | jq -c -r '.aws[]' > dist/privileges-aws.jsonl && \
             gcloud auth login --cred-file $GOOGLE_APPLICATION_CREDENTIALS && \
-            bq load --project_id ${{ matrix.items.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk_2.privileges-gcp dist/privileges-gcp.jsonl && \
+            bq load --project_id ${{ matrix.items.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk_2.privileges-aws dist/privileges-aws.jsonl && \
             bq load --project_id ${{ matrix.items.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON --autodetect iam_risk_2.risks dist/risks.jsonl
