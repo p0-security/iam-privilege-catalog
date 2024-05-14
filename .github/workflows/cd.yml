@@ -39,6 +39,9 @@ jobs:
           - project_number: "228132571547"
             environment: prod
             project_id: p0-prod
+          - project_number: "920075492291"
+            environment: prod-cna
+            project_id: p0-prod-cna
     steps:
       - id: checkout
         uses: actions/checkout@v3
