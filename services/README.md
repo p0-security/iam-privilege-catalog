@@ -55,7 +55,7 @@ Each component has the following data:
   - **notes**: If present, any additional notes specific to this privilege; these
     should explain any scope override
   - **links**: If present, an array of additional links
-  - **mitigation**: If present, describes the action(s) that an organization can take to avoid the risks associated with the privilege
+  - **mitigations**: If present, describes the action(s) that an organization can take to avoid the risks associated with the privilege
 - **links**: An array of external-reference URLs
 
 Note that privilege identifiers are determined on a per-service basis from the

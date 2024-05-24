@@ -305,8 +305,8 @@ privileges:
     notes: >-
       Stopping instances with local SSD will delete the disk and result in data loss if the command is issued without the `discard-local-ssd=false`.
       Instances with persistent storage are not impacted.
-    mitigation: >-
-      To prevent data loss, move the data from ephemeral storage to persistent storage.
+    mitigations:
+      - To prevent data loss, move the data from ephemeral storage to persistent storage.
     links:
       - https://cloud.google.com/sdk/gcloud/reference/compute/instances/stop
       - https://cloud.google.com/compute/docs/disks/local-ssd#local_ssd_performance
