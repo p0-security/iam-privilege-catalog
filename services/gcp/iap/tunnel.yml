@@ -1,0 +1,17 @@
+name:  Identity Aware Proxy tunnel resource type.
+description: >-
+  Refers to every IAP secured VM in the project.
+scope:
+notes: >-
+privileges:
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+links:
+  - https://cloud.google.com/iap/docs/reference/rest/v1beta1/TopLevel/getIamPolicy
+  - https://cloud.google.com/iap/docs/reference/rest/v1beta1/TopLevel/setIamPolicy
+
+
+
+# https://cloud.google.com/iap/docs/using-tcp-forwarding#gcloud_2

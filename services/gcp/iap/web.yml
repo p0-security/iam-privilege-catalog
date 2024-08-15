@@ -1,0 +1,21 @@
+name: Identity Aware Proxy web resource type.
+description: >-  
+  A shorthand for every IAP secured web app in your project.
+scope:
+notes: >-
+privileges:
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  getSettings:
+    risks: []
+    notes: >-
+      Allows
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  updateSettings:
+    risks: []
+    notes: >-
+      Allows
+
+links:
+  - https://cloud.google.com/iap/docs/customizing

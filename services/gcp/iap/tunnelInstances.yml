@@ -1,0 +1,18 @@
+name:  Identity Aware Proxy tunnel instances resource type.
+description: >-
+  Refers to a particular VM instance
+scope:
+notes: >-
+privileges:
+  accessViaIAP:
+    risks: [
+      impact:dos
+    ]
+    notes: >-
+      Grants a principal access to a particular secured VM instance.
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+links:
+  - https://cloud.google.com/iap/docs/managing-access#resources_and_permissions

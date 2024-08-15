@@ -1,0 +1,47 @@
+name:  Identity Aware Proxy web service versions resource type.
+description: >-
+  Refers to a particular version of an App Engine service
+scope:
+notes: >-
+privileges:
+  accessViaIAP:
+    risks: []
+    notes: >-
+      Grants access to App Engine and Compute Engine resources secured by IAP.  An App Engine service version
+      Compute Engine doesn't support versioning.
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  getSettings:
+    risks: []
+    notes: >-
+      Allows an attacker to view the settings for a resource. Available settings are: 
+      
+      access_settings.cors_settings.allow_http_options: Enable/disable CORS preflight OPTIONS request.  If enabled IAP will pass OPTIONS requests through to your application.
+      
+      access_settings.oauth_settings.login_hint: 	Simplify login for users by showing custom sign-in pages, automatically filling their email address, and intelligently selecting their work email if signed in to multiple accounts.
+      
+      application_settings.access_denied_page_settings.access_denied_page_uri: 	Show a custom error page when access is denied
+      
+      application_settings.csm_settings.rctoken_aud: 	In enabled, IAP will add an Ingress-Authorization HTTP header containing an RCToken. RCToken are IAP generated JWTs that can be verified at the application. The RCToken is primarily used for service mesh deployments, and can be scoped to a single mesh by configuring the audience field accordingly.
+      
+      access_settings.gcip_settings: Determines whether IAP wil authenticate with GCP Identity Platform or Google's native identity system
+      
+      access_settings.ReauthSettings 	Set a reauthentication policy. For details, see Configuring reauthentication
+  remediate:
+    risks: []
+    notes: >-
+        Allows
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  updateSettings:
+    risks: []
+    notes: >-
+      Allows an attacker to update the settings for a resource.
+links:
+  - https://cloud.google.com/iap/docs/managing-access#resources_and_permissions
+  - https://cloud.google.com/iap/docs/customizing#gcloud
+  - https://cloud.google.com/iap/docs/reference/rpc/google.cloud.iap.v1
+  - https://cloud.google.com/iap/docs/configuring-reauth
+
+  - https://cloud.google.com/iap/docs/reference/rest/v1/IapSettings#ApplicationSettings
+  - https://cloud.google.com/iap/docs/configuring-reauth

@@ -1,0 +1,11 @@
+name:  Identity Aware Proxy tunnel locations resource type.
+description: >-
+  Refers to all IAP secured VMs in a particular region
+scope:
+notes: >-
+privileges:
+  getIamPolicy: 
+    risks: [discovery:policy, discovery:account]
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+links:

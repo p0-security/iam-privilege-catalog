@@ -1,0 +1,20 @@
+name:  Identity Aware Proxy web services resource type.
+description: >-
+  Refers to a particular IAP secured web service.
+scope:
+notes: >-
+privileges:
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  getSettings:
+    risks: []
+    notes: >-
+      Allows an attacker to view the settings for the 
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  updateSettings:
+    risks: []
+    notes: >-
+      Allows
+links:
+  - https://cloud.google.com/iap/docs/customizing#gcloud

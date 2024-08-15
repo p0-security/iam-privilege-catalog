@@ -1,6 +1,6 @@
 name: Kubernetes Engine Nodes
 description: >-
-  Nodes are physical or virtual machines that serve as a worker in the cluster.
+  Nodes are physical or VMs that serve as a worker in the cluster.
   Nodes provide the underlying pool of CPU, memory, storage, and network connectivity 
   resources for running containers and other tasks assigned by the control plane.
 scope: CRITICAL

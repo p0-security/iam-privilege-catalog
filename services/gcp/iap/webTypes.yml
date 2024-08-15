@@ -1,0 +1,21 @@
+name: Identity Aware Proxy web types resource type.
+description: >-
+  A shorthand that refers to all IAP secured web apps in the project of a particular type.  
+  The specified type can either be App Engine or Compute engine.
+scope:
+notes: >-
+privileges:
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  getSettings:
+    risks: []
+    notes: >-
+      Allows
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  updateSettings:
+    risks: []
+    notes: >-
+      Allows
+links:
+  - https://cloud.google.com/iap/docs/customizing#gcloud

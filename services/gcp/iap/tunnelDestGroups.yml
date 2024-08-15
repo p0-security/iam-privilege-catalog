@@ -1,0 +1,42 @@
+name:  Identity Aware Proxy tunnel destination groups resource type.
+description: >-
+  Refers to a particular group of VMs in you project.
+scope:
+notes: >-
+privileges:
+  accessViaIAP:
+    risks: []
+    notes: >-
+      Gives a principal access to a particular IAP secured tunnel destination group.
+  create:
+    risks: []
+    notes: >-
+      Creates a new destination group.  
+  delete:
+    risks: [destruction:network]
+    notes: >-
+      Deletes an existing tunnel destination group.
+  get:
+    risks: [discovery:network] #change: discovery:infra as well?
+    notes: >-
+      Retrieves an existing tunnel destination group.
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  list:
+    risks: [discovery:network] #change: discovery:infra as well?
+    notes: >-
+      Lists the existing tunnel destination groups.
+  remediate:
+    risks: []
+    notes: >-
+      Allows
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    risks: []
+    notes: >-
+      Updates an existing tunnel destination group.
+      
+links:
+  - https://cloud.google.com/iap/docs/managing-access#resources_and_permissions
+  - https://cloud.google.com/iap/docs/reference/rest/v1/projects.iap_tunnel.locations.destGroups#TunnelDestGroup

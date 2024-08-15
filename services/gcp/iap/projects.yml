@@ -1,0 +1,17 @@
+name: Identity Aware Proxy project.
+description: >-
+  Refers to all IAP secured resources in the project.
+scope:
+notes: >-
+privileges:
+  getSettings:
+    risks: []
+    notes: >-
+      Allows
+  updateSettings:
+    risks: []
+    notes: >-
+      Allows
+
+links:
+  - https://cloud.google.com/iap/docs/customizing#understanding_settings_inheritance_in_the_resource_hierarchy
