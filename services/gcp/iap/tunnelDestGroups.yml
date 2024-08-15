@@ -5,17 +5,17 @@ scope:
 notes: >-
 privileges:
   accessViaIAP:
-    risks: []
+    risks: [impact:dos, escalation:network]
     notes: >-
-      Gives a principal access to a particular IAP secured tunnel destination group.
+      Gives a principal access to a particular IAP secured tunnel destination group.  This could create a dos if access is removed.  An attacker could also use this to gain access to a new 
   create:
-    risks: []
+    risks: [escalation:network]
     notes: >-
-      Creates a new destination group.  
+      Creates a new destination group.  An attacker could exploit this to gain access to new machines.
   delete:
-    risks: [destruction:network]
+    risks: [impact:dos, destruction:network]
     notes: >-
-      Deletes an existing tunnel destination group.
+      Deletes an existing tunnel destination group.  This could create a dos if the deleted item is used by other services since they would no longer have access.
   get:
     risks: [discovery:network] #change: discovery:infra as well?
     notes: >-
@@ -33,9 +33,9 @@ privileges:
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    risks: []
+    risks: [impact:dos, destruction:network, escalation:network]
     notes: >-
-      Updates an existing tunnel destination group.
+      Updates an existing tunnel destination group.  This could create a dos if an attacker deletes items from the group.  It could also allow an attacker to gain access to machines by adding them to a group they have permission for.
       
 links:
   - https://cloud.google.com/iap/docs/managing-access#resources_and_permissions

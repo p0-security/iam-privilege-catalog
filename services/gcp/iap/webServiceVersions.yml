@@ -7,8 +7,11 @@ privileges:
   accessViaIAP:
     risks: []
     notes: >-
-      Grants access to App Engine and Compute Engine resources secured by IAP.  An App Engine service version
-      Compute Engine doesn't support versioning.
+      Grants access to App Engine and Compute Engine resources secured by IAP.  
+
+      # need to loo
+    links:
+      - https://cloud.google.com/iap/docs/managing-access#roles
   getIamPolicy:
     risks: [discovery:policy, discovery:account]
   getSettings:
