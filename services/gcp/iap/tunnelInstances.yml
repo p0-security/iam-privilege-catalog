@@ -1,4 +1,4 @@
-name:  Identity Aware Proxy tunnel instances resource type.
+name: Identity Aware Proxy tunnel instances resource type.
 description: >-
   Refers to a particular VM instance
 scope: HIGH

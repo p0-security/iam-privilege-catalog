@@ -1,4 +1,4 @@
-name:  Identity Aware Proxy web services resource type.
+name: Identity Aware Proxy web services resource type.
 description: >-
   Refers to a particular IAP secured web service.
 scope: HIGH
@@ -15,7 +15,7 @@ privileges:
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   updateSettings:
-    risks: [impact:dos,impact:defacement,impact:hijack,destruction:network]
+    risks: [impact:dos, impact:defacement, impact:hijack, destruction:network]
     notes: >-
       Allows an attacker to update settings related to IAP.  There is a risk of dos if an attacker removes
       any settings that are essential for authentication such as which domains are allowed access the app.  

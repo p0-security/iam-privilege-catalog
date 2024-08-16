@@ -16,15 +16,15 @@ privileges:
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   updateSettings:
-    risks: [impact:dos,impact:defacement,impact:hijack,destruction:network]
+    risks: [impact:dos, impact:defacement, impact:hijack, destruction:network]
     notes: >-
       Allows an attacker to update settings related to IAP.  There is a risk of dos if an attacker removes
       any settings that are essential for authentication such as which domains are allowed access the app.  
       There is another setting that allows for creation of a custom Access Denied page.  This creates a risk
       of hijack or defacement where an attacker could put up a page of their own.
     links:
-    - https://cloud.google.com/iap/docs/reference/rest/v1/IapSettings
-    - https://cloud.google.com/iap/docs/configuring-reauth
+      - https://cloud.google.com/iap/docs/reference/rest/v1/IapSettings
+      - https://cloud.google.com/iap/docs/configuring-reauth
 links:
   - https://cloud.google.com/iap/docs/customizing
   - https://cloud.google.com/iap/docs/reference

@@ -1,4 +1,4 @@
-name:  Identity Aware Proxy tunnel locations resource type.
+name: Identity Aware Proxy tunnel locations resource type.
 description: >-
   Refers to all IAP secured VMs in a particular region
 scope: CRITICAL
@@ -6,7 +6,7 @@ notes: >-
   IAP is used to control access to cloud services.  Changes to IAP related settings could remove access from mission-critical applications or 
   grant an attacker access to sensitive resources.
 privileges:
-  getIamPolicy: 
+  getIamPolicy:
     risks: [discovery:policy, discovery:account]
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]

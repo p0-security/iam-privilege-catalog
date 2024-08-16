@@ -11,7 +11,7 @@ privileges:
     notes: >-
       Allows an attacker to read IAP related settings for this resource.
   updateSettings:
-    risks: [impact:dos,impact:defacement,impact:hijack,destruction:network]
+    risks: [impact:dos, impact:defacement, impact:hijack, destruction:network]
     notes: >-
       Allows an attacker to update settings related to IAP.  There is a risk of dos if an attacker removes
       any settings that are essential for authentication such as which domains are allowed access the app.  

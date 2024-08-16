@@ -1,4 +1,4 @@
-name:  Identity Aware Proxy tunnel resource type.
+name: Identity Aware Proxy tunnel resource type.
 description: >-
   Refers to every IAP secured VM in the project.
 scope: CRITICAL

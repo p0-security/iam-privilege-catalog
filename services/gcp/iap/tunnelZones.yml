@@ -1,4 +1,4 @@
-name:  Identity Aware Proxy tunnel zones resource type.
+name: Identity Aware Proxy tunnel zones resource type.
 description: >-
   Refers to all IAP secured VMs in a particular zone
 scope: CRITICAL

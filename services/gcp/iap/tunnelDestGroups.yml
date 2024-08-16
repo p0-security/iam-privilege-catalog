@@ -1,4 +1,4 @@
-name:  Identity Aware Proxy tunnel destination groups resource type.
+name: Identity Aware Proxy tunnel destination groups resource type.
 description: >-
   Refers to a particular group of VMs in you project.  VMs are collected in a list of either CIDRs or FQDNs.
 scope: HIGH
@@ -9,7 +9,7 @@ privileges:
   accessViaIAP:
     risks: [impact:dos, escalation:network]
     notes: >-
-      Gives a principal access to a particular IAP secured tunnel destination group.  This could create a dos if access is removed.  An attacker could also use this to gain access to a new 
+      Gives a principal access to a particular IAP secured tunnel destination group.  This could create a dos if access is removed.  An attacker could also use this to gain access to a new
     links:
       - https://cloud.google.com/iap/docs/managing-access
   create:
@@ -36,8 +36,7 @@ privileges:
       If granted this permission, a principal will be allowed to remediate a failed authentication attempt.  The steps to remediate can be
       customized per resource and consist of steps like asking users to update their operating system or to use the application from a 
       company run network.
-    links:
-      -https://cloud.google.com/beyondcorp-enterprise/docs/policy-remediator
+    links: -https://cloud.google.com/beyondcorp-enterprise/docs/policy-remediator
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   update:
@@ -45,7 +44,7 @@ privileges:
     notes: >-
       Updates an existing tunnel destination group.  This could create a dos if an attacker deletes items from the group.  
       It could also allow an attacker to gain access to machines by adding them to a group they have permission for.
-      
+
 links:
   - https://cloud.google.com/iap/docs/customizing
   - https://cloud.google.com/iap/docs/reference/
