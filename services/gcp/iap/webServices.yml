@@ -23,4 +23,5 @@ privileges:
       - https://cloud.google.com/iap/docs/reference/rest/v1/IapSettings
       - https://cloud.google.com/iap/docs/configuring-reauth
 links:
-  - https://cloud.google.com/iap/docs/customizing#gcloud
+  - https://cloud.google.com/iap/docs/customizing
+  - https://cloud.google.com/iap/docs/reference/
