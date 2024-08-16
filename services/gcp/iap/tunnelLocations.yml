@@ -1,7 +1,7 @@
 name:  Identity Aware Proxy tunnel locations resource type.
 description: >-
   Refers to all IAP secured VMs in a particular region
-scope:
+scope: CRITICAL
 notes: >-
 privileges:
   getIamPolicy: 
@@ -9,3 +9,5 @@ privileges:
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
 links:
+  - https://cloud.google.com/iap/docs/customizing
+  - https://cloud.google.com/iap/docs/reference/

@@ -1,16 +1,18 @@
 name:  Identity Aware Proxy tunnel instances resource type.
 description: >-
   Refers to a particular VM instance
-scope:
+scope: HIGH
 notes: >-
 privileges:
   accessViaIAP:
     risks: [impact:dos, escalation:network]
     notes: >-
-      Gives a principal access to a particular IAP secured tunnel destination group.  This could create a dos if access is removed.  An attacker could also use this to gain access to a new VM.
+      Gives a principal access to a particular IAP secured tunnel destination group.  This could create a dos if 
+      access is removed.  An attacker could also use this to gain access to a new VM.
   getIamPolicy:
     risks: [discovery:policy, discovery:account]
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
 links:
-  - https://cloud.google.com/iap/docs/managing-access#resources_and_permissions
+  - https://cloud.google.com/iap/docs/customizing
+  - https://cloud.google.com/iap/docs/reference/

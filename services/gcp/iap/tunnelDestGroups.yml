@@ -1,13 +1,15 @@
 name:  Identity Aware Proxy tunnel destination groups resource type.
 description: >-
-  Refers to a particular group of VMs in you project.
-scope:
+  Refers to a particular group of VMs in you project.  VMs are collected in a list of either CIDRs or FQDNs.
+scope: HIGH
 notes: >-
 privileges:
   accessViaIAP:
     risks: [impact:dos, escalation:network]
     notes: >-
       Gives a principal access to a particular IAP secured tunnel destination group.  This could create a dos if access is removed.  An attacker could also use this to gain access to a new 
+    links:
+      - https://cloud.google.com/iap/docs/managing-access
   create:
     risks: [escalation:network]
     notes: >-
@@ -17,26 +19,27 @@ privileges:
     notes: >-
       Deletes an existing tunnel destination group.  This could create a dos if the deleted item is used by other services since they would no longer have access.
   get:
-    risks: [discovery:network] #change: discovery:infra as well?
+    risks: [discovery:network, discovery:infra]
     notes: >-
       Retrieves an existing tunnel destination group.
   getIamPolicy:
     risks: [discovery:policy, discovery:account]
   list:
-    risks: [discovery:network] #change: discovery:infra as well?
+    risks: [discovery:network, discovery:infra]
     notes: >-
       Lists the existing tunnel destination groups.
   remediate:
     risks: []
     notes: >-
-      Allows
+
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   update:
     risks: [impact:dos, destruction:network, escalation:network]
     notes: >-
-      Updates an existing tunnel destination group.  This could create a dos if an attacker deletes items from the group.  It could also allow an attacker to gain access to machines by adding them to a group they have permission for.
+      Updates an existing tunnel destination group.  This could create a dos if an attacker deletes items from the group.  
+      It could also allow an attacker to gain access to machines by adding them to a group they have permission for.
       
 links:
-  - https://cloud.google.com/iap/docs/managing-access#resources_and_permissions
-  - https://cloud.google.com/iap/docs/reference/rest/v1/projects.iap_tunnel.locations.destGroups#TunnelDestGroup
+  - https://cloud.google.com/iap/docs/customizing
+  - https://cloud.google.com/iap/docs/reference/
