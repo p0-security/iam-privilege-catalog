@@ -3,6 +3,8 @@ description: >-
   Refers to a particular version of an App Engine or Compute Engine service
 scope: HIGH
 notes: >-
+  IAP is used to control access to cloud services.  Changes to IAP related settings could remove access from mission-critical applications or 
+  grant an attacker access to sensitive resources.
 privileges:
   accessViaIAP:
     risks: [impact:dos, escalation:network, escalation:lateral]

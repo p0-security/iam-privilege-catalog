@@ -3,6 +3,8 @@ description: >-
   Refers to all IAP secured resources in the project.
 scope: CRITICAL
 notes: >-
+  IAP is used to control access to cloud services.  Changes to IAP related settings could remove access from mission-critical applications or 
+  grant an attacker access to sensitive resources.
 privileges:
   getSettings:
     risks: [discovery:network]
@@ -16,8 +18,8 @@ privileges:
       There is another setting that allows for creation of a custom Access Denied page.  This creates a risk
       of hijack or defacement where an attacker could put up a page of their own.
     links:
-    - https://cloud.google.com/iap/docs/reference/rest/v1/IapSettings
-    - https://cloud.google.com/iap/docs/configuring-reauth
+      - https://cloud.google.com/iap/docs/reference/rest/v1/IapSettings
+      - https://cloud.google.com/iap/docs/configuring-reauth
 
 links:
   - https://cloud.google.com/iap/docs/customizing

@@ -3,6 +3,8 @@ description: >-
   Refers to every IAP secured web app in your project.
 scope: CRITICAL
 notes: >-
+  IAP is used to control access to cloud services.  Changes to IAP related settings could remove access from mission-critical applications or 
+  grant an attacker access to sensitive resources.
 privileges:
   getIamPolicy:
     risks: [discovery:policy, discovery:account]
@@ -28,3 +30,4 @@ privileges:
 
 links:
   - https://cloud.google.com/iap/docs/customizing
+  - https://cloud.google.com/iap/docs/reference/

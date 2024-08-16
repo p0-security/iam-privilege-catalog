@@ -3,6 +3,8 @@ description: >-
   Refers to a particular group of VMs in you project.  VMs are collected in a list of either CIDRs or FQDNs.
 scope: HIGH
 notes: >-
+  IAP is used to control access to cloud services.  Changes to IAP related settings could remove access from mission-critical applications or 
+  grant an attacker access to sensitive resources.
 privileges:
   accessViaIAP:
     risks: [impact:dos, escalation:network]
