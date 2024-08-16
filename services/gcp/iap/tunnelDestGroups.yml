@@ -33,7 +33,11 @@ privileges:
   remediate:
     risks: []
     notes: >-
-
+      If granted this permission, a principal will be allowed to remediate a failed authentication attempt.  The steps to remediate can be
+      customized per resource and consist of steps like asking users to update their operating system or to use the application from a 
+      company run network.
+    links:
+      -https://cloud.google.com/beyondcorp-enterprise/docs/policy-remediator
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   update:
