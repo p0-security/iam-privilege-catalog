@@ -7,9 +7,9 @@ notes: >-
   grant an attacker access to sensitive resources.
 privileges:
   accessViaIAP:
-    risks: [impact:dos, escalation:network]
+    risks: []
     notes: >-
-      Gives a principal access to a particular IAP secured tunnel destination group.  This could create a dos if access is removed.  An attacker could also use this to gain access to a new group of VMs.
+      Gives a principal access to a particular IAP secured destination group.
     links:
       - https://cloud.google.com/iap/docs/managing-access
   create:

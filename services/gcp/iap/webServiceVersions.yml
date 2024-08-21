@@ -7,10 +7,9 @@ notes: >-
   grant an attacker access to sensitive resources.
 privileges:
   accessViaIAP:
-    risks: [impact:dos, escalation:network, escalation:lateral]
+    risks: []
     notes: >-
-      Grants access to App Engine and Compute Engine resources secured by IAP.  This could create a dos if access
-      is removed. An attacker can exploit this to gain direct access to a backend service.
+      Grants access to App Engine and Compute Engine resources secured by IAP.
     links:
       - https://cloud.google.com/iap/docs/managing-access
   getIamPolicy:
