@@ -40,10 +40,9 @@ privileges:
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   update:
-    risks: [impact:dos, destruction:network, escalation:network]
+    risks: [impact:dos, destruction:network]
     notes: >-
       Updates an existing tunnel destination group.  This could create a dos if an attacker deletes items from the group.  
-      It could also allow an attacker to gain access to machines by adding them to a group they have permission for.
 
 links:
   - https://cloud.google.com/iap/docs/customizing
