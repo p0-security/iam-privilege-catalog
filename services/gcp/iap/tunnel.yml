@@ -1,0 +1,15 @@
+name: Identity Aware Proxy tunnel resource type.
+description: >-
+  Refers to every IAP secured VM in the project.
+scope: CRITICAL
+notes: >-
+  IAP is used to control access to cloud services.  Changes to IAP related settings could remove access from mission-critical applications or 
+  grant an attacker access to sensitive resources.
+privileges:
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+links:
+  - https://cloud.google.com/iap/docs/customizing
+  - https://cloud.google.com/iap/docs/reference/rest

@@ -1,0 +1,50 @@
+name: Identity Aware Proxy tunnel destination groups resource type.
+description: >-
+  Refers to a particular group of VMs in you project.  VMs are collected in a list of either CIDRs or FQDNs.
+scope: HIGH
+notes: >-
+  IAP is used to control access to cloud services.  Changes to IAP related settings could remove access from mission-critical applications or 
+  grant an attacker access to sensitive resources.
+privileges:
+  accessViaIAP:
+    risks: []
+    notes: >-
+      Gives a principal access to a particular IAP secured destination group.
+    links:
+      - https://cloud.google.com/iap/docs/managing-access
+  create:
+    risks: []
+    notes: >-
+      Creates a new destination group.
+  delete:
+    risks: [impact:dos, destruction:network]
+    notes: >-
+      Deletes an existing tunnel destination group.  This could create a dos if the deleted item is used by other services since they would no longer have access.
+  get:
+    risks: [discovery:network, discovery:infra]
+    notes: >-
+      Retrieves an existing tunnel destination group.
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  list:
+    risks: [discovery:network, discovery:infra]
+    notes: >-
+      Lists the existing tunnel destination groups.
+  remediate:
+    risks: []
+    notes: >-
+      If granted this permission, a principal will be allowed to remediate a failed authentication attempt.  The steps to remediate can be
+      customized per resource and consist of steps like asking users to update their operating system or to use the application from a 
+      company run network.
+    links: -https://cloud.google.com/beyondcorp-enterprise/docs/policy-remediator
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  update:
+    risks: [impact:dos, destruction:network, escalation:network]
+    notes: >-
+      Updates an existing tunnel destination group.  This could create a dos if an attacker deletes items from the group.  
+      It could also allow an attacker to gain access to machines by adding them to a group they have permission for.
+
+links:
+  - https://cloud.google.com/iap/docs/customizing
+  - https://cloud.google.com/iap/docs/reference/rest

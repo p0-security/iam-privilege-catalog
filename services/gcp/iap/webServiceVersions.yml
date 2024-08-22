@@ -1,0 +1,43 @@
+name: Identity Aware Proxy web service versions resource type.
+description: >-
+  Refers to a particular version of an App Engine or Compute Engine service
+scope: HIGH
+notes: >-
+  IAP is used to control access to cloud services.  Changes to IAP related settings could remove access from mission-critical applications or 
+  grant an attacker access to sensitive resources.
+privileges:
+  accessViaIAP:
+    risks: []
+    notes: >-
+      Grants access to App Engine and Compute Engine resources secured by IAP.
+    links:
+      - https://cloud.google.com/iap/docs/managing-access
+  getIamPolicy:
+    risks: [discovery:policy, discovery:account]
+  getSettings:
+    risks: [discovery:network]
+    notes: >-
+      Allows an attacker to read IAP related settings for this resource.
+  remediate:
+    risks: []
+    notes: >-
+      If granted this permission, a principal will be allowed to remediate a failed authentication attempt.  The steps to remediate can be
+      customized per resource and consist of steps like asking users to update their operating system or to use the application from a 
+      company run network.
+    links: -https://cloud.google.com/beyondcorp-enterprise/docs/policy-remediator
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  updateSettings:
+    risks: [impact:dos, impact:defacement, impact:hijack, destruction:network]
+    notes: >-
+      Allows an attacker to update settings related to IAP.  There is a risk of dos if an attacker removes
+      any settings that are essential for authentication such as which domains are allowed access the app.  
+      There is another setting that allows for creation of a custom Access Denied page.  This creates a risk
+      of hijack or defacement where an attacker could put up a page of their own.
+    links:
+      - https://cloud.google.com/iap/docs/reference/rest/v1/IapSettings
+      - https://cloud.google.com/iap/docs/configuring-reauth
+
+links:
+  - https://cloud.google.com/iap/docs/customizing
+  - https://cloud.google.com/iap/docs/reference/rest
