@@ -30,15 +30,6 @@ jobs:
     strategy:
       matrix:
         items:
-          - project_number: "398809717501"
-            environment: test
-            project_id: p0-gcp-project
-          - project_number: "615473322806"
-            environment: stage
-            project_id: p0-stage
-          - project_number: "228132571547"
-            environment: prod
-            project_id: p0-prod
           - project_number: "951348949086"
             environment: catalog
             project_id: p0-catalog
