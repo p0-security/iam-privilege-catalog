@@ -1,0 +1,34 @@
+name: EndpointSlices
+description: >-
+  A Kubernetes endpoint slice contains up to 100 mapping entries from an IP address and a port to target reference, mostly a Pod.
+  The same IP and port may map to multiple Pods to describe a load balancing scheme.
+scope: MEDIUM
+notes: >-
+  Typically endpoint slices are not managed directly. Endpoint slices are a lower-level abstraction managed by a Service object.
+  Endpoint slices are a newer addition to Kubernetes, and serve the same purpose as endpoints. However, they slice the
+  potentially large Endpoint object into multiple smaller slices for reduced network traffic between nodes when
+  pods are updated.
+links:
+  - https://kubernetes.io/docs/concepts/services-networking/endpoint-slices
+  - https://kubernetes.io/docs/concepts/services-networking/service/#endpoints
+privileges:
+  create:
+    risks: [escalation:network]
+    notes: >-
+      Creating an endpoint may open up access to Pods from the public Internet.
+  delete:
+    risks: [destruction:network]
+    notes: >-
+      Deleting an endpoint may partially or completely disrupt public access to Kubernetes Pods.
+  get:
+    risks: [discovery:network]
+    notes: >-
+      Retrieve metadata about a specific endpoint: the IP address, port, and target reference, typically a Pod.
+  list:
+    risks: [discovery:network]
+    notes: >-
+      Retrieve  about all endpoints: the IP address, port, and target reference, typically a Pod.
+  update:
+    risks: [destruction:network, escalation:network]
+    notes: >-
+      An endpoint update allows remapping IP addresses and ports to different Pods.

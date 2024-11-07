@@ -1,0 +1,36 @@
+name: RoleBindings
+description: >-
+  A RoleBinding is used to associate a Role with one or more principals (users, groups, or service accounts). 
+  It establishes a connection between a set of permissions defined in a Role and the entities that should have those permissions.
+  Roles are scoped to a specific Kubernetes namespace.
+scope: CRITICAL
+notes: >-
+  Roles are only definitions of permissions. A role does not take effect unless
+  assigned to principal via a RoleBinding.
+privileges:
+  create:
+    risks: []
+    notes: >-
+      Kubernetes does not allow the creation or update of a RoleBinding unless at least one of the following two conditions is met:
+      1) the caller has the permission it is granting
+      2) the caller has the `container.roles.bind` permission
+    links:
+      - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-binding-creation-or-update
+  delete:
+    risks: [destruction:policy]
+    notes: >-
+      Deleting a RoleBinding removes the permissions of the Role from a list of principals
+  get:
+    risks: [discovery:policy]
+    notes: >-
+      Retrieves the list of principals and the role in a specific RoleBinding
+  list:
+    risks: [discovery:policy]
+    notes: >-
+      List all RoleBindings within a namespace
+  update:
+    risks: []
+    notes: >-
+      Kubernetes does not allow the creation or update of a RoleBinding unless one of the following two conditions are met:
+      1) the caller has the permission it is granting
+      2) the caller has the `container.roles.bind` permission

@@ -14,6 +14,10 @@ const SERVICES_FOLDER = "services";
 const SERVICE_IDS = {
   aws: (path: string, key: string) => `${path.split("/").at(-1)}:${key}`,
   gcp: (path: string, key: string) => `${path.replace(/\//g, ".")}.${key}`,
+  k8s: (path: string, verb: string) => {
+    const [api, objectName] = path.split("/").slice(-2);
+    return `${api}/${objectName}.${verb}`;
+  },
 };
 
 let exitFlag = 0;
@@ -156,13 +160,15 @@ const generatePrivileges = async (base: string, risks: string[]) => {
         );
         model[sid].push({ id, ...pData });
       }
-      await fs.mkdir(`${OUTPUT_PATH}/${sid}`, { recursive: true });
+      const serviceOutputPath = path.join(OUTPUT_PATH, sid);
+      await fs.mkdir(serviceOutputPath, { recursive: true });
       for (const priv of model[sid]) {
-        await fs.writeFile(
-          path.join(OUTPUT_PATH, sid, `${priv.id}.md`),
-          privilegeToMd(priv),
-          { encoding: "utf-8" }
-        );
+        const filePath = path.join(serviceOutputPath, `${priv.id}.md`);
+        const dirPath = path.dirname(filePath);
+        await fs.mkdir(dirPath, { recursive: true });
+        await fs.writeFile(filePath, privilegeToMd(priv), {
+          encoding: "utf-8",
+        });
       }
     });
   }

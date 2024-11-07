@@ -1,0 +1,50 @@
+name: ClusterRoles
+description: >-
+  A cluster role is a set of permissions that defines a specific level of access to resources within a single namespace.
+  It consists of rules that specify which API operations can be performed on specific resource types.
+  ClusterRoles are scoped to the entire cluster.
+scope: CRITICAL
+notes: >-
+  ClusterRoles are only definitions of permissions. A role does not take effect unless
+  assigned to principal via a ClusterRoleBinding.
+privileges:
+  bind:
+    risks: [escalation:privilege]
+    notes: >-
+      Allows escalating the current or other users' permissions by binding a ClusterRole to them. 
+      Also requires the `container.clusterRoleBindings.create` or `container.clusterRoleBindings.update` permission.
+    links:
+      - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-binding-creation-or-update
+  create:
+    risks: []
+    notes: >-
+      ClusterRoles are only definitions of permissions. A role does not take effect unless
+      assigned to principal via a ClusterRoleBinding.
+      Kubernetes does not allow the creation or update of a ClusterRole unless one of the following two conditions are met:
+      1) the caller already has the permissions contained in the role
+      2) the caller has the `container.clusterRoles.escalate` permission
+  delete:
+    risks: [destruction:policy]
+    notes: >-
+      ClusterRoles that are attached to principals via a ClusterRoleBinding can be deleted in Kubernetes.
+  escalate:
+    risks: [escalation:lateral, escalation:privilege]
+    notes: >-
+      Allows escalating the current or other users' permissions by creating a new ClusterRole or updating an existing ClusterRole.
+      Also requires the `container.clusterRoles.create` or `container.clusterRoles.update` permission.
+    links:
+      - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-creation-or-update
+  get:
+    risks: [discovery:policy]
+    notes: >-
+      Retrieves the permissions contained in a specific ClusterRole.
+  list:
+    risks: [discovery:policy]
+    notes: >-
+      List all ClusterRoles
+  update:
+    risks: []
+    notes: >-
+      Kubernetes does not allow the creation or update of a ClusterRole unless one of the following two conditions are met:
+      1) the caller already has the permissions contained in the role
+      2) the caller has the `container.clusterRoles.escalate` permission
