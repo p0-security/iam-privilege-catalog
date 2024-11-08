@@ -1,0 +1,78 @@
+name: Jobs
+description: >-
+  A Kubernetes Job is a type of controller that runs one or more Pods until they successfully complete, 
+  by retrying (restarting) the Pods if necessary. The Pod and its resources are released when the Job completes. 
+  Jobs are typically used for batch processes, report generation or maintenance tasks.
+scope: CRITICAL
+notes: >-
+  The security implications of Jobs are similar to other controllers, like Deployments. Jobs ultimately lead to
+  running a container image, and may allow arbitrary code execution in the cluster. That code runs with the
+  service-account privileges that the Pod runs with, thus may lead to privilege escalation. Creating Jobs drains the 
+  limited resources available to other Kubernetes workloads. Attaching Persistent Volumes to a Job may expose 
+  the data on that volume to attackers.
+links:
+  - https://kubernetes.io/docs/concepts/workloads/controllers/job
+privileges:
+  create:
+    risks:
+      - impact:spend
+      - impact:hijack
+      - escalation:lateral
+      - escalation:network
+      - exfiltration:data
+    notes: >-
+      Jobs tie up compute resources in Kubernetes that cannot be allocated to
+      another Kubernetes workload while the Job is present. Jobs run a user-specified
+      container image, which may allow an attacker to escalate their privileges by running arbitrary
+      code inside the Kubernetes workload with service account privileges. Persistent Volumes may be 
+      attached to jobs, meaning data can be exposed to the Kubernetes workload.
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:logs
+    notes: >-
+      Deleting a Job deletes its pods and ephemeral volumes. Persistent Volumes
+      attached to the Job are left intact. Logs of the deleted pods disappear
+      permanently when the job completes and the pods shut down, unless they are exported to an external system
+      for persistence.
+  get:
+    risks:
+      - discovery:infra
+      - discovery:network
+    notes: >-
+      Describes detailed metadata about the Job, Pods and Containers in it, 
+      such as ports, IP address, replicas, attached volumes, containers and the images
+      they are running.
+  getStatus:
+    risks:
+      - discovery:infra
+      - discovery:network
+    notes: >-
+      Equivalent to `jobs.get`. Allows reading the `/apis/batch/v1/namespaces/{namespace}/deployments/{name}/status`
+      subresource which returns the same payload as the `/apis/batch/v1/namespaces/{namespace}/deployments/{name}` resource.
+  list:
+    risks:
+      - discovery:infra
+      - discovery:network
+    notes: >-
+      Allows listing all Jobs in a namespace.
+  update:
+    risks:
+      - destruction:infra
+      - escalation:lateral
+      - escalation:network
+      - exfiltration:data
+      - impact:hijack
+      - impact:spend
+    notes: >-
+      An update may suspend the job which prevents the controller from creating Pods, effectively disabling the Job. 
+      An update may also let an attacker change the container image that is running inside pods, potentially leading to a arbitrary
+      code execution. Secondly, increasing the parallelism in Jobs or the amount of resources dedicated to Pods drains the 
+      limited resources available to other Kubernetes workloads. Also, persistent volumes may be attached to the Pods, 
+      which may provide access to sensitive data.
+  updateStatus:
+    risks: []
+    scope: LOW
+    notes: >-
+      Allows updating the status object of the Jobs with different "active", "failed", "ready", and "succeeded"
+      counts. However, these values don't take effect, despite a successful API call. The status is managed by Kubernetes.

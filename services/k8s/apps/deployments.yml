@@ -1,0 +1,109 @@
+name: Deployments
+description: >-
+  Control Kubernetes Deployment objects.
+scope: CRITICAL
+notes: >-
+  Deployments are declarative updates to Kubernetes Pods and ReplicaSets.
+  They provide an abstraction layer that allows services to discover and connect to pods 
+  running within a Deployment. Applications can scale, load balance, and seamlessly handle changes 
+  in the underlying pod instances. Access to Deployments is sensitive because they are
+  a primary interface for controlling applications running on Kubernetes. A Deployment specifies the
+  container image to run, and may lead to arbitrary code execution in the cluster. A good mitigation
+  strategy is to make Kubernetes clusters private, which effectively disables pulling images over the internet.
+  Secondly, creating or updating the replica count of Deployments drains the limited resources available
+  to other Kubernetes workloads.
+links:
+  - https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+privileges:
+  create:
+    risks:
+      - impact:spend
+      - impact:hijack
+      - escalation:lateral
+      - escalation:network
+      - exfiltration:data
+    notes: >-
+      Deployments tie up compute resources in Kubernetes that cannot be allocated to
+      another Kubernetes workload while the deployment is present. Deployments run a user-specified
+      container image, which may allow an attacker to escalate their privileges by running arbitrary
+      code inside the Kubernetes workload. Secondly, creating Deployments drains the limited resources available
+      to other Kubernetes workloads.
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:logs
+    notes: >-
+      Deleting a Deployment deletes its pods and ephemeral volumes. Persistent Volumes
+      attached to the Deployment are left intact. Logs of the deleted pods disappear
+      permanently when the pods shut down, unless they are exported to an external system
+      for persistence.
+  get:
+    risks:
+      - discovery:infra
+      - discovery:network
+    scope: MEDIUM
+    notes: >-
+      Describes detailed metadata about the Deployment, and Pods and Containers in it, 
+      such as ports, IP address, replicas, attached volumes, containers and the images
+      they are running.
+  getScale:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: >-
+      Allows reading the `/apis/apps/v1/namespaces/{namespace}/deployments/{name}/scale` subresource
+      which returns the number of desired replicas in the Deployment. The `deployments.get`
+      permission already includes the ability to read this subresource.
+    links:
+      - https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+  getStatus:
+    risks:
+      - discovery:infra
+      - discovery:network
+    scope: MEDIUM
+    notes: >-
+      Equivalent to `deployments.get`. Allows reading the `/apis/apps/v1/namespaces/{namespace}/deployments/{name}/status`
+      subresource which returns the same payload as the `/apis/apps/v1/namespaces/{namespace}/deployments/{name}` resource.
+  list:
+    risks:
+      - discovery:infra
+      - discovery:network
+    scope: MEDIUM
+    notes: >-
+      Allows listing all Deployments in a namespace.
+  rollback:
+    risks:
+      - destruction:infra
+    notes: >-
+      Allows reverting to a previous version of the Deployment spec from the rollout history.
+    links:
+      - https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#checking-rollout-history-of-a-deployment
+  update:
+    risks:
+      - destruction:infra
+      - destruction:network
+      - escalation:lateral
+      - escalation:network
+      - exfiltration:data
+      - impact:hijack
+      - impact:spend
+    notes: >-
+      An update may set the replica count to 0 which effectively deletes the application. An update may also let an attacker
+      change the container image that is running inside pods, potentially leading to a complete takeover of the
+      Kubernetes cluster. Secondly, increasing the replica count in Deployments drains the limited resources available to 
+      other Kubernetes workloads. Also, persistent volumes may be attached to the Pods, which may provide access to sensitive data.
+  updateScale:
+    risks:
+      - destruction:infra
+      - impact:hijack
+      - impact:spend
+    notes: >-
+      Allows updating the replica count, including setting replicas to 0. If properties other than replicas are updated in the PATCH
+      request, those are quietly ignored. Secondly, increasing the replica count in Deployments drains the limited resources available to 
+      other Kubernetes workloads.
+  updateStatus:
+    risks: []
+    scope: LOW
+    notes: >-
+      Allows updating the status object of the Deployment with different "replicas", "updatedReplicas", "readyReplicas", and "availableReplicas"
+      counts than the actual counts in the Deployment's current ReplicaSet. However, these values don't take effect, despite a successful API call.

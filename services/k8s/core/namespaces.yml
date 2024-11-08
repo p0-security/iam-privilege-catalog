@@ -1,0 +1,57 @@
+name: Namespaces
+description: >-
+  Namespaces isolate resources within a Kubernetes cluster. This is a logical isolation,
+  that allows you to group and segregate resources like Pods, Services, Deployments.
+  Kubernetes role-based access control (RBAC) defines Roles and ClusterRoles. The former
+  is scoped to a specific namespaces, meaning Roles only grant permissions within the scope
+  of one namespace.
+scope: LOW
+notes: >-
+
+links:
+  - https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+privileges:
+  create:
+    risks: []
+    notes: >-
+      Namespace is a logical resource, and creating one does not carry risks by itself.
+  delete:
+    risks:
+      - destruction:data
+      - destruction:infra
+      - destruction:logs
+      - destruction:network
+      - destruction:policy
+    scope: CRITICAL
+    notes: >-
+      Deleting a namespace also deletes all other Kubernetes resources inside it.
+  finalize:
+    risks: [destruction:defense]
+    notes: >-
+      Allows updating the list of finalizers. Finalizers check if a certain condition is met before deleting a 
+      namespace. They may either implement garbage-collection, and are responsible for cleaning up all resources inside 
+      a namespace when that namespace is deleted. Or, they may implement a protective measure and prevent the deletion
+      of a namespace, for instance the `kubernetes.io/pvc-protection` finalizer prevents accidental deletion of data.
+      As such, the edit and removal of finalizers may remove protection measures.
+    links:
+      - https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/
+  get:
+    risks: [discovery:infra]
+    notes: >-
+      Retrieve metadata about a namespace.
+  getStatus:
+    risks: [discovery:infra]
+    notes: >-
+      Allows see the same namespace metadata as `namespaces.get`.
+  list:
+    risks: [discovery:infra]
+    notes: >-
+      Allows listing namespaces.
+  update:
+    risks: [destruction:defense]
+    notes: >-
+      Allows editing the finalizers array. See `namespaces.finalize` permission.
+  updateStatus:
+    risks: []
+    notes: >-
+      Status is managed by the Kubernetes control plane, updating it does not take effect.
