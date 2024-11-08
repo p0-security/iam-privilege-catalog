@@ -42,7 +42,7 @@ privileges:
   getStatus:
     risks: [discovery:infra]
     notes: >-
-      Allows see the same namespace metadata as `container.namespaces.get`.
+      Allows see the same namespace metadata as `namespaces.get`.
   list:
     risks: [discovery:infra]
     notes: >-
@@ -50,7 +50,7 @@ privileges:
   update:
     risks: [destruction:defense]
     notes: >-
-      Allows editing the finalizers array. See `container.namespaces.finalize` permission.
+      Allows editing the finalizers array. See `namespaces.finalize` permission.
   updateStatus:
     risks: []
     notes: >-

@@ -48,7 +48,7 @@ privileges:
       - discovery:infra
       - discovery:network
     notes: >-
-      Equivalent to `container.jobs.get`. Allows reading the `/apis/batch/v1/namespaces/{namespace}/deployments/{name}/status`
+      Equivalent to `jobs.get`. Allows reading the `/apis/batch/v1/namespaces/{namespace}/deployments/{name}/status`
       subresource which returns the same payload as the `/apis/batch/v1/namespaces/{namespace}/deployments/{name}` resource.
   list:
     risks:

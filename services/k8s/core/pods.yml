@@ -75,7 +75,7 @@ privileges:
   getStatus:
     risks: [discovery:infra]
     notes: >-
-      Allows reading the same Pod metadata as `container.pods.get`.
+      Allows reading the same Pod metadata as `pods.get`.
   initialize:
     risks: []
     notes: >-

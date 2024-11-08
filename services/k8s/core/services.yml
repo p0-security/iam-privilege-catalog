@@ -33,7 +33,7 @@ privileges:
       - discovery:network
     scope: MEDIUM
     notes: >-
-      While this is a different permission from `container.services.get`, calling the `GET api/v1/namespaces/default/services/{{service-name}}/status`
+      While this is a different permission from `services.get`, calling the `GET api/v1/namespaces/default/services/{{service-name}}/status`
       endpoint retrieves the same information as the `GET api/v1/namespaces/default/services/{{service-name}}` endpoint.
   list:
     risks:

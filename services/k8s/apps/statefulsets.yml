@@ -42,7 +42,7 @@ privileges:
     scope: LOW
     notes: >-
       Allows reading the `/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/scale` subresource
-      which returns the number of desired replicas in the StatefulSet. The `container.statefulSets.get`
+      which returns the number of desired replicas in the StatefulSet. The `statefulSets.get`
       permission already includes the ability to read this subresource.
   getStatus:
     risks:
@@ -50,7 +50,7 @@ privileges:
       - discovery:network
     scope: MEDIUM
     notes: >-
-      Equivalent to `container.statefulSets.get`. Allows reading the `/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status`
+      Equivalent to `statefulSets.get`. Allows reading the `/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status`
       subresource which returns the same payload as the `/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}` resource.
   list:
     risks:

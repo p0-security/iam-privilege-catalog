@@ -17,7 +17,7 @@ privileges:
     risks: []
     notes: >-
       There are two ways to create a node: self-registration from the kubelet running on the node using
-      a kubeconfig file or by manually registering the node via the Kubernetes API. The `containers.node.create` 
+      a kubeconfig file or by manually registering the node via the Kubernetes API. The `node.create` 
       permission allows the latter. Creating a node object manually only creates an internal node representation.
       The control plane then ensures that a node object described is valid: is available and healthy. Only then
       does it become eligible to run a Pod. This permission alone is not enough to add a new Node to a cluster.
@@ -29,9 +29,9 @@ privileges:
     notes: >-
       Deleting a node immediately destroys all workloads running on it. This is an unsafe action and is
       likely to disrupt normal operations. Instead, a node can be cordoned to prevent new pods from being
-      scheduled on it. Cordoning requires the `container.nodes.update` permission.
+      scheduled on it. Cordoning requires the `nodes.update` permission.
       To safely move workloads to other nodes, the node must be drained. The `kubectl drain` command uses
-      listing commands (list pods, replicasets, daemonsets, etc.), and the `container.pods.evict` permission.
+      listing commands (list pods, replicasets, daemonsets, etc.), and the `pods.evict` permission.
     links:
       - https://kubernetes.io/docs/concepts/architecture/nodes/#manual-node-administration
       - https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -43,7 +43,7 @@ privileges:
   getStatus:
     risks: [discovery:infra, discovery:network]
     notes: >-
-      Allows access to the same information as `containers.nodes.get`.
+      Allows access to the same information as `nodes.get`.
   list:
     risks: [discovery:infra, discovery:network]
     notes: >-

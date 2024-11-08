@@ -12,7 +12,7 @@ privileges:
     risks: [escalation:privilege]
     notes: >-
       Allows escalating the current or other users' permissions by binding a ClusterRole to them. 
-      Also requires the `container.clusterRoleBindings.create` or `container.clusterRoleBindings.update` permission.
+      Also requires the `clusterRoleBindings.create` or `clusterRoleBindings.update` permission.
     links:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-binding-creation-or-update
   create:
@@ -22,7 +22,7 @@ privileges:
       assigned to principal via a ClusterRoleBinding.
       Kubernetes does not allow the creation or update of a ClusterRole unless one of the following two conditions are met:
       1) the caller already has the permissions contained in the role
-      2) the caller has the `container.clusterRoles.escalate` permission
+      2) the caller has the `clusterRoles.escalate` permission
   delete:
     risks: [destruction:policy]
     notes: >-
@@ -31,7 +31,7 @@ privileges:
     risks: [escalation:lateral, escalation:privilege]
     notes: >-
       Allows escalating the current or other users' permissions by creating a new ClusterRole or updating an existing ClusterRole.
-      Also requires the `container.clusterRoles.create` or `container.clusterRoles.update` permission.
+      Also requires the `clusterRoles.create` or `clusterRoles.update` permission.
     links:
       - https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-creation-or-update
   get:
@@ -47,4 +47,4 @@ privileges:
     notes: >-
       Kubernetes does not allow the creation or update of a ClusterRole unless one of the following two conditions are met:
       1) the caller already has the permissions contained in the role
-      2) the caller has the `container.clusterRoles.escalate` permission
+      2) the caller has the `clusterRoles.escalate` permission
