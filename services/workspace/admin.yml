@@ -4,7 +4,7 @@ description: >-
   groups, organizational units, schemata, licenses, domains, and security settings.
 scope: CRITICAL
 notes: >-
-  
+
 links:
 privileges:
   dashboard:
