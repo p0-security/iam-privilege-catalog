@@ -1,0 +1,48 @@
+name: Groups
+description: >-
+  Privileges for viewing and managing groups.
+scope: CRITICAL
+notes: >-
+  Groups are identities that may be granted to users or other groups within Workspace.
+  Groups may be granted privileges within other systems, notably Google Cloud. This catalog
+  treats groups as system accounts for the purposes of risk assignment.
+links:
+privileges:
+  all:
+    risks:
+      - discovery:account
+      - destruction:account
+      - destruction:policy
+      - escalation:lateral
+      - impact:manipulation
+    notes: >-
+      Create / read / update / delete on groups. Allows modification of the group's
+      aliases, email address, name, and description. Allows updating group settings,
+      which can alter who can join groups, and who can approve group join requests.
+
+      Lateral movement in this context indicates movement from one user or group account
+      to the managed group account.
+    links:
+      - https://developers.google.com/admin-sdk/directory/reference/rest/v1/groups#Group
+      - https://developers.google.com/admin-sdk/groups-settings/manage
+  manage_locked_label:
+    risks:
+      - destruction:policy
+      - escalation:privilege
+    notes: >-
+      Locked labels are labels that are used in application policies. Altering these labels
+      allows destruction or escalation of privileges to these policies.
+    links:
+      - https://support.google.com/a/answer/13127870
+  manage_security_label:
+    risks:
+      - impact:access
+    notes: >-
+      Converting a group to a security group is a one-time irreversible operation. Security
+      groups can not be automatically joined by your organization's members, nor joined by
+      non-security groups or users external to your organization.
+
+      Since this is a non-reversible operation, converting a group to a security group can
+      impact group access.
+    links:
+      - https://support.google.com/a/answer/10607394

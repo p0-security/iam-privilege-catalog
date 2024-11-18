@@ -1,0 +1,15 @@
+name: Admin
+description: >-
+  The Admin console and API allow control over the Google Workspace, including its users,
+  groups, organizational units, schemata, licenses, domains, and security settings.
+scope: CRITICAL
+notes: >-
+
+links:
+privileges:
+  dashboard:
+    risks: []
+    notes: >-
+      The exact use of this privilege is not well documented. Naming suggests that this
+      allows access to the Admin console.
+    links: []

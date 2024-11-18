@@ -1,0 +1,16 @@
+name: Organizational Units
+description: >-
+  Privileges for viewing and managing organizational units.
+scope: CRITICAL
+notes: >-
+  Organizational units provide a mechanism for organizing users within a Workspace, as well
+  as for applying settings and access policies to those users.
+links:
+privileges:
+  retrieve:
+    risks:
+      - discovery:infra
+    notes: >-
+      Allows the caller to retrieve organizational unit paths.
+    links:
+      - https://developers.google.com/admin-sdk/directory/reference/rest/v1/orgunits#OrgUnit

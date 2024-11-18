@@ -3,7 +3,7 @@
 import * as path from "node:path";
 import * as fs from "node:fs/promises";
 import * as yaml from "yaml";
-import { size, omit, sum, sortBy, pick } from "lodash";
+import { size, omit, sum, sortBy, pick, kebabCase, snakeCase } from "lodash";
 import { sys } from "typescript";
 
 const ROOT = path.resolve(__dirname, "..");
@@ -18,6 +18,8 @@ const SERVICE_IDS = {
     const [api, objectName] = path.split("/").slice(-2);
     return `${api}/${objectName}.${verb}`;
   },
+  workspace: (path: string, key: string) =>
+    `${path.toUpperCase()}_${snakeCase(key).toUpperCase()}`,
 };
 
 let exitFlag = 0;
@@ -130,6 +132,7 @@ const generatePrivileges = async (base: string, risks: string[]) => {
   const model: Record<string, Record<string, any>[]> = {};
   await fs.mkdir(OUTPUT_PATH, { recursive: true });
   for (const sid of Object.keys(SERVICE_IDS)) {
+    console.log(`Generating privilege catalog for service '${sid}'`);
     model[sid] = [];
     const serviceBase = path.join(base, sid);
     await recursiveRead(serviceBase, serviceBase, async (data, file) => {
