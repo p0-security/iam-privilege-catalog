@@ -61,5 +61,5 @@ jobs:
         run: |
           for SERVICE in "${SERVICES}"; do
             cat dist/privileges.json | jq -c -r ".${SERVICE}[]" > dist/privileges-${SERVICE}.jsonl
-            bq load --project_id ${{ matrix.items.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON iam_risk_2.privileges-aws dist/privileges-${SERVICE}.jsonl
+            bq load --project_id ${{ matrix.items.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON iam_risk_2.privileges-${SERVICE} dist/privileges-${SERVICE}.jsonl
           done
