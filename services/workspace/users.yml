@@ -1,0 +1,19 @@
+name: Groups
+description: >-
+  Privileges for viewing and managing users.
+scope: CRITICAL
+notes: >-
+  Users are accounts with static usernames, passwords, and email addresses. Typically
+  used for human accounts.
+links:
+privileges:
+  retrieve:
+    risks:
+      - discovery:account
+      - exfiltration:data
+    notes: >-
+      Gives access to the account's user name, email address, and profile fields. Many
+      profile fields are personally identifying or otherwise sensitive, including addresses,
+      telephone numbers, and gender.
+    links:
+      - https://developers.google.com/admin-sdk/directory/reference/rest/v1/users#User
