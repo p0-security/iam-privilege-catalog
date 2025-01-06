@@ -1,0 +1,34 @@
+name: Super Admin
+description: >-
+  Google super admins have access to all features in Google Admin,
+  can alter any organizational settings, and have full access to all
+  users' calendars.
+
+  Some actions can only be taken by super admin's, including: creating
+  and assigning administrator roles, managing other super admins,
+  inviting unmanaged user accounts, restoring deleted user accounts,
+  installing Google Marketplace apps, granting domain-wide delegation,
+  and modifying SAML apps.
+links:
+  - https://support.google.com/a/answer/2405986
+privileges:
+  admin:
+    risks:
+      - destruction:account
+      - destruction:crypto
+      - destruction:defense
+      - destruction:metadata
+      - destruction:policy
+      - destruction:infra
+      - discovery:account
+      - discovery:policy
+      - escalation:privilege
+      - persistence:account
+      - takeover:account
+    notes: >-
+      Super admins have the highest level of privilege in a Workspace account.
+
+      Holding this privilege allows creation and deletion of accounts, as well as
+      account takeover via password reset. It allows modification of administrator
+      roles and role assignments. It also can allow disabling (or enabling) of two-
+      factor security settings.
