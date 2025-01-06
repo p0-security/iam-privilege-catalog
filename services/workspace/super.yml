@@ -4,7 +4,7 @@ description: >-
   can alter any organizational settings, and have full access to all
   users' calendars.
 
-  Some actions can only be taken by super admin's, including: creating
+  Some actions can only be taken by super admins, including: creating
   and assigning administrator roles, managing other super admins,
   inviting unmanaged user accounts, restoring deleted user accounts,
   installing Google Marketplace apps, granting domain-wide delegation,
