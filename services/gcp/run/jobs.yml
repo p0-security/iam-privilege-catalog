@@ -38,11 +38,18 @@ privileges:
   listTagBindings:
     risks: [discovery:policy]
   run:
-    risks: [impact:spend, impact:hijack]
+    risks: [impact:spend, impact:hijack, escalation:lateral]
     notes: >-
       If combined with create permission and iam.serviceAccounts.actAs on the Cloud Run service account, includes a resource hijacking risk.
   runWithOverrides:
-    risks: [impact:spend, impact:hijack, impact:manipulation, exfiltration:data]
+    risks:
+      [
+        impact:spend,
+        impact:hijack,
+        impact:manipulation,
+        exfiltration:data,
+        escalation:lateral,
+      ]
     notes: >-
       Allows an attacker to run a job with overrides for the environment variables and arguments.
       Depending on the job and the contents of environment variables and arguments, this may 
