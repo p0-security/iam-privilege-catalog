@@ -41,6 +41,10 @@ privileges:
     risks: [impact:spend, impact:hijack, escalation:lateral]
     notes: >-
       If combined with create permission and iam.serviceAccounts.actAs on the Cloud Run service account, includes a resource hijacking risk.
+      Additionally, the environment variables may be abused to allow a reverse shell and dump the contents of the container,
+      including the service account credentials.
+    links:
+      - https://cloud.hacktricks.wiki/en/pentesting-cloud/gcp-security/gcp-privilege-escalation/gcp-run-privesc.html#runjobsrun-runjobsrunwithoverrides-runjobsget
   runWithOverrides:
     risks:
       [
@@ -56,6 +60,8 @@ privileges:
       allow the attacker to hijack the job for their own purposes, manipulate organizational data, 
       or store output data in a location accessible to the attacker.
       Also includes a resource hijacking risk if combined with the create permission and iam.serviceAccounts.actAs on the Cloud Run service account.
+    links:
+      - https://cloud.hacktricks.wiki/en/pentesting-cloud/gcp-security/gcp-privilege-escalation/gcp-run-privesc.html#runjobsrun-runjobsrunwithoverrides-runjobsget
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
   update:
