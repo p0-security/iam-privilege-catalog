@@ -7,26 +7,48 @@ notes: The contents of this file were automatically generated using the data
 privileges:
   AddLayerVersionPermission:
     risks:
-      - destruction:policy
+      - destruction:policy  # Keeps original risk. Modifying layer permissions can destroy existing access controls that might be restricting layer usage properly.
+      - impact:access  # NEW: Modifying layer permissions affects who can access Lambda layers. Layers can contain sensitive code or configuration that should only be accessible to specific functions.
+    scope: MEDIUM  # MEDIUM: Layer permissions have more limited impact than function permissions. Layers provide code libraries but don't execute autonomously; they require a function to utilize them.
   AddPermission:
     risks:
-      - destruction:policy
+      - destruction:policy  # Keeps original risk. Adding new permissions can destroy the security posture of a carefully restricted Lambda function.
+      - escalation:privilege  # NEW: Can grant additional access rights. Allows adding new principals (like AWS services or accounts) to invoke a Lambda that may have high privileges.
+      - impact:access  # NEW: Affects who can invoke/modify functions. Function permissions determine which entities can trigger execution of potentially privileged code.
+    scope: HIGH  # HIGH: Function permission changes have significant security implications. Lambda functions often run with powerful IAM roles that have access to sensitive resources within AWS.
   DisableReplication:
     risks:
-      - destruction:policy
+      - impact:dos  # NEW: Could affect availability in other regions. Lambda multi-region replication provides disaster recovery capabilities; disabling it can impact service availability.
+      - destruction:policy  # Keeps original risk. Removing replication destroys a resilience control that might be required for business continuity.
+    scope: MEDIUM  # MEDIUM: Primarily affects redundancy rather than direct data access. This is an operational impact that affects system reliability rather than direct data security.
   EnableReplication:
     risks:
-      - destruction:policy
+      - impact:spend  # CHANGED from destruction:policy to impact:spend as replication primarily increases costs. Each function invocation in replicated regions incurs additional charges.
+    scope: LOW  # LOW: Minimal security impact but does affect billing. Enabling replication is generally a positive security action that increases availability, though it does impact costs.
   GetFunction:
     risks:
-      - exfiltration:data
+      - exfiltration:data  # Keeps original risk. Allows downloading the function code which could contain sensitive information, embedded credentials, or proprietary algorithms.
+      - discovery:code  # NEW: Involves discovering code before exfiltration. Attackers can analyze function code to understand application logic, identify vulnerabilities, or discover hardcoded secrets.
+    scope: MEDIUM  # MEDIUM: Code exposure reveals logic but not necessarily credentials. Function code can contain business logic and algorithms but severe impact depends on whether secrets are embedded in code.
   GetLayerVersion:
     risks:
-      - exfiltration:data
+      - exfiltration:data  # Keeps original risk. Allows downloading layer code which could contain shared libraries with sensitive information or proprietary code.
+      - discovery:code  # NEW: Involves discovering code before exfiltration. Layers are often used for shared code; gaining access can expose widely used libraries and potential vulnerabilities.
+    scope: MEDIUM  # MEDIUM: Code exposure reveals logic but not necessarily credentials. Layers typically contain libraries rather than application-specific secrets, though proprietary code might be exposed.
   RemoveLayerVersionPermission:
     risks:
-      - destruction:policy
+      - destruction:policy  # Keeps original risk. Removing permissions can disrupt functioning applications that depend on specific layer access.
+      - impact:access  # NEW: Affects who can access Lambda layers. Removing permissions can prevent legitimate functions from accessing required layers, potentially breaking applications.
+    scope: MEDIUM  # MEDIUM: Layer permissions have more limited impact than function permissions. While this could disrupt applications, it's primarily a denial of service rather than a direct security breach.
   RemovePermission:
     risks:
-      - destruction:policy
+      - destruction:policy  # Keeps original risk. Removing function permissions can disrupt legitimate service integrations and application workflows.
+      - impact:access  # NEW: Affects who can invoke/modify functions. Removing necessary permissions could break application integrations and event-based workflows.
+    scope: MEDIUM  # MEDIUM: Removing permissions usually reduces attack surface rather than increases it. While this could cause operational disruption, it typically reduces security risk by limiting access.
+  InvokeFunction:
+    risks:
+      - impact:dos  # NEW: Excessive invocation can exhaust concurrency limits causing denial of service. Lambda has account-wide concurrency limits; exhausting them impacts all functions in the account.
+      - impact:spend  # NEW: Function invocations incur costs based on execution time and memory. Lambda billing is directly tied to function execution; malicious invocation can cause significant unexpected costs.
+      - escalation:privilege  # NEW: Can execute code with the function's IAM role. Lambda functions execute with their assigned IAM role, which may have extensive permissions to other AWS resources.
+    scope: HIGH  # HIGH: Function invocation can have significant security and operational implications. Invoking a function executes code that may have access to sensitive resources, manipulate data, or perform privileged operations.
 scope: HIGH
