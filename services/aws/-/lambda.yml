@@ -29,4 +29,211 @@ privileges:
   RemovePermission:
     risks:
       - destruction:policy
+  CreateAlias:
+    risks:
+      - impact:access  # Creating an alias can allow redirection of function invocations, potentially enabling persistence or evasion if an attacker points an alias to malicious code
+    scope: MEDIUM  # Aliases themselves do not grant code execution, but can be used to facilitate attacks
+  CreateCodeSigningConfig:
+    risks:
+      - impact:access  # Creating a code signing config can allow an attacker to control which code is trusted for deployment, potentially enabling persistence or evasion
+    scope: MEDIUM  # Does not directly execute code, but can affect code integrity
+  CreateEventSourceMapping:
+    risks:
+      - impact:access  # Can connect new event sources to functions, potentially enabling persistence or privilege escalation if attacker can trigger function execution
+    scope: HIGH  # Can be used to trigger functions in response to attacker-controlled events
+  CreateFunction:
+    risks:
+      - execution:code  # Allows creation of new Lambda functions, enabling arbitrary code execution (MITRE: Initial Access, Execution)
+      - persistence:cloud  # Can be used to establish persistence in the environment
+    scope: CRITICAL  # Direct code execution and persistence
+  CreateFunctionUrlConfig:
+    risks:
+      - impact:access  # Exposes function via HTTP endpoint, potentially increasing attack surface
+    scope: HIGH  # Can expose functions to the public internet
+  DeleteAlias:
+    risks:
+      - impact:dos  # Deleting an alias can disrupt legitimate application workflows (MITRE: Impact)
+    scope: LOW  # Disruptive but not a direct security risk
+  DeleteCodeSigningConfig:
+    risks:
+      - impact:access  # Removing code signing config can allow untrusted code to be deployed (MITRE: Defense Evasion)
+    scope: MEDIUM  # Weakens code integrity controls
+  DeleteEventSourceMapping:
+    risks:
+      - impact:dos  # Disabling event sources can disrupt application workflows (MITRE: Impact)
+    scope: LOW  # Disruptive but not a direct security risk
+  DeleteFunction:
+    risks:
+      - impact:dos  # Deleting a function can disrupt application workflows (MITRE: Impact)
+    scope: HIGH  # Can cause significant service disruption
+  DeleteFunctionUrlConfig:
+    risks:
+      - impact:dos  # Removing function URL can disrupt legitimate access (MITRE: Impact)
+    scope: LOW  # Disruptive but not a direct security risk
+  GetAccountSettings:
+    risks:
+      - discovery:account  # Reveals account-level Lambda settings, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetAlias:
+    risks:
+      - discovery:infra  # Reveals alias configuration, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetCodeSigningConfig:
+    risks:
+      - discovery:infra  # Reveals code signing config, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetEventSourceMapping:
+    risks:
+      - discovery:infra  # Reveals event source mapping, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetFunctionCodeSigningConfig:
+    risks:
+      - discovery:infra  # Reveals code signing config for a function, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetFunctionConcurrency:
+    risks:
+      - discovery:infra  # Reveals concurrency settings, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetFunctionConfiguration:
+    risks:
+      - discovery:infra  # Reveals function configuration, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetFunctionEventInvokeConfig:
+    risks:
+      - discovery:infra  # Reveals event invoke config, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetFunctionUrlConfig:
+    risks:
+      - discovery:infra  # Reveals function URL config, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetLayerVersionByArn:
+    risks:
+      - exfiltration:data  # Allows downloading layer code, potentially exposing sensitive data (MITRE: Exfiltration)
+    scope: MEDIUM  # Data exposure, but not direct code execution
+  GetLayerVersionPolicy:
+    risks:
+      - discovery:policy  # Reveals layer version policy, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetPolicy:
+    risks:
+      - discovery:policy  # Reveals function policy, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  GetProvisionedConcurrencyConfig:
+    risks:
+      - discovery:infra  # Reveals concurrency provisioning, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListAliases:
+    risks:
+      - discovery:infra  # Lists all aliases, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListCodeSigningConfigs:
+    risks:
+      - discovery:infra  # Lists all code signing configs, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListEventSourceMappings:
+    risks:
+      - discovery:infra  # Lists all event source mappings, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListFunctionEventInvokeConfigs:
+    risks:
+      - discovery:infra  # Lists all event invoke configs, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListFunctionUrlConfigs:
+    risks:
+      - discovery:infra  # Lists all function URL configs, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListFunctions:
+    risks:
+      - discovery:infra  # Lists all Lambda functions, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListFunctionsByCodeSigningConfig:
+    risks:
+      - discovery:infra  # Lists functions by code signing config, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListLayerVersions:
+    risks:
+      - discovery:infra  # Lists all layer versions, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListLayers:
+    risks:
+      - discovery:infra  # Lists all layers, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListProvisionedConcurrencyConfigs:
+    risks:
+      - discovery:infra  # Lists all provisioned concurrency configs, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListTags:
+    risks:
+      - discovery:infra  # Lists tags on Lambda resources, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  ListVersionsByFunction:
+    risks:
+      - discovery:infra  # Lists all versions of a function, useful for reconnaissance (MITRE: Discovery)
+    scope: LOW  # Information disclosure only
+  PublishLayerVersion:
+    risks:
+      - impact:access  # Publishing a new layer version can introduce malicious code, enabling persistence or privilege escalation (MITRE: Persistence, Privilege Escalation)
+    scope: HIGH  # Can be used to introduce malicious code
+  PublishVersion:
+    risks:
+      - impact:access  # Publishing a new function version can introduce malicious code, enabling persistence or privilege escalation (MITRE: Persistence, Privilege Escalation)
+    scope: HIGH  # Can be used to introduce malicious code
+  PutFunctionCodeSigningConfig:
+    risks:
+      - impact:access  # Changing code signing config can allow untrusted code to be deployed (MITRE: Defense Evasion)
+    scope: MEDIUM  # Weakens code integrity controls
+  PutFunctionConcurrency:
+    risks:
+      - impact:dos  # Setting concurrency to zero can prevent function execution, causing denial of service (MITRE: Impact)
+    scope: MEDIUM  # Can disrupt function availability
+  PutFunctionEventInvokeConfig:
+    risks:
+      - impact:access  # Changing event invoke config can affect how and when functions are triggered (MITRE: Impact, Persistence)
+    scope: MEDIUM  # Can be used to disrupt or persist
+  PutProvisionedConcurrencyConfig:
+    risks:
+      - impact:spend  # Over-provisioning concurrency can increase costs (MITRE: Impact)
+      - impact:dos  # Can exhaust account concurrency, causing denial of service (MITRE: Impact)
+    scope: MEDIUM  # Can disrupt function availability and increase costs
+  TagResource:
+    risks:
+      - impact:access  # Tagging can affect access control if tags are used in IAM policies (MITRE: Defense Evasion)
+    scope: LOW  # Indirect impact on access control
+  UntagResource:
+    risks:
+      - impact:access  # Removing tags can affect access control if tags are used in IAM policies (MITRE: Defense Evasion)
+    scope: LOW  # Indirect impact on access control
+  UpdateAlias:
+    risks:
+      - impact:access  # Updating an alias can redirect function invocations, potentially enabling persistence or evasion (MITRE: Persistence, Defense Evasion)
+    scope: MEDIUM  # Can be used to facilitate attacks
+  UpdateCodeSigningConfig:
+    risks:
+      - impact:access  # Updating code signing config can allow untrusted code to be deployed (MITRE: Defense Evasion)
+    scope: MEDIUM  # Weakens code integrity controls
+  UpdateEventSourceMapping:
+    risks:
+      - impact:access  # Updating event source mapping can change which events trigger functions, potentially enabling persistence or privilege escalation (MITRE: Persistence, Privilege Escalation)
+    scope: HIGH  # Can be used to trigger functions in response to attacker-controlled events
+  UpdateFunctionCode:
+    risks:
+      - execution:code  # Updating function code enables arbitrary code execution (MITRE: Execution)
+      - persistence:cloud  # Can be used to establish persistence in the environment
+    scope: CRITICAL  # Direct code execution and persistence
+  UpdateFunctionCodeSigningConfig:
+    risks:
+      - impact:access  # Updating code signing config can allow untrusted code to be deployed (MITRE: Defense Evasion)
+    scope: MEDIUM  # Weakens code integrity controls
+  UpdateFunctionConfiguration:
+    risks:
+      - impact:access  # Updating function configuration can change environment variables, IAM roles, or VPC settings, potentially enabling privilege escalation or persistence (MITRE: Privilege Escalation, Persistence)
+    scope: HIGH  # Can be used to escalate privileges or persist
+  UpdateFunctionEventInvokeConfig:
+    risks:
+      - impact:access  # Updating event invoke config can affect how and when functions are triggered (MITRE: Impact, Persistence)
+    scope: MEDIUM  # Can be used to disrupt or persist
+  UpdateFunctionUrlConfig:
+    risks:
+      - impact:access  # Updating function URL config can change how functions are exposed, potentially increasing attack surface (MITRE: Initial Access)
+    scope: HIGH  # Can expose functions to the public internet
 scope: HIGH
