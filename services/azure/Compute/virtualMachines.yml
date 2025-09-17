@@ -8,19 +8,26 @@ notes: >-
   Assess in combination with disk, networking, identity, and key vault privileges.
 privileges:
   list:
-    risks: [discovery:infra]
+    risks: [discovery:infra, discovery:metadata]
     notes: >-
       Enumerates VMs and metadata such as OS, sizes, and attached resources.
   read:
-    risks: [discovery:infra, exfiltration:metadata]
+    risks: [discovery:infra, discovery:metadata, exfiltration:metadata]
     notes: >-
       Reads VM configuration and instance metadata which can reveal sensitive details.
   createOrUpdate:
-    risks: [destruction:infra, impact:spend]
+    risks:
+      [
+        destruction:infra,
+        impact:spend,
+        escalation:privilege,
+        escalation:network,
+        impact:hijack,
+      ]
     notes: >-
       Can change images, identities, startup scripts, or sizes; can scale up costs.
   delete:
-    risks: [destruction:data, destruction:infra]
+    risks: [destruction:data, destruction:infra, impact:dos]
     notes: >-
       Permanently removes a VM; attached ephemeral data may be lost.
   start:
@@ -40,45 +47,79 @@ privileges:
     notes: >-
       Stops and releases allocation; VMs become unavailable until started.
   runCommand:
-    risks: [exfiltration:data, impact:hijack]
+    risks:
+      [
+        exfiltration:data,
+        exfiltration:crypto,
+        impact:hijack,
+        persistence:account,
+      ]
     notes: >-
       Executes arbitrary commands inside the guest OS, enabling data theft or tampering.
   login:
-    risks: [exfiltration:data, impact:hijack]
+    risks:
+      - collection:data
+      - destruction:data
+      - discovery:network
+      - discovery:policy
+      - escalation:lateral
+      - exfiltration:data
+      - impact:defacement
+      - impact:hijack
     notes: >-
       Allows interactive user login to the VM using Azure AD-backed authentication
       (Microsoft.Compute/virtualMachines/login/action). Grants OS user access.
   loginAsAdmin:
-    risks: [exfiltration:data, impact:hijack, escalation:privilege]
+    risks:
+      - collection:data
+      - destruction:data
+      - discovery:network
+      - discovery:policy
+      - escalation:lateral
+      - exfiltration:data
+      - impact:defacement
+      - impact:hijack
     notes: >-
       Allows interactive administrator login to the VM using Azure AD-backed authentication
       (Microsoft.Compute/virtualMachines/loginAsAdmin/action). Grants privileged OS access.
   extensionsWrite:
-    risks: [exfiltration:data, escalation:privilege]
+    risks:
+      [
+        exfiltration:data,
+        escalation:privilege,
+        impact:hijack,
+        persistence:account,
+      ]
     notes: >-
       Installing or updating VM extensions can run privileged code.
   extensionsDelete:
-    risks: [impact:dos, destruction:infra]
+    risks: [impact:dos, destruction:infra, destruction:defense]
     notes: >-
       Removing required extensions (e.g., monitoring/agents) can break operations or visibility.
   attachManagedDisk:
-    risks: [exfiltration:data, destruction:data]
+    risks:
+      [
+        exfiltration:data,
+        exfiltration:crypto,
+        exfiltration:metadata,
+        destruction:data,
+      ]
     notes: >-
       Attaching disks can expose data; write operations can overwrite data.
   detachManagedDisk:
-    risks: [destruction:data]
+    risks: [destruction:data, impact:dos]
     notes: >-
       Detaching the wrong disk can cause data loss or service interruption.
   capture:
-    risks: [exfiltration:data, destruction:data]
+    risks: [exfiltration:data, exfiltration:metadata, collection:data]
     notes: >-
       Creates an image from a VM; images may contain sensitive data.
   generalize:
-    risks: [destruction:data]
+    risks: [destruction:data, impact:dos]
     notes: >-
       Generalizing can remove machine-specific info; misuse may render systems unusable.
   reimage:
-    risks: [destruction:data]
+    risks: [destruction:data, impact:dos]
     notes: >-
       Reimages the OS disk; local changes and data can be lost.
   installPatches:
@@ -89,4 +130,3 @@ links:
   - https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftcompute
   - https://learn.microsoft.com/azure/virtual-machines/
   - https://learn.microsoft.com/azure/virtual-machines/run-command
-
