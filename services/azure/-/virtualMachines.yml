@@ -1,0 +1,92 @@
+name: virtualMachines
+description: >-
+  Azure Virtual Machines (Microsoft.Compute/virtualMachines) provide general-purpose compute.
+  Compromise or misuse can expose data, interrupt services, or incur spend.
+scope: CRITICAL
+notes: >-
+  Privileges below are grouped conceptually and do not map 1:1 with ARM operation names.
+  Assess in combination with disk, networking, identity, and key vault privileges.
+privileges:
+  list:
+    risks: [discovery:infra]
+    notes: >-
+      Enumerates VMs and metadata such as OS, sizes, and attached resources.
+  read:
+    risks: [discovery:infra, exfiltration:metadata]
+    notes: >-
+      Reads VM configuration and instance metadata which can reveal sensitive details.
+  createOrUpdate:
+    risks: [destruction:infra, impact:spend]
+    notes: >-
+      Can change images, identities, startup scripts, or sizes; can scale up costs.
+  delete:
+    risks: [destruction:data, destruction:infra]
+    notes: >-
+      Permanently removes a VM; attached ephemeral data may be lost.
+  start:
+    risks: [impact:spend]
+    notes: >-
+      Starting instances increases spend; may enable exposed services.
+  restart:
+    risks: [impact:dos]
+    notes: >-
+      Restarts can disrupt workloads and availability.
+  powerOff:
+    risks: [impact:dos]
+    notes: >-
+      Stops the VM without releasing compute allocation; interrupts services.
+  deallocate:
+    risks: [impact:dos]
+    notes: >-
+      Stops and releases allocation; VMs become unavailable until started.
+  runCommand:
+    risks: [exfiltration:data, impact:hijack]
+    notes: >-
+      Executes arbitrary commands inside the guest OS, enabling data theft or tampering.
+  login:
+    risks: [exfiltration:data, impact:hijack]
+    notes: >-
+      Allows interactive user login to the VM using Azure AD-backed authentication
+      (Microsoft.Compute/virtualMachines/login/action). Grants OS user access.
+  loginAsAdmin:
+    risks: [exfiltration:data, impact:hijack, escalation:privilege]
+    notes: >-
+      Allows interactive administrator login to the VM using Azure AD-backed authentication
+      (Microsoft.Compute/virtualMachines/loginAsAdmin/action). Grants privileged OS access.
+  extensionsWrite:
+    risks: [exfiltration:data, escalation:privilege]
+    notes: >-
+      Installing or updating VM extensions can run privileged code.
+  extensionsDelete:
+    risks: [impact:dos, destruction:infra]
+    notes: >-
+      Removing required extensions (e.g., monitoring/agents) can break operations or visibility.
+  attachManagedDisk:
+    risks: [exfiltration:data, destruction:data]
+    notes: >-
+      Attaching disks can expose data; write operations can overwrite data.
+  detachManagedDisk:
+    risks: [destruction:data]
+    notes: >-
+      Detaching the wrong disk can cause data loss or service interruption.
+  capture:
+    risks: [exfiltration:data, destruction:data]
+    notes: >-
+      Creates an image from a VM; images may contain sensitive data.
+  generalize:
+    risks: [destruction:data]
+    notes: >-
+      Generalizing can remove machine-specific info; misuse may render systems unusable.
+  reimage:
+    risks: [destruction:data]
+    notes: >-
+      Reimages the OS disk; local changes and data can be lost.
+  installPatches:
+    risks: [impact:dos]
+    notes: >-
+      Patch operations can require reboots or cause unexpected downtime.
+links:
+  - https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftcompute
+  - https://learn.microsoft.com/azure/virtual-machines/
+  - https://learn.microsoft.com/azure/virtual-machines/run-command
+

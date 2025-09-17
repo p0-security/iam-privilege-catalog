@@ -57,7 +57,7 @@ jobs:
           cat dist/risks.json | jq -c -r '.[]' > dist/risks.jsonl
           bq load --project_id ${{ matrix.items.project_id }} --replace --source_format NEWLINE_DELIMITED_JSON iam_risk_2.risks dist/risks.jsonl
       - env:
-          SERVICES: aws gcp k8s workspace
+          SERVICES: aws gcp k8s workspace azure
         run: |
           for SERVICE in $(echo "${SERVICES}"); do
             cat dist/privileges.json | jq -c -r ".${SERVICE}[]" > dist/privileges-${SERVICE}.jsonl
