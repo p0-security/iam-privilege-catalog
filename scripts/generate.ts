@@ -12,7 +12,8 @@ const RISKS_FOLDER = "risks";
 const SERVICES_FOLDER = "services";
 
 const SERVICE_IDS = {
-  azure: (path: string, key: string) => `${path.split("/").at(-1)}:${key}`,
+  azure: (path: string, key: string) => `Microsoft.${path}/${key}`,
+
   aws: (path: string, key: string) => `${path.split("/").at(-1)}:${key}`,
   gcp: (path: string, key: string) => `${path.replace(/\//g, ".")}.${key}`,
   k8s: (path: string, verb: string) => {
