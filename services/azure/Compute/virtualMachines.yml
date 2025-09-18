@@ -50,7 +50,9 @@ privileges:
     risks:
       [
         exfiltration:data,
+        collection:data,
         exfiltration:crypto,
+        execution:code,
         impact:hijack,
         persistence:account,
       ]
@@ -69,6 +71,9 @@ privileges:
     notes: >-
       Allows interactive user login to the VM using Azure AD-backed authentication
       (Microsoft.Compute/virtualMachines/login/action). Grants OS user access.
+      Specific risks depend on the instance configuration, but can include most
+      of the risks of `loginAsAdmin`, subject to privileges granted within the
+      instance OS and file systems.
   loginAsAdmin:
     risks:
       - collection:data
@@ -81,7 +86,14 @@ privileges:
       - impact:hijack
     notes: >-
       Allows interactive administrator login to the VM using Azure AD-backed authentication
-      (Microsoft.Compute/virtualMachines/loginAsAdmin/action). Grants privileged OS access.
+      (Microsoft.Compute/virtualMachines/loginAsAdmin/action), effectively allowing full control of
+      all services hosted on the instance. Grants privileged OS access.  Allows full access to instance metadata.
+      Allows access to all data stored on the instance. Allows access to bound service accounts, 
+      granting access to all resources accessible by the service account (potentially including data repositories). Allows
+      access to any networks to which the instance is bound. Allows alteration of logs,
+      potentially allowing the attacker to conceal their presence. If the instance has a
+      service account, additionally requires permission to act as that service account.
+
   extensionsWrite:
     risks: [
         exfiltration:data,
