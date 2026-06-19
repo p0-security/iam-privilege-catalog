@@ -1,0 +1,13 @@
+name: Kubernetes user impersonation (Fleet)
+description: The Kubernetes user-impersonation privilege on an AKS Fleet, which allows a caller to issue API requests as any other user identity (the RBAC impersonate verb on users).
+scope: CRITICAL
+notes: "Impersonation is a top-tier privilege-escalation primitive: the holder can assume any identity, including cluster-admin, and execute requests with that identity's full RBAC."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+    notes: User impersonation lets an attacker act as any user, including cluster-admins, directly escalating privilege and moving laterally to higher-privileged identities.
