@@ -1,0 +1,10 @@
+name: Azure SQL Managed Instance hybrid certificate async operation status
+description: An async operation-status endpoint that reports the status of a long-running hybrid certificate operation on a SQL Managed Instance.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only operation progress/status, not certificate material; an inert status poll with no meaningful capability.

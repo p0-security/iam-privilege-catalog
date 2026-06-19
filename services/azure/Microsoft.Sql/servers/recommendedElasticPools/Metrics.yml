@@ -1,0 +1,12 @@
+name: Azure SQL recommended elastic pool metrics
+description: Capacity/sizing recommendation metrics for elastic database pools on an Azure SQL server.
+scope: LOW
+notes: Read-only resource-utilization telemetry used for capacity planning; reveals infrastructure sizing, not stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading recommended elastic-pool metrics lets an attacker inventory database resource utilization and sizing configuration for infrastructure reconnaissance.

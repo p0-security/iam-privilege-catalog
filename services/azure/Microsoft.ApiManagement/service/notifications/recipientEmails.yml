@@ -1,0 +1,22 @@
+name: API Management notification recipient emails
+description: The list of email addresses subscribed to a specific API Management publisher notification (e.g. new subscription requests, quota approaching). It is operational alert-routing configuration.
+scope: MEDIUM
+notes: Low-sensitivity routing metadata that controls who receives operational/security notices about the service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Removes a recipient email so operational/security notifications no longer reach legitimate operators, suppressing alerting and weakening detection.
+  read:
+    risks:
+      - discovery:account
+    scope: LOW
+    notes: Enumerates the email addresses/contacts subscribed to a notification, a low-sensitivity inventory of identities associated with the service.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Adds an attacker-controlled email to the recipient list, altering notification routing so the attacker can intercept operational alerts intended for staff.

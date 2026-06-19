@@ -1,0 +1,11 @@
+name: App Service deployment locations
+description: Catalog of Azure regions/locations where App Service resources can be deployed.
+scope: PUBLIC
+notes: Generic provider availability metadata that is effectively public and organization-independent.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns the global list of supported deployment regions; public catalog data with no organizational sensitivity or inventory value.

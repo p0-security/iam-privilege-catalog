@@ -1,0 +1,10 @@
+name: Site Recovery cluster async operation results
+description: A read-only tracking endpoint that returns the status/result of an asynchronous operation on a replication protection cluster.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status/result of an asynchronous operation; an inert tracking read that conveys no sensitive data or actionable capability.

@@ -1,0 +1,11 @@
+name: Security Partner Provider
+description: A SecurityPartnerProvider integrates a third-party security service (firewall-as-a-service / NVA) into an Azure Virtual WAN hub so that network traffic is steered through external inspection. It is a network defense/traffic-inspection control.
+scope: LOW
+notes: Defines defensive network inspection wiring for a single network function; modifying or removing it weakens traffic filtering.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: A stateless pre-flight validation of a candidate configuration; persists no change and returns no sensitive data, granting no offensive capability in isolation.

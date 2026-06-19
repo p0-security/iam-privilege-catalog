@@ -1,0 +1,13 @@
+name: Log Analytics WindowsFirewall table
+description: A Log Analytics workspace table holding Windows host firewall configuration and connection events (allowed/blocked flows, IPs, ports). Monitoring/diagnostic log data with network-posture content.
+scope: MEDIUM
+notes: Reveals firewall rules and network connections, exposing allowed paths and host-based defense posture useful for lateral-movement planning.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Read exports host firewall logs revealing allowed/blocked connections, internal IPs and ports.

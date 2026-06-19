@@ -1,0 +1,22 @@
+name: Microsoft Security private endpoint connection
+description: A private endpoint connection binding a consumer private endpoint to the Microsoft Security service, including its approval state.
+scope: MEDIUM
+notes: Connectivity association metadata for a security service; not data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a private endpoint connection severs an established private-network path to the service, disrupting clients that depend on private link.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Get/List only enumerates which private endpoints are connected to the service and their approval status, i.e. read-only network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Approving/rejecting a private endpoint connection controls whether a private endpoint can reach the service, enabling an attacker to approve their own endpoint for private-network access (escalation:network) and to alter the connection's approval state (impact:manipulation).

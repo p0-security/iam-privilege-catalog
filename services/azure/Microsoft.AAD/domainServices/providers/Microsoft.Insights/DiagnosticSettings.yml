@@ -1,0 +1,17 @@
+name: Domain Service diagnostic settings
+description: The Azure Monitor diagnostic settings attached to a Microsoft Entra Domain Services (managed domain) resource, controlling which platform logs and metrics are emitted and where they are routed.
+scope: MEDIUM
+notes: Diagnostic/monitoring configuration is a detective-control asset; tampering blinds incident response.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.AAD
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading the diagnostic setting enumerates which logs/metrics are collected for the Domain Service and where they route, letting an attacker map detection coverage to plan evasion.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating the diagnostic setting lets an attacker disable log categories or redirect telemetry away from monitoring sinks, suppressing audit logging and weakening a detective control.

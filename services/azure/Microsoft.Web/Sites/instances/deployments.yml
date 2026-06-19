@@ -1,0 +1,17 @@
+name: Web App instance deployments
+description: Deployment records track an App Service web app's deployment history and status metadata (commit/version/author/timestamp) per instance.
+scope: MEDIUM
+notes: Operational release-tracking metadata; does not contain source code or secrets.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting a deployment record removes deployment-history metadata, hampering rollback and obscuring operational/audit state without destroying the running app or its data.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading deployment records enumerates the app's deployment history and status metadata, providing infrastructure/release-configuration reconnaissance without returning source or secrets.

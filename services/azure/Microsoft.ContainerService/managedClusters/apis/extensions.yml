@@ -1,0 +1,12 @@
+name: AKS Kubernetes extensions API group
+description: Data-plane access to the legacy Kubernetes 'extensions' aggregated API group on an AKS managed cluster, which historically exposed Deployments, ReplicaSets, DaemonSets, Ingresses, and NetworkPolicies.
+scope: MEDIUM
+notes: Read access enumerates in-cluster workload and networking configuration objects but returns no secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists/gets extensions group objects, letting an attacker inventory cluster workload and ingress/network configuration for reconnaissance.

@@ -1,0 +1,12 @@
+name: Service Map machine groups
+description: "Service Map machine groups: the inventory and grouping of machines monitored by the workspace."
+scope: MEDIUM
+notes: Machine inventory of the monitored estate, aiding target selection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading machine groups enumerates the monitored machines and their groupings, providing read-only infrastructure reconnaissance.

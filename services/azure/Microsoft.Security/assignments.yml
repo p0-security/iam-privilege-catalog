@@ -1,0 +1,21 @@
+name: Defender for Cloud security assignments
+description: Microsoft Defender for Cloud security governance assignments, which bind security standards/recommendations and assign remediation ownership and timelines to a scope (subscription/management group). These are posture-governance constructs, not Azure RBAC role assignments.
+scope: MEDIUM
+notes: Part of cloud security posture management (CSPM); affects defensive monitoring/enforcement configuration rather than the data plane or access control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a security assignment removes enforcement/tracking of a security standard on the scope, disabling a defensive posture mechanism.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading security assignments inventories which security standards/remediation governance are enforced on a scope, revealing posture-enforcement gaps for reconnaissance.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating a security assignment lets an attacker alter or weaken which security standards/governance are enforced on the scope, degrading defensive posture and tampering with security config.

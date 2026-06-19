@@ -1,0 +1,11 @@
+name: Cosmos DB async operation result
+description: An operation-results resource exposes the status/progress of a long-running asynchronous Cosmos DB control-plane operation.
+scope: LOW
+notes: Pure status-polling endpoint; returns operation state only, no resource configuration, data, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status of an asynchronous Client Encryption Key operation; an inert no-op exposing no sensitive data or capability.

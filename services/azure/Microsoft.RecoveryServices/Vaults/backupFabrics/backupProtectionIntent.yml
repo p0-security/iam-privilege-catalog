@@ -1,0 +1,22 @@
+name: Backup protection intent
+description: A backup protection intent is the declared configuration intent that a given resource/workload should be protected by a backup policy in the vault.
+scope: MEDIUM
+notes: Lightweight backup configuration object (intent/policy association) that governs future protection; removing it weakens recoverability posture but does not delete existing recovery points.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:defense
+    notes: Deleting a backup protection intent removes the declared intent to back up a workload, weakening the configured backup defense and recoverability coverage for that resource.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading a backup protection intent reveals which workloads are configured/intended for backup; read-only reconnaissance of backup configuration.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a backup protection intent alters the vault's backup configuration, manipulating which workloads are designated for protection and how.

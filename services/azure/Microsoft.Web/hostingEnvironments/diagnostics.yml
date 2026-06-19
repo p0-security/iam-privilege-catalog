@@ -1,0 +1,11 @@
+name: App Service Environment diagnostics
+description: Diagnostic and troubleshooting findings for an App Service Environment (ASE) hosting infrastructure.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads ASE diagnostic results, surfacing configuration/health detail useful for infrastructure reconnaissance; it does not export stored logs or disable log collection.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (ETWEvent)
+description: A Log Analytics workspace query table represents a specific log/telemetry table within an Azure Monitor Log Analytics workspace; data-plane read access to it returns the ingested log records for that table.
+scope: MEDIUM
+notes: Per-table data-plane query grants are monitoring/diagnostics data, MEDIUM sensitivity; individual tables can hold security-relevant or operationally sensitive records that may include identifiers or inadvertently logged secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reads the ETWEvent (Event Tracing for Windows) table, exporting OS/application diagnostic trace records that may contain sensitive operational detail and enumerating the captured events.

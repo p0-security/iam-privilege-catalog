@@ -1,0 +1,21 @@
+name: Web App slot hybrid connection
+description: An App Service deployment slot's Hybrid Connection, an Azure Relay-based network bridge that lets the web app reach on-premises or other-network backend endpoints (hostname/port via a relay namespace).
+scope: HIGH
+notes: Hybrid connections define network reachability from a single app function into private/on-prem networks; controlling them affects that function's connectivity and lateral network reach.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the hybrid connection severs the slot's network link to its backend/on-prem endpoint, breaking connectivity for the dependent integration (DoS-like network destruction).
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the hybrid connection returns relay/endpoint configuration (target hostname, port, relay namespace), inventorying the private network paths reachable from the slot.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a hybrid connection can establish or redirect a network tunnel from the slot to additional (often private/on-prem) endpoints, enabling network movement and altering operational connectivity config.

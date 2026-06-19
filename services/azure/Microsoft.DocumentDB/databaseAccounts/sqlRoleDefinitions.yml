@@ -1,0 +1,21 @@
+name: Cosmos DB SQL role definition
+description: A Cosmos DB native (SQL API) data-plane RBAC role definition specifying a set of data actions and assignable scopes within a database account.
+scope: CRITICAL
+notes: Access-control policy governing data-plane access to a production database; reading/altering these definitions affects who can read and write the account's data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a SQL role definition destroys an access-control policy object and breaks every assignment referencing it, revoking legitimate principals' data-plane access to the account.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading a SQL role definition discloses the data-plane permission set and assignable scopes of a role, helping an attacker identify over-privileged or exploitable roles to target.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating or updating a SQL role definition lets an attacker inject arbitrary data-plane permissions, escalating the access of every principal bound to that role within the database account.

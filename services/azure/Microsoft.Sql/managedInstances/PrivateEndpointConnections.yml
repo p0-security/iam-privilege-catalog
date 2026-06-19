@@ -1,0 +1,23 @@
+name: Azure SQL managed instance private endpoint connections
+description: Private endpoint (Private Link) connections that provide private network connectivity to an Azure SQL Managed Instance database.
+scope: HIGH
+notes: Controls which VNets/endpoints can privately reach the database; sensitive network connectivity configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deletes a private endpoint connection, removing a network connectivity component and severing legitimate private-link access to the database (DoS for that path).
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Lists/gets private endpoint connections, inventorying private link topology and which networks reach the database.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Approves or rejects a private endpoint connection; approving an attacker-controlled endpoint exposes the database over a private network (network movement), while altering connection state manipulates connectivity configuration.

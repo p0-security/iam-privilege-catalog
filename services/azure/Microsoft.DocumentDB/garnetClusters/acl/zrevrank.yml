@@ -1,0 +1,12 @@
+name: Garnet cluster sorted-set data
+description: Azure Managed Garnet is a Redis-compatible in-memory data store; this resource type is the data-plane (ACL-scoped) command surface over sorted sets and other structures held in the cluster.
+scope: HIGH
+notes: Holds production application data (caches, sessions, queues, sorted sets) for a single organizational function; data-plane access reads/writes/deletes the stored records directly.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: ZREVRANK returns only the integer reverse-rank/position of a member the caller already supplies, confirming membership and revealing ordering rather than exporting member values; this is enumeration, not bulk exfiltration.

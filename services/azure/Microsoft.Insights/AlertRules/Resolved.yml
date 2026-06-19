@@ -1,0 +1,11 @@
+name: Azure classic metric alert rules
+description: Classic metric alert rules in Azure Monitor define metric thresholds on a monitored resource that, when breached, fire notifications/actions. They are a detection and alerting mechanism.
+scope: LOW
+notes: Monitoring/alerting configuration is MEDIUM-sensitivity supporting infrastructure; tampering weakens detection but does not itself touch production data or identities.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks: []
+    notes: Platform-internal alert-lifecycle event marker fired when a classic alert resolves; not an operator-invokable management capability, so it grants no offensive ability in isolation.

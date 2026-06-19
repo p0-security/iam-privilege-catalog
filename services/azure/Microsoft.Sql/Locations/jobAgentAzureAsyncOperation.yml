@@ -1,0 +1,10 @@
+name: Azure SQL DB job agent async operation status
+description: The status endpoint for an asynchronous Azure SQL DB job agent management operation, used to poll the progress of a long-running job-agent request.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the status of an async job-agent operation is an inert operation-status read that grants no meaningful attacker capability.

@@ -1,0 +1,18 @@
+name: Managed instance encryption protector
+description: The Transparent Data Encryption (TDE) protector for an Azure SQL Managed Instance, designating which key (service-managed or customer-managed Key Vault key) wraps the instance's data-encryption key.
+scope: HIGH
+notes: Controls encryption of all data-at-rest for a production managed instance database; the protector references a Key Vault key but holds no exportable secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns which key currently protects the instance (key reference/URI and TDE configuration) but not exportable secret material, so it is encryption-configuration reconnaissance, not crypto exfiltration.
+  write:
+    risks:
+      - impact:encryption
+      - impact:dos
+      - impact:manipulation
+    notes: Setting the encryption protector switches the TDE key guarding the instance to an attacker-controlled key (ransomware-style extortion) or to a revoked/inaccessible key that renders the database unreadable (DoS); it also manipulates the security configuration.

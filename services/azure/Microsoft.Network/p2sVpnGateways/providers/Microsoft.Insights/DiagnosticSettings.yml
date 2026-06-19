@@ -1,0 +1,18 @@
+name: P2S VPN Gateway diagnostic settings
+description: Azure Monitor diagnostic settings attached to a Point-to-Site VPN gateway, defining which gateway log categories and metrics are collected and where they are routed (storage, Event Hub, Log Analytics).
+scope: LOW
+notes: A monitoring/diagnostics configuration asset; its sensitivity is tied to observability of the VPN gateway rather than to the network data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading the diagnostic settings only enumerates which logs/metrics are collected and their destinations, which is logs-inventory reconnaissance useful for planning evasion.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    scope: MEDIUM
+    notes: Creating or updating diagnostic settings lets an attacker disable or redirect VPN gateway log collection, blinding incident response and weakening the monitoring defense.

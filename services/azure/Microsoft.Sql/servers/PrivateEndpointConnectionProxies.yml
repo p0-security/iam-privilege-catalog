@@ -1,0 +1,21 @@
+name: Azure SQL Database private endpoint connection proxy
+description: A private endpoint connection proxy is the server-side Private Link plumbing component (managed via NRP) that mediates and configures private endpoint connectivity to an Azure SQL Database server.
+scope: HIGH
+notes: Controls the private-link binding configuration governing which networks reach a production database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deletes the connection proxy, tearing down a private-link connectivity component and disrupting private access to the SQL server (implied DoS).
+  read:
+    risks:
+      - discovery:network
+    notes: List/get inventories the SQL server's private-link connectivity proxy configuration; read-only network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creates or updates the connection proxy, letting an attacker establish or alter the private-link path that exposes the SQL server to a controlled private network and mutate its connectivity configuration.

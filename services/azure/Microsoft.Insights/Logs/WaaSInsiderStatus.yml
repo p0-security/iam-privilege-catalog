@@ -1,0 +1,11 @@
+name: Log Analytics WaaSInsiderStatus table
+description: A Log Analytics workspace table holding Windows Insider build/channel status per device. Monitoring/diagnostic log data.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read exports Windows Insider build-status log records for the device fleet.

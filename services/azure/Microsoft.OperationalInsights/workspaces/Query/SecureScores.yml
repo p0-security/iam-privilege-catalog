@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (SecureScores)
+description: A specific table in an Azure Log Analytics workspace, queried over the data plane via KQL. This table holds aggregate Microsoft Defender for Cloud secure-score posture data.
+scope: MEDIUM
+notes: Reveals overall defensive maturity and gaps; security-relevant monitoring data, MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Returns aggregate secure-score data, exporting the logs (exfiltration:logs) and disclosing the environment's overall security posture and defensive gaps for attack planning (discovery:infra).

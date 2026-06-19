@@ -1,0 +1,20 @@
+name: APIM AI gateway language models
+description: Language model backend configurations registered in an API Management workspace, defining the LLM endpoints the AI gateway routes requests to.
+scope: MEDIUM
+notes: Control-plane configuration of an AI gateway integration; sensitive as a supporting service for a single API-gateway function but does not itself hold the model data or backend secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes a language model backend configuration, removing AI gateway routing infrastructure and disrupting dependent API operations (DoS-like effect).
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists/gets language model backend configurations, providing read-only reconnaissance of the AI gateway's configured LLM backends and routing; returns no secret material.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates/updates a language model backend, letting an attacker alter the gateway's routing configuration (e.g. repoint LLM traffic to an alternate or attacker-controlled endpoint).

@@ -1,0 +1,23 @@
+name: Static Site Linked Backends
+description: The linkage configuration that connects an Azure Static Web App's front end to a backend compute resource (App Service, Functions, Container App) for serving API traffic.
+scope: HIGH
+notes: The linked backend determines where a public-facing static site routes its server-side/API requests.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Unlinks the backend from the static site, severing the front-end-to-API wiring and breaking the application's dynamic/server-side functionality (denial of service for that function).
+  Read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read-only enumeration of the backends linked to a static site; reconnaissance of the site-to-backend integration topology.
+  Write:
+    risks:
+      - impact:manipulation
+      - impact:defacement
+    notes: Registers/repoints the backend a public-facing static site routes API traffic to, letting an attacker attach an attacker-controlled backend so the public front end serves manipulated or defacing responses.

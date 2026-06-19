@@ -1,0 +1,12 @@
+name: Log Analytics NCSStorageAudits table
+description: A Log Analytics data-plane table holding ingested storage audit log records for the workspace.
+scope: MEDIUM
+notes: Ingested storage-access audit content that may reveal data-access patterns and sensitive object identifiers.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: This data-plane read exports the ingested storage audit log records, which can reveal data-access patterns and sensitive identifiers.

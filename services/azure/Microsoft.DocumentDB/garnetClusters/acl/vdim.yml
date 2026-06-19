@@ -1,0 +1,12 @@
+name: Garnet cluster vector set
+description: A vector set inside an Azure Cosmos DB for Garnet cluster, a Redis-compatible in-memory data store used to hold vector embeddings and associated attributes for similarity search / retrieval workloads.
+scope: HIGH
+notes: Production database resource holding organizational data (embeddings and their payloads); these are data-plane (isDataAction) operations on the stored vectors.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Returns only the dimension (shape) of a vector set, structural information about how data is stored rather than the vector contents.

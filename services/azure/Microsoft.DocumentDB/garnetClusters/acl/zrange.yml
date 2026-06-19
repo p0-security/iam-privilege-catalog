@@ -1,0 +1,12 @@
+name: Garnet cluster sorted-set data
+description: A data-plane sorted-set command surface on an Azure Managed Garnet (Redis-compatible) cache cluster, holding cached/operational key-value data for an application.
+scope: HIGH
+notes: Production in-memory data store supporting a single organizational function; sorted-set entries may contain sensitive application data such as session, ranking, or queue state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:data
+    notes: Returns a range of members (optionally with scores) and can iterate the full set to dump its contents.

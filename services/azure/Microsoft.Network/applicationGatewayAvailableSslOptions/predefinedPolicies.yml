@@ -1,0 +1,10 @@
+name: Application Gateway predefined SSL policies
+description: A read-only set of Azure's predefined SSL policy definitions for Application Gateway. Static provider reference data with no tenant-specific content.
+scope: PUBLIC
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns static predefined SSL policy definitions provided by the platform; an inert reference read.

@@ -1,0 +1,16 @@
+name: Storage encryption scope HOBO configuration
+description: An internal Hosted-On-Behalf-Of (HOBO) platform-managed configuration sub-resource scoped to a storage encryption scope, holding backend/operational resource-provider settings rather than key material.
+scope: MEDIUM
+notes: This HOBO sub-resource exposes encryption-scope configuration metadata only; it does not return cryptographic key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the encryption-scope HOBO configuration only enumerates internal platform configuration tied to the encryption scope, providing reconnaissance without returning key material.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing the encryption-scope HOBO configuration alters internal platform configuration governing the encryption scope, a control-plane configuration manipulation that does not by itself rotate or return key material.

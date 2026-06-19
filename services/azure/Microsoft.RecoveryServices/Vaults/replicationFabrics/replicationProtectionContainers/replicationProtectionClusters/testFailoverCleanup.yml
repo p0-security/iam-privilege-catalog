@@ -1,0 +1,11 @@
+name: Site Recovery replication protection clusters
+description: An Azure Site Recovery replication protection cluster represents the disaster-recovery replication relationship and configuration for a clustered workload protected within a Recovery Services vault.
+scope: MEDIUM
+notes: These objects control failover/recovery of production workloads; manipulating them affects availability and recovery state but they do not themselves store the production data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Cleanup only tears down the transient resources created by a prior test failover; it is a restorative operation on sandbox/test infrastructure with no meaningful standalone attacker capability.

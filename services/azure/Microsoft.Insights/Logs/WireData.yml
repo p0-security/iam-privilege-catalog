@@ -1,0 +1,13 @@
+name: Log Analytics WireData table
+description: A Log Analytics workspace data-plane table (WireData) containing collected network wire-level telemetry such as process-level connections, source/destination IPs, ports, protocols, and byte counts.
+scope: MEDIUM
+notes: Monitoring/diagnostics data; sensitivity is operational and may reveal network and host detail, hence MEDIUM rather than CRITICAL.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Data-plane read returns the WireData table rows, exporting collected network connection logs and revealing network topology/communications.

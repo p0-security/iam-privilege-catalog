@@ -1,0 +1,22 @@
+name: APIM product API membership
+description: The set of APIs added to a product within an API Management workspace. Products bundle APIs for subscription-based access control and consumer exposure.
+scope: MEDIUM
+notes: Product membership governs which APIs are surfaced to subscribers and under which access policies, so changes alter the gateway's exposure surface.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Removes an API from a product, altering exposure configuration and disrupting subscriber access to that API through the product.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Lists the APIs associated with a product, inventorying product/API membership configuration.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Adds an API to a product, altering which APIs are exposed under the product's access/subscription scope; manipulates gateway exposure configuration.

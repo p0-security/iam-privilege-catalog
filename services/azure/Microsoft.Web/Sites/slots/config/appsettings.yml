@@ -1,0 +1,18 @@
+name: Web App slot app setting
+description: App settings of an Azure App Service deployment slot, injected into the running app as environment variables.
+scope: CRITICAL
+notes: App settings routinely hold API keys, passwords, and connection secrets returned in cleartext; treated as credential material.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: This management-plane read returns the slot's app setting values in cleartext, which commonly embed secrets/credentials usable to pivot into backing services.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating a slot app setting alters a runtime environment variable the app consumes, letting an attacker redirect dependencies or inject config the app's identity acts upon.

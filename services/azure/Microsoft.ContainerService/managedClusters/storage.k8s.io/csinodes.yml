@@ -1,0 +1,22 @@
+name: Kubernetes CSINodes (AKS)
+description: Cluster-scoped Kubernetes CSINode objects in an AKS managed cluster that record per-node CSI driver registration, node IDs, topology keys, and volume limits used by the scheduler and CSI attach/detach logic.
+scope: HIGH
+notes: Normally maintained by the kubelet; they hold per-node storage capability metadata, not data contents or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting CSINode objects removes nodes' CSI registration state, causing volume attach and scheduling to fail for affected nodes and disrupting stateful workloads.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading/listing CSINode objects enumerates per-node CSI driver registration and storage topology, providing infrastructure reconnaissance of node storage capabilities.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating CSINode objects (normally kubelet-managed) lets an attacker falsify per-node CSI driver/topology/volume-limit metadata, corrupting scheduler placement and attach decisions for volume-backed pods.

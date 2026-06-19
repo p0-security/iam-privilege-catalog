@@ -1,0 +1,12 @@
+name: App Service Environment multi-role pool metric definitions
+description: Schema of available monitoring metrics for an App Service Environment multi-role (front-end) pool.
+scope: LOW
+notes: Returns the metric catalog/schema only, not metric values.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Returns the metric schema for an ASE multi-role pool (names/units, no values), a low-value metadata enumeration.

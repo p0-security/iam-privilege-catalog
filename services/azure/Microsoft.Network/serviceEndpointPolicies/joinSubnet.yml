@@ -1,0 +1,12 @@
+name: Service Endpoint Policy
+description: A Service Endpoint Policy is an Azure network filtering object that restricts which specific Azure service resources (e.g., particular storage accounts) a subnet can reach over service endpoints, acting as a data-exfiltration prevention control.
+scope: HIGH
+notes: Functions as a defensive egress boundary on a single VNet/subnet; sensitivity is at the level of a single network/function rather than tenant-wide.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joining a subnet to service endpoint policies changes which Azure service resources that subnet can reach, potentially expanding reachable resources on the network.

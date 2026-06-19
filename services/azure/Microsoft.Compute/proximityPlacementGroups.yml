@@ -1,0 +1,20 @@
+name: Proximity placement groups
+description: A proximity placement group is a lightweight logical construct that co-locates Azure compute resources (VMs, scale sets) close together for low network latency.
+scope: LOW
+notes: Free logical grouping with no workload or billable capacity of its own; low operational sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a proximity placement group removes a logical co-location grouping (permitted only when empty), a low-impact infrastructure deletion.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a proximity placement group only inventories its membership and co-location configuration metadata.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a proximity placement group alters lightweight co-location configuration metadata; no billable capacity or workload is provisioned.

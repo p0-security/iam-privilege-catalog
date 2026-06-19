@@ -1,0 +1,13 @@
+name: Log Analytics SalesforceLoginHistory table
+description: A Log Analytics workspace table holding ingested Salesforce login-history records (usernames, source IPs, timestamps, login outcomes). It is monitoring data within an Azure Monitor / Log Analytics workspace.
+scope: MEDIUM
+notes: Authentication/identity log content; exposes accounts and login sources usable for targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Read exports authentication logs (exfiltration:logs) and enumerates user accounts plus their login sources/patterns as compromise targets (discovery:account).

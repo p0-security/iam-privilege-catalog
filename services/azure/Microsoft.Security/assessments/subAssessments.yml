@@ -1,0 +1,17 @@
+name: Security sub-assessments
+description: Detailed security sub-assessment findings (specific vulnerabilities and misconfigurations) recorded under Defender for Cloud assessments across the subscription.
+scope: MEDIUM
+notes: Aggregates the concrete weak points discovered across the environment; valuable reconnaissance if exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading sub-assessments hands an attacker a detailed map of exploitable vulnerabilities and misconfigurations across the subscription.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating sub-assessments lets an attacker falsify or suppress findings, masking real vulnerabilities and undermining the integrity of the posture data.

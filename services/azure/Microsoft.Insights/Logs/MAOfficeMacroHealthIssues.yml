@@ -1,0 +1,13 @@
+name: Log Analytics MAOfficeMacroHealthIssues table
+description: A Log Analytics / Azure Monitor table holding Microsoft Managed Desktop / Desktop Analytics telemetry. The MAOfficeMacroHealthIssues table records detected Office macro health-issue records across managed devices.
+scope: MEDIUM
+notes: Monitoring/diagnostics data tier. Issue records enumerate macro-related weaknesses across endpoints, useful for targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Data-plane read returns macro health-issue rows, exporting log content and inventorying macro weaknesses/affected hosts across the estate.

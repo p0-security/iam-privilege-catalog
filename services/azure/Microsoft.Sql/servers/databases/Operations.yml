@@ -1,0 +1,12 @@
+name: Azure SQL Database operations
+description: Asynchronous management operations on an Azure SQL Database, representing in-flight control-plane actions such as restores, copies, scaling, and configuration changes.
+scope: LOW
+notes: Production database management operations support a single organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing operations performed on the database is read-only reconnaissance of management activity and configuration history.

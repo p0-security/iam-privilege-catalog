@@ -1,0 +1,12 @@
+name: Web App site-crashes diagnostics detector
+description: App Service site-crashes diagnostic detector that returns crash/fault diagnostic output (crash events, failure details) for a web app or deployment slot.
+scope: MEDIUM
+notes: Crash telemetry may reveal stack/error details and operational runtime state.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reads crash diagnostic output for a deployment slot, inventorying crash/fault log data for that slot.

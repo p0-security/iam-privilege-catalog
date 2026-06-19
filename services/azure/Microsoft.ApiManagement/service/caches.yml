@@ -1,0 +1,21 @@
+name: API Management external caches
+description: External cache (e.g. Redis) configuration bindings used by the API Management gateway to cache API responses. The control-plane representation holds the cache resource id and a write-only/masked connection-string reference.
+scope: MEDIUM
+notes: Reads return configuration metadata, not the cache secret; the binding is supporting infrastructure for the gateway.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an external cache binding, removing supporting caching infrastructure and degrading gateway performance/availability.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Lists/gets external cache configuration, enumerating supporting infrastructure; the connection string is not returned, so this is reconnaissance only.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates/updates an external cache binding, letting an attacker repoint the gateway's caching layer to an attacker-controlled store and alter/poison cached responses.

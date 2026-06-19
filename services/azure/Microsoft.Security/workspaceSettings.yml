@@ -1,0 +1,22 @@
+name: Defender for Cloud workspace settings
+description: Configuration that determines which Log Analytics workspace Defender for Cloud routes its security telemetry and agent data to.
+scope: MEDIUM
+notes: Controls the destination of security monitoring/log collection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting the workspace setting removes the configured destination for security telemetry, halting centralized security log collection and undermining detection.
+  read:
+    risks:
+      - discovery:logs
+    notes: Reveals which Log Analytics workspace receives security telemetry, inventorying the logging pipeline for later evasion planning.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Updating the workspace setting can redirect security telemetry to an attacker-chosen or unmonitored workspace, breaking centralized log collection and weakening detection.

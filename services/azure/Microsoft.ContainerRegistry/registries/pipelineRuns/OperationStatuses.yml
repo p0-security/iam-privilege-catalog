@@ -1,0 +1,11 @@
+name: Container registry pipeline run operation statuses
+description: An async operation status sub-resource that reports the progress/completion state of a long-running pipeline-run operation.
+scope: LOW
+notes: Pure operation-status polling; conveys only transient progress state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling an async operation status returns only transient operation progress and grants no meaningful attacker capability in isolation.

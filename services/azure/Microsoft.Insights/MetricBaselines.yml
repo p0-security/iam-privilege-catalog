@@ -1,0 +1,12 @@
+name: Metric baseline
+description: Azure Monitor metric baselines (expected metric value ranges/trends) for resources.
+scope: LOW
+notes: Aggregate non-sensitive operational telemetry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:infra
+    notes: Reads metric baselines, exposing expected resource performance ranges as infrastructure telemetry reconnaissance.

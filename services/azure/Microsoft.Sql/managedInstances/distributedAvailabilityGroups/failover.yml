@@ -1,0 +1,13 @@
+name: Azure SQL Managed Instance distributed availability groups
+description: A distributed availability group is a replication link between an Azure SQL Managed Instance and a partner instance (or SQL Server), used for high availability, disaster recovery, and migration.
+scope: HIGH
+notes: These links sit in front of production managed-instance databases; controlling them affects data replication direction, availability, and where production data flows.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Triggering a failover forcibly switches the active primary, disrupting the production database service and changing which instance is authoritative (forced failover can also incur data loss).

@@ -1,0 +1,11 @@
+name: Cosmos DB regional partition metrics
+description: Per-region, per-partition operational performance metrics for a Cosmos DB collection. Granular monitoring telemetry, not the stored data.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading regional partition-level metrics surfaces per-region per-partition operational telemetry for reconnaissance only.

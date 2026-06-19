@@ -1,0 +1,12 @@
+name: AKS API server API-surface documentation
+description: The Kubernetes API server's Swagger/OpenAPI documentation and UI surface exposed via the AKS managed cluster data plane.
+scope: LOW
+notes: Discloses the available API schema/endpoints of the control plane, useful for enumerating attack surface.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the swagger-api/OpenAPI specification enumerates the apiserver's available resources and endpoints as infrastructure reconnaissance.

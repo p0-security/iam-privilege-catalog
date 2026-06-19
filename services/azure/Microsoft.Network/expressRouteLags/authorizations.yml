@@ -1,0 +1,23 @@
+name: ExpressRoute LAG authorizations
+description: ExpressRoute LAG authorizations are authorization objects (with associated authorization keys) that permit circuits to cross-connect into a dedicated ExpressRoute LAG.
+scope: HIGH
+notes: The authorization key is a credential that lets a circuit link into the private network; the authorization object's read path returns only metadata, not the key.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:access
+    notes: Deleting an authorization tears down a sanctioned cross-connect grant, disrupting dedicated connectivity (DoS-like) and revoking legitimate peers' authorized network access.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the authorization returns its configuration/state metadata (not the secret key, which is exposed only via listkeys), enabling inventory of existing connection authorizations.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating an authorization provisions a grant (and underlying key) that permits an additional circuit to connect into the dedicated private network, enabling network movement onto connected resources.

@@ -1,0 +1,11 @@
+name: Azure Network location operations
+description: Location-scoped internal control-plane action operations of the Microsoft.Network resource provider, covering capability checks, resource-move orchestration, ownership management, Azure Network Manager configuration, load balancer control, and effective-topology reads. These are management-plane operations rather than tenant data access.
+scope: LOW
+notes: Many of these are internal/undocumented platform operations; their sensitivity ranges from inert pre-flight checks to high-impact network configuration writes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: An internal orchestration notification fired during a resource-move workflow; in isolation it triggers no attacker-exploitable state change and discloses nothing sensitive.

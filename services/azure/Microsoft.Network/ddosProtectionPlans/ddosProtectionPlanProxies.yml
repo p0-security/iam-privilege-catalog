@@ -1,0 +1,21 @@
+name: DDoS Protection Plan Proxy
+description: A DDoS Protection Plan Proxy is a child helper/linkage object of a DDoS Protection Plan that represents the association configuration between protected network resources and the plan.
+scope: MEDIUM
+notes: A supporting component of the DDoS network defense resource; contains association/configuration metadata, no organizational data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the proxy removes a defense-plan association component, potentially detaching network resources from DDoS protection and weakening the mitigation coverage.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the proxy definition returns network defense association configuration metadata, enabling reconnaissance of how resources are linked to the protection plan.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the proxy alters the defense plan's association configuration, manipulating which resources are tied to DDoS protection.

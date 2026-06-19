@@ -1,0 +1,10 @@
+name: Cosmos DB private endpoint connection proxy operation result
+description: Represents the status of an asynchronous private endpoint connection proxy operation on an Azure Cosmos DB database account. It exposes only operation progress/state, not the connection configuration itself.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the async operation status returns only operation progress and grants no reconnaissance or offensive capability in isolation.

@@ -1,0 +1,12 @@
+name: Web App slot diagnostics analyses
+description: App Service 'Diagnose and solve problems' diagnostic analyses scoped to a deployment slot of a web app, reporting on the slot's configuration and operational health.
+scope: MEDIUM
+notes: Diagnostics/monitoring supporting data for a single app's slot; surfaces configuration/health detail but no stored application data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a slot diagnostic analysis discloses the slot's configuration and health details for infrastructure reconnaissance.

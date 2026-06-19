@@ -1,0 +1,13 @@
+name: Web App hybrid connection relays
+description: A hybrid connection relay on a Web App is an Azure Relay-backed network bridge that lets the app reach a specific backend TCP endpoint (often on-premises or in a private network) by host and port.
+scope: CRITICAL
+notes: Configuration discloses the relay namespace and target host/port (network topology); the relay's send/listen keys are credential material retrieved via a separate listKeys action.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:network
+    notes: Returns the Azure Relay SAS send/listen access keys for the hybrid connection; an attacker exfiltrates these reusable credentials and connects to the relay to reach the backend/private/on-prem network it bridges.

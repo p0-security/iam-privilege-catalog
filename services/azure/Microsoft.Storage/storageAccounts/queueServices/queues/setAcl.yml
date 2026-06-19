@@ -1,0 +1,13 @@
+name: Storage Queue Service Queues
+description: A storage queue is a named message container within the queue service that holds messages (work items) for asynchronous producer/consumer processing.
+scope: HIGH
+notes: Queues carry in-flight operational data and may drive downstream automation; their stored access policies back SAS-token access.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+      - impact:manipulation
+    notes: Despite the mislabeled 'Process message' display name, the setAcl operation writes the queue's stored access policy, letting an attacker grant or broaden SAS-backed access to the queue (and revoke others' access).

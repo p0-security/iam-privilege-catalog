@@ -1,0 +1,23 @@
+name: Azure Virtual Network Manager
+description: Azure Virtual Network Manager is a centralized network governance resource that manages connectivity (mesh/hub-spoke peering) and security admin rules across many VNets within a defined scope of subscriptions/management groups.
+scope: MEDIUM
+notes: Its committed configurations can override NSGs and reshape connectivity across a broad network scope, making it a high-leverage network control plane.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Lists the active enforced security admin rules (which supersede NSGs), revealing the network access-control posture so an attacker can map allowed/blocked traffic and find gaps.
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    scope: HIGH
+    notes: Listing the active admin rules reveals the enforced network-wide allow/deny firewall policy, exposing gaps and weak points for reconnaissance.
+    name: Network Manager active security admin rules
+    parent:
+      description: A read permission that returns the effective, deployed security admin rules enforced by an Azure Virtual Network Manager across its managed virtual networks (centrally enforced allow/deny firewall rules that override NSGs).
+      notes: Centrally enforced network security policy spanning many managed VNets.

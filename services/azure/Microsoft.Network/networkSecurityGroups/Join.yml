@@ -1,0 +1,12 @@
+name: Network Security Group
+description: A Network Security Group (NSG) is a stateful firewall ruleset (allow/deny by port, protocol, IP, and direction) that can be attached to subnets and network interfaces to control traffic.
+scope: HIGH
+notes: A primary network defense for a single network/function; the firewall posture it encodes is sensitive but governs one VNet/segment rather than the whole tenant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joining an NSG associates a chosen (possibly permissive) ruleset with a subnet or NIC, letting an attacker alter the firewall posture applied to a resource and open broader network reach.

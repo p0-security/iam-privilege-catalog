@@ -1,0 +1,23 @@
+name: Azure Automation job schedule
+description: An Azure Automation Job Schedule links a runbook to a schedule, defining which runbook executes automatically and when.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+    notes: Deleting a job schedule unlinks a runbook from its schedule, halting automated operations (e.g. scheduled backups, remediation, scaling) and disrupting the service they support.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading a job schedule enumerates which runbooks are wired to which schedules, mapping the automation execution surface without altering or running anything.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:manipulation
+    scope: HIGH
+    notes: Creating a job schedule causes a runbook to execute automatically under the Automation account's managed/Run-As identity, giving the attacker recurring code execution as that identity (lateral movement) and hijacking compute to run arbitrary workloads.

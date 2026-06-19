@@ -1,0 +1,22 @@
+name: Private Endpoint Connection Proxy
+description: A private endpoint connection proxy is internal Private Link plumbing that brokers and tracks private endpoint connections to a Private Link service.
+scope: HIGH
+notes: Private connectivity component supporting a single service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the proxy tears down a private connectivity component, disrupting access to the linked service (DoS-like network destruction).
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading the proxy enumerates private link connectivity state and topology, providing network reconnaissance only.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating the proxy can establish or approve private connectivity to a Private Link service, enabling network movement into otherwise-isolated resources and altering connection state.

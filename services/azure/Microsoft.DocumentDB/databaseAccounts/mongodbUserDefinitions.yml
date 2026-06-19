@@ -1,0 +1,24 @@
+name: Cosmos DB MongoDB user definition
+description: A MongoDB User Definition is a data-plane database user account for the Cosmos DB for MongoDB API, holding the username, credential (password set on write, not returned on read), and the role definitions assigned to it.
+scope: HIGH
+notes: Represents a credentialed data-plane identity for a single database account's data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:account
+      - impact:access
+    notes: Deleting a MongoDB user definition removes a database account, destroying the identity and denying that user authorized access to the data plane.
+  read:
+    risks:
+      - discovery:account
+      - discovery:policy
+    notes: Reading a MongoDB user definition enumerates database user accounts and their assigned roles, inventorying identities as targets for compromise and revealing their access-control mappings; the API does not return plaintext passwords.
+  write:
+    risks:
+      - persistence:account
+      - escalation:privilege
+    scope: CRITICAL
+    notes: Creating or updating a MongoDB user definition lets an attacker provision a database user with a chosen password and attach privileged roles, establishing persistent credentialed data-plane access and escalating privilege.

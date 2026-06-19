@@ -1,0 +1,12 @@
+name: AKS Kubernetes networking API group
+description: Data-plane access to the Kubernetes networking.k8s.io aggregated API on an AKS managed cluster, which exposes Ingresses, IngressClasses, and NetworkPolicies.
+scope: MEDIUM
+notes: Read access reveals cluster network topology, ingress routing, and network-policy segmentation rules.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Lists/gets networking objects, letting an attacker map ingress routes and network-policy segmentation to find exposed services and gaps.

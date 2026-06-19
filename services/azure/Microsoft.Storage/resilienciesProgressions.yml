@@ -1,0 +1,12 @@
+name: Storage resiliency progressions
+description: A control-plane resource tracking the progress/status of storage account resiliency operations.
+scope: LOW
+notes: Read-only operational status; non-sensitive configuration state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading resiliency progression status only inventories operational/configuration state of the storage account's resiliency posture.

@@ -1,0 +1,11 @@
+name: Network Security Group log definitions
+description: The catalog of available event/log category definitions for a Network Security Group, enumerating which log types and fields the NSG can emit.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading NSG log definitions only enumerates the available log/event categories, a low-sensitivity logging-schema reconnaissance read.

@@ -1,0 +1,11 @@
+name: Azure SQL Managed Instance server configuration option async operation status
+description: A location-scoped endpoint that reports the status of the asynchronous server-configuration-option update operation for an Azure SQL Managed Instance.
+scope: LOW
+notes: Status-polling endpoint; exposes operation progress only, not configuration control or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading the status of the async server-configuration-option operation is an inert status poll that grants no control over configuration and exposes no sensitive data in isolation.

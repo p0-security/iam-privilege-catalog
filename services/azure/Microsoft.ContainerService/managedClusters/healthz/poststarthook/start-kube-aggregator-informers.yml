@@ -1,0 +1,12 @@
+name: AKS API server health probe
+description: A Kubernetes API server healthz/livez liveness probe sub-endpoint exposed as an AKS managed-cluster data action. It returns the operational health/completion status of a named control-plane subsystem or post-start hook.
+scope: LOW
+notes: Despite path segments that name sensitive subsystems (RBAC, etcd, scheduling, log), these endpoints return only a binary up/down or completion status string, not the underlying configuration, policy, data, or log contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the health status of the kube-aggregator-informers post-start hook; only a control-plane readiness indicator.

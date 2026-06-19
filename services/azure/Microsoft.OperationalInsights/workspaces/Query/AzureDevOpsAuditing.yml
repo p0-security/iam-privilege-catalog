@@ -1,0 +1,13 @@
+name: Azure DevOps auditing log table (Log Analytics)
+description: A Log Analytics workspace query data-plane permission scoped to the AzureDevOpsAuditing table, which stores Azure DevOps audit-trail events (repo, pipeline, permission activity) ingested into the workspace.
+scope: MEDIUM
+notes: DevOps audit logs reveal developer identities, source-control and CI/CD operations, and permission changes across the engineering organization.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Exports DevOps audit records disclosing repository/pipeline/permission activity and developer accounts, revealing the development environment.

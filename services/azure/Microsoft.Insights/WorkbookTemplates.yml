@@ -1,0 +1,21 @@
+name: Azure Monitor workbook templates
+description: Azure Monitor workbook templates are reusable monitoring visualization/dashboard definitions (queries, parameters, and report layout) that operators instantiate to view telemetry.
+scope: MEDIUM
+notes: Presentation/visualization configuration for monitoring; touches no underlying log or organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:artifact
+    notes: Deleting a workbook template removes a stored monitoring/visualization artifact, with no impact on underlying logs or organizational data.
+  Read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading a workbook template returns the monitoring dashboard/query definition, inventorying observability configuration and what resources/queries it references for reconnaissance.
+  Write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a workbook template alters shared monitoring visualization content, letting an attacker manipulate dashboards/reports to mislead operators or hide indicators.

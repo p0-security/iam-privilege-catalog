@@ -1,0 +1,13 @@
+name: Log Analytics StorageTableLogs table
+description: A Log Analytics workspace table holding Azure Table storage access/diagnostic logs (table operations, caller identities, IPs).
+scope: MEDIUM
+notes: Diagnostic access-log data; reveals table access patterns.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:data
+    notes: Reading exports table-storage access-log records (exfiltration:logs) and reveals table names and access patterns useful for inventorying stored data (discovery:data).

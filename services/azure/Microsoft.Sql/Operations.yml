@@ -1,0 +1,10 @@
+name: Azure SQL provider operations
+description: The list of available REST API operations exposed by the Microsoft.Sql resource provider. This is static metadata describing the provider's API surface, not tied to any tenant resource.
+scope: PUBLIC
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Lists the provider's available REST operations; exposes no organizational resources or data and grants no offensive capability.

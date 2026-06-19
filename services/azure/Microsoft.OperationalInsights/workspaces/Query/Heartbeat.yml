@@ -1,0 +1,13 @@
+name: Log Analytics workspace Heartbeat table
+description: A Log Analytics workspace query table holding agent heartbeat check-in records from monitored machines.
+scope: MEDIUM
+notes: Records inventory monitored hosts including computer names, IP addresses, OS, and agent versions.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Data-plane read exports agent check-in records that inventory the monitored machines/agents (hostnames, IPs, OS, agent versions) in the environment.

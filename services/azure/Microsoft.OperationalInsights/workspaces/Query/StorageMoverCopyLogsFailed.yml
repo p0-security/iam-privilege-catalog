@@ -1,0 +1,12 @@
+name: Log Analytics StorageMoverCopyLogsFailed table
+description: A Log Analytics workspace table holding Azure Storage Mover failed-copy logs (per-file failure records, often including file paths/names). Reading it returns the stored log rows.
+scope: MEDIUM
+notes: Monitoring data is MEDIUM scope; may reveal file paths/names and data layout.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Exports per-file migration-failure records that can reveal file paths and source/target detail.

@@ -1,0 +1,12 @@
+name: Storage blob container immutability policies
+description: A WORM (write-once-read-many) immutability/retention policy applied to a blob container, preventing deletion or modification of blobs for a retention period.
+scope: HIGH
+notes: Immutability policies are a data-protection and compliance defense guarding container data against tampering, deletion, and ransomware.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:access
+    notes: Extending the immutability retention period prolongs the WORM lock, denying authorized operators the ability to delete or modify the data for longer than intended.

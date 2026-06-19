@@ -1,0 +1,11 @@
+name: Acquire policy token
+description: An internal Azure Policy operation that acquires a narrowly scoped policy (ChangeSafety/attestation) token used by the policy engine to gate or attest compliance evaluation of write operations.
+scope: LOW
+notes: The token is policy-scoped, not a reusable identity credential, and does not return secret or account material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Acquiring a policy token yields only a scope-internal attestation token, granting no meaningful standalone capability over data, identity, or configuration.

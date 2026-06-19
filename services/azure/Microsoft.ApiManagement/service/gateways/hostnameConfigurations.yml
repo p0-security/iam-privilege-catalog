@@ -1,0 +1,23 @@
+name: Gateway hostname configurations
+description: Custom hostname (domain) bindings attached to an API Management self-hosted/gateway resource, defining the network-facing endpoints and associated certificates through which the gateway serves APIs.
+scope: HIGH
+notes: Controls public-facing domain routing for a single API gateway; writes can hijack traffic on a domain.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Removes the gateway's hostname/endpoint binding, breaking client connectivity to APIs served on that domain (denial of service).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Lists/gets the hostnames bound to a gateway, enumerating how the gateway is exposed; read-only network reconnaissance with no secret disclosure.
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+    notes: Binds a custom domain/hostname (and certificate) to the gateway, letting an attacker route traffic for that domain through the gateway and alter the public-facing endpoint configuration.

@@ -1,0 +1,11 @@
+name: API Management name availability check
+description: A pre-provisioning helper that reports whether a proposed API Management service name is available.
+scope: LOW
+notes: Returns only a name-availability boolean; no organizational resource data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Checking whether a proposed service name is free exposes no organizational data and enables no attacker capability.

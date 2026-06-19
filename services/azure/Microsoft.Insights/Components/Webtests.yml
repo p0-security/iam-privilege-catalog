@@ -1,0 +1,13 @@
+name: Web tests
+description: Application Insights webtests (synthetic availability monitors) that periodically probe target endpoint URLs to detect outages, including their target URLs, frequency, and request settings.
+scope: MEDIUM
+notes: Configuration discloses monitored endpoints; webtests act as an availability-monitoring/detection mechanism.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:infra
+      - discovery:network
+    notes: Reads webtest configuration, disclosing monitored endpoint URLs and request settings, inventorying both the monitoring setup and the target network endpoints.

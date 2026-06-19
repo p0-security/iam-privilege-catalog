@@ -1,0 +1,22 @@
+name: Azure Virtual Network Manager routing rule
+description: An individual user-defined routing rule within an AVNM rule collection, defining destination prefixes and next-hops pushed to managed subnets.
+scope: HIGH
+notes: AVNM routing rules control traffic flow across managed subnets; altering them changes network reachability for the managed network scope.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a routing rule removes a route applied to managed subnets, potentially severing connectivity for dependent services.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading an individual routing rule discloses its prefixes and next-hop, providing network routing reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a routing rule lets an attacker set next-hop/prefix entries that redirect managed-subnet traffic through attacker-controlled appliances, enabling interception and lateral network reach.

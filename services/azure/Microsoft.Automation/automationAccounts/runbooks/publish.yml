@@ -1,0 +1,14 @@
+name: Azure Automation runbook
+description: An Azure Automation runbook is an automation asset containing executable script source code (PowerShell, PowerShell Workflow, Python, or graphical) that runs within an Automation Account, typically under that account's managed or Run As identity against Azure resources.
+scope: HIGH
+notes: Runbooks execute as the Automation Account identity, which often holds broad permissions; their source frequently embeds resource targets and occasionally credentials, making both read and write of runbooks security-sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+      - impact:hijack
+    notes: Publishing promotes a (potentially attacker-modified) runbook draft to the live executable version, activating code that runs under the Automation identity for lateral movement, automation tampering, and workload hijacking.

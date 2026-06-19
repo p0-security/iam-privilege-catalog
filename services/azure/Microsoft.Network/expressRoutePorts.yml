@@ -1,0 +1,21 @@
+name: ExpressRoute ports
+description: ExpressRoute ports (ExpressRoute Direct) are dedicated physical network connectivity resources that provide high-bandwidth private links between an organization's on-premises network and Azure at a peering location.
+scope: HIGH
+notes: Production hybrid-connectivity infrastructure supporting a single organizational function; compromise can disrupt or expose private network traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deletes the ExpressRoutePort, severing dedicated private connectivity and disrupting any service depending on the link.
+  read:
+    risks:
+      - discovery:network
+    notes: Reads ExpressRoutePort configuration (bandwidth, peering location, link details), enabling inventory of dedicated network connectivity infrastructure.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creates or updates ExpressRoutePorts, altering dedicated connectivity configuration and provisioning costly high-bandwidth port resources.

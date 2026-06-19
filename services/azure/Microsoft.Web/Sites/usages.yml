@@ -1,0 +1,11 @@
+name: App Service web app usages
+description: Usage and quota consumption counters for an App Service web app (e.g. resource utilization against plan limits).
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads non-sensitive usage/quota metrics for the app, a low-value reconnaissance read of operational resource consumption.

@@ -1,0 +1,12 @@
+name: VNet usage metric
+description: A read-only VNet operation that reports IP address usage/capacity metrics for each subnet of a virtual network.
+scope: LOW
+notes: Returns only aggregate address-space utilization; no secrets or customer data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Inventories per-subnet IP usage and capacity, revealing network address-space utilization and topology for reconnaissance.

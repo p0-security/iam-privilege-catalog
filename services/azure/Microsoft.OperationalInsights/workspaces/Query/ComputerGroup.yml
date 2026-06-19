@@ -1,0 +1,12 @@
+name: Log Analytics ComputerGroup table
+description: A Log Analytics workspace data table holding ComputerGroup records — saved computer-group membership definitions that group monitored machines for scoping queries.
+scope: MEDIUM
+notes: Operational grouping metadata that inventories monitored hosts rather than carrying bulk sensitive log payload; MEDIUM sensitivity as monitoring data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads saved computer-group definitions, enumerating which hosts/machines the organization monitors for infrastructure reconnaissance.

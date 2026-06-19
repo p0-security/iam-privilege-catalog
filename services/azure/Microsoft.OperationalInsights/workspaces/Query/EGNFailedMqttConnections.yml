@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (EGNFailedMqttConnections)
+description: A specific log table within an Azure Log Analytics workspace recording Event Grid Namespace failed MQTT connection events; this data-plane read returns the stored records.
+scope: MEDIUM
+notes: Monitoring/diagnostics data (MEDIUM). Content may include client identifiers and connection metadata for the messaging fabric.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading this table exports failed-MQTT-connection telemetry (exfiltration:logs) and lets an attacker enumerate client/connection log entries (discovery:logs).

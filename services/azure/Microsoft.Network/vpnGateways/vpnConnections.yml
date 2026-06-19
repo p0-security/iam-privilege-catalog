@@ -1,0 +1,21 @@
+name: VPN gateway connections
+description: A VPN connection on an Azure VPN Gateway represents a site-to-site (or VNet-to-VNet) IPsec/IKE tunnel linking an Azure virtual network to an on-premises or remote network. It carries production hybrid-connectivity traffic for the networks it joins.
+scope: HIGH
+notes: Production network connectivity component supporting a single organizational function; controls cross-premises reachability.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the connection tears down the site-to-site tunnel, severing cross-premises connectivity for dependent workloads.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the connection inventories tunnel topology, peer addresses, and routing/BGP config for reconnaissance; the control-plane get does not return the IPsec shared key.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a connection can stand up an attacker-controlled tunnel into the VNet (network movement) or alter routing/peering of an existing tunnel, manipulating production connectivity.

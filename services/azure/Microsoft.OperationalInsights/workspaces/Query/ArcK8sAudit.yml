@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (ArcK8sAudit)
+description: A specific log table within an Azure Log Analytics workspace recording Azure Arc-enabled Kubernetes API-server audit events; this data-plane read returns the stored records.
+scope: MEDIUM
+notes: Monitoring/diagnostics data (MEDIUM). Audit content reveals cluster API activity, operating identities, service accounts, and RBAC actions useful for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading this table exports the Kubernetes API audit trail (exfiltration:logs) and lets an attacker enumerate cluster activity, identities, and access patterns (discovery:logs).

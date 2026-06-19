@@ -1,0 +1,12 @@
+name: Web App site-restart-setting diagnostics detector
+description: App Service diagnostic detector that returns the status/configuration of the web app's site-restart setting.
+scope: LOW
+notes: Low-sensitivity operational configuration/status read.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the site-restart-setting diagnostic status, exposing only minor operational configuration of the app for reconnaissance.

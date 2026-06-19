@@ -1,0 +1,10 @@
+name: Server blob auditing operation results
+description: The asynchronous operation-result endpoint for a server's blob auditing policy Set operation, returning the status/outcome of a previously submitted auditing configuration change.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the success/status of an async auditing-policy set operation; an operation-status poll exposing no log content or actionable capability.

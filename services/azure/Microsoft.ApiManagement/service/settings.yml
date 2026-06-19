@@ -1,0 +1,12 @@
+name: API Management tenant/portal settings
+description: Tenant/portal settings of an API Management instance; this legacy endpoint is documented as always empty (superseded by /settings/public).
+scope: LOW
+notes: Returns non-sensitive configuration metadata; documented as always empty.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads tenant portal settings (documented as always empty), exposing at most non-sensitive configuration metadata.

@@ -1,0 +1,12 @@
+name: VPN link connection
+description: A VPN link connection resource representing an individual tunnel within a Virtual WAN site-to-site VPN connection on a VPN gateway.
+scope: MEDIUM
+notes: Manages/inspects a live production VPN tunnel; reads expose connectivity posture, the reset action disrupts connectivity.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Lists the tunnel's IKE security association state and negotiated parameters (algorithms, SA status); reconnaissance of the VPN tunnel posture only — it does not return pre-shared key material, so no exfiltration:crypto.

@@ -1,0 +1,11 @@
+name: Resource Guards
+description: ResourceGuards are Azure Backup Multi-User Authorization (MUA) protection objects that gate destructive backup operations (such as stopping protection or deleting backups) behind cross-directory approval.
+scope: LOW
+notes: These are anti-ransomware defense controls; their configuration reveals which backups are protected versus exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the request/status info of a previously submitted asynchronous ResourceGuard operation; an inert operation-status poll that exposes no actionable configuration in isolation.

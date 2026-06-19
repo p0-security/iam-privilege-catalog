@@ -1,0 +1,32 @@
+name: Connector Gateway Connection
+description: A Connector Gateway Connection is a credential-bearing link from the gateway to a backend data source, storing authentication/connection parameters used by Logic Apps/Power Platform integrations.
+scope: HIGH
+notes: Connections hold or reference backend credentials, so they support access to a single organizational function's data and are sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: A discrete action on a credential-bearing connection can exercise or alter the connection's stored backend identity, letting an attacker invoke the connection to reach the backend (lateral) and change its operational state.
+    name: Connector Gateway
+    parent:
+      description: A Connector Gateway is a Microsoft.Web integration resource that bridges cloud services (Logic Apps, Power Platform) to backend/on-premises data sources, brokering credentialed connections and connector definitions.
+      notes: Supporting integration infrastructure; the gateway itself is a connectivity bridge rather than a primary data store, but the connections it brokers can carry credentials to backend systems.
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a connection removes the credentialed link a backend integration relies on, destroying the integration resource and disrupting dependent Logic Apps/workflows.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane GET returns the connection's properties (backend target, auth type, status) for reconnaissance; following the Microsoft.Web connections precedent, raw secret values are not returned in plaintext.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+      - persistence:account
+    notes: Create/update lets an attacker set or repoint the stored backend credential/auth configuration, planting an attacker-controlled credentialed link (persistence) and pivoting into the backend the connection targets (lateral) while altering integration config.

@@ -1,0 +1,20 @@
+name: APIM workspace API schemas
+description: Schema configurations associated with an API defined within an Azure API Management workspace. They describe the data structures/contract (e.g. types, formats) the API gateway uses to validate and process requests and responses.
+scope: MEDIUM
+notes: Control-plane configuration of an API gateway supporting a single organizational function; reveals API surface structure but no secrets or runtime data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes the schema configuration for an API, removing a config component the API depends on and potentially disrupting validation/processing (DoS-like effect).
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads/lists the schema configuration for an API, inventorying the API's structure/contract for reconnaissance without returning secrets or stored data.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates the API schema configuration, letting an attacker alter the API contract/validation behavior that governs how the gateway processes requests.

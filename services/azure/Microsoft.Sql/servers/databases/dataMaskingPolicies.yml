@@ -1,0 +1,17 @@
+name: Database Data Masking Policy
+description: The dynamic data masking policy for an Azure SQL Database, a data-protection control that obscures sensitive column values from lower-privileged readers.
+scope: MEDIUM
+notes: Reading it reveals which columns are deemed sensitive and how they are protected.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading the masking policy reveals which sensitive columns are masked and how, pinpointing protected data and bypass opportunities.
+  write:
+    risks:
+      - destruction:defense
+    scope: HIGH
+    notes: Setting the masking policy lets an attacker disable dynamic data masking, removing the defense that hides sensitive column values and exposing them to readers.

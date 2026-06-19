@@ -1,0 +1,22 @@
+name: Logic Apps API access-control list
+description: The API access-control list (ACL) restricting which principals may invoke a managed API/connector.
+scope: MEDIUM
+notes: These ACLs are authorization policy; removing or rewriting them changes who can reach the API.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deletes the API ACL entries, tearing down the access-control policy that restricts callers, which can strip authorized principals' access while relaxing restrictions guarding the API.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reads the API ACL, letting an attacker inventory which identities are authorized to invoke the API and locate gaps in the access policy.
+  write:
+    risks:
+      - escalation:privilege
+      - impact:access
+    notes: Creating/updating the API ACL lets an attacker grant their own principal authorization to invoke the API and overwrite or restrict other principals' access.

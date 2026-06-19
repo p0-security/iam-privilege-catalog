@@ -1,0 +1,11 @@
+name: Vault Replication Operation Status
+description: A sub-resource of a Recovery Services vault's Site Recovery feature that reports the status of vault replication operations.
+scope: LOW
+notes: Pure operation-status polling endpoint.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the state of an in-progress replication operation; no meaningful capability in isolation.

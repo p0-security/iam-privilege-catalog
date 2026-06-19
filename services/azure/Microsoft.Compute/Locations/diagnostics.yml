@@ -1,0 +1,12 @@
+name: Compute diagnostics
+description: Microsoft Compute location-scoped diagnostics, a self-service troubleshooting subsystem that inspects the configuration and health state of compute resources (VMs, disks) and returns findings.
+scope: LOW
+notes: Diagnostics surface infrastructure configuration/health metadata for reconnaissance but do not expose data-plane contents, secrets, or mutate resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only enumeration of available Compute diagnostic capabilities/metadata at a location, a low-value infrastructure reconnaissance.

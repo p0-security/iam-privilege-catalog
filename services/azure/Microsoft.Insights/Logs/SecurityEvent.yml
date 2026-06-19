@@ -1,0 +1,13 @@
+name: Log Analytics SecurityEvent table
+description: A Log Analytics workspace table holding Windows Security event-log records (logons, account management, privilege use, process creation).
+scope: MEDIUM
+notes: Frequently contains account names, logon activity, and other sensitive identity/audit data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports Windows security audit records (exfiltration:logs) and reveals monitoring coverage and account/host activity (discovery:logs).

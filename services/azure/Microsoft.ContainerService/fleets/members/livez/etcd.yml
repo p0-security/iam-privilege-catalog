@@ -1,0 +1,12 @@
+name: AKS Fleet member control-plane health probe
+description: A Kubernetes API server healthz/livez health-probe sub-endpoint exposed as an Azure data action on a member cluster of an AKS Fleet. It reports only the reachability/health of the etcd backing store (not its contents).
+scope: LOW
+notes: These are operational health-check endpoints that return only ok/failed status strings, never the underlying data, secrets, certificates, or configuration. The etcd sub-check exposes only datastore reachability, not any stored cluster data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reports only whether the etcd backend is reachable/healthy; returns no etcd contents, so it is infra-status recon rather than data access.

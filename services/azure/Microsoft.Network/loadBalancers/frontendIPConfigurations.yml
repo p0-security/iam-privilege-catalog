@@ -1,0 +1,12 @@
+name: Load Balancer Frontend IP Configuration
+description: A load balancer frontend IP configuration defines the public or private IP endpoint(s) through which a load balancer receives inbound traffic before distributing it to backend pools.
+scope: LOW
+notes: Frontend IP configuration is network exposure metadata; reading it is reconnaissance, while wiring resources to it can alter the ingress path of a single service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Read-only retrieval of the frontend IP configuration (public/private IPs, bindings, associated rules) only enables network reconnaissance.

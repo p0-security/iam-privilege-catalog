@@ -1,0 +1,11 @@
+name: Static Site private endpoint connection proxy operations
+description: Asynchronous operation-status records for private-endpoint connection-proxy actions on an Azure Static Web App.
+scope: LOW
+notes: Operation-status polling endpoint exposing only async operation state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks: []
+    notes: Polls the status of asynchronous connection-proxy operations, returning only operation state and conveying no actionable capability, inventory, or sensitive data in isolation.

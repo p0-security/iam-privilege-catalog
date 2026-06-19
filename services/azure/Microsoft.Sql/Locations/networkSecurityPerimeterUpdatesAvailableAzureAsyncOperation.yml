@@ -1,0 +1,11 @@
+name: SQL network security perimeter async operation status
+description: A location-scoped async operation tracker that returns the progress/status of a long-running network security perimeter update request.
+scope: LOW
+notes: Status-polling endpoint; exposes only operation progress, no resource configuration, data, or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads only the status/progress of a long-running NSP update operation; an inert poll with no offensive capability in isolation.

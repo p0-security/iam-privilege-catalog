@@ -1,0 +1,12 @@
+name: Log Analytics workspace metric definitions
+description: Metric definitions describe the available platform metrics (the metric schema/catalog) exposed under a Log Analytics workspace.
+scope: LOW
+notes: Read-only monitoring schema metadata; no actual telemetry values are returned.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Enumerates which monitoring metrics/fields exist for the workspace, low-value reconnaissance of the telemetry catalog.

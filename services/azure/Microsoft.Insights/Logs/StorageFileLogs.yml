@@ -1,0 +1,13 @@
+name: Log Analytics StorageFileLogs table
+description: A Log Analytics workspace table holding Azure Files access/diagnostic logs (file paths, operations, caller identities, IPs).
+scope: MEDIUM
+notes: Diagnostic access-log data; reveals file-share access patterns and paths.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:data
+    notes: Reading exports file-share access-log records (exfiltration:logs) and reveals file paths and access patterns useful for inventorying stored data (discovery:data).

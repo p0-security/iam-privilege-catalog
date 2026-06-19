@@ -1,0 +1,12 @@
+name: Resource log definitions
+description: The set of available log category definitions (schema/metadata) exposed for a resource by Azure Monitor; it enumerates which log types exist rather than returning log content.
+scope: LOW
+notes: Read-only monitoring metadata of low sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Enumerates the available log category definitions for the resource, inventorying log types without returning log content.

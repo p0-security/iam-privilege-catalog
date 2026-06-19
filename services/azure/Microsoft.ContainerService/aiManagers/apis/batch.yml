@@ -1,0 +1,12 @@
+name: AKS Kubernetes batch API (data plane)
+description: The Kubernetes batch API group exposed through the AKS aiManagers data plane. It holds Job and CronJob resources defining one-off and scheduled cluster workloads.
+scope: LOW
+notes: Read-only inventory of batch/scheduled workloads; non-sensitive infrastructure reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Get/List of the batch group enumerates Job/CronJob definitions, inventorying scheduled and batch workloads running in the cluster.

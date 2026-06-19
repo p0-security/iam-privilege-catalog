@@ -1,0 +1,12 @@
+name: Application Insights log definitions
+description: Log definitions enumerate the available log categories/types and schema for an Application Insights component. This is metadata describing what kinds of logs exist, not the log content itself.
+scope: LOW
+notes: Read-only schema metadata of low sensitivity; no log content or secrets are exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Reading log definitions only enumerates the available log types/schema for an Application Insights component, low-value logging reconnaissance.

@@ -1,0 +1,12 @@
+name: Log Analytics DeviceEtw table
+description: A Log Analytics table (DeviceEtw) in an Azure Monitor workspace that stores collected Event Tracing for Windows (ETW) low-level device trace log records.
+scope: MEDIUM
+notes: "Monitoring/diagnostics data: confidential operational telemetry, not core production data, hence MEDIUM scope."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returns the DeviceEtw table, allowing export of detailed low-level ETW event-tracing diagnostic logs.

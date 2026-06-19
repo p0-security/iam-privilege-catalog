@@ -1,0 +1,11 @@
+name: Cosmos DB Gremlin graph operation result
+description: The status record of an asynchronous control-plane operation on a Gremlin graph.
+scope: LOW
+notes: Status-polling endpoint that returns only operation state, no resource configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling async operation status returns no data, configuration, or credentials and confers no attacker capability in isolation.

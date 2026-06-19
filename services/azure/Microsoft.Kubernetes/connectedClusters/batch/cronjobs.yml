@@ -1,0 +1,24 @@
+name: Kubernetes CronJobs
+description: A Kubernetes CronJob on an Azure Arc connected cluster schedules recurring batch workloads (Jobs) according to a cron schedule, defined by an embedded pod template.
+scope: HIGH
+notes: CronJob specs describe scheduled compute (images, commands, env, secret/volume references) and represent production batch processing; the pod template can reveal operational configuration but is not itself a credential store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting CronJobs removes scheduled batch workloads, destroying the deployed object and disrupting the recurring operations they perform.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading CronJobs inventories scheduled workload definitions and their pod specs (images, commands, secret references), providing infrastructure reconnaissance of the cluster's batch processing.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating a CronJob lets an attacker schedule arbitrary containers that run repeatedly under a pod service account, enabling resource hijacking (cryptomining), lateral movement via the mounted token, and tampering with scheduled operational workloads.

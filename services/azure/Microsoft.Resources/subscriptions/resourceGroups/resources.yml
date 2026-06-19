@@ -1,0 +1,11 @@
+name: Resource Group Resources
+description: The set of resources deployed within a given resource group, enumerable as an inventory of that group's contents.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the resources within a resource group, enabling an attacker to inventory deployed infrastructure and its configuration for reconnaissance.

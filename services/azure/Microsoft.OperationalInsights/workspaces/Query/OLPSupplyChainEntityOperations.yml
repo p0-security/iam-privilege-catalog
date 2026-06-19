@@ -1,0 +1,12 @@
+name: Log Analytics OLPSupplyChainEntityOperations table
+description: A Log Analytics workspace query table holding Object Linking Platform supply-chain entity-operation logs, recording operational telemetry about supply-chain entity activity.
+scope: MEDIUM
+notes: Operational/business application log data for a single platform function; MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Read returns supply-chain entity-operation log records, exporting operational/business telemetry stored in the workspace.

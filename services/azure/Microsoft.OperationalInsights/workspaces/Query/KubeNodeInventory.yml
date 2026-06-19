@@ -1,0 +1,13 @@
+name: Log Analytics KubeNodeInventory table
+description: A log table in a Log Analytics workspace storing the Kubernetes/AKS cluster node inventory (node names, capacity, version, status) collected by Container Insights.
+scope: MEDIUM
+notes: Explicit node-infrastructure inventory of the cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading the table exfiltrates node-inventory telemetry and inventories the cluster's node infrastructure.

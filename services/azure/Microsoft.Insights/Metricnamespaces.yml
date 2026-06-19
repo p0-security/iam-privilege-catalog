@@ -1,0 +1,12 @@
+name: Metric namespaces
+description: The list of metric namespaces (metric category schema) available for a resource in Azure Monitor.
+scope: LOW
+notes: Read-only monitoring metadata schema; lowest sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:metadata
+    notes: Enumerates available metric namespaces, disclosing only the metric schema/metadata about what metric categories exist.

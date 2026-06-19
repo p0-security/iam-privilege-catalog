@@ -1,0 +1,12 @@
+name: AKS Fleet Kubernetes API (apiregistration.k8s.io)
+description: The Kubernetes data-plane API-aggregation group (APIService objects) exposed through an Azure Kubernetes Fleet Manager fleet hub. APIService objects register aggregated/extension API servers in the cluster.
+scope: LOW
+notes: Read-only enumeration of which extension/aggregated APIs are registered; non-sensitive infrastructure configuration metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Get/list of APIService objects inventories registered API extensions and aggregation-layer configuration, reconnaissance only.

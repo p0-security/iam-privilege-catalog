@@ -1,0 +1,20 @@
+name: Cosmos DB Cassandra table
+description: A Cassandra table resource within a keyspace of an Azure Cosmos DB database account, defining the control-plane schema/configuration and provisioned throughput for a wide-column data store.
+scope: HIGH
+notes: Production NoSQL data store supporting a single organizational function; the table's structure governs how operational data is stored.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a Cassandra table destroys the table and all organizational data it contains, an irreversible data-destruction capability on a production store.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane read/list enumerates the table resource configuration and schema (not the stored row data), providing reconnaissance of the database structure.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Control-plane create/update alters the table schema/configuration and provisioned throughput of a production data store, manipulating its operational definition.

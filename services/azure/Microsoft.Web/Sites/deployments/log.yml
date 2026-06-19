@@ -1,0 +1,13 @@
+name: Web App deployment logs
+description: Web App deployment logs are the build/deploy process output emitted during a deployment to an Azure App Service.
+scope: MEDIUM
+notes: Deployment log output can leak file paths, configuration values, and occasionally secrets echoed during build/deploy.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading deployment logs returns build/deploy output for the app, which can contain configuration details, paths, or secrets injected during deployment, enabling both log inventory and export of potentially sensitive content.

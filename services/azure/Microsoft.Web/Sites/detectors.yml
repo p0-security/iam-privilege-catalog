@@ -1,0 +1,11 @@
+name: Web App detectors
+description: Diagnostic detectors for an App Service Web App, returning health/troubleshooting analysis (errors, restarts, resource pressure, config problems) about the app.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads Web App diagnostic detector output, exposing operational/health and configuration details useful for reconnaissance of the app's runtime state.

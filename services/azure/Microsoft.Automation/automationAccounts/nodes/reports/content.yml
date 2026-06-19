@@ -1,0 +1,13 @@
+name: Azure Automation DSC report contents
+description: Azure Automation DSC report contents are the detailed compliance/status records produced by managed nodes, describing applied resources, configuration state, and drift.
+scope: MEDIUM
+notes: Report contents are log-like telemetry that can reveal infrastructure configuration and operational details of managed machines.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+      - exfiltration:logs
+    notes: Reads the full content of DSC node compliance reports, exposing detailed per-node configuration state and drift (infrastructure recon) and exporting the report log data itself.

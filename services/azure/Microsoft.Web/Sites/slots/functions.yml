@@ -1,0 +1,12 @@
+name: Web App slot functions
+description: Functions deployed to a Web App / Function App deployment slot; this action lists the function access keys that authorize invoking those functions.
+scope: LOW
+notes: Function keys are invocation credentials enabling code execution as the function app.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Inventories deployed functions and their configuration for a slot without returning keys or secrets.

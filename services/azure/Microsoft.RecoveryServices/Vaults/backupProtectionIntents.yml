@@ -1,0 +1,12 @@
+name: Backup protection intents
+description: Backup protection intents declare which resources are configured/slated for backup protection within a Recovery Services vault.
+scope: LOW
+notes: Control-plane backup-configuration metadata; reads do not expose backup data contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists which resources are intended for backup protection, inventorying backup configuration.

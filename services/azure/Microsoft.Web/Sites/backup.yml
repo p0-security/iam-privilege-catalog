@@ -1,0 +1,32 @@
+name: Web app backup configuration
+description: The backup configuration and status of a web app, including schedule and target storage destination (the management-plane config does not return the backup contents or storage SAS credential).
+scope: MEDIUM
+notes: Recovery-posture configuration; its read exposes backup settings and storage references, and its write can redirect or weaken the recovery safety net.
+privileges:
+  Action:
+    risks:
+      - impact:spend
+      - exfiltration:data
+    scope: HIGH
+    notes: Triggering a backup writes a copy of the app's content, configuration, and linked database to a caller-specified storage target, enabling exfiltration of app data and incurring storage cost.
+    name: Web App
+    parent:
+      description: An Azure App Service site (Web App, Function App, or Logic App Standard) is a managed hosting resource that runs an organization's application code, often with an attached managed identity, app settings/connection strings, and a public-facing endpoint.
+      notes: Production application hosting for a single organizational function; can hold secrets in app settings, run code under a managed identity, and serve public traffic.
+    links:
+      - https://azure.permissions.cloud/iam/Microsoft.Web
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the backup configuration reveals backup schedule and storage destination details, supporting-infra reconnaissance of where app/database backups reside without returning the backup data or credentials.
+    links:
+      - https://azure.permissions.cloud/iam/microsoft.web
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+  write:
+    risks:
+      - impact:manipulation
+    notes: Updating the backup configuration lets an attacker disable backups, alter the schedule, or redirect backups to attacker-controlled storage, manipulating a recovery-oriented operational control.
+    links:
+      - https://azure.permissions.cloud/iam/microsoft.web
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations

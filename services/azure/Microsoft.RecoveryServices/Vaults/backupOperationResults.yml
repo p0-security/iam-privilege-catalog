@@ -1,0 +1,12 @@
+name: Backup operation results
+description: Backup operation results are the async outcome records of previously submitted backup operations within a Recovery Services vault, used for long-running-operation tracking.
+scope: LOW
+notes: Operation-status bookkeeping with negligible sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Polls the result of a prior backup operation, returning only operation outcome/status used for async tracking with no sensitive data exposure.

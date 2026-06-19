@@ -1,0 +1,24 @@
+name: Fleet cluster staged update run
+description: A KubeFleet ClusterStagedUpdateRun executes a staged update strategy against a ClusterResourcePlacement and resource snapshot, orchestrating staged rollout of placement/workload changes across fleet member clusters.
+scope: HIGH
+notes: Staged update runs drive multi-cluster rollouts for a single fleet/application function; controlling them shapes what workloads run where.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Deleting an in-progress staged update run aborts/removes the rollout orchestration, manipulating fleet update state and disrupting an active multi-cluster update.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Read/list only enumerates rollout orchestration objects and their progress/status, providing reconnaissance of update strategy with no secrets returned.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+      - impact:hijack
+    notes: Creating/updating a staged update run drives a rollout of a chosen resource snapshot across member clusters, manipulating deployed workload configuration, disrupting services, and potentially pushing attacker-chosen workloads fleet-wide.

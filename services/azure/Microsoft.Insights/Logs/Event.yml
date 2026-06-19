@@ -1,0 +1,12 @@
+name: Log Analytics Event table
+description: A Log Analytics workspace data-plane table holding collected Windows Event Log records (security/system/application events).
+scope: MEDIUM
+notes: Monitoring data that may contain security, logon, and host activity records; sensitivity is MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read exports Windows event records that may include security/logon events and host/account detail.

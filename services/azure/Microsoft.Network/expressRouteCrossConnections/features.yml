@@ -1,0 +1,22 @@
+name: ExpressRoute cross-connection feature
+description: An ExpressRoute Cross Connection Feature is a configuration/feature setting on an ExpressRoute cross-connection, the provider-side peering link of an ExpressRoute circuit carrying private hybrid traffic.
+scope: HIGH
+notes: Supports a single hybrid-connectivity function; not a tenant-wide control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the feature removes a configured connectivity component of the cross-connection peering link, destroying network configuration and potentially disrupting the hybrid link.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading the feature enumerates cross-connection peering configuration, enabling network reconnaissance; returns no secret material.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating the feature changes peering behavior on the production cross-connection, manipulating hybrid network connectivity.

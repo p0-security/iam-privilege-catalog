@@ -1,0 +1,11 @@
+name: Cosmos DB MongoDB-API collection operation results
+description: The async operation-status (operationResults) sub-resource of a Cosmos DB MongoDB-API collection, used to poll the progress of a prior asynchronous control-plane operation.
+scope: LOW
+notes: Returns only transient operation progress/state, not resource configuration or stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads only the status of a prior asynchronous collection management operation; an inert polling no-op granting no standalone attacker capability.

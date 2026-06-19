@@ -1,0 +1,13 @@
+name: Web App deployment slot
+description: An Azure App Service deployment slot is a live, addressable instance of a web/function/Logic App hosting application code, configuration (app settings, connection strings), and an assigned managed identity. Slots can be swapped into the production endpoint.
+scope: HIGH
+notes: Slots host a single organizational function's production or staging workload; their configuration and managed identity make them a pivot point for code execution and lateral movement.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - impact:defacement
+    notes: Copying content from one deployment slot to another overwrites the destination slot's application content/config, manipulating the workload and potentially altering what a public-facing slot serves.

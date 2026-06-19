@@ -1,0 +1,12 @@
+name: Virtual Machine patch installation results
+description: Read-only records summarizing the latest guest OS patch installation operation on an Azure virtual machine, including operation status and outcome.
+scope: LOW
+notes: Patch posture data reveals the VM's update/vulnerability state, useful for targeting but containing no secrets or organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Retrieving the latest patch installation summary discloses the VM's patching state and operation outcome, useful reconnaissance for identifying potentially unpatched/vulnerable hosts; returns no data or secrets.

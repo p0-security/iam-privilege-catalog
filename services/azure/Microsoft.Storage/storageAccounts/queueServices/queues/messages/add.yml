@@ -1,0 +1,12 @@
+name: Storage Queue Service Messages
+description: Queue messages are the individual data payloads (work items) enqueued in a storage queue for asynchronous processing by downstream consumers.
+scope: HIGH
+notes: Message payloads may contain sensitive operational data, identifiers, or commands that drive downstream automation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: This data action enqueues a new message, letting an attacker inject arbitrary payloads that downstream consumers will process.

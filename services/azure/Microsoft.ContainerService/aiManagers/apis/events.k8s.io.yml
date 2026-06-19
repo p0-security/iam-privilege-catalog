@@ -1,0 +1,12 @@
+name: AKS Kubernetes events.k8s.io API objects
+description: The events.k8s.io Kubernetes API group inside an AKS aiManagers cluster, exposing Event objects that record operational cluster activity (scheduling, image pulls, failures, restarts).
+scope: LOW
+notes: Events are the cluster's operational/log-like activity stream; they can leak object names, timing, and error details useful for reconnaissance but contain no application data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Read-only get/list of Event objects lets an attacker enumerate the cluster's operational event/activity log for reconnaissance of workloads and failures.

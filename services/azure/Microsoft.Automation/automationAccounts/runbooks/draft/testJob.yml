@@ -1,0 +1,18 @@
+name: Azure Automation runbook draft test job
+description: An Azure Automation runbook draft test job represents a test execution of an unpublished (draft) runbook within an Automation account. Creating one runs the draft's PowerShell/Python code in the Automation sandbox, typically under the account's managed identity or Run As credential.
+scope: MEDIUM
+notes: Test jobs execute arbitrary runbook code under the Automation account's identity, so write/resume actions on them are an effective code-execution-as-identity primitive; the asset is treated as supporting automation infrastructure (MEDIUM) rather than a primary production resource.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a draft test job returns only the test execution status/details (and possibly captured output), which is read-only reconnaissance of automation execution state with no secret material or runbook source returned.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+    scope: HIGH
+    notes: Creating a draft test job executes attacker-controllable runbook code under the Automation account's managed identity / Run As credential, enabling code execution as that service identity (lateral movement) and use of compute to run arbitrary workloads (hijack).

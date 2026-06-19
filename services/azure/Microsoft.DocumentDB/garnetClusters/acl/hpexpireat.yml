@@ -1,0 +1,13 @@
+name: Garnet cluster hash data
+description: A hash data structure within a Microsoft DocumentDB Garnet cluster, a Redis-compatible in-memory data store. This is a data-plane (isDataAction) operation on the actual cached records.
+scope: HIGH
+notes: Garnet clusters are production in-memory data stores holding operational/application data for a single organizational function; data-plane access touches the records themselves.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:manipulation
+    notes: HPEXPIREAT sets an absolute expiration timestamp on a hash (a past timestamp deletes immediately), enabling attacker-controlled destruction of stored data and lifecycle manipulation.

@@ -1,0 +1,13 @@
+name: Log Analytics ASimDnsActivityLogs table
+description: A Log Analytics workspace data-plane table holding normalized (ASIM) DNS activity log records (queried domains, source hosts, resolution results).
+scope: MEDIUM
+notes: Per-table data-plane read permission on monitoring/security logs; DNS activity content reveals internal hostnames and resolution patterns.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reads normalized DNS query records, exporting log data and revealing internal hostnames and network/name-resolution activity.

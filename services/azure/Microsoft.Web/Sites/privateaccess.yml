@@ -1,0 +1,12 @@
+name: Web App private access settings
+description: Private site access configuration for a Web App, including whether private access is enabled and the list of Virtual Networks authorized to reach the site.
+scope: LOW
+notes: Reveals network access boundaries/topology useful for planning network movement.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Returns private-access enablement and authorized VNet list, inventorying the site's network access posture.

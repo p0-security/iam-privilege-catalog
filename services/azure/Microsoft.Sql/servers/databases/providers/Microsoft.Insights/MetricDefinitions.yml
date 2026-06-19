@@ -1,0 +1,12 @@
+name: Database metric definitions
+description: Catalog of metric types (monitoring/telemetry schema) available for an Azure SQL database.
+scope: LOW
+notes: Read-only monitoring metadata; no access to actual metric values or database data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Returns the available metric type definitions for databases, exposing only monitoring schema metadata with no metric values.

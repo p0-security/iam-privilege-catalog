@@ -1,0 +1,24 @@
+name: Kubernetes validating webhook configurations (AKS)
+description: Cluster-wide Kubernetes validating admission webhook configurations on an AKS managed cluster that enforce policy by accepting or rejecting API requests.
+scope: CRITICAL
+notes: Validating webhooks back policy controllers like OPA/Gatekeeper, Kyverno, and Pod Security; controlling them governs what workloads may run cluster-wide.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting validating webhook configurations removes admission-time policy enforcement (e.g. Gatekeeper/Kyverno/Pod Security), disabling a cluster-wide defense and allowing previously-blocked malicious resources.
+  read:
+    risks:
+      - discovery:infra
+      - discovery:policy
+    scope: HIGH
+    notes: Reading validating webhook configurations enumerates the cluster's policy-enforcement admission controls (Gatekeeper/Kyverno/Pod Security), their endpoints and failure policy, revealing what is enforced and where it can be evaded.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating a validating webhook lets an attacker disable or fail-open policy enforcement (admitting otherwise-blocked privileged workloads) or register a webhook that denies legitimate requests, subverting the cluster's primary admission defense.

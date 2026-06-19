@@ -1,0 +1,12 @@
+name: Cosmos DB collection metrics
+description: Operational performance metrics (throughput/RU, request counts, latency, storage) for a Cosmos DB (DocumentDB) collection. This is monitoring telemetry about the resource, not the stored documents.
+scope: LOW
+notes: Read-only telemetry; reveals usage patterns and resource utilization but never the underlying data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading collection-level metrics exposes operational telemetry about a collection's activity, enabling infrastructure reconnaissance only.

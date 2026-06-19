@@ -1,0 +1,20 @@
+name: Shared VM image
+description: A SharedVMImage is an organization-specific reusable custom VM image definition that downstream VMs can be provisioned from.
+scope: MEDIUM
+notes: These are private, tenant-owned deployable image artifacts (not public catalog); they hold image configuration but no secrets or data content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deletes a shared VM image definition, destroying a reusable image artifact that provisioning workflows depend on.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the properties of a shared VM image, enabling read-only inventory of the org's custom image artifacts and configuration for target mapping.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a shared VM image definition, letting an attacker tamper with the base-image configuration that downstream VMs reference (supply-chain manipulation).

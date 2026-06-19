@@ -1,0 +1,18 @@
+name: Cloud Service role
+description: A Cloud Service role defines the configuration (SKU, instance count) of a tier of compute instances within an Azure Cloud Service.
+scope: HIGH
+notes: Production compute deployment definition supporting a single function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns the role's compute configuration (SKU, instance count), enabling infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:hijack
+      - impact:spend
+      - impact:consumption
+    notes: '"Scale instances in a Role" provisions additional compute the attacker can run workloads on, drives infrastructure spend, and consumes quota; scaling down can also degrade the service.'

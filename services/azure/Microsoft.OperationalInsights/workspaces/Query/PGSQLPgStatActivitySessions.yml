@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (PGSQLPgStatActivitySessions)
+description: A Log Analytics workspace data-plane table holding ingested log/telemetry records. This operation reads rows from the PGSQLPgStatActivitySessions table, which captures PostgreSQL pg_stat_activity session records.
+scope: MEDIUM
+notes: Log Analytics tables are a monitoring/diagnostics asset; their rows can contain operationally sensitive details (identities, queries, IPs) depending on the source.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:data
+    notes: Reading this table exports session records that can include active query text, database usernames, and client addresses, revealing database activity and structure.

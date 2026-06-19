@@ -1,0 +1,11 @@
+name: Log Analytics workspace connected SCOM management groups
+description: The System Center Operations Manager (SCOM) management groups connected to a Log Analytics workspace, representing monitored on-premises/management infrastructure linked to the workspace.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only enumeration of connected SCOM management group names and metadata, inventorying the monitoring infrastructure topology.

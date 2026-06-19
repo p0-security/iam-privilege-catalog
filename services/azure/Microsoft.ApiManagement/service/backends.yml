@@ -1,0 +1,23 @@
+name: API Management backends
+description: Backend entities in an Azure API Management service define the upstream services (URLs, protocols, connection and authorization configuration) that the API gateway proxies requests to.
+scope: HIGH
+notes: Backends wire the gateway to internal/production services and can hold references to credential material; tampering redirects production API traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a backend removes the upstream routing target, breaking every API that depends on it and disrupting the fronted service.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Listing/getting backend definitions inventories the gateway's upstream targets (URLs, protocols, routing config); secret credentials are masked and require the separate listSecrets action.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a backend lets an attacker repoint the gateway to an attacker-controlled or internal endpoint and alter auth/connection config, manipulating request routing and reaching additional network-reachable services behind the gateway.

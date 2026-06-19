@@ -1,0 +1,22 @@
+name: Application Gateway WAF Policy
+description: An Application Gateway Web Application Firewall (WAF) policy defines managed and custom firewall rules, exclusions, and mode (prevention/detection) that protect the applications fronted by an Azure Application Gateway.
+scope: HIGH
+notes: Acts as a security defense control for a single application function; its configuration reveals or governs protection of backend services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the WAF policy removes the web-application-firewall defense protecting the application gateway, exposing backend services to attack.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading the WAF policy enumerates the firewall ruleset, exclusions, and mode, revealing the defensive configuration and where bypass gaps exist.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating the WAF policy lets an attacker weaken or disable firewall rules (switch to detection-only, add bypass exclusions, disable managed rule sets), neutralizing the defense and altering operational filtering configuration.

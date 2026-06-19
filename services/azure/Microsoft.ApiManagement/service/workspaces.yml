@@ -1,0 +1,20 @@
+name: API Management workspaces
+description: API Management workspaces are logical sub-environments within an API Management service that group and isolate APIs, products, policies, and named values for a team or organizational function.
+scope: MEDIUM
+notes: Workspaces front backend services and host policy configuration (including secret-bearing named values), so control over them affects how a single organizational function's APIs are served.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes a workspace, removing the container and all API/policy configuration scoped to it, causing a DoS-like loss of the fronted APIs.
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists or gets workspace details, enumerating workspace configuration for infrastructure reconnaissance; returns no secret material.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a workspace, altering the API gateway's logical configuration and how APIs are organized and governed for that function.

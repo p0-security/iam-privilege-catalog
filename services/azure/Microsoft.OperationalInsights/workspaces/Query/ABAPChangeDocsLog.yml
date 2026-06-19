@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (ABAPChangeDocsLog)
+description: A queryable table within an Azure Log Analytics workspace that stores SAP ABAP change-document log records. Reading it returns the stored rows via a data-plane KQL query.
+scope: MEDIUM
+notes: Log Analytics tables hold monitoring/diagnostic data at MEDIUM sensitivity; SAP change logs can reveal business-process detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Returns SAP ABAP change-document log rows, exporting business-object change history.

@@ -1,0 +1,12 @@
+name: Log Analytics WUDOStatus table
+description: A Log Analytics workspace table holding per-device Windows Update Delivery Optimization status telemetry. Reading it is a data-plane query over collected monitoring logs.
+scope: MEDIUM
+notes: Per-device update/patch posture telemetry of limited sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Exports per-device update/delivery-optimization status, which can hint at patch posture but is primarily log telemetry.

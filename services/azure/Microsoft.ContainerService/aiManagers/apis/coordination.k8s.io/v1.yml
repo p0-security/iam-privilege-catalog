@@ -1,0 +1,12 @@
+name: AKS Kubernetes coordination.k8s.io API objects
+description: The coordination.k8s.io Kubernetes API group inside an AKS aiManagers cluster, holding Lease objects used for node heartbeats and controller leader-election.
+scope: LOW
+notes: Lease objects carry only operational coordination state (holder identity, renew times); they contain no application data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only get/list of coordination/v1 Lease objects enumerates leader-election/heartbeat state, low-value infrastructure reconnaissance.

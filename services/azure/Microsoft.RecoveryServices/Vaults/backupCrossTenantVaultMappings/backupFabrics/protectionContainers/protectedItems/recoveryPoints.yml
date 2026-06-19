@@ -1,0 +1,12 @@
+name: Cross-tenant backup recovery points
+description: A recovery point is a stored backup snapshot of a protected item at a point in time, enumerated here through a cross-tenant vault mapping. The list reveals which restorable backup copies of organizational data exist and their timestamps.
+scope: MEDIUM
+notes: Recovery points are the actual backup data copies; their restore exposes the underlying organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Listing recovery points enumerates the available backup snapshots (restore candidates) without yet retrieving the underlying data, aiding target selection for a subsequent restore.

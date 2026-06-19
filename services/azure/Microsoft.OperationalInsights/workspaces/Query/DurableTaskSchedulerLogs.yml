@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (DurableTaskSchedulerLogs)
+description: A Log Analytics workspace query table holding ingested monitoring/telemetry data; this data-plane permission grants read access to the records in one specific table.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; sensitivity is MEDIUM but specific tables may contain request payloads, identifiers, or network detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads Durable Task Scheduler orchestration logs, exporting workflow/task execution telemetry that may expose task inputs and internal processing.

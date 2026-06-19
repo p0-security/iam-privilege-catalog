@@ -1,0 +1,12 @@
+name: Connection Gateways (on-premises data gateway)
+description: A Connection Gateway is a Microsoft.Web resource representing an on-premises data gateway — a bridge that lets Azure cloud services (Logic Apps, Power Platform) reach data sources inside a private/on-premises network.
+scope: MEDIUM
+notes: A hybrid-connectivity bridge into a private network; write/delete/join/associate operations touch the path into on-prem resources, while reads only inventory the bridge and do not return installation keys or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - impact:manipulation
+    notes: Moving the gateway between resource groups/subscriptions changes its resource ID/placement and management scope, a control-plane configuration change that can break dependent references.

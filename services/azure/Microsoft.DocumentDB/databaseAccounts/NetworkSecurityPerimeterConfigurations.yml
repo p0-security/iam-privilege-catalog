@@ -1,0 +1,12 @@
+name: Cosmos DB Database Account network security perimeter configuration
+description: The effective Network Security Perimeter (NSP) configuration for an Azure Cosmos DB / DocumentDB database account, describing the network-isolation boundary and inbound/outbound access rules enforced around the account.
+scope: LOW
+notes: Read-only network-boundary metadata; reveals the perimeter posture but contains no stored data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: A control-plane read that enumerates the account's effective network perimeter rules and membership, letting an attacker map network access boundaries to find reachability gaps.

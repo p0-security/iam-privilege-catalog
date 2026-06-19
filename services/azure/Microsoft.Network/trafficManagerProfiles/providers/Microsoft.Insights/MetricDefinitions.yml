@@ -1,0 +1,12 @@
+name: Traffic Manager metric definitions
+description: Azure Monitor metric definitions for a Traffic Manager profile, describing which telemetry metrics are available for the profile.
+scope: LOW
+notes: Read-only monitoring metadata; exposes the schema of available metrics, not the metric values or any configuration/secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reads the available metric definitions for the Traffic Manager profile, inventorying the monitoring schema for reconnaissance only.

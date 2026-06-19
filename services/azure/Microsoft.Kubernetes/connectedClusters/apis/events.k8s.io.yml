@@ -1,0 +1,12 @@
+name: Arc connected cluster events API (Events)
+description: The events.k8s.io API group of an Azure Arc-enabled (connected) Kubernetes cluster, which surfaces Event objects, the cluster's operational activity stream (scheduling, failures, restarts, reasons).
+scope: MEDIUM
+notes: Events are operational log-like records of cluster activity; they reveal resource names, components, and operational state but are short-lived and not a bulk persisted data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Get/list of the events.k8s.io group reads the cluster Event stream, exposing activity, component behavior, and failure reasons, logs reconnaissance of the cluster.

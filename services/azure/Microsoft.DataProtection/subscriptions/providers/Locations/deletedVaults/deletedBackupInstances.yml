@@ -1,0 +1,12 @@
+name: Deleted backup instance under a soft-deleted vault
+description: A deleted backup instance retained under a soft-deleted Backup Vault, representing the configuration of a protected data source whose backups existed before deletion.
+scope: LOW
+notes: Reading these enumerates which organizational data sources were protected by backups; it inventories backup data assets without returning the backed-up contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Reads a deleted backup instance under a deleted vault, letting an attacker enumerate which protected data sources had backups (backup data inventory) without returning the backed-up data itself.

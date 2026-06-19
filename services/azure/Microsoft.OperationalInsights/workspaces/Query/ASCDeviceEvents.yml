@@ -1,0 +1,13 @@
+name: Log Analytics ASCDeviceEvents table
+description: A Log Analytics workspace table (data plane) holding ingested Microsoft Defender for Cloud/Endpoint device security-event telemetry. Reading it returns the stored log rows.
+scope: MEDIUM
+notes: Monitoring/diagnostics data is MEDIUM scope; may contain sensitive endpoint activity detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read exports stored device security-event telemetry and lets an attacker inventory the collected security logs.

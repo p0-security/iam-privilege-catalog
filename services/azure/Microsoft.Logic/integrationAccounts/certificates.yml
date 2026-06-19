@@ -1,0 +1,20 @@
+name: Integration Account Certificate
+description: A certificate resource in an Azure Logic Apps Integration Account used for signing/encrypting B2B messages; it stores the public certificate plus a Key Vault reference to the private key (the private key itself remains in Key Vault).
+scope: MEDIUM
+notes: Supporting cryptographic configuration for a single B2B integration function; the control plane does not expose private key material, which is held in Key Vault.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes the certificate resource (public cert plus its Key Vault binding), removing the cryptographic material reference that dependent B2B signing/encryption relies on and breaking the integration.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the certificate resource metadata/configuration (thumbprint, public cert, Key Vault reference) for reconnaissance of the cryptographic setup; private key material is not returned.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a certificate lets an attacker substitute the signing/encryption material used for B2B messaging, undermining the cryptographic trust/integrity of partner communications.

@@ -1,0 +1,10 @@
+name: Cosmos DB database account name availability
+description: A name-availability probe that checks whether a proposed globally-unique Azure Cosmos DB (DocumentDB) account name is available or already taken.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: This only reports whether a supplied global account name is taken; it does not enumerate the organization's existing accounts or return any resource configuration, so it is an inert name-availability check with no meaningful discovery capability in isolation.

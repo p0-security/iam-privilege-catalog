@@ -1,0 +1,20 @@
+name: Defender for IoT site
+description: A Defender for IoT site is a logical grouping that organizes monitoring sensors by physical/organizational location within the IoT security deployment.
+scope: MEDIUM
+notes: Holds organizational grouping metadata for sensors, not the monitored data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting an IoT site removes the logical grouping metadata used to organize sensors, without destroying the sensors or their monitoring themselves.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading an IoT site returns the logical grouping/topology of monitored sensors, low-to-moderate reconnaissance of the monitoring deployment.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating an IoT site alters the logical grouping/organization metadata used to manage sensors, a low-impact configuration manipulation.

@@ -1,0 +1,12 @@
+name: Azure SQL Restorable Dropped Managed Database
+description: Dropped (deleted) databases on an Azure SQL Managed Instance that remain within the retention window and are still available for point-in-time restore.
+scope: HIGH
+notes: Pertains to a production database service; the listing exposes the existence and metadata of formerly-present production data stores, but not their contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Listing restorable dropped managed databases inventories deleted database objects (names, drop/restore-window metadata) on the production managed instance, revealing recoverable data stores an attacker could target, without returning the data itself.

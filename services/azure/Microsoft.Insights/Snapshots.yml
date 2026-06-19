@@ -1,0 +1,12 @@
+name: Snapshot Debugger snapshots
+description: Snapshots produced by the Application Insights Snapshot Debugger, which capture an application's in-memory state (local variables, call stack, heap contents) at exception time.
+scope: MEDIUM
+notes: Diagnostic memory captures of a single monitored application; commonly contain in-memory secrets, tokens, connection strings, and PII.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:data
+    notes: Reading snapshots exposes captured runtime memory of a monitored application, exfiltrating potentially sensitive in-process data and credentials.

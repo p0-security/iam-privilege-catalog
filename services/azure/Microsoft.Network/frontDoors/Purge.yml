@@ -1,0 +1,12 @@
+name: Front Door
+description: Azure Front Door (classic) is a global edge/CDN application-delivery service that manages public-facing routing rules, frontend endpoints/custom domains, and backend pools.
+scope: MEDIUM
+notes: A public-facing edge/routing layer; write access can hijack or deface traffic for the fronted application.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Purging cached content forces cache eviction so the origin must re-serve all requests; repeated abuse drives origin load and degrades availability/performance.

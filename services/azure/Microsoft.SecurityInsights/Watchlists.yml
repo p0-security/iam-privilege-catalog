@@ -1,0 +1,22 @@
+name: Microsoft Sentinel watchlists
+description: Sentinel watchlists are curated reference datasets (e.g. VIP users, terminated employees, high-value assets, allow/deny IP lists, IOCs) imported into the workspace and consumed by analytics rules, hunting, and investigations.
+scope: MEDIUM
+notes: Watchlist contents are confidential security reference data whose disclosure or tampering can reveal targets and weaken detections.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - destruction:defense
+    notes: Deletes watchlists, destroying curated reference data and breaking the analytics/correlation rules that depend on it, degrading detection coverage.
+  read:
+    risks:
+      - discovery:data
+    notes: Reads watchlist contents, exposing curated reference data (allow/deny lists, VIP/asset lists, IOCs) that reveals detection context and high-value targets.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creates or updates watchlists, letting an attacker poison detection reference data (e.g. add their own IPs/accounts to an allowlist) to manipulate and weaken analytics rules.

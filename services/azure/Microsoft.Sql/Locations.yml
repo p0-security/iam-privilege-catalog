@@ -1,0 +1,11 @@
+name: Azure SQL location-scoped Network Security Perimeter operation
+description: Subscription/location-scoped Azure SQL operations covering Network Security Perimeter update notifications, virtual network rule deletion, and region availability.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the available Azure SQL service locations for a subscription, returning non-sensitive region-availability metadata.

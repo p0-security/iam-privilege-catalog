@@ -1,0 +1,12 @@
+name: Log Analytics AmlDataSetEvent table
+description: A queryable Azure Log Analytics workspace table holding Azure Machine Learning dataset event telemetry ingested for monitoring.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data scoped to a single ML function; may disclose dataset identifiers and paths.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads dataset event log records, exporting telemetry that may reveal data asset names and access patterns.

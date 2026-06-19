@@ -1,0 +1,12 @@
+name: Container registry monitoring metric definitions
+description: The Azure Monitor metric definition schema for an Azure Container Registry, enumerating which platform metrics are available for the registry.
+scope: LOW
+notes: Read-only monitoring schema metadata; exposes no registry contents, configuration secrets, or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Enumerates the available metric definitions for the registry, exposing only benign observability schema metadata for reconnaissance.

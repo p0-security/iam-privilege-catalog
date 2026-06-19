@@ -1,0 +1,22 @@
+name: Kubernetes StorageClasses (Arc-connected cluster)
+description: Cluster-scoped Kubernetes StorageClass objects on an Azure Arc-connected cluster. A StorageClass defines a dynamic-provisioning profile (provisioner, parameters, reclaim policy) used to create PersistentVolumes for PersistentVolumeClaims.
+scope: MEDIUM
+notes: "Storage provisioning configuration is supporting cluster infrastructure: read is benign reconnaissance, while write/delete affect how and whether persistent volumes get provisioned cluster-wide."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting StorageClasses removes provisioning configuration so new PersistentVolumeClaims cannot bind, breaking dynamic volume provisioning and disrupting stateful workloads.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read/list only enumerates storage provisioner configuration and parameters; pure infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating StorageClasses lets an attacker alter dynamic-provisioning behavior (provisioner, parameters, reclaim policy, default class), manipulating how and where persistent volumes are provisioned for cluster workloads.

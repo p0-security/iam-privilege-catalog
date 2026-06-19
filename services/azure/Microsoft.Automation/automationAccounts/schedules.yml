@@ -1,0 +1,22 @@
+name: Azure Automation schedule asset
+description: An Azure Automation schedule asset defines the timing and recurrence configuration used to trigger runbook jobs within an Automation Account. A schedule holds no executable code itself.
+scope: MEDIUM
+notes: Schedules only govern when automation runs; their sensitivity is low (timing/trigger metadata) unless paired with runbook write permissions.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a schedule removes the trigger configuration for automation jobs, disrupting the scheduled operational processes that depend on it.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading a schedule asset exposes only automation timing/recurrence configuration metadata, a low-sensitivity reconnaissance of how and when runbooks are triggered.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a schedule alters when automation jobs fire, letting an attacker control timing (e.g. trigger malicious runbooks recurrently or disrupt expected execution), but in isolation it only manipulates trigger configuration without supplying or binding executable code.

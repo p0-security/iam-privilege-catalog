@@ -1,0 +1,12 @@
+name: APIM operation-by-tag associations
+description: A read-only view listing API operations grouped by tag within an API Management workspace. Enumerates operation/tag association metadata.
+scope: LOW
+notes: Exposes only metadata associations between operations and tags.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Lists operations associated with tags, enumerating metadata/tag-to-operation associations.

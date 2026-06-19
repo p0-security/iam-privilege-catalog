@@ -1,0 +1,16 @@
+name: Storage account HOBO configuration
+description: An internal Hosted-On-Behalf-Of (HOBO) platform-managed configuration sub-resource of a storage account, holding backend/operational resource-provider settings rather than data or credentials.
+scope: MEDIUM
+notes: HOBO configuration is internal platform-managed account configuration; it does not contain data or key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the account's HOBO configuration only enumerates internal platform configuration state, low-value reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing the account's HOBO configuration alters internal platform/control-plane configuration of the account.

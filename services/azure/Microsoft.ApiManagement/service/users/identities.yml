@@ -1,0 +1,12 @@
+name: API Management user identities
+description: Listing of the identities (e.g. Azure AD, basic, and social login identifiers) linked to an API Management developer-portal user account.
+scope: LOW
+notes: Enumerates account/identity associations useful for targeting; does not return credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:account
+    notes: Lists a user's linked identities, enumerating developer-portal accounts/identities as targets for compromise.

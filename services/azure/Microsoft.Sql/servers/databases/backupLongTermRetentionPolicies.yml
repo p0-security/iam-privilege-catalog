@@ -1,0 +1,17 @@
+name: Database long-term retention policy
+description: The long-term retention (LTR) policy of an Azure SQL database, defining how long weekly/monthly/yearly backups are retained.
+scope: LOW
+notes: A recoverability control; weakening retention undermines the backup safeguard that mitigates data destruction and ransomware.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the policy only reveals backup-retention configuration metadata for a database, a low-sensitivity reconnaissance read.
+  write:
+    risks:
+      - impact:manipulation
+    scope: HIGH
+    notes: Setting the LTR policy lets an attacker shorten or disable backup retention, manipulating the recoverability configuration that protects the database's data.

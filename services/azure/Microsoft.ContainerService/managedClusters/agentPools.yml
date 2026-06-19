@@ -1,0 +1,23 @@
+name: AKS agent (node) pools
+description: An AKS managed-cluster agent pool — the worker-node compute (VMSS-backed VMs) of an Azure Kubernetes Service cluster, including VM size, count, OS image, version, networking, and node identity configuration.
+scope: HIGH
+notes: Provides the production compute that runs the cluster's container workloads for a single organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting an agent pool removes the worker-node compute backing the cluster, destroying infrastructure and evicting the workloads scheduled on it.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading an agent pool returns node-pool configuration (VM size, count, version, networking), providing read-only reconnaissance of the cluster's production compute. No secret material returned.
+  write:
+    risks:
+      - impact:hijack
+      - impact:spend
+      - impact:manipulation
+    notes: Creating/updating an agent pool provisions or scales worker-node VMs that can run attacker workloads (hijack) at cost (spend) and rewrites the production node configuration (manipulation).

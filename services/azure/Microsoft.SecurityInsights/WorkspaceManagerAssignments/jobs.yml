@@ -1,0 +1,21 @@
+name: Sentinel Workspace Manager assignment jobs
+description: Microsoft Sentinel Workspace Manager assignment jobs are operational job records that publish/distribute centrally managed security content (analytics rules, hunting queries, automation) from a manager workspace to member workspaces. They track the status of content-publishing operations.
+scope: MEDIUM
+notes: Supporting orchestration construct for Sentinel content distribution; not primary security data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - destruction:metadata
+    notes: Deletes content-publishing job records, removing operational job-tracking metadata and altering the management/audit state of the publishing process without destroying the underlying content or logs.
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only enumeration of content-publishing job status/history across managed workspaces; reconnaissance of the security-management orchestration.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating a job triggers a push of centrally defined security content to member workspaces, altering deployed detection/automation configuration across the managed estate.

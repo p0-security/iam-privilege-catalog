@@ -1,0 +1,12 @@
+name: Log Analytics workspace search-upgrade translation failure log
+description: The translation failure log records errors from migrating legacy workspace search queries to the newer query syntax.
+scope: LOW
+notes: Low-sensitivity operational/diagnostic log entries.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reads diagnostic migration-failure log entries, low-value reconnaissance of workspace logging internals.

@@ -1,0 +1,12 @@
+name: AKS managed cluster detectors
+description: AKS managed-cluster diagnostic detectors — built-in health/diagnostic analyzers that report findings about the cluster's operational state.
+scope: MEDIUM
+notes: Supporting diagnostic data of moderate sensitivity; useful for reconnaissance of cluster health and issues.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a detector returns AKS diagnostic/health analysis of the cluster, supporting read-only reconnaissance of cluster state.

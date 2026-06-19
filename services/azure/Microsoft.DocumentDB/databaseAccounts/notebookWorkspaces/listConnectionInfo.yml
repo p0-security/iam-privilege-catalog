@@ -1,0 +1,13 @@
+name: Notebook workspace
+description: A managed Jupyter notebook workspace (hosted compute environment) attached to a Cosmos DB account, used to run notebooks against the account's data.
+scope: MEDIUM
+notes: Supporting compute asset; can run arbitrary code/workloads and incur metered spend.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: Returns the notebook workspace connection endpoint and authentication token, exporting reusable credential material that lets an attacker connect to and execute code in the notebook compute environment.

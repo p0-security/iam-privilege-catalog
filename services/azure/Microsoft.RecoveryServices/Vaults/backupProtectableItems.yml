@@ -1,0 +1,12 @@
+name: Backup protectable items list
+description: "A listing of protectable items: resources eligible to be backed up but not yet under backup protection within the vault scope."
+scope: LOW
+notes: Read-only inventory of candidate backup targets useful for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists all protectable items, enumerating infrastructure resources eligible for backup, useful for reconnaissance without any data exposure.

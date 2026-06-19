@@ -1,0 +1,12 @@
+name: Azure Load Balancer Backend Virtual Machines
+description: A read-only view listing references to all virtual machines participating in a load balancer's backend pool.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+      - discovery:infra
+    notes: Listing the VMs behind a load balancer enumerates backend compute targets and their network membership, aiding infrastructure and network reconnaissance.

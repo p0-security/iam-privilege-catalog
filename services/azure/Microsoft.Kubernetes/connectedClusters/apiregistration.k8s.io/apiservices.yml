@@ -1,0 +1,22 @@
+name: Kubernetes API service registrations (aggregation layer)
+description: APIServices are cluster-scoped Kubernetes aggregation-layer registrations that map API group/versions to backing services (built-in or extension/aggregated API servers such as metrics-server).
+scope: HIGH
+notes: The aggregation layer routes API traffic; repointing or removing an APIService affects serving of that API group cluster-wide and can intercept requests flowing to it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting APIService registrations unregisters aggregated/core API groups, breaking serving of those APIs cluster-wide and denying service to controllers and users that depend on them.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading APIService registrations inventories the aggregated/extension API layer and the backends serving each API group, exposing cluster API topology.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating APIService registrations can repoint an aggregated API group to an attacker-controlled backend, enabling man-in-the-middle interception and tampering of API requests/responses for that group cluster-wide.

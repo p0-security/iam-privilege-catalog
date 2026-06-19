@@ -1,0 +1,21 @@
+name: Microsoft Sentinel threat intelligence bulk actions
+description: TI Bulk Action objects in Microsoft Sentinel represent bulk operations over threat-intelligence (STIX) indicators in the workspace, and the associated indicator/IOC data.
+scope: MEDIUM
+notes: Threat-intelligence indicator data and operations supporting the security-monitoring function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - destruction:defense
+    notes: Deleting a TI Bulk Action can remove threat-intelligence indicators in bulk, destroying IOC data and stripping the indicators that drive detections.
+  read:
+    risks:
+      - discovery:data
+    notes: Reading TI Bulk Action objects enumerates the threat-intelligence bulk operation records in the workspace, providing reconnaissance over the TI data and pipeline state.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a TI Bulk Action lets an attacker mass-modify threat-intelligence indicators, poisoning or distorting the IOC data that drives detections.

@@ -1,0 +1,18 @@
+name: Static Site build
+description: A deployed build/environment (e.g. production or preview staging) of an Azure Static Web App that serves the site's static content and managed functions.
+scope: HIGH
+notes: A build represents a deployed version/environment serving public content and backing functions.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a build tears down a deployed environment of the site, destroying infrastructure and disrupting the served application.
+  Read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Getting a build returns build status/configuration metadata, providing only read-only infrastructure reconnaissance.

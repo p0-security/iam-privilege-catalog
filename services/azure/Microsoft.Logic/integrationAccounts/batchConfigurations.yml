@@ -1,0 +1,20 @@
+name: Integration Account Batch Configuration
+description: An Integration Account Batch Configuration defines how a Logic Apps integration account groups and releases messages in batches (release criteria, schedules) for integration workflows.
+scope: MEDIUM
+notes: Non-secret operational configuration of a supporting integration component.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes a batch configuration, disrupting batched message processing in dependent integration workflows.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads batch-configuration settings, enabling reconnaissance of how the integration account batches and releases messages.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a batch configuration alters how messages are batched and released, letting an attacker manipulate operational message-processing behavior.

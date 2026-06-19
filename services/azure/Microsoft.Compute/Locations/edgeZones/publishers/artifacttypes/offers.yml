@@ -1,0 +1,12 @@
+name: Edge-zone platform image catalog
+description: The Azure Marketplace / platform image catalog (publishers, offers, SKUs, versions) available in a specific edge zone, browsed when selecting VM images.
+scope: LOW
+notes: Essentially public, cross-tenant reference catalog data; reading it conveys only which images are available in an edge zone.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads a platform image offer in an edge zone, enumerating public marketplace image-catalog metadata for reconnaissance only.

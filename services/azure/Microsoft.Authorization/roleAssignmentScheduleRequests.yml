@@ -1,0 +1,17 @@
+name: PIM role assignment schedule request
+description: A role assignment schedule request is the PIM (Privileged Identity Management) object used to create or query a time-bound or permanent active RBAC role assignment for a principal at a scope. Writing it grants real RBAC privileges.
+scope: CRITICAL
+notes: This is the actual grant mechanism for PIM-managed RBAC roles and therefore controls privileged access to the subscription/tenant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading these requests enumerates pending and active RBAC grants and their assignees at a scope, exposing the privileged-access state and escalation targets.
+  write:
+    risks:
+      - escalation:privilege
+      - persistence:account
+    notes: Creating this request grants/activates an RBAC role assignment to a chosen principal via PIM, directly escalating privilege and establishing durable elevated access.

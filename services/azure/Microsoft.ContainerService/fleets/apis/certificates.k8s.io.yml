@@ -1,0 +1,12 @@
+name: AKS Fleet Kubernetes API (certificates.k8s.io group)
+description: Data-plane read access to the certificates.k8s.io API group (CertificateSigningRequest objects) on an AKS Fleet member cluster's aggregated Kubernetes API. CSR objects hold certificate requests and issued public certificates plus the requesting identity, but never private keys.
+scope: LOW
+notes: CSR objects expose certificate-request/issuance metadata and requested identities, but private key material never resides in them.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only listing of CertificateSigningRequest objects inventories cluster PKI request/issuance state and requested identities; no private key material is returned, so this is reconnaissance, not crypto exfiltration.

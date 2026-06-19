@@ -1,0 +1,12 @@
+name: Storage blob containers
+description: A blob container within a storage account's blob service, holding organizational blob data and its access/immutability configuration.
+scope: HIGH
+notes: Containers are production data stores supporting an organizational function; their configuration governs data exposure and retention/WORM protection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Control-plane migration action that alters the container's operational configuration (e.g. version-level/immutability or schema migration).

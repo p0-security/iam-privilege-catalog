@@ -1,0 +1,12 @@
+name: VM Scale Set VM metric definitions
+description: The Azure Monitor metric definitions for a virtual machine in a scale set — the schema/catalog of which metrics are emitted, not the metric values themselves.
+scope: LOW
+notes: Exposes only the monitoring metric schema; no metric values or sensitive data are returned.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Enumerates the available monitoring metric definitions (schema) for a scale-set VM, enabling reconnaissance of the diagnostics/monitoring surface only.

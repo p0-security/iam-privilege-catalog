@@ -1,0 +1,12 @@
+name: Kubernetes node metrics
+description: Kubernetes node resource-usage metrics within an AKS fleet member cluster, served by the metrics.k8s.io API. Returns CPU and memory utilization for cluster nodes.
+scope: LOW
+notes: Resource-utilization telemetry only; no application data or secrets are exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading node metrics returns CPU/memory usage per node, enabling read-only inventory of cluster compute capacity without exposing sensitive data.

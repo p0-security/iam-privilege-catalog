@@ -1,0 +1,12 @@
+name: Log Analytics workspace Network Security Perimeter configuration
+description: The Network Security Perimeter configuration stored on a Log Analytics workspace, describing the NSP membership and network access rules enforced around the workspace.
+scope: MEDIUM
+notes: Describes the network-isolation posture of an Azure Monitor / Log Analytics workspace, a monitoring and diagnostics data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the stored NSP configuration inventories the workspace's network-perimeter rules and membership, useful reconnaissance for finding gaps in the network defense around the workspace.

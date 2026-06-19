@@ -1,0 +1,21 @@
+name: Microsoft Sentinel entity relations
+description: Entity relations are the links in the Sentinel investigation graph connecting an entity to related resources such as incidents, alerts, and other entities.
+scope: MEDIUM
+notes: Relation data is investigation correlation context derived from security analysis.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - destruction:data
+    notes: Deletes relations between an entity and related incidents/alerts, removing investigation-graph linkages and tampering with incident-response context.
+  read:
+    risks:
+      - discovery:logs
+    notes: Reads relations linking an entity to related investigation resources, enabling reconnaissance of the SIEM investigation graph.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Updates entity relations in the investigation graph, letting an attacker tamper with correlation links analysts rely on to obscure connections between malicious activity.

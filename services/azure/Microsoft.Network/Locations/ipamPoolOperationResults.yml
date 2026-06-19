@@ -1,0 +1,11 @@
+name: IPAM pool operation results
+description: The asynchronous operation-result/status endpoint for IPAM (IP Address Management) pool operations, returning only operation progress/completion state.
+scope: LOW
+notes: Operation-status polling endpoint; exposes no actionable resource configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the async operation result of an IPAM pool operation is an inert status read granting no meaningful attacker capability in isolation.

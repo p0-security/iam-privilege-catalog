@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (NCBMSecurityDefenderLogs)
+description: A single Azure Log Analytics (Microsoft.OperationalInsights) workspace query table. Data-plane reads return the actual ingested log/telemetry records stored in that table within the monitoring workspace.
+scope: MEDIUM
+notes: This table holds Nexus security/Defender detection telemetry; reading it discloses detection coverage and security event history useful for evasion, but as a read it does not remove the defense.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Returns NCBM security/Defender log records, exporting defensive telemetry and revealing what security events are detected (evasion recon).

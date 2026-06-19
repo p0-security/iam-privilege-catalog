@@ -1,0 +1,14 @@
+name: Log Analytics workspace table (ASRReplicatedItems)
+description: A Log Analytics workspace query table holding Azure Site Recovery (ASR) replicated-items logs that enumerate protected/replicated machines and their replication configuration. Reading it returns the stored records via the data plane.
+scope: MEDIUM
+notes: Disaster-recovery diagnostic data inventorying protected infrastructure; MEDIUM-sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+      - discovery:infra
+    notes: Reading exports replicated-item log content (exfiltration:logs), enumerates the logged activity (discovery:logs), and inventories which workloads/VMs are protected and their configuration for infrastructure reconnaissance (discovery:infra).

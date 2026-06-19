@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (CDBDataPlaneRequests)
+description: A specific table in an Azure Log Analytics (Azure Monitor) workspace, queried via the data plane, holding Azure Cosmos DB data-plane request log records.
+scope: MEDIUM
+notes: Per-request data-plane log telemetry exposing operation types, accessed resources, callers, and access patterns; MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading exports Cosmos DB data-plane request log content revealing access patterns and request metadata (exfiltration:logs) and enumerates the logged activity (discovery:logs).

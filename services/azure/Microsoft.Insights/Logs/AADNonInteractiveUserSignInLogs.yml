@@ -1,0 +1,13 @@
+name: Azure Monitor Log Analytics table (AAD non-interactive sign-in logs)
+description: A Log Analytics table holding Entra ID (Azure AD) non-interactive user sign-in records ingested into a workspace. This data-plane read returns authentication telemetry such as user identities, source IPs, client apps, and sign-in outcomes.
+scope: MEDIUM
+notes: Sign-in log tables expose identity authentication patterns; valuable for account reconnaissance and targeting, but contain telemetry rather than live credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading this table exports non-interactive sign-in telemetry and enumerates user identities and their sign-in sources/patterns for account targeting.

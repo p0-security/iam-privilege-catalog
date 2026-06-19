@@ -1,0 +1,20 @@
+name: API Management AI gateway tool servers
+description: An API Management workspace tool server is a control-plane configuration object defining a backend tool integration (endpoints, headers, OAuth2/OpenAPI spec settings) that the AI gateway can invoke on behalf of agents.
+scope: MEDIUM
+notes: Supporting AI-integration configuration scoped to a single gateway/workspace; sensitivity is MEDIUM at the control plane, but the resource backs the CRITICAL-tier listSecrets action that returns endpoint credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a tool server removes the AI gateway tool integration, causing a DoS-like disruption of dependent agent workflows.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane read lists/gets tool server configuration, enabling reconnaissance of the gateway's tool integrations (endpoints, structure) without returning the secret subtrees, which require the separate listSecrets action.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a tool server alters AI gateway endpoint configuration (endpoints, headers, OAuth2/spec settings), letting an attacker repoint tool invocations to attacker-controlled servers or otherwise tamper with operational config.

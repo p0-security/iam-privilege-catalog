@@ -1,0 +1,11 @@
+name: Kubernetes SelfSubjectRulesReviews (AKS AI managers)
+description: "SelfSubjectRulesReview is a non-persisted Kubernetes authorization API: a POST returns the complete set of RBAC rules/permissions the calling identity has within a namespace."
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Creating SelfSubjectRulesReviews returns the full ruleset the caller is granted, letting an attacker inventory its own effective privileges to identify exploitable permissions before acting.

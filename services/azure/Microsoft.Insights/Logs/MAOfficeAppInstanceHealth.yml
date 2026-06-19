@@ -1,0 +1,13 @@
+name: Log Analytics MAOfficeAppInstanceHealth table
+description: A Log Analytics workspace table holding per-instance Microsoft Office application health telemetry records. This is a data-plane log table within Azure Monitor Log Analytics.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; app-instance health telemetry exposes deployed software inventory and usage.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns Office app-instance health telemetry, exporting and enumerating per-instance application records.

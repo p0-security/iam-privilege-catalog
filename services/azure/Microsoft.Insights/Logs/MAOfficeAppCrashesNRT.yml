@@ -1,0 +1,13 @@
+name: Log Analytics MAOfficeAppCrashesNRT table
+description: A Log Analytics workspace table holding near-real-time Microsoft Office application crash telemetry records. This is a data-plane log table within Azure Monitor Log Analytics.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; crash telemetry may reveal application versions, environment detail, and device/user identifiers.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns Office app-crash telemetry, exporting and enumerating crash/diagnostic records.

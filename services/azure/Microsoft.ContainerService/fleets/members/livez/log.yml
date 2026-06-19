@@ -1,0 +1,12 @@
+name: AKS Fleet member control-plane health probe
+description: A Kubernetes API server healthz/livez health-probe sub-endpoint exposed as an Azure data action on a member cluster of an AKS Fleet. It reports only whether the API server logging subsystem is healthy (not stalled), not any log contents.
+scope: LOW
+notes: These are operational health-check endpoints that return only ok/failed status strings, never the underlying data, secrets, certificates, or configuration. The log sub-check reports logging-path health only, never actual log entries.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reports only whether the logging subsystem is healthy; returns no log contents, so it is infra-status recon, not logs discovery/exfiltration.

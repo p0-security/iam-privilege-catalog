@@ -1,0 +1,12 @@
+name: Web App slot processes
+description: Runtime process listing for an Azure App Service deployment slot, exposed via the Kudu/SCM process explorer.
+scope: MEDIUM
+notes: Reveals the running workload's process inventory (and potentially command lines) but not its data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the running processes of the slot, runtime reconnaissance of the app's execution environment with no data or credential return.

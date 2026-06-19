@@ -1,0 +1,12 @@
+name: Application Insights AppMetrics log table
+description: A Log Analytics / Application Insights telemetry table (data plane) holding custom application metric telemetry for a monitored application.
+scope: MEDIUM
+notes: Monitoring/diagnostics data; per-application scope.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read exports custom metric telemetry, disclosing application operational and usage characteristics.

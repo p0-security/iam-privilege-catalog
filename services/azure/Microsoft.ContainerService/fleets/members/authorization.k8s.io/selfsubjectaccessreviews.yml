@@ -1,0 +1,12 @@
+name: Kubernetes SelfSubjectAccessReviews (Fleet member)
+description: Kubernetes SelfSubjectAccessReview API on an Azure Fleet member cluster; a non-persisted request that reports whether the calling identity itself may perform a specified action.
+scope: MEDIUM
+notes: Self-scoped permission read-back; reveals only the caller's own effective access. Creates no persistent state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Creating a SelfSubjectAccessReview lets the attacker enumerate their own effective permissions to plan next steps; limited to the caller's identity.

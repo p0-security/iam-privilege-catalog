@@ -1,0 +1,12 @@
+name: Garnet cluster (Redis-compatible cache)
+description: Microsoft DocumentDB Garnet clusters are a Redis-compatible in-memory cache/data store. The acl child resource scopes data-plane commands executed against the cluster keyspace and pub/sub system.
+scope: LOW
+notes: Holds cached organizational data and carries application pub/sub message streams; treated as a production data store supporting a single function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:data
+    notes: PUBSUB NUMSUB returns subscriber counts for named channels, confirming which channels exist and are active and aiding mapping of the pub/sub topology.

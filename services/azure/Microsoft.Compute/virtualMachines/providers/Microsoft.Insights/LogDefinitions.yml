@@ -1,0 +1,11 @@
+name: Virtual Machine log definitions
+description: The Microsoft.Insights log definitions for a Virtual Machine enumerate the categories/types of diagnostic logs available for that VM. It is a read-only logging-schema resource.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Lists which log categories exist for the VM; a read-only logs-schema inventory with no log content.

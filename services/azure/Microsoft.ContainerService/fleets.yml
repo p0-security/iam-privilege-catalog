@@ -1,0 +1,23 @@
+name: AKS Fleet Manager fleet
+description: An AKS Fleet (Fleet Manager) is a multi-cluster management/orchestration hub that groups and coordinates updates and configuration across member AKS clusters, optionally hosting a managed hub cluster.
+scope: HIGH
+notes: Governs centralized orchestration across multiple member AKS clusters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Delete tears down the multi-cluster management hub, destroying the orchestration resource and disrupting centralized management across all member clusters.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Get returns the fleet's configuration and member-cluster topology, enabling reconnaissance of the multi-cluster management plane.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Create/update reconfigures the multi-cluster orchestration hub and can attach a fleet managed identity used across member clusters, enabling configuration manipulation and lateral movement at fleet level.

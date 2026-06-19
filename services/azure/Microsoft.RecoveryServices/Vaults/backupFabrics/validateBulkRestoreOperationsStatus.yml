@@ -1,0 +1,11 @@
+name: Backup bulk-restore validation status
+description: A read-only endpoint that returns the validation status of a bulk restore operation on backup protected items within a Recovery Services vault.
+scope: LOW
+notes: Returns operational validation status only, not backup data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the validation status of a bulk-restore operation; an inert operation-status read with no sensitive data or actionable capability.

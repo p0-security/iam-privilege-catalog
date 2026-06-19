@@ -1,0 +1,21 @@
+name: Storage account data-share policies
+description: A control-plane data-share policy on an Azure Storage account that governs how the account's data may be shared (Azure Data Share governance configuration).
+scope: HIGH
+notes: Acts as an access-control/governance constraint on data sharing for a single storage account.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+    notes: Deletes the data-share governance policy, removing an access-control constraint that would otherwise limit how the account's data can be shared.
+  read:
+    risks:
+      - discovery:policy
+    scope: LOW
+    notes: Reads the data-share policy configuration, letting an attacker inventory the account's sharing/access-control posture to find weak points.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates the data-share governance policy, letting an attacker alter or weaken sharing controls to broaden data exposure.

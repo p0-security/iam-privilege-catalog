@@ -1,0 +1,12 @@
+name: Platform image SKU catalog
+description: A read-only view of an Azure Marketplace platform-image SKU, part of the public image catalog.
+scope: LOW
+notes: Marketplace catalog data is essentially public and common across all tenants; reading it enables only low-value reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads a platform image SKU from the marketplace catalog, enumerating available image options for reconnaissance.

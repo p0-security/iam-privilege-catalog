@@ -1,0 +1,22 @@
+name: Public IP Address
+description: A Public IP Address is an Azure network resource that provides an internet-routable address which can be associated with VMs, load balancers, gateways, and other resources to expose them externally.
+scope: HIGH
+notes: Production network infrastructure fronting services; write/delete/join operations directly affect internet exposure and availability of a service, hence HIGH for mutating operations and LOW for read-only enumeration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a public IP removes a network endpoint, disrupting connectivity for any service that depends on that public-facing address.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading a public IP definition only inventories network resource configuration (address, SKU, associations), supporting network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a public IP can provision or reconfigure an internet-facing endpoint, exposing services externally and altering public-facing network configuration.

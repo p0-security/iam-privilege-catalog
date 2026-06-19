@@ -1,0 +1,11 @@
+name: Azure SQL instance pool operation status
+description: A read-only endpoint that reports the in-progress status of asynchronous instance pool operations.
+scope: LOW
+notes: Operation-status polling endpoint; exposes only operation state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling async operation status returns only operation progress state, granting no meaningful attacker capability in isolation.

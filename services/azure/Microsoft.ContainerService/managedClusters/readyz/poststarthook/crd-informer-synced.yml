@@ -1,0 +1,12 @@
+name: AKS cluster API server readiness probe
+description: Data-plane read of an AKS-managed Kubernetes API server /readyz poststarthook sub-check, returning the readiness/completion status of a specific control-plane startup hook.
+scope: LOW
+notes: Health-probe reads expose only readiness status (a boolean/status string), not data, configuration, secrets, or policy contents; they are low-sensitivity operational status signals.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reports only whether the CRD informer-sync startup hook completed; returns no CRD definitions or contents.

@@ -1,0 +1,11 @@
+name: DNS zone metric definitions
+description: The Azure Monitor metric definitions for a DNS zone — the schema enumerating which monitoring metrics are available for the zone.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading the metric definitions only enumerates the available monitoring metric schema for the zone, low-value telemetry reconnaissance.

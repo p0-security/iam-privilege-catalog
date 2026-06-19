@@ -1,0 +1,13 @@
+name: Azure Firewall threat-intelligence log table (Log Analytics)
+description: A Log Analytics workspace query data-plane permission scoped to the AZFWThreatIntel table, which stores Azure Firewall threat-intelligence match telemetry ingested into the workspace.
+scope: MEDIUM
+notes: Threat-intel match logs reveal which malicious-IP/FQDN indicators the firewall detects and blocks, directly aiding defense evasion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Exports threat-intel match records that disclose what threat feeds/indicators the firewall detects, letting an attacker learn detection coverage and evade it.

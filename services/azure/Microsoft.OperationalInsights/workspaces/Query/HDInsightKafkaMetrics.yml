@@ -1,0 +1,13 @@
+name: Log Analytics HDInsight query table (Kafka metrics)
+description: A Log Analytics workspace query-scoped table holding HDInsight Kafka performance-metric telemetry ingested via diagnostic settings. The data-plane read returns the stored metric rows.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset tier. Metric tables are largely numeric performance telemetry with low sensitive payload.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading this table exports Kafka broker telemetry and enumerates cluster throughput/topology for reconnaissance.

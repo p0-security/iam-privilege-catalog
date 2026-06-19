@@ -1,0 +1,12 @@
+name: Kubernetes LocalSubjectAccessReviews (Fleet)
+description: A Kubernetes LocalSubjectAccessReview is an authorization-query API object that reports whether an arbitrary subject can perform a given action within a specific namespace. It creates no persistent resource.
+scope: MEDIUM
+notes: Lets a caller probe other principals' RBAC permissions, not just their own.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Submitting LocalSubjectAccessReviews lets an attacker query whether any subject is authorized for namespace-scoped actions, mapping RBAC to find privileged identities and escalation paths.

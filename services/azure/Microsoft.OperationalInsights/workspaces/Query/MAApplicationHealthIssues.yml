@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (Azure Migrate/Desktop Analytics inventory)
+description: Specific tables within an Azure Monitor / Log Analytics workspace holding Azure Migrate / Desktop Analytics assessment telemetry that inventories the organization's applications, instances, readiness, deployment plans, and devices.
+scope: MEDIUM
+notes: Log Analytics tables are data-plane monitoring stores; per-table read permissions scope access to one table's collected telemetry. These tables constitute an inventory of the org's application/device estate. Sensitivity is MEDIUM (monitoring/diagnostics data).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reads recorded application-health issues, exfiltrating the data and enumerating known defects/weaknesses across the application estate.

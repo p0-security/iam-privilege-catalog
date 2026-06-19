@@ -1,0 +1,12 @@
+name: AKS Kubernetes scheduling API resources
+description: The Kubernetes scheduling.k8s.io API group on an AKS managed cluster, exposing scheduling configuration objects such as PriorityClasses via the AKS-proxied API server.
+scope: LOW
+notes: Read-only enumeration of scheduling configuration; reveals cluster scheduling policy but no secret material or workload data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads/lists the scheduling.k8s.io API group, enumerating PriorityClass scheduling configuration as infrastructure reconnaissance.

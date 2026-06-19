@@ -1,0 +1,23 @@
+name: Role assignment
+description: An RBAC role assignment binds a principal (user, group, service principal, or managed identity) to a role definition at a given scope, granting that principal the role's permissions.
+scope: CRITICAL
+notes: Role assignments are the core access-control bindings of Azure; the asset is tenant/subscription-wide identity and access-control data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a role assignment destroys an access-control binding, which can strip legitimate principals of access (denial-of-access) and tear down deny/constraining grants that would otherwise limit the attacker.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading role assignments enumerates who holds what access at a scope, letting an attacker map the RBAC graph and identify privileged targets or weak points.
+  write:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+      - persistence:account
+    notes: Creating a role assignment lets an attacker grant any role (including Owner) to themselves or a controlled principal/managed identity, the headline RBAC privilege-escalation and lateral-movement primitive, and establishes durable access.

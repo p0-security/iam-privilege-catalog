@@ -1,0 +1,12 @@
+name: DSCP (QoS) configuration
+description: A DSCP configuration defines Quality-of-Service (QoS) traffic-marking and prioritization policy applied to network interfaces.
+scope: MEDIUM
+notes: Supporting traffic-shaping/QoS resource; low operational sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: The join action associates a resource (e.g. a NIC) with the DSCP/QoS configuration, attaching attacker-controlled resources into the network's QoS scope.

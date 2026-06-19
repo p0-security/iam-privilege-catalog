@@ -1,0 +1,23 @@
+name: Azure Monitor Private Link Scoped Resource
+description: A scoped resource represents the binding of a specific Azure Monitor resource (a Log Analytics workspace or Application Insights component) into a Private Link Scope, controlling its private-network connectivity.
+scope: MEDIUM
+notes: Read-only enumeration of these bindings reveals both network linkage and which monitoring resources exist.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:network
+    notes: Deleting a scoped resource unlinks a monitoring resource from the private scope, breaking its private connectivity path.
+  Read:
+    risks:
+      - discovery:network
+      - discovery:infra
+    scope: LOW
+    notes: Reading a scoped resource enumerates which Azure Monitor resources are bound into the private scope, inventorying both the private-network linkage and the underlying monitoring infrastructure.
+  Write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating or updating a scoped resource binds an Azure Monitor resource into the private scope, changing which resources are reachable over the private network and altering the scope's connectivity configuration.

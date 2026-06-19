@@ -1,0 +1,20 @@
+name: Integration Account Schema
+description: A message schema (XSD/EDI flat-file definition) in an Azure Logic Apps Integration Account used to validate and transform B2B/integration messages.
+scope: MEDIUM
+notes: Supporting integration metadata for a single integration function; describes message structure rather than holding secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes the schema artifact, removing the message-validation/transformation definition that dependent integration workflows rely on (disrupts message processing).
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the schema's configuration/definition (control plane), enabling reconnaissance of the integration's message-structure definitions without returning secret material.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a schema lets an attacker alter the message validation/transformation definitions, corrupting or bypassing how integration messages are processed.

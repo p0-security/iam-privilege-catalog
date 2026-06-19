@@ -1,0 +1,12 @@
+name: Logic App workflow version
+description: A historical, immutable revision of a Logic App workflow definition, capturing the workflow's logic, actions, and referenced connections at a point in time.
+scope: MEDIUM
+notes: Workflow definitions can reveal integration architecture, downstream systems, and connection references useful for reconnaissance, but do not themselves return secret values.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a workflow version exposes the definition/configuration (steps, connections, logic) for reconnaissance of the automation pipeline; returns no secret material.

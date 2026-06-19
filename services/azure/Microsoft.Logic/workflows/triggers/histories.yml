@@ -1,0 +1,13 @@
+name: Logic App workflow trigger history
+description: The execution history of a Logic App workflow trigger, recording past trigger firings along with their input and output payloads, status, and timestamps.
+scope: HIGH
+notes: Trigger history payloads can contain the actual business data the workflow processed, making them sensitive beyond mere operational status.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:data
+      - discovery:infra
+    notes: Reading trigger histories exposes past firing records including inputs/outputs, which can contain the sensitive business data processed by the workflow.

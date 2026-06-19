@@ -1,0 +1,12 @@
+name: Managed HSM metric definitions
+description: Metric definitions describe the monitoring/telemetry metrics available for a Managed HSM.
+scope: LOW
+notes: Read-only monitoring schema; no key material or operational data is exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading available metric definitions only enumerates the monitoring/metrics schema for the HSM, low-sensitivity reconnaissance.

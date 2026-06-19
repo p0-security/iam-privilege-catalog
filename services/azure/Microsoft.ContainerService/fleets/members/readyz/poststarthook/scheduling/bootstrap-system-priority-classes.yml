@@ -1,0 +1,12 @@
+name: AKS fleet member API server readyz health probe
+description: A Kubernetes API server /readyz readiness/liveness health-check sub-endpoint exposed as a data-plane operation on an AKS fleet member's managed control plane. It returns only a boolean ok/failed health signal, not the underlying component data.
+scope: LOW
+notes: Despite suggestive path segments (e.g. ca-registration, rbac/bootstrap-roles), these probes report only whether a startup hook or subsystem has completed/synced; they never return certificate material, RBAC role content, or any configuration. Health endpoints carry negligible asset sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the readiness status of the bootstrap-system-priority-classes scheduling post-start hook; returns only a health boolean.

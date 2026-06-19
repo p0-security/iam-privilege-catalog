@@ -1,0 +1,11 @@
+name: Key Vault name availability
+description: A provisioning helper that checks whether a proposed key vault name is syntactically valid and not already in use in the global namespace.
+scope: PUBLIC
+notes: Returns only a boolean availability result; no organizational resource data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Checking whether a vault name is valid/available leaks only global-namespace existence of a name and grants no meaningful attacker capability.

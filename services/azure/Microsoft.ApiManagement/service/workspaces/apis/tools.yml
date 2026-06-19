@@ -1,0 +1,21 @@
+name: API MCP tools
+description: API Management MCP tools define how a managed API's backend operations are exposed as Model Context Protocol (MCP) tools that AI agents/clients can invoke through the APIM gateway.
+scope: HIGH
+notes: Control-plane configuration of an AI gateway fronting a production API; tool definitions govern routing and what operations are exposed to LLM agents, but backend credentials are stored separately as named-value secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Workspace-scoped delete of an MCP tool removes gateway configuration exposing an API operation, disrupting dependent integrations (DoS-like).
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Workspace-scoped list/get of MCP tool definitions for an API, enumerating gateway exposure/routing configuration; returns config metadata, not secrets.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Workspace-scoped create/update of an MCP tool alters the gateway's exposure/routing config, enabling redirection or poisoning of tool definitions served to LLM agents.

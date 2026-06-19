@@ -1,0 +1,21 @@
+name: Azure Network location operations
+description: Location-scoped internal control-plane action operations of the Microsoft.Network resource provider, covering capability checks, resource-move orchestration, ownership management, Azure Network Manager configuration, load balancer control, and effective-topology reads. These are management-plane operations rather than tenant data access.
+scope: LOW
+notes: Many of these are internal/undocumented platform operations; their sensitivity ranges from inert pre-flight checks to high-impact network configuration writes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Reads the current packet-tagging configuration/status, allowing an attacker to inventory active traffic-capture settings without returning captured data.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Returns packet-tagging diagnostic data for a location, enabling read-only reconnaissance of how the network classifies/handles traffic.
+    name: Network Watcher diagnostics
+    parent:
+      description: Azure Network Watcher diagnostic operations that inspect network behavior, configuration, routing, and reachability for a subscription/region. Packet tagging is a location-scoped diagnostic that returns how traffic is classified.
+      notes: Read-only diagnostic tooling on supporting network infrastructure; exposes effective security/routing posture useful for reconnaissance but cannot modify resources or return secrets.

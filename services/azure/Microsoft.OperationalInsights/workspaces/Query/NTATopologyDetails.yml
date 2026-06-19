@@ -1,0 +1,13 @@
+name: Log Analytics NTATopologyDetails table
+description: A Log Analytics workspace table holding Network Traffic Analytics topology-detail records (network nodes, subnets, connectivity). Reading it returns the stored log rows.
+scope: MEDIUM
+notes: Monitoring data is MEDIUM scope; directly maps network topology.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Exports topology telemetry that directly maps network nodes, subnets, and connectivity for movement planning.

@@ -1,0 +1,11 @@
+name: App Service Plan usages
+description: Resource usage and quota consumption counters for an App Service Plan.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading usage/quota figures inventories capacity consumption, low-sensitivity infrastructure reconnaissance.

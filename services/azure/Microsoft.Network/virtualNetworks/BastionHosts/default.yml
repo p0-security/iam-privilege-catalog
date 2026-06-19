@@ -1,0 +1,12 @@
+name: Bastion Host (virtual network association)
+description: Azure Bastion provides secure RDP/SSH connectivity to VMs over private IP; this operation retrieves the Bastion Host references associated with a virtual network.
+scope: LOW
+notes: Read-only enumeration of network access infrastructure; despite the /action suffix this is a get, not a state change.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Returns Bastion Host references in a virtual network, inventorying network access infrastructure for reconnaissance.

@@ -1,0 +1,17 @@
+name: Logic App workflow run
+description: A workflow run is a single execution instance of an Azure Logic App workflow, recording its trigger, status, timing, and per-step execution history.
+scope: MEDIUM
+notes: Logic App runs orchestrate integration/automation business processes and their run records can reference the data payloads processed by the workflow.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - destruction:logs
+    notes: Deleting a run destroys its recorded execution history/payload references and erases the audit trail of what the workflow processed, disrupting incident response.
+  read:
+    risks:
+      - discovery:data
+    notes: Reading a run returns run-level status/metadata (state, trigger summary, start/end), enumerating execution history; the full action input/output payloads are exposed via the separate actions endpoints, not this top-level read.

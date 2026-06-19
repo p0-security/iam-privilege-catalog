@@ -1,0 +1,13 @@
+name: Azure Automation Source Control sync job streams
+description: The output/log streams produced by an Azure Automation source control sync job that pulls repository content into runbooks.
+scope: MEDIUM
+notes: Streams are verbose per-job sync log output that can reveal synced file paths and diagnostic detail; they are job logs rather than full source code.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading sync-job streams exports the verbose repository-sync log output, which can disclose synced file/runbook paths and sensitive values surfaced during synchronization.

@@ -1,0 +1,22 @@
+name: API Management tenant policy restrictions
+description: Tenant policy restrictions are service-wide (global) governance guardrails that constrain what policies may be authored across the API Management instance (e.g. requireBase enforcement, restricted scopes).
+scope: HIGH
+notes: "A defense-in-depth governance control: it limits what gateway policy logic publishers may configure service-wide; reading it exposes where policy-based enforcement is weak or absent."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the global policy restriction removes the service-wide guardrail constraining permitted policies, eliminating an enforcement control and freeing an attacker to author unrestricted (potentially malicious) policies.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reading the global policy restrictions discloses the tenant-wide guardrails constraining permitted policy authoring, revealing weak points in the service's policy-governance posture before tampering.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Setting/updating the global policy restriction relaxes the tenant-wide guardrails on permissible policy authoring, weakening a service-wide enforcement control and letting an attacker permit otherwise-restricted (e.g. auth-bypassing) policies.

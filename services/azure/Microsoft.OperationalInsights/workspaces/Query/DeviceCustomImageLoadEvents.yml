@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (DeviceCustomImageLoadEvents)
+description: A per-table data-plane read permission on a Log Analytics workspace, granting query access to the rows of one specific log/telemetry table ingested into the workspace.
+scope: MEDIUM
+notes: Log Analytics tables hold ingested monitoring, security, and application telemetry. Sensitivity is MEDIUM (monitoring/diagnostic data), though individual tables can contain confidential operational detail, command lines, identifiers, or security-detection context.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads Defender-for-Endpoint custom image/DLL-load telemetry, exporting endpoint module-load logs that reveal code-execution and loaded-module activity on hosts.

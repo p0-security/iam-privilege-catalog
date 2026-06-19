@@ -1,0 +1,21 @@
+name: Private DNS TXT record set
+description: A TXT record set within an Azure Private DNS zone, which holds arbitrary text records such as SPF, domain-verification tokens, or policy strings for resources in linked virtual networks.
+scope: HIGH
+notes: TXT records often carry verification/policy data relied on for trust decisions; manipulating them affects validation rather than traffic routing.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the TXT record set removes verification/SPF/policy entries, disrupting validations and services that depend on them.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the TXT record set exposes internal text data such as verification tokens, SPF, and policy strings within the private zone.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/replacing TXT records lets an attacker forge SPF/domain-verification/policy values, manipulating trust and validation decisions made by internal services.

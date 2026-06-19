@@ -1,0 +1,12 @@
+name: Container registry catalog
+description: The data-plane catalog of an Azure Container Registry, which lists all repositories (collections of image artifacts) stored in the registry.
+scope: LOW
+notes: Provides a registry-wide inventory of repositories useful for reconnaissance and targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Listing the registry catalog enumerates all repositories, providing an inventory of stored artifacts for further targeting.

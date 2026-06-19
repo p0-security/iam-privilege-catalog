@@ -1,0 +1,12 @@
+name: Azure SQL Database Transparent Data Encryption
+description: Transparent Data Encryption (TDE) configuration for an Azure SQL logical database, controlling encryption-at-rest of the database's data files, logs, and backups.
+scope: HIGH
+notes: TDE is a data-protection defense control on a single production database; the resource type governs the encryption-at-rest state but does not itself hold or return key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Resuming the TDE scan re-enables encryption-at-rest, changing the database's operational encryption state; because it strengthens rather than removes the defense, it is a configuration manipulation only.

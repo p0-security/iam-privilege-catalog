@@ -1,0 +1,12 @@
+name: Azure AD Domain Services directory-service-access log table
+description: A Log Analytics data-plane table holding Azure AD Domain Services directory-service-access security audit records describing accesses to managed directory objects.
+scope: MEDIUM
+notes: Monitoring/security telemetry that may disclose sensitive directory structure and access patterns.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: This data-plane read exports directory object access audit records, exfiltrating sensitive security telemetry.

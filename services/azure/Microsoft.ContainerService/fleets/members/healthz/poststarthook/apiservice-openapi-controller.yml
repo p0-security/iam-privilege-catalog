@@ -1,0 +1,12 @@
+name: AKS fleet member API server healthz probe
+description: A Kubernetes API server health/readiness probe endpoint of an AKS fleet member cluster, exposed as an Azure data action. Returns only component liveness/readiness status, not the underlying data.
+scope: LOW
+notes: These healthz endpoints return up/down or readiness status strings only; they expose no cluster data, secrets, policy, or configuration content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns readiness status of the OpenAPI controller start-up hook, exposing only control-plane component health.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (MDCFileIntegrityMonitoringEvents)
+description: A single Azure Log Analytics (Microsoft.OperationalInsights) workspace query table. Data-plane reads return the actual ingested log/telemetry records stored in that table within the monitoring workspace.
+scope: MEDIUM
+notes: This table holds Microsoft Defender for Cloud File Integrity Monitoring security telemetry; reading it discloses defensive coverage useful for evasion planning, but as a read it does not disable the defense.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Returns Defender for Cloud FIM events, exporting security-monitoring log content and revealing which files/paths are monitored and detected (evasion recon).

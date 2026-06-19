@@ -1,0 +1,22 @@
+name: Fleet InternalServiceExport resource
+description: A Kubernetes Fleet networking CRD (InternalServiceExport) that exports a member cluster's internal Kubernetes service for cross-cluster consumption across the AKS fleet.
+scope: HIGH
+notes: Data-plane (isDataAction) resource governing cross-cluster service reachability for production fleet workloads; controls which internal services are exposed between clusters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting withdraws a service from cross-cluster discovery, tearing down a network routing component and breaking inter-cluster service availability.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading enumerates which internal services are exported across the fleet, mapping cross-cluster service/network topology for reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating an export exposes or re-targets a cluster-local service to other fleet clusters, manipulating cross-cluster service routing and extending network reachability.

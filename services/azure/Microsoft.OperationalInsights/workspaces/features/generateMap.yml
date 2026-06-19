@@ -1,0 +1,13 @@
+name: Service Map
+description: Azure Monitor Service Map data showing process-level and network connection topology and dependencies between monitored machines.
+scope: MEDIUM
+notes: Reveals environment topology and inter-host dependencies useful for lateral-movement planning.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+      - discovery:infra
+    notes: Retrieving the Service Map exposes machine-to-machine network connections and dependency topology, valuable network and infrastructure reconnaissance.

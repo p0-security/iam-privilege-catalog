@@ -1,0 +1,12 @@
+name: Integration Service Environment available managed APIs
+description: The list of managed API connectors available within a Logic Apps Integration Service Environment (ISE).
+scope: LOW
+notes: Read-only inventory of available connector capabilities; non-sensitive infrastructure capability metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the managed API connectors available in the integration service environment, enabling read-only inventory of available integration infrastructure.

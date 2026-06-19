@@ -1,0 +1,14 @@
+name: Log Analytics query table (AGSGrafanaLoginEvents)
+description: A Log Analytics workspace query table holding Azure Managed Grafana login-event records. This data-plane permission returns the stored login/authentication log rows via KQL query.
+scope: MEDIUM
+notes: Authentication/login log data is MEDIUM scope; records user login events and identities but not reusable credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+      - discovery:account
+    notes: Reading the table exports Grafana login-event records (exfiltration:logs), enumerates logged auth events (discovery:logs), and reveals which user accounts logged in for targeting (discovery:account).

@@ -1,0 +1,13 @@
+name: Log Analytics ADXIngestionBatching table
+description: A Log Analytics workspace data-plane table holding Azure Data Explorer ingestion-batching diagnostic telemetry. Reading it returns the stored ingestion-pipeline log rows.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read exports ADX ingestion-batching log rows, exposing data-pipeline ingestion telemetry.

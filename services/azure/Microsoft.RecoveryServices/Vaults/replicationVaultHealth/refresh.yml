@@ -1,0 +1,11 @@
+name: Vault replication health
+description: Vault replication health is the aggregated operational health/status of the replication configuration in a Recovery Services vault.
+scope: LOW
+notes: Operational health metadata only.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Triggers a recompute/refresh of vault health status; an inert maintenance no-op that neither changes configuration nor exposes data.

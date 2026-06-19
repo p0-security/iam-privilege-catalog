@@ -1,0 +1,11 @@
+name: Cosmos DB MongoDB collection operation results
+description: The status endpoint for asynchronous control-plane operations on a Cosmos DB MongoDB collection.
+scope: LOW
+notes: Returns only transient operation progress/outcome metadata, not resource configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the status of an asynchronous operation is an inert no-op that exposes no sensitive configuration or data and grants no meaningful standalone attacker capability.

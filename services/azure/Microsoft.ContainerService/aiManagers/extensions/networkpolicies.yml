@@ -1,0 +1,24 @@
+name: Kubernetes NetworkPolicies (AI Managers extension)
+description: "A Kubernetes NetworkPolicy object inside an AKS/AI Managers cluster: a pod-level firewall rule set that enforces allow/deny network segmentation between pods, namespaces, and egress destinations."
+scope: HIGH
+notes: NetworkPolicies act as the cluster's in-network segmentation defense; reading them reveals both topology and the access-control rules enforcing isolation. This is a data-plane (isDataAction) operation on a single cluster's network defense.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Deleting NetworkPolicies removes the pod-level firewall/segmentation rules acting as a network defense, reopening previously blocked traffic paths and enabling lateral network movement to otherwise isolated workloads.
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading/listing NetworkPolicies discloses the cluster's pod-to-pod and egress allow/deny segmentation rules, revealing both network topology and the access-control policy enforcing it, exposing weak points for lateral movement.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating NetworkPolicies lets an attacker loosen or rewrite pod segmentation rules that act as a network defense, opening previously isolated pod/namespace paths for lateral network movement and altering the enforced security posture.

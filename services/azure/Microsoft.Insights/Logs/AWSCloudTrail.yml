@@ -1,0 +1,13 @@
+name: AWS CloudTrail table
+description: A Log Analytics / Azure Monitor table holding AWS CloudTrail audit log records ingested from a connected AWS environment (cross-cloud control-plane API activity). This is a monitoring/diagnostics data-plane asset.
+scope: MEDIUM
+notes: CloudTrail records expose AWS identities, API actions, and resource details with high cross-cloud reconnaissance value.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read of the AWSCloudTrail table exports ingested AWS control-plane audit records, revealing AWS account activity and identities for reconnaissance.

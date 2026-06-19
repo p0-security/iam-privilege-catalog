@@ -1,0 +1,12 @@
+name: Cosmos DB account metric definitions
+description: The schema/definitions of monitoring metrics available for a Cosmos DB database account.
+scope: LOW
+notes: Enumerates which telemetry exists; returns no metric values, data, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Lists the available account metric definitions, enumerating only the monitoring telemetry schema with no data exposure.

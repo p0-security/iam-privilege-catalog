@@ -1,0 +1,17 @@
+name: Managed instance database long-term-retention backups
+description: Long-term-retention (LTR) backups of Azure SQL Managed Instance databases, retained recovery copies of production database data.
+scope: HIGH
+notes: Backups are copies of production data; enumerating them aids targeting and identifies recovery points an attacker may seek to destroy. Read operations return backup metadata, not contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deletes an LTR backup of a managed instance database, destroying organizational recovery data and undermining backup-based mitigation.
+  read:
+    risks:
+      - discovery:data
+    scope: MEDIUM
+    notes: Lists/gets LTR backups for a managed instance database, enumerating stored backup recovery points without returning their contents.

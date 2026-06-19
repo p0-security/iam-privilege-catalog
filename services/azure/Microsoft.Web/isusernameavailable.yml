@@ -1,0 +1,11 @@
+name: Username availability check
+description: A stateless validation helper checking whether a publishing/deployment username is available.
+scope: LOW
+notes: Returns only a boolean; does not enumerate existing accounts.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Checks username availability; an inert pre-provisioning utility with no meaningful account enumeration in isolation.

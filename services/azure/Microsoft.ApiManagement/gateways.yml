@@ -1,0 +1,22 @@
+name: API Management gateways
+description: An API Management gateway is a (self-hosted or managed) gateway resource that fronts and routes API traffic for an API Management service.
+scope: HIGH
+notes: Gateways are the data-ingress component fronting a single organizational API function; their configuration governs how API traffic is routed and served.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a gateway removes the infrastructure that routes API traffic, disrupting the APIs it fronts (DoS-like effect inherent to destruction:infra).
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Control-plane read that lists or gets gateway resource configuration, enabling reconnaissance of the API gateway deployment and ingress topology.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating/updating a gateway alters the production API-routing configuration of a single function and provisions a billable gateway resource.

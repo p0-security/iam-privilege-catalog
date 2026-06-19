@@ -1,0 +1,20 @@
+name: Integration Account Partner
+description: A B2B trading-partner definition within a Logic Apps Integration Account, holding partner business identities/qualifiers used to route and validate EDI messages.
+scope: MEDIUM
+notes: Configuration sub-resource of the integration account; defines partner identity metadata, not secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deletes a trading-partner definition, destroying B2B configuration data and breaking agreements/workflows that reference that partner.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads a trading-partner definition, enabling inventory of B2B partner identity/qualifier configuration.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a partner alters trading-partner identifiers/qualifiers that drive EDI message routing and agreement matching, manipulating operational integration configuration.

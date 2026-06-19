@@ -1,0 +1,23 @@
+name: Kubernetes DaemonSets
+description: DaemonSets are Kubernetes workload controllers that run a copy of a pod on every (or selected) node in the cluster, commonly used for node-level agents such as CNI, logging, monitoring and CSI. This is data-plane (Kubernetes object) access within an AKS-managed 'aiManagers' cluster.
+scope: HIGH
+notes: Write access schedules attacker-controlled (potentially privileged, host-mounting) pods on every node, a path to node-level code execution and lateral movement via mounted service-account tokens; delete removes critical per-node agents cluster-wide.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a DaemonSet tears down its per-node pods (e.g. CNI, logging, monitoring agents), removing node-level workload infrastructure and disrupting the services it provides across all nodes.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading DaemonSets enumerates per-node workload definitions and pod specs (images, host mounts, privileges, service-account references) across the cluster, infrastructure reconnaissance useful for targeting.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating a DaemonSet schedules attacker-chosen containers on every node (resource hijacking) that can mount host paths and service-account tokens, enabling node/host compromise and lateral movement to node and pod identities, plus tampering with existing per-node workloads.

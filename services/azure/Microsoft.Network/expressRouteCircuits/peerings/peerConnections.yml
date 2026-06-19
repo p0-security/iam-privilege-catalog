@@ -1,0 +1,12 @@
+name: Peer ExpressRoute circuit connection
+description: A peer ExpressRoute circuit connection represents the cross-circuit peering linkage between two ExpressRoute circuits, describing private cross-premises connectivity topology.
+scope: MEDIUM
+notes: Exposes network connectivity/topology configuration of private on-premises connectivity; no data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the peer connection enumerates cross-circuit peering relationships and connectivity topology, supporting network reconnaissance of private connectivity.

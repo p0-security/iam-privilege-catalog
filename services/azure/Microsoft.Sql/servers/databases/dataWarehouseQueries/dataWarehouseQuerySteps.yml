@@ -1,0 +1,12 @@
+name: Azure SQL data warehouse query step
+description: Diagnostic information about an individual distributed step of a data warehouse query against an Azure SQL data warehouse database, identified by step ID.
+scope: MEDIUM
+notes: Returns per-step query execution detail (plan internals), not the underlying stored row data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns distributed query step execution detail for a query; read-only reconnaissance of query execution internals rather than stored data.

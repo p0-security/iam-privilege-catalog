@@ -1,0 +1,12 @@
+name: Cosmos DB SQL container
+description: An Azure Cosmos DB SQL (Core) API container (collection) within a database, holding the actual documents/items and defining throughput, indexing, partitioning, and TTL configuration.
+scope: HIGH
+notes: Production NoSQL collection storing organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Merging the container's physical partitions is a disruptive structural reorganization of the production data store's storage layout that can degrade performance and alter operational behavior.

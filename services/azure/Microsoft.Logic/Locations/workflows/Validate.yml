@@ -1,0 +1,11 @@
+name: Microsoft.Logic workflow design-time helpers
+description: Design-time/stateless helper actions for Logic Apps workflow authoring (definition validation and operation-group recommendations) that do not persist or execute anything.
+scope: LOW
+notes: Authoring aids that return advisory feedback only; no stored data access or state mutation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Validates a supplied workflow definition for correctness without persisting state or reading stored data; inert in isolation.

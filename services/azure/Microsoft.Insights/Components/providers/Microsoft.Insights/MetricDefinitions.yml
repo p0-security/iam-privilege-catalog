@@ -1,0 +1,12 @@
+name: Application Insights metric definitions
+description: The schema of available telemetry metrics (metric names and dimensions) emitted by an Application Insights monitoring component.
+scope: MEDIUM
+notes: Exposes only the catalog of available metrics, not the metric values themselves.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Enumerates which monitoring metrics/telemetry the component collects, reconnaissance of the logging/telemetry surface without returning data values.

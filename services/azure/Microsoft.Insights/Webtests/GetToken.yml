@@ -1,0 +1,12 @@
+name: Webtest token
+description: An authentication token associated with an Application Insights webtest, used to author and authenticate webtest/synthetic-monitor operations.
+scope: MEDIUM
+notes: Returning the token discloses reusable credential material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:crypto
+    notes: This read returns webtest token credential material rather than mere configuration, so in isolation it exfiltrates reusable secret material.

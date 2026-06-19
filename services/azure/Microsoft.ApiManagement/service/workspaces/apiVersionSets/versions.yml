@@ -1,0 +1,12 @@
+name: APIM workspace API version set versions
+description: Version entities associated with an API Version Set in an Azure API Management workspace — the individual API versions enumerated within a version set.
+scope: LOW
+notes: Non-sensitive read-only versioning metadata for a single API gateway function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the version entities of a version set, inventorying API versioning configuration metadata for reconnaissance with no secret or data exposure.

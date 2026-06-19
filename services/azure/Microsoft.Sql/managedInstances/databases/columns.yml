@@ -1,0 +1,12 @@
+name: SQL managed database columns
+description: The column schema (names and data types) of tables within an Azure SQL Managed Instance database.
+scope: LOW
+notes: Exposes structural schema metadata, not the row data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Returns the list of columns (schema metadata) for a managed database, enabling schema reconnaissance to locate sensitive fields without returning row data.

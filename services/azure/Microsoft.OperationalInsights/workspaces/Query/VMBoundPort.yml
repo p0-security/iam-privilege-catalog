@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (VMBoundPort)
+description: A specific table within an Azure Log Analytics workspace. The data-plane query permission returns the ingested rows of that table, which hold monitoring, audit, and diagnostic telemetry collected from Azure resources and connected machines.
+scope: MEDIUM
+notes: Log Analytics telemetry is confidential monitoring/diagnostic data (MEDIUM per scope guide). Specific tables can carry sensitive identifiers, security posture, or network detail; this is per-table data access, not workspace-wide control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Returns VM Insights/Service Map bound-port telemetry exposing which ports each monitored VM listens on, revealing the network attack surface for reconnaissance and targeting.

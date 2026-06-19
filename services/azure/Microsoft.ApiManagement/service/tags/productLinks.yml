@@ -1,0 +1,21 @@
+name: APIM Tag-product links
+description: Tag-product links are association records in an Azure API Management service that connect organizational tags to products, used to group and filter products in the developer portal.
+scope: MEDIUM
+notes: These are non-sensitive organizational/categorization metadata; they do not control access or contain secrets or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting a tag-product link removes operational tagging/categorization metadata associating tags with products, without destroying the underlying product or data.
+  read:
+    risks:
+      - discovery:metadata
+    scope: LOW
+    notes: Read/list of tag-to-product association records only enumerates organizational tagging metadata, enabling inventory of how products are categorized.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a tag-product link alters organizational grouping/categorization metadata for products without changing access control or data.

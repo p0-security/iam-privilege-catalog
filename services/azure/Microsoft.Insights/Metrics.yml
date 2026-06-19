@@ -1,0 +1,24 @@
+name: Azure Monitor metrics
+description: Azure Monitor metrics are time-series telemetry (numeric performance/utilization counters) collected from Azure resources, used for dashboards, alerting, and autoscale.
+scope: MEDIUM
+notes: "Monitoring/observability data: supporting infrastructure rather than primary organizational data."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - impact:manipulation
+    notes: A generic metric action on the monitoring plane that can submit/emit metric telemetry; injecting false metrics can skew dashboards and suppress or trigger metric-based alerting.
+    name: Azure Monitor pricing-model migration state
+    parent:
+      description: Subscription-level Azure Monitor pricing-model migration metadata (the date/state of migration between monitoring billing models).
+      notes: Billing/pricing-model configuration metadata for the monitoring service.
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reading actual metric values exports time-series telemetry (utilization, request counts, activity patterns) revealing operational behavior of resources.
+  Write:
+    risks:
+      - impact:manipulation
+    notes: This data action writes custom metric values into Azure Monitor, letting an attacker inject or falsify telemetry to corrupt monitoring data and evade or falsely trigger metric-based alerting.

@@ -1,0 +1,17 @@
+name: Web Apps Slots Continuous Web Jobs
+description: Continuous WebJobs are long-running background processes (scripts/executables) that run on an App Service deployment slot's compute under the app's identity.
+scope: HIGH
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a continuous WebJob removes a running background workload component of the app, destroying that infrastructure and disrupting the function it performs.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Getting/listing continuous WebJobs only enumerates the configured background jobs and their status, which is infrastructure reconnaissance.

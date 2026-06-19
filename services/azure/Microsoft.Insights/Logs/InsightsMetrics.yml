@@ -1,0 +1,12 @@
+name: Log Analytics InsightsMetrics table
+description: A Log Analytics workspace table holding ingested Azure Monitor performance-metric time series (CPU, memory, and similar resource telemetry). Reading it is a data-plane operation that returns the stored rows.
+scope: MEDIUM
+notes: Numeric performance telemetry revealing infrastructure utilization; low intrinsic sensitivity but operationally informative.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Returns collected performance metrics, exposing infrastructure utilization patterns and resource configuration detail.

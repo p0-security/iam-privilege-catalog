@@ -1,0 +1,11 @@
+name: Storage task run reports
+description: Storage task run reports/statuses record the execution results of Azure Storage Actions tasks (objects targeted, operations attempted/succeeded, run status).
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists run statuses of a storage task across its assignments, exposing read-only execution metadata of the automation without data or secret access.

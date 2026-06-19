@@ -1,0 +1,19 @@
+name: Deployment stack what-if result
+description: A deployment stack what-if result is a transient, computed prediction (dry-run preview) of the resource changes that would occur if a given deployment stack were deployed; it does not apply any changes.
+scope: LOW
+notes: What-if is a simulation artifact; its value to an attacker is reconnaissance of intended infrastructure configuration, not modification of live resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks: []
+    notes: Deleting a what-if result removes only a transient, disposable prediction artifact with no impact on actual deployed infrastructure or organizational data.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a what-if result reveals the predicted set of infrastructure changes and resource configuration, providing infrastructure reconnaissance without altering anything.
+  write:
+    risks:
+      - discovery:infra
+    notes: Generating a what-if result only computes and stores a dry-run prediction of deployment-stack changes without deploying them, so its practical effect is surfacing predicted infrastructure configuration to the caller (reconnaissance).

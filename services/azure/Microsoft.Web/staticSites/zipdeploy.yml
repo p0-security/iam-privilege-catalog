@@ -1,0 +1,14 @@
+name: Azure Static Web App
+description: An Azure Static Web App (Static Site) is a managed hosting resource that serves a public-facing static frontend with linked source-repository/CI build configuration and optional managed serverless API (Azure Functions) backend.
+scope: HIGH
+notes: Asset hosts a single public-facing web application; its app settings and deployment tokens routinely contain secrets and connection strings, making secret-returning operations effectively credential disclosure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:defacement
+      - impact:manipulation
+      - escalation:lateral
+    notes: Deploys arbitrary zipped content to the static site including its managed API functions, overwriting public content (defacement) and executing attacker-controlled code under the app's identity (lateral movement).

@@ -1,0 +1,12 @@
+name: AKS fleet member cluster node.k8s.io resources
+description: Kubernetes node.k8s.io API group (RuntimeClass objects) on an AKS fleet member cluster, describing container-runtime configuration available to pods. Accessed via the fleet's managed Kubernetes data plane.
+scope: LOW
+notes: Read-only enumeration of cluster runtime configuration metadata; non-sensitive infrastructure detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading RuntimeClass objects only inventories cluster node-runtime configuration, a read-only infrastructure reconnaissance capability.

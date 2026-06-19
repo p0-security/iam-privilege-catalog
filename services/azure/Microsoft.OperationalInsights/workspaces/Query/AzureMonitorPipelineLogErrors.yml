@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (Azure Monitor pipeline log errors)
+description: A Log Analytics workspace data-plane table storing Azure Monitor ingestion-pipeline error telemetry. Read access returns the table's log records.
+scope: MEDIUM
+notes: Low-sensitivity internal operational diagnostics about log ingestion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading the table exports operational pipeline ingestion-error log records; sensitivity is limited to the logs themselves.

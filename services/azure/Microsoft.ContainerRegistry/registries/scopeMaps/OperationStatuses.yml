@@ -1,0 +1,10 @@
+name: Container registry scope map operation statuses
+description: Scope map operation statuses are transient async-operation result records that report the progress/completion state of a prior scope-map create/update/delete request.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status of an asynchronous scope-map operation, exposing only operation-completion state and conveying no meaningful attacker capability in isolation.

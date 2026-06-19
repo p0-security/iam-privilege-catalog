@@ -1,0 +1,12 @@
+name: Backup cross-region-restore AAD properties
+description: Azure AD authentication properties (tenant/audience/service metadata) used to authenticate to a target region during Cross Region Restore of backups.
+scope: LOW
+notes: Exposes authentication context metadata, not usable credential material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns AAD auth properties for cross-region restore; reconnaissance of non-secret configuration metadata, not credential exfiltration.

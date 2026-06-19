@@ -1,0 +1,12 @@
+name: AKS managed cluster metric definitions
+description: The catalog of Azure Monitor metric definitions (the metric schema/dimensions) available for an AKS managed cluster.
+scope: LOW
+notes: Read-only monitoring telemetry schema; exposes which metrics exist, not metric values or sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Listing metric definitions only enumerates the available monitoring telemetry schema for the cluster, low-value reconnaissance of monitoring capability with no metric values or sensitive data returned.

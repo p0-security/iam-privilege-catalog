@@ -1,0 +1,11 @@
+name: Recovery Services resource provider registration
+description: Subscription-level registration/unregistration toggle for the Microsoft.RecoveryServices resource provider, which enables the backup and disaster-recovery (Recovery Services Vault) service for a subscription.
+scope: LOW
+notes: Provider registration is an administrative enablement control; it does not by itself touch data, identity, or running services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Registering the provider for a subscription is an inert enablement no-op that grants no offensive capability in isolation.

@@ -1,0 +1,11 @@
+name: DDoS Protection Plan
+description: An Azure DDoS Protection Plan is a network-level defense resource that provides volumetric distributed-denial-of-service mitigation for virtual networks associated with it.
+scope: LOW
+notes: DDoS Standard plans are expensive metered resources; the plan acts as a network defense mechanism, but the plan object itself contains no organizational data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Joining associates a VNet with the protection plan, which adds rather than removes protection; explicitly marked Not alertable and grants no meaningful attacker capability in isolation.

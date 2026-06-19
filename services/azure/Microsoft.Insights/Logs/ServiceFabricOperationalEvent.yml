@@ -1,0 +1,13 @@
+name: Log Analytics ServiceFabricOperationalEvent table
+description: A Log Analytics workspace table holding Service Fabric cluster operational event records.
+scope: MEDIUM
+notes: Can disclose cluster topology, deployment, and runtime details.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports cluster operational logs (exfiltration:logs) and lets an attacker inventory cluster/application activity (discovery:logs).

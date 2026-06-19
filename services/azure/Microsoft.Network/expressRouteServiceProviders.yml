@@ -1,0 +1,12 @@
+name: ExpressRoute service providers
+description: A largely static catalog of available ExpressRoute connectivity service providers, listing carriers, peering locations, and supported bandwidths.
+scope: LOW
+notes: Reference/catalog data of connectivity offerings, not the organization's own provisioned network resources; low sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the available ExpressRoute service providers and peering options, a benign read-only inventory of connectivity-offering metadata.

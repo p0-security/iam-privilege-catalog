@@ -1,0 +1,32 @@
+name: Connector Gateway Connection Access Policy
+description: A Connector Gateway Connection Access Policy is the access-control object that governs which principals (identities/Logic Apps) are authorized to use a credential-bearing gateway connection.
+scope: HIGH
+notes: These policies gate use of credentialed backend connections, so reading or altering them exposes or changes who can wield backend access for a single organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - escalation:privilege
+    notes: An action on a connection access policy operates on the authorization construct governing who may use the credentialed connection, letting an attacker alter that authorization in their favor.
+    name: Connector Gateway Connection
+    parent:
+      description: A Connector Gateway Connection is a credential-bearing link from the gateway to a backend data source, storing authentication/connection parameters used by Logic Apps/Power Platform integrations.
+      notes: Connections hold or reference backend credentials, so they support access to a single organizational function's data and are sensitive.
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a connection access policy removes the access-control binding governing the connection, tearing down authorization that would otherwise deny use and stripping legitimate principals' access.
+  read:
+    risks:
+      - discovery:policy
+    notes: GET returns the access policy, revealing which principals are authorized to use the credentialed connection and exposing weak points in its access control.
+  write:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+      - impact:access
+    notes: Create/update lets an attacker bind their own principal to the connection, granting authority to wield its stored backend credentials (privilege escalation -> lateral movement to the backend), and via policy replacement can remove legitimate principals' access.

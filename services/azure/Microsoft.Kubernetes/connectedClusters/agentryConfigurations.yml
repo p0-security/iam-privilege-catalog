@@ -1,0 +1,12 @@
+name: Azure Arc connected cluster agentry configurations
+description: agentryConfigurations is an Azure Arc control-plane resource exposing the configuration of the Arc agent (agentry) for a connected Kubernetes cluster.
+scope: LOW
+notes: Returns agent/onboarding configuration metadata for the connected cluster; reconnaissance only, no organizational data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:infra
+    notes: Read-only retrieval of the Arc agent configuration of the connected cluster; non-sensitive infrastructure reconnaissance.

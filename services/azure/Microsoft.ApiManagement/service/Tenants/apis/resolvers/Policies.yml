@@ -1,0 +1,23 @@
+name: APIM GraphQL resolver policy configuration
+description: The APIM policy document (XML) applied at the GraphQL API resolver level, which defines request/response processing including authentication (validate-jwt), IP filtering, rate limiting, transformations, and backend routing.
+scope: HIGH
+notes: Policies are the primary security-enforcement and traffic-control mechanism of the API gateway for a single API/resolver; they can reference named-values/secrets but the secret values are not returned in plaintext on read.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deleting the resolver policy removes any auth/throttling/IP-filter enforcement it imposed and alters how the gateway processes requests for the GraphQL API.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reading the resolver policy discloses the gateway's auth/rate-limit/IP-filter enforcement and backend routing, letting an attacker inventory access-control configuration and find weak points.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Setting the resolver policy lets an attacker strip auth/rate-limit/IP-filter checks (defense removal) and rewrite request/response handling and backend routing of the gateway.

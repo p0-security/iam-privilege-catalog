@@ -1,0 +1,11 @@
+name: App Service network intent policies
+description: Location-scoped network intent policies governing VNet integration constraints for App Service deployments.
+scope: LOW
+notes: Read-only network policy configuration; useful for mapping network restrictions but not itself sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: An internal provider-to-provider notification signaling that Network Security Perimeter updates are available; it neither reads sensitive data nor mutates perimeter configuration.

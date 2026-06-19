@@ -1,0 +1,22 @@
+name: Fleet InternalServiceImport resource
+description: A Kubernetes Fleet Manager networking custom resource (data-plane, networking.fleet.azure.com) representing the internal/system-managed plumbing for cross-cluster service imports used in multi-cluster L4 load balancing across an AKS fleet.
+scope: HIGH
+notes: Governs the internal cross-cluster service-routing state; manipulation affects multi-cluster network connectivity for a single cluster's workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Delete removes the internal cross-cluster service binding/route, tearing down multi-cluster service networking and causing DoS for dependent workloads.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Read/list only enumerates the internal cross-cluster service-import routing state, exposing multi-cluster service networking topology as reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Create/update manipulates the internal multi-cluster service-routing plumbing that wires cross-cluster reachability, expanding network reach and tampering with the fleet's service routing state.

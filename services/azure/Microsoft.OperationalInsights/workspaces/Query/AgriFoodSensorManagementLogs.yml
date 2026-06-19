@@ -1,0 +1,13 @@
+name: Log Analytics query table (AgriFoodSensorManagementLogs)
+description: A Log Analytics workspace query table holding sensor-management log records for an Azure Data Manager for Agriculture (AgriFood) workload. This data-plane permission returns the stored log rows via KQL query.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data is MEDIUM scope.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading the table exports sensor-management log records (exfiltration:logs) and enumerates logged device-management activity (discovery:logs).

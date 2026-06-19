@@ -1,0 +1,12 @@
+name: Internet Analyzer Pre-configured Endpoint
+description: Pre-configured endpoints are the set of network endpoints associated with an Internet Analyzer profile that are targeted by its latency/performance measurement experiments.
+scope: LOW
+notes: Read-only sub-resource of the diagnostics profile; low-sensitivity network reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Listing the pre-configured endpoints enumerates the network endpoint targets being measured, providing read-only network reconnaissance.

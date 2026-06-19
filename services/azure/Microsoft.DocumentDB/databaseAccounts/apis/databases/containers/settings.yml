@@ -1,0 +1,18 @@
+name: Cosmos DB container throughput setting
+description: The provisioned throughput (RU/s) configuration for a Cosmos DB SQL-API container, controlling the container's request capacity and the dimension Cosmos DB bills on.
+scope: LOW
+notes: Throughput is a metered provisioning knob on a production data store; it controls capacity/billing but not the stored data content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads a container's provisioned throughput value, exposing only non-sensitive capacity/sizing configuration as infrastructure reconnaissance with no data access.
+  write:
+    risks:
+      - impact:dos
+      - impact:spend
+    scope: HIGH
+    notes: Updating a SQL container's RU/s lets an attacker lower it to throttle/deny the production workload (429s) or raise it to inflate Cosmos DB billing.

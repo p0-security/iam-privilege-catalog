@@ -1,0 +1,10 @@
+name: Soft-deleted vault async operation status
+description: A read-only endpoint that returns the operation status for a given deleted-vault (undelete) operation.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns async operation status for a deleted-vault operation; an inert status poll with no sensitive content or capability.

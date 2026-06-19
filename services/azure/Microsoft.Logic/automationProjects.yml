@@ -1,0 +1,20 @@
+name: Logic automation projects
+description: Automation projects are Logic-service resources that group and define automation workloads (workflow/orchestration definitions and their applications) supporting a business function.
+scope: MEDIUM
+notes: Configuration holds automation logic, not returned credential material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an automation project, tearing down the deployed automation resource and the workflows it runs, a denial-of-service-like destruction of the supporting function.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads or lists an automation project, letting an attacker inventory the project's automation configuration as reconnaissance; returns no secret material.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates an automation project, letting an attacker alter the automation/workflow definitions and operational configuration the project governs.

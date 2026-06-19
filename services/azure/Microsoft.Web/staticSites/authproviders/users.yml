@@ -1,0 +1,18 @@
+name: Static Site user
+description: An application-level authenticated user (auth-provider invitation/role assignment) governing access to authenticated content of an Azure Static Web App.
+scope: HIGH
+notes: App-scoped auth principals/roles for a single static site, not tenant directory identities.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - impact:access
+      - destruction:account
+    notes: Deleting a Static Site user removes that principal's role/account binding, denying the authorized user's access and destroying the app-level account.
+  Write:
+    risks:
+      - escalation:privilege
+      - persistence:account
+    notes: Updating a Static Site user lets an attacker change the user's assigned roles/claims to elevate application privileges and maintain access via a controlled account.

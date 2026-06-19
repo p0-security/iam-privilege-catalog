@@ -1,0 +1,12 @@
+name: Virtual Network
+description: An Azure Virtual Network (VNet) is the fundamental control-plane resource defining a private network in Azure, including address space, subnets, peerings, custom DNS settings, and NSG/route-table associations.
+scope: HIGH
+notes: VNets are core production network infrastructure supporting an organizational function; their configuration governs reachability, isolation, and traffic flow for all hosted resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Removes the Admin NSG reference, stripping the centrally enforced network security rules from the VNet and disabling a firewall defense mechanism.

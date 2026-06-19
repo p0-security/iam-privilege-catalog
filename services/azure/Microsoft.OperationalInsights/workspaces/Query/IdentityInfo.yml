@@ -1,0 +1,13 @@
+name: Log Analytics IdentityInfo table
+description: A Microsoft Sentinel UEBA log table in a Log Analytics workspace that stores ingested identity inventory data (user/account attributes, UPNs, SIDs, group memberships, manager) synced from Entra ID/Active Directory.
+scope: MEDIUM
+notes: Identity-bearing security telemetry; valuable for enumerating organizational accounts as compromise targets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Data-plane read returns ingested identity records, exfiltrating identity log content and directly enumerating organizational accounts and their attributes.

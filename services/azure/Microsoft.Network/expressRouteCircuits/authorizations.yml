@@ -1,0 +1,23 @@
+name: ExpressRoute circuit authorizations
+description: An ExpressRoute circuit authorization is a grant (with an associated authorization key) that permits a virtual network gateway to link into a private ExpressRoute circuit, providing hybrid/private connectivity between Azure and on-premises or other networks.
+scope: HIGH
+notes: "Authorization keys are connection credentials: holding one lets a party peer their own gateway onto the private circuit, so they are sensitive credential material for a single production network function."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting an authorization removes the connectivity grant, severing legitimate gateway connections that depend on it and disrupting the private/hybrid link.
+  read:
+    risks:
+      - discovery:network
+    notes: Control-plane GET of the authorization resource configuration (name, provisioning state); the dedicated key-retrieval actions exist separately, so the plain read is treated as network reconnaissance and does not surface usable key material as its headline capability.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+      - persistence:account
+    notes: Creating/updating an authorization mints a new authorization key an attacker can redeem to link their own gateway/VNet onto the private circuit, granting network movement and establishing a durable connectivity grant.

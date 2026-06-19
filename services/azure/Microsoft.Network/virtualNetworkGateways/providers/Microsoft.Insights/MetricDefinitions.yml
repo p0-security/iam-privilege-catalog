@@ -1,0 +1,12 @@
+name: Virtual Network Gateway metric definitions
+description: The list of Azure Monitor metric definitions (schema of available metric types) exposed for a Virtual Network Gateway.
+scope: LOW
+notes: Read-only monitoring schema; no metric values or content are returned.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Enumerates the available metric definitions/schema for the Virtual Network Gateway, a low-value reconnaissance of monitoring telemetry types.

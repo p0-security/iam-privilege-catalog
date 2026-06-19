@@ -1,0 +1,11 @@
+name: Azure Monitor log definitions
+description: Log Definitions enumerate the available log categories/types that a resource can emit to Azure Monitor.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Reading log definitions enumerates available log categories/types, providing reconnaissance about what logging exists.

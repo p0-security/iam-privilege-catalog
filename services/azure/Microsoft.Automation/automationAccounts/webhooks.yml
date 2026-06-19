@@ -1,0 +1,23 @@
+name: Azure Automation Webhook
+description: An Azure Automation webhook is a token-bearing HTTP trigger that invokes a runbook, which then executes under the Automation account's managed/Run As identity.
+scope: MEDIUM
+notes: The secret token-bearing invocation URI is returned only at creation, never on read.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a webhook removes the runbook trigger integration, destroying automation configuration and disrupting any workflow that depends on it.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a webhook returns only its configuration metadata (target runbook, expiry, enabled state), not the secret invocation URI, so it is mere reconnaissance of the trigger.
+  write:
+    risks:
+      - escalation:lateral
+      - persistence:account
+      - impact:hijack
+    scope: HIGH
+    notes: Creating/updating a webhook yields an unauthenticated token-bearing trigger URL that runs a runbook as the account identity, enabling code execution as that identity (lateral movement), a durable backdoor trigger (persistence), and arbitrary workload abuse (hijack).

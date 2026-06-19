@@ -1,0 +1,20 @@
+name: Kubernetes events (fleet member)
+description: Kubernetes Event objects on a fleet member cluster, which record operational activity such as pod scheduling, image pulls, controller actions, and failures.
+scope: MEDIUM
+notes: Events are low-to-moderate sensitivity operational activity records (log-like), not application data or credentials, but they reveal cluster behavior and object state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+    notes: Deleting events removes the audit-relevant activity trail of cluster operations, disrupting incident response and erasing evidence of attacker actions.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading/listing events inventories cluster activity and object state, providing reconnaissance into workloads, scheduling, and operational state within the member cluster.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating events lets an attacker inject or forge cluster activity records to mislead operators or pollute the operational/audit-like event stream.

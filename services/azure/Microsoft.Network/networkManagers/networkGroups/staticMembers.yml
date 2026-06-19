@@ -1,0 +1,22 @@
+name: AVNM network group static members
+description: "Static members of an Azure Virtual Network Manager (AVNM) network group: the explicit list of VNets enrolled into a network group, which then has centrally-managed connectivity and security-admin configurations applied to it."
+scope: HIGH
+notes: Membership governs which VNets fall under tenant/subscription-wide network connectivity and security policy enforcement.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Removing a VNet from a network group detaches it from centrally-enforced connectivity/security-admin configurations, altering which policies apply rather than deleting any network component.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Read-only enumeration of which VNets are statically enrolled in a network group, inventorying network topology membership.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Adding/updating a VNet as a static member changes which networks are governed by AVNM connectivity and security configs, and can pull a VNet onto a managed connectivity mesh to extend reachability.

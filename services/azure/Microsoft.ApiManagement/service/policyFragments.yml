@@ -1,0 +1,24 @@
+name: APIM policy fragment
+description: A reusable XML policy fragment in API Management that is referenced by API/operation policies and executes in the gateway request/response pipeline.
+scope: HIGH
+notes: Policy fragments centrally control gateway processing logic (auth, routing, header/transform, throttling) across many APIs in the service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - destruction:defense
+    notes: Deleting a policy fragment removes shared gateway logic relied upon by referencing API policies, breaking those APIs (DoS) and, when the fragment enforced auth/throttling/IP-filtering, removing a security defense.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading a policy fragment returns the reusable policy XML, revealing gateway processing logic, backend routing, security handling, and referenced named-value names useful for attack planning.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+      - escalation:lateral
+    notes: Setting a policy fragment injects arbitrary policy into the gateway pipeline of every referencing API, letting an attacker manipulate traffic/responses, strip authentication/IP-filter/rate-limit defenses, and use authentication-managed-identity policy to mint tokens for the gateway identity.

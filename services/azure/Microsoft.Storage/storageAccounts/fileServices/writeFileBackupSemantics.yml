@@ -1,0 +1,13 @@
+name: Storage file service
+description: The file service of a storage account exposes SMB/NFS file shares and its control-plane properties (CORS, share soft-delete/retention, SMB protocol and security settings). The data-plane holds organizational file data.
+scope: HIGH
+notes: Backup-semantics privileges (SeBackupPrivilege/SeRestorePrivilege equivalents) bypass per-file NTFS/share ACLs.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - destruction:data
+    notes: Restore/backup-semantics write privilege bypasses per-file ACLs to write, overwrite, and delete arbitrary files, enabling data manipulation and destruction regardless of normal permissions.

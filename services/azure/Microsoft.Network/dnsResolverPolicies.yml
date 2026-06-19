@@ -1,0 +1,22 @@
+name: DNS Resolver Policy
+description: An Azure DNS Resolver Policy, the container for DNS-layer security filtering (DNS firewall) rules applied to virtual networks to allow/block/alert on domain resolution.
+scope: HIGH
+notes: A DNS-layer threat-protection/filtering defense guarding production VNet traffic; bypass enables C2/exfiltration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:network
+    notes: Deleting a DNS Resolver Policy removes the DNS-layer security filtering defense and its associated network DNS-security component, disabling protection and disrupting governed resolution.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading a DNS Resolver Policy discloses the DNS security/filtering configuration, enabling reconnaissance of the network's DNS defense posture before tampering.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating a DNS Resolver Policy lets an attacker reconfigure or weaken the DNS-layer security enforcement (defense) and manipulate the DNS resolution behavior governing the linked networks.

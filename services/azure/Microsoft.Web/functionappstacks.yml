@@ -1,0 +1,11 @@
+name: Function App runtime stacks catalog
+description: The provider-published catalog of available Function App runtime stacks (supported languages and runtime versions).
+scope: PUBLIC
+notes: Static reference metadata identical across all tenants; not organization-specific.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns the global catalog of supported Function App runtime stacks, generic public reference data with no tenant-specific content.

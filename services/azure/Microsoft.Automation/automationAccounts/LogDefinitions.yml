@@ -1,0 +1,12 @@
+name: Automation account log definitions
+description: The Azure Monitor log category definitions exposed by an Automation account, enumerating which platform log types/schema are available.
+scope: LOW
+notes: Read-only logging metadata, not log contents; low sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Returns the available log category definitions, allowing an attacker to inventory which log types exist without exposing log contents.

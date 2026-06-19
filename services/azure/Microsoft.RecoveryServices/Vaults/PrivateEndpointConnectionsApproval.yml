@@ -1,0 +1,12 @@
+name: Recovery Services vault
+description: An Azure Recovery Services vault is the control-plane resource that stores and manages backups and recovery points for VMs, databases, files, and other workloads, serving as the organization's disaster-recovery and ransomware-resilience backstop.
+scope: HIGH
+notes: The vault itself guards organization-wide recovery data; control-plane reads expose only configuration metadata, while delete/security-PIN operations are far more sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Approving a private endpoint connection wires a (potentially attacker-controlled) private endpoint into the vault's network, granting private-network reachability to the backup service.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (query)
+description: A specific log/diagnostic table within an Azure Log Analytics (Operational Insights) workspace. The /read data action queries and returns the ingested records of that table.
+scope: MEDIUM
+notes: Monitoring/diagnostic data plane; read-only query access to a single table. Sensitivity is MEDIUM (confidential operational telemetry), elevated for tables that aggregate identity, security-posture, or cross-cloud findings.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Returns Application Gateway access logs exposing client IPs, request URLs, and backend traffic, letting an attacker map the network/application topology.

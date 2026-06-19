@@ -1,0 +1,12 @@
+name: Web App slot network features
+description: "The network feature configuration of an Azure App Service deployment slot: VNet integration, hybrid connections, private endpoints, and IP access restrictions."
+scope: LOW
+notes: Read-only network configuration metadata for a deployment slot.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading a slot's network features inventories its connectivity configuration, enabling network reconnaissance only.

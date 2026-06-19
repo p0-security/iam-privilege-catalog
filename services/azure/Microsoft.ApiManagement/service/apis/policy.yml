@@ -1,0 +1,23 @@
+name: API Management API-level policies
+description: "The API-scoped API Management policy configuration: XML rules applied to a single API's request/response processing, including authentication, authorization, rate limiting, and backend routing."
+scope: HIGH
+notes: Defines the enforced security and traffic-handling controls for one API; may reference embedded named-values/secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deletes an API-level policy, removing that API's enforced security controls (auth, IP filtering, rate limits) and altering its request processing.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reads the API-level policy, exposing that API's security/access-control enforcement so an attacker can identify weaknesses.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creates/updates an API-level policy, letting an attacker disable that API's auth/IP/rate-limit controls and reroute or rewrite its traffic to an attacker-controlled backend.

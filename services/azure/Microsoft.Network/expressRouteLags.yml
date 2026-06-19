@@ -1,0 +1,22 @@
+name: ExpressRoute LAG
+description: An ExpressRouteLag (Link Aggregation Group) represents the physical link-aggregation construct backing an ExpressRoute circuit's dedicated private connectivity between on-premises networks and Azure.
+scope: HIGH
+notes: Underpins hybrid connectivity; touches a single connectivity function rather than tenant-wide controls.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the LAG removes the link-aggregation group underpinning ExpressRoute connectivity, destroying network infrastructure and causing denial of service for the dependent hybrid link.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading the LAG returns its connectivity configuration, enabling inventory of the ExpressRoute link-aggregation topology; returns no secret material.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating the LAG alters dedicated hybrid-connectivity configuration, allowing manipulation of how on-premises traffic interconnects with Azure.

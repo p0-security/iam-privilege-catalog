@@ -1,0 +1,12 @@
+name: Azure Backup protected items
+description: Azure Backup protected items represent resources (VMs, databases, file shares, etc.) enrolled for backup in a Recovery Services vault, governed by a backup policy. This location-scoped operation lists all protected items.
+scope: MEDIUM
+notes: Controls backup coverage of organizational resources; misconfiguration affects recoverability and can incur backup storage cost.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing all protected items enumerates which resources are under backup protection across the location, providing reconnaissance of backup coverage and high-value targets without returning backup data.

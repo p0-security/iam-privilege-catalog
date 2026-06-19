@@ -1,0 +1,11 @@
+name: SQL database encryption protector revert operation results
+description: A location-scoped endpoint that returns the results/status of the asynchronous 'revert key' operation for an Azure SQL database encryption protector (TDE protector key revert workflow).
+scope: LOW
+notes: Status/result-polling endpoint; exposes operation outcome only, not the key, data, or any control over the revert.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading the operation results of the async encryption-protector revert workflow is an inert status/result poll that exposes no secret material and grants no control capability.

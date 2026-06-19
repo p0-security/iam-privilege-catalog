@@ -1,0 +1,13 @@
+name: Log Analytics SecurityRecommendation table
+description: A Log Analytics query data action over the SecurityRecommendation table, which stores Defender for Cloud security recommendation/assessment findings.
+scope: MEDIUM
+notes: Security posture/recommendation telemetry mapping known weaknesses.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Querying this table exposes outstanding security recommendations and misconfigurations, mapping directly to unmitigated weaknesses an attacker can target.

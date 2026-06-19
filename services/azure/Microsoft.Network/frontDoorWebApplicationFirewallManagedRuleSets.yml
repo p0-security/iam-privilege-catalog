@@ -1,0 +1,12 @@
+name: Front Door WAF managed rule sets catalog
+description: A static catalog of the available Front Door Web Application Firewall managed rule set definitions, not any tenant's deployed or applied WAF policy.
+scope: LOW
+notes: Reference metadata describing available defensive rules; learning available signatures could marginally aid evasion crafting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns the generic catalog of available WAF managed rule-set definitions (a reference list, not the org's applied policy), providing only low-value reconnaissance of available defensive rules.

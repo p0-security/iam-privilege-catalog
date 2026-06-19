@@ -1,0 +1,25 @@
+name: Defender plan security operators
+description: Security operator resources tied to Microsoft Defender for Cloud pricing plans, each backed by a system-assigned managed identity that operates a Defender plan at the scope.
+scope: MEDIUM
+notes: Couples Defender plan enforcement with a privileged managed identity (e.g. Security Admin-equivalent), making writes a privilege/identity concern, not just a posture toggle.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:access
+    notes: Deleting a security operator removes the managed identity that runs a Defender plan, disabling that plan's protection and revoking the legitimate operational access tied to it.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading the operators enumerates which Defender plans are active and the identities operating them, exposing both posture and identity targets.
+  write:
+    risks:
+      - escalation:lateral
+      - persistence:account
+      - escalation:privilege
+      - destruction:defense
+    scope: HIGH
+    notes: Creating/updating a security operator provisions and assigns a system-assigned managed identity granted Defender-plan operator (Security Admin-equivalent) privileges, enabling lateral movement via that identity, persistent identity access, and privilege escalation; it can also reconfigure the plan to weaken defenses.

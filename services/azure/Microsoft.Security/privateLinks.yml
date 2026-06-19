@@ -1,0 +1,22 @@
+name: Microsoft Security private link
+description: The Azure Private Link resource for the Microsoft Security (Defender for Cloud / Sentinel) service, defining its private-network connectivity surface.
+scope: MEDIUM
+notes: Connectivity configuration metadata for a security/monitoring service; not a primary data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the private link removes a private-network connectivity component for the security service, disrupting legitimate private access.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Get/List of the private link only enumerates the service's private-link connectivity configuration, i.e. read-only network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating the private link establishes or alters how the security service is reachable over private networking, enabling exposure to an attacker-influenced network and mutation of connectivity config.

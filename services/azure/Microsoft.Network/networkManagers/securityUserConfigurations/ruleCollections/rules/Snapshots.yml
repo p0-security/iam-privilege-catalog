@@ -1,0 +1,13 @@
+name: Network Manager security user rule snapshot
+description: A snapshot of an individual deployed security user rule within an Azure Virtual Network Manager rule collection - a specific baseline user-defined allow/deny network security rule applied across managed virtual networks.
+scope: LOW
+notes: Represents an individual baseline traffic-control entry applied to subnets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading an individual rule snapshot reveals the specific baseline allow/deny entry, letting an attacker inventory the effective network security controls.

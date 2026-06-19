@@ -1,0 +1,14 @@
+name: Log Analytics workspace table (AZMSVnetConnectionEvents)
+description: A Log Analytics workspace query table holding VNet connection event logs for Azure Messaging Services, recording source IPs and virtual-network connection details. Reading it returns the stored connection-event records via the data plane.
+scope: MEDIUM
+notes: Network connectivity diagnostic data exposing source IPs and topology; MEDIUM-sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+      - discovery:network
+    notes: Reading exports VNet connection event log content (exfiltration:logs), enumerates the logged activity (discovery:logs), and reveals source IPs and virtual-network connectivity for network reconnaissance (discovery:network).

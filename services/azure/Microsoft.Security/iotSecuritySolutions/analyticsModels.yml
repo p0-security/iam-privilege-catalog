@@ -1,0 +1,12 @@
+name: IoT security analytics models
+description: An IoT security analytics model in Defender for IoT/Defender for Cloud defines how device telemetry is analyzed to produce security alerts and recommendations. It holds detection tuning and analytics configuration for the IoT security solution.
+scope: LOW
+notes: Read-only access exposes defensive monitoring configuration but no production data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the analytics model configuration enumerates how IoT detection is tuned, useful reconnaissance of defensive posture but returns no secrets or production data.

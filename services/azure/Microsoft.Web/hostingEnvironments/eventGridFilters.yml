@@ -1,0 +1,20 @@
+name: App Service Environment Event Grid filter
+description: An Event Grid filter (subscription) on an App Service Environment routes hosting-environment lifecycle event notifications to a configured endpoint.
+scope: MEDIUM
+notes: Supporting eventing/notification configuration; not a primary data store or identity asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes the event-routing filter, removing the hosting environment's event-notification plumbing and disrupting downstream event-driven automation.
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only get only inventories the event-routing/subscription configuration of the hosting environment.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the filter alters which hosting-environment events are emitted/routed, allowing suppression or redirection of operational event notifications.

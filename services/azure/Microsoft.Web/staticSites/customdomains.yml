@@ -1,0 +1,23 @@
+name: Static Site custom domain
+description: A custom domain binding that maps a public hostname/subdomain to an Azure Static Web App, controlling how a domain routes to the public-facing site.
+scope: HIGH
+notes: Public-facing asset; controls how a brand domain serves content to end users.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the custom-domain binding removes the public hostname endpoint, taking the site offline at that domain and causing denial of service.
+  Read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Listing custom domains only enumerates the hostname/endpoint configuration for reconnaissance.
+  Write:
+    risks:
+      - takeover:domain
+      - impact:defacement
+    notes: Creating a custom-domain binding lets an attacker route a domain/subdomain to the static site, enabling domain takeover and defacement of the public-facing asset.

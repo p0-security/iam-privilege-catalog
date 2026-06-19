@@ -1,0 +1,11 @@
+name: Front Door operation result (Front Door)
+description: An endpoint that returns the result of an asynchronous Azure Front Door management operation pertaining to a Front Door resource (operation-result tracking).
+scope: LOW
+notes: Operation-status polling endpoint tied to a Front Door resource; primarily conveys completion status of a prior management call.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the operation result returns the outcome of a prior Front Door management operation; in isolation it is an operation-status read with no meaningful attacker capability.

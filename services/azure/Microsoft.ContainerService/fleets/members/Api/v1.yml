@@ -1,0 +1,12 @@
+name: Kubernetes API discovery endpoint (fleet member)
+description: The Kubernetes /api discovery endpoint on a fleet member cluster enumerates the available API group paths and versions exposed by the cluster's API server.
+scope: LOW
+notes: Pure API-surface discovery metadata; reveals cluster capabilities but no data or configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the /api/v1 discovery endpoint only lists the core API group's resource types, generic low-sensitivity API-surface reconnaissance.

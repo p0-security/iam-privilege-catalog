@@ -1,0 +1,11 @@
+name: AKS fleet apiserver liveness poststarthook probe
+description: A Kubernetes API server liveness (livez) poststarthook health-check sub-endpoint for an AKS fleet hub cluster. Reading it returns only the started/healthy status of an internal apiserver startup hook.
+scope: LOW
+notes: These endpoints expose no configuration, policy, secret, or organizational data — only a boolean operational health indicator.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the completion status of the admission-initializer startup hook; exposes no admission configuration.

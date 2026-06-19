@@ -1,0 +1,11 @@
+name: Azure SQL Managed Instance private endpoint connection proxy async operation
+description: An async-operation status sub-resource for private endpoint connection proxy operations on an Azure SQL Managed Instance. Holds only the completion status of a long-running ARM operation.
+scope: LOW
+notes: Operation-status polling endpoint; carries no resource configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the status of an asynchronous private endpoint connection proxy operation; an inert operation-status poll with no meaningful capability in isolation.

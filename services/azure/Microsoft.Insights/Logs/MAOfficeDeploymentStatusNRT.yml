@@ -1,0 +1,13 @@
+name: Log Analytics table data (M365 Apps Admin Center telemetry)
+description: A Log Analytics workspace table (MAOfficeDeploymentStatusNRT) holding Microsoft 365 Apps deployment/version status telemetry in Azure Monitor.
+scope: MEDIUM
+notes: Monitoring/diagnostics-tier telemetry revealing software/patch posture; not primary production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports Office deployment-status log records (exfiltration:logs) and enumerates fleet/version deployment state useful for patch-gap recon (discovery:logs).

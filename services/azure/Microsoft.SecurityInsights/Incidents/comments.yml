@@ -1,0 +1,21 @@
+name: Sentinel incident comments
+description: Incident comments are free-text analyst notes attached to a Microsoft Sentinel incident, capturing investigation context, findings, and response decisions.
+scope: MEDIUM
+notes: Comments reveal what the SOC knows and plans; reading them is reconnaissance, while writing or deleting them tampers with the investigation record.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting incident comments removes analyst investigation notes, destroying response-relevant records and impeding/misleading the SOC.
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading incident comments exposes analyst investigation notes and findings, informing an attacker about defender awareness and response progress.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating incident comments lets an attacker inject misleading notes into the investigation record to mislead analysts and pollute the response narrative.

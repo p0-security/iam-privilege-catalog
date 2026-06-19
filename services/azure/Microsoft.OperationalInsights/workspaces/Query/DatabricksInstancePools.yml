@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (DatabricksInstancePools)
+description: A specific log table within an Azure Log Analytics workspace, holding ingested monitoring/audit telemetry. This table holds Databricks instance-pool management audit records.
+scope: MEDIUM
+notes: Log Analytics tables contain collected diagnostic/audit telemetry; access is data-plane (isDataAction) and constrained to the named table. Sensitivity is monitoring-tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read exports instance-pool management log records, revealing compute-pool configuration and usage activity.

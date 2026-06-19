@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (PowerBIDatasetsTenant)
+description: A specific table in an Azure Log Analytics workspace, queried over the data plane via KQL. This table holds tenant-wide Power BI dataset activity/usage telemetry ingested into the workspace.
+scope: MEDIUM
+notes: Log Analytics tables are monitoring/diagnostic data; sensitivity is MEDIUM per the scope guide for monitoring data, though specific tables (security, sensitivity, posture) can expose security-relevant intelligence.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returns ingested tenant-wide Power BI dataset activity records, allowing an attacker to export that log content (may contain dataset identifiers and usage patterns).

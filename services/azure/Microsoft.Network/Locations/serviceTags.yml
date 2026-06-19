@@ -1,0 +1,12 @@
+name: Azure service tags
+description: The Microsoft-published catalog of service tags (named groupings of Azure service IP address ranges) for a region, used in NSG and firewall rules.
+scope: LOW
+notes: This is essentially public reference data identical across every tenant; it contains no organization-specific configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Returns published IP-range groupings useful only as generic network reference data; minimal reconnaissance value with no tenant-specific exposure.

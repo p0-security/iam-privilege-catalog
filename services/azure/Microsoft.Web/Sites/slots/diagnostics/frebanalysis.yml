@@ -1,0 +1,12 @@
+name: Web App slot FREB diagnostic analysis
+description: FREB (Failed Request Event Buffering) analysis for a deployment slot is an App Service diagnostic detector that returns failed-request tracing data (request URLs, headers, status, timing) scoped to a specific slot.
+scope: MEDIUM
+notes: Request-level diagnostic traces can expose URLs, headers, and request parameters that contain sensitive identifiers.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading FREB analysis for a deployment slot returns request-trace diagnostic data scoped to that slot, enabling reconnaissance of request-level behavior.

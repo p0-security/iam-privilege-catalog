@@ -1,0 +1,23 @@
+name: Azure SQL Database failover group
+description: An Azure SQL Database failover group defines the geo-replication/disaster-recovery relationship between a primary and secondary logical SQL server, including member databases, failover policy, and read/write listener endpoints.
+scope: HIGH
+notes: Governs availability and DR posture of production databases; configuration changes affect a single database function rather than data contents directly.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the failover group tears down the geo-replication/DR relationship protecting production databases, destroying resilience infrastructure and undermining availability guarantees.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: List/Get of failover group properties only inventories the DR/geo-replication topology (partner servers, member databases, failover policy) — reconnaissance with no data or secret access.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Create/Update alters replication topology and failover policy of production databases, manipulating operational DR configuration and potentially disrupting availability (e.g. changing primary or membership).

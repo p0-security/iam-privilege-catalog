@@ -1,0 +1,13 @@
+name: Log Analytics ServiceFabricReliableActorEvent table
+description: A Log Analytics query data action over the ServiceFabricReliableActorEvent table, which stores Service Fabric Reliable Actor application event telemetry.
+scope: MEDIUM
+notes: Application-level operational telemetry that may expose internal behavior.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Querying this table exports Reliable Actor application event logs, exposing internal application behavior and operational detail.

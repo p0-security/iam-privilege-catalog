@@ -1,0 +1,12 @@
+name: Log Analytics BlockchainApplicationLog table
+description: The BlockchainApplicationLog table holds Azure Blockchain Workbench application-level log records ingested into a Log Analytics workspace.
+scope: MEDIUM
+notes: Monitoring/diagnostic telemetry for a single service function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reading the table exports blockchain application-level log content.

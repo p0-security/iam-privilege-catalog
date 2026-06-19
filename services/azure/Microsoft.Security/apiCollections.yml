@@ -1,0 +1,20 @@
+name: Defender for APIs collections
+description: The set of API collections onboarded to Microsoft Defender for APIs, defining which API endpoints are under threat monitoring.
+scope: MEDIUM
+notes: Security-monitoring configuration; reveals which API surface is (un)protected.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting (offboarding) an API collection removes Defender for APIs threat monitoring from those endpoints, disabling a detection defense.
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing API collections inventories which APIs are onboarded to Defender for APIs, exposing monitoring coverage gaps an attacker can target.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Onboarding/creating an API collection alters the Defender for APIs monitoring configuration, mutating security-tooling state.

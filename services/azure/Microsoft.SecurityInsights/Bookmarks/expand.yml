@@ -1,0 +1,12 @@
+name: Microsoft Sentinel hunting bookmarks
+description: Bookmarks are Microsoft Sentinel hunting artifacts that save query results, flagged log records, and analyst notes from threat-hunting investigations.
+scope: MEDIUM
+notes: Bookmarks embed log-derived event data and reveal what defenders have investigated.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:logs
+    notes: Expanding an entity returns related entities from the Sentinel security/log graph, enabling reconnaissance over investigation telemetry around a bookmarked entity.

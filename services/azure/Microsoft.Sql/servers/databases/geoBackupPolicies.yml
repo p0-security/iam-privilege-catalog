@@ -1,0 +1,18 @@
+name: Azure SQL database geo-backup policy
+description: Geo-backup policy for an Azure SQL database, controlling whether geo-redundant backups are enabled for the database.
+scope: MEDIUM
+notes: Determines the database's recoverability posture against data loss/ransomware.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the geo-backup policy, revealing whether geo-redundant backups are enabled — reconnaissance of the database's backup/resilience posture before tampering.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    scope: HIGH
+    notes: Creating/updating the geo-backup policy lets an attacker disable geo-redundant backups, weakening the recovery defense that would otherwise mitigate data destruction or ransomware.

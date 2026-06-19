@@ -1,0 +1,11 @@
+name: Container registry async operation status
+description: A service-internal record tracking the progress/result of an asynchronous (long-running) container registry operation.
+scope: LOW
+notes: Control-plane bookkeeping that conveys no access to organizational data, identities, or real resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the status of a previously issued async registry operation; an inert polling endpoint that exposes no sensitive data or actionable capability.

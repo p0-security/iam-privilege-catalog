@@ -1,0 +1,12 @@
+name: Web App runtime availability diagnostics
+description: Runtime availability diagnostics return operational health/uptime telemetry for an Azure App Service.
+scope: MEDIUM
+notes: Operational health telemetry (availability/uptime); supporting diagnostic data, not primary organizational data.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading runtime availability diagnostics returns the app's operational health/uptime telemetry, providing read-only infrastructure reconnaissance.

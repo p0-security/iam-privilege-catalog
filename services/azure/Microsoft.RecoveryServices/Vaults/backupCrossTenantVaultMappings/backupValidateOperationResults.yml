@@ -1,0 +1,10 @@
+name: Cross-tenant backup validate-operation results
+description: The asynchronous result record of a backup validate-operation (dry-run), accessed through a cross-tenant vault mapping. It returns only the validation outcome/LRO state.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling validate-operation results returns only the dry-run outcome status, an inert read with no data access or state change.

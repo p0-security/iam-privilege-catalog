@@ -1,0 +1,24 @@
+name: Network Security Perimeter resource association
+description: A Network Security Perimeter resource association binds a PaaS resource to an NSP profile and sets its enforcement mode (Learning vs Enforced), determining whether and how the perimeter governs that resource's network access.
+scope: HIGH
+notes: The association controls whether perimeter enforcement actually applies to a resource; switching to Learning mode or detaching effectively disables the isolation defense for that resource.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Deleting an association detaches the resource from the perimeter, removing its network-isolation defense and broadening its reachability to attacker-controlled networks.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading an association reveals which PaaS resources are bound to the perimeter and in what enforcement mode, inventorying the protected-resource topology and which assets are unprotected.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating an association can set a resource to Learning/non-enforcing mode or rebind it to an attacker-controlled profile, disabling perimeter enforcement and altering the resource's network exposure.

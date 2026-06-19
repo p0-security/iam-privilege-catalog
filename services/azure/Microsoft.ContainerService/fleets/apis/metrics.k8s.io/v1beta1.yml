@@ -1,0 +1,12 @@
+name: AKS fleet Kubernetes metrics API (metrics.k8s.io)
+description: The metrics.k8s.io aggregated API on an AKS Fleet member cluster, which exposes near-real-time CPU/memory resource-usage metrics for pods and nodes.
+scope: LOW
+notes: Read-only operational telemetry; reveals workload presence and resource utilization but contains no secrets or sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists/gets pod and node resource-usage metrics, letting an attacker inventory cluster infrastructure utilization and active workloads for reconnaissance.

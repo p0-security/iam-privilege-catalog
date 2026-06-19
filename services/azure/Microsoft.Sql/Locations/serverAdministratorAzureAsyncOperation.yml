@@ -1,0 +1,11 @@
+name: SQL Server AAD administrator async operation status
+description: The result/status of an asynchronous Azure AD administrator change operation for an Azure SQL logical server (operation-status polling endpoint).
+scope: LOW
+notes: Returns operation progress only, not the administrator identity or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Inert status poll for an AAD administrator change that returns no credentials or actionable identity data.

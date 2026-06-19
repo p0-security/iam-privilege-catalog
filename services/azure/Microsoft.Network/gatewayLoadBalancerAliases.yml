@@ -1,0 +1,23 @@
+name: Gateway LoadBalancer alias
+description: A Gateway LoadBalancer Alias — a reference/binding used to chain consumer traffic to a gateway load balancer for service insertion (e.g. routing traffic through inline inspection/firewall NVAs).
+scope: HIGH
+notes: Controls traffic-steering/service-insertion plumbing for a network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the alias removes the traffic-chaining linkage to the gateway load balancer, breaking the inspection/forwarding path and disrupting the dependent service.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading the alias definition enumerates the load-balancer traffic-chaining configuration, providing read-only network reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating the alias alters the traffic-chaining binding to a gateway load balancer, manipulating network service-insertion config and potentially redirecting service traffic.

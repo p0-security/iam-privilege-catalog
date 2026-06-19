@@ -1,0 +1,12 @@
+name: AKS fleet member apiserver OpenAPI schema
+description: The Kubernetes API server OpenAPI v2 schema document on an AKS fleet member cluster, enumerating available API resource types and fields (including installed CRDs).
+scope: LOW
+notes: Schema enumeration maps the cluster's API surface and capabilities but exposes no actual data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns the OpenAPI v2 schema, letting an attacker inventory the available API surface and installed resource types/CRDs for reconnaissance.

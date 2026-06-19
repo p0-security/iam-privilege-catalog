@@ -1,0 +1,13 @@
+name: Log Analytics SqlAtpStatus table
+description: A Log Analytics workspace table holding SQL Advanced Threat Protection status records ingested into Azure Monitor.
+scope: MEDIUM
+notes: Security-posture telemetry revealing whether/how SQL threat protection is enabled and where coverage is weak; useful for evasion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Read returns SQL ATP status rows, exporting defensive-posture telemetry that reveals whether threat protection is enabled and where coverage gaps exist.

@@ -1,0 +1,11 @@
+name: Managed disks
+description: An Azure managed disk is the block-storage volume backing a virtual machine's OS or data partition; it holds the full filesystem contents of the VM including any OS credentials, application data, and secrets stored on disk.
+scope: HIGH
+notes: A managed disk holds the persistent data of a single compute workload. SAS-based access to its raw bytes bypasses VM-level access controls and OS authentication.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Revokes a previously issued disk SAS URI; in isolation this is a defensive cleanup action that grants no offensive capability.

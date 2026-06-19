@@ -1,0 +1,12 @@
+name: SQL Database sensitivity labels
+description: Data-classification sensitivity labels applied to columns of an Azure SQL Database, identifying which columns hold classified/sensitive information (PII, financial, etc.).
+scope: HIGH
+notes: The label set is effectively a classification map pinpointing the highest-value data within the production database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Lists the database's sensitivity labels, directly pointing an attacker at which columns hold the most sensitive data to prioritize for exfiltration.

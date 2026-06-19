@@ -1,0 +1,13 @@
+name: Log Analytics DatabricksAccounts table
+description: The DatabricksAccounts table holds Azure Databricks account/identity audit log records (logins, account-management events) ingested into a Log Analytics workspace.
+scope: MEDIUM
+notes: Audit/monitoring data that records user and account activity within a Databricks workspace.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading the table exports Databricks account audit log content and enumerates the user accounts/identities and their actions in the workspace.

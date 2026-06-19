@@ -1,0 +1,10 @@
+name: Cross-tenant backup protected-item operation status
+description: The asynchronous operation-status record for an action performed on a backup protected item via a cross-tenant vault mapping. It returns only progress/status of a long-running operation.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading the async status of a protected-item operation is an inert status poll exposing no sensitive data or actionable capability.

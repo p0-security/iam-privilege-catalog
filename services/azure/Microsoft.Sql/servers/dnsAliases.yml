@@ -1,0 +1,23 @@
+name: Azure SQL Database server DNS alias
+description: A SQL server DNS alias is a stable CNAME-like DNS name that maps clients to an Azure SQL logical server, allowing the underlying server to change without updating connection strings.
+scope: HIGH
+notes: Controlling an alias controls the connection endpoint clients resolve to reach production databases; it is effectively a routing/domain control for the database service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a DNS alias removes the stable connection name clients resolve to, breaking application connectivity to the database (denial of service).
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Lists/gets server DNS aliases, enumerating the DNS-name-to-server mappings clients use to reach databases — reconnaissance for redirection/takeover attacks.
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+    notes: Creating/updating a DNS alias controls the stable connection hostname clients use, letting an attacker repoint the endpoint and redirect SQL traffic to a server of their choosing.

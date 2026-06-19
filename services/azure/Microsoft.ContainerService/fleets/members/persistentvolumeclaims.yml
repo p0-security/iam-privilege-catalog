@@ -1,0 +1,22 @@
+name: Kubernetes PersistentVolumeClaims (AKS fleet member)
+description: Kubernetes PersistentVolumeClaim objects within a fleet member (AKS) cluster, accessed via the Azure-managed Kubernetes data plane. A PVC is a namespaced request for storage that binds a workload to a backing PersistentVolume.
+scope: HIGH
+notes: PVCs are storage-configuration objects, not the stored data itself; their lifecycle (especially deletion under a Delete reclaim policy) can affect the backing data and the availability of stateful workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Deleting a PVC unbinds and, under the common/default Delete reclaim policy, releases and deletes the backing PersistentVolume and its data, destroying organizational data and disrupting dependent stateful workloads.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reads/lists PVCs, enumerating storage claims, capacities, storage classes, and bound volumes for a cluster's stateful workloads (storage reconnaissance).
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating PVCs lets an attacker provision new storage or rebind/resize claims that pods mount, manipulating the cluster's operational storage configuration.

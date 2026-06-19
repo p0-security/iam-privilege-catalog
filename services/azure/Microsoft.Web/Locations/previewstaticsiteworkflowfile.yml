@@ -1,0 +1,11 @@
+name: App Service network intent policies
+description: Location-scoped network intent policies governing VNet integration constraints for App Service deployments.
+scope: LOW
+notes: Read-only network policy configuration; useful for mapping network restrictions but not itself sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Generates a preview of a CI/CD workflow YAML template for a static site from caller-supplied parameters; it composes a template and returns no existing organizational data, secrets, or configuration.

@@ -1,0 +1,25 @@
+name: ACR task runs
+description: ACR taskruns are quick-task / task execution records that run containerized build and run steps on ACR-managed compute, frequently under the registry's or task's assigned managed identity.
+scope: MEDIUM
+notes: Taskruns execute attacker-definable workloads and their full details can embed source and custom-registry login credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:logs
+    notes: Delete taskrun removes the build/run execution resource along with its run record and execution history/logs, erasing evidence of prior (possibly malicious) build activity and hindering incident response.
+  read:
+    risks:
+      - discovery:infra
+    notes: Get/List taskruns inventories the registry's build/task execution resources and their configuration without returning run logs or embedded credentials.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:spend
+      - impact:manipulation
+    scope: HIGH
+    notes: Create/Update taskrun executes attacker-defined container build/run steps on ACR compute (hijacking/cryptomining, metered spend), runs under the task's managed identity (lateral movement), and can build and push images into the registry, tampering with the image supply chain.

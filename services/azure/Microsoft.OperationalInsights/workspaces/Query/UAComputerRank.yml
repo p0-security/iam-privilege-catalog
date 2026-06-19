@@ -1,0 +1,13 @@
+name: Log Analytics workspace UAComputerRank table
+description: A data-plane Update/Upgrade Analytics table in an Azure Log Analytics workspace holding per-computer upgrade-readiness ranking telemetry.
+scope: MEDIUM
+notes: Monitoring asset; inventories and ranks fleet machines.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading UAComputerRank exports ranked machine inventory/prioritization data, contributing to fleet reconnaissance.

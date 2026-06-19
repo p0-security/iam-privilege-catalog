@@ -1,0 +1,13 @@
+name: API Management tool server OAuth2 endpoints
+description: The OAuth2 connection state of a tool server endpoint on an API Management AI gateway, driving the operator OAuth 2.0 Authorization Code flow and holding the persisted refresh_token used by the gateway to call IdP-protected backends.
+scope: HIGH
+notes: Controls the delegated backend identity the gateway authenticates with.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+    notes: The login-links branch mints PKCE state and the IdP authorize URL/redirect to drive an OAuth dance that binds a (possibly attacker-controlled) backend identity to the endpoint (lateral movement); the disconnect branch clears the persisted refresh_token and bumps configVersion, altering/severing the endpoint's authenticated connection.

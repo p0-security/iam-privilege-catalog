@@ -1,0 +1,24 @@
+name: Kubernetes Namespaces
+description: A Kubernetes Namespace is a logical partition within a cluster that isolates groups of workloads, services, secrets, and policies; it defines tenancy and segmentation boundaries.
+scope: HIGH
+notes: Namespace labels/annotations gate admission control and network policy targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:data
+      - impact:dos
+    notes: Deleting a namespace cascades to destroy every workload, config, secret, and PVC-bound data within it, wiping that function's resources and causing denial of service.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Listing/getting namespaces inventories the cluster's logical partitions and tenant boundaries, a reconnaissance precursor to targeting workloads.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Creating/updating namespaces lets an attacker carve out new tenancy boundaries to stage workloads and alter namespace labels/annotations that drive admission control and policy targeting.

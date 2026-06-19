@@ -1,0 +1,23 @@
+name: Disk access resources
+description: A DiskAccess resource is a private-link construct that governs private-endpoint network access used to securely import/export managed disk data (SAS-based disk export/import over a private endpoint).
+scope: HIGH
+notes: It controls the network path to disk data egress; it is supporting network infrastructure rather than the disk data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a DiskAccess resource removes the private-link network component governing disk import/export connectivity, disrupting workflows that depend on it (DoS-like).
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading a DiskAccess resource only inventories the private-link access configuration governing disk import/export, yielding network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a DiskAccess resource reconfigures the private-endpoint path used for managed-disk export/import, letting an attacker alter network access posture and open a controlled route toward disk data.

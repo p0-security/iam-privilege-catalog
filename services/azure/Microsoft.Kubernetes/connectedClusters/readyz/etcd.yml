@@ -1,0 +1,12 @@
+name: Arc-connected cluster readiness sub-check
+description: An individual /readyz sub-check of an Azure Arc-connected Kubernetes cluster's API server, returning only the pass/fail health status of a specific internal API server component or controller.
+scope: LOW
+notes: Returns only a component health/liveness indicator; exposes no logs, certificate/key material, etcd contents, or other sensitive data despite some sub-check names (etcd, log, ca-registration).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the etcd readiness probe, confirming only whether the backing datastore is reachable/healthy and returning no etcd contents.

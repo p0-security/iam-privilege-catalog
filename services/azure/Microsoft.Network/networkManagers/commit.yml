@@ -1,0 +1,14 @@
+name: Azure Virtual Network Manager
+description: Azure Virtual Network Manager is a centralized network governance resource that manages connectivity (mesh/hub-spoke peering) and security admin rules across many VNets within a defined scope of subscriptions/management groups.
+scope: HIGH
+notes: Its committed configurations can override NSGs and reshape connectivity across a broad network scope, making it a high-leverage network control plane.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+      - escalation:network
+    notes: Commit deploys staged connectivity and security admin rule configurations to target regions/VNets, actively pushing network changes, opening peering/connectivity (escalation:network), and able to override NSGs to weaken network defenses (destruction:defense).

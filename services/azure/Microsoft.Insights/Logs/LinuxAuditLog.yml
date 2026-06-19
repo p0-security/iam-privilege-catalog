@@ -1,0 +1,13 @@
+name: Log Analytics LinuxAuditLog table
+description: "A Log Analytics (Azure Monitor) table holding Linux auditd security-audit records collected from monitored hosts: process/command executions, authentication and login events, sudo and file-access events."
+scope: MEDIUM
+notes: Audit records can contain sensitive system activity, account identifiers, and occasionally credentials in command lines; monitoring data plane.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns Linux auditd security log records, exporting potentially sensitive audit content (exfiltration:logs) and revealing logged host/account activity and audit coverage (discovery:logs).

@@ -1,0 +1,10 @@
+name: Cross-tenant backup protected-item operation results
+description: The asynchronous operation-result record for an action performed on a backup protected item accessed through a cross-tenant vault mapping. It exposes only long-running-operation outcome state, not backup data or configuration.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling this async operation result returns only operation outcome status; it grants no data access or state change in isolation.

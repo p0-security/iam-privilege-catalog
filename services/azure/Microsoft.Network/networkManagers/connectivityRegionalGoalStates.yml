@@ -1,0 +1,12 @@
+name: Network Manager connectivity regional goal state
+description: The deployed connectivity goal state for an Azure Virtual Network Manager in a given region, describing the intended VNet interconnection topology (hub-spoke/mesh peerings, connected groups) applied across managed virtual networks.
+scope: LOW
+notes: Read-only desired-state representation of centrally-managed network connectivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the connectivity goal state lets an attacker inventory how managed VNets are interconnected (topology/peerings) for network reconnaissance; no mutation or data/credential exposure.

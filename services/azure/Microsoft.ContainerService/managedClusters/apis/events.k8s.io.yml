@@ -1,0 +1,12 @@
+name: AKS Kubernetes events
+description: Kubernetes events.k8s.io API group objects (Event records) inside an AKS managed cluster, which capture operational activity such as scheduling, errors and component actions.
+scope: MEDIUM
+notes: Event records form the cluster's operational activity log, useful for reconnaissance of recent actions and component behavior.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Read-only get/list of Event objects, enumerating the cluster's operational activity log for reconnaissance of recent actions and state.

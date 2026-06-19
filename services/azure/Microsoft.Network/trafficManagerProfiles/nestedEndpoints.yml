@@ -1,0 +1,23 @@
+name: Traffic Manager nested endpoint
+description: A Traffic Manager nested endpoint is a routing target within a Traffic Manager profile that references a child Traffic Manager profile, used to build hierarchical DNS-based traffic-routing topologies.
+scope: HIGH
+notes: Nested endpoints shape the hierarchical routing of a profile's domain traffic; altering them redirects traffic for the public-facing service the profile fronts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a nested endpoint removes a routing target so Traffic Manager stops routing traffic to the nested profile, destroying a network component and denying service to those backends.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading a nested endpoint inventories the hierarchical routing topology (the child profile it references and its routing properties), which is network reconnaissance.
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+    notes: Creating/updating a nested endpoint alters which child profile/target receives the profile's DNS traffic, enabling redirection of the profile's domain traffic to attacker-chosen targets and manipulation of routing configuration.

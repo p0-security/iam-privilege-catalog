@@ -1,0 +1,11 @@
+name: Log Analytics cluster operation result
+description: The asynchronous operation-result/status endpoint for a Log Analytics dedicated cluster. Returns only the status/result of a previously submitted long-running cluster operation.
+scope: LOW
+notes: Operation-status polling exposes no log content or actionable capability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Inert async operation-status poll; conveys only operation result/status and grants no meaningful capability in isolation.

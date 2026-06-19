@@ -1,0 +1,13 @@
+name: Network Manager security admin rule snapshot
+description: A snapshot of an individual deployed security admin rule within an Azure Virtual Network Manager rule collection - a specific centrally-enforced allow/deny network security rule (ports, protocols, sources) applied across managed virtual networks.
+scope: LOW
+notes: Security admin rules override subnet NSGs and represent the authoritative enforced traffic controls.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading an individual rule snapshot reveals the precise enforced allow/deny entry, letting an attacker map exact network controls and find openings.

@@ -1,0 +1,12 @@
+name: AKS cluster workload objects (apps API group)
+description: Kubernetes apps API-group workload controllers (Deployments, StatefulSets, DaemonSets, ReplicaSets) within an AKS managed cluster, accessed via the cluster's data plane.
+scope: MEDIUM
+notes: Read-only enumeration of running workload configuration including container specs and image references; exposes deployment topology but not the secret data those workloads consume.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads/lists apps/v1 workload objects (Deployments/StatefulSets/DaemonSets/ReplicaSets), inventorying workload configuration.

@@ -1,0 +1,12 @@
+name: Web App diagnostics analyses
+description: App Service 'Diagnose and solve problems' diagnostic analyses for a web app, which inspect and report on the app's configuration and operational health.
+scope: MEDIUM
+notes: Diagnostics/monitoring supporting data for a single app; surfaces configuration/health detail but no stored application data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - discovery:infra
+    notes: Running a diagnostic analysis actively gathers and returns the app's configuration/health findings without modifying state, providing infrastructure reconnaissance.

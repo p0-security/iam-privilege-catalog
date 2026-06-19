@@ -1,0 +1,17 @@
+name: Managed Instance Diagnostic Settings
+description: The Azure Monitor diagnostic settings on an Azure SQL Managed Instance, defining which logs/metrics are collected and to which sinks (Log Analytics, storage, event hub) they are routed.
+scope: MEDIUM
+notes: Controls the audit/telemetry pipeline; reading reveals monitoring coverage, writing can suppress it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading the diagnostic settings reveals which logs/metrics are collected for the managed instance and where they route, letting an attacker map detection coverage before tampering.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating the diagnostic setting lets an attacker disable log categories or redirect telemetry away from monitoring sinks, suppressing audit logging and weakening a detective control.

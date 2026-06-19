@@ -1,0 +1,12 @@
+name: AKS Fleet API server health probe
+description: A read-only Kubernetes API server health/liveness probe sub-endpoint exposed as an Azure data action on a ContainerService fleet (a multi-cluster management resource). It returns only the health/completion status of an internal control-plane startup hook or subsystem, not any configuration, policy, or data contents.
+scope: LOW
+notes: These probes return only status signals (ok/not-ok). Despite suggestive path segments like rbac/bootstrap-roles or etcd, none of them expose the underlying RBAC policy, etcd contents, or logs; they merely report whether the subsystem is healthy.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: A trivial ping liveness check returning only that the apiserver responds; the thinnest possible reachability reconnaissance.

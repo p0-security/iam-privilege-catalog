@@ -1,0 +1,22 @@
+name: Azure Automation private endpoint connection
+description: A private endpoint connection associating a Private Link private endpoint with an Azure Automation account, governing private network reachability to the account.
+scope: HIGH
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the connection removes a private network access path to the Automation account, disrupting authorized private connectivity.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the connection status only enumerates the account's private network connectivity configuration, which is network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Approving or rejecting a private endpoint connection lets an attacker authorize private network access to the Automation account (or reject legitimate connections), enabling network movement and connectivity manipulation.

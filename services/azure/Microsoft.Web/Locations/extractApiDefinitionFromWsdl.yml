@@ -1,0 +1,11 @@
+name: App Service location utility actions
+description: Stateless location-scoped helper/utility actions for App Service (template generation and input parsing) that operate on caller-supplied input rather than stored resources.
+scope: LOW
+notes: Pure transformation/preview helpers; they do not read, write, or delete organizational assets.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: A stateless helper that parses a caller-supplied WSDL document into an API definition; it accesses no organizational resource, data, or secret.

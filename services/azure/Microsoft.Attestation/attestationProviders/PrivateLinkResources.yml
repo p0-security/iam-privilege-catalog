@@ -1,0 +1,12 @@
+name: Azure Attestation provider private link resources
+description: The private-link sub-resources of an Azure Attestation provider, enumerating the private-endpoint-capable connection targets of the attestation service.
+scope: MEDIUM
+notes: Azure Attestation validates trusted-execution-environment (TEE)/enclave evidence for confidential computing; this sub-resource exposes only its private-connectivity metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Attestation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Listing the provider's private-link resources only enumerates network connectivity sub-resources, providing network reconnaissance of the attestation service.

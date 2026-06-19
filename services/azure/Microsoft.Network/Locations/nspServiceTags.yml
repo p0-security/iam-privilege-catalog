@@ -1,0 +1,12 @@
+name: Network Security Perimeter service tags
+description: Predefined Network Security Perimeter service tags, i.e. named service/IP-range reference metadata used when authoring NSP access rules.
+scope: LOW
+notes: Read-only reference data, not sensitive in isolation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Read-only retrieval of NSP service-tag IP-range/service metadata is pure network reconnaissance with no mutation or secret disclosure.

@@ -1,0 +1,11 @@
+name: Garnet cluster
+description: An Azure Cosmos DB for Garnet cluster, a Redis-compatible in-memory data store. These ACL-scoped data-plane operations map to Redis/Garnet commands executed against a production cache.
+scope: HIGH
+notes: Production in-memory database holding organizational data; data-plane access to a single application's data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: PING is a liveness/connectivity check returning PONG; it exposes no data or configuration and grants no meaningful capability in isolation.

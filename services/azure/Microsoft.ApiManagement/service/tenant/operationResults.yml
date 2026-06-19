@@ -1,0 +1,10 @@
+name: API Management async operation results
+description: Results of asynchronous operations on the API Management service tenant — a status/result endpoint for long-running tenant operations.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status/result of asynchronous operations, an inert operation-status read that exposes no sensitive configuration or data.

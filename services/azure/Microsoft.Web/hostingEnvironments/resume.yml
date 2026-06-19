@@ -1,0 +1,12 @@
+name: App Service Environment
+description: An App Service Environment (ASE) is a dedicated, network-isolated Azure App Service deployment that hosts web apps, function apps, and API apps on dedicated compute within a customer VNet.
+scope: HIGH
+notes: An ASE supports a single hosting function but is VNet-integrated, so changes to it can affect network isolation and all apps it hosts.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:spend
+    notes: Resuming a suspended ASE brings the dedicated isolated compute back online, re-incurring metered infrastructure spend; it restores rather than denies service.

@@ -1,0 +1,12 @@
+name: Log Analytics workspace table data (CrowdStrikeAuditEvents)
+description: A specific table within an Azure Log Analytics (Azure Monitor) workspace that stores ingested audit/log records. Querying it returns the actual log contents on the data plane.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset of MEDIUM sensitivity; this table holds CrowdStrike EDR/security telemetry, so its contents reveal defensive coverage and detection activity, but reading it does not disable any defense.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returning the contents of the CrowdStrikeAuditEvents table, exfiltrating EDR/security audit telemetry that exposes detection coverage and incident-response activity useful for evasion planning.

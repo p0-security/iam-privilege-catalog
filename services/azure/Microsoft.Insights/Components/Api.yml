@@ -1,0 +1,12 @@
+name: Application Insights component data API
+description: The Application Insights component data API returns the underlying telemetry/log records (requests, dependencies, exceptions, traces, custom events) collected by the component.
+scope: MEDIUM
+notes: Telemetry can contain request URLs, parameters, exception detail, and other sensitive application/user data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reading via the data API returns the collected telemetry/log records, allowing an attacker to export potentially sensitive application diagnostic data.

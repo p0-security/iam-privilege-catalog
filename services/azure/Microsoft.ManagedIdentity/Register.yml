@@ -1,0 +1,11 @@
+name: Managed Identity resource provider registration
+description: Subscription-level registration action for the Microsoft.ManagedIdentity resource provider, enabling the subscription to use managed identity APIs.
+scope: LOW
+notes: Provider registration is an administrative enablement gate, not a data or identity capability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ManagedIdentity
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Registering the subscription for the managed identity provider is an idempotent enablement no-op with no direct attacker capability in isolation.

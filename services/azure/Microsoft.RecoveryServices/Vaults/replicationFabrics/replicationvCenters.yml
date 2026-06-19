@@ -1,0 +1,20 @@
+name: Site Recovery registered vCenters
+description: Registered vCenter servers are VMware management endpoints registered to the Azure Site Recovery replication fabric for discovering and replicating source VMs.
+scope: MEDIUM
+notes: Supporting DR discovery infrastructure tied to a VMware/on-prem environment.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a vCenter registration removes the VMware discovery source, disrupting discovery and replication of source VMs (DoS-like effect on DR).
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading registered vCenters inventories the VMware replication source infrastructure tied to the vault.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Registering or updating a vCenter alters the ASR discovery/replication configuration, potentially pointing the fabric at an attacker-influenced or misconfigured VMware endpoint.

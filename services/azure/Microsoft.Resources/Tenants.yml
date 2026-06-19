@@ -1,0 +1,12 @@
+name: Azure tenants
+description: Represents the Azure AD/Entra tenant(s) the caller can access — the top-level directory boundary that owns subscriptions and identities.
+scope: LOW
+notes: Read endpoint returns only tenant identifiers and basic metadata, not credentials or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only listing of accessible tenants; inventories the top-level organizational structure for reconnaissance.

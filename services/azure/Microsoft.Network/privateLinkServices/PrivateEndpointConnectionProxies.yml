@@ -1,0 +1,23 @@
+name: Private Link service private endpoint connection proxy
+description: An internal, platform-mediated proxy resource that Azure's Network Resource Provider uses to orchestrate the private endpoint connection approval handshake between a Private Link service and consumer private endpoints.
+scope: HIGH
+notes: This is plumbing for a single Private Link service's connectivity, not a tenant-wide control or data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the proxy tears down the private-link connectivity plumbing, severing the private path to the hosted service and denying access to consumers.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the proxy only enumerates the private-link connection orchestration configuration, yielding read-only network reconnaissance with no data or credential exposure.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating the proxy alters the private-link connection orchestration state, potentially brokering a private-network path to the backed service and manipulating its connectivity configuration.

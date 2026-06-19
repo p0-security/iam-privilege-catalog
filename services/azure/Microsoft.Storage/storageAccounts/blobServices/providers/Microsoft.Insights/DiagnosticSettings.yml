@@ -1,0 +1,17 @@
+name: Blob service diagnostic settings
+description: Diagnostic settings on the blob service that control which logs and metrics are collected and where they are routed.
+scope: MEDIUM
+notes: Detective/monitoring control over blob data-access telemetry; reading it reveals coverage but exposes no stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading the blob-service diagnostic setting discloses which log categories are collected and where routed, letting an attacker map blob data-access detection coverage to plan evasion.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Create/update lets an attacker disable or redirect blob access/audit logging that would record exfiltration, suppressing telemetry and weakening a detective control.

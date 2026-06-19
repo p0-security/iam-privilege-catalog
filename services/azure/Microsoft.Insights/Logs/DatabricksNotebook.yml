@@ -1,0 +1,12 @@
+name: Log Analytics DatabricksNotebook table
+description: A Log Analytics workspace table holding ingested Azure Databricks notebook-activity diagnostic log records. Reading it is a data-plane operation that returns the stored log rows.
+scope: MEDIUM
+notes: Monitoring/diagnostic telemetry for a single analytics workload; may reference notebook command content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Returns notebook command/activity logs that can leak fragments of analytics command content and workflow detail.

@@ -1,0 +1,12 @@
+name: Arc connected cluster metrics
+description: The data-plane metrics resource of an Azure Arc-connected Kubernetes cluster, exposing resource-utilization and operational telemetry.
+scope: MEDIUM
+notes: Metrics are non-sensitive monitoring telemetry useful primarily for infrastructure reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads cluster metrics, letting an attacker inventory resource utilization and operational state of the connected cluster for reconnaissance.

@@ -1,0 +1,20 @@
+name: Integration Account schedule
+description: A recurrence/schedule configuration artifact within a Logic Apps integration account that governs the timing of integration/B2B processes.
+scope: MEDIUM
+notes: Supporting integration configuration for a single function; control-plane only, holds no secrets or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an integration account schedule, removing recurrence configuration and disrupting scheduled integration processing (DoS-like).
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads an integration account schedule, enabling inventory of the recurrence/timing configuration for integration processes.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates an integration account schedule, allowing an attacker to alter when integration processes run.

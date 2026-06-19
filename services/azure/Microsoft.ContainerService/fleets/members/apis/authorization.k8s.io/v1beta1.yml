@@ -1,0 +1,12 @@
+name: AKS fleet member Kubernetes authorization API
+description: The Kubernetes authorization.k8s.io data-plane API group on an AKS Fleet member cluster. It exposes access-control/authorization resources (SubjectAccessReview, SelfSubjectAccessReview, SelfSubjectRulesReview) used to evaluate RBAC decisions.
+scope: MEDIUM
+notes: Reading authorization data lets an attacker map effective permissions and identify weak points for escalation; access-control reconnaissance on a single member cluster is moderately sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Versioned read of authorization.k8s.io/v1beta1 exposes authorization/RBAC information, constituting policy discovery.

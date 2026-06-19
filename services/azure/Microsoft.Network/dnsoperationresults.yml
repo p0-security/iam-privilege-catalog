@@ -1,0 +1,10 @@
+name: DNS operation results
+description: Results of a previously submitted asynchronous DNS management operation, retrieved by polling.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the result of a prior async DNS operation is an inert status read that grants no meaningful attacker capability in isolation.

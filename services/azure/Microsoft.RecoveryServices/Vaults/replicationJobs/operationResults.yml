@@ -1,0 +1,10 @@
+name: Site Recovery jobs operation results
+description: Async operation-results tracking endpoint for replication jobs in a Recovery Services (Site Recovery) vault.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Tracks the result of an async operation on replication jobs; an inert operation-result polling read.

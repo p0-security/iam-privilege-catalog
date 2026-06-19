@@ -1,0 +1,22 @@
+name: Azure Virtual Network Manager routing rule collection
+description: A routing rule collection in Azure Virtual Network Manager (AVNM) groups user-defined routing rules that are centrally authored and pushed to subnets across managed virtual networks.
+scope: HIGH
+notes: AVNM routing config controls how traffic is routed across many managed subnets/VNets; modifying it affects network reachability for a single organizational function (the managed network scope).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a routing rule collection removes routing configuration applied across managed subnets, breaking connectivity for dependent services.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Read-only retrieval of a routing rule collection enumerates how traffic routing is configured across managed subnets, providing network reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a routing rule collection lets an attacker alter user-defined routes pushed across managed subnets, redirecting or intercepting traffic through attacker-controlled next-hops and reaching additional networked resources.

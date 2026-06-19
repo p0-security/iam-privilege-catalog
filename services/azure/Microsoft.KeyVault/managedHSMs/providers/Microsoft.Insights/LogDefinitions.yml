@@ -1,0 +1,12 @@
+name: Managed HSM log definitions (diagnostics)
+description: Read-only Azure Monitor metadata for a Managed HSM describing the log categories the resource can emit. It is monitoring metadata, not the logs themselves.
+scope: LOW
+notes: Reveals detection/monitoring surface but contains no sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Enumerates which log categories the HSM can emit, letting an attacker map detection coverage to plan evasion.

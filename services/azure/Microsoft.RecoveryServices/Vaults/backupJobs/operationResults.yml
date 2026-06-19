@@ -1,0 +1,12 @@
+name: Backup job operation results
+description: Asynchronous operation-result endpoint for backup jobs in a Recovery Services vault, returning the outcome/status of a backup job operation.
+scope: LOW
+notes: Status-polling endpoint exposing only job outcome metadata, not backup data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Polling a backup job operation result reveals job outcome metadata, providing minor reconnaissance of backup activity in isolation.

@@ -1,0 +1,22 @@
+name: Device security groups
+description: Device Security Groups define the IoT device threat-detection rules, behavioral baselines, and allowlists (allowed connections, processes, etc.) used by Defender for IoT to detect anomalous device behavior.
+scope: MEDIUM
+notes: These rules are a detection defense for IoT devices; weakening or removing them lets malicious device behavior go undetected.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting device security groups removes the configured threat-detection rules/baselines for those devices, disabling a detection defense.
+  read:
+    risks:
+      - discovery:policy
+    scope: LOW
+    notes: Reading device security groups discloses the configured detection rules, baselines, and allowlists, letting an attacker identify what behavior is monitored and how to evade it.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating or updating device security groups lets an attacker alter the threat-detection rules, baselines, and allowlists for IoT devices, weakening detection of malicious behavior.

@@ -1,0 +1,13 @@
+name: Log Analytics HDInsight query table (Hive Tez app stats)
+description: A Log Analytics workspace query-scoped table holding HDInsight Hive-on-Tez application-statistics records ingested via diagnostic settings. The data-plane read returns the stored rows.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset tier. Records executed-job telemetry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading this table exports Hive-on-Tez job-execution telemetry and lets the holder inventory the logged job activity.

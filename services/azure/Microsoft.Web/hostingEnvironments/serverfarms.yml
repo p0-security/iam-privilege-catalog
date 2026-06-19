@@ -1,0 +1,12 @@
+name: App Service Environment App Service Plans
+description: The App Service Plans (server farms) hosted within an App Service Environment, representing the dedicated compute capacity that backs web apps in the ASE.
+scope: LOW
+notes: Control-plane read returns plan configuration/inventory, not application data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the App Service Plans within an ASE, allowing an attacker to inventory the compute hosting infrastructure for reconnaissance.

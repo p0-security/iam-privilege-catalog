@@ -1,0 +1,22 @@
+name: Recovery Services vault private endpoint connections
+description: Private endpoint connections that provide private-network (Private Link) connectivity between a virtual network and a Recovery Services backup vault.
+scope: HIGH
+notes: Controls the network path to a backup/DR vault holding recovery data for a production function; manipulating it affects reachability of that service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deletes a private endpoint connection, removing a network component and disrupting private connectivity to the vault (DoS-like for the backup service).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Returns all private endpoint connections, inventorying the vault's network connectivity configuration.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Approves/rejects private endpoint requests, letting an attacker approve their own private endpoint to gain private-network access to the vault and alter its connectivity configuration.

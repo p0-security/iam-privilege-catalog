@@ -1,0 +1,12 @@
+name: Network Virtual Appliance SKUs
+description: Read-only catalog of available SKUs (sizing/offering metadata) for Network Virtual Appliances that can be deployed in the subscription.
+scope: LOW
+notes: Near-public reference/availability data, not a deployed resource.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates deployable NVA SKU options; only minor infrastructure-option reconnaissance.

@@ -1,0 +1,22 @@
+name: VPN configuration policy groups
+description: A Configuration Policy Group is a control-plane sub-component of an Azure VPN Server Configuration that maps Point-to-Site (P2S) VPN clients to access/authentication/routing policy based on attributes such as group membership.
+scope: HIGH
+notes: Governs which P2S VPN clients reach the connected virtual network and with what routing, so changes affect network access for a single connectivity function. Reads expose configuration only, not secrets.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a configuration policy group removes a P2S VPN access component, disrupting connectivity for clients that depend on it (DoS-like effect on the connectivity function).
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading a configuration policy group enumerates P2S VPN client grouping/access policy, providing network reconnaissance without disclosing secret material.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a policy group alters how P2S VPN clients are grouped and which network access policy they receive, manipulating connectivity config and potentially broadening the network an attacker-controlled client can reach.

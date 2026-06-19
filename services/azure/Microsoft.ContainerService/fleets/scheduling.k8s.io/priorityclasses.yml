@@ -1,0 +1,22 @@
+name: Kubernetes PriorityClasses (Fleet)
+description: Cluster-scoped Kubernetes PriorityClass objects on an AKS Fleet, which define scheduling priority values and preemption behavior that pods reference to determine their relative scheduling importance.
+scope: MEDIUM
+notes: Scheduling-priority configuration is supporting cluster infrastructure; it controls workload prioritization and preemption but holds no secret data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting PriorityClasses removes scheduling configuration that pending and running workloads reference, disrupting pod scheduling/admission for dependent services.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading PriorityClasses enumerates cluster scheduling-priority configuration, supporting reconnaissance of how workloads are prioritized.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Creating/updating PriorityClasses lets an attacker define high-priority preempting classes to evict legitimate pods and favor scheduling of attacker-controlled workloads.

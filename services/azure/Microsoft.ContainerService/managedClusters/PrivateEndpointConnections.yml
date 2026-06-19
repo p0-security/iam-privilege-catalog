@@ -1,0 +1,23 @@
+name: AKS cluster private endpoint connections
+description: Private endpoint connections bind a Private Link private endpoint to an AKS managed cluster's API server, controlling private-network reachability to the control plane and tracking each connection's approval state.
+scope: HIGH
+notes: These objects govern who can privately reach the cluster API server; approving a connection extends private-network access to the control plane.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a private endpoint connection tears down an established private-link path to the cluster API server, destroying a network component and severing authorized private connectivity (DoS-like for clients dependent on the private link).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Read-only get enumerates the private endpoint connections bound to the cluster API server and their approval state, yielding network reconnaissance of the cluster's private connectivity.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Approving (or rejecting) a connection can wire an attacker-controlled private endpoint into the cluster's private network, granting private reachability to the API server, while mutating the connection's approval-state configuration.

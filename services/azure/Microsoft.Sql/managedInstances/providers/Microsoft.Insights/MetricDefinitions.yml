@@ -1,0 +1,12 @@
+name: Managed Instance Metric Definition
+description: The set of available Azure Monitor metric definitions (telemetry schema) for an Azure SQL Managed Instance, describing which metric types can be queried.
+scope: LOW
+notes: Read-only monitoring schema; exposes no metric values, log content, or stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Listing available metric definitions enumerates only the monitoring/telemetry schema for the managed instance, low-value reconnaissance with no access to metric values or stored data.

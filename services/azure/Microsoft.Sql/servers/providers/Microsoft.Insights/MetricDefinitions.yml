@@ -1,0 +1,12 @@
+name: Server metric definitions
+description: The catalog of metric types (schema) available for an Azure SQL server via Azure Monitor.
+scope: LOW
+notes: Returns only the list of available metric definitions, not metric values or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Returns only the schema of available metric types for the server, a trivial metadata enumeration with no access to metric values or data.

@@ -1,0 +1,22 @@
+name: Managed instance TDE keys
+description: The registered Transparent Data Encryption (TDE) keys for an Azure SQL Managed Instance, each referencing a Key Vault key (URI/thumbprint) eligible to serve as the encryption protector.
+scope: HIGH
+notes: Key references/metadata for the production database's encryption; listing returns no private key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:dos
+    notes: Deleting a managed instance TDE key removes the key reference protecting encrypted data, which can break decryption and render the production database inaccessible.
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing/getting managed instance keys returns key references (Key Vault URIs, thumbprints, dates), not exportable secret material, so it is reconnaissance of the TDE key inventory rather than crypto exfiltration.
+  write:
+    risks:
+      - impact:encryption
+      - impact:manipulation
+    notes: Creating/updating a managed instance key registers a (potentially attacker-controlled) Key Vault key as a candidate TDE protector, enabling key-substitution and ransomware-style encryption control over the production database.

@@ -1,0 +1,22 @@
+name: Reachability Analysis Run
+description: A Reachability Analysis Run is the execution and result record of a reachability test inside a Verifier Workspace, computing connectivity paths and allowed/denied flows across managed network resources.
+scope: MEDIUM
+notes: Run results expose detailed network topology, effective NSG/route behavior, and which flows are reachable — high-value network reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a Reachability Analysis Run discards stored analysis results, a supporting diagnostic-artifact destruction with no effect on live networking.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading a Reachability Analysis Run returns computed reachability results, exposing connectivity paths, routing, and rule outcomes between resources (detailed network reconnaissance).
+  write:
+    risks:
+      - discovery:network
+      - impact:spend
+    notes: Creating a Reachability Analysis Run executes a metered analysis job that computes and returns network connectivity/topology results (active reconnaissance) and consumes analysis compute.

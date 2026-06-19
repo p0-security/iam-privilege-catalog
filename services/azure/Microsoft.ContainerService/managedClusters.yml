@@ -1,0 +1,25 @@
+name: AKS managed cluster
+description: "An Azure Kubernetes Service (AKS) managed cluster: the control-plane resource that hosts a Kubernetes cluster, its node pools, networking, RBAC/Azure AD integration, and a managed/service-principal identity used to act on Azure resources."
+scope: CRITICAL
+notes: AKS clusters are production compute assets that run workloads, hold in-cluster secrets, and act through a cluster identity; credential-listing and command-execution operations on them are effectively cluster-admin grade and warrant CRITICAL scope.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the managed cluster destroys the entire Kubernetes control plane and node infrastructure, taking all hosted workloads offline (denial of service).
+  read:
+    risks:
+      - discovery:infra
+    scope: HIGH
+    notes: Get/read returns the cluster's control-plane configuration (node pools, network profile, identity references, addons) for infrastructure reconnaissance, but returns no credential material.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+      - impact:hijack
+      - impact:spend
+    notes: Create/update lets an attacker reconfigure the cluster, attach/bind a managed identity (lateral movement), provision node pools to run arbitrary workloads (hijack), and spin up costly compute (spend).

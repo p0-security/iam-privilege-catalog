@@ -1,0 +1,23 @@
+name: Kubernetes PodSecurityPolicies (AKS aiManagers)
+description: PodSecurityPolicies are Kubernetes cluster-scoped admission-control resources (in the aiManagers AKS data plane) that constrain the security context of pods, such as whether privileged, hostPath, or host-network pods are permitted.
+scope: HIGH
+notes: As an admission/security-enforcement control, this resource type governs the cluster's defensive posture against privileged-workload escalation; modifying or removing it weakens cluster security.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting a PodSecurityPolicy removes the pod-admission security enforcement, eliminating a defense mechanism and dropping the access-control policy that would otherwise restrict privileged pod creation.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reading PodSecurityPolicies inventories the cluster's pod-admission security constraints, revealing where privilege restrictions are weak or absent so an attacker can target them.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:privilege
+    notes: Creating/updating a PodSecurityPolicy lets an attacker relax pod-admission constraints (allow privileged/hostPath/host-network pods), disabling the security defense and enabling privileged workloads that escalate to node/cluster compromise.

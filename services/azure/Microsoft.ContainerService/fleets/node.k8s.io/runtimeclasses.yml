@@ -1,0 +1,22 @@
+name: Kubernetes Fleet RuntimeClasses
+description: Cluster-scoped Kubernetes RuntimeClass objects on an AKS Fleet hub, which define the container runtime handlers (e.g. runc, gVisor, Kata) and scheduling/overhead settings that pods can select to control how workloads execute.
+scope: HIGH
+notes: RuntimeClass configuration governs workload isolation across the fleet, but on its own it does not grant the ability to create or run pods.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Delete/deletecollection data action that removes RuntimeClass objects; deleting a class referenced by running or pending pods breaks their admission/scheduling, destroying runtime config and disrupting dependent workloads.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read-only data action that enumerates available RuntimeClass configurations, revealing which runtime handlers and isolation settings pods can use; pure infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Create/update data action that alters or introduces RuntimeClass definitions, letting an attacker manipulate the runtime handlers and scheduling that workloads bind to (e.g. steering pods toward weaker-isolation runtimes).

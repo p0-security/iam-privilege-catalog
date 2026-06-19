@@ -1,0 +1,12 @@
+name: Network Group Member
+description: A Network Group Member identifies a virtual network or subnet that belongs to a network group within Azure Virtual Network Manager.
+scope: LOW
+notes: Membership data reveals which network resources are grouped together, exposing managed-network topology.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading Network Group Members enumerates which VNets/subnets belong to a managed network group, inventorying network resources and their grouping.

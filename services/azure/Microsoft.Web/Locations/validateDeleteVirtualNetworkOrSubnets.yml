@@ -1,0 +1,11 @@
+name: App Service location utility actions
+description: Stateless location-scoped helper/utility actions for App Service (template generation and input parsing) that operate on caller-supplied input rather than stored resources.
+scope: LOW
+notes: Pure transformation/preview helpers; they do not read, write, or delete organizational assets.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: A read-only pre-deletion validation callback that checks whether a VNet/subnet can be deleted; it performs no deletion and exposes only minimal dependency-check state.

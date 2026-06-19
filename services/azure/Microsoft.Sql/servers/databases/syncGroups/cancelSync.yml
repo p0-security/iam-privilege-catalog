@@ -1,0 +1,13 @@
+name: Azure SQL Sync Group
+description: An Azure SQL Data Sync group defines a hub-and-member data replication topology that synchronizes table data between a hub database and one or more member databases. It is a control-plane configuration object on a production database.
+scope: HIGH
+notes: Sync groups govern the flow of operational data between databases; misconfiguration can redirect, overwrite, or disrupt replication of a single organizational function's data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Cancelling an in-progress synchronization interrupts replication and can leave hub and member databases in an inconsistent/stale state, both disrupting the sync service and manipulating the integrity of synchronized data.

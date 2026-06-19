@@ -1,0 +1,12 @@
+name: AKS aiManager Kubernetes API discovery
+description: Data-plane read endpoints exposing the Kubernetes API server's discovery tree (the /apis aggregation hierarchy) proxied through the AKS aiManagers resource. They return APIGroupList/APIResourceList documents describing which API groups, versions, and resource kinds the managed cluster serves.
+scope: LOW
+notes: These endpoints return only the cluster's API surface metadata (equivalent to kubectl api-versions / api-resources); they do not return actual resource objects, workload specs, secrets, or configuration data, so their inherent sensitivity is low.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the admissionregistration.k8s.io group discovery document, enumerating the available admission-webhook API versions — API-surface reconnaissance with no webhook objects returned.

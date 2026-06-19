@@ -1,0 +1,17 @@
+name: Key Vault managed storage account SAS definition
+description: A SAS definition is a template under a Key Vault managed storage account that specifies the type, permissions, and validity of the Shared Access Signature tokens the vault mints for the backing storage account; the resulting tokens are exposed as vault secrets.
+scope: CRITICAL
+notes: Controlling a SAS definition controls what delegated access tokens the vault issues for the underlying storage account's data, making it a CRITICAL credential-issuance asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:access
+    notes: Deletes a SAS definition, removing the credential-issuance template that applications depend on to obtain storage-access tokens, destroying the credential object and denying authorized data-plane access.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the SAS definition (template, SAS type, signing-key reference, validity); the live signed SAS token value is retrieved through the separate vault secrets data-plane endpoint, so this management read only discloses credential-issuance configuration, not a usable token.

@@ -1,0 +1,14 @@
+name: DataManagementRP operation status
+description: An internal resource-provider record tracking the progress/result of a long-running DataManagementRP asynchronous operation.
+scope: LOW
+notes: Service-internal bookkeeping; exposes no organizational data, configuration, or access.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading an async operation status only polls progress/completion state, disclosing no sensitive data or configuration.
+  write:
+    risks: []
+    notes: Writing an async operation-status record is provider bookkeeping that grants no meaningful attacker capability in isolation.

@@ -1,0 +1,12 @@
+name: Network Group Aggregated IP Address Space
+description: A Network Group Aggregated IP Address Space is the consolidated set of CIDR/address ranges in use across the members of a network group in Azure Virtual Network Manager.
+scope: LOW
+notes: Discloses internal network addressing across grouped members, useful for mapping the environment.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the aggregated IP address space reveals the combined CIDR ranges of grouped network members, valuable network-addressing reconnaissance.

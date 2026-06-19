@@ -1,0 +1,22 @@
+name: API Management named values (properties)
+description: Named values (properties) in an Azure API Management service are constant string values referenced across all API configurations and policies; they may be plain or secret-typed.
+scope: HIGH
+notes: Secret-typed named values commonly store API keys, connection strings, and backend credentials; control-plane reads mask secret values (a separate listSecrets action returns them).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Deleting a named value removes a constant referenced by API policies/configs, breaking every policy that depends on it and disrupting the affected APIs while altering operational configuration.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Listing/getting named values inventories the constant values and metadata used across API policies/configs; secret-flagged values are masked, so this is configuration reconnaissance rather than secret disclosure.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a named value changes constant strings referenced gateway-wide across API policies and configs (e.g. routing values, injected headers, credential references), letting an attacker manipulate policy logic and operational behavior.

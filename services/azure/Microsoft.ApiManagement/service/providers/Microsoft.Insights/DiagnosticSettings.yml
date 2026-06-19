@@ -1,0 +1,17 @@
+name: API Management diagnostic settings
+description: The Azure Monitor diagnostic setting controlling which logs and metrics the API Management service emits and where they are routed.
+scope: MEDIUM
+notes: Governs logging/telemetry collection; central to detection and incident response.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading the diagnostic setting reveals what logging/metrics are enabled and where they route, helping an attacker identify monitoring blind spots and plan evasion.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating the diagnostic setting lets an attacker disable or redirect log/metric collection, disrupting incident response and weakening detection.

@@ -1,0 +1,23 @@
+name: Kubernetes EndpointSlices (AKS managed cluster)
+description: Namespaced Kubernetes EndpointSlice objects that map each Service to the backend pod IPs, ports, and topology that serve its traffic.
+scope: HIGH
+notes: Internal service-to-backend network topology for a single AKS cluster; reading reveals reachable endpoints, writing controls in-cluster traffic routing.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting EndpointSlices removes the endpoint backing for Services, severing service-to-pod routing and causing denial of service to the affected workloads.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Read-only get/list of EndpointSlices reveals the backend pod IPs and ports behind every Service, providing a detailed map of internal cluster network topology.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Writing EndpointSlices rewrites the backend IPs/ports a Service routes to, letting an attacker redirect in-cluster service traffic to attacker-controlled endpoints (MITM/interception) and pivot to otherwise-unreachable backends.

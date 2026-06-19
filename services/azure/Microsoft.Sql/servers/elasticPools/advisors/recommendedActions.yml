@@ -1,0 +1,17 @@
+name: Elastic Pool Recommended Action
+description: An elastic pool recommended action is an individual tuning recommendation produced by an advisor for an elastic pool, with state indicating whether it has been applied.
+scope: LOW
+notes: Recommendation metadata may reference index/schema identifiers but exposes configuration hints rather than stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only listing of recommended tuning actions for the elastic pool enumerates configuration/recommendation metadata, a control-plane reconnaissance read.
+  write:
+    risks:
+      - impact:manipulation
+    scope: HIGH
+    notes: Applying a recommended action executes index/schema tuning changes against the pooled production databases, manipulating their operational configuration and performance.

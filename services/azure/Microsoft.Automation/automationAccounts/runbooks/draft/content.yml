@@ -1,0 +1,14 @@
+name: Azure Automation runbook draft content
+description: The script body (PowerShell/Python) of the unpublished draft version of an Azure Automation runbook, which once published executes under the Automation account's managed identity / Run As credential, optionally on Hybrid Worker hosts.
+scope: HIGH
+notes: Runbook code runs as a privileged Automation identity and frequently contains or can retrieve credentials; controlling it is effectively arbitrary code execution as a resource identity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+      - impact:hijack
+    notes: Writing/replacing the draft script body injects arbitrary code that, once published and run, executes under the Automation account identity (lateral movement) and on compute/Hybrid Workers (hijacking), while also altering operational automation logic.

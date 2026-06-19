@@ -1,0 +1,13 @@
+name: Azure Activity audit log table (Log Analytics)
+description: A Log Analytics workspace query data-plane permission scoped to the AzureActivity table, which stores subscription control-plane (management/audit) operation records ingested into the workspace.
+scope: MEDIUM
+notes: Activity audit logs reveal who performed which management operations across the subscription, including identities, resource changes, and RBAC/policy activity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Exports subscription-wide control-plane audit records disclosing principals, actions, and resource/role/policy changes for reconnaissance.

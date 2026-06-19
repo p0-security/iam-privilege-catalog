@@ -1,0 +1,12 @@
+name: AKS resource usage and quota
+description: Reports current resource usage versus quota for the Microsoft.ContainerService provider in a region.
+scope: LOW
+notes: Aggregate capacity/consumption metadata; low sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing usage/quota exposes capacity consumption versus limits, providing infrastructure reconnaissance and capacity-planning insight.

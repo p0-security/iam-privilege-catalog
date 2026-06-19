@@ -1,0 +1,11 @@
+name: Data collection endpoint effective NSP configuration
+description: The effective Network Security Perimeter configuration computed for an Azure Monitor data collection endpoint, reflecting the perimeter rules and access profiles applied to the endpoint.
+scope: LOW
+notes: Read-only view of the applied network-isolation posture for monitoring infrastructure; useful for mapping the security boundary.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks: []
+    notes: Reconcile merely re-synchronizes the endpoint's effective NSP configuration with the authoritative perimeter definition; it cannot set attacker-chosen rules, expose data, or disable the defense on its own.

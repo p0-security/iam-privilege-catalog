@@ -1,0 +1,12 @@
+name: Recovery Services backup tiering cost
+description: Backup storage tiering cost information for a Recovery Services vault, reporting the cost/financial impact of moving backups across storage tiers.
+scope: LOW
+notes: Exposes organizational backup spend/billing figures.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:finance
+    notes: Returns tiering-related cost information for backups, disclosing organizational spend/billing data about backup storage tiering (financial discovery).

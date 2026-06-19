@@ -1,0 +1,22 @@
+name: Azure SQL Managed Instance hybrid link
+description: A hybrid link (Managed Instance link) is a distributed availability group that replicates databases between an external/on-premises SQL Server and an Azure SQL Managed Instance.
+scope: HIGH
+notes: Operates on a production database service; the link governs cross-environment replication of database contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes the distributed availability group, tearing down the replication/availability infrastructure for the managed instance with a DoS-like effect on replication and migration.
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists/gets the distributed availability group configuration (replication topology, endpoints), giving infrastructure reconnaissance of the replication relationship without returning data or secrets.
+  write:
+    risks:
+      - impact:manipulation
+      - exfiltration:data
+      - escalation:network
+    notes: Creating/updating the hybrid link establishes a distributed availability group that continuously replicates production database data to an external (potentially attacker-controlled) SQL Server, enabling data exfiltration, alteration of replication configuration, and extension of reach to additional networked resources.

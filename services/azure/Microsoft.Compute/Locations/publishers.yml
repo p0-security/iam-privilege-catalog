@@ -1,0 +1,12 @@
+name: Platform image publisher catalog
+description: A read-only view of an Azure Marketplace / platform-image publisher entry, the catalog of publicly available image and extension sources.
+scope: LOW
+notes: Marketplace catalog data is essentially public and common across all tenants; reading it enables only low-value reconnaissance of available image sources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads properties of a platform-image publisher from the marketplace catalog, enumerating available image sources for reconnaissance.

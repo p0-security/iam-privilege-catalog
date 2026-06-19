@@ -1,0 +1,12 @@
+name: Web Apps billing meters
+description: The global list of billing meter definitions (meter SKUs/rate-card metadata) for the Microsoft.Web provider, static pricing reference data for App Service offerings.
+scope: LOW
+notes: Reference pricing metadata, not organization-specific spend or invoices; near-public catalog information.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:finance
+    notes: Lists the provider's billing meter/rate definitions, giving an attacker financial reconnaissance on App Service cost structure but exposing no production data, org spend, or secrets.

@@ -1,0 +1,17 @@
+name: Extended server blob auditing policy
+description: The extended blob auditing policy configured at the Azure SQL server level, controlling whether and where activity across all databases on the server is audited and logged.
+scope: MEDIUM
+notes: A server-wide detective/logging control; affects detection coverage for every database on the server.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reads the server-level audit policy, revealing the audit logging configuration and coverage across all databases so an attacker can plan evasion.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Changes the server-level audit policy, letting an attacker disable or redirect auditing across all databases on the server to evade detection (destruction:logs) and remove a defense mechanism (destruction:defense).

@@ -1,0 +1,12 @@
+name: API Management network status
+description: Reports the network access/connectivity status of the resources the API Management service depends on.
+scope: LOW
+notes: Read-only network connectivity diagnostic for the service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the network access status of dependent resources lets an attacker inventory the service's network connectivity and dependencies.

@@ -1,0 +1,12 @@
+name: Web App process modules
+description: Per-instance listing of loaded modules/libraries of processes running inside an Azure App Service / Web App worker instance.
+scope: LOW
+notes: Read-only runtime composition/dependency detail; exposes no data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates loaded modules of a running process, providing only non-sensitive reconnaissance of the app's runtime composition.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (ADXDataOperation)
+description: A queryable log table within an Azure Log Analytics workspace. Data-plane read of this resource returns the ingested log/telemetry rows stored in the named table.
+scope: MEDIUM
+notes: Log Analytics tables hold monitoring/diagnostic data for a single service or function; sensitivity is MEDIUM unless the logs carry highly sensitive content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Returns Azure Data Explorer data-operation log rows, exporting and enumerating ingestion/query operation telemetry.

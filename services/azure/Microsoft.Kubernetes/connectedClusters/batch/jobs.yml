@@ -1,0 +1,24 @@
+name: Kubernetes Jobs
+description: A Kubernetes Job on an Azure Arc connected cluster runs one or more pods to completion to perform a finite batch task, defined by an embedded pod template.
+scope: HIGH
+notes: Job specs describe batch compute (images, commands, env, secret/volume references) and represent production workloads; the pod template can reveal operational configuration but is not itself a credential store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting Jobs terminates running or queued batch workloads and removes their definitions, disrupting the operational processing they provide.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading Jobs inventories batch workload definitions and pod specs (images, commands, secret references), providing infrastructure reconnaissance of cluster batch activity.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating a Job runs arbitrary containers in the cluster under a pod service account, enabling resource hijacking (cryptomining), lateral movement via the mounted identity token, and manipulation of batch processing.

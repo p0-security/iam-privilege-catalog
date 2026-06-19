@@ -1,0 +1,11 @@
+name: Network group memberships
+description: Network group memberships (Azure Virtual Network Manager) enumerate which network resources belong to managed network groups used to apply connectivity and security configurations at scale.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Listing memberships inventories which resources belong to which network groups, providing read-only network topology/grouping reconnaissance.

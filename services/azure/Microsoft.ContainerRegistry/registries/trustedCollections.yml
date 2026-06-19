@@ -1,0 +1,13 @@
+name: Container registry trusted content-trust collections
+description: Content-trust (Docker Notary) signed collections of container images for a registry; signing metadata that downstream consumers rely on to verify image authenticity and integrity.
+scope: HIGH
+notes: "Data-plane control over the supply-chain trust boundary: signed collections determine which images are accepted as authentic by content-trust-enforcing clients."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Pushes/publishes trusted signed collections, letting an attacker sign malicious or tampered images so they pass content-trust verification, poisoning the supply chain and subverting the image-signing integrity defense.

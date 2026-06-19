@@ -1,0 +1,22 @@
+name: Recovery Services vault registered identities (containers)
+description: Registered identities are the service containers (backup agents/resources) registered with a Recovery Services vault for backup and recovery management.
+scope: MEDIUM
+notes: Backup management configuration; controls which resources are brought under vault protection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Unregistering a service container detaches it from the vault, removing backup/recovery coverage and disrupting protection for that workload.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Listing registered containers only enumerates which resources are protected by the vault, a read-only inventory.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Registering a service container alters vault backup configuration, associating a (potentially attacker-controlled) container with the vault.

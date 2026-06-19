@@ -1,0 +1,11 @@
+name: Arc connected cluster apiserver liveness poststarthook probe
+description: A data-plane sub-probe of the Kubernetes API server liveness (livez) endpoint on an Azure Arc-connected cluster, reporting the health/completion status of a single internal apiserver post-start hook.
+scope: LOW
+notes: These endpoints return only an ok/unhealthy liveness signal for an internal control-plane hook; despite suggestive path names (ca-registration, rbac/bootstrap-roles) they expose no certificate material, RBAC contents, or configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the startup health status of generic apiserver informers; inert.

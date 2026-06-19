@@ -1,0 +1,24 @@
+name: Container App
+description: An Azure Container App is a serverless container hosting resource that runs application workloads, with configuration covering the container image, ingress, scaling, environment variables, secrets, and assigned managed identities.
+scope: HIGH
+notes: Production compute supporting a single application function; can hold secrets and managed identities that authenticate to backing services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the Container App tears down the compute resource and takes the hosted service offline, destroying infrastructure and denying service for that function.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane get returns the app's configuration (image, ingress, scale, env-var and identity references) for reconnaissance but does not return secret values, which require listSecrets.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - escalation:lateral
+      - impact:spend
+    notes: Create/update lets an attacker deploy an arbitrary container image (run their own workloads and incur metered spend), alter the app's operational configuration and ingress, and attach/use a managed identity to execute code as that identity for lateral movement.

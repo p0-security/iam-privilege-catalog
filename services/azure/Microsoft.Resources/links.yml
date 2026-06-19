@@ -1,0 +1,20 @@
+name: Resource links
+description: Resource links are operational metadata objects that record relationships/dependencies between Azure resources.
+scope: LOW
+notes: Non-sensitive operational metadata; not access-control or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deletes a resource link, removing operational relationship metadata without affecting the underlying resources.
+  read:
+    risks:
+      - discovery:infra
+    notes: Gets or lists resource links, enumerating dependency relationships between resources for infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates/updates resource links, altering operational relationship metadata that can mislead dependency-aware tooling.

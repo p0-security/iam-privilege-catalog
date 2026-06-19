@@ -1,0 +1,11 @@
+name: Cosmos DB partition metrics
+description: Per-partition operational performance metrics for a Cosmos DB collection. Granular monitoring telemetry about physical partitions, not the stored data.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading partition-level metrics exposes per-partition operational telemetry (e.g. hot-partition detection), infrastructure reconnaissance only.

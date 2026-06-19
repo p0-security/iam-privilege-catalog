@@ -1,0 +1,12 @@
+name: Static Site (free trial)
+description: "A free-trial Azure Static Web App: a hosted, public-facing static website (HTML/JS/API) provisioned on the free/trial tier of the Static Web Apps service."
+scope: MEDIUM
+notes: A low-value trial-tier asset hosting public web content; not a production data store, so MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:spend
+    notes: Upgrading a free-trial static web app moves it to a paid/higher tier, causing increased infrastructure spend without other direct attacker capability.

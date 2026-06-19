@@ -1,0 +1,12 @@
+name: Virtual Network custom view
+description: A saved custom view of a Virtual Network, capturing how the VNet topology and resources are structured or displayed.
+scope: LOW
+notes: Read-only network topology/configuration metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Retrieving the custom view content exposes the rendered VNet topology/resource layout, enabling enumeration of network resources.

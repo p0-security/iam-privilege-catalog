@@ -1,0 +1,22 @@
+name: Logic App workflow access key
+description: An access key for a Logic App workflow, used to sign callback URLs and authorize invocation of and access to workflow runs. The key is credential material.
+scope: HIGH
+notes: Access keys are secret credentials scoped to a single workflow; their list/regenerate operations return secret values while the control-plane read returns only key metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:access
+    notes: Deleting an access key destroys credential material and revokes legitimate callers' ability to authenticate/invoke the workflow, denying authorized access.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane read returning access-key metadata/properties (e.g., validity dates) but not the secret value (which requires the separate list/regenerate actions), so only reconnaissance of the credential resource's configuration.
+  write:
+    risks:
+      - persistence:account
+      - impact:manipulation
+    notes: Creating or updating an access key lets an attacker plant a credential they control to sign callback URLs and persistently invoke the workflow, while altering the auth configuration.

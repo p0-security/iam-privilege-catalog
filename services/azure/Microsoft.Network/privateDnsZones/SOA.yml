@@ -1,0 +1,17 @@
+name: Private DNS SOA record set
+description: The SOA (start-of-authority) record set within an Azure Private DNS zone, which holds zone-wide authority and timing parameters (serial, refresh, TTL) for the private zone.
+scope: LOW
+notes: The SOA governs zone-level resolution behavior and caching; it does not contain resolvable host records that redirect traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the SOA record exposes zone authority and timing metadata, a minor reconnaissance read of the private zone's configuration.
+  write:
+    risks:
+      - impact:manipulation
+    scope: HIGH
+    notes: Updating the SOA record alters zone-wide DNS parameters (serial/TTL/refresh), manipulating resolution and caching behavior across the private zone without pointing any host elsewhere.

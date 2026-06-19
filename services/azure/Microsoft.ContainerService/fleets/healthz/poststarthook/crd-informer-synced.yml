@@ -1,0 +1,11 @@
+name: AKS Fleet Kubernetes API server health probes
+description: The Kubernetes API server health/liveness/readiness probe endpoints (healthz and its subchecks) on an AKS Fleet cluster, which report only operational status strings.
+scope: LOW
+notes: These probes return ok/not-ok status only and disclose no resources, data, configuration, or secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads a post-start-hook readiness probe for CRD informer sync, returning only synced/not-synced status.

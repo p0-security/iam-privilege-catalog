@@ -1,0 +1,12 @@
+name: Cloud Service update domains
+description: Update domains are logical groupings used to orchestrate staged rolling updates across a Cloud Service deployment.
+scope: LOW
+notes: Non-sensitive deployment-topology metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists update domains, enumerating non-sensitive deployment/rollout topology for reconnaissance.

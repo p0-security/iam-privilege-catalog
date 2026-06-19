@@ -1,0 +1,12 @@
+name: Log Analytics workspace log table data (AZMSDiagnosticErrorLogs)
+description: A specific log table (AZMSDiagnosticErrorLogs) inside an Azure Log Analytics workspace; this is the ingested diagnostic error log data on the data plane.
+scope: MEDIUM
+notes: Diagnostic error logs can disclose sensitive system configuration, identifiers, and operational error context.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returning rows from the AZMSDiagnosticErrorLogs table, letting an attacker export diagnostic/error log data.

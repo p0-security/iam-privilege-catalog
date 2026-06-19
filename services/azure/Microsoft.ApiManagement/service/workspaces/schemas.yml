@@ -1,0 +1,21 @@
+name: API Management workspace schemas
+description: Schema definitions (e.g. XSD/JSON contracts) registered in an APIM workspace that describe the request/response structure of managed APIs.
+scope: MEDIUM
+notes: Schemas define API contracts; they are configuration metadata for a single API surface, not secrets or production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an API schema, removing contract configuration that dependent APIs rely on and potentially breaking those APIs.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Lists or reads registered API schema definitions, inventorying the API contract/configuration of the workspace gateway.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a schema used by APIs, altering the contract/validation behavior the gateway applies to requests and responses on a production API surface.

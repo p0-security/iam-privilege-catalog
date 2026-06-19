@@ -1,0 +1,12 @@
+name: Load Balancer Load Balancing Rule
+description: A load balancing rule on an Azure Load Balancer maps a frontend IP/port to a backend pool and port, defining how inbound traffic is distributed across backend instances.
+scope: LOW
+notes: Read-only configuration/health sub-resource; exposes network traffic-distribution layout but no data plane access.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Retrieving health details of a load balancing rule only returns backend health/operational state, providing read-only network reconnaissance with no modification capability.

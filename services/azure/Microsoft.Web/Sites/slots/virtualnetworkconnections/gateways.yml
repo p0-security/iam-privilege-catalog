@@ -1,0 +1,13 @@
+name: Web App slot virtual network connection gateways
+description: VNet connection gateways represent the gateway/VPN configuration (including connection package and shared key) bridging a deployment slot of an Azure App Service web app into a private virtual network.
+scope: HIGH
+notes: Network integration gateway providing access to private/internal resources.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Updating the VNet connection gateway modifies how the slot bridges into a private network (gateway/VPN/shared-key config), enabling network movement and connectivity reconfiguration.

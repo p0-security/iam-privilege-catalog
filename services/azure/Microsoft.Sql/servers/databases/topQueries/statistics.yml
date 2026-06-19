@@ -1,0 +1,12 @@
+name: Database top queries statistics
+description: Aggregated query performance statistics (execution counts, durations, resource usage) for the top queries of an Azure SQL database, exposed via Query Performance Insight.
+scope: MEDIUM
+notes: Operational/diagnostic performance metadata for a single database; does not return stored row data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Returns aggregated performance statistics for a selected query over a time window, enabling reconnaissance of database workload/usage patterns without exposing row data.

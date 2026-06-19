@@ -1,0 +1,13 @@
+name: Log Analytics workspace DeviceInfo table
+description: A Microsoft Defender for Endpoint advanced-hunting table (DeviceInfo) surfaced through a Log Analytics workspace, holding device inventory and configuration telemetry such as OS, machine names, public IPs, and logged-on users.
+scope: MEDIUM
+notes: Security/monitoring telemetry; confidential but not a primary production data store, hence MEDIUM asset sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading this table exports endpoint inventory log data and lets an attacker enumerate the device fleet (OS, identity, IPs) for reconnaissance.

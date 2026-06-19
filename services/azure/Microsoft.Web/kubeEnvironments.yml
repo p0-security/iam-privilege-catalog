@@ -1,0 +1,23 @@
+name: App Service Kubernetes Environment
+description: A Kubernetes Environment is an Arc-enabled / App Service Kubernetes hosting environment that serves as the compute substrate on which App Service apps and container apps run.
+scope: HIGH
+notes: Supporting hosting infrastructure for a single set of applications; not tenant-wide but disruption affects all workloads hosted on it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting the environment tears down the hosting infrastructure for all apps running on it, causing denial of service.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading the environment's properties only inventories the hosting infrastructure configuration (reconnaissance).
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - impact:spend
+    notes: Creating or updating the environment alters the compute hosting configuration and can provision billable capacity capable of running attacker workloads.

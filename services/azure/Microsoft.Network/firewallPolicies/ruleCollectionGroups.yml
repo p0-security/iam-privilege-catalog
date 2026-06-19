@@ -1,0 +1,22 @@
+name: Azure Firewall Policy rule collection group
+description: A rule collection group within an Azure Firewall Policy holds the network/application/NAT filtering rules (allow/deny by source, destination, port, FQDN) that the firewall enforces for traffic to and from protected networks.
+scope: HIGH
+notes: Firewall rules are the network security defense and access-control policy for a single organizational function's network perimeter.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the rule collection group removes the firewall's enforced filtering rules, disabling the network defense for resources behind the policy.
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading the rule collection group enumerates the firewall's allow/deny ruleset, revealing the defensive posture and access-control gaps an attacker can exploit.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating rule collection groups lets an attacker add permissive rules or weaken deny rules, disabling the firewall defense and tampering with security configuration to open traffic paths.

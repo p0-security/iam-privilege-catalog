@@ -1,0 +1,11 @@
+name: Management group name validation utility
+description: A stateless control-plane utility on the Microsoft.Management provider that checks whether a proposed management group name is valid and unique.
+scope: LOW
+notes: Returns only a yes/no availability result; discloses no existing hierarchy.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Management
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Triggers an idempotent backfill that initializes the management-group hierarchy; in isolation it neither exposes sensitive data nor meaningfully alters access/security state.

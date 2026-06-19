@@ -1,0 +1,10 @@
+name: Microsoft.Insights provider registration
+description: The tenant/subscription registration action that initializes (enables) the Microsoft.Insights resource provider so its resource types can be used.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks: []
+    notes: Registering/initializing the resource provider is an inert administrative no-op that grants no offensive capability in isolation.

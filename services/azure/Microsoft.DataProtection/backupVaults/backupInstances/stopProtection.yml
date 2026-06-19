@@ -1,0 +1,12 @@
+name: Backup Instance
+description: A backup instance in an Azure Data Protection backup vault represents the protection configuration that ties a data source (e.g. a disk, database, blob storage account) to a backup policy, governing which recovery points are created and retained.
+scope: HIGH
+notes: These are control-plane (management) operations. Backup instances are the recoverability defense and the store of recovery points that mitigate data destruction and ransomware for a single protected workload.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Stops both backup and retention schedules so no new recovery points are created, disabling the data-protection defense and degrading future recoverability against loss/ransomware (existing data is retained, so not destruction).

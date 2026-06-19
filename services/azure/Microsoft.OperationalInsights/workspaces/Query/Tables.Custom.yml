@@ -1,0 +1,12 @@
+name: Log Analytics workspace custom log tables
+description: Data-plane access to any customer-defined custom log table in an Azure Log Analytics workspace, holding arbitrary organization-ingested data.
+scope: MEDIUM
+notes: Monitoring asset; custom tables may contain unknown and potentially sensitive ingested data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading any custom log table exports arbitrary customer-ingested content whose sensitivity is unknown.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (ASimProcessEventLogs)
+description: A per-table data-plane read permission on an Azure Log Analytics (Operational Insights) workspace, scoped to a single named table within the workspace. ASimProcessEventLogs holds ASIM-normalized process-creation/execution telemetry.
+scope: MEDIUM
+notes: Log Analytics tables store collected monitoring/security telemetry. Access is read-only at the data plane and confined to the one named table, so sensitivity is monitoring-grade (MEDIUM) rather than control-plane.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading this table exports normalized process-execution telemetry (process names, command lines, host activity) that may reveal sensitive operational detail and defender visibility.

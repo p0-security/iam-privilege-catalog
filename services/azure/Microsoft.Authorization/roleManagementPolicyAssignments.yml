@@ -1,0 +1,12 @@
+name: PIM role management policy assignment
+description: A PIM role management policy assignment binds a role management policy to a specific role at a specific scope, defining which activation guardrails apply to which privileged role.
+scope: CRITICAL
+notes: Reveals which privileged roles are governed by which activation controls; part of the CRITICAL-tier identity/RBAC control surface.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading the assignments maps which activation policies bind to which roles at a scope, exposing roles with weak activation controls.

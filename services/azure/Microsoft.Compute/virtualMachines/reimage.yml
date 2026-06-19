@@ -1,0 +1,13 @@
+name: Virtual Machines
+description: "An Azure virtual machine: a production compute resource running an OS, applications, attached disks, network interfaces, and optionally a managed identity."
+scope: HIGH
+notes: A VM typically supports a single organizational function; control-plane and data-plane access to it can expose on-disk data, attached managed-identity credentials, and the hosted service's availability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Reimaging resets the OS/differencing disk to the base image, destroying data written since provisioning and disrupting the service.

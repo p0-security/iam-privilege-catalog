@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (Sentinel Imperva WAF Cloud V2 logs)
+description: A Log Analytics workspace data-plane table storing Microsoft Sentinel-ingested Imperva Cloud WAF (V2) logs. Read access returns the table's log records.
+scope: MEDIUM
+notes: Web-firewall logs contain request/attack telemetry exposing endpoints and defensive coverage.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reading the table exports Imperva WAF web-traffic security events (exfiltration:logs) and discloses protected endpoints and request patterns (discovery:network).

@@ -1,0 +1,12 @@
+name: Azure Monitor metric definitions
+description: Azure Monitor metric definitions describe the available metric names, dimensions, and schema (the telemetry catalog) for a monitored resource.
+scope: MEDIUM
+notes: Monitoring telemetry schema/metadata for observability of a resource.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Nested-provider-path variant of reading metric definitions; enumerates available metric schema for monitoring reconnaissance.

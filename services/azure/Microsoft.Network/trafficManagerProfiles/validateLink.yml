@@ -1,0 +1,11 @@
+name: Traffic Manager profile
+description: An Azure Traffic Manager profile is a DNS-based global traffic load balancer that routes client requests for a public DNS name to a set of backend endpoints according to a routing method. It fronts a production internet-facing service.
+scope: LOW
+notes: Controlling a profile controls where a public domain's traffic resolves, making it a domain/traffic-routing asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Establishes a protective reference link between a DNS record and the profile (preventing removal while referenced); a benign integrity-protection binding that grants no offensive capability in isolation.

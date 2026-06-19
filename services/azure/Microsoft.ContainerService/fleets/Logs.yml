@@ -1,0 +1,13 @@
+name: AKS fleet logs
+description: Log data (data plane) for an AKS fleet hub cluster. Reading it returns fleet log contents.
+scope: MEDIUM
+notes: Logs may contain operationally sensitive identifiers, configuration details, and incidental secrets useful for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: This data action reads fleet log content, letting an attacker both inventory and export logs that may contain sensitive operational identifiers and aid further attack.

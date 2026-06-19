@@ -1,0 +1,12 @@
+name: AKS Kubernetes storage API resources
+description: The Kubernetes storage.k8s.io API group on an AKS managed cluster, exposing storage backend configuration objects such as StorageClasses, CSIDrivers, CSINodes, and VolumeAttachments via the AKS-proxied API server.
+scope: LOW
+notes: Read-only enumeration of storage configuration metadata; Kubernetes Secrets and actual volume data live in separate API groups and are not returned.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads/lists the storage.k8s.io API group, enumerating cluster storage backend configuration (StorageClasses, CSI drivers, VolumeAttachments) as infrastructure reconnaissance.

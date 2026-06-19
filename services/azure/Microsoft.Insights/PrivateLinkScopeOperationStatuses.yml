@@ -1,0 +1,11 @@
+name: Private Link Scope operation status
+description: A transient status resource that reports the progress and completion state of an asynchronous Azure Monitor Private Link Scope operation.
+scope: LOW
+notes: Operation-status polling endpoint carrying only transient async state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks: []
+    notes: Polling the status of a prior asynchronous private-link-scope operation discloses only transient operation state, granting no actionable capability in isolation.

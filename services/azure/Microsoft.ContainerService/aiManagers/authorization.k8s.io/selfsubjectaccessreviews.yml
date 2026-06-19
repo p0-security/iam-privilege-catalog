@@ -1,0 +1,11 @@
+name: Kubernetes SelfSubjectAccessReviews (AKS AI managers)
+description: "SelfSubjectAccessReview is a non-persisted Kubernetes authorization API: a POST returns whether the calling identity itself is authorized to perform a given action."
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Creating SelfSubjectAccessReviews lets the caller enumerate which actions its own (possibly compromised) identity is permitted, low-value self-scoped policy reconnaissance to plan further actions.

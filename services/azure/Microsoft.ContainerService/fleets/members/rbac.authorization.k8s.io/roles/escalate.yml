@@ -1,0 +1,12 @@
+name: Kubernetes Roles (AKS fleet member)
+description: Kubernetes namespaced Roles on a member cluster of an AKS fleet. A Role defines a set of permission rules (verbs over resources) that can be granted to subjects via RoleBindings, forming the cluster's RBAC policy definitions.
+scope: CRITICAL
+notes: Roles define the permission sets that drive cluster authorization; controlling them enables privilege escalation, hence CRITICAL.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+    notes: The 'escalate' verb removes the guard preventing creation of roles with more permissions than the actor holds, the canonical Kubernetes privilege-escalation primitive.

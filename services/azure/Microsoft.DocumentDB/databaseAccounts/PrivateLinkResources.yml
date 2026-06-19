@@ -1,0 +1,12 @@
+name: Cosmos DB account private link resource
+description: The Private Link sub-resources (group IDs / connectivity targets) that a Cosmos DB database account exposes for private endpoints.
+scope: LOW
+notes: Read-only connectivity metadata; no data or credential content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Lists the available private-link group IDs/sub-resources for the account; low-value private-networking reconnaissance.

@@ -1,0 +1,22 @@
+name: Azure Compute Galleries
+description: An Azure Compute Gallery (Shared Image Gallery) is a container resource that organizes, versions, and distributes custom VM image and application artifact definitions.
+scope: MEDIUM
+notes: The gallery resource holds artifact-container configuration; the read does not access image data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+      - destruction:infra
+    notes: Deletes the gallery and its contained image-definition/version artifacts, destroying VM image artifacts and the distribution infrastructure deployments depend on.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Gets gallery properties, a read-only inventory of the image-artifact container configuration with no access to image contents.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates/updates a gallery, letting an attacker alter the image-distribution container configuration (e.g. sharing/replication profile) that downstream deployments rely on.

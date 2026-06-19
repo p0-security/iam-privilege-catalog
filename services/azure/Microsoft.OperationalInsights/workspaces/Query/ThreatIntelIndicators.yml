@@ -1,0 +1,13 @@
+name: Log Analytics ThreatIntelIndicators table
+description: A Log Analytics data-plane table holding ingested threat-intelligence indicator (IOC) records - the indicators the SOC tracks that feed analytics rules and detections.
+scope: MEDIUM
+notes: The SOC's detection content; reading it reveals defensive coverage and the threat-intel data the organization holds.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: This data-plane read exports the ingested threat-intelligence indicator records, both exporting the TI log content and revealing the organization's detection coverage so an attacker can tailor evasion.

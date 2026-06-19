@@ -1,0 +1,10 @@
+name: ARM deployment operation status (resource group)
+description: A deployment operation status is the asynchronous progress/state record (succeeded/failed/running) of a deployment operation, used for polling.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading deployment operation status only returns transient async polling state with no meaningful configuration or data, so it grants no attacker capability.

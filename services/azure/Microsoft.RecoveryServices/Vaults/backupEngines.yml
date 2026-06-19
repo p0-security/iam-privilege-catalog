@@ -1,0 +1,12 @@
+name: Backup engines
+description: Backup engines (backup management servers) are the management servers (e.g. MABS/DPM/Azure Backup Server) registered with a Recovery Services Vault to manage on-premises or workload backups.
+scope: LOW
+notes: Read-only listing of backup management server inventory.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing backup management servers registered with the vault inventories backup infrastructure components for reconnaissance.

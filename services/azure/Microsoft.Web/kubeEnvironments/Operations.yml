@@ -1,0 +1,10 @@
+name: App Service Kubernetes Environment operation status
+description: The async operation status sub-resource exposes the state/history of long-running management operations on a Kubernetes Environment.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Inert operation-status polling endpoint; grants no meaningful attacker capability.

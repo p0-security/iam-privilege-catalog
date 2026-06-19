@@ -1,0 +1,24 @@
+name: Kubernetes CronJobs (AKS fleet member)
+description: CronJob objects on a Kubernetes cluster that is a member of an AKS fleet. They define scheduled, recurring batch workloads via an embedded pod template (container images, commands, env, mounts, service account).
+scope: HIGH
+notes: Pod specs can reference operational configuration and run code under cluster identities; the ability to create them is effectively the ability to run arbitrary workloads on the cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - destruction:infra
+    notes: Deleting CronJobs removes scheduled batch workloads (backups, recurring processing), disrupting the recurring operations those jobs support.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading CronJobs enumerates scheduled workload definitions including images, commands, env references and pod specs, providing infrastructure reconnaissance that may reveal sensitive operational configuration.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating a CronJob schedules arbitrary attacker-controlled containers that run recurrently under a pod service account, enabling resource hijacking (cryptomining/persistence) and lateral movement via the pod's mounted identity token.

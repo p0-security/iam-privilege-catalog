@@ -1,0 +1,19 @@
+name: Kubernetes events (connected cluster)
+description: Kubernetes Event objects (events.k8s.io) on an Azure Arc-enabled (connected) cluster. Events are operational/audit-adjacent records of cluster activity such as scheduling, scaling, failures, and pod/node lifecycle.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+    notes: Deleting events removes the cluster's activity/audit-adjacent records, erasing forensic traces and impeding incident response and detection.
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading/listing events inventories operational telemetry about cluster activity and recent changes, useful for reconnaissance of workloads and component behavior.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating events lets an attacker inject or alter cluster activity records, fabricating or polluting operational telemetry to mislead operators and obscure malicious activity.

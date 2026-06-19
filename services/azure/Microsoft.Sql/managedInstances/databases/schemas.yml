@@ -1,0 +1,12 @@
+name: Azure SQL Managed Database schema
+description: Represents a schema (logical namespace of tables/objects) within an Azure SQL Managed Instance database.
+scope: MEDIUM
+notes: Data-plane schema metadata; reveals the logical structure of stored data but not the row contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Reading a schema enumerates the database's logical structure, helping an attacker inventory where sensitive data resides.

@@ -1,0 +1,23 @@
+name: Kubernetes StatefulSets (Azure Arc connected cluster)
+description: StatefulSets are Kubernetes workload controllers that manage stateful application pods with stable identities and per-pod persistent volume claims on an Azure Arc-connected cluster. The object holds the pod template plus volume-claim templates, container images, environment variables, volume/secret mounts and service-account binding.
+scope: HIGH
+notes: Backs stateful services (databases, queues); attached persistent volumes mean writes can reach and manipulate stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a StatefulSet (or DeleteCollection) tears down stateful workload pods, destroying infrastructure and denying service (and potentially orphaning persistent volumes).
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading/listing StatefulSets enumerates stateful workload configuration including volume-claim templates and images, providing infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating a StatefulSet runs attacker-controlled containers with attached persistent volumes (resource hijack and access to stateful data) under a chosen service account (lateral movement), and tampers with stateful workloads.

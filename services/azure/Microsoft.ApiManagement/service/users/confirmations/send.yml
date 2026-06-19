@@ -1,0 +1,12 @@
+name: API Management user password-reset confirmation
+description: Action that sends a password-reset confirmation notification to an API Management developer-portal user. Operates on the developer-portal account-recovery flow.
+scope: MEDIUM
+notes: Triggers an outbound notification; does not return credentials or directly change account state in isolation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Triggers an unsolicited password-reset confirmation send to a developer-portal user, abusable for spam or to seed social-engineering/account-recovery flows; in isolation it returns no credentials and changes no access.

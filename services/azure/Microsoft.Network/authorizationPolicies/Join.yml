@@ -1,0 +1,12 @@
+name: Network authorization policies
+description: A network authorization policy defines access-control rules governing which principals or resources may connect to, join, or associate with a network resource.
+scope: HIGH
+notes: Reading reveals the access-control posture for network association; writing/deleting alters who can connect, making the asset security-relevant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: The join action attaches a resource under the authorization policy, granting it authorized connectivity into the network and enabling movement to additional resources governed by that policy.

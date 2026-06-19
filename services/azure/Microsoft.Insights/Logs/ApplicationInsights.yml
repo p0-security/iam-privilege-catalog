@@ -1,0 +1,12 @@
+name: Log Analytics ApplicationInsights table
+description: A table within an Azure Log Analytics workspace holding Application Insights application telemetry (requests, dependencies, exceptions, traces). This is a data-plane (isDataAction) read of collected monitoring log records.
+scope: MEDIUM
+notes: Application telemetry can contain request URLs, user identifiers, and operational diagnostics, but is monitoring data rather than primary production data stores; scope is MEDIUM per the monitoring/diagnostics tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Exports Application Insights telemetry which may include request/dependency details and sensitive operational identifiers.

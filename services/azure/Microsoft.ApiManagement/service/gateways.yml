@@ -1,0 +1,22 @@
+name: API Management self-hosted gateways
+description: A self-hosted gateway is a containerized API Management gateway registered with an APIM service instance that proxies and applies policies to API traffic for backend services, deployable outside Azure.
+scope: HIGH
+notes: Gateways front a single API surface/function; their keys and tokens are connection credentials, and their configuration can embed backend secrets and named values.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a gateway removes the infrastructure serving APIs through it, disrupting traffic routing for the dependent service (DoS-like).
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read-only enumeration of registered gateways and their configuration metadata; returns no secret material, only infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a gateway registration alters the routing/configuration that fronts production APIs, letting an attacker register a rogue gateway or change how API traffic is served.

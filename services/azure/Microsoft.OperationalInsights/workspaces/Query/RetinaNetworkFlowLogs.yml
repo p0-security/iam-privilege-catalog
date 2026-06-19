@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (RetinaNetworkFlowLogs)
+description: A single named table within an Azure Log Analytics (Operational Insights) workspace, queried via the data plane. This table stores Retina (eBPF) network flow log telemetry, typically from AKS clusters.
+scope: MEDIUM
+notes: Network flow logs expose source/destination endpoints, IPs, ports, and connection patterns, revealing network topology.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reading this table exports network flow log records and reveals network topology, endpoints, and traffic patterns useful for reconnaissance.

@@ -1,0 +1,11 @@
+name: Application Gateway available request headers
+description: A static, provider-wide reference list of the request headers available to Application Gateway rewrite rules.
+scope: LOW
+notes: Generic platform capability/reference data; contains no tenant-specific resources, configuration, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns a fixed catalog of supported request-header names with no organizational content; inert reference lookup.

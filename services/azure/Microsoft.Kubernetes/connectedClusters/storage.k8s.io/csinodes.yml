@@ -1,0 +1,22 @@
+name: Kubernetes CSINode objects (Arc-connected cluster)
+description: CSINode objects are cluster-scoped Kubernetes storage.k8s.io resources that record, per node, which CSI drivers are installed and the node's storage topology and allocatable-volume capacity used by the scheduler. Exposed as Azure Arc connected-cluster data actions.
+scope: HIGH
+notes: Operational scheduling/topology metadata; not data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting CSINode objects removes node storage-driver registration/topology, disrupting volume scheduling and attachment on affected nodes (denial of service for stateful workloads).
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading CSINode objects only enumerates per-node CSI driver topology and capabilities, i.e. read-only storage infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating CSINode objects manipulates the per-node CSI driver topology/allocatable info the scheduler relies on, altering or misdirecting volume placement and attachment decisions.

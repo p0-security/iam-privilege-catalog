@@ -1,0 +1,12 @@
+name: Arc-connected cluster apiserver readyz health probe
+description: A Kubernetes apiserver readyz post-start-hook health-probe sub-resource on an Azure Arc-connected cluster. It reports the readiness status (ok/failed) of an individual apiserver startup hook, not the underlying configuration it initializes.
+scope: LOW
+notes: Despite path segments like rbac/bootstrap-roles, these endpoints return only a boolean component-health signal, not RBAC policies or other sensitive contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reveals only the readiness status of the apiserver admission initializer, exposing trivial startup health state.

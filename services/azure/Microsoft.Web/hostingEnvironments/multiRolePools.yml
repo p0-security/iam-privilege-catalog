@@ -1,0 +1,18 @@
+name: App Service Environment FrontEnd Pool
+description: The FrontEnd (multi-role) pool of an App Service Environment is the front-end tier that handles inbound traffic routing and load balancing for the ASE, with its own SKU and instance-count configuration.
+scope: LOW
+notes: Capacity/SKU configuration of an ASE's front-end tier; sensitivity tracks the single-function hosting environment it serves.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:infra
+    notes: Reading the FrontEnd pool properties inventories the ASE front-end compute configuration (SKU, instance count) as control-plane reconnaissance.
+  Write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    scope: HIGH
+    notes: Creating or updating the FrontEnd pool changes the ASE front-end SKU/instance count, altering operational capacity and driving up costly dedicated-compute spend.

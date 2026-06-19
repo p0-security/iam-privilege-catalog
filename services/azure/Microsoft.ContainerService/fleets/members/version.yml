@@ -1,0 +1,12 @@
+name: AKS fleet member kube-apiserver version
+description: The kube-apiserver version endpoint on an AKS fleet member cluster, exposed via the managed control-plane passthrough. It returns the Kubernetes build/version string of the cluster.
+scope: LOW
+notes: Version metadata is low-sensitivity but useful for matching the cluster against known CVEs.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reveals the Kubernetes/apiserver version, useful for fingerprinting and matching version-specific vulnerabilities.

@@ -1,0 +1,20 @@
+name: APIM workspace tags
+description: Tags are first-class organizational labels defined within an API Management workspace, used to group, categorize, and filter APIs, products, and operations.
+scope: LOW
+notes: Non-sensitive labeling metadata; may reveal operational identifiers (environment, owner) but grants no access to API definitions, secrets, or backend data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deletes a tag, removing organizational labeling metadata without affecting the underlying APIs, products, or operations.
+  read:
+    risks:
+      - discovery:metadata
+    notes: Lists or gets tag definitions in a workspace, enumerating organizational labeling metadata for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a tag, altering operational labeling metadata used for grouping; does not touch API config, secrets, or data.

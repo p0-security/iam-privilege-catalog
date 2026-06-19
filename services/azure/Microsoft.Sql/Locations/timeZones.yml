@@ -1,0 +1,11 @@
+name: Managed instance available time zones
+description: Static reference catalog of managed-instance time zones available in an Azure region.
+scope: PUBLIC
+notes: Public, non-sensitive reference data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns the static list of supported time zones for a location; public reference data with no attacker value.

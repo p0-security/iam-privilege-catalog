@@ -1,0 +1,12 @@
+name: Web App process modules
+description: Loaded modules/DLLs of an Azure App Service web app process, exposed via the Kudu/SCM process explorer.
+scope: MEDIUM
+notes: Reveals the runtime's loaded libraries and software inventory but no data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the loaded modules of an app process, runtime reconnaissance enumerating the workload's libraries.

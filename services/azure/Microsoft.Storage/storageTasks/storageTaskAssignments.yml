@@ -1,0 +1,11 @@
+name: Storage task assignments by task
+description: Lists the storage task assignments associated with a given Azure Storage Actions task, revealing which storage accounts and target scopes the task is bound to.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates all assignments of a storage task, inventorying which accounts/scopes the task is applied to — read-only configuration reconnaissance of the automation footprint.

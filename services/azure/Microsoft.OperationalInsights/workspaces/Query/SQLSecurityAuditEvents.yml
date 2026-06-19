@@ -1,0 +1,12 @@
+name: Log Analytics SQLSecurityAuditEvents table
+description: A Log Analytics workspace table holding SQL security audit event records (database access, executed statements, principals) ingested into Azure Monitor.
+scope: MEDIUM
+notes: Audit-log content can include query text, accessed objects, and principals, potentially exposing sensitive data access patterns.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Read returns SQL security audit event rows, exporting database audit content (statements, principals, access events) that can expose sensitive operational activity.

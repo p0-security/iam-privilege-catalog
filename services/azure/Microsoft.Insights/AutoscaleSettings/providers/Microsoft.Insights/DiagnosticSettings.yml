@@ -1,0 +1,18 @@
+name: Resource diagnostic settings
+description: Azure Monitor diagnostic settings configuration controlling whether and where a resource's logs and metrics are collected and routed (to Log Analytics, Storage, or Event Hubs).
+scope: LOW
+notes: Controls logging/audit coverage; reading reveals detection posture and gaps.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Reads the diagnostic settings configuration, revealing which logs/metrics are collected and where routed, scoping detection coverage and evasion gaps.
+  Write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    scope: MEDIUM
+    notes: Creating/updating diagnostic settings lets an attacker disable categories or redirect/stop log and metric collection, defeating audit logging and weakening detection for incident response.

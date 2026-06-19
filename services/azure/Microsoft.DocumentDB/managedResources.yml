@@ -1,0 +1,21 @@
+name: Cosmos DB managed resources
+description: A managed resource is a platform/provider-internal supporting infrastructure object in Cosmos DB (DocumentDB), managed by the service rather than directly by the user.
+scope: MEDIUM
+notes: Internal supporting infrastructure; not a primary data store, identity, or credential.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a managed resource tears down supporting infrastructure, which can disrupt the service it backs.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading a managed resource only returns its control-plane configuration state, an inventory of supporting infrastructure.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Create/update alters the configuration of platform-managed supporting infrastructure, enabling tampering with operational resource state without touching primary data or credentials.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (MySqlAuditLogs)
+description: A Log Analytics workspace data-plane table holding ingested log/telemetry records. This operation reads rows from the MySqlAuditLogs table, which records MySQL connection and statement audit events.
+scope: MEDIUM
+notes: Log Analytics tables are a monitoring/diagnostics asset; their rows can contain operationally sensitive details (identities, queries, IPs) depending on the source.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:data
+    notes: Reading this table exports MySQL audit records containing executed statements, connecting users, and accessed objects, revealing database activity and schema.

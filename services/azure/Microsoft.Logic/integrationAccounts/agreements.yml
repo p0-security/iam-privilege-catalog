@@ -1,0 +1,20 @@
+name: Integration Account Agreement
+description: A B2B trading-partner agreement in an Azure Logic Apps Integration Account, defining how messages are exchanged with a partner (AS2/X12/EDIFACT protocol settings, partner identities, send/receive routing).
+scope: MEDIUM
+notes: Supporting integration infrastructure for a single B2B/integration function; configuration can reveal partner identities and message-processing details.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an agreement removes B2B integration configuration, breaking the partner message flows that depend on it (DoS-like effect on a single integration function).
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the agreement configuration (control plane), enabling reconnaissance of partner identities and protocol/routing settings without returning the raw artifact content.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating an agreement lets an attacker alter trading-partner configuration, redirecting or corrupting how B2B messages are processed for dependent workflows.

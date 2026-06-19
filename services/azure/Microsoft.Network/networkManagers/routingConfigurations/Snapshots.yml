@@ -1,0 +1,12 @@
+name: Azure Virtual Network Manager routing configuration snapshot
+description: A point-in-time snapshot of a deployed AVNM routing configuration, capturing the applied routing state.
+scope: LOW
+notes: Read-only historical/applied routing state for the managed network.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading a deployed routing configuration snapshot exposes the effective routing state, enabling read-only network reconnaissance.

@@ -1,0 +1,12 @@
+name: API Management tenant settings
+description: "The tenant resource of an Azure API Management service represents service-wide configuration: the global (tenant) policy applied to all API traffic, tenant access (git/management) settings, and the configuration git repository used to manage the whole service."
+scope: HIGH
+notes: Controls that govern every API in the service instance; the tenant access keys themselves are credential material that grant administrative access to the configuration repository.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:access
+    notes: Regenerates the secondary tenant access key, invalidating the existing credential and disrupting legitimate access that depends on it.

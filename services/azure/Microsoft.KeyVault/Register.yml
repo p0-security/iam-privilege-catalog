@@ -1,0 +1,11 @@
+name: Key Vault resource provider registration
+description: The Microsoft.KeyVault resource provider registration controls whether a subscription is enabled to create and manage Key Vault resources.
+scope: LOW
+notes: Provider register/unregister are subscription-level administrative toggles, not operations on any vault's contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Registering the subscription with the Key Vault provider is an inert enablement no-op that grants no access to data, vaults, or privileges.

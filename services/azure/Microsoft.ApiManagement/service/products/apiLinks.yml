@@ -1,0 +1,22 @@
+name: APIM product-API links
+description: Associations binding APIs to an API product, defining which APIs are bundled into and exposed/subscribable through that product.
+scope: MEDIUM
+notes: Read-only enumeration reveals the gateway's published API surface and product packaging for a single function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:access
+      - impact:manipulation
+    notes: Deleting a product-API link removes an API from a product, disrupting subscribers' access to that API through the product and altering the gateway's exposure configuration.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Listing product-API links inventories which APIs are exposed through which products, providing reconnaissance of the gateway's published API surface.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating a product-API link adds an API into a product, altering the gateway's exposure configuration so the API becomes consumable under that product's (possibly permissive) access terms.

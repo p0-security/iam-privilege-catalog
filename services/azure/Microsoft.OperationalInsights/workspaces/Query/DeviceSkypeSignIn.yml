@@ -1,0 +1,13 @@
+name: Log Analytics workspace DeviceSkypeSignIn table
+description: A Microsoft Defender for Endpoint advanced-hunting table (DeviceSkypeSignIn) surfaced through a Log Analytics workspace, holding Skype/Teams sign-in telemetry tying accounts and devices to sign-in sessions.
+scope: MEDIUM
+notes: Security telemetry exposing account/sign-in activity. Confidential but not a primary production data store, hence MEDIUM asset sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading this table exports sign-in telemetry and reveals user accounts and sign-in activity useful for identity reconnaissance and targeting.

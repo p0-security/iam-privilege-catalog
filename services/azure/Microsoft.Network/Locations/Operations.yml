@@ -1,0 +1,10 @@
+name: Async operation status
+description: The status resource representing the progress/state of an asynchronous Microsoft.Network control-plane operation in a given location.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the status of an asynchronous operation returns only transient operation-state metadata and is inert for an attacker.

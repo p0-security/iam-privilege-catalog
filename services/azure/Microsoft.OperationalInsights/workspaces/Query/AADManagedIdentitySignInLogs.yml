@@ -1,0 +1,13 @@
+name: Log Analytics AADManagedIdentitySignInLogs table
+description: A Log Analytics workspace data-plane table holding Entra ID managed-identity sign-in telemetry (which managed identities authenticated to which resources).
+scope: MEDIUM
+notes: Monitoring/diagnostics identity telemetry; MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading this table exports managed-identity sign-in records, enumerating service identities and the resources they authenticate to as lateral-movement targets; returns no credentials.

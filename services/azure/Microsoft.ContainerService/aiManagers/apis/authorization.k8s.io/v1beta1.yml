@@ -1,0 +1,12 @@
+name: AKS Kubernetes authorization API (data plane)
+description: The Kubernetes authorization.k8s.io API group exposed through the AKS aiManagers data plane. It holds access-control evaluation resources such as SubjectAccessReview, SelfSubjectAccessReview, and SelfSubjectRulesReview that report effective RBAC permissions.
+scope: LOW
+notes: Reading these resources lets an attacker map who can do what in the cluster, identifying privilege weak points for escalation planning.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Get/List of the versioned authorization.k8s.io/v1beta1 surface exposes RBAC/access-review data for policy reconnaissance.

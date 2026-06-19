@@ -1,0 +1,11 @@
+name: AI manager API-server health probe
+description: A Kubernetes API-server /healthz liveness/readiness probe endpoint exposed as an Azure data action on the AKS aiManagers control plane. Reading it returns only a status token (ok/healthy or failed/unhealthy) for the named control-plane component or startup hook.
+scope: LOW
+notes: These endpoints return component liveness/readiness booleans, not resource contents, configuration, data, certificates, or RBAC/policy definitions despite some of the path names (e.g. etcd, ca-registration, rbac/bootstrap-roles). They are operation-status probes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reports only whether the system priority-classes bootstrap hook completed; exposes no scheduling configuration.

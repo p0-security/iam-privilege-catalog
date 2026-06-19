@@ -1,0 +1,24 @@
+name: AVNM security admin rule collections
+description: A security admin rule collection within an AVNM security admin configuration groups the specific high-priority allow/deny security rules that override per-VNet NSGs for targeted network groups.
+scope: HIGH
+notes: Holds the concrete NSG-overriding firewall rules enforced across many VNets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting a rule collection removes enforced deny/allow rules from the NSG-overriding defense layer, disabling network protections for the targeted network groups.
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    scope: MEDIUM
+    notes: Read-only enumeration of the specific enforced allow/deny rules and their target network groups, exposing the network defense/policy configuration to find weak points.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating a rule collection lets an attacker insert permissive allow rules or weaken enforced deny rules in the NSG-overriding layer, opening blocked traffic paths and undermining network defenses.

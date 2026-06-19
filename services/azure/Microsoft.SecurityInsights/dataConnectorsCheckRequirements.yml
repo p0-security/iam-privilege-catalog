@@ -1,0 +1,11 @@
+name: Microsoft Sentinel subscription registration
+description: Provider-level enablement actions that register or unregister a subscription with Microsoft Sentinel (Azure Sentinel), the cloud-native SIEM/SOAR threat-detection service.
+scope: LOW
+notes: These toggle the SIEM on/off for the workspace/subscription scope.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Stateless preflight that returns only an eligibility/authorization verdict, disclosing no organizational data and changing no state; inert in isolation.

@@ -1,0 +1,12 @@
+name: AKS Kubernetes metrics API group
+description: Data-plane access to the Kubernetes metrics.k8s.io aggregated API on an AKS managed cluster, which exposes per-pod and per-node CPU/memory resource-usage telemetry.
+scope: LOW
+notes: Exposes only operational utilization metrics, not sensitive content or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads node/pod resource-usage metrics, allowing an attacker to inventory running workloads and cluster capacity.

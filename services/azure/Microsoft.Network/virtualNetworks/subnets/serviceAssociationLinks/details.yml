@@ -1,0 +1,12 @@
+name: Service association link detail
+description: Detailed configuration of a subnet's service association link (the delegated-service association binding).
+scope: LOW
+notes: System-managed delegation/association detail metadata; read-only configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Read-only retrieval of service association link details only inventories the subnet's delegated-service association configuration, providing network reconnaissance.

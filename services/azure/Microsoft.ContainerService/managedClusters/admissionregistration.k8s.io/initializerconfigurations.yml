@@ -1,0 +1,25 @@
+name: Kubernetes admission initializer configurations (AKS)
+description: Cluster-wide Kubernetes admission control objects (initializerconfigurations) on an AKS managed cluster that intercept API server requests and can gate or initialize objects before they are persisted.
+scope: CRITICAL
+notes: Admission registration objects are the cluster's enforcement points for security policy; controlling them affects every workload cluster-wide. initializerconfigurations is a deprecated/removed alpha admission mechanism.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting initializer configurations removes admission-time enforcement, disabling a cluster-wide defense and the access-control/policy gating applied at admission.
+  read:
+    risks:
+      - discovery:infra
+      - discovery:policy
+    scope: HIGH
+    notes: Reading initializer configurations enumerates the cluster's admission-control enforcement posture, revealing infrastructure wiring and policy weak points to target or bypass; returns no secret material.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+      - escalation:privilege
+    notes: Creating/updating an initializer configuration lets an attacker intercept and mutate every matching object on admission cluster-wide, injecting privileged changes and disabling/bypassing admission-based security enforcement.

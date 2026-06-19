@@ -1,0 +1,12 @@
+name: Log Analytics workspace search schema
+description: The search schema of a Log Analytics workspace, describing the exposed tables/fields and their types for the collected log data.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - discovery:metadata
+    notes: Returns the schema of collected logs, letting an attacker inventory what log data exists and how it is structured to guide reconnaissance.

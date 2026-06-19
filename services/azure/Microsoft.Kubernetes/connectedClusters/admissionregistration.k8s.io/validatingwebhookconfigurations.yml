@@ -1,0 +1,23 @@
+name: Kubernetes validating webhook configurations
+description: ValidatingWebhookConfigurations are cluster-scoped Kubernetes resources that register validating admission webhooks, which intercept and approve or reject API server requests (e.g. policy enforcement like OPA/Gatekeeper/Kyverno) before objects are persisted.
+scope: CRITICAL
+notes: Admission webhooks are a primary cluster-wide security enforcement and integrity control; tampering with them affects every matching API request across the cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting validating webhook configurations removes cluster-wide admission-control enforcement, disabling a security defense and the policy that would otherwise reject malicious or noncompliant resources.
+  read:
+    risks:
+      - discovery:policy
+    scope: HIGH
+    notes: Reading validating webhook configurations inventories the cluster's admission-control policy enforcement points, revealing which security guardrails exist and where gaps can be exploited.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating validating webhook configurations lets an attacker disable or neuter admission-control security enforcement cluster-wide, or register a malicious webhook to intercept and tamper with every matching API request.

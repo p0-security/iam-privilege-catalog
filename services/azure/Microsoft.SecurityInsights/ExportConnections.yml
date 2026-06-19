@@ -1,0 +1,22 @@
+name: Sentinel export connections
+description: Microsoft Sentinel ExportConnections are configuration objects defining destinations to which Sentinel security/log data is exported (e.g. external SIEM/storage). They govern outbound flow of security telemetry.
+scope: MEDIUM
+notes: Controls where an organization's security telemetry is routed; misuse enables exfiltration of or disruption to security data flows.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting an export connection tears down a configured export of Sentinel security data, disrupting downstream log delivery to SIEM/storage and weakening the detection/monitoring pipeline.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading export connections enumerates configured export destinations and settings, revealing where security data is routed (reconnaissance of data-flow configuration); the management response does not return secret material.
+  write:
+    risks:
+      - exfiltration:logs
+      - impact:manipulation
+    notes: Creating/updating an export connection can redirect Sentinel security/log data to an attacker-controlled destination, enabling ongoing exfiltration of security telemetry and manipulation of the export configuration.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (AZMSKafkaCoordinatorLogs)
+description: A Log Analytics workspace query table holding Kafka coordinator (Event Hubs Kafka surface) logs for messaging services. Reading it returns the stored broker-coordination records via the data plane.
+scope: MEDIUM
+notes: Operational diagnostic telemetry; MEDIUM-sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading exports Kafka coordinator log content (exfiltration:logs) and inventories the broker coordination activity logged (discovery:logs).

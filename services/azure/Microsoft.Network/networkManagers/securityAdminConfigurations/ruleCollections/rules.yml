@@ -1,0 +1,24 @@
+name: Network Manager security admin rules
+description: A security admin rule within an Azure Virtual Network Manager security admin configuration. Security admin rules are high-priority, centrally-enforced traffic allow/deny rules that override resource-level NSGs across all in-scope VNets.
+scope: HIGH
+notes: Acts as an organization-wide enforced network firewall/defense control; the override-NSG semantics make these rules a primary network defense mechanism.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Deleting an admin rule removes a centrally-enforced firewall control; removing a deny rule that overrides NSGs opens previously blocked traffic paths to additional resources across managed VNets.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading a security admin rule discloses the enforced allow/deny posture (ports, sources, destinations) across managed VNets, enabling network reconnaissance to locate gaps.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating an admin rule can add allow rules that override NSGs (exposing services and opening paths to other resources) or weaken deny rules, disabling enforced network defenses across the managed scope.

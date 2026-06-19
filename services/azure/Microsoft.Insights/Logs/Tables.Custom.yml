@@ -1,0 +1,12 @@
+name: Log Analytics custom log tables
+description: Custom log tables in a Log Analytics workspace hold ingested telemetry and log records collected from monitored resources. This is a data-plane resource exposing the actual stored log content.
+scope: MEDIUM
+notes: Log content can include sensitive operational identifiers, request data, and security-relevant activity records.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: This data action reads the actual contents of any custom log table, letting an attacker export collected log data rather than merely enumerate it.

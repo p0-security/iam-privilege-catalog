@@ -1,0 +1,12 @@
+name: Application Gateway AppProtect (WAF) policy
+description: The AppProtect (Web Application Firewall) policy bound to an Azure Application Gateway at global, path, and/or listener level, protecting public-facing backend applications from web-layer attacks.
+scope: HIGH
+notes: Web-application-layer defense fronting production, often internet-facing, services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Detaching the AppProtect/WAF policy removes the web-application firewall from the gateway, exposing the protected (often public-facing) backend to unfiltered attack traffic.

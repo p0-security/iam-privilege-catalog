@@ -1,0 +1,12 @@
+name: Log Analytics AmlDeploymentEvent table
+description: A queryable Azure Log Analytics workspace table holding Azure Machine Learning model-deployment event telemetry ingested for monitoring.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data scoped to a single ML function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads deployment event log records, exporting model-deployment activity telemetry.

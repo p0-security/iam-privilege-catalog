@@ -1,0 +1,12 @@
+name: IPAM pool
+description: An IP Address Management (IPAM) pool under a Network Manager that defines and tracks CIDR/address-space allocations used for planning IP assignment across managed networks.
+scope: MEDIUM
+notes: An address-planning/management construct (supporting infra), not a live traffic-bearing network component.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Disassociates resources (e.g. VNets) from the pool, altering address-management membership and potentially disrupting allocation tracking for those resources.

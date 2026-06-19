@@ -1,0 +1,23 @@
+name: Web App hostname bindings
+description: A hostname binding maps a custom domain (and its SSL/SNI configuration) to an Azure App Service web app, controlling how public inbound traffic is routed to the site.
+scope: HIGH
+notes: Governs public-facing reachability and domain-to-app routing for a single application function.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a hostname binding removes the custom-domain endpoint that routes traffic to the web app, tearing down the public network binding and breaking inbound access (DoS) for that domain.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading hostname bindings enumerates the custom domains/hostnames and SSL configuration mapped to the app, which is public-endpoint/network reconnaissance.
+  write:
+    risks:
+      - takeover:domain
+      - impact:defacement
+    notes: Creating/updating a hostname binding lets an attacker attach or repoint a custom domain to an app, controlling traffic routing on that domain (takeover) and serving attacker-controlled content on the public-facing asset.

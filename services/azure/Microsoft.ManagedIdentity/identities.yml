@@ -1,0 +1,12 @@
+name: System Assigned Identities
+description: "Azure system-assigned managed identities: identity principals tied to the lifecycle of a specific resource, exposing clientId/principalId metadata."
+scope: LOW
+notes: System-assigned identities are security principals bound to a resource; reading exposes identity metadata, not credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ManagedIdentity
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:account
+    notes: Getting a system-assigned identity returns its identity metadata (principalId/clientId) without credential material, enabling only account reconnaissance for targeting.

@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (SVMPoolRequestLog)
+description: A single named table within an Azure Log Analytics (Operational Insights) workspace, queried via the data plane. This table stores SAP/SVM virtual-machine pool request telemetry collected into the monitoring workspace.
+scope: MEDIUM
+notes: Log Analytics tables aggregate operational and security telemetry; sensitivity is monitoring/diagnostics tier unless the specific table captures application data or security/access-control content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read of the SVMPoolRequestLog table exports collected VM-pool request log records, which may contain operational request identifiers.

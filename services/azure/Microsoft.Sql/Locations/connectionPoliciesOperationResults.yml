@@ -1,0 +1,11 @@
+name: SQL Server connection policy operation results
+description: A read-only endpoint that returns the result/status of an asynchronous server connection-policy update operation.
+scope: LOW
+notes: Returns only operation outcome status; exposes no resource configuration, data, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Retrieves the result of an in-progress connection-policy update operation; an inert operation-status poll with no meaningful attacker capability.

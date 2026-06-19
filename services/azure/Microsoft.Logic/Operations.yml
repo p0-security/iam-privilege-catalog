@@ -1,0 +1,11 @@
+name: Microsoft.Logic operation catalog
+description: The static, provider-published catalog of available Microsoft.Logic REST API operation definitions.
+scope: LOW
+notes: Public-style API reference metadata; not tenant-specific and not sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns the static list of available provider operations, public API metadata that confers no meaningful attacker capability.

@@ -1,0 +1,12 @@
+name: AKS supported VM SKUs (regional list)
+description: This operation lists the VM SKUs that AKS accepts when creating node pools in a region, a regional capability/reference catalog.
+scope: LOW
+notes: The data is generic, near-public regional capacity/SKU reference information with negligible sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing AKS-supported VM SKUs returns generic regional capability reference data, the lowest-sensitivity infrastructure reconnaissance.

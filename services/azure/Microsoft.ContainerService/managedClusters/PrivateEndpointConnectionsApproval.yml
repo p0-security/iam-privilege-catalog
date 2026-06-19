@@ -1,0 +1,12 @@
+name: AKS managed cluster
+description: "An Azure Kubernetes Service (AKS) managed cluster: the control-plane resource that hosts a Kubernetes cluster, its node pools, networking, RBAC/Azure AD integration, and a managed/service-principal identity used to act on Azure resources."
+scope: HIGH
+notes: AKS clusters are production compute assets that run workloads, hold in-cluster secrets, and act through a cluster identity; credential-listing and command-execution operations on them are effectively cluster-admin grade and warrant CRITICAL scope.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Approving a private endpoint connection lets an attacker attach an attacker-controlled network to the cluster's private API endpoint, gaining network reachability to the otherwise-isolated control plane.

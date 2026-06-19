@@ -1,0 +1,14 @@
+name: Azure Firewall internal-FQDN resolution-failure log table (Log Analytics)
+description: A Log Analytics workspace query data-plane permission scoped to the AZFWInternalFqdnResolutionFailure table, which stores Azure Firewall internal-FQDN name-resolution-failure telemetry ingested into the workspace.
+scope: MEDIUM
+notes: Resolution-failure logs expose internal hostnames and DNS resolution behavior across the network.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+      - discovery:network
+    notes: Exports records of failed internal name-resolution attempts that reveal internal hostnames and network resolution topology.

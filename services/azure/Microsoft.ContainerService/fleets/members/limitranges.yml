@@ -1,0 +1,21 @@
+name: Kubernetes LimitRanges (fleet member)
+description: Kubernetes LimitRange objects on a fleet member cluster, which define per-namespace default and maximum CPU/memory resource constraints for pods and containers.
+scope: MEDIUM
+notes: LimitRanges are non-sensitive resource-governance configuration that bound workload resource consumption within a namespace.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+    notes: Deleting limitranges removes the per-namespace resource-constraint policy enforcement, lifting caps that would otherwise bound workload resource consumption.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading limitranges enumerates per-namespace resource-constraint configuration, low-sensitivity reconnaissance of cluster resource governance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing limitranges alters namespace resource-constraint configuration, letting an attacker relax limits to enable oversized/resource-hogging workloads or tighten them to disrupt legitimate scheduling.

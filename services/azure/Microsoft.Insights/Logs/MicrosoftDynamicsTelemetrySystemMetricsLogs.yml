@@ -1,0 +1,13 @@
+name: Log Analytics table data (Dynamics 365 telemetry)
+description: A Log Analytics workspace table (MicrosoftDynamicsTelemetrySystemMetricsLogs) holding Dynamics 365 system-metrics telemetry in Azure Monitor.
+scope: MEDIUM
+notes: Monitoring/diagnostics-tier system-metrics telemetry; not primary business data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports Dynamics system-metrics telemetry log records (exfiltration:logs) and enumerates logged system metrics for environment recon (discovery:logs).

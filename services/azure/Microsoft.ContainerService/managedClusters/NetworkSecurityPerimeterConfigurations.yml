@@ -1,0 +1,12 @@
+name: AKS managed cluster Network Security Perimeter configurations
+description: The Network Security Perimeter (NSP) configuration of an AKS managed cluster describes the network trust-boundary association that governs which network perimeter the cluster's control plane is enrolled in.
+scope: LOW
+notes: Read-only network boundary metadata for a production cluster; reveals network isolation posture but no workload data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Read-only GET returns the cluster's NSP association, enabling reconnaissance of its network-isolation posture.

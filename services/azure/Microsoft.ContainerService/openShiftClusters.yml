@@ -1,0 +1,24 @@
+name: Azure Red Hat OpenShift clusters
+description: An Azure Red Hat OpenShift (ARO) managed cluster — a production Kubernetes/OpenShift environment including its control-plane configuration, networking, node/VM profiles, and associated identities.
+scope: HIGH
+notes: Hosts production container workloads for a single organizational function; compromise can run code, host attacker workloads, and disrupt services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the cluster tears down the entire OpenShift control plane and worker nodes, destroying the infrastructure and taking all hosted services offline.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the cluster returns its full configuration (version, network profile, node profiles, identity references), enabling read-only reconnaissance of a production container cluster. Returns no secret material on its own.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - impact:spend
+      - escalation:lateral
+    notes: Creating/updating the cluster rewrites control-plane and node configuration (manipulation), provisions worker compute that can run attacker workloads (hijack) at organizational cost (spend), and can attach/use a cluster managed identity/service principal enabling lateral movement.

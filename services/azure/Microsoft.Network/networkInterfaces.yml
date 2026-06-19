@@ -1,0 +1,22 @@
+name: Network interface
+description: An Azure network interface (NIC) connects a virtual machine to a virtual network, carrying its IP configurations, subnet bindings, NSG associations, and IP-forwarding settings.
+scope: HIGH
+notes: A NIC is the network attachment point for a single compute workload; mutating it affects connectivity and reachability of that one service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deletes a NIC, removing the network component that connects the VM and severing connectivity for the hosted service (DoS).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reads a single NIC definition, disclosing its IP addresses, subnet, and NSG/route associations for network reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a NIC rewrites IP configs, subnet/NSG associations, and IP-forwarding, manipulating operational network config and able to re-home or expose a workload onto an attacker-reachable network segment.

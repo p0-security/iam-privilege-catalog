@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (ABAPAuthorizationDetails)
+description: A single named table within an Azure Log Analytics (Operational Insights) workspace, queried via the data plane. This Microsoft Sentinel for SAP table records SAP ABAP user authorization/role assignment details.
+scope: HIGH
+notes: The table exposes SAP access-control configuration (authorizations/roles), which reveals the privilege structure of the SAP system.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:policy
+    notes: Reading this table exports SAP ABAP authorization/role assignment records, revealing access-control configuration an attacker can use to identify privilege-escalation weak points.

@@ -1,0 +1,22 @@
+name: AKS managed cluster JWT authenticators
+description: An AKS managed cluster's JWT authenticator defines how the Kubernetes API server validates external JWT/OIDC tokens, specifying trusted issuers, audiences, and claim-to-user/group mappings that bind external identities to in-cluster Kubernetes principals.
+scope: CRITICAL
+notes: This is the cluster's authentication trust configuration; control over it is effectively cluster-admin-equivalent because it governs which identities can authenticate (and as whom) to the entire cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a JWT authenticator tears down the cluster's authentication/identity-mapping configuration, destroying access-control policy and severing legitimate token-based users from their authorized access to the cluster.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading the JWT authenticator discloses the cluster's authentication/access-control configuration (trusted issuers, audiences, claim mappings), letting an attacker inventory the auth policy and identify how to forge or map tokens to cluster identities. Returns configuration, not secret material.
+  write:
+    risks:
+      - escalation:privilege
+      - persistence:account
+    notes: Creating or updating a JWT authenticator lets an attacker register an attacker-controlled trusted token issuer or remap claims so self-minted tokens authenticate as arbitrary high-privilege cluster identities (e.g. system:masters), granting cluster-wide privilege escalation and a durable authentication backdoor.

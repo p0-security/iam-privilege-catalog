@@ -1,0 +1,21 @@
+name: Gallery remote container image
+description: A reference/definition in an Azure Compute Gallery pointing to a remote container image artifact distributable to consumers.
+scope: MEDIUM
+notes: Image artifact reference whose contents may be consumed by downstream deployments; supply-chain relevant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deletes the gallery remote container image, destroying a distributable image artifact and potentially disrupting dependent deployments.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading the gallery remote container image properties only inventories the artifact's configuration metadata.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating the gallery remote container image lets an attacker alter or poison the image artifact reference that downstream deployments consume (supply-chain manipulation).

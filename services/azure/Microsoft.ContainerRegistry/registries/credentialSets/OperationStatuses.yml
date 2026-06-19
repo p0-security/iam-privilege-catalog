@@ -1,0 +1,11 @@
+name: Container registry credential set operation status
+description: The async operation status sub-resource for container registry credential sets, which reports the progress/state of a long-running credential-set create/update/delete operation.
+scope: LOW
+notes: Returns only transient operation progress state, not configuration or secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling an async credential-set operation status returns only operation progress and grants no meaningful attacker capability in isolation.

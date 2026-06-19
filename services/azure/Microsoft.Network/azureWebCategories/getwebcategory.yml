@@ -1,0 +1,11 @@
+name: Azure WebCategories
+description: Azure WebCategories is Microsoft's global, tenant-independent reference catalog of website/URL classifications used by Azure Firewall application rules. It is shared product reference data, not an organizational asset.
+scope: PUBLIC
+notes: Global static reference data and feedback endpoints; no organization-specific data, configuration, or secrets are exposed or mutated.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Looks up the category of a URL against Microsoft's global classification service; returns only public reference data.

@@ -1,0 +1,12 @@
+name: Traffic Manager log definitions
+description: Azure Monitor log/event category definitions for a Traffic Manager profile, describing which log categories are available for the profile.
+scope: LOW
+notes: Read-only monitoring metadata; enumerates available log categories, not the log contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Lists the available log/event categories for the Traffic Manager profile, allowing an attacker to inventory what logging exists without exporting log content.

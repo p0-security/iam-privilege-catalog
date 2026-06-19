@@ -1,0 +1,21 @@
+name: Microsoft Sentinel workspace manager members
+description: Microsoft Sentinel workspace manager members are the member Sentinel workspaces enrolled under a central manager workspace for coordinated security-content governance.
+scope: MEDIUM
+notes: Membership defines the blast radius of centrally-pushed defensive content across the managed Sentinel estate.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting workspace manager members detaches workspaces from centralized governance, severing propagation of managed defensive content and disrupting consistent detection coverage.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading workspace manager members only enumerates which Sentinel workspaces are centrally managed, mapping the SIEM management topology without exposing sensitive data.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating workspace manager members enrolls additional workspaces under central management, altering the management topology and expanding the set of workspaces whose security content can be governed/altered.

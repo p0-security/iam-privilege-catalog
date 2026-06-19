@@ -1,0 +1,12 @@
+name: AKS cluster API extension resources
+description: Kubernetes API-extension objects (CustomResourceDefinitions and aggregated APIService registrations) within an AKS managed cluster, accessed via the cluster's data plane.
+scope: MEDIUM
+notes: Read-only enumeration of the cluster's extended API surface; exposes configuration topology but no secret material or workload data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads/lists CustomResourceDefinitions (apiextensions.k8s.io/v1beta1), inventorying installed CRDs and extension schemas for reconnaissance.

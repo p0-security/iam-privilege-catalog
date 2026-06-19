@@ -1,0 +1,12 @@
+name: Recovery Services backup recovery points
+description: Recovery points (backup snapshots) of protected items managed under a Recovery Services vault's backup fabric, representing point-in-time copies of organizational data.
+scope: MEDIUM
+notes: Recovery points and the restore machinery around them ultimately gate access to backed-up production data; enumeration is reconnaissance while restore is full data access.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:data
+    notes: Enumerates the available recovery points for protected items, inventorying backup snapshots without returning their contents (data discovery).

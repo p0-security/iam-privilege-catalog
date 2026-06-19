@@ -1,0 +1,12 @@
+name: Log Analytics AmlComputeCpuGpuUtilization table
+description: A queryable Azure Log Analytics workspace table holding Azure Machine Learning compute CPU/GPU utilization telemetry ingested for monitoring.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data scoped to a single ML function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads CPU/GPU utilization log records, exporting compute resource-usage telemetry.

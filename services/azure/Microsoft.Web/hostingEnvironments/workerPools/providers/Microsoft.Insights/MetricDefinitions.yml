@@ -1,0 +1,11 @@
+name: App Service Environment WorkerPool metric definitions
+description: The metric definitions (available metric schema) for an App Service Environment WorkerPool, exposing which monitoring metrics exist via Azure Monitor, not actual metric values.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:metadata
+    notes: Lists the available metric definitions for an ASE WorkerPool, enabling enumeration of monitoring metadata schema only.

@@ -1,0 +1,12 @@
+name: Web App metrics
+description: Time-series resource-utilization and request metrics for an Azure App Service web app (CPU, memory, request counts, throughput).
+scope: MEDIUM
+notes: Monitoring/diagnostic telemetry; reveals operational behavior but not stored application data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only access to web app metric values enables reconnaissance of the app's activity and capacity.

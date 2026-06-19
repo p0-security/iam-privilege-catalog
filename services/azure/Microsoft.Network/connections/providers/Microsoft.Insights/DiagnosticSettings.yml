@@ -1,0 +1,18 @@
+name: Diagnostic settings for Connections
+description: Diagnostic settings control which logs and metrics for network connections are collected and where they are routed (Log Analytics, storage, event hub).
+scope: LOW
+notes: Logging configuration for a monitoring/diagnostics surface.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reveals which logs/metrics are collected for connections and their destinations, enabling logging-pipeline reconnaissance before evasion.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    scope: MEDIUM
+    notes: Creating/updating diagnostic settings lets an attacker disable or redirect connection log/metric collection, undermining detection and incident response.

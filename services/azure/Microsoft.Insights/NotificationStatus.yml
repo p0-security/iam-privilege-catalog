@@ -1,0 +1,12 @@
+name: Azure Monitor test notification status
+description: A read endpoint returning the delivery status/detail of a previously triggered Azure Monitor test notification request.
+scope: LOW
+notes: Low-sensitivity operational status of a prior test-notification action.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:infra
+    notes: Reading test notification status returns the delivery state/detail of a prior test send, providing only minor operational reconnaissance of the monitoring/notification path.

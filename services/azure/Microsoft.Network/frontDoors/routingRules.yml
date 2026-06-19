@@ -1,0 +1,23 @@
+name: Front Door routing rules
+description: Front Door routing rules define how the Azure Front Door L7 edge maps incoming public requests (match conditions, paths) to backend pools and frontend endpoints.
+scope: HIGH
+notes: Routing rules are the traffic-steering configuration of a public-facing CDN/WAF edge; reading them is low-sensitivity reconnaissance while writing/deleting affects a single application's public delivery.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a routing rule removes the path delivering public traffic to backends, breaking the hosted service (DoS).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Gets a routing rule, revealing how public traffic is mapped to backends — network/topology reconnaissance only.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:defacement
+    notes: Creating/updating a routing rule lets an attacker reroute or redirect public-facing traffic to attacker-controlled content, manipulating delivery configuration and defacing the public service.

@@ -1,0 +1,11 @@
+name: Static Site users
+description: Authenticated users/identities configured for an Azure Static Web App's auth providers, along with their assigned roles.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - discovery:account
+    notes: Lists the authenticated users/identities of a Static Site, enumerating system accounts as potential compromise targets without returning their credentials.

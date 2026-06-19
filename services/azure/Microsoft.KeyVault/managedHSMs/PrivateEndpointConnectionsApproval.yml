@@ -1,0 +1,12 @@
+name: Managed HSM
+description: A Managed HSM is a fully-managed, single-tenant, hardware security module instance in Azure Key Vault that stores and controls cryptographic keys (HSM-backed). It is a critical cryptographic asset whose keys typically protect encryption across many organizational functions.
+scope: CRITICAL
+notes: Compromise of the HSM or its protections can lead to loss or exposure of root cryptographic material; control-plane operations manage the appliance configuration rather than the key material itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Approving a private endpoint connection grants private network reachability to the HSM from an attacker-controlled VNet, enabling network movement toward the critical key store.

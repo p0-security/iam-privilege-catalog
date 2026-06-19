@@ -1,0 +1,17 @@
+name: Database Blob Auditing Policy
+description: The database-level blob auditing policy for an Azure SQL database, controlling whether and how that database's activity is audited and where its audit logs are written.
+scope: MEDIUM
+notes: Auditing is a detection/log-collection control; reading reveals coverage and writing can disable it for the database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading the database blob auditing policy discloses the per-database audit configuration, enabling reconnaissance of logging coverage and gaps.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Setting the database blob auditing policy lets an attacker turn off or redirect the database's audit logging, destroying log collection and disabling a detection defense to evade incident response.

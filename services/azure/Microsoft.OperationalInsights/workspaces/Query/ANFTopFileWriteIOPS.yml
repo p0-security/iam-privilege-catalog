@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (data query)
+description: A Log Analytics workspace query permission scoped to a specific log table; granting it allows running KQL queries that return the ingested rows of that table via the workspace data plane.
+scope: MEDIUM
+notes: Log Analytics tables aggregate telemetry from many sources (security, identity, email, infrastructure). Sensitivity depends on the table, but monitoring/diagnostic data is generally MEDIUM; the centralized, queryable nature makes log content valuable for reconnaissance and exfiltration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Returns rows of the ANFTopFileWriteIOPS table (Azure NetApp Files top-file write-IOPS performance telemetry), which may reveal hot file paths but is fundamentally operational monitoring data.

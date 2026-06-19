@@ -1,0 +1,11 @@
+name: ACR task run async operation status
+description: The async operation status sub-resource for an Azure Container Registry task run. It reports only the progress/state of an in-flight task-run management operation.
+scope: LOW
+notes: Status-polling endpoints expose only operation progress, never configuration, data, or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling a task run async operation status returns only operation progress and grants no actionable capability in isolation.

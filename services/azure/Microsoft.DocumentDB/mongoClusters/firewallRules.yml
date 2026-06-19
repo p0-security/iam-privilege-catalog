@@ -1,0 +1,21 @@
+name: Mongo Cluster firewall rule
+description: IP firewall rules for an Azure Cosmos DB for MongoDB (vCore) Mongo Cluster, defining the source IP allow-list that gates network access to the production database.
+scope: HIGH
+notes: These rules are the network-access defense fronting a production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a firewall rule removes a network access-control entry; removing a restrictive rule weakens the cluster's network defensive posture.
+  read:
+    risks:
+      - discovery:network
+    notes: Read/list of the cluster's firewall rules enumerates the IP allow-list, letting an attacker reconnoiter permitted source ranges and identify gaps in the database's network defense.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Creating/updating a firewall rule lets an attacker add a permissive allow-rule (e.g. 0.0.0.0/0 or their own IP) that weakens the cluster's network defense and exposes the database to attacker-controlled networks.

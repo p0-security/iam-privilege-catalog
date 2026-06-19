@@ -1,0 +1,21 @@
+name: Network Virtual Appliance Connection
+description: A connection object on a Network Virtual Appliance (NVA) defining how the appliance peers/routes traffic into the surrounding network. NVAs are production routing/firewall appliances in the data path.
+scope: HIGH
+notes: Production network infrastructure carrying and inspecting traffic; routing changes have broad network impact.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting an NVA connection tears down a network connectivity/routing component, severing traffic paths through the appliance and causing denial of service for dependent services.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading an NVA connection enumerates the appliance's routing/connectivity configuration, providing network topology reconnaissance without returning secrets.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Updating an NVA connection alters routing/connectivity through the appliance, letting an attacker reroute or expose traffic and reach additional network segments while manipulating network configuration.

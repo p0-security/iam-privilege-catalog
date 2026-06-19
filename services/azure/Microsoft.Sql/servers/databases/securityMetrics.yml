@@ -1,0 +1,12 @@
+name: Database Security Metrics
+description: A collection of security metrics / posture data for an Azure SQL Database, summarizing the database's security assessment state.
+scope: MEDIUM
+notes: Reconnaissance of security posture; reveals weak points without exposing stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading the security metrics collection exposes the database's security posture/assessment, letting an attacker identify weak points.

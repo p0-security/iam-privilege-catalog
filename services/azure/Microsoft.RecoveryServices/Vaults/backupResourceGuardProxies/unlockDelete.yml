@@ -1,0 +1,13 @@
+name: Backup ResourceGuard proxy
+description: The ResourceGuard proxy binds a Recovery Services vault to a ResourceGuard, enforcing Multi-User Authorization (MUA) so that critical/destructive backup operations require external approval.
+scope: HIGH
+notes: Acts as the anti-ransomware authorization safeguard protecting backup recovery data from malicious deletion or disabling.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+      - impact:access
+    notes: Unlocks the next critical delete operation, bypassing MUA so a subsequent destructive backup operation can proceed without external authorization.

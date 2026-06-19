@@ -1,0 +1,12 @@
+name: Kubernetes SubjectAccessReviews (Fleet member)
+description: Kubernetes SubjectAccessReview API on an Azure Fleet member cluster; a non-persisted request that queries whether an arbitrary subject is authorized for a given cluster-wide action.
+scope: MEDIUM
+notes: A cluster-wide RBAC reconnaissance oracle disclosing any principal's effective permissions; creates no persistent state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Posting a SubjectAccessReview lets an attacker probe whether any subject can perform any cluster-scoped action, comprehensively mapping RBAC to locate privileged identities.

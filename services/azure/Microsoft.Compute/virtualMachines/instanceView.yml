@@ -1,0 +1,12 @@
+name: Virtual Machine instance view
+description: The runtime status (instance view) of an Azure virtual machine, reporting power state, OS/agent status, extension status, and disk layout.
+scope: LOW
+notes: Read-only operational status of a single compute resource; no data-plane access.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading detailed VM runtime status is infrastructure reconnaissance about a single compute resource; exposes no data or credentials.

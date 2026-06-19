@@ -1,0 +1,12 @@
+name: API Management API-tag associations
+description: Read-only listing of which APIs in an API Management service are associated with which tags. Represents API inventory/organizational metadata of the API gateway.
+scope: LOW
+notes: Control-plane reconnaissance surface; reveals the API gateway's API inventory but no secrets or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists APIs grouped by tag, enabling reconnaissance of the gateway's API surface and organization.

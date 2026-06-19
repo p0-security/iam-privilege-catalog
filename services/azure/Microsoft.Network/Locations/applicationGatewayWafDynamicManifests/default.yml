@@ -1,0 +1,11 @@
+name: Application Gateway WAF dynamic manifest
+description: A sanitized, platform-provided manifest listing the Application Gateway WAF rule sets and rule definitions available in a region; the default entry returns the default rule-set reference data.
+scope: LOW
+notes: Reference/catalog data describing supported WAF capabilities; not organization-specific configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns the default sanitized WAF dynamic manifest entry (default rule-set reference data), generic product reference information with no organizational sensitivity.

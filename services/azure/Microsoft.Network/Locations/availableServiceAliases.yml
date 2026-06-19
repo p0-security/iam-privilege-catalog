@@ -1,0 +1,12 @@
+name: Available service aliases
+description: Available service aliases are the region-level catalog of named service aliases that can be referenced in service endpoint policies to permit subnet traffic to specific Azure services.
+scope: LOW
+notes: Generic, largely static platform reference data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Lists region-level service alias reference metadata, providing only minor network/infrastructure reconnaissance value.

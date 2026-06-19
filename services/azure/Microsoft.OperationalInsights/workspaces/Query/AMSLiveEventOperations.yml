@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (AMSLiveEventOperations)
+description: A Log Analytics workspace query table is a data-plane view of a specific log table inside an Azure Monitor / Log Analytics workspace. Reading it returns the actual row-level log records ingested into that table.
+scope: MEDIUM
+notes: Azure Media Services live-event operation logs are operational telemetry about live-streaming events and resource identifiers.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Returns Media Services live-event operation log records, exporting and enumerating live-streaming operational telemetry.

@@ -1,0 +1,11 @@
+name: Azure SQL managed instance private endpoint connection async operation
+description: Async operation-status resource tracking the result of a private endpoint connection operation on an Azure SQL Managed Instance.
+scope: LOW
+notes: Returns operation progress only, not connectivity configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status of a private endpoint connection operation; returns no sensitive data or capability in isolation.

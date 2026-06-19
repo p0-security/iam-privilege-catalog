@@ -1,0 +1,21 @@
+name: AKS AI Managers Kubernetes events
+description: Kubernetes Event objects within an AKS AI Managers cluster, recording operational activity such as scheduling, errors, scaling, and object lifecycle changes.
+scope: LOW
+notes: Events form the cluster's operational/diagnostic activity trail used for monitoring and incident response.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+    notes: Deleting events (including DeleteCollection) removes the cluster's activity record, erasing forensic traces and hampering incident response and detection.
+  read:
+    risks:
+      - discovery:logs
+      - discovery:infra
+    notes: Reading Kubernetes events inventories the cluster activity record and reveals workload/scheduling details and resource names useful for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing events lets an attacker inject false or misleading records into the cluster activity stream, polluting operational telemetry to mislead operators and obscure activity.

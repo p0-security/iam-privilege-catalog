@@ -1,0 +1,12 @@
+name: Web App process threads
+description: Threads of an Azure App Service web app process, exposed via the Kudu/SCM process explorer.
+scope: MEDIUM
+notes: Reveals fine-grained runtime execution state but no data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the threads of an app process, low-value runtime reconnaissance of the workload's internals.

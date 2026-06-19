@@ -1,0 +1,11 @@
+name: Microsoft Security async operation status
+description: The status endpoint for an asynchronous (long-running) Microsoft Security control-plane operation.
+scope: LOW
+notes: Returns only operation progress state; no sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading the status of an asynchronous operation returns only progress metadata and discloses no sensitive data.

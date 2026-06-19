@@ -1,0 +1,12 @@
+name: Container registry quota usages
+description: A read-only sub-resource reporting the registry's quota usage and capacity metrics (e.g. storage consumed, webhook/build counts against limits).
+scope: LOW
+notes: Exposes only non-sensitive operational capacity metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists registry quota usage figures, exposing only non-sensitive capacity/utilization metadata useful for minor reconnaissance.

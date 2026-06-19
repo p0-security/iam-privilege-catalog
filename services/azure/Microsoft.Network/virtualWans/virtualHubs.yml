@@ -1,0 +1,12 @@
+name: Virtual hub (via Virtual WAN)
+description: A Virtual Hub is a regional Microsoft-managed network hub within a Virtual WAN that hosts gateways and routing for interconnecting VNets and on-premises sites.
+scope: HIGH
+notes: Represents the regional routing core supporting a single network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Lists all virtual hubs referencing the Virtual WAN, enumerating the regional hub topology of the network backbone.

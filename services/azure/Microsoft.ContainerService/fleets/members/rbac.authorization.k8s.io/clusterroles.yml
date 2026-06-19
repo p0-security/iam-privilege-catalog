@@ -1,0 +1,21 @@
+name: Kubernetes ClusterRoles (AKS Fleet member)
+description: Kubernetes ClusterRole objects on a member cluster of an AKS Fleet. ClusterRoles define cluster-wide permission sets (verbs over resources) that bindings can grant to subjects.
+scope: CRITICAL
+notes: Cluster-wide RBAC permission definitions; creating/expanding or binding them enables cluster-admin escalation, hence CRITICAL asset sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting ClusterRoles destroys cluster-wide RBAC permission definitions, breaking access-control policy and denying access to all principals whose bindings reference those roles.
+  read:
+    risks:
+      - discovery:policy
+    notes: A read/list data action that enumerates the cluster-wide permission definitions, letting an attacker identify over-privileged roles to bind to or escalate through.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating/updating a ClusterRole lets an attacker define or expand cluster-wide permissions; any subject already bound to the role (or one the attacker controls) thereby gains the added privileges.

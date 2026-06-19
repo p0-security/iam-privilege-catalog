@@ -1,0 +1,11 @@
+name: Vault private endpoint connection proxies
+description: Private endpoint connection proxies for a Recovery Services vault — the connectivity helper objects that establish/manage the vault's private endpoint (Private Link) network path for backup and replication services. This sub-resource reports the status of an async operation on a proxy.
+scope: LOW
+notes: Pure operation-status polling endpoint; the displayName is a mislabeled copy-paste artifact.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only async operation state for a proxy action; an inert polling endpoint despite the mislabeled displayName.

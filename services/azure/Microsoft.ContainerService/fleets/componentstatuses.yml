@@ -1,0 +1,18 @@
+name: Fleet Kubernetes component statuses
+description: Kubernetes ComponentStatus objects inside an Azure Fleet hub cluster; a deprecated, server-synthesized read-only API reporting health of control-plane components (scheduler, controller-manager, etcd).
+scope: LOW
+notes: ComponentStatuses are dynamically generated and not persisted; only the read verb is meaningful, and it exposes only component health.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks: []
+    notes: ComponentStatuses are dynamically regenerated, so a delete has no durable effect and confers no real capability (inert).
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading componentstatuses reports control-plane component health, low-sensitivity infrastructure reconnaissance.
+  write:
+    risks: []
+    notes: ComponentStatuses are server-synthesized and not persisted, so a write grants no meaningful attacker capability (inert).

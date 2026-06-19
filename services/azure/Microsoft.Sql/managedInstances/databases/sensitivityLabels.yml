@@ -1,0 +1,12 @@
+name: SQL Managed Instance database sensitivity labels
+description: Data-classification sensitivity labels applied to columns of an Azure SQL Managed Instance database, flagging which columns hold sensitive data (PII, financial, etc.).
+scope: MEDIUM
+notes: Labels are classification metadata that drive Data Discovery & Classification, auditing, and label-based protection workflows; they reveal where confidential data lives but are not the data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Listing the labels enumerates the data-classification schema, mapping which columns hold sensitive data so an attacker can prioritize exfiltration targets, without returning the data itself.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace
+description: An Azure Log Analytics workspace is the central data store and management resource for Azure Monitor logs, collecting and retaining telemetry/log data from agents, resources, and Microsoft Sentinel.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset; it concentrates security and operational telemetry, so tampering with or destroying it enables anti-forensic evasion, but it is scoped to a monitoring function rather than to primary production data or identity controls.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - impact:access
+    notes: Regenerates the specified shared key and returns the new key in the response (verified against the REST/SDK contract), so it both exfiltrates fresh credential material and invalidates the prior key, cutting off legitimate agents from ingesting data.

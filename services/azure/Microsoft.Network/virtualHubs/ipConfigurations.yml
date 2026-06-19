@@ -1,0 +1,21 @@
+name: Virtual Hub IP configuration
+description: A Virtual Hub IP configuration is the addressing/connectivity binding (IP and subnet plumbing) of a Virtual WAN hub, a central routing point connecting branches, VNets, and gateways.
+scope: HIGH
+notes: The hub is core routing infrastructure for a regional network; its IP configuration governs connectivity for all attached VNets and on-premises links.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the hub IP configuration removes a core network component of the Virtual WAN hub, disrupting connectivity for all services routed through it.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the hub IP configuration inventories the hub's addressing and connectivity details, aiding reconnaissance of the Virtual WAN topology.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating or updating the hub IP configuration alters core hub connectivity/addressing, letting an attacker reroute traffic and extend reachability across the connected virtual WAN.

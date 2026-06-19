@@ -1,0 +1,11 @@
+name: Azure SQL virtual network rules async operation status
+description: A location-scoped endpoint that returns the status of an in-flight asynchronous virtual network rule operation on Azure SQL.
+scope: LOW
+notes: Operation-status polling endpoint exposing no resource configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the progress/status of an async VNet-rule operation — an inert polling read with no meaningful attacker capability in isolation.

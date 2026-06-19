@@ -1,0 +1,11 @@
+name: Azure SQL server administrator operation results
+description: Async operation-status resource exposing in-progress operations on logical SQL server administrators.
+scope: LOW
+notes: Operation-status endpoints return only operation state, not configuration or secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns in-progress administrator operations as status only; inert reconnaissance no-op in isolation.

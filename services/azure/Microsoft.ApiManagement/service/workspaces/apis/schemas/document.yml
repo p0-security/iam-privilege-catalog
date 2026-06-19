@@ -1,0 +1,16 @@
+name: APIM workspace API schema document
+description: The document describing an API schema within an Azure API Management workspace — the detailed structural definition of the schema for an API.
+scope: MEDIUM
+notes: Control-plane configuration describing an API's structure; reconnaissance value but no secrets or runtime data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the schema document describing the API, exposing its detailed structural definition for reconnaissance without returning secrets or stored data.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Updates the schema document, allowing an attacker to manipulate the API's defining contract/validation document and thus how the gateway interprets the API.

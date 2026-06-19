@@ -1,0 +1,13 @@
+name: Log Analytics REDConnectionEvents table
+description: A Log Analytics workspace table holding remote/connection-event telemetry (connection endpoints, source IPs, session detail). Reading it returns the stored log rows.
+scope: MEDIUM
+notes: Monitoring data is MEDIUM scope; reveals remote-access endpoints and session activity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Exports connection-event telemetry that reveals remote-access endpoints, source IPs, and session activity for network reconnaissance.

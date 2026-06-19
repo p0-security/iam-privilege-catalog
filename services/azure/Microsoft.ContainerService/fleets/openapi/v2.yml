@@ -1,0 +1,12 @@
+name: AKS Fleet API server OpenAPI schema
+description: The OpenAPI v2 schema document of an Azure Kubernetes Fleet Manager hub cluster's API server, describing the available API resource types and endpoints.
+scope: LOW
+notes: Enumerates the API surface only; no actual data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns the API server's OpenAPI v2 schema, enumerating available resource types/endpoints — infrastructure/API-surface reconnaissance only.

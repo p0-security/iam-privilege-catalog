@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (DeviceHeartbeat)
+description: A queryable Log Analytics table within an Azure Monitor workspace holding ingested device heartbeat/check-in telemetry. This is a data-plane (isDataAction) read scoped to a single table.
+scope: MEDIUM
+notes: Security/monitoring telemetry; confidential operational log data rather than a primary production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading this table exports heartbeat telemetry indicating which devices are active and reporting, inventorying monitoring coverage.

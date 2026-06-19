@@ -1,0 +1,24 @@
+name: AKS Fleet member Kubernetes pods
+description: Kubernetes Pods on a member cluster of an AKS Fleet, accessed through the Azure RBAC data plane. A Pod is the running unit of workload; its spec includes container images, command args, environment variables, and references to mounted secrets/configmaps and service-account tokens.
+scope: HIGH
+notes: Pods are the production workload of a single cluster (one organizational function). Pod specs frequently embed sensitive configuration and reference credentials, and the cluster's service-account tokens grant in-cluster identity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - destruction:data
+    notes: Deleting pods (including DeleteCollection) terminates running workloads, disrupting the services they back and destroying any in-pod ephemeral/stateful workload state.
+  read:
+    risks:
+      - discovery:infra
+      - exfiltration:data
+    notes: Reading/listing pods inventories running workloads and exposes pod specs including environment variables and mounted secret/configmap references that commonly leak sensitive data.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating pods lets an attacker run arbitrary (potentially privileged/hostPath) containers for cryptomining or botnets, mount service-account tokens or host resources to pivot to other identities, and alter running workload configuration.

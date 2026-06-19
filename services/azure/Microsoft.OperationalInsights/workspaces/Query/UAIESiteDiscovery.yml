@@ -1,0 +1,13 @@
+name: Log Analytics workspace UAIESiteDiscovery table
+description: A data-plane Update/Upgrade Analytics table in an Azure Log Analytics workspace holding discovered Internet Explorer site/URL usage telemetry from monitored machines.
+scope: MEDIUM
+notes: Monitoring asset; can reveal internal sites/web apps and browsing patterns.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading UAIESiteDiscovery exports discovered internal site/URL usage, revealing internal web assets useful for targeting.

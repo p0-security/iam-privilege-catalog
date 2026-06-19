@@ -1,0 +1,12 @@
+name: Azure SQL server usages
+description: Server usages expose aggregate capacity/quota utilization metrics (e.g., DTU/database count consumption) for an Azure SQL logical server.
+scope: LOW
+notes: Non-sensitive operational metrics.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading server usage metrics inventories non-sensitive capacity/quota consumption information.

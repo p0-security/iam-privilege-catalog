@@ -1,0 +1,21 @@
+name: API Management workspace named values
+description: API Management named values are reusable key/value pairs (plain, secret, or Key Vault-referenced) consumed at runtime by gateway policies, commonly holding backend credentials, API keys, and connection strings.
+scope: HIGH
+notes: Secret-typed named values store credential material used by API policies; the actual secret is only returned by the dedicated listValue action, while read/list returns masked metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deletes a named value, destroying a stored configuration/secret entry that gateway policies depend on and breaking dependent API operations.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Lists or gets named value details, enumerating named-value keys and metadata; secret values are masked here, so this is reconnaissance only.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a named value, letting an attacker inject or alter secrets/policy parameters consumed by gateway policies, manipulating how the gateway processes traffic (e.g., redirecting backends).

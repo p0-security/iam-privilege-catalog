@@ -1,0 +1,24 @@
+name: Disk encryption sets
+description: A disk encryption set is a control-plane resource that binds a customer-managed Key Vault key and a managed identity to encrypt Azure managed disks at rest.
+scope: HIGH
+notes: Holds no key material itself, but governs the CMK and identity that protect disk data; misconfiguration can break or weaken disk encryption.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a disk encryption set severs the CMK encryption binding for dependent managed disks, which can render those disks and their VMs inaccessible, causing denial of service.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading a disk encryption set returns its Key Vault key reference and managed-identity configuration but no key material, only inventorying the encryption setup.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:encryption
+      - escalation:lateral
+    notes: Creating/updating a disk encryption set can repoint disks at an attacker-controlled or rotated CMK (ransomware-style re-encryption / encryption config manipulation) and assigns a managed identity the set uses to reach Key Vault (lateral movement).

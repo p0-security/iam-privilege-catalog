@@ -1,0 +1,12 @@
+name: DNS record sets
+description: Azure DNS zone record sets that define how a domain's traffic is routed, mapping hostnames to IP addresses, mail servers, and other targets. These are public-facing records that control name resolution for the domain.
+scope: HIGH
+notes: DNS controls traffic routing for the domain; write/delete access enables domain takeover and denial of service for a single organizational function's public-facing assets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reads DNS record sets across all types, inventorying the zone's hostnames, IPs, and routing targets for network reconnaissance. No secret material is returned.

@@ -1,0 +1,11 @@
+name: Capacity operation status
+description: An asynchronous operation-status resource that tracks the progress of a Caps (capacity) operation.
+scope: LOW
+notes: Operation-status polling endpoints return only progress state, not resource configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the status of an in-flight async capacity operation; discloses no organizational data and grants no attacker capability in isolation.

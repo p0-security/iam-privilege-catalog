@@ -1,0 +1,23 @@
+name: Private DNS zone virtual network link
+description: A virtual network link associates an Azure Private DNS zone with a virtual network, controlling which VNets resolve names against the zone and whether auto-registration of records is enabled.
+scope: HIGH
+notes: Governs private name-resolution reach for a single organizational network function; not a broad cross-org control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the link severs private name resolution between the zone and the linked VNet, breaking name-based service discovery and disrupting dependent workloads.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the link only enumerates which virtual networks are bound to the zone and whether registration is enabled, which is network-topology reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a link binds the zone's name resolution to a virtual network (optionally enabling registration), extending resolution into an additional/controlled network and altering resolution configuration.

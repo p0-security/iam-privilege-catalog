@@ -1,0 +1,11 @@
+name: SQL Server network security perimeter configuration
+description: The effective Network Security Perimeter (NSP) configuration applied to an Azure SQL server, describing the inbound/outbound network access rules and the server's association/isolation state at the network layer.
+scope: LOW
+notes: Read-only configuration data describing network isolation posture; reconcile re-synchronizes the effective state from the canonical NSP resource rather than letting a caller set arbitrary rules.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Reconcile only re-synchronizes the server's effective NSP configuration to the state already defined by the canonical NSP resource; it cannot set attacker-chosen rules, so in isolation it grants no meaningful capability.

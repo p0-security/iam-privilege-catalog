@@ -1,0 +1,11 @@
+name: Protected item operation results
+description: An async operation-result endpoint that returns the outcome of a previously submitted operation on a protected item.
+scope: LOW
+notes: Transient status-tracking endpoint carrying no sensitive asset data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the result of a prior protected-item operation; an inert status read that confers no meaningful attacker capability in isolation.

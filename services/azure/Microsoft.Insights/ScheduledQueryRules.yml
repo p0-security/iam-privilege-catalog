@@ -1,0 +1,21 @@
+name: Scheduled query alert rule
+description: A log-based scheduled query alert rule in Azure Monitor that periodically runs a Log Analytics query and fires alerts when conditions are met, functioning as a detection/alerting control.
+scope: MEDIUM
+notes: These rules are detective security/operational controls; modifying or removing them directly affects detection coverage.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:defense
+    notes: Deletes a log alert rule, removing a detection/alerting mechanism so malicious activity proceeds unalerted.
+  Read:
+    risks:
+      - discovery:infra
+    notes: Reads a scheduled query alert rule, revealing the detection query logic and thresholds so an attacker can learn what is monitored and operate beneath detection.
+  Write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creates or updates a log alert rule, letting an attacker disable, weaken, or mute detection logic (a defense) and tamper with the alerting configuration to evade discovery.
