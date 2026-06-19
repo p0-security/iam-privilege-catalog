@@ -1,0 +1,13 @@
+name: ACR task runs
+description: ACR taskruns are quick-task / task execution records that run containerized build and run steps on ACR-managed compute, frequently under the registry's or task's assigned managed identity.
+scope: HIGH
+notes: Taskruns execute attacker-definable workloads and their full details can embed source and custom-registry login credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: listDetails returns the full run request including embedded source and custom-registry login credentials, allowing an attacker to export reusable secret material and pivot into those registries/sources.

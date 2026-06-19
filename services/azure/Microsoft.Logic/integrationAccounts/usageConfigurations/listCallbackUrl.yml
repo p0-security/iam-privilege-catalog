@@ -1,0 +1,12 @@
+name: Integration Account usage configuration
+description: The usage configuration sub-resource of a Logic Apps integration account, which governs usage/quota monitoring settings for the integration account.
+scope: HIGH
+notes: A supporting configuration object on an integration account (EDI/B2B integration); not a primary data store, though it controls operational integration behavior.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+    notes: Returns a callback URL embedding a SAS-style signature/access token that grants authenticated invocation of the endpoint without further credentials, exporting credential-bearing material.

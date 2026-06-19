@@ -1,0 +1,12 @@
+name: Integration Account Partner
+description: A B2B trading-partner definition within a Logic Apps Integration Account, holding partner business identities/qualifiers used to route and validate EDI messages.
+scope: HIGH
+notes: Configuration sub-resource of the integration account; defines partner identity metadata, not secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+    notes: Returns a callback URL for the partner content that embeds a signed SAS-style token, a pre-authenticated credential granting direct access to the partner content endpoint.
