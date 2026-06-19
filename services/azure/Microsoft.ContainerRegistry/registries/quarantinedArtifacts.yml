@@ -1,0 +1,17 @@
+name: Container registry quarantined artifacts
+description: Container artifacts (image layers/manifests) held in quarantine pending vulnerability/compliance scanning before being released for general pull; the data action accesses their actual content.
+scope: HIGH
+notes: Data-plane access to registry image content, which may include proprietary application code, binaries, and embedded secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:data
+    notes: Pulls/reads quarantined artifact content, exporting unvetted container image data (potentially including code and embedded secrets) out of the registry.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Updates the quarantine state of artifacts, letting an attacker release an unscanned or failed-scan (potentially malicious) image into general availability, bypassing the quarantine security gate.
