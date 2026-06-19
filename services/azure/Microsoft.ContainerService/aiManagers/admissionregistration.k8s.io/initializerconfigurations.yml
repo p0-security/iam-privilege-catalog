@@ -1,0 +1,19 @@
+name: Kubernetes initializer configurations (admission control)
+description: Cluster-wide Kubernetes initializerConfiguration objects (admissionregistration.k8s.io) that register admission-control initializers intercepting and gating object creation across the entire AKS-managed cluster.
+scope: CRITICAL
+notes: Admission-control objects are cluster-wide security enforcement points; controlling them is effectively cluster-admin over policy enforcement, hence CRITICAL asset sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting initializer configurations removes cluster-wide admission enforcement, disabling a security defense and the policy it imposes so previously-constrained malicious object creation proceeds unchecked.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+      - escalation:privilege
+    notes: Creating/updating cluster-wide initializer configurations lets an attacker intercept and mutate every object creation, injecting privileged config into incoming resources while disabling existing admission-based security enforcement.
