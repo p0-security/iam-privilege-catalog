@@ -1,0 +1,13 @@
+name: Azure SQL Data Sync Agent
+description: SQL Data Sync agent registered on an Azure SQL logical server, bridging on-premises/hybrid databases into Data Sync groups for cross-database replication.
+scope: HIGH
+notes: Supporting data-replication infrastructure; the registration key is a credential into the sync trust boundary.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: Generates and returns the sync agent registration key (credential material) that authenticates an agent into the Data Sync service, enabling an attacker to register a rogue agent and reach the synchronized databases.

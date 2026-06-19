@@ -13,6 +13,7 @@ const SERVICES_FOLDER = "services";
 
 const SERVICE_IDS = {
   aws: (path: string, key: string) => `${path.split("/").at(-1)}:${key}`,
+  azure: (path: string, key: string) => `${path}/${key}`,
   gcp: (path: string, key: string) => `${path.replace(/\//g, ".")}.${key}`,
   k8s: (path: string, verb: string) => {
     const [api, objectName] = path.split("/").slice(-2);
@@ -154,7 +155,10 @@ const generatePrivileges = async (base: string, risks: string[]) => {
         const pData = {
           ...omit(data, "description", "notes", "privileges"),
           ...value,
-          parent: pick(data, "description", "notes"),
+          // Privileges may override the file-level component metadata with their
+          // own `parent` (used by Azure, where some operations on a shared path
+          // describe a distinct component); otherwise inherit the file's.
+          parent: value.parent ?? pick(data, "description", "notes"),
           links: [...(data.links ?? []), ...(value.links ?? [])],
         };
         const id = SERVICE_IDS[sid as keyof typeof SERVICE_IDS](
@@ -163,17 +167,20 @@ const generatePrivileges = async (base: string, risks: string[]) => {
         );
         model[sid].push({ id, ...pData });
       }
-      const serviceOutputPath = path.join(OUTPUT_PATH, sid);
-      await fs.mkdir(serviceOutputPath, { recursive: true });
-      for (const priv of model[sid]) {
-        const filePath = path.join(serviceOutputPath, `${priv.id}.md`);
-        const dirPath = path.dirname(filePath);
-        await fs.mkdir(dirPath, { recursive: true });
-        await fs.writeFile(filePath, privilegeToMd(priv), {
-          encoding: "utf-8",
-        });
-      }
     });
+    // Write each privilege's markdown exactly once, after all files for the
+    // service have been read (previously re-wrote the whole accumulated set per
+    // input file — O(n^2), which is prohibitive for large services like azure).
+    const serviceOutputPath = path.join(OUTPUT_PATH, sid);
+    await fs.mkdir(serviceOutputPath, { recursive: true });
+    for (const priv of model[sid]) {
+      const filePath = path.join(serviceOutputPath, `${priv.id}.md`);
+      const dirPath = path.dirname(filePath);
+      await fs.mkdir(dirPath, { recursive: true });
+      await fs.writeFile(filePath, privilegeToMd(priv), {
+        encoding: "utf-8",
+      });
+    }
   }
   await fs.writeFile(
     path.join(OUTPUT_PATH, "privileges.json"),
