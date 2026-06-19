@@ -3,6 +3,7 @@
   "language": "en",
   "words": [
     "analyticshub",
+    "APIM",
     "aoss",
     "apiregistration",
     "apiservices",
@@ -24,6 +25,7 @@
     "HMAC",
     "HRMS",
     "imagebuilder",
+    "impersonatable",
     "kubeconfig",
     "kubelet",
     "microarchitecture",
