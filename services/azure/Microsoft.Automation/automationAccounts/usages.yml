@@ -1,0 +1,11 @@
+name: Azure Automation usage
+description: The usages resource exposes Automation account usage and quota/consumption counters.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads usage/quota counters, providing only low-sensitivity capacity and consumption reconnaissance about the account.

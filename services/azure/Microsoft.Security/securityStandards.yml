@@ -1,0 +1,21 @@
+name: Defender for Cloud security standards
+description: Microsoft Defender for Cloud security standards are definitions of compliance/security control sets (assessments) used to evaluate the security posture of resources.
+scope: MEDIUM
+notes: These are defensive posture/compliance definitions, not IAM access-control policies.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a security standard removes a control-set definition used for posture assessment, disabling a defense mechanism.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading security standards enumerates the defined security/compliance control set, revealing the defensive policy framework and its blind spots.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating a security standard lets an attacker redefine or hollow out the control set used for posture assessment, weakening the defensive evaluation.

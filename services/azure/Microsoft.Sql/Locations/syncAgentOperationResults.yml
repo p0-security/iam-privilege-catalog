@@ -1,0 +1,11 @@
+name: Azure SQL sync operation status
+description: Read-only endpoints that return the result/status of asynchronous Azure SQL Data Sync resource operations (sync agents, groups, members).
+scope: LOW
+notes: Operation-status polling endpoints exposing only operation state, not sync data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the result/status of a sync agent operation; an operation-status poll with no meaningful offensive capability.

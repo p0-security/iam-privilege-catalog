@@ -1,0 +1,11 @@
+name: Resource Provider Operation
+description: The static, provider-published catalog of REST API operations exposed by the resource provider, identical for every tenant.
+scope: PUBLIC
+notes: Contains no organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Listing available provider operations returns static public API metadata with no organizational data or attacker capability.

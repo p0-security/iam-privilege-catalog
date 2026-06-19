@@ -1,0 +1,12 @@
+name: Key Vault certificate contact
+description: A certificate contact (certificatecontacts) is a data-plane object listing the email recipients notified of certificate lifecycle events (expiry, renewal) for the vault.
+scope: MEDIUM
+notes: This is low-sensitivity operational notification configuration; modifying it does not expose secrets but can affect alerting visibility.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Managing certificate contacts alters the notification recipient list, which an attacker can manipulate to remove expiry/renewal alert recipients and suppress operator awareness of certificate lifecycle changes.

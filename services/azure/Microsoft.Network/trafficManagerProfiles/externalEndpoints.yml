@@ -1,0 +1,23 @@
+name: Traffic Manager external endpoint
+description: A Traffic Manager external endpoint is a routing target (an external FQDN/IP outside Azure) within a Traffic Manager profile that DNS-based load balancing directs end-user traffic to.
+scope: HIGH
+notes: Endpoints determine where a profile's domain traffic is routed; altering them redirects traffic for the public-facing service the profile fronts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting an external endpoint removes a routing target so Traffic Manager stops routing traffic to it, destroying a network component and denying service to the fronted backend.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading an external endpoint inventories the routing target configuration (target FQDN, weight, priority, geo-mapping), which is network/topology reconnaissance.
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+    notes: Creating/updating an external endpoint repoints the profile's DNS-based traffic to an attacker-controlled target, hijacking traffic on the profile's domain and manipulating production routing configuration.

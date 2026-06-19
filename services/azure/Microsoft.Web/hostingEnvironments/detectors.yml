@@ -1,0 +1,11 @@
+name: App Service Environment detectors
+description: Diagnostic detectors for an App Service Environment (ASE), returning health/troubleshooting analysis (resource usage, failures, configuration issues) about the hosting environment.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads ASE diagnostic detector output, exposing operational/health and configuration details useful for infrastructure reconnaissance.

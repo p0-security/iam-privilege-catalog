@@ -1,0 +1,12 @@
+name: Azure SQL Sync Member
+description: An Azure SQL Data Sync member is a database registered in a sync group that participates in bidirectional data synchronization, defined by its server/database identifiers and connection configuration.
+scope: MEDIUM
+notes: Sync members are a supporting data-replication feature; their configuration describes which databases exchange data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:metadata
+    notes: Refreshing a sync member's schema re-reads and reports the member database's table/column schema, exposing data-structure metadata without altering stored data.

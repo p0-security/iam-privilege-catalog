@@ -1,0 +1,12 @@
+name: Web App instances
+description: Web app instances are the scaled-out worker (VM) instances backing an App Service web app.
+scope: LOW
+notes: Read-only enumeration of the app's runtime compute footprint.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading web app instances enumerates the scaled-out worker instances serving the app, providing infrastructure reconnaissance with no data or credential exposure.

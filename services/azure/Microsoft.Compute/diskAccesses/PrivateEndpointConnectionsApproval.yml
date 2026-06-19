@@ -1,0 +1,12 @@
+name: Disk access resources
+description: A DiskAccess resource is a private-link construct that governs private-endpoint network access used to securely import/export managed disk data (SAS-based disk export/import over a private endpoint).
+scope: HIGH
+notes: It controls the network path to disk data egress; it is supporting network infrastructure rather than the disk data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Auto-approving a private endpoint connection establishes a private-network path into the DiskAccess resource, granting attacker-controlled network reach to the disk import/export path.

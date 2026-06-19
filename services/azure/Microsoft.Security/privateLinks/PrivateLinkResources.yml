@@ -1,0 +1,12 @@
+name: Microsoft Security private link resource
+description: The set of private-link sub-resource (group ID) targets the Microsoft Security service exposes for private endpoint connections.
+scope: LOW
+notes: Read-only connectivity metadata enumerating private-endpoint target group IDs.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Lists available private-link sub-resource targets, read-only network reconnaissance enabling private-endpoint planning.

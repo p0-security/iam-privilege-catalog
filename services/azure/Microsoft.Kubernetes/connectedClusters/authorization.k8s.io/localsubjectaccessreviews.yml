@@ -1,0 +1,12 @@
+name: Kubernetes LocalSubjectAccessReviews (Azure Arc connected cluster)
+description: LocalSubjectAccessReview is a Kubernetes authorization API request object scoped to a namespace that asks the API server whether a given subject is allowed to perform a specified action.
+scope: MEDIUM
+notes: A non-persistent request/response (write) object used to probe effective RBAC decisions within a namespace.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Creating a LocalSubjectAccessReview lets an attacker enumerate the effective RBAC permissions of any subject in a namespace, mapping access-control policy to find over-privileged identities and escalation paths.

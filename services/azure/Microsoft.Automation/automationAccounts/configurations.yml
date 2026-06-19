@@ -1,0 +1,25 @@
+name: Azure Automation DSC configuration
+description: An Azure Automation Desired State Configuration (DSC) is a stored PowerShell DSC configuration document (configuration-as-code) that defines the desired state and is compiled and applied to managed nodes.
+scope: MEDIUM
+notes: DSC content is effectively code that executes on managed machines; it may embed paths, settings, or references to sensitive parameters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+      - impact:dos
+    notes: Deletes the stored DSC configuration document, destroying the configuration-as-code artifact and disrupting desired-state enforcement / drift remediation for managed nodes.
+  read:
+    risks:
+      - discovery:code
+      - exfiltration:code
+    notes: Returns the full DSC configuration body (PowerShell source), letting an attacker inventory and export the configuration-as-code and any embedded logic/references.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+      - impact:hijack
+    scope: HIGH
+    notes: Writes DSC content that is compiled and applied to managed nodes, letting an attacker inject arbitrary PowerShell that runs on those machines (under their LCM/system context) for lateral movement, state tampering, and arbitrary workload execution.

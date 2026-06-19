@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (AD security assessment recommendation)
+description: A Log Analytics workspace query table holding ingested Active Directory security-assessment recommendation records. Reading it is a data-plane operation returning the stored log row content.
+scope: MEDIUM
+notes: These records enumerate identified AD security weaknesses and remediation findings, useful reconnaissance for an attacker, but are delivered as MEDIUM-sensitivity monitoring log content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Returns AD security-assessment recommendation rows, exporting defensive-posture findings that disclose AD security weaknesses an attacker could target.

@@ -1,0 +1,11 @@
+name: Backup protection container operation results
+description: Operation results for a protection container are the async status/result records of a previously submitted control-plane operation on the container.
+scope: LOW
+notes: Inert async operation-status polling endpoint.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading the result of an async operation on a protection container is a trivial status poll that conveys no meaningful offensive capability in isolation.

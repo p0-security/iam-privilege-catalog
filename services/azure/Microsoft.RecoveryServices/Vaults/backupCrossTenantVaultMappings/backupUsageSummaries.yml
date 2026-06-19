@@ -1,0 +1,12 @@
+name: Backup usage summaries
+description: Read-only summaries of Recovery Services protected items and protected servers for a vault.
+scope: LOW
+notes: Aggregate counts only; reveals backup footprint, not backed-up data contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns summary counts of protected items and protected servers, letting an attacker inventory the vault's backup infrastructure footprint and protection scale.

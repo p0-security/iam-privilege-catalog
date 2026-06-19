@@ -1,0 +1,20 @@
+name: Sentinel hunt comments
+description: Annotations/notes attached to Microsoft Sentinel hunts, capturing analyst reasoning and investigation context.
+scope: LOW
+notes: Supporting investigation metadata revealing analyst awareness; lower sensitivity than the hunts themselves.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting hunt comments removes analyst investigation notes, erasing incident-response context and impeding defender collaboration (anti-forensics).
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading hunt comments exposes analyst notes and investigation context, revealing what the security team knows about an attacker's activity.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating hunt comments lets an attacker inject misleading annotations into investigation records to confuse or misdirect the SOC.

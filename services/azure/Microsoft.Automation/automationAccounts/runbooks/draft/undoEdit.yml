@@ -1,0 +1,12 @@
+name: Azure Automation runbook draft
+description: The draft (unpublished) version resource of an Azure Automation runbook. The Get operation returns draft metadata only (creationTime, lastModifiedTime, inEdit, parameters, outputTypes, and a draftContentLink), not the script body itself.
+scope: MEDIUM
+notes: The actual draft script is exposed by the separate draft/content endpoint; the draft resource itself carries only properties and parameter signatures.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Reverts the runbook draft to the last published state, discarding pending authoring changes and thereby manipulating the draft automation content/state (e.g. wiping legitimate in-progress edits).

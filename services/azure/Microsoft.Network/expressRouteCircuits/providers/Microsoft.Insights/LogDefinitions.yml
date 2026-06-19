@@ -1,0 +1,12 @@
+name: ExpressRoute Circuit log definitions
+description: Azure Monitor log/event category definitions for an ExpressRoute circuit, describing which log categories are available for the circuit.
+scope: LOW
+notes: Read-only monitoring metadata; enumerates available log categories, not the log contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Lists the available log/event categories for the ExpressRoute circuit, enabling inventory of what logging is collected without returning log data.

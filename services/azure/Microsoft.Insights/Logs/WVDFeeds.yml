@@ -1,0 +1,12 @@
+name: Azure Log Analytics table (WVDFeeds)
+description: A Log Analytics workspace table accessed via the data plane; this one is the Azure Virtual Desktop WVDFeeds table, which records workspace/feed subscription events.
+scope: MEDIUM
+notes: AVD feed-subscription telemetry; reveals user resource-feed activity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Returns AVD feed-subscription rows, exfiltrating diagnostic log content about user resource feeds.

@@ -1,0 +1,12 @@
+name: Web App
+description: An Azure App Service site (Web App, Function App, or Logic App Standard) is a managed hosting resource that runs an organization's application code, often with an attached managed identity, app settings/connection strings, and a public-facing endpoint.
+scope: HIGH
+notes: Production application hosting for a single organizational function; can hold secrets in app settings, run code under a managed identity, and serve public traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - impact:dos
+    notes: Stopping the Web App takes the production service offline, a denial of service.

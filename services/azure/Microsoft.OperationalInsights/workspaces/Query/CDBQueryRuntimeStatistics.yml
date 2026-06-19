@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (Cosmos DB telemetry)
+description: A specific log/telemetry table (CDBQueryRuntimeStatistics) within an Azure Log Analytics workspace, holding Azure Cosmos DB query runtime statistics diagnostic data ingested for monitoring and analysis.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset. Query runtime telemetry can expose query patterns and sensitive operational details but is not a primary production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: This data-plane read returns the contents of the CDBQueryRuntimeStatistics table, letting an attacker export collected Cosmos DB query-runtime diagnostic telemetry that can reveal query patterns and identifiers (logs exfiltration).

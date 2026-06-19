@@ -1,0 +1,12 @@
+name: Azure SQL Database elastic pool
+description: An Azure SQL Database elastic pool is a shared compute and storage resource on a SQL server that hosts and allocates capacity across multiple production databases.
+scope: HIGH
+notes: Backs production databases supporting an organizational function; configuration changes or destruction affect every database in the pool.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Forcing a failover drops active connections and causes a transient outage across all databases in the pool, a repeatable denial-of-service vector.

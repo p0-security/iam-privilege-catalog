@@ -1,0 +1,12 @@
+name: AKS Fleet Kubernetes API (batch group)
+description: Data-plane read access to the batch API group (Jobs and CronJobs) on an AKS Fleet member cluster's aggregated Kubernetes API. These objects define batch and scheduled workloads.
+scope: LOW
+notes: Read-only enumeration of workload definitions; contains no secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only listing of Jobs/CronJobs reveals scheduled and one-off workload definitions as infrastructure reconnaissance.

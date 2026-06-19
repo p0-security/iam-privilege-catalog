@@ -1,0 +1,11 @@
+name: Microsoft.Storage location notification hooks
+description: Internal location-scoped notification/coordination actions that other Azure providers or the platform invoke to signal Microsoft.Storage of cross-resource events.
+scope: LOW
+notes: Platform coordination callbacks; they do not directly read, write, or delete organizational assets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: An internal notification hook signaling that Network Security Perimeter updates are available; it conveys no data and effects no attacker-exploitable change in isolation.

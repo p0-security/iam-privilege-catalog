@@ -1,0 +1,13 @@
+name: API Management service
+description: An Azure API Management (APIM) service instance is a managed API gateway that fronts, secures, and routes traffic to a business function's backend APIs, holding gateway policies, named-value secrets, certificates, custom domains, and developer/subscription identities.
+scope: HIGH
+notes: The gateway sits on the public-facing path of an organizational function's APIs and can hold credential material (named values, certificates, subscription keys) and a managed identity; treat it as a single-function production service of HIGH sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - takeover:domain
+      - impact:defacement
+    notes: Setting/updating/removing custom domain names rebinds which domain routes to the gateway, enabling domain takeover and alteration of the public-facing API endpoint.

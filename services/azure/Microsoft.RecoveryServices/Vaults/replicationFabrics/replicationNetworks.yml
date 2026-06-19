@@ -1,0 +1,12 @@
+name: Site Recovery replication networks
+description: "Azure Site Recovery replication networks within a vault's replication fabric: the network resources and mappings discovered/configured for disaster-recovery failover."
+scope: LOW
+notes: Reveals network topology and mappings used for failover; reconnaissance value for understanding the target network.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reads the networks within a Site Recovery replication fabric, inventorying network topology and failover mappings (network reconnaissance).

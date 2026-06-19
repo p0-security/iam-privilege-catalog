@@ -1,0 +1,12 @@
+name: App Service Plan metric definitions
+description: The Azure Monitor metric definition schema (which metrics exist) for an App Service Plan.
+scope: LOW
+notes: Exposes the monitoring metric schema, not metric values or stored data.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Returns the available metric definitions (monitoring schema) for the plan, exposing only metric metadata, not values.

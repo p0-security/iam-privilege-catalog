@@ -1,0 +1,13 @@
+name: Log Analytics WireData table
+description: A Log Analytics workspace table holding network wire-data telemetry (connections, protocols, local/remote IPs, ports, byte volumes by host/process). Reading it is a data-plane query over collected monitoring logs.
+scope: MEDIUM
+notes: Connection-level network telemetry provides a detailed map of host communications and topology.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Exports network flow telemetry (IPs, ports, protocols, volumes), enabling detailed network discovery.

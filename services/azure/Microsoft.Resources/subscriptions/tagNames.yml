@@ -1,0 +1,20 @@
+name: Subscription Tag
+description: Subscription tag names are organizational metadata keys defined at the subscription level, used for governance, cost allocation, automation, and tag-based policy targeting.
+scope: LOW
+notes: Tags are low-sensitivity operational metadata; their main relevance is to governance, billing, and tag-driven policy/automation logic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deletes a subscription tag name, removing operational metadata that may underpin governance, cost tracking, automation, or policy targeting.
+  read:
+    risks:
+      - discovery:metadata
+    notes: Gets or lists subscription tag names, enumerating the operational metadata/tag schema for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Adds a subscription tag name, writing operational metadata that may drive tag-based governance, cost allocation, automation, or policy targeting.

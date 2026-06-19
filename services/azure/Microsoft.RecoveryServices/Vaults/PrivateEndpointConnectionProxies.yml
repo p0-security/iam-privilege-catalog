@@ -1,0 +1,22 @@
+name: Vault private endpoint connection proxies
+description: Private endpoint connection proxies for a Recovery Services vault — the connectivity helper objects that establish/manage the vault's private endpoint (Private Link) network path for backup and replication services.
+scope: HIGH
+notes: Controls private network connectivity to a vault that protects organizational backup/recovery data for a service. The displayName/description on several of these operations are mislabeled copy-paste artifacts; classification follows the verb.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the private endpoint connection proxy removes the vault's private network connectivity component, disrupting private access to backup/recovery services (DoS-like network destruction). DisplayName is mislabeled boilerplate.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the proxy enumerates the vault's private-endpoint network connectivity configuration (network reconnaissance). DisplayName ('Get all protectable containers') is a mislabeled copy-paste artifact.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating the proxy can establish or alter a private-endpoint network path to the vault, enabling network movement to the resource and manipulation of its connectivity configuration. DisplayName is a mislabeled copy-paste artifact.

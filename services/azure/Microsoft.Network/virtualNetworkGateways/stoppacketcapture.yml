@@ -1,0 +1,13 @@
+name: Virtual network gateway
+description: An Azure Virtual Network Gateway provides VPN (site-to-site / point-to-site) and ExpressRoute connectivity between an Azure VNet and on-premises or remote networks. It is the production network ingress/egress edge for hybrid connectivity.
+scope: HIGH
+notes: A gateway is the trust boundary for a single VNet's hybrid/remote connectivity; control of it can expose or sever access to an entire private network and its hosted services.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+      - collection:data
+    notes: Stops the packet capture and writes the captured traffic to the specified output (SAS URL), finalizing exfiltration of intercepted network data.

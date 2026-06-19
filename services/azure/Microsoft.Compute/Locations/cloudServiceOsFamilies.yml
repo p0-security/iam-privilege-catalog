@@ -1,0 +1,11 @@
+name: CloudService OS Families
+description: The catalog of guest OS families that can be specified in a Cloud Service's XML service configuration (.cscfg).
+scope: PUBLIC
+notes: Static platform reference data identical across all tenants; not organization-specific.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the static public catalog of selectable guest OS families; reference data tied to no tenant resource, conferring no attacker capability in isolation.

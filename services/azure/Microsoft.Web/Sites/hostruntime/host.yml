@@ -1,0 +1,27 @@
+name: Function App runtime
+description: The Function App runtime control surface, where actions such as syncing triggers and adding, invoking, or deleting functions are performed.
+scope: HIGH
+notes: Runtime actions execute code as the app's managed identity and can alter or destroy deployed function logic.
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+      - impact:hijack
+      - destruction:data
+    notes: Adds/invokes/deletes functions and syncs triggers, enabling arbitrary code execution as the app identity, tampering with function logic, hijacking compute, and deleting deployed functions.
+    links:
+      - https://azure.permissions.cloud/iam/Microsoft.Web
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reads function host runtime status/configuration, providing reconnaissance of the host without returning key material.
+    name: Web App hostruntime host status
+    parent:
+      description: Function App host runtime status and configuration; the read returns operational host state without the master or function keys (exposed via dedicated endpoints).
+      notes: Returns only non-secret host operational/runtime state.
+    links:
+      - https://azure.permissions.cloud/iam/microsoft.web
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations

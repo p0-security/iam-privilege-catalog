@@ -1,0 +1,21 @@
+name: Microsoft Sentinel threat intelligence
+description: Microsoft Sentinel threat-intelligence indicators (IOCs) — the curated set of known-bad indicators (IPs, domains, hashes, etc.) that feed Sentinel analytics rules and detections.
+scope: MEDIUM
+notes: This is the SOC's detection content; reading it reveals defensive coverage and modifying it directly affects what the SIEM can detect.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an indicator removes a detection signature, blinding the SIEM to matching attacker activity.
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading TI inventories the IOCs the SOC tracks, letting an attacker learn detection coverage and tailor evasion.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Updating an indicator can neutralize/weaken an IOC that would otherwise flag attacker infrastructure (defense) and poison the detection dataset (manipulation).

@@ -1,0 +1,22 @@
+name: Integration Service Environment
+description: An Integration Service Environment (ISE) is a dedicated, VNet-injected isolated hosting environment for running Logic Apps workflows and managed-API connectors.
+scope: HIGH
+notes: The ISE is a production integration host supporting an organizational integration function; its compromise affects all workflows running within it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the ISE tears down the dedicated host for every workflow and connector running in it, destroying infrastructure and taking all hosted integrations offline.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the ISE configuration (SKU, VNet/network injection, capacity, state) for read-only infrastructure reconnaissance; exposes no payload data or secrets.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating or updating an ISE alters the integration host's configuration (network/capacity) and provisions a costly dedicated premium environment, driving significant spend.

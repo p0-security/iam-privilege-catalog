@@ -1,0 +1,13 @@
+name: Log Analytics table data (M365 Apps Admin Center telemetry)
+description: A Log Analytics workspace table (MAOfficeAppSessionsNRT) holding Microsoft 365 Apps Admin Center near-real-time Office app-session telemetry ingested into Azure Monitor.
+scope: MEDIUM
+notes: Monitoring/diagnostics-tier telemetry; may contain user/device usage identifiers but is not a primary production data store or secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns the stored Office app-session log rows (exfiltration:logs) and lets an attacker inventory the logged session activity (discovery:logs).

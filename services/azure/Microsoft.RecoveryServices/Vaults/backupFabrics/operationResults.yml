@@ -1,0 +1,11 @@
+name: Refresh containers operation results
+description: An async operation-result endpoint that returns the status of a refresh-containers operation in a Recovery Services vault.
+scope: LOW
+notes: Transient status-tracking endpoint carrying no sensitive asset data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns the status of a refresh-containers operation; an inert async status poll with no actionable attacker capability.

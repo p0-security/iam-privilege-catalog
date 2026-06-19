@@ -1,0 +1,11 @@
+name: SQL server firewall rule operation results
+description: The operation-result/status endpoint for an Azure SQL server firewall-rule operation.
+scope: LOW
+notes: Returns only operation result/status; exposes no firewall configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns the result/status of a firewall-rule operation; an inert operation-status poll carrying no actionable capability.

@@ -1,0 +1,17 @@
+name: Information protection policies
+description: Information Protection Policies define data sensitivity/classification labels and protection rules (e.g., SQL data discovery and classification) used by Microsoft Defender for Cloud to govern how sensitive data is labeled and protected.
+scope: MEDIUM
+notes: These are a data-governance defense control rather than a primary data store; their config reveals how sensitive data is classified but does not itself contain the data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading the information protection / classification policies lets an attacker inventory how sensitive data is labeled and protected, revealing the policy configuration and weak points.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Updating the information protection policies lets an attacker weaken or alter the data-classification/labeling defense and manipulate the security configuration.

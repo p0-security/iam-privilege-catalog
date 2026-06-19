@@ -1,0 +1,20 @@
+name: APIM operation tag associations
+description: Associations between tags and an API operation within an API Management workspace. Tags are non-sensitive organizational metadata used to group, filter, and categorize operations.
+scope: LOW
+notes: Tags carry no secrets or backend data; their main value to an attacker is reconnaissance or minor operational disruption of tag-based grouping.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Detaches a tag from an operation, deleting operationally-used metadata associations.
+  read:
+    risks:
+      - discovery:metadata
+    notes: Lists/gets tags associated with an API operation, enabling inventory of operational metadata only.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Assigning a tag to an operation alters operational metadata associations, a low-impact configuration write.

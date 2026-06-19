@@ -1,0 +1,24 @@
+name: Azure SQL Managed Instance Start-Stop schedule
+description: The automated power-management (start/stop) schedule configuration for an Azure SQL Managed Instance, controlling when the production database instance is automatically started or stopped.
+scope: HIGH
+notes: Controls availability of a production database resource supporting a single organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Deleting the start-stop schedule removes power-management automation, altering operational lifecycle behavior and potentially affecting availability of the production instance.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Getting or listing start-stop schedules only inventories the instance's power-management configuration and operational windows; read-only reconnaissance with no data or secret exposure.
+  write:
+    risks:
+      - impact:dos
+      - impact:manipulation
+      - impact:spend
+    notes: Creating or updating a start-stop schedule lets an attacker schedule the instance to stop (denial of service for the database) or keep it running to drive cost, while altering operational availability configuration.

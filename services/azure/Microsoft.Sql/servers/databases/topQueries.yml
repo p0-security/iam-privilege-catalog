@@ -1,0 +1,12 @@
+name: Database top queries query text
+description: The raw SQL statement text of the top queries executed against an Azure SQL database, retrieved by query ID via Query Performance Insight.
+scope: MEDIUM
+notes: Query text frequently embeds literal values (filter predicates, INSERT/VALUES) and reveals schema, so it can leak both stored-data fragments and structure for a single database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Lists aggregated statistics for the top queries, providing read-only reconnaissance of the database query workload without returning stored data or query text.

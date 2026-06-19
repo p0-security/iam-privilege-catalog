@@ -1,0 +1,12 @@
+name: Arc-connected cluster apps (workload) API
+description: The apps API group on an Azure Arc-connected Kubernetes cluster, which holds the cluster's workload controllers (Deployments, StatefulSets, DaemonSets, ReplicaSets) and their full pod-template specs.
+scope: HIGH
+notes: Pod-template specs routinely embed environment variables, image references, and configuration that can disclose credentials and operational data, so reading this group exposes the running workloads of a production cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Version-scoped read of apps/v1beta1 workload controllers (Deployments/StatefulSets), inventorying running workload configuration; equivalent to the unversioned apps read.

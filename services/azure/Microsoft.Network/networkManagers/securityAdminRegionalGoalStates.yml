@@ -1,0 +1,13 @@
+name: Network Manager security admin regional goal state
+description: The deployed security admin goal state for an Azure Virtual Network Manager in a given region - the intended/enforced centrally-managed network security rule posture (NSG-overriding allow/deny rules) for that region.
+scope: LOW
+notes: Represents the authoritative desired enforced security posture across managed VNets in a region.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading the regional goal state exposes the enforced network security rule posture for the region, useful reconnaissance for identifying defense weak points.

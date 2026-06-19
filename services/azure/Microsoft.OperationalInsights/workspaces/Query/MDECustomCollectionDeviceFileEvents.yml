@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (MDECustomCollectionDeviceFileEvents)
+description: A single Azure Log Analytics (Microsoft.OperationalInsights) workspace query table. Data-plane reads return the actual ingested log/telemetry records stored in that table within the monitoring workspace.
+scope: MEDIUM
+notes: This table holds Microsoft Defender for Endpoint device file-event (EDR) telemetry; reading it discloses endpoint detection coverage useful for evasion, but as a read it does not disable the defense.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Returns Defender for Endpoint device file-event telemetry (file paths, hashes, host activity), exporting EDR log content and exposing detection scope for evasion.

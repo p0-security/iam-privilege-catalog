@@ -1,0 +1,12 @@
+name: Kubernetes PodSecurityPolicies
+description: PodSecurityPolicies are cluster-scoped Kubernetes admission-control objects that constrain which pod security attributes (privileged mode, host namespaces, hostPath volumes, capabilities, runAsRoot) are permitted when workloads are admitted to the cluster.
+scope: CRITICAL
+notes: These are cluster-wide security-enforcement guardrails; weakening or bypassing them enables container breakout to node and cluster-admin level compromise.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+    notes: The 'use' verb authorizes a subject to run pods governed by that PodSecurityPolicy; on a permissive policy this lets an attacker schedule privileged/host-access pods, enabling node breakout and privilege escalation.

@@ -1,0 +1,12 @@
+name: Azure Automation TypeFields
+description: Field/type schema definitions of object data types (imported .NET module types) used by the Azure Automation engine for type introspection in runbooks.
+scope: LOW
+notes: Purely structural schema metadata with no access to data, code, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Reads the field definitions of object data types, exposing only schema/metadata for reconnaissance with no data, code, or credential disclosure.

@@ -1,0 +1,12 @@
+name: Log Analytics OEPAirFlowTask table
+description: A Log Analytics workspace query table holding Azure Data Manager for Energy (OEP/OSDU) Airflow task logs, recording workflow/orchestration task execution telemetry for the energy data platform.
+scope: MEDIUM
+notes: Operational application log data for a single platform function; MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Read returns Airflow task-execution log records, exporting operational workflow telemetry for the energy data platform.

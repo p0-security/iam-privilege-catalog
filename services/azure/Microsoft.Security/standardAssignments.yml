@@ -1,0 +1,21 @@
+name: Defender for Cloud security standard assignments
+description: Microsoft Defender for Cloud standard assignments bind a security/compliance standard (a set of controls/assessments) to a scope, governing which posture-assessment controls are evaluated and monitored there.
+scope: MEDIUM
+notes: These are security-monitoring/posture-management configuration objects, not IAM access-control policies; their sensitivity is that of a defensive monitoring control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a standard assignment removes enforcement of a security/compliance standard from a scope, disabling a posture-assessment defense and reducing detection coverage.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading standard assignments enumerates which security/compliance standards are enforced on a scope, revealing the defensive posture configuration and gaps an attacker could exploit.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating a standard assignment lets an attacker alter or weaken which security/compliance standard is enforced on a scope, degrading posture-assessment detection.

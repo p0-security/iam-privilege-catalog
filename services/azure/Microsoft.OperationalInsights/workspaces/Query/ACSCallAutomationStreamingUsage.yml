@@ -1,0 +1,13 @@
+name: Log Analytics workspace table data (ACSCallAutomationStreamingUsage)
+description: A per-table data-plane query permission on a Log Analytics workspace; this one returns rows of the ACSCallAutomationStreamingUsage table, which records Azure Communication Services call-automation streaming usage/metering telemetry.
+scope: MEDIUM
+notes: Operational usage/metering log data; monitoring/log-data sensitivity tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reads ACS call-automation usage log rows, exporting the stored telemetry and enumerating logged usage events; no specific identity/network recon value, so generic discovery:logs applies.

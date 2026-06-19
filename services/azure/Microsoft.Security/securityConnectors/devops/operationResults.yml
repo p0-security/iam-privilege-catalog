@@ -1,0 +1,11 @@
+name: Defender for DevOps long-running operation result
+description: The status/result object for an asynchronous long-running Defender for DevOps connector operation.
+scope: LOW
+notes: Async operation-status polling endpoint; carries no sensitive asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status of a long-running DevOps operation; an inert async-status read with no meaningful attacker capability in isolation.

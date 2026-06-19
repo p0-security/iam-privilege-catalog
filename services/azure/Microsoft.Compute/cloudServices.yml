@@ -1,0 +1,23 @@
+name: Azure Cloud Service
+description: An Azure Cloud Service (classic/extended) is a managed compute deployment that hosts an application across one or more role instances (worker/web roles) on platform-managed VMs.
+scope: HIGH
+notes: A production compute resource supporting a single organizational function; control-plane operations here can disrupt or hijack the hosted application.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the entire Cloud Service tears down the compute infrastructure and takes down the hosted service.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane read returns the configuration/properties of the Cloud Service, enabling infrastructure inventory; discloses no secret material.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - impact:spend
+    notes: Create/update lets an attacker alter the deployment configuration/package (manipulation) and provision compute to run their own workloads (hijack) at organizational cost (spend).

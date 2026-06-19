@@ -1,0 +1,11 @@
+name: Cosmos DB Cassandra table throughput migration operation results
+description: Tracks the status of an asynchronous throughput-tier migration (to manual throughput) for a Cosmos DB Cassandra table.
+scope: LOW
+notes: An operation-status polling endpoint; it exposes only long-running-operation outcome state, not throughput config, data, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads only the status of a prior async throughput-migration operation; inert in isolation, conveying no data, configuration, or credentials.

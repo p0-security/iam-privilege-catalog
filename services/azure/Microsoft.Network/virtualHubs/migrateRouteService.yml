@@ -1,0 +1,13 @@
+name: Virtual Hub
+description: A Virtual Hub is the central, Microsoft-managed routing component of an Azure Virtual WAN that interconnects VNets, branch sites, VPN/ExpressRoute gateways and the firewall, hosting the hub route tables.
+scope: HIGH
+notes: Sits at the core of an organization's WAN connectivity fabric; compromise affects all spokes attached to the hub but is scoped to the networking function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Executing the hub router migration mutates the active routing service, altering operational routing behavior and disrupting hub connectivity during/after migration.

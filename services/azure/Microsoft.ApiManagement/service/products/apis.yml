@@ -1,0 +1,22 @@
+name: API Management product APIs
+description: Represents the association of APIs to an API Management product. A product groups one or more APIs and is published to subscribers with shared access/subscription terms through the API gateway.
+scope: HIGH
+notes: Controls which APIs are exposed and reachable through a product's subscriptions on a production API gateway; tampering affects access scoping but the resource itself does not hold secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Removing an API from a product severs subscribers' access to that API through the product, disrupting consumers (DoS-like) while altering the gateway's operational access configuration.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read-only listing of the APIs bundled into a product; enumerates the gateway's exposed API surface for reconnaissance without returning data or secrets.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Adding an API to a product alters which APIs are exposed and reachable through the product's subscriptions, manipulating the gateway's operational access configuration.

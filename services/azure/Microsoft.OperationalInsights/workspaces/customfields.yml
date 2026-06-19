@@ -1,0 +1,29 @@
+name: Log Analytics workspace custom fields
+description: Custom field (log parsing/extraction) definitions in a Log Analytics workspace that determine how ingested log records are parsed into structured schema fields.
+scope: MEDIUM
+notes: Custom fields shape how log data is structured and surfaced; altering or removing them affects field extraction that downstream queries and detections rely on.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Extracting/defining custom fields alters how ingested log records are parsed and structured, manipulating the operational log schema and data presentation.
+    name: Log Analytics workspace
+    parent:
+      description: An Azure Log Analytics workspace is the central data store and management resource for Azure Monitor logs, collecting and retaining telemetry/log data from agents, resources, and Microsoft Sentinel.
+      notes: Monitoring/diagnostics asset; it concentrates security and operational telemetry, so tampering with or destroying it enables anti-forensic evasion, but it is scoped to a monitoring function rather than to primary production data or identity controls.
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting a custom field removes a schema/parsing definition used to extract structured fields from logs, destroying operational metadata that downstream queries and detections depend on.
+  read:
+    risks:
+      - discovery:metadata
+    scope: LOW
+    notes: Reading a custom field returns the parsing/schema definition, inventorying the workspace's log field/schema metadata without exposing log data.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Create/update of a custom field changes how ingested logs are parsed/extracted into schema fields, manipulating how monitoring data is structured and interpreted.

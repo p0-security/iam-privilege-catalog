@@ -1,0 +1,11 @@
+name: IoT aggregated security recommendations
+description: Aggregated IoT security recommendations are the posture findings produced by the IoT security solution, listing known weaknesses and misconfigurations across the IoT estate.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading recommendations reveals unremediated weaknesses and misconfigurations, giving an attacker a ready-made list of targets.

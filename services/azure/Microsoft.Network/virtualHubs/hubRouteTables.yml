@@ -1,0 +1,23 @@
+name: Virtual Hub Route Table
+description: A Virtual Hub Route Table holds the routing rules and next-hops that steer traffic across a Virtual WAN hub between connected VNets, branches, and gateways.
+scope: HIGH
+notes: Governs inter-network routing across the Virtual WAN hub.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a hub route table removes routing across the Virtual WAN hub, breaking connectivity between connected networks.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading a hub route table only inventories routing topology and next-hops across the WAN hub, which is network reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a hub route table reprograms routes across the Virtual WAN, enabling traffic redirection/interception and reach into additional connected networks.

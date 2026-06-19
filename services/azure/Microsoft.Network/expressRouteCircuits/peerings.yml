@@ -1,0 +1,22 @@
+name: ExpressRoute circuit peerings
+description: An ExpressRoute circuit peering defines the BGP routing relationship (private/Microsoft peering) over an ExpressRoute circuit, including peer ASNs, VLAN IDs, peer IP ranges, and advertised prefixes.
+scope: HIGH
+notes: Peering configuration is the routing control for a production hybrid-connectivity network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a peering removes the BGP routing path for the circuit, severing private/hybrid connectivity and causing denial of service for dependent production services.
+  read:
+    risks:
+      - discovery:network
+    notes: Control-plane GET returning BGP/routing configuration (peer ASN, VLAN, prefixes), enabling reconnaissance of the private network routing topology.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a peering alters BGP routing/advertised prefixes on the private circuit, enabling traffic redirection/interception and extension of network reach onto the connected network.

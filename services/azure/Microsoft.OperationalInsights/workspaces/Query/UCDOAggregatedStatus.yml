@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (UCDOAggregatedStatus)
+description: A Log Analytics workspace query table is a data-plane view of a specific log table inside an Azure Monitor / Log Analytics workspace. Reading it returns the actual row-level log records ingested into that table.
+scope: LOW
+notes: This table holds only aggregated Microsoft Connected Cache / Delivery Optimization status statistics (coarse summarized counters), not sensitive row-level content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Returns only aggregated Delivery Optimization status counters; this is low-sensitivity log reconnaissance with little exportable sensitive content.

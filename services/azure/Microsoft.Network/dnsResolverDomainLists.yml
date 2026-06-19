@@ -1,0 +1,22 @@
+name: DNS Resolver domain list
+description: A DNS Resolver Domain List is the set of allow/block domain entries that back DNS Resolver (DNS security) policy filtering rules.
+scope: HIGH
+notes: The domain entries are the operational ruleset that drives DNS-based filtering defenses; altering or deleting them directly weakens that protection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a domain list removes the allow/block domain set backing DNS security rules, disabling or degrading the DNS filtering defense that depends on it.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Read-only get of a domain list discloses the configured allow/block domain entries used by DNS security rules, providing reconnaissance of the network defense configuration.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating a domain list alters the allow/block domain set enforced by DNS security policies, letting an attacker permit malicious C2 or exfiltration domains or unblock denied ones, manipulating the configuration and weakening DNS filtering defenses.

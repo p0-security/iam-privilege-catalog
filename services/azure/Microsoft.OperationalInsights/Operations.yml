@@ -1,0 +1,11 @@
+name: OperationalInsights REST API operations list
+description: Lists all available OperationalInsights resource-provider REST API operations.
+scope: PUBLIC
+notes: Static provider API catalog; effectively public reference metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns the static catalog of provider operations, conveying no organizational data or attacker capability.

@@ -1,0 +1,23 @@
+name: Virtual Network Appliance
+description: An Azure Virtual Network Appliance (in-path network virtual appliance such as a firewall/router/NVA) that handles, routes, and inspects traffic within a virtual network.
+scope: HIGH
+notes: In-path production network infrastructure; its configuration defines traffic flow and inline security enforcement.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting an in-path virtual network appliance removes a network traffic-handling component, destroying network infrastructure and disrupting connectivity for dependent workloads (DoS).
+  read:
+    risks:
+      - discovery:network
+    notes: Getting a virtual network appliance returns its routing/traffic-handling configuration, enabling reconnaissance of a production network component and its topology without modification.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+      - impact:spend
+    notes: Creating/updating an in-path appliance lets an attacker alter how traffic is routed/inspected (manipulation), reroute or expose traffic to additional resources on the network (network movement), and provision billable appliance infrastructure (spend).

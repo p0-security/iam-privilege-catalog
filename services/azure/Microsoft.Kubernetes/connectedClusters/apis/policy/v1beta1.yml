@@ -1,0 +1,12 @@
+name: Arc-connected Kubernetes policy API group
+description: The Kubernetes policy API group on an Azure Arc-connected cluster, containing PodDisruptionBudgets and legacy PodSecurityPolicies that govern workload availability and pod-security constraints.
+scope: LOW
+notes: This is the Kubernetes operational/pod-security 'policy' group, not IAM access-control policy; reads expose configuration only.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read/list of policy/v1beta1 lists PodDisruptionBudgets and PodSecurityPolicies, exposing pod-security and disruption-budget configuration.

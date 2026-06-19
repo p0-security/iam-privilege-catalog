@@ -1,0 +1,12 @@
+name: Public IP prefix
+description: A Public IP Prefix is a reserved, contiguous range of static public IP addresses that can be drawn from to assign predictable public IPs to Azure resources.
+scope: HIGH
+notes: A supporting network addressing resource; its configuration is non-secret network metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joining lets an attacker attach a resource to the reserved public address range, exposing/extending that resource's reachability on the public network.

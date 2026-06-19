@@ -1,0 +1,21 @@
+name: Kubernetes role bindings (Arc connected cluster)
+description: RoleBinding objects in the Kubernetes RBAC API of an Azure Arc connected cluster. They grant the permissions of a (cluster)role to specific subjects (users, groups, service accounts) within a namespace.
+scope: CRITICAL
+notes: RoleBindings are the assignment graph mapping identities to permissions; modifying them directly changes who holds what access in the cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a RoleBinding removes an RBAC grant, destroying access-control policy and revoking authorized principals' access (denial-of-access).
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading/listing RoleBindings reveals which subjects hold which roles, exposing the access-control assignment graph and escalation targets.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating or updating a RoleBinding binds a role (including a ClusterRole) to an attacker-chosen subject, directly granting elevated privileges to a controlled identity.

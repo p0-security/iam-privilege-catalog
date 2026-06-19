@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (Entra ID risky agents)
+description: A Log Analytics workspace data-plane table storing Entra ID agent identities flagged as risky. Read access returns the table's log records.
+scope: MEDIUM
+notes: Provides a curated inventory of vulnerable agent identities and their risk posture.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading the table exports flagged-identity records (exfiltration:logs) and enumerates risky agent identities useful for targeting (discovery:account).

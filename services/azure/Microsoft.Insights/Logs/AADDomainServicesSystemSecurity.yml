@@ -1,0 +1,12 @@
+name: Azure AD Domain Services system-security log table
+description: A Log Analytics data-plane table holding Azure AD Domain Services system-security event audit records from the managed domain.
+scope: MEDIUM
+notes: Monitoring/security telemetry exposing security state and detection coverage of the managed domain.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: This data-plane read exports system-level security event audit records, exfiltrating sensitive security telemetry useful for understanding defenses.

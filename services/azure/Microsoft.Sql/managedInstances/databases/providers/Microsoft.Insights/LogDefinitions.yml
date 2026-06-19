@@ -1,0 +1,12 @@
+name: Managed Instance Database Log Definition
+description: The set of available Azure Monitor diagnostic log categories (log definition schema) for a database on an Azure SQL Managed Instance.
+scope: LOW
+notes: Read-only logging schema; exposes no log content or stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Listing the available log definitions enumerates which diagnostic log categories exist for managed instance databases, low-value logging-coverage reconnaissance without access to log content.

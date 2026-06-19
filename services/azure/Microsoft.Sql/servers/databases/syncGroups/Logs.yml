@@ -1,0 +1,11 @@
+name: Azure SQL Sync Group logs
+description: Azure SQL Data Sync group logs are the operational log entries recording synchronization activity and errors for a SQL Data Sync group on a database.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Listing sync group logs only enumerates operational data-sync log entries, supporting reconnaissance of replication activity.

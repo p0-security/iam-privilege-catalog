@@ -1,0 +1,12 @@
+name: Recovery Services backup tiering cost operation results
+description: Async operation-result endpoint that returns the result of a tiering-cost operation against a Recovery Services vault.
+scope: LOW
+notes: May surface the computed tiering cost figures alongside operation-completion status.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:finance
+    notes: Returns the result of a tiering-cost operation; per the description it returns the result of the tiering-cost computation, which exposes the cost/financial figures (financial discovery).

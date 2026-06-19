@@ -1,0 +1,21 @@
+name: Defender for Cloud security connector
+description: A Microsoft Defender for Cloud security connector is a control-plane resource that onboards an external/multicloud environment (AWS/GCP, or via the devops child a DevOps platform) into Defender for Cloud security monitoring, defining the offerings, scope, and accounts that are scanned for security posture and threats.
+scope: MEDIUM
+notes: "This is a security-monitoring/defense configuration asset. Its sensitivity is moderate: tampering weakens detection coverage rather than directly exposing production data or credentials."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the connector removes Defender for Cloud monitoring of the onboarded environment, disabling threat detection and blinding incident response.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the connector returns its onboarding/monitoring configuration, letting an attacker inventory which environments are monitored and how Defender for Cloud is wired up.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Updating the connector lets an attacker disable or narrow Defender for Cloud monitoring offerings/scope, weakening the defense mechanism while altering its operational configuration.

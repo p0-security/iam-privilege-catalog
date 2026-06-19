@@ -1,0 +1,13 @@
+name: Gremlin graph throughput setting
+description: The provisioned throughput (RU/s) capacity configuration for a Gremlin graph within a Cosmos DB account. It governs the billed capacity and the performance/availability characteristics of the production graph.
+scope: HIGH
+notes: Throughput controls both billing (metered RU/s) and service availability; under-provisioning throttles the production workload.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - impact:spend
+    notes: Migrating to manual throughput lets an attacker fix RU/s at a level that either inflates cost or caps capacity to throttle and degrade the production graph.

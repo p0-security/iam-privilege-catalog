@@ -1,0 +1,12 @@
+name: Azure assessment recommendation table
+description: A Log Analytics / Azure Monitor table holding Azure assessment/recommendation log records (security and configuration posture findings). This is a monitoring/diagnostics data-plane asset.
+scope: MEDIUM
+notes: Assessment findings can reveal misconfigurations and security weaknesses an attacker could target.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read of the AzureAssessmentRecommendation table exports posture/recommendation findings that disclose configuration weaknesses.

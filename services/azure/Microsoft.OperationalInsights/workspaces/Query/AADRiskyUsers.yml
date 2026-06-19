@@ -1,0 +1,13 @@
+name: Log Analytics AADRiskyUsers table
+description: A Log Analytics workspace data-plane table holding Entra ID Identity Protection risky-user records (users flagged as compromised/at-risk).
+scope: MEDIUM
+notes: Monitoring/diagnostics security-detection telemetry; MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading this table exports Identity Protection risk state and enumerates flagged user accounts, pinpointing weak/compromised targets and revealing whether attacker-controlled accounts are detected.

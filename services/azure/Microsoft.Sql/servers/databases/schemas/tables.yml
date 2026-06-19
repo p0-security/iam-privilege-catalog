@@ -1,0 +1,12 @@
+name: Azure SQL database table
+description: Represents a table object within a schema of an Azure SQL database; this control-plane read returns the table definition/structure (schema), not row data.
+scope: MEDIUM
+notes: Reveals the structural layout of where data resides in a production database, aiding targeted exfiltration; does not return row contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Getting a database table returns its schema/structure, enabling an attacker to inventory stored-data objects and map sensitive data locations without reading row contents.

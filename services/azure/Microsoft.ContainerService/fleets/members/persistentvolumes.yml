@@ -1,0 +1,22 @@
+name: Kubernetes PersistentVolumes (AKS fleet member)
+description: Kubernetes PersistentVolume objects within a fleet member (AKS) cluster, accessed via the Azure-managed Kubernetes data plane. A PV is a cluster-scoped storage object representing a piece of provisioned backing storage (disk, file, NFS, CSI).
+scope: HIGH
+notes: PV specs describe backend storage references and reclaim policies; deletion of bound PVs can destroy the underlying data depending on the reclaim policy.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Deleting cluster-scoped PVs removes the storage objects backing workloads and, under a Delete reclaim policy, destroys the underlying data, disrupting any pods relying on that storage.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reads/lists cluster-scoped PVs, enumerating backing storage references (disk handles, NFS/CSI sources, paths), capacities, and reclaim policies, mapping where data resides.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating cluster-scoped PVs lets an attacker define volumes pointing at arbitrary or attacker-controlled backing storage (or alter reclaim/binding policy), manipulating the cluster's storage configuration.

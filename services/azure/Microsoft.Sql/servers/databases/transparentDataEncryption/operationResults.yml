@@ -1,0 +1,11 @@
+name: Azure SQL database transparent data encryption operation result
+description: The transient status/result of an asynchronous transparent data encryption (TDE) configuration operation on an Azure SQL database.
+scope: LOW
+notes: Returns only async operation progress for TDE configuration changes; exposes no key material or ciphertext.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading in-progress TDE operation results returns only the async operation status (no keys, ciphertext, or configuration), so it carries no direct attacker capability despite the encryption-related name.

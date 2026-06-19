@@ -1,0 +1,23 @@
+name: Private Link service private endpoint connection
+description: A connection record on a Private Link service representing a consumer private endpoint's link request and its approval state, governing which private endpoints can reach the service.
+scope: HIGH
+notes: Sensitivity is that of a single service's private connectivity, not a tenant-wide control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting an established connection severs a consumer's private-link path to the service, destroying a network connection and denying service to legitimate consumers.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading a connection definition inventories which consumer endpoints are connected or pending to the Private Link service and their approval state; read-only network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating (e.g. approving) a connection can attach an attacker-controlled private endpoint to the service, granting private-network access to an otherwise-isolated service and altering approval state.

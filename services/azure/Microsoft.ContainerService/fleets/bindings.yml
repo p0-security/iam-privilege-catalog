@@ -1,0 +1,13 @@
+name: Fleet Kubernetes pod bindings
+description: Kubernetes Binding objects inside an Azure Fleet hub cluster; a binding assigns a Pod to a specific Node, the write subresource the scheduler uses to place workloads.
+scope: HIGH
+notes: Binding is a write-only scheduling primitive; controlling it lets an attacker dictate where pods run, bypassing the scheduler.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Writing bindings force-schedules pods onto chosen nodes, manipulating placement and enabling attacker-controlled workload placement on targeted (e.g. privileged or label-restricted) nodes.

@@ -1,0 +1,22 @@
+name: Kubernetes ClusterRoleBindings (Fleet)
+description: ClusterRoleBindings are cluster-wide Kubernetes RBAC objects that bind subjects (users, groups, service accounts) to ClusterRoles, granting cluster-scoped permissions across an AKS Fleet's member clusters.
+scope: CRITICAL
+notes: Cluster-wide access-control; writing grants cluster-admin (privilege escalation), making this the most security-sensitive RBAC primitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting ClusterRoleBindings removes cluster-wide RBAC grants, destroying access-control policy and revoking legitimate operators' access (denial-of-access).
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading ClusterRoleBindings inventories cluster-wide RBAC grants and the identities holding them, revealing privilege relationships and escalation targets.
+  write:
+    risks:
+      - escalation:privilege
+      - persistence:account
+    notes: Creating/updating a ClusterRoleBinding can bind any subject (including attacker-controlled identities) to cluster-admin, the canonical Kubernetes privilege escalation and a durable persistence mechanism.

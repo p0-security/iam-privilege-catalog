@@ -1,0 +1,12 @@
+name: Azure Automation deleted account
+description: A soft-deleted Azure Automation account record retained for potential recovery.
+scope: LOW
+notes: Read-only control-plane metadata about a deleted resource; no data, code, or credentials exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading/enumerating soft-deleted Automation accounts inventories recoverable automation infrastructure metadata for reconnaissance.

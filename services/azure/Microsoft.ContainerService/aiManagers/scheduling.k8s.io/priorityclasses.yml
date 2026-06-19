@@ -1,0 +1,21 @@
+name: Kubernetes PriorityClasses
+description: Kubernetes PriorityClasses in an AKS-managed aiManagers cluster, which define scheduling priority values and preemption behavior used by the scheduler to order and evict pods.
+scope: MEDIUM
+notes: Scheduling configuration is non-sensitive operational metadata, but manipulating it can affect workload placement and availability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+    notes: Deleting PriorityClasses removes scheduling configuration that pods reference, breaking scheduling/admission for dependent workloads and disrupting operations.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading PriorityClasses only inventories scheduling configuration, low-value infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Creating/updating a PriorityClass alters scheduling policy; a high or preempting priority lets an attacker evict and starve legitimate workloads while favoring their own pods.

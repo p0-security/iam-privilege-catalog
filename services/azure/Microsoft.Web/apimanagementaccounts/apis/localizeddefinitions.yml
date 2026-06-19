@@ -1,0 +1,20 @@
+name: API localized definitions (legacy connector API descriptors)
+description: Localized definitions are the localized descriptor/schema metadata (display names, descriptions, operation contracts) for legacy API Management account / managed-connector APIs.
+scope: MEDIUM
+notes: Operational descriptor metadata for a single integration; not a data store or credential.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting the localized definition removes the API's descriptor/schema metadata that clients and tooling rely on operationally.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the localized definition inventories the API's configuration/operation surface, providing reconnaissance of the integration.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the localized definition lets an attacker alter the API's operational descriptor/contract, changing how the API behaves or is presented to consumers.

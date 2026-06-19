@@ -1,0 +1,22 @@
+name: App Service network configuration
+description: The network configuration of an Azure App Service / Web App, including VNet integration, outbound settings, and IP access restrictions.
+scope: HIGH
+notes: Network configuration governs the production web app's connectivity and access-restriction (firewall) posture.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deletes the App Service network/VNet-integration config, removing network components and disrupting the production service's connectivity to its dependencies.
+  read:
+    risks:
+      - discovery:network
+    notes: Reads the App Service network/VNet-integration configuration, inventorying network topology and access-restriction settings of a production web app.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Updates VNet integration/network config, letting an attacker alter connectivity and attach the app to attacker-reachable networks to pivot to additional resources.

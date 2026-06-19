@@ -1,0 +1,12 @@
+name: API Management workspace links
+description: A workspace link is a read-only association resource describing the linkage between an API Management service and its workspaces.
+scope: LOW
+notes: Exposes only topology/linkage metadata between a service and its workspaces.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading workspace links enumerates the service-to-workspace topology, providing infrastructure reconnaissance only.

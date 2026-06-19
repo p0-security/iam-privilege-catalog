@@ -1,0 +1,12 @@
+name: Site Recovery protectable items
+description: Azure Site Recovery protectable items are read-only enumerations of source machines/VMs that are eligible to be brought under replication protection within a protection container.
+scope: LOW
+notes: Discloses an inventory of candidate infrastructure for disaster recovery.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing protectable items inventories the source VMs/machines eligible for replication, providing infrastructure reconnaissance.

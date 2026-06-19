@@ -1,0 +1,12 @@
+name: Kubernetes SelfSubjectAccessReviews (AKS)
+description: Kubernetes SelfSubjectAccessReview is a write-only authorization-query API in an AKS managed cluster that reports only whether the calling identity itself may perform a given action. Data-plane resource accessed through the AKS Kubernetes API.
+scope: LOW
+notes: Limited to self-introspection of the caller's own effective permissions; reveals no other principals' policies.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Creating a SelfSubjectAccessReview lets the caller enumerate its own effective permissions, mapping what the compromised identity can do.

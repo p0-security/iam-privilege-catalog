@@ -1,0 +1,21 @@
+name: Storage account
+description: An Azure Storage account is a primary production data store holding blobs, files, queues, and tables, with control-plane configuration for networking, encryption, access keys, and custom domains.
+scope: HIGH
+notes: Storage accounts back a single organizational function's data; their access keys and SAS tokens are full-control data-plane credentials, making key/SAS-returning operations effectively account-takeover primitives.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Applies/reconciles the account's Network Security Perimeter configuration, allowing an attacker to alter or weaken the network-isolation boundary and expand reachability to the data store.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the NSP configuration inventories the account's perimeter rules and membership, useful reconnaissance for finding gaps in the network defense around the data store.
+    name: Storage account Network Security Perimeter configuration
+    parent:
+      description: The stored Network Security Perimeter configuration for a storage account, describing the perimeter rules, profiles, access mode, and membership that govern network access to the account.
+      notes: Reading these rules reveals the network defense boundary protecting the data store.

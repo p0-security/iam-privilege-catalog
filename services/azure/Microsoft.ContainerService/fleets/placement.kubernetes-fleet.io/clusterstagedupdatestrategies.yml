@@ -1,0 +1,20 @@
+name: Fleet ClusterStagedUpdateStrategy
+description: A Kubernetes Fleet (AKS fleet manager) ClusterStagedUpdateStrategy CRD that defines how updates and placements are staged/sequenced (stage ordering, timing, guardrails) across member clusters of a fleet.
+scope: MEDIUM
+notes: Supporting orchestration configuration for multi-cluster update rollout; controls the safety/sequencing of fleet-wide updates rather than holding secrets or primary data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting the strategy removes the orchestration-config object that governs safe fleet-wide update rollout, disrupting controlled multi-cluster update operations.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the staged-update strategy, inventorying the fleet's rollout-orchestration configuration; no secret material is returned.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the strategy alters how updates roll out across member clusters (e.g. removing canary/staging guardrails), manipulating the fleet's operational update orchestration.

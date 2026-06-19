@@ -1,0 +1,23 @@
+name: API Management private endpoint connections
+description: Private endpoint connections binding consumer private endpoints to the API Management service over Azure Private Link.
+scope: HIGH
+notes: Controls private-network access to the API gateway; approving a connection can grant an attacker-controlled VNet a private path to the service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting an established private endpoint connection severs a consumer's private-link path to the service, destroying a network component and denying private connectivity to legitimate consumers.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Gets private endpoint connections by name, inventorying which consumer private endpoints are connected or pending and their approval state, which is read-only network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Approving or rejecting a private endpoint connection lets an attacker authorize an attacker-controlled private endpoint to reach the otherwise-isolated API Management service over a private network and alter the connection's approval state.

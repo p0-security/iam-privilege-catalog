@@ -1,0 +1,27 @@
+name: Virtual WAN P2S VPN server configuration
+description: A point-to-site (P2S) VPN server configuration on an Azure Virtual WAN. It defines how remote VPN clients authenticate (certificates, RADIUS, Azure AD) and connect into the WAN's connected virtual networks.
+scope: HIGH
+notes: Controls the remote-access trust boundary for an internal network function; manipulating it can grant or deny network entry.
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the P2S VPN server configuration inventories remote-access network and authentication settings (auth methods, address pools, certificate references) without returning usable secret material, enabling network reconnaissance.
+    links:
+      - https://azure.permissions.cloud/iam/Microsoft.Network
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the P2S VPN server configuration tears down point-to-site remote-access connectivity into the Virtual WAN, causing denial of service for legitimate VPN clients.
+    links:
+      - https://azure.permissions.cloud/iam/Microsoft.network
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating the P2S VPN server config lets an attacker inject their own client root certificate or alter RADIUS/auth settings to authenticate a VPN client into the Virtual WAN, gaining a network foothold while tampering with operational access configuration.
+    links:
+      - https://azure.permissions.cloud/iam/Microsoft.network
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations

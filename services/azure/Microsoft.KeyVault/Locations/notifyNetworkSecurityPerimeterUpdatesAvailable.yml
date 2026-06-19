@@ -1,0 +1,11 @@
+name: Key Vault location (platform notification)
+description: A location-scoped internal notification endpoint by which the Azure networking platform informs Microsoft.KeyVault that a virtual network or subnet is being deleted elsewhere so it can clean up references.
+scope: LOW
+notes: Passive platform callback; performs no deletion of network or vault resources itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: This internal notification merely checks whether the Network Security Perimeter configuration needs refreshing; it neither reads sensitive data nor modifies any defense, so it is inert.

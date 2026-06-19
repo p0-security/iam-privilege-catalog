@@ -1,0 +1,12 @@
+name: Kubernetes SelfSubjectRulesReviews (AKS)
+description: Kubernetes SelfSubjectRulesReview is a write-only authorization-query API in an AKS managed cluster that returns the full set of RBAC rules the calling identity is granted in a namespace. Data-plane resource accessed through the AKS Kubernetes API.
+scope: LOW
+notes: Limited to self-introspection of the caller's own effective ruleset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Creating a SelfSubjectRulesReview returns the complete ruleset the caller holds in a namespace, giving an attacker a map of its own effective RBAC permissions.

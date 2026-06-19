@@ -1,0 +1,11 @@
+name: Azure SQL Server
+description: An Azure SQL logical server that hosts one or more production SQL databases and governs their admin login, identity, networking, and encryption configuration.
+scope: LOW
+notes: A primary production data store; control over the server confers broad control over hosted databases and their data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Re-evaluates/syncs the external governance (e.g., Microsoft Purview) enablement status; an inert status-refresh operation that grants no meaningful attacker capability in isolation.

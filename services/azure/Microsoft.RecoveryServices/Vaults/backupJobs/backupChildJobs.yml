@@ -1,0 +1,12 @@
+name: Recovery Services backup jobs
+description: Backup and restore job objects (including child jobs) tracked within a Recovery Services vault, recording backup operation activity and configuration.
+scope: LOW
+notes: Reveals backup/restore activity, protected resources, and operation history for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns backup child job objects, inventorying backup/restore operation activity, status, and configuration within the vault (infrastructure reconnaissance).

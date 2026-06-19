@@ -1,0 +1,13 @@
+name: APIM tag resources
+description: The collection of resources (APIs, products, operations) associated with tags in an Azure API Management service instance.
+scope: LOW
+notes: A read-only view mapping tags to the underlying API Management resource inventory.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+      - discovery:metadata
+    notes: Lists resources associated with tags, inventorying both the tag-to-resource mapping and the underlying APIM resource layout.

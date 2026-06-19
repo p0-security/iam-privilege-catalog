@@ -1,0 +1,11 @@
+name: Action group endpoint NSP configuration
+description: The effective Network Security Perimeter (NSP) configuration applied to an Azure Monitor action group notification endpoint, describing the perimeter membership and network access rules enforced around the endpoint.
+scope: MEDIUM
+notes: Read-only configuration data describing the network-isolation posture of an alerting/notification resource; reconcile re-synchronizes the effective state from the canonical NSP resource rather than letting a caller set arbitrary rules.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks: []
+    notes: Reconcile only re-synchronizes the endpoint's stored NSP configuration with the authoritative Microsoft.Network (NRP) copy; it refreshes state rather than letting the caller set arbitrary configuration, granting no meaningful standalone attacker capability.

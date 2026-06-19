@@ -1,0 +1,13 @@
+name: Log Analytics NGXSecurityLogs table
+description: A Log Analytics data-plane table holding ingested security log/event records for the workspace.
+scope: MEDIUM
+notes: Ingested security-event content that may contain sensitive request/auth detail and reveals detection coverage.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: This data-plane read exports raw security event records (exfiltration:logs) and inventories what security events are being collected, exposing detection coverage for evasion (discovery:logs).

@@ -1,0 +1,11 @@
+name: Log Analytics workspace operation status
+description: Returns the status of an asynchronous Log Analytics workspace operation.
+scope: LOW
+notes: Inert async status-polling endpoint.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Operation-status poll exposing no sensitive data or attacker capability.

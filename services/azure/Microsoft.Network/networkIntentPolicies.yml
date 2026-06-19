@@ -1,0 +1,21 @@
+name: Network Intent Policy
+description: A Network Intent Policy is an internal Azure network configuration object used in subnet preparation (PrepareNetworkPolicies) flows, defining intended network connectivity/intent settings applied to virtual network subnets for managed services such as Private Link.
+scope: HIGH
+notes: An internal control-plane network configuration construct, not a user-facing security/firewall enforcement policy or an RBAC access-control policy.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a network intent policy removes a network configuration component, potentially disrupting the network connectivity behavior that depends on it.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading a network intent policy inventories internal network intent/configuration definitions, which is network reconnaissance with no secret or data disclosure.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a network intent policy alters internal network intent/connectivity configuration applied to subnets, manipulating operational network state.

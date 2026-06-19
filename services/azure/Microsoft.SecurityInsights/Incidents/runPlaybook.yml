@@ -1,0 +1,13 @@
+name: Sentinel incidents
+description: Microsoft Sentinel incidents are consolidated security investigation records that aggregate correlated alerts, affected entities, severity, status, and analyst findings about a detected threat within a Log Analytics workspace.
+scope: HIGH
+notes: These records constitute the SOC's view of detection and response; tampering with or destroying them enables defense evasion, while reading them is reconnaissance into the defenders' awareness.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+    notes: Running a playbook triggers a Logic App automation that executes under its own (often privileged) managed identity and connections, letting an attacker invoke arbitrary downstream actions under that identity and tamper with response workflows.

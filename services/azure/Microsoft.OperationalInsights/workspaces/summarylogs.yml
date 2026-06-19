@@ -1,0 +1,21 @@
+name: Log Analytics summary rule
+description: A Log Analytics summary rule defines a scheduled aggregation that periodically runs a query over workspace data and writes derived/summarized records into a destination summary table. It is a control-plane configuration of the workspace logging pipeline.
+scope: MEDIUM
+notes: Summary rules govern derived monitoring/detection data; tampering affects log visibility and downstream detections but is monitoring-scoped (MEDIUM).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+    notes: Deleting a summary rule halts its scheduled aggregation and removes the summarized-log pipeline, disrupting log collection and incident-response visibility.
+  read:
+    risks:
+      - discovery:logs
+    scope: LOW
+    notes: Gets a summary rule's configuration (query, schedule, destination), inventorying the log-aggregation setup without returning the underlying log rows.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a summary rule alters the aggregation logic, schedule, and destination, manipulating what summarized monitoring data is produced and potentially distorting downstream detections.

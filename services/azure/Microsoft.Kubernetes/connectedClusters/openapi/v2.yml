@@ -1,0 +1,12 @@
+name: Arc-connected cluster OpenAPI schema
+description: The OpenAPI v2 schema document of an Azure Arc-connected Kubernetes cluster's API server, enumerating the available API resource types, versions, and installed custom resource definitions.
+scope: LOW
+notes: Read-only schema/API-surface metadata; exposes no workload data, secrets, or access-control configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns the cluster's OpenAPI v2 schema, letting an attacker inventory available API resource types and installed CRDs/extensions as infrastructure reconnaissance.

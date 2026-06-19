@@ -1,0 +1,24 @@
+name: Kubernetes FlowSchemas / API Priority and Fairness (AKS managed cluster)
+description: Cluster-scoped Kubernetes FlowSchema objects of the API Priority and Fairness (APF) subsystem that classify incoming apiserver requests into priority levels to protect the control plane from overload.
+scope: HIGH
+notes: APF is an availability-protection (DoS) defense for the apiserver; FlowSchemas hold no secrets but govern control-plane request fairness/throttling.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:dos
+    notes: Deleting FlowSchemas removes API Priority and Fairness rules that guard the apiserver against overload, disabling that DoS-protection defense and exposing the control plane to request flooding.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read-only get/list of FlowSchemas only inventories the apiserver's request-classification/priority configuration, i.e. control-plane infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+      - destruction:defense
+    notes: Writing FlowSchemas reclassifies apiserver request priority/fairness, letting an attacker weaken the APF overload-protection defense and starve or throttle legitimate control-plane requests.

@@ -1,0 +1,12 @@
+name: Secure Score Control
+description: A Secure Score Control represents an individual security recommendation/control and its computed health and score for a subscription within Defender for Cloud.
+scope: LOW
+notes: Enumerates which specific controls are unmet, pointing an attacker to concrete defensive gaps.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading the secure score controls scoped to a score calculation enumerates which controls are passing or failing, exposing posture weak points for reconnaissance.

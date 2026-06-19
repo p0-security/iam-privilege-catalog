@@ -1,0 +1,13 @@
+name: Azure SQL disaster recovery configuration
+description: Geo-replication / failover (disaster recovery) configuration for an Azure SQL server, defining replication relationships and partner servers for a production database service.
+scope: HIGH
+notes: Governs availability and recoverability of a production database; modifying it affects business continuity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - destruction:data
+    notes: Forces an unplanned failover that explicitly permits data loss, disrupting the service and permanently discarding unreplicated committed transactions.

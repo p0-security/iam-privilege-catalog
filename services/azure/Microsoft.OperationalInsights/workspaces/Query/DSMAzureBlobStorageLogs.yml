@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (DSMAzureBlobStorageLogs)
+description: A specific table inside an Azure Monitor Log Analytics workspace; this resource type controls data-plane query access to the DSMAzureBlobStorageLogs table, which stores Data Security Management / Defender for Storage blob-access activity logs.
+scope: MEDIUM
+notes: Monitoring/security-telemetry asset; access logs reveal which storage objects exist and are accessed. MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:data
+    notes: Data-plane read returning blob-storage access logs; exports the log content and reveals stored data objects and access patterns, aiding data targeting.

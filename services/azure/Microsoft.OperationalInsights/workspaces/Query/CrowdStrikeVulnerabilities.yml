@@ -1,0 +1,13 @@
+name: Log Analytics CrowdStrikeVulnerabilities log table
+description: A Log Analytics workspace data-plane query permission scoped to the CrowdStrikeVulnerabilities table, which holds ingested CrowdStrike vulnerability findings across the device fleet.
+scope: MEDIUM
+notes: Vulnerability inventory telemetry; provides an attacker a ready-made target list of unpatched weaknesses.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading this table exports the vulnerability inventory, enumerating exploitable weaknesses across hosts for targeting.

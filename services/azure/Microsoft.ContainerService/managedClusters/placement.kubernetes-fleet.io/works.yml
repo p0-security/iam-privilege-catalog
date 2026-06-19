@@ -1,0 +1,24 @@
+name: Fleet Work resource
+description: A Fleet Work resource is the Kubernetes manifest/object bundle that Azure Kubernetes Fleet Manager propagates to a specific member cluster, representing the desired workloads/configuration applied there.
+scope: HIGH
+notes: Work resources carry arbitrary Kubernetes object specs; creating or modifying them lets the fleet deploy actual containers/workloads onto production member clusters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a Work resource withdraws the propagated workloads from a member cluster, tearing down deployed Kubernetes infrastructure and disrupting the services it hosts.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading a Work resource enumerates the workload manifests scheduled for a member cluster, a configuration/infrastructure reconnaissance capability; the manifests are config, not returned secret material.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - escalation:lateral
+    notes: Writing a Work resource injects or alters the Kubernetes manifests applied to a member cluster, letting an attacker deploy arbitrary containers (hijacking compute), tamper with cluster config, and run code under the cluster's/workload identities for lateral movement.

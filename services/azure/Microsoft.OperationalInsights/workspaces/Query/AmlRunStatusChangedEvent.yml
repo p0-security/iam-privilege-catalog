@@ -1,0 +1,12 @@
+name: Log Analytics AmlRunStatusChangedEvent table
+description: A Log Analytics workspace data-plane table holding Azure Machine Learning run status-change event telemetry ingested into Azure Monitor.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data about ML job lifecycle.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads the AmlRunStatusChangedEvent table, exporting ML run lifecycle telemetry.

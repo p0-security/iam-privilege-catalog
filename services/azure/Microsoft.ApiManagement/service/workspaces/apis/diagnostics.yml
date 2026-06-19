@@ -1,0 +1,23 @@
+name: APIM API diagnostics
+description: An API diagnostic configures request/response tracing and logging (sampling, attached logger) for a specific API within an API Management workspace.
+scope: MEDIUM
+notes: Diagnostics govern observability of an API; modification affects detection coverage rather than data confidentiality.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting an API diagnostic stops collection of request tracing/telemetry for that API, disrupting logging and incident response.
+  read:
+    risks:
+      - discovery:logs
+    scope: LOW
+    notes: Reading/listing API diagnostic settings inventories what tracing/logging is configured for an API, revealing the observability posture an attacker would seek to evade.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating an API diagnostic lets an attacker reduce sampling or detach the logger so request/trace data stops being captured for that API, weakening detection.

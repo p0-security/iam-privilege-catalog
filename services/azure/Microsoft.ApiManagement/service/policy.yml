@@ -1,0 +1,23 @@
+name: API Management tenant (global) policies
+description: "The service-wide (tenant/global) API Management policy configuration: XML rules applied to all API request/response processing, including authentication/JWT validation, IP filtering, rate limiting, and backend routing."
+scope: HIGH
+notes: Defines the gateway's enforced security and traffic-handling controls across every API; may reference embedded named-values/secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deletes the global policy, removing service-wide security enforcement (auth, IP filtering, rate limiting) and changing how all API requests are processed.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reads the global policy XML, exposing the service-wide security/access-control enforcement (auth, IP filters, rate limits) so an attacker can find bypass points.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creates/replaces the global policy, letting an attacker rewrite request handling and disable enforced controls (auth/JWT, IP filtering, rate limits) across all APIs in the instance.

@@ -1,0 +1,12 @@
+name: VM Scale Set instance view
+description: The instance view of a virtual machine within a Virtual Machine Scale Set, reporting that VM's runtime state such as power/provisioning status, agent and extension health, and boot diagnostics.
+scope: LOW
+notes: Read-only runtime status of a single scale-set instance; reveals operational state but no data plane access or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the instance view enumerates runtime/configuration state of one production compute instance, enabling infrastructure reconnaissance only.

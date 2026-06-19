@@ -1,0 +1,12 @@
+name: Log Analytics CIEventsOperational table
+description: A Log Analytics workspace data table holding CIEventsOperational records — Container Insights operational-event telemetry collected from monitored Kubernetes/container environments.
+scope: MEDIUM
+notes: Monitoring/security telemetry; log content can include operational detail, so the asset is MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returns the stored CIEventsOperational telemetry records, exporting operational log content from the workspace table.

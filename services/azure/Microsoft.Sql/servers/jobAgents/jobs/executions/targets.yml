@@ -1,0 +1,12 @@
+name: Azure SQL DB job target execution
+description: A per-target execution record for an Azure SQL DB elastic job, recording which target databases/servers a given job execution ran against and their outcomes.
+scope: MEDIUM
+notes: Reveals the set of databases the automation reaches, mapping the job's blast radius.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing job target executions enumerates which databases/servers a job ran against, providing reconnaissance of the automation target topology.

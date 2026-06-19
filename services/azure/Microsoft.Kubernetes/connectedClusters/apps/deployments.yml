@@ -1,0 +1,23 @@
+name: Kubernetes Deployments (Azure Arc connected cluster)
+description: "Deployments are Kubernetes workload controllers that declaratively manage replicated stateless application pods (via ReplicaSets) on an Azure Arc-connected cluster. The object holds the pod template: container images, replicas, environment variables, volume/secret mounts and service-account binding."
+scope: HIGH
+notes: Primary application workload controller for a cluster function; pod specs can mount service-account tokens and secrets and run arbitrary images.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a Deployment (or DeleteCollection) removes the controller and its managed pods, destroying the running application and denying service.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading/listing Deployments inventories application workload specs (images, replicas, env, mounts), providing infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating a Deployment runs attacker-chosen container images at scale (resource hijack) under a chosen service account with mounted tokens/secrets (lateral movement), and tampers with production application workloads.

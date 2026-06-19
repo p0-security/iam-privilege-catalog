@@ -1,0 +1,12 @@
+name: File service log definitions
+description: The Azure Monitor log category definitions exposed by a storage account's File service, enumerating which platform log types/schema are available.
+scope: LOW
+notes: Read-only logging metadata, not log contents; low sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Returns the available log category definitions for the File service, allowing an attacker to inventory which log types exist without exposing log contents.

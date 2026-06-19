@@ -1,0 +1,23 @@
+name: VM Diagnostic Run Command
+description: A VM diagnostic run command resource that stages and records execution of scripts on a virtual machine via the guest agent, including command configuration and captured output.
+scope: MEDIUM
+notes: Write enables arbitrary in-guest code execution; the stored output can contain command results.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+    notes: Deleting the run command removes the resource and its captured command output, erasing the diagnostic evidence trail of executed commands and hindering incident response.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the run command returns its properties and may surface prior command script/output for a single VM.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:manipulation
+    scope: HIGH
+    notes: Creating/updating a run command executes attacker-supplied code inside the VM under its OS context and attached managed identity, enabling pivot to that identity, workload hijacking, and on-host manipulation.

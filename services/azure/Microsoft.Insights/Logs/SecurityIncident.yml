@@ -1,0 +1,13 @@
+name: Log Analytics table data (Microsoft Sentinel SecurityIncident)
+description: A Log Analytics workspace table (SecurityIncident) holding Microsoft Sentinel security-incident and investigation records in Azure Monitor.
+scope: MEDIUM
+notes: Security telemetry revealing detected threats, investigation state, and SOC findings; valuable for an attacker assessing whether they have been detected (evasion recon).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports the SOC's security-incident records (exfiltration:logs) and lets an attacker inventory detections/investigation state to gauge exposure and evade response (discovery:logs).

@@ -1,0 +1,12 @@
+name: Azure deployment stacks
+description: Deployment Stacks are Azure resources that manage a collection of resources deployed from a template as a single governed unit, with denySettings that apply deny-assignment-like protections to the managed resources.
+scope: MEDIUM
+notes: A stack can span an entire resource group, subscription, or management group, can deploy role assignments and managed identities, and can enforce locks on its managed resources, making it a high-leverage control-plane asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:infra
+    notes: Exports the full ARM template backing a deployment stack, disclosing the complete infrastructure-as-code definition and configuration of the stack's managed resources for reconnaissance.

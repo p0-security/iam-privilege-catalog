@@ -1,0 +1,13 @@
+name: Log Analytics IntuneDeviceComplianceOrg table
+description: A Log Analytics workspace table holding Microsoft Intune organizational device-compliance records (endpoint compliance posture/state). This is a data-plane log table within Azure Monitor Log Analytics.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; may expose device/user identifiers and security-posture details useful for targeting weak endpoints.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns device-compliance telemetry, exporting and enumerating endpoint posture data.

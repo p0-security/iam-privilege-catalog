@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (ADF SSIS Integration Runtime logs)
+description: A Log Analytics workspace query table that holds ingested log records for a specific source. This table stores Azure Data Factory SSIS integration-runtime operational logs. Reading it is a data-plane (data action) operation that returns the actual log row content via KQL query.
+scope: MEDIUM
+notes: "Monitoring/diagnostics data is MEDIUM-sensitivity: confidential operational telemetry that may embed sensitive identifiers, but is not a primary production data store."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Returns SSIS integration-runtime log rows, allowing an attacker to export operational ETL pipeline logs that may contain sensitive runtime details.

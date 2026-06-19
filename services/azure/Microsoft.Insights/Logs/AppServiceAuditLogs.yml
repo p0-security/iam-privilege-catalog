@@ -1,0 +1,12 @@
+name: App Service audit logs table
+description: A Log Analytics / Azure Monitor table holding App Service audit log records (publishing and management access activity for App Service apps). This is a monitoring/diagnostics data-plane asset.
+scope: MEDIUM
+notes: Audit log content can reveal who accessed or modified published app content and associated operational identifiers.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returns the contents of the AppServiceAuditLogs table, letting an attacker export audit records of App Service access/management activity.

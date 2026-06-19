@@ -1,0 +1,20 @@
+name: Sentinel hunts
+description: Microsoft Sentinel hunts — threat-hunting investigation records containing hypotheses, queries, and findings produced by the SOC.
+scope: MEDIUM
+notes: Hunts expose what defenders are investigating and how close they are to an attacker; they are security investigation/incident-response artifacts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting hunts destroys threat-hunting investigation artifacts, disrupting incident response and removing defenders' analytical work (anti-forensics).
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading hunts enumerates the SOC's active threat-hunting investigations and findings, revealing what defenders are searching for and tipping the attacker about detection progress.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating hunts lets an attacker alter or pollute threat-hunting investigation records to mislead or derail incident response.

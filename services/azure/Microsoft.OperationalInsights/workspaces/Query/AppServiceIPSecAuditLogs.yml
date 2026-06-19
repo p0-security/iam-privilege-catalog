@@ -1,0 +1,12 @@
+name: Log Analytics AppServiceIPSecAuditLogs table
+description: A Log Analytics workspace data-plane table holding App Service IP security / access-restriction audit records (allowed/denied source IPs and access decisions) ingested via diagnostic settings.
+scope: MEDIUM
+notes: Per-table data-plane read permission on monitoring/diagnostic logs; sensitivity is that of collected operational log content rather than a primary production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads IP access-restriction audit records, exporting log data that reveals source IPs and which connections were allowed or denied.

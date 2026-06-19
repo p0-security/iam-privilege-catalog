@@ -1,0 +1,12 @@
+name: API Management log definitions
+description: The schema of log categories the API Management service can emit to Azure Monitor.
+scope: LOW
+notes: Read-only logging schema; no log content or sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Lists the available log category definitions for the service, letting an attacker inventory log types to plan evasion without exposing log content.

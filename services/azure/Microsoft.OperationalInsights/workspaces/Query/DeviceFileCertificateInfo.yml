@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (DeviceFileCertificateInfo)
+description: A queryable Log Analytics table within an Azure Monitor workspace holding ingested file code-signing certificate telemetry from endpoints. This is a data-plane (isDataAction) read scoped to a single table.
+scope: MEDIUM
+notes: Security/monitoring telemetry; certificate descriptive metadata (signers/thumbprints), not exportable private-key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading this table exports code-signing certificate metadata about files on endpoints; this is descriptive telemetry in logs, not crypto material, so it is logs exfiltration rather than exfiltration:crypto.

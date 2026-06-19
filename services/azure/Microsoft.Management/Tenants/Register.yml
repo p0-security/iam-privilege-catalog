@@ -1,0 +1,11 @@
+name: Management tenant registration
+description: An enrollment action that registers a tenant with the Microsoft.Management resource provider to enable management-group functionality.
+scope: LOW
+notes: Idempotent onboarding no-op; does not grant data access or alter access-control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Management
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Registration/enrollment action that grants no offensive capability in isolation.

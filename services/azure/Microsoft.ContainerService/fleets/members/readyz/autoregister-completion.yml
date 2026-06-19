@@ -1,0 +1,11 @@
+name: AKS fleet member apiserver readiness probe
+description: A Kubernetes API server readiness (readyz) health endpoint on an AKS fleet member cluster, reporting overall or sub-component readiness status (ready/not-ready).
+scope: LOW
+notes: Readiness probes return a boolean-style status, not resource configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the readiness status of the API autoregistration-completion check; an inert health-check boolean.

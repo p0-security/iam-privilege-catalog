@@ -1,0 +1,12 @@
+name: Logic App workflow metric definition
+description: Workflow metric definitions enumerate the schema of monitoring metrics available for a Logic App workflow.
+scope: LOW
+notes: Read-only monitoring metadata; exposes only the available metric types, not any actual telemetry or business data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading metric definitions only enumerates the available metric schema/types for the workflow, low-value monitoring reconnaissance.

@@ -1,0 +1,18 @@
+name: Cassandra view throughput setting
+description: The throughput (RU/s) provisioning configuration for a Cassandra view, controlling its allocated/metered capacity and billing mode.
+scope: LOW
+notes: Metered capacity configuration; changes affect cost and performance of a single database function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the throughput setting only discloses provisioned RU/s capacity configuration, providing infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:spend
+      - impact:dos
+    scope: MEDIUM
+    notes: Updating throughput (RU/s) can be raised to inflate metered cost or lowered to throttle capacity and degrade/deny the view's service.

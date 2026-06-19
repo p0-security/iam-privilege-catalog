@@ -1,0 +1,21 @@
+name: Network Verifier analysis intent
+description: An Analysis Intent is a saved Network Verifier definition describing a network reachability/connectivity scenario to verify (source, destination, protocol, ports). It is a diagnostic configuration object, not a production network resource.
+scope: MEDIUM
+notes: Diagnostic/verification tooling; reveals intended network flows and resource references but does not enforce or carry production traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an analysis intent removes a network-verification configuration object; limited blast radius confined to diagnostic tooling.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading an analysis intent reveals which network paths/segments the org verifies, disclosing topology intent and resource references for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating an analysis intent alters the verifier's diagnostic configuration, which can skew or suppress what reachability/security verification is performed.

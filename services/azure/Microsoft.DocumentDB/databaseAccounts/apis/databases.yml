@@ -1,0 +1,20 @@
+name: Cosmos DB database
+description: A control-plane database resource within a Cosmos DB account (SQL, MongoDB, or Gremlin API). It is the container that holds the account's collections/graphs and the organizational data they store.
+scope: HIGH
+notes: Primary production data store for a single organizational function; deprecated '/apis/' path but equivalent capability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a database removes the database and all contained collections/graphs/documents, irreversibly destroying organizational data (mitigated only by backup).
+  read:
+    risks:
+      - discovery:data
+    notes: Reads or lists the databases in the account, enumerating the stored data containers as targets without returning record contents.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a database is a control-plane write that establishes or alters the data-store structure within a production Cosmos DB account.

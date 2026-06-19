@@ -1,0 +1,20 @@
+name: Fleet ClusterResourceOverrideSnapshot
+description: An Azure Kubernetes Fleet Manager ClusterResourceOverrideSnapshot is a controller-generated, point-in-time capture of a ClusterResourceOverride's rules, created automatically by the override controller and used for rollout tracking and history.
+scope: MEDIUM
+notes: Snapshots are derived, normally controller-managed history/metadata records rather than the live override control plane.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting a snapshot removes a captured override revision used for rollout tracking, destroying operational revision metadata/history without directly affecting live resources.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a snapshot enumerates a point-in-time copy of cluster-scoped override configuration, revealing how fleet workloads are mutated; reconnaissance with no secret or data exposure.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing a snapshot tampers with the controller-managed, normally-immutable revision history of override rules used to drive rollouts, manipulating operational rollout metadata.

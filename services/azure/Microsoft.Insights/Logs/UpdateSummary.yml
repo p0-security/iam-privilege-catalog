@@ -1,0 +1,12 @@
+name: Log Analytics UpdateSummary table
+description: A Log Analytics workspace table summarizing per-machine patch compliance (aggregate missing-update counts). Monitoring/diagnostic log data.
+scope: MEDIUM
+notes: Exposes which hosts are missing security updates, useful reconnaissance for targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read exports aggregated patch-posture summaries revealing vulnerable hosts.

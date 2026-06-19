@@ -1,0 +1,22 @@
+name: AVNM security user rules
+description: An individual network security rule within an Azure Virtual Network Manager security user rule collection, defining allow/deny traffic by protocol, ports, and source/destination prefixes.
+scope: HIGH
+notes: Security user rules are recommendation-style network security controls applied centrally across managed VNets; an individual rule is a firewall-style traffic control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an individual rule removes a network traffic-filtering control acting as a defense, opening traffic paths that were previously restricted.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading an individual rule discloses specific allow/deny ports, protocols, and address prefixes, letting an attacker map the network traffic-filtering posture for weak points.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating a rule lets an attacker add permissive allow rules or weaken deny rules, undermining the network traffic-filtering defense and altering the enforced security configuration.

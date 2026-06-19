@@ -1,0 +1,11 @@
+name: Site Recovery logical networks
+description: Azure Site Recovery logical network resources within a replication fabric, describing network topology used for replication and failover.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading logical networks inventories the network topology used by Site Recovery replication, providing network reconnaissance.

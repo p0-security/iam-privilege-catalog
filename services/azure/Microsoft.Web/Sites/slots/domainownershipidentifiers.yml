@@ -1,0 +1,23 @@
+name: Web App slot domain ownership identifiers
+description: Custom-domain ownership-verification identifiers (tokens) used to prove and bind a custom domain to a Web App deployment slot.
+scope: HIGH
+notes: Controls custom-domain verification/binding for the public-facing app; write/delete can affect domain routing.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - takeover:domain
+      - impact:dos
+    notes: Deleting domain-ownership identifiers removes custom-domain verification bindings, disrupting public-facing domain routing and potentially allowing the domain to be re-claimed.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading the domain-ownership identifiers only enumerates custom-domain verification metadata.
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+    notes: Creating/updating domain-ownership identifiers manipulates the custom-domain verification/binding state, which can be abused to assert ownership and route a domain to the app.

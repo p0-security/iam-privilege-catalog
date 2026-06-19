@@ -1,0 +1,12 @@
+name: Sentinel threat-intelligence WHOIS enrichment
+description: A Microsoft Sentinel threat-intelligence enrichment endpoint that returns WHOIS registration data for a caller-supplied external domain.
+scope: LOW
+notes: Returns externally-derived, largely public registration metadata about arbitrary domains; not organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Returns WHOIS registration metadata for an external domain; an inert reconnaissance helper that discloses no organizational asset or configuration.

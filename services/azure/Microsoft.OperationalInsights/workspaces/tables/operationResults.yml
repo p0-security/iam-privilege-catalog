@@ -1,0 +1,11 @@
+name: Log Analytics tables async operation result
+description: A status endpoint that returns the result of a previously-submitted asynchronous Log Analytics workspace table management operation.
+scope: LOW
+notes: Operation-status polling endpoint; returns only progress/result metadata for an async control-plane operation, not table data or configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the completion state of an async tables operation; grants no data access or actionable capability in isolation.

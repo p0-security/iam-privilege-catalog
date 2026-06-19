@@ -1,0 +1,23 @@
+name: Storage account object replication policy
+description: An object replication policy configuring asynchronous cross-account replication of blob data between a source and destination storage account.
+scope: MEDIUM
+notes: A data-protection/redundancy mechanism; the policy itself holds no data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting the policy halts cross-account blob replication, disrupting the configured data-protection/redundancy pipeline by altering operational replication state.
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns the replication policy configuration including source/destination account and container mappings, enabling reconnaissance of replication topology and data flows.
+  write:
+    risks:
+      - impact:manipulation
+      - collection:data
+      - exfiltration:data
+    scope: HIGH
+    notes: Create/update can configure continuous replication of blob data to an attacker-influenced destination account, enabling automated collection and exfiltration of organizational data while manipulating replication configuration.

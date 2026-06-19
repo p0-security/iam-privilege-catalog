@@ -1,0 +1,12 @@
+name: Defender for Cloud DevOps configuration
+description: A DevOps configuration (securityConnectors/devops) is the connector resource that links Defender for Cloud to a DevOps platform (Azure DevOps, GitHub, GitLab) via a user token, controlling source-code security scanning; its listAvailable actions enumerate orgs/owners/groups reachable by that token.
+scope: MEDIUM
+notes: "Sensitivity is moderate: the listAvailable actions can enumerate the source-code hosting estate (orgs/owners/groups) reachable through the connector's stored token."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:code
+    notes: Returns all GitHub owners accessible by the connector's user token, inventorying GitHub source-code namespaces as targets for code discovery.

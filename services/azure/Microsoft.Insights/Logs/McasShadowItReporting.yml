@@ -1,0 +1,13 @@
+name: Log Analytics table data (Defender for Cloud Apps Shadow IT reporting)
+description: A Log Analytics workspace table (McasShadowItReporting) holding Microsoft Defender for Cloud Apps (MCAS) shadow-IT discovery reporting in Azure Monitor.
+scope: MEDIUM
+notes: Security/monitoring telemetry exposing discovered cloud-app and unsanctioned-service usage; confidential but not a primary data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports the shadow-IT discovery log content (exfiltration:logs) and enumerates the org's SaaS/app usage and unsanctioned-service footprint (discovery:logs).

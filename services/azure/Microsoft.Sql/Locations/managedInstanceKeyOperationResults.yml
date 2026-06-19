@@ -1,0 +1,11 @@
+name: TDE managed instance key operation result
+description: A read-only endpoint that reports results of operations on Transparent Data Encryption (TDE) managed instance keys.
+scope: LOW
+notes: Returns only operation outcome status, not key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the result/status of a TDE managed-instance key operation, exposing no cryptographic material.

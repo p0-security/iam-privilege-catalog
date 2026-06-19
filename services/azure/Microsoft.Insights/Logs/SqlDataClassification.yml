@@ -1,0 +1,13 @@
+name: Log Analytics SqlDataClassification table
+description: A Log Analytics workspace table holding Azure SQL data-classification results identifying which database columns hold sensitive/regulated data.
+scope: MEDIUM
+notes: Classification metadata; maps where high-value data resides without returning the data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:data
+    notes: Reading exports the classification records (exfiltration:logs) and reveals which columns/tables hold sensitive/PII data, guiding an attacker to high-value targets (discovery:data).

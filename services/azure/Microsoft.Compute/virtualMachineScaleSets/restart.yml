@@ -1,0 +1,12 @@
+name: Virtual Machine Scale Sets
+description: An Azure Virtual Machine Scale Set (VMSS) is a group of identical, load-balanced virtual machines managed as a single unit, typically hosting a production compute workload. The control-plane resource holds the VM profile (image, custom-script extensions), networking, scaling rules, and any attached managed identities.
+scope: HIGH
+notes: Production compute supporting a single organizational function; the VM profile can carry managed identities and extension code, raising its sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Restarting all instances causes a transient service interruption while they reboot.

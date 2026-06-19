@@ -1,0 +1,22 @@
+name: Backup protection policies
+description: Backup protection policies define the backup schedule and retention rules governing how protected items are backed up within a Recovery Services vault.
+scope: HIGH
+notes: These policies are the backup defense that ensures data recoverability against loss and ransomware.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a protection policy removes the backup schedule/retention controls, disabling the backup defense and undermining recoverability of protected data.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading protection policies inventories backup schedules and retention configuration, revealing the backup posture an attacker could exploit to time evasion of backups.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating a protection policy lets an attacker shorten retention or weaken backup frequency, degrading the backup defense and manipulating recovery configuration before destructive action.

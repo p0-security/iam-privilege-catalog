@@ -1,0 +1,12 @@
+name: API Management outbound network dependency endpoints
+description: The list of outbound network dependency endpoints (FQDNs/IPs and connectivity status) that the API Management service requires to function.
+scope: LOW
+notes: Read-only network topology/dependency information for a single gateway.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Enumerates the external network endpoints and connectivity status the service depends on, providing network reconnaissance.

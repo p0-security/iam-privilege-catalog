@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (AzureBackupOperations)
+description: A specific log table within an Azure Log Analytics workspace recording Azure Backup operation events; this data-plane read returns the stored records.
+scope: MEDIUM
+notes: Monitoring/diagnostics data (MEDIUM). Reveals backup jobs, schedules, and protected resources useful for targeting recovery.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading this table exports Azure Backup operation logs (exfiltration:logs) and inventories backup activity/protected resources (discovery:logs).

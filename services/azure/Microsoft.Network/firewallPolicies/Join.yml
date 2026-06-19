@@ -1,0 +1,12 @@
+name: Firewall Policy
+description: An Azure Firewall Policy is the centralized configuration of network/application rule collections, NAT rules, threat intelligence, and TLS-inspection settings governing traffic for one or more Azure Firewalls.
+scope: HIGH
+notes: The policy is the enforced network access-control and defense ruleset protecting a network function; its configuration and associated certificate material are security-sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Associating (joining) a Firewall Policy with a firewall changes which defensive ruleset is enforced on network traffic, altering the effective security configuration; constrained linking action marked not alertable.

@@ -1,0 +1,12 @@
+name: Azure SQL DB job step version
+description: A versioned definition of a single step within an Azure SQL DB elastic job, including the configured T-SQL command text and target group for that step.
+scope: MEDIUM
+notes: Step versions can expose the actual T-SQL command an automation step runs, revealing the automation logic in detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a specific job step version exposes the step's command/definition (including the configured T-SQL action), providing detailed reconnaissance of the automation logic.

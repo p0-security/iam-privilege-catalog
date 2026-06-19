@@ -1,0 +1,21 @@
+name: Log Analytics workspace linked storage account
+description: A linked storage account maps a Log Analytics workspace data category (Alerts, Query, CustomLogs) to a customer-managed Azure Storage account. It is a control-plane configuration object that governs where workspace data is persisted.
+scope: MEDIUM
+notes: Monitoring/diagnostics supporting infrastructure. The config references storage account IDs but does not contain storage keys or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+    notes: Control-plane delete that severs the workspace's customer-managed storage linkage, breaking log/query/custom-log storage and ingestion and impairing log availability and incident response.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane Get returning the linked storage account configuration, inventorying which storage backs the workspace data categories without returning credentials or log content.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:logs
+    notes: Control-plane create/update that re-points workspace data-category storage (custom-log ingestion, saved queries, alert storage) to an attacker-chosen account, tampering with the logging pipeline and disrupting log retention/availability.

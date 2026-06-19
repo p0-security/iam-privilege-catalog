@@ -1,0 +1,13 @@
+name: Log Analytics ExchangeOnlineAssessmentRecommendation table
+description: A Log Analytics workspace data-plane table holding Exchange Online configuration-assessment recommendation findings.
+scope: MEDIUM
+notes: Monitoring data disclosing tenant/service configuration weaknesses and posture; sensitivity is MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Data-plane read exports Exchange Online assessment findings revealing configuration and security gaps.

@@ -1,0 +1,13 @@
+name: AKS Kubernetes certificates.k8s.io API objects
+description: The certificates.k8s.io Kubernetes API group inside an AKS aiManagers cluster, holding CertificateSigningRequest (CSR) objects that represent requests for cluster-signed client/serving certificates and their approval/issuance status.
+scope: LOW
+notes: A plain read returns the CSR request metadata and the signed public certificate in .status.certificate; the private key is generated and held client-side and is never returned by a read, so this does not expose usable private key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+      - discovery:infra
+    notes: Read-only get/list of CSR objects enumerates requested identities, key usages, and approval state, providing reconnaissance of the cluster's certificate-based identity-issuance and access-control posture.

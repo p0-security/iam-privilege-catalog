@@ -1,0 +1,12 @@
+name: Site Recovery storage classification mappings
+description: Storage classification mappings pair source and target storage classifications used for disaster-recovery replication.
+scope: LOW
+notes: Non-sensitive storage pairing configuration metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads source/target storage classification pairings, inventorying replication storage configuration.

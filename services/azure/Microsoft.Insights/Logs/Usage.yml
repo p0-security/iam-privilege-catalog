@@ -1,0 +1,12 @@
+name: Log Analytics Usage table
+description: A Log Analytics workspace table containing data-ingestion/usage volume records per table/solution. Low-sensitivity operational monitoring metadata.
+scope: MEDIUM
+notes: Reveals what telemetry is collected and at what volume; primarily operational metadata about the workspace itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read exports workspace ingestion/usage records, disclosing collected data sources and volumes.

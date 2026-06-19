@@ -1,0 +1,23 @@
+name: Container Services
+description: A container service (the legacy pre-AKS Azure Container Service) is a managed cluster of compute nodes for running containerized workloads via an orchestrator.
+scope: HIGH
+notes: This is a production compute resource supporting a single organizational function; its configuration and hosted workloads are sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Delete tears down the cluster compute infrastructure, destroying the resource and denying service to any workloads it hosts.
+  read:
+    risks:
+      - discovery:infra
+    notes: Get/read returns the cluster's control-plane configuration, allowing an attacker to inventory the cluster infrastructure for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - impact:spend
+    notes: Create/update lets an attacker provision or reconfigure cluster compute to run their own workloads (hijack) at organizational cost (spend) and alter the cluster's operational configuration (manipulation).

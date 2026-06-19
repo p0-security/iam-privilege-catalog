@@ -1,0 +1,11 @@
+name: App Service Plan SKUs
+description: Available and current pricing/capacity tier (SKU) options for an App Service Plan.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading available SKUs enumerates non-sensitive infrastructure sizing/tier configuration metadata.

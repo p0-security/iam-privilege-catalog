@@ -1,0 +1,11 @@
+name: App Service Environment platform logs table
+description: A Log Analytics / Azure Monitor table holding platform-level operational logs for an App Service Environment (the isolated hosting infrastructure). This is a monitoring/diagnostics data-plane asset.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read of the AppServiceEnvironmentPlatformLogs table exports platform/infrastructure diagnostic log records for the hosting environment.

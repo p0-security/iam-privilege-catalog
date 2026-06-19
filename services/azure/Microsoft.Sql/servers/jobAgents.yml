@@ -1,0 +1,24 @@
+name: Azure SQL DB job agent
+description: An Azure SQL elastic job agent attached to a SQL server, providing the automation engine that schedules and runs T-SQL jobs across target databases, typically under stored job credentials or a managed identity.
+scope: HIGH
+notes: The job agent can execute arbitrary T-SQL against databases using its associated credentials/identity, making it a vehicle for data manipulation and lateral movement.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a job agent removes the automation infrastructure and halts all its scheduled jobs, disrupting operations that depend on them.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading a job agent only returns its resource configuration, which is infrastructure reconnaissance of the database automation environment.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+      - impact:hijack
+    notes: Creating/updating a job agent provisions the engine that runs scheduled T-SQL against databases under the agent's credentials/identity, enabling execution as a resource identity (lateral movement), manipulation of database data/config, and use of compute resources.

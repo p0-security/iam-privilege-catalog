@@ -1,0 +1,10 @@
+name: API Management async operation status
+description: An async operation status resource exposes the progress/result of a long-running API Management operation referenced by the AzureAsync header.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the status of a long-running operation is an inert no-op that exposes no meaningful organizational asset or attacker capability.

@@ -1,0 +1,23 @@
+name: Kubernetes APIService registrations (Fleet)
+description: APIService objects register aggregated API groups in Kubernetes, mapping an API group/version to a backing extension API server. In a Fleet they describe the aggregated/extension API routing across member clusters.
+scope: HIGH
+notes: APIService registrations control routing of API traffic to extension servers (e.g. metrics-server, custom/aggregated APIs), a control-plane integrity surface.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting APIService registrations unregisters aggregated API groups (e.g. metrics-server, extension/custom API servers), breaking those API surfaces and denying service to dependent functionality.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading APIService registrations inventories the aggregated API groups and their backend service endpoints, revealing the cluster's API routing topology and extension servers to target.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating APIService registrations lets an attacker re-point an aggregated API group to an attacker-controlled backend, intercepting and manipulating (MITM) all API traffic for that group and subverting extension/security/metrics APIs.

@@ -1,0 +1,12 @@
+name: Tenant data boundary
+description: A tenant-level data boundary is a governance/compliance configuration that constrains the geographic region(s) in which the tenant's organizational data may be processed and stored.
+scope: MEDIUM
+notes: Opting in is a tenant-wide, largely one-way data-residency commitment; it affects compliance posture rather than directly exposing data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Opting the tenant into a data boundary writes a tenant-wide data-residency/compliance setting, altering operational governance state; it does not read, exfiltrate, or destroy data and grants no escalation in isolation.

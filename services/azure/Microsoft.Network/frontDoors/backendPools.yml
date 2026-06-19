@@ -1,0 +1,23 @@
+name: Front Door backend pools
+description: A Front Door backend pool defines the set of origin servers/addresses and their health-probe association behind the Azure Front Door edge.
+scope: HIGH
+notes: Backend pools expose origin topology; modifying them controls where public traffic is delivered for a single application.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a backend pool removes the origins serving traffic, taking the fronted service offline (DoS).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Gets a backend pool, revealing origin server addresses behind Front Door — network reconnaissance for origin targeting.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:defacement
+    notes: Creating/updating a backend pool lets an attacker repoint the public endpoint at attacker-controlled origins, manipulating served content and defacing/hijacking the public-facing service.

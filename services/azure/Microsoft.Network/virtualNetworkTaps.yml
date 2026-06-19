@@ -1,0 +1,21 @@
+name: Virtual network taps
+description: A VirtualNetworkTap is a traffic-mirroring (terminal access point) resource that continuously copies a source VM network interface's live traffic, encapsulated via VXLAN, to a collector destination (a VM NIC or internal load balancer) in the same or a peered VNet.
+scope: HIGH
+notes: Touches the in-flight network traffic of production VMs; misuse enables silent interception of potentially sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the tap removes a network traffic-mirroring component, destroying that infrastructure and disrupting any monitoring/inspection pipeline that depends on it.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the tap reveals its mirroring configuration and collector destination, inventorying traffic-monitoring infrastructure for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - collection:data
+    notes: Creating/updating the tap defines the collector destination for mirrored traffic, letting an attacker stand up an attacker-controlled interception point and configure ongoing centralized collection (exfiltration is realized once NICs are joined via join/action).

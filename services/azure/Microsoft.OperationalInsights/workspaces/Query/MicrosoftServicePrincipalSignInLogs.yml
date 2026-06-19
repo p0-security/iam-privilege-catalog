@@ -1,0 +1,13 @@
+name: Log Analytics workspace table data (MicrosoftServicePrincipalSignInLogs)
+description: A per-table data-plane query permission on a Log Analytics workspace; this one returns rows of the MicrosoftServicePrincipalSignInLogs table, which records service-principal (non-human identity) sign-in events.
+scope: MEDIUM
+notes: Identity authentication telemetry exposing service-principal identities, sign-in patterns, and source IPs; monitoring/log-data sensitivity tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reads service-principal sign-in log rows, exporting authentication telemetry and enumerating service-principal identities and their access patterns as compromise targets. This returns logs, not credentials, so no exfiltration:crypto.

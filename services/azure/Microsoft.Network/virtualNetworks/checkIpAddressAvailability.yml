@@ -1,0 +1,12 @@
+name: VNet IP availability check
+description: A read-only VNet operation that reports whether a specified private IP address is available within a virtual network's address space.
+scope: LOW
+notes: Returns only address-space allocation information; no secrets or customer data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reveals which IP addresses are in use within the VNet, exposing address-space allocation for network reconnaissance.

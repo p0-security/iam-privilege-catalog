@@ -1,0 +1,22 @@
+name: Kubernetes PodSecurityPolicies
+description: PodSecurityPolicies are cluster-scoped Kubernetes admission-control objects that constrain which pod security attributes (privileged mode, host namespaces, hostPath volumes, capabilities, runAsRoot) are permitted when workloads are admitted to the cluster.
+scope: CRITICAL
+notes: These are cluster-wide security-enforcement guardrails; weakening or bypassing them enables container breakout to node and cluster-admin level compromise.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting a PodSecurityPolicy removes a cluster-wide admission-control defense and its access-control policy object, stripping the constraints that would otherwise block privileged, escape-capable workloads.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading PodSecurityPolicies enumerates the cluster's pod-admission security constraints, revealing which privileged-pod controls are enforced so an attacker can locate gaps to exploit.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:privilege
+    notes: Creating or updating a PodSecurityPolicy lets an attacker weaken or replace the admission-control defense to permit privileged/hostPath/host-namespace pods, disabling a security control and enabling pod-breakout privilege escalation to node/cluster-admin.

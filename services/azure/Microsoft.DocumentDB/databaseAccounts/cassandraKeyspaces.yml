@@ -1,0 +1,21 @@
+name: Cosmos DB Cassandra keyspace
+description: A Cassandra API keyspace (logical namespace) within an Azure Cosmos DB account, holding tables of organizational rows and the keyspace-level throughput/configuration.
+scope: HIGH
+notes: Cosmos DB Cassandra keyspaces are production data stores supporting an organizational function; their configuration governs throughput provisioning and the structure of stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a Cassandra keyspace irreversibly destroys all tables and rows it contains, removing organizational data (mitigated only by backups).
+  read:
+    risks:
+      - discovery:data
+    notes: Control-plane read/list enumerates the Cassandra keyspaces present in the account (inventory of stored data containers) without returning row data or secret material.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Control-plane create/update of a Cassandra keyspace alters the keyspace structure/throughput configuration of a production data store and can provision billable RU/s; it does not by itself read or destroy stored rows.

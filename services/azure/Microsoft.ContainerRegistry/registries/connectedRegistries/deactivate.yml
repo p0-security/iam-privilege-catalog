@@ -1,0 +1,12 @@
+name: Container registry connected registries
+description: A connected registry is a container registry sub-resource representing an on-prem/edge mirror that synchronizes a scoped set of repositories from the cloud registry, governed by sync settings and client-token references.
+scope: MEDIUM
+notes: Connected registries extend artifact distribution to edge/disconnected locations; their config defines replication scope and references client tokens by ID.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Deactivating a connected registry disables that edge node, interrupting artifact pull/sync service for workloads dependent on the mirror.

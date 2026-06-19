@@ -1,0 +1,11 @@
+name: Container Service async operation result
+description: The result/completion status of an asynchronous Microsoft.ContainerService control-plane operation.
+scope: LOW
+notes: Inert status-polling endpoint conveying only operation completion state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading an asynchronous operation result returns only the completion status of a prior request and grants no data access, escalation, or destructive capability in isolation.

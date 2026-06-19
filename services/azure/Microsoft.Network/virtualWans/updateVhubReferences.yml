@@ -1,0 +1,12 @@
+name: Virtual WAN
+description: A Virtual WAN is the top-level Azure networking construct that aggregates and interconnects virtual hubs, VNets, site-to-site/point-to-site VPN, and ExpressRoute connectivity into a managed SD-WAN backbone.
+scope: HIGH
+notes: Acts as the connectivity fabric for a single organizational network function; compromise affects routing and reachability across all attached hubs and sites.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Updates which virtual hubs are wired into the Virtual WAN, manipulating the WAN's hub topology and routing configuration.

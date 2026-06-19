@@ -1,0 +1,12 @@
+name: Azure Log Analytics table (WVDCheckpoints)
+description: A Log Analytics workspace table accessed via the data plane; this one is the Azure Virtual Desktop WVDCheckpoints table, which records session-lifecycle checkpoint diagnostics.
+scope: MEDIUM
+notes: AVD session telemetry; reveals session-host activity over time.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Returns AVD session-checkpoint rows, exfiltrating diagnostic log content about session state.

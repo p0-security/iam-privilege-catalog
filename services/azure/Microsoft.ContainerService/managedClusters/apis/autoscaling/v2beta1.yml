@@ -1,0 +1,12 @@
+name: AKS Kubernetes autoscaling objects
+description: Kubernetes autoscaling API group objects (HorizontalPodAutoscalers) inside an AKS managed cluster, which define how workloads scale based on metrics.
+scope: MEDIUM
+notes: Data-plane (Kubernetes API) read access to workload scaling configuration; reveals targets, min/max replicas and metrics but no secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only get/list of autoscaling/v2beta1 HPA objects, enumerating workload scaling configuration for reconnaissance.

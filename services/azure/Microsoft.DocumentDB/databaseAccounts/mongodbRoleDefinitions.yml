@@ -1,0 +1,22 @@
+name: Cosmos DB MongoDB role definition
+description: A MongoDB Role Definition is a data-plane RBAC role for the Cosmos DB for MongoDB API, specifying the set of database privileges (actions/resources) that can be granted to user definitions.
+scope: HIGH
+notes: Defines the data-plane access-control model for a single database account's data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a MongoDB role definition removes a data-plane access-control policy object and breaks every user assignment referencing it, revoking authorized database access and disrupting the RBAC model.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading a MongoDB role definition discloses the data-plane RBAC privilege model, letting an attacker inventory granted privileges and identify over-privileged or exploitable roles to target.
+  write:
+    risks:
+      - escalation:privilege
+    scope: CRITICAL
+    notes: Creating or updating a MongoDB role definition lets an attacker craft or broaden a role's privileges (e.g. readWriteAnyDatabase), escalating the access of any user bound to that role within the database account.

@@ -1,0 +1,12 @@
+name: Logic Apps workflow
+description: "An Azure Logic Apps workflow: a managed automation/integration resource that orchestrates triggers and actions across connected systems, often running under a managed identity with connections to downstream services."
+scope: HIGH
+notes: Workflows commonly hold a managed identity and connection references granting broad downstream access; the control-plane definition reveals integration logic, while access keys/callback URLs are bearer credentials that can invoke the workflow.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Moving the workflow to a different subscription/resource group/name relocates the resource, breaking references and shifting it outside existing governance/monitoring scopes (operational config manipulation).

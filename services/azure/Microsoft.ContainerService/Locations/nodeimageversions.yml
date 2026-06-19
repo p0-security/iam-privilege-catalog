@@ -1,0 +1,12 @@
+name: AKS regional node image versions
+description: A read-only regional catalog of AKS node image versions available for cluster node pools in a given location.
+scope: LOW
+notes: Non-sensitive, near-public platform capability/reference data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing available node image versions in a region returns only generic, non-sensitive catalog metadata, trivial infrastructure reconnaissance.

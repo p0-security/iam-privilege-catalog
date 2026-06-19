@@ -1,0 +1,12 @@
+name: Log Analytics APIMDevPortalAuditDiagnosticLog table
+description: A Log Analytics data-plane table holding ingested API Management developer-portal audit/diagnostic log records for the workspace.
+scope: MEDIUM
+notes: Ingested audit content that may contain administrative actions, user/request identifiers, and sensitive operational detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: This data-plane read exports the ingested API Management developer-portal audit/diagnostic log records, which may contain administrative activity and sensitive identifiers.

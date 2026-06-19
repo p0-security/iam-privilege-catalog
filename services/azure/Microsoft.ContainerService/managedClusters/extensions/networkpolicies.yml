@@ -1,0 +1,25 @@
+name: AKS Kubernetes NetworkPolicies
+description: In-cluster Kubernetes NetworkPolicy objects that define pod-to-pod and namespace-level network segmentation (an in-cluster firewall) for an AKS managed cluster's data plane.
+scope: HIGH
+notes: NetworkPolicies are the access-control mechanism governing intra-cluster traffic; they act as both a network firewall and a defensive control for a single cluster (organizational function).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+      - escalation:network
+    notes: Deleting NetworkPolicies removes the in-cluster access-control rules that would otherwise deny traffic, disabling a network defense, destroying segmentation policy, and opening lateral network paths between previously isolated workloads.
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading NetworkPolicy objects inventories the cluster's pod-traffic firewall/segmentation rules, revealing allowed and denied flows and weak points for lateral movement planning.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating NetworkPolicies lets an attacker loosen or rewrite the in-cluster firewall to open previously blocked lateral paths between pods/namespaces, weakening a network defense and manipulating security-relevant configuration.

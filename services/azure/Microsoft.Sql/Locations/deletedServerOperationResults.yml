@@ -1,0 +1,10 @@
+name: Deleted server operation
+description: The asynchronous operation-result endpoint reporting results of in-flight operations against a deleted SQL server.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only operation results/status for deleted-server operations; an operation-status poll with no meaningful attacker capability in isolation.

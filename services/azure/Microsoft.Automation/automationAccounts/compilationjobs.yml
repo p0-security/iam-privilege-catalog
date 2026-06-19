@@ -1,0 +1,18 @@
+name: Automation DSC compilation jobs
+description: A DSC compilation job in Azure Automation compiles a DSC configuration into node configurations (MOF) that registered managed nodes pull and enforce; the compilation also executes the configuration logic in the Automation sandbox.
+scope: MEDIUM
+notes: Compiling a configuration pushes attacker-influenced desired state/code to the managed node fleet, making this a lateral-movement and manipulation vector across managed machines.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a compilation job returns its status and metadata, providing reconnaissance of the Automation DSC configuration pipeline without exposing secrets or executing anything.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+    scope: HIGH
+    notes: Submitting a compilation job compiles a configuration into node configurations that managed nodes pull and enforce, letting an attacker push state/code that executes across managed machines (lateral movement) and manipulate their enforced configuration.

@@ -1,0 +1,12 @@
+name: Virtual Machine available sizes
+description: The list of VM SKU sizes a given virtual machine can be resized to.
+scope: LOW
+notes: Non-sensitive capability/capacity metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates available resize SKUs; trivial read-only infrastructure capability metadata.

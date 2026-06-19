@@ -1,0 +1,11 @@
+name: Azure SQL server operation result
+description: The transient status/result of an asynchronous import/export operation on an Azure SQL server.
+scope: LOW
+notes: Returns only operation-progress/job status, not the imported/exported data contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading in-progress import/export operation results returns only job status/progress, not the data contents or any credentials, so it grants no meaningful offensive capability in isolation.

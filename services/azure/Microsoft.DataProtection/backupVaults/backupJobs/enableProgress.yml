@@ -1,0 +1,12 @@
+name: Backup jobs
+description: Backup jobs represent the backup, restore, and protection-management activity executed within an Azure Backup vault.
+scope: LOW
+notes: Job listings reveal what workloads are protected and the backup schedule/activity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:infra
+    notes: Despite the /action suffix this only retrieves detailed job progress/details ("Get Job details"), providing read-only reconnaissance of backup operations with no mutating effect.

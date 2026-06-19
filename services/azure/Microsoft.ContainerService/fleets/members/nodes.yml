@@ -1,0 +1,24 @@
+name: Kubernetes nodes (fleet member)
+description: Kubernetes Node objects on a fleet member cluster, which represent the worker compute hosts including their capacity, labels, taints, conditions, and addresses.
+scope: HIGH
+notes: Node objects expose the cluster's compute fleet topology and scheduling attributes, used operationally to place and run workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting node objects removes worker hosts from the cluster, evicting their pods and disrupting the services they run, equivalent to denial of service.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading/listing nodes inventories the cluster's worker hosts, their capacity, labels, conditions, and addresses, supporting infrastructure reconnaissance and workload-placement targeting.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+      - impact:hijack
+    notes: Writing node objects lets an attacker alter labels/taints/cordon/unschedulable status to steer or evict pods, hijacking scheduling onto attacker-favored nodes or draining nodes for denial of service.

@@ -1,0 +1,11 @@
+name: AKS Fleet API server readiness probe
+description: The Kubernetes /readyz readiness probe of an Azure Kubernetes Fleet Manager hub cluster's API server, returning an aggregate up/not-ready health status.
+scope: LOW
+notes: Health-probe endpoint returning only status flags; no inventory, data, or credential exposure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only aggregate API-server readiness (ok/not-ok), an inert health probe that grants no meaningful inventory or other capability in isolation.

@@ -1,0 +1,11 @@
+name: Classic Mobile Services
+description: Legacy (deprecated) Classic Mobile Services backend resources managed under App Service.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists legacy Classic Mobile Services resources, providing a read-only inventory of deployed (deprecated) infrastructure configuration.

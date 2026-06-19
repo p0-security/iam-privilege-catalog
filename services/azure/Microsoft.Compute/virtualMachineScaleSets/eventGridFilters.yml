@@ -1,0 +1,21 @@
+name: VM Scale Set Event Grid Filters
+description: Configuration that filters and routes Virtual Machine Scale Set lifecycle events to Event Grid subscribers.
+scope: MEDIUM
+notes: Supporting eventing/notification configuration; not a primary data store or identity asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes the event-routing filter, removing the scale set's event-notification plumbing and disrupting downstream event-driven automation.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read-only get of the filter only inventories event-routing configuration of the scale set.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the filter alters which scale-set events are emitted/routed, allowing suppression or redirection of operational event notifications.

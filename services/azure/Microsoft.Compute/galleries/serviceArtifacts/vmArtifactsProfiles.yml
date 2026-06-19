@@ -1,0 +1,12 @@
+name: Gallery Service Artifact VM Artifact Profile
+description: A Compute Gallery service-artifact VM artifact profile defining provisioning/artifact configuration metadata for gallery images.
+scope: LOW
+notes: Read-only configuration metadata; low sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only get only enumerates artifact-profile configuration metadata.

@@ -1,0 +1,17 @@
+name: Cloud Service role instance
+description: A role instance is a running VM-backed compute node of an Azure Cloud Service (classic), one of the instances executing a deployed application role.
+scope: HIGH
+notes: Production compute supporting a single application/function; control-plane operations affect service availability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deletes a running role instance, tearing down a compute node and disrupting the hosted service.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane get returns the instance configuration, enabling inventory of the production compute infrastructure.

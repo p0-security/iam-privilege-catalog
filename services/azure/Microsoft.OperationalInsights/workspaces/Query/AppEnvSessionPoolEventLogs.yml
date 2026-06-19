@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (AppEnvSessionPoolEventLogs)
+description: A single named table within an Azure Log Analytics (Operational Insights) workspace, queried via the data plane. This table stores Azure Container Apps session-pool event telemetry.
+scope: MEDIUM
+notes: Session-pool event telemetry is operational infrastructure metadata rather than application payload data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading this table exports Container Apps session-pool event records, disclosing operational telemetry about pool activity.

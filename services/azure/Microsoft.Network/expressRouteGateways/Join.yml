@@ -1,0 +1,12 @@
+name: Express Route Gateway
+description: An ExpressRoute Gateway is the Azure network component that bridges a virtual network to ExpressRoute circuits, providing private hybrid connectivity between Azure and on-premises/peered networks.
+scope: HIGH
+notes: Production network connectivity infrastructure supporting a single network function; controls hybrid on-prem-to-cloud reachability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joining a resource to the ExpressRoute (cross) gateway attaches it to the gateway's network path, enabling reachability to additional resources across the connected hybrid network.

@@ -1,0 +1,13 @@
+name: Network Manager security admin configuration snapshot
+description: A point-in-time snapshot of a deployed Azure Virtual Network Manager security admin configuration - centrally-enforced, NSG-overriding firewall-style allow/deny network security rules applied across managed virtual networks.
+scope: LOW
+notes: Security admin rules take precedence over and cannot be overridden by subnet NSGs, so reading them reveals the authoritative network defense posture.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading the snapshot exposes the enforced network security ruleset, letting an attacker map the firewall/access-control posture and locate gaps to exploit.

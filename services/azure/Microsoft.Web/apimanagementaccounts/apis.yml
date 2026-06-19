@@ -1,0 +1,21 @@
+name: Logic Apps managed API/connector definition
+description: A managed API (connector) definition under an API Management account that describes the backend, schema, and operations that connections invoke.
+scope: MEDIUM
+notes: Defines the integration surface that connections and dependent workflows rely on; no secret material is exposed by reads.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deletes the managed API/connector definition, destroying the resource and breaking dependent connections and workflows that invoke it.
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only retrieval of the managed API/connector definition, enabling inventory of the API configuration and operations without exposing secrets or data.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the managed API definition lets an attacker alter the connector configuration (backend endpoint, operations, schema), manipulating how dependent connections and workflows behave.

@@ -1,0 +1,11 @@
+name: Management group descendants
+description: The full set of descendant management groups and subscriptions beneath a given management group, representing the tenant's governance hierarchy tree.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Management
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates all descendant management groups and subscriptions, mapping the entire tenant organizational hierarchy for reconnaissance.

@@ -1,0 +1,12 @@
+name: Web Apps Functions host
+description: The Azure Functions host runtime for a function app, exposing operational actions such as syncing trigger definitions and reading sync status.
+scope: LOW
+notes: Host-level operational control plane for a function app; affects which triggers the runtime activates.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:infra
+    notes: Reading the trigger sync status only returns operational status/state of the function host, a low-sensitivity reconnaissance read.

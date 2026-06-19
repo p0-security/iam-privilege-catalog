@@ -1,0 +1,12 @@
+name: Log Analytics WorkloadDiagnosticLogs table
+description: A Log Analytics workspace table holding ingested workload diagnostic log records. Reading it is a data-plane query over collected monitoring logs.
+scope: MEDIUM
+notes: Diagnostic logs may contain sensitive runtime/operational details.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Exports workload diagnostic log records that may contain sensitive operational detail.

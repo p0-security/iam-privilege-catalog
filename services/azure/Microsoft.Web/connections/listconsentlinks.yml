@@ -1,0 +1,12 @@
+name: API Connections
+description: Azure API Connections (Microsoft.Web/connections) are integration resources that store credential-backed connections (OAuth tokens, API keys, connection strings) used by Logic Apps and Power Automate to authenticate to backend SaaS and API services.
+scope: MEDIUM
+notes: These resources broker authenticated access to external/backend systems and hold stored credential material, so key-listing and invoke operations are credential-grade exposures even though most control-plane operations affect a single integration function.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:infra
+    notes: Listing consent links returns the OAuth consent/authorization URLs needed to initiate a consent flow, exposing connection auth metadata and target service but not returning usable secret material itself.

@@ -1,0 +1,16 @@
+name: App Service Plan first-party Key Vault settings
+description: The first-party Azure Key Vault-referenced settings configured on an App Service Plan, i.e. the pointers/references to vault secrets rather than the resolved secret values.
+scope: MEDIUM
+notes: Returns reference configuration (vault/secret identifiers), not the secret material itself which resolves at runtime.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads which Key Vault references are configured for the plan, exposing config pointers to where secrets live (reconnaissance) without returning the secret values themselves.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the plan's Key Vault reference settings repoints which vault/secret references are consumed, manipulating the plan's secret-resolution configuration.

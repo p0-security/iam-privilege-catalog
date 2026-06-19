@@ -1,0 +1,10 @@
+name: Logic automation project operation status
+description: Async long-running-operation status endpoint for operations on a Logic automation project.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the progress/completion status of an async project operation; an inert polling endpoint exposing no sensitive data or capability.

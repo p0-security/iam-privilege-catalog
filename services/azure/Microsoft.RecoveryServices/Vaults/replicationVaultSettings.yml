@@ -1,0 +1,17 @@
+name: Site Recovery vault settings
+description: Azure Site Recovery (ASR) vault replication settings on a Recovery Services vault, holding the disaster-recovery onboarding/replication configuration (e.g. migration solution type, associated provider configuration) for protected workloads.
+scope: LOW
+notes: These are DR/replication configuration settings, not IAM/access-control policies; sensitivity stems from controlling replication of a production function rather than from secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane read enumerates the vault's DR/replication configuration, providing infrastructure reconnaissance with no data or credential exposure.
+  write:
+    risks:
+      - impact:manipulation
+    scope: HIGH
+    notes: Create/update alters the vault's DR/replication configuration, which can degrade or misdirect replication for protected production workloads.

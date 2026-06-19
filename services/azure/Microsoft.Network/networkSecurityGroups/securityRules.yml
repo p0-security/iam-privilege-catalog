@@ -1,0 +1,24 @@
+name: NSG Security Rule
+description: A Network Security Group (NSG) security rule is a user-defined firewall allow/deny rule controlling inbound and outbound traffic (by port, protocol, source, destination) for associated subnets and network interfaces.
+scope: HIGH
+notes: NSG security rules are the primary network access-control enforcement for a workload; mutating them directly changes the firewall posture, while reading them only exposes the configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Deleting a security rule removes a firewall control acting as a network defense; removing a deny rule re-exposes protected services and enables broader network reachability (removing an allow rule can also cause DoS).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading a security rule discloses the firewall allow/deny configuration (ports, sources, destinations), letting an attacker map open paths and identify weak points.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating a security rule lets an attacker open inbound/outbound ports or override deny rules, disabling the firewall defense, exposing services, and gaining additional network reachability.

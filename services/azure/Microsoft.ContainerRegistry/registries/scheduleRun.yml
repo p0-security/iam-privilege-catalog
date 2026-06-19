@@ -1,0 +1,14 @@
+name: Container registry
+description: An Azure Container Registry (ACR) resource that stores and serves container images and OCI artifacts (Helm charts, etc.) consumed by clusters and CI/CD pipelines.
+scope: HIGH
+notes: The registry backs the image supply chain for one or more applications; its credentials and stored images are sensitive, but control-plane property reads are low-sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:hijack
+      - impact:manipulation
+      - impact:spend
+    notes: Schedules an ACR Task run that executes attacker-controlled build/run steps on registry-managed compute, enabling arbitrary workload execution (e.g. cryptomining), production of tampered images, and metered build spend.

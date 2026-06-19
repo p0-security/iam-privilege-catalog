@@ -1,0 +1,18 @@
+name: Security assessment metadata
+description: Assessment Metadata defines the catalog of security-assessment definitions/types (id, display name, severity, category, description) that drive Defender for Cloud evaluations.
+scope: LOW
+notes: This is schema/definition-level metadata of the assessment framework, not actual findings or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Reading assessment metadata only enumerates the catalog of available assessment definitions/types, low-value schema reconnaissance of the security framework.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    scope: MEDIUM
+    notes: Creating or updating custom assessment metadata lets an attacker alter the definitions (severity, logic) that drive security evaluations, distorting or weakening the detection framework.

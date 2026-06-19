@@ -1,0 +1,11 @@
+name: Azure SQL server AAD administrator operation results
+description: Async operation-status resource tracking the progress/result of an in-progress Azure Active Directory server-administrator change on a logical SQL server.
+scope: LOW
+notes: Operation-status endpoints return only operation state, not configuration or secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status of an in-progress AAD administrator operation; returns only operation progress with no actionable data or capability in isolation.

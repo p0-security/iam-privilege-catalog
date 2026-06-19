@@ -1,0 +1,12 @@
+name: App Service recommendations
+description: "App Service Advisor-style recommendations: advisory best-practice, performance, and configuration findings surfaced for App Service resources."
+scope: LOW
+notes: These are operational advisories about resource posture, not security policy or stored data.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Disables a web app's recommendation advisories, suppressing operational best-practice notices; these are non-security advisories, so it alters advisory state rather than removing a real security defense or log pipeline.

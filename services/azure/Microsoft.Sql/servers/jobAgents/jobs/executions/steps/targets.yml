@@ -1,0 +1,12 @@
+name: Azure SQL DB job step target execution
+description: A per-step, per-target execution record for an Azure SQL DB elastic job, capturing the outcome of an individual job step against a specific target database.
+scope: MEDIUM
+notes: Detailed execution telemetry that maps the automation's step-level target topology.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Getting a step's target execution reveals which target database a job step ran against and its outcome, providing detailed infrastructure reconnaissance.

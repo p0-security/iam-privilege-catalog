@@ -1,0 +1,12 @@
+name: Log Analytics table (Azure Monitor logs)
+description: A Log Analytics / Azure Monitor diagnostic log table that stores ingested telemetry and operational log records for a given Azure resource type. Read access on the Microsoft.Insights/Logs data plane returns the actual rows of that table.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; sensitivity is MEDIUM. Records can contain operational identifiers, request metadata, and occasionally sensitive parameters, but not the underlying production data stores themselves.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reads the Data Factory trigger-run log table, exporting pipeline trigger execution records that may reveal scheduling and parameters.

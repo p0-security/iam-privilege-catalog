@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (Network Security Perimeter rule recommendations)
+description: A Log Analytics workspace data-plane table storing Network Security Perimeter (NSP) rule-recommendation records derived from network traffic analysis. Read access returns the table's records.
+scope: MEDIUM
+notes: Reveals network perimeter access-rule configuration, traffic patterns, and potential gaps.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reading the table exports NSP rule-recommendation records (exfiltration:logs) and discloses network access-rule configuration and perimeter weak points (discovery:network).

@@ -1,0 +1,21 @@
+name: ARM deployment (resource group)
+description: A resource-group-scoped Azure Resource Manager (ARM) deployment is the control-plane record of a template-based provisioning operation within a resource group, capturing which resources were deployed and their configuration.
+scope: LOW
+notes: The deployment record itself is metadata/history; the dangerous capability is the write path, which executes an arbitrary template that can provision any resource type including role assignments, managed identities, and compute.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Getting or listing resource-group deployments enumerates provisioned infrastructure and its deployment configuration, providing infrastructure reconnaissance.
+  write:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+      - impact:manipulation
+      - impact:hijack
+      - impact:spend
+    scope: CRITICAL
+    notes: Creating/updating a resource-group deployment executes an arbitrary template that can create role assignments (privilege escalation), assign/act as managed identities (lateral movement), rewrite configuration (manipulation), and provision costly compute (hijack/spend).

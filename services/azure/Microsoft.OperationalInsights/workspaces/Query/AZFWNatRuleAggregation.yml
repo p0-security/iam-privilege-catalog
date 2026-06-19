@@ -1,0 +1,14 @@
+name: Azure Firewall NAT-rule aggregation log table (Log Analytics)
+description: A Log Analytics workspace query data-plane permission scoped to the AZFWNatRuleAggregation table, which stores aggregated Azure Firewall NAT-rule traffic telemetry ingested into the workspace.
+scope: MEDIUM
+notes: Aggregated NAT logs summarize inbound translation patterns and exposed internal services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+      - discovery:network
+    notes: Exports summarized NAT translation telemetry revealing inbound mapping patterns and exposed internal endpoints.

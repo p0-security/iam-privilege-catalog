@@ -1,0 +1,23 @@
+name: DNS Forwarding Ruleset Link to Virtual Network
+description: A virtual network link binds a DNS Forwarding Ruleset to a virtual network, determining which VNets are subject to the ruleset's conditional DNS forwarding.
+scope: HIGH
+notes: Defines the network scope over which the private DNS resolution policy applies.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the link detaches conditional DNS forwarding from a virtual network, disrupting name resolution for workloads in that VNet.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading the link enumerates which virtual networks are bound to the ruleset, network topology reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a link binds the (potentially attacker-controlled) forwarding ruleset to a VNet, extending attacker-controlled DNS resolution onto that network and altering its resolution behavior.

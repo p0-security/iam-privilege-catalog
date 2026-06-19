@@ -1,0 +1,11 @@
+name: Cosmos DB collection usages
+description: Usage/consumption statistics for a Cosmos DB collection (e.g. document counts, storage size). This inventories resource consumption metadata, not the stored data.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading collection usage statistics inventories storage/document consumption of the collection without returning the underlying data.

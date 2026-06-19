@@ -1,0 +1,11 @@
+name: AKS fleet member cluster health endpoint
+description: Kubernetes API server /healthz liveness/readiness endpoint on an AKS fleet member cluster, returning aggregate component health status. Accessed via the fleet's managed Kubernetes data plane.
+scope: LOW
+notes: Returns only operational health/status; exposes no configuration, data, or identity information.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading the healthz endpoint returns only cluster component liveness status, an inert operational probe granting no meaningful attacker capability.

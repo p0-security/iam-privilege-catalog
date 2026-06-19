@@ -1,0 +1,11 @@
+name: Managed instance administrator operation result
+description: An endpoint that returns the result of an Azure SQL Managed Instance administrator operation.
+scope: LOW
+notes: Operation-status polling endpoint; returns no credentials or admin configuration content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Inert operation-status poll that grants no meaningful attacker capability in isolation.

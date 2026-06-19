@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (DHWipAppLearning)
+description: A specific table inside an Azure Monitor Log Analytics workspace; this resource type controls data-plane query access to the DHWipAppLearning table, which stores Windows Information Protection app-learning telemetry (which apps touched protected data).
+scope: MEDIUM
+notes: Monitoring/diagnostics asset; app/data-protection telemetry is confidential operational data, MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returning WIP app-learning rows, enabling export of stored endpoint app/DLP telemetry.

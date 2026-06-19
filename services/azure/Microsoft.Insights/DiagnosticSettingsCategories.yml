@@ -1,0 +1,12 @@
+name: Diagnostic settings categories
+description: A read-only metadata resource that lists which diagnostic log and metric categories a given Azure resource is capable of emitting.
+scope: LOW
+notes: Logging-capability metadata only; does not expose log content or active diagnostic-setting configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Enumerates which log/metric categories a resource can emit, letting an attacker inventory the available telemetry surface (logs reconnaissance) without returning log data.

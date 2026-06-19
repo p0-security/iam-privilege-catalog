@@ -1,0 +1,12 @@
+name: Deleted Backup Instance
+description: A deleted Backup Instance is a soft-deleted backup protection configuration retained in the vault that can be inspected or recovered before permanent purge.
+scope: MEDIUM
+notes: Reflects which resources were protected and recently removed from backup.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Undeleting a soft-deleted backup instance reverts it from SoftDeleted to ProtectionStopped state, manipulating the protection lifecycle/configuration of the backup without itself reading or destroying data.

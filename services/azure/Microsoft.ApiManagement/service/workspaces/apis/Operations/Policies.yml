@@ -1,0 +1,24 @@
+name: API operation policies configuration
+description: The policy configuration (XML pipeline of inbound/backend/outbound rules) applied at a single API operation, controlling authentication, authorization, IP filtering, rate limiting, request/response transformation, and backend routing.
+scope: HIGH
+notes: APIM policies are the gateway's security and traffic-control enforcement layer for an endpoint; they are processing policies, not Azure IAM/RBAC.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deleting the operation policy strips its enforced security controls (auth, IP filtering, rate limiting, validation) and reverts request handling to default, weakening defenses and altering operational behavior at that endpoint.
+  read:
+    risks:
+      - discovery:policy
+      - discovery:infra
+    notes: Reading the operation-level policy reveals enforced security controls (auth, JWT validation, IP filtering, rate limits) and backend routing logic, exposing weak points and backend topology for reconnaissance.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+      - exfiltration:data
+    notes: Setting the operation policy lets an attacker disable auth/JWT-validation/IP-filter/rate-limit defenses, rewrite request/response handling and backend routing, and inject log-to/send-request directives that mirror request and response data through the gateway to an attacker-controlled sink.

@@ -1,0 +1,24 @@
+name: Kubernetes namespaces (fleet member)
+description: Kubernetes Namespace objects on a fleet member cluster, which are the logical partitions that isolate and group workloads, services, and configuration by tenant or organizational function.
+scope: HIGH
+notes: Namespaces map the cluster's tenancy and organizational structure; the objects they contain (workloads, secrets, configs) make them a sensitive control surface.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:data
+      - impact:dos
+    notes: Deleting a namespace cascades to delete all contained workloads, configs, secrets, and persistent data, destroying infrastructure and organizational data and denying service for that function.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading/listing namespaces inventories the cluster's logical partitions and the organizational functions/tenants they host, mapping the cluster for further targeting.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Creating/updating namespaces lets an attacker carve out workload space to stage and run their own containers and alter namespace labels/annotations that drive policy and admission targeting.

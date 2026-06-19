@@ -1,0 +1,17 @@
+name: Queue service diagnostic settings
+description: The Azure Monitor diagnostic settings attached to a storage account's Queue service, controlling which platform logs and metrics are emitted and where they are routed (Log Analytics, Storage, Event Hub).
+scope: MEDIUM
+notes: Monitoring/diagnostics configuration is a detective-control asset; tampering blinds incident response.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading the diagnostic setting reveals which logs/metrics are collected for the queue service and where they route, enabling reconnaissance of logging posture ahead of evasion.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating the diagnostic setting lets an attacker disable or redirect queue-service log collection, defeating monitoring and incident response.

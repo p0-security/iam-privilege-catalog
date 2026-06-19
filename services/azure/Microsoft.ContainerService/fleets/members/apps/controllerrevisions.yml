@@ -1,0 +1,20 @@
+name: Kubernetes ControllerRevisions (AKS Fleet member)
+description: ControllerRevisions are namespaced Kubernetes objects that store immutable historical snapshots of pod-template specifications for DaemonSets and StatefulSets, used by their controllers for rollout and rollback.
+scope: MEDIUM
+notes: Revision snapshots embed full pod specs (images, env, volume and secret references) and serve as operational rollback state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting ControllerRevisions destroys the revision history needed to roll back DaemonSets/StatefulSets, removing operational recovery state.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading/listing ControllerRevisions enumerates historical DaemonSet/StatefulSet pod-template snapshots, providing workload configuration reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating ControllerRevisions tampers with the stored revision history that DaemonSet/StatefulSet controllers use for rollbacks, manipulating the workload state a controller may later apply.

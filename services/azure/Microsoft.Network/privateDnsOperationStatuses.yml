@@ -1,0 +1,11 @@
+name: Private DNS operation status
+description: The asynchronous operation-status endpoint for a long-running Private DNS control-plane operation, used to poll the progress of a prior request.
+scope: LOW
+notes: Status-polling bookkeeping endpoint; conveys only operation state, no DNS data or configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling an async Private DNS operation status is an inert status check conveying no actionable information or capability.

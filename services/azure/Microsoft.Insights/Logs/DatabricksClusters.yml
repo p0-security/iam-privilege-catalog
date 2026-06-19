@@ -1,0 +1,12 @@
+name: Log Analytics DatabricksClusters table
+description: The DatabricksClusters table holds Azure Databricks cluster lifecycle/operation audit log records ingested into a Log Analytics workspace.
+scope: MEDIUM
+notes: Monitoring/diagnostic telemetry describing Databricks compute cluster activity and configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reading the table exports Databricks cluster operation log content.

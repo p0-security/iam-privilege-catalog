@@ -1,0 +1,13 @@
+name: Network Manager security user configuration snapshot
+description: A snapshot of a deployed Azure Virtual Network Manager security user configuration - baseline, user-defined (subnet-overridable) network security rules applied across managed virtual networks.
+scope: LOW
+notes: Security user rules establish a baseline traffic-control posture beneath the admin (enforced) rules.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading the snapshot exposes the deployed baseline user-defined network security rules, inventorying the access-control posture for reconnaissance.

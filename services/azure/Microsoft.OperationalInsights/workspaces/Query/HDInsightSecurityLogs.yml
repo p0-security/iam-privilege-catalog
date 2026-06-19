@@ -1,0 +1,13 @@
+name: Log Analytics HDInsight query table (security logs)
+description: A Log Analytics workspace query-scoped table holding HDInsight security-event log records ingested via diagnostic settings. The data-plane read returns the stored rows.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset tier. Security logs reveal detection coverage and incident-response signals, aiding evasion planning.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading this table exports HDInsight security-event records, letting an attacker exfiltrate security telemetry and learn which detections fire to identify monitoring gaps.

@@ -1,0 +1,12 @@
+name: Network Watcher Lens
+description: A Network Watcher Lens is a network traffic monitoring/capture resource that observes and records traffic flowing through a specified endpoint, part of Azure's network diagnostics tooling.
+scope: MEDIUM
+notes: Monitoring/diagnostic resource; captured traffic can contain sensitive in-transit data, but the asset is a supporting observability component rather than a primary production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Stopping/pausing a Lens disables an active network-traffic monitoring mechanism, blinding defensive visibility and disrupting incident-response telemetry on the endpoint.

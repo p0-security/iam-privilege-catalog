@@ -1,0 +1,12 @@
+name: Log Analytics KeyVaults log table
+description: A Log Analytics workspace data-plane query permission scoped to the KeyVaults table, which holds ingested Azure Key Vault diagnostic/audit logs (access events, operation names, secret/key object names, caller identities).
+scope: MEDIUM
+notes: Audit-log data revealing vault usage patterns and object names; does NOT contain the secret material itself, so no cryptographic exfiltration applies.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading this table exports Key Vault audit logs disclosing which secrets/keys exist and who accesses them, but not the secret values; exfiltration:crypto does not apply.

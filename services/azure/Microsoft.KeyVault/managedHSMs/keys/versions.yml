@@ -1,0 +1,12 @@
+name: Managed HSM key version
+description: A Managed HSM key version is a specific version of an HSM-backed cryptographic key; this control-plane operation lists versions or reads a specified version's metadata.
+scope: CRITICAL
+notes: The key store is a critical cryptographic asset; control-plane reads return version metadata and public attributes but not the protected private key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Listing key versions or reading a specified version enumerates the key version inventory (metadata/public attributes only, not the non-exportable private material).

@@ -1,0 +1,12 @@
+name: Azure SQL instance pool operations
+description: Management operation history/status entries for an Azure SQL managed instance pool.
+scope: LOW
+notes: Read-only listing of management activity on the instance pool; low-sensitivity infrastructure metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing instance-pool operations enumerates management activity and configuration of the pool, providing infrastructure reconnaissance.

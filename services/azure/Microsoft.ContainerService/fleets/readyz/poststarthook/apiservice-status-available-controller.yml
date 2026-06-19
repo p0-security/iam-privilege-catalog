@@ -1,0 +1,11 @@
+name: AKS Fleet API server readiness sub-check
+description: An individual sub-check of the Kubernetes /readyz readiness probe on an Azure Kubernetes Fleet Manager hub cluster's API server, reporting the health/completion status of one internal control-plane component.
+scope: LOW
+notes: Health-probe sub-check returning only an ok/not-ok status flag; no data, schema, or credential exposure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the apiservice-status-available-controller post-start-hook readiness status, returning only that controller's startup health flag — inert.

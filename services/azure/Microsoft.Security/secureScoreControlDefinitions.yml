@@ -1,0 +1,11 @@
+name: Secure Score Control Definition
+description: Secure Score Control Definitions are the static, tenant-independent catalog metadata describing what each secure-score control measures, its assessments, and its maximum score.
+scope: PUBLIC
+notes: Reference documentation-like data; contains no organization-specific posture or configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns generic, non-tenant-specific reference metadata about how controls are defined; grants no meaningful attacker capability beyond reading public documentation.

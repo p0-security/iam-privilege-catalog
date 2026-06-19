@@ -1,0 +1,11 @@
+name: Management provider operation catalog
+description: The static catalog of available API operations exposed by the Microsoft.Management resource provider.
+scope: PUBLIC
+notes: Effectively public API-surface documentation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Management
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Listing the available RP operations returns static, publicly documented API metadata and confers no attacker capability.

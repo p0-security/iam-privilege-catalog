@@ -1,0 +1,13 @@
+name: Garnet cluster keyspace data
+description: A Garnet cluster is a Microsoft Redis-compatible in-memory key-value data store. The keyspace holds cached/operational data for an application, accessed via data-plane (data action) operations.
+scope: HIGH
+notes: As a single-function production data store, the cache typically backs one application/service; its data plane is sensitive but not tenant-wide.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:manipulation
+    notes: "Despite the /delete suffix, this is the EXPIRE command: it sets a TTL on a key, causing that cached value to be evicted/removed when it expires (data destruction) and alters the operational data lifecycle of the keyspace (manipulation)."

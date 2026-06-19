@@ -1,0 +1,10 @@
+name: Cosmos DB async operation status
+description: A generic endpoint that returns the status/progress of asynchronous Cosmos DB operations.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only transient operation-progress state; grants no actionable capability in isolation.

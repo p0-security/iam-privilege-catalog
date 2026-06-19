@@ -1,0 +1,24 @@
+name: Kubernetes PodSecurityPolicies (Fleet)
+description: Kubernetes PodSecurityPolicy objects governed by Azure Kubernetes Fleet Manager. These are admission-control rules that constrain pod privileges (privileged containers, host mounts, host networking/namespaces), acting as a security-enforcement defense against privileged workload deployment.
+scope: HIGH
+notes: PSPs are a security/admission defense whose relaxation enables container breakout and node/cluster privilege escalation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting a PodSecurityPolicy removes pod admission-control security enforcement, eliminating a defense that would otherwise block privileged/host-access workloads.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Read-only enumeration of pod admission/security constraints reveals which privileged-workload restrictions exist and where they can be bypassed.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:privilege
+      - impact:manipulation
+    notes: Creating/updating a PodSecurityPolicy can relax admission controls to permit privileged/host-mounted pods, disabling a security defense and opening a workload-to-node privilege-escalation path while altering policy state.

@@ -1,0 +1,12 @@
+name: Recovery Services backup deleted protection containers
+description: Soft-deleted backup protection containers belonging to the subscription, representing resources that were previously registered for backup protection in Recovery Services vaults.
+scope: LOW
+notes: Enumeration reveals which workloads were protected/recently removed from protection; infrastructure inventory, not data contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists soft-deleted protection containers across the subscription, inventorying backup infrastructure and previously protected workloads for reconnaissance.

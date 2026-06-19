@@ -1,0 +1,13 @@
+name: Log Analytics AWSGuardDuty table
+description: A Log Analytics workspace data-plane table holding ingested AWS GuardDuty security finding/alert records.
+scope: MEDIUM
+notes: Per-table data-plane read permission on security-detection telemetry; content reveals what threats defenders are detecting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reads GuardDuty findings, exporting security-detection telemetry and letting an attacker learn which detections fired to find monitoring blind spots.

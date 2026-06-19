@@ -1,0 +1,12 @@
+name: Compute disk-inspection diagnostics
+description: The DiskInspection diagnostic of Microsoft Compute, a troubleshooting facility that returns configuration/health metadata about disk inspection (e.g. partition/boot state).
+scope: MEDIUM
+notes: Exposes infrastructure configuration details about disks but not the disk's underlying data-plane contents or any secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads disk-inspection diagnostic properties, exposing disk configuration/health metadata for reconnaissance without returning the disk's stored data.

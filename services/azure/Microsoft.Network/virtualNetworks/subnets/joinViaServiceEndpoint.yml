@@ -1,0 +1,12 @@
+name: Virtual network subnet
+description: A subnet is a segment of a virtual network's address space, with associated NSG/route-table bindings, service endpoints and delegations that govern connectivity for resources placed in it.
+scope: HIGH
+notes: Subnets are core production network components supporting a single organizational function; their configuration governs segmentation and reachability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joins a service such as a storage account or SQL database to the subnet via service endpoint, repositioning the data store onto an attacker-reachable network boundary.

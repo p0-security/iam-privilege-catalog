@@ -1,0 +1,12 @@
+name: Defender for DevOps monitored GitHub owner
+description: A Microsoft Defender for Cloud security-connector resource representing a GitHub owner/organization onboarded to DevOps security posture monitoring.
+scope: LOW
+notes: Control-plane onboarding metadata identifying which GitHub orgs are connected; read-only inventory of the connector configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns a monitored GitHub owner, enabling inventory of which GitHub organizations are onboarded to the Defender DevOps connector.

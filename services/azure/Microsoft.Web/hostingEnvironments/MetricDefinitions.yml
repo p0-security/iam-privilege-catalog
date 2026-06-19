@@ -1,0 +1,12 @@
+name: App Service Environment metric definitions
+description: Schema of available monitoring metrics (names, units, dimensions) for an App Service Environment.
+scope: LOW
+notes: Returns the metric catalog/schema only, not metric values.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Returns the schema of available ASE metrics (not values), a low-value metadata enumeration of the monitoring catalog.

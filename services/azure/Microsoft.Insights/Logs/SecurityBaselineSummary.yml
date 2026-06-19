@@ -1,0 +1,13 @@
+name: Log Analytics SecurityBaselineSummary table
+description: A Log Analytics workspace table holding summarized OS security-baseline compliance assessment results ingested by Azure Monitor / Microsoft Defender.
+scope: MEDIUM
+notes: Monitoring/diagnostics data; exposes host hardening posture and compliance gaps useful for targeting weak hosts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns baseline compliance rows (exfiltration:logs) and lets an attacker inventory which hosts fail hardening checks (discovery:logs).

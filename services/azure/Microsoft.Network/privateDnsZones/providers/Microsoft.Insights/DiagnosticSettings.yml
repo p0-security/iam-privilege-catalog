@@ -1,0 +1,18 @@
+name: Private DNS zone diagnostic settings
+description: Diagnostic settings for a Private DNS zone control whether and where the zone's logs and metrics are exported (Log Analytics, storage, Event Hub). They are the audit/logging configuration for the resource.
+scope: LOW
+notes: Controls visibility/auditability; modifying or removing these is a defense-evasion lever, but reading is low-sensitivity logging-config reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading diagnostic settings reveals whether and where the zone's logs/metrics are routed, letting an attacker locate logging blind spots before evasion.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    scope: MEDIUM
+    notes: Creating/updating diagnostic settings lets an attacker disable or redirect the zone's log/metric collection, disrupting incident response and weakening detection.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace table data (MDCDetectionProcessV2Events)
+description: A per-table data-plane query permission on a Log Analytics workspace; this one returns rows of the MDCDetectionProcessV2Events table, which holds Microsoft Defender for Cloud process-level detection events.
+scope: MEDIUM
+notes: Endpoint/host security-detection telemetry revealing process activity and detection coverage; monitoring/log-data sensitivity tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reads Defender for Cloud process detection event rows, exporting endpoint security telemetry and disclosing host process activity and detection coverage an attacker would seek to evade.

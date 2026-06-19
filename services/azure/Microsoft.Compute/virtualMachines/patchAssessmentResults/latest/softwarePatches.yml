@@ -1,0 +1,12 @@
+name: Virtual Machine patch assessment software-patch results
+description: Read-only per-patch records listing the individual software patches assessed (including pending/available ones) during the last patch assessment operation on an Azure virtual machine.
+scope: LOW
+notes: Per-patch assessment results enumerate the VM's missing updates and thus exploitable vulnerabilities, useful for targeting but containing no secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing all patches assessed enumerates the VM's available/missing updates, directly revealing its unpatched software and exploitable vulnerabilities for targeting; discloses no data or secret material.

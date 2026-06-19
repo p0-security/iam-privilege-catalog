@@ -1,0 +1,12 @@
+name: Service groups
+description: A service group is a tenant-level organizational grouping construct used to logically group resources for observability and management, independent of the RBAC/policy-inheriting management group hierarchy.
+scope: LOW
+notes: Service groups organize resources operationally but do not drive RBAC/policy inheritance the way management groups do.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Management
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Retrieves the ancestor chain of a service group, enumerating the grouping hierarchy for reconnaissance.

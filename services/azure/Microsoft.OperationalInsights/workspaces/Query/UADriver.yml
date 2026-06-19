@@ -1,0 +1,13 @@
+name: Log Analytics workspace UADriver table
+description: A data-plane Update/Upgrade Analytics table in an Azure Log Analytics workspace inventorying installed device drivers across monitored machines.
+scope: MEDIUM
+notes: Monitoring asset; driver/version inventory useful for identifying vulnerable components.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading UADriver exports installed driver inventory across the fleet, usable to identify vulnerable driver versions.

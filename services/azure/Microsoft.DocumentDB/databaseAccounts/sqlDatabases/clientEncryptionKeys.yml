@@ -1,0 +1,17 @@
+name: Cosmos DB Client Encryption Key
+description: A Client Encryption Key (CEK) is the per-database metadata object used by Cosmos DB Always Encrypted client-side encryption; it holds the wrapped (Key-Vault-encrypted) data encryption key plus the wrapping-key (CMK) reference and algorithm.
+scope: MEDIUM
+notes: Manages cryptographic configuration metadata for a single database; it does not hold or return plaintext key material on its own.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Reading or listing CEKs returns the wrapped (encrypted) key bytes and the Key Vault wrapping reference/algorithm, not usable plaintext key material; it only enumerates the database's client-side encryption configuration metadata for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    scope: HIGH
+    notes: Creating or updating a CEK lets an attacker alter or rotate the key-wrapping configuration; overwriting an in-use CEK can disrupt client-side decryption of encrypted columns/documents, manipulating the encryption configuration of a single database.

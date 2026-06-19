@@ -1,0 +1,23 @@
+name: Traffic Manager Azure endpoint
+description: A Traffic Manager Azure endpoint is a configured backend target (an Azure resource) within a Traffic Manager profile that receives DNS-routed traffic. It defines part of a public-facing service's routing.
+scope: HIGH
+notes: Endpoint configuration determines where a public domain's traffic is directed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting an endpoint stops Traffic Manager from routing traffic to that backend, removing a network routing target and disrupting service availability for the affected target.
+  read:
+    risks:
+      - discovery:network
+    notes: Reads the full endpoint properties, inventorying the specific backend target and routing configuration behind the profile's DNS name.
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+      - impact:dos
+    notes: Adding/updating an endpoint changes where the profile's DNS name routes traffic, letting an attacker redirect domain traffic to a controlled target (hijack), alter routing config, or disable a legitimate endpoint to deny service.

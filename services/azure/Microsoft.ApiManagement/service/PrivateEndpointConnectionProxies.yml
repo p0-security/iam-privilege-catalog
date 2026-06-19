@@ -1,0 +1,21 @@
+name: API Management private endpoint connection proxy
+description: An internal proxy resource used by Azure Private Link to broker private endpoint connections to an API Management service. It represents the private network connectivity configuration of the gateway.
+scope: HIGH
+notes: Control-plane networking configuration for a single API gateway; not a credential or data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the proxy removes a private network connectivity component, disrupting private access to the gateway (DoS-like effect on the private path).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the proxy enumerates the private endpoint connectivity configuration of the gateway, a network reconnaissance read.
+  write:
+    risks:
+      - escalation:network
+    notes: Creating the proxy attaches private network connectivity to the gateway, enabling an attacker to reach the service over a private link and pivot to network-adjacent resources.

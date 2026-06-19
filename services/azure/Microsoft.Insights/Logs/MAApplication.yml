@@ -1,0 +1,13 @@
+name: Log Analytics MAApplication table (Azure Migrate)
+description: "A Log Analytics (Azure Monitor) table holding Azure Migrate application-inventory telemetry: discovered/installed applications across assessed servers and workloads."
+scope: MEDIUM
+notes: Monitoring/assessment data plane; application inventory aids software/version reconnaissance and targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Data-plane read returns the discovered-application inventory, exporting log records (exfiltration:logs) and enumerating the organization's installed-application infrastructure (discovery:infra).

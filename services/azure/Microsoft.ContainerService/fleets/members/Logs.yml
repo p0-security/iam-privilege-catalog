@@ -1,0 +1,13 @@
+name: AKS fleet member apiserver logs
+description: The Kubernetes API server /logs data-plane endpoint on an AKS fleet member cluster, which returns control-plane server log output.
+scope: MEDIUM
+notes: Logs may contain sensitive operational details, request data, and identifiers useful for further attacks or incident-response evasion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading the apiserver logs both enumerates and exports log content that may contain sensitive operational details and identifiers.

@@ -1,0 +1,18 @@
+name: Storage file service
+description: The file service of a storage account exposes SMB/NFS file shares and its control-plane properties (CORS, share soft-delete/retention, SMB protocol and security settings). The data-plane holds organizational file data.
+scope: LOW
+notes: Backup-semantics privileges (SeBackupPrivilege/SeRestorePrivilege equivalents) bypass per-file NTFS/share ACLs.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists/gets file service properties (SMB settings, soft-delete/retention, CORS), enabling reconnaissance of the service configuration and identification of weakened protections without touching file data.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    scope: HIGH
+    notes: "Sets file service properties: can disable share soft-delete and relax SMB/CORS security settings, weakening data-loss/recovery defenses and altering operational configuration."

@@ -1,0 +1,13 @@
+name: Log Analytics workspace UASysReqIssue table
+description: A data-plane Update/Upgrade Analytics table in an Azure Log Analytics workspace holding system-requirement/compatibility issue telemetry for monitored machines.
+scope: MEDIUM
+notes: Monitoring asset; exposes per-host capability/compatibility details.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading UASysReqIssue exports per-machine system-requirement/compatibility issue data, contributing to host reconnaissance.

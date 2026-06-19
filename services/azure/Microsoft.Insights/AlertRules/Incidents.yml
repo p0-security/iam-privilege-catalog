@@ -1,0 +1,12 @@
+name: Azure classic metric alert incidents
+description: A classic metric alert incident is a record produced when a classic metric alert rule fires or resolves, capturing the alert's activation state and timing.
+scope: LOW
+notes: Read-only monitoring/alert telemetry; reveals detection state but no organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Reading classic metric alert incidents inventories which alerts have fired and when, letting an attacker gauge detection coverage and whether their activity triggered alarms.

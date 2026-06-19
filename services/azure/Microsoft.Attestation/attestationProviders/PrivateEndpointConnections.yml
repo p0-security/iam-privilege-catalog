@@ -1,0 +1,21 @@
+name: Attestation provider private endpoint connections
+description: A private endpoint connection represents the Private Link binding between a customer private endpoint and a Microsoft Azure Attestation provider, including its approval state. It is a supporting network sub-component of the attestation provider.
+scope: MEDIUM
+notes: Private-link connections govern the private network reachability of a single service; their sensitivity is the network path they expose or restrict.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Attestation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a private endpoint connection removes a private-endpoint network connectivity component, which can disrupt private access to the attestation provider (DoS-like).
+  read:
+    risks:
+      - discovery:network
+    notes: Reading private endpoint connections enumerates the established/pending private-link bindings and their approval state, providing network reconnaissance of the attestation provider's connectivity.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Writing a private endpoint connection can approve or modify a private-link binding to the attestation provider, enabling network movement onto the service and manipulation of the connection's approval state.

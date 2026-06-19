@@ -1,0 +1,11 @@
+name: Azure SQL Database ledger digest upload async operations
+description: An async operation-status endpoint that reports the in-progress state of ledger digest upload settings operations.
+scope: LOW
+notes: Operation-status polling endpoints expose only completion state, not configuration, data, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the in-progress status of a ledger-digest-upload settings operation; no configuration or data is exposed, so it is inert.

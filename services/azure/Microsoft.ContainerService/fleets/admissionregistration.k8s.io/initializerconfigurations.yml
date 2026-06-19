@@ -1,0 +1,23 @@
+name: Fleet hub Kubernetes initializer configurations
+description: Initializer configurations are cluster-scoped Kubernetes admission-control objects on the Fleet Manager hub cluster that register interceptors which can gate or mutate objects during admission to the API server.
+scope: CRITICAL
+notes: Admission-control configuration is a cluster-admin-tier security primitive; controlling it can influence every object created cluster-wide.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting initializer configurations removes admission-control enforcement that may act as a security guardrail, disabling an admission-time defense for the cluster.
+  read:
+    risks:
+      - discovery:infra
+    scope: HIGH
+    notes: Data-plane read enumerates the admission-control posture (which initializers/interceptors are configured), reconnaissance of cluster admission defenses without returning secret material.
+  write:
+    risks:
+      - escalation:privilege
+      - impact:manipulation
+      - destruction:defense
+    notes: Writing an initializer configuration registers an admission interceptor that can mutate objects admitted cluster-wide (inject privileged/mutated resources), enabling privilege escalation, tampering with admitted workloads, and bypass of other admission-based defenses.

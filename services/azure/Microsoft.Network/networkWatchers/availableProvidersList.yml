@@ -1,0 +1,11 @@
+name: Network Watcher
+description: Network Watcher is an Azure regional service that provides network diagnostics, monitoring, and visibility tools (flow logs, topology, connectivity checks, NSG rule inspection) for resources in a subscription/region.
+scope: LOW
+notes: A supporting monitoring/diagnostics resource. Its read-style diagnostic actions are powerful network reconnaissance primitives; its flow-log configuration is a defensive logging control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Lists available internet service providers for a region, generic public reference data with no offensive value.

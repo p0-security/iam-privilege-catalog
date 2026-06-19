@@ -1,0 +1,12 @@
+name: Resource providers (subscription)
+description: Represents the Azure resource providers registered for a specific subscription and their state.
+scope: LOW
+notes: Read-only metadata about which services are registered; no sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only enumeration of a subscription's registered resource providers for reconnaissance.

@@ -1,0 +1,17 @@
+name: Defender for Cloud monitored Azure DevOps organization
+description: A monitored Azure DevOps organization is a child resource of a DevOps security connector that represents an Azure DevOps org onboarded into Defender for Cloud DevOps security scanning, holding its monitoring/auto-discovery configuration.
+scope: MEDIUM
+notes: "Sensitivity is moderate: these resources control DevOps security-posture coverage and reveal which code-hosting orgs/projects are monitored."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the monitored org resource reveals which Azure DevOps orgs are onboarded and how DevOps security monitoring is configured.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating the monitored org config lets an attacker change which DevOps orgs are scanned or disable auto-discovery, weakening DevOps security posture coverage while tampering with monitoring configuration.

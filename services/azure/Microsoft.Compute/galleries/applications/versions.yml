@@ -1,0 +1,22 @@
+name: Azure Compute gallery application version
+description: A Gallery Application Version is a specific published version of a VM application in an Azure Compute Gallery, containing the source package reference and the install/update/remove scripts deployed to VMs and scale sets.
+scope: MEDIUM
+notes: Versions hold the actual executable payload and scripts that run on consumer compute, making write access a supply-chain code-execution vector.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deleting a gallery application version removes a published deployable artifact, breaking deployments that reference it.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a gallery application version returns its configuration (e.g., source package reference, scripts) for reconnaissance of the deployable artifact, without exposing secret material.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    scope: HIGH
+    notes: Creating or updating a version sets the install/run scripts and package payload that execute on every VM and scale set deploying this application, enabling supply-chain code injection that runs on target hosts under their identities.

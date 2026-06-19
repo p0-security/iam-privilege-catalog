@@ -1,0 +1,17 @@
+name: Site Recovery replication protection intents
+description: Azure Site Recovery replication protection intent configuration that declares which workloads should be enrolled into disaster-recovery replication and how.
+scope: LOW
+notes: Reveals/controls the DR posture for protected workloads of an organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads replication protection intents, inventorying Site Recovery/DR configuration for protected items.
+  write:
+    risks:
+      - impact:manipulation
+    scope: HIGH
+    notes: Creates/updates replication protection intent, altering disaster-recovery replication configuration for protected workloads.

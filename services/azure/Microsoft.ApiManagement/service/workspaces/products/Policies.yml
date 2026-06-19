@@ -1,0 +1,22 @@
+name: APIM product policies
+description: An API Management product policy is the XML policy configuration applied at the product level that enforces gateway controls such as authentication/JWT validation, IP filtering, rate limiting, and backend routing/transformations.
+scope: HIGH
+notes: Product policies are the enforcement (defense) layer of the gateway; reading them exposes the access-control logic and policy XML may embed inline secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the product policy strips the enforced gateway controls (authentication, IP restriction, rate limiting) that protect the product's APIs, removing a defense mechanism.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reading the product policy XML reveals the gateway's enforcement logic (auth, IP filtering, rate limits, routing), letting an attacker map access controls and find weak points to bypass.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Setting the product policy lets an attacker rewrite gateway enforcement (remove auth/JWT validation, IP filters, rate limits) and alter request/response handling and backend routing, disabling defenses and manipulating traffic.

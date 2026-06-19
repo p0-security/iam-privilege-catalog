@@ -1,0 +1,13 @@
+name: Log Analytics UCDeviceAlert table
+description: A Log Analytics workspace data-plane query against the UCDeviceAlert table, recording Update Compliance device-level update/health alert records.
+scope: MEDIUM
+notes: Monitoring/diagnostics data tying alerts to specific devices.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading the table exports device update-alert records, revealing affected devices and infrastructure health issues.

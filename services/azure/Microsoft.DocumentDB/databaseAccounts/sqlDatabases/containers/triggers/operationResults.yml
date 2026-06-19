@@ -1,0 +1,11 @@
+name: Cosmos DB SQL trigger operation results
+description: The async operation-status resource for SQL trigger management operations on a Cosmos DB container. It exposes only the transient progress/status of a long-running control-plane operation.
+scope: LOW
+notes: Operation-status polling endpoints return no resource configuration, code, or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status of an asynchronous trigger management operation; conveys only transient state and grants no actionable capability.

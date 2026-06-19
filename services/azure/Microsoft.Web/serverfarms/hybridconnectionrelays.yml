@@ -1,0 +1,11 @@
+name: App Service Plan hybrid connection relays
+description: The Hybrid Connection relay endpoints configured on an App Service Plan that bridge the plan's apps to on-prem/private networks.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Lists the hybrid connection relays on the plan, enumerating the network bridge endpoints connecting apps to other networks.

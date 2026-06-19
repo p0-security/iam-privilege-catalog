@@ -1,0 +1,13 @@
+name: Log Analytics HDInsight query table (Oozie logs)
+description: A Log Analytics workspace query-scoped table holding HDInsight Oozie workflow-scheduler log records ingested via diagnostic settings. The data-plane read returns the stored rows.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset tier. Workflow-scheduler logs can reveal job configuration and data-pipeline orchestration detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading this table exports Oozie job-orchestration log content and lets the holder inventory the logged workflow activity.

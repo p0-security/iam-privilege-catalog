@@ -1,0 +1,17 @@
+name: Microsoft Sentinel case investigations
+description: Case investigations are the Microsoft Sentinel investigation graph and metadata tying an incident's alerts to correlated entities, timelines, and analyst findings.
+scope: MEDIUM
+notes: Reveals the depth of the SOC's understanding of an incident.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading case investigations exposes the investigation graph and findings, letting an attacker gauge what defenders know about an incident and which of their actions have been correlated.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Updating investigation metadata lets an attacker alter the record of an active incident investigation to misdirect or suppress the defensive response.

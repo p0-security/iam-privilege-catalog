@@ -1,0 +1,12 @@
+name: Arc connected cluster Kubernetes storage API (storage.k8s.io)
+description: The Kubernetes storage.k8s.io API group on an Azure Arc-connected cluster, exposing storage configuration objects such as StorageClasses, VolumeAttachments, and CSIDrivers/CSINodes. This is the cluster's storage infrastructure configuration, not the data inside volumes.
+scope: LOW
+notes: Read access reveals only storage configuration metadata, which is non-sensitive infrastructure reconnaissance; it does not expose the contents of persistent volumes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Identical to the v1 variant but against the v1beta1 API group; get/list enumerates cluster storage configuration objects, yielding only infrastructure inventory recon.

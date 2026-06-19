@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (AZMSKafkaUserErrorLogs)
+description: A Log Analytics workspace query table holding Kafka user/client error logs for messaging services. Reading it returns the stored error-event records via the data plane.
+scope: MEDIUM
+notes: Operational diagnostic telemetry that may include client/topic identifiers; MEDIUM-sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading exports Kafka client error log content (exfiltration:logs) and enumerates the error telemetry logged (discovery:logs).

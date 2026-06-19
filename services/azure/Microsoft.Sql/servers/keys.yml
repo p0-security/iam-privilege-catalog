@@ -1,0 +1,22 @@
+name: Azure SQL Server Keys
+description: Azure SQL server keys are the Transparent Data Encryption (TDE) protector references that bind a logical SQL server's encryption to a customer-managed Key Vault key.
+scope: HIGH
+notes: These are references/configuration (Key Vault key URIs, thumbprints, state), not the raw key material; the key material itself lives in Key Vault.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:dos
+    notes: Deleting a server key removes a TDE protector reference; if it is the active protector this destroys cryptographic configuration the database depends on and can render encrypted data inaccessible.
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing/getting server keys returns the TDE protector key references and properties rather than secret material, enabling reconnaissance of the encryption configuration only.
+  write:
+    risks:
+      - impact:encryption
+      - impact:manipulation
+    notes: Creating/updating a server key can register an attacker-controlled or rotated key as the TDE protector, enabling ransomware-style encryption control and tampering with the database's cryptographic configuration.

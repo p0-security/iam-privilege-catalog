@@ -1,0 +1,11 @@
+name: Azure SQL Managed Instance start async operation status
+description: A status/result endpoint for the long-running asynchronous operation that starts an Azure SQL Managed Instance.
+scope: LOW
+notes: Exposes only operation progress/completion state, not instance configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Retrieves only the result/status of a managed instance start operation; an inert status-polling read with no data, secret, or configuration access.

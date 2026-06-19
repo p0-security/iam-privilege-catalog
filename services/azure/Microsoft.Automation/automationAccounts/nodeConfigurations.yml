@@ -1,0 +1,24 @@
+name: Azure Automation DSC node configuration
+description: An Azure Automation DSC Node Configuration is a compiled Desired State Configuration (MOF) document that defines and is enforced on managed nodes (VMs/servers) registered to the Automation account.
+scope: MEDIUM
+notes: MOF content can embed sensitive settings, file paths, and (in poorly-secured configs) credentials, and reveals exactly how the managed fleet is configured.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+      - impact:dos
+    notes: Deletes a compiled DSC node configuration artifact, removing the desired-state definition assigned nodes rely on, causing configuration drift/enforcement failure and disrupting configuration management.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads node configuration metadata (name, source, status) without returning the MOF content body, providing reconnaissance of the DSC configuration inventory.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+      - impact:hijack
+    scope: HIGH
+    notes: Writing a node configuration defines the MOF pushed to and enforced on all assigned managed nodes, letting an attacker inject arbitrary configuration or scripts that execute on the node fleet (code execution / lateral movement) and hijack those machines.

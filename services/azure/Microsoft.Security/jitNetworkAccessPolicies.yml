@@ -1,0 +1,13 @@
+name: Just-In-Time network access policies
+description: Defender for Cloud Just-In-Time (JIT) network access policies define which VMs and management ports are locked down and the conditions (source ranges, time windows) under which access is temporarily opened.
+scope: MEDIUM
+notes: Reveals both network exposure (which ports/VMs are gated) and the access-control rules guarding them.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading JIT policies reveals which VMs/ports are protected and the access-control rules governing them, mapping network topology and the defensive gating configuration for intrusion planning.

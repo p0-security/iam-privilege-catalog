@@ -1,0 +1,21 @@
+name: API operations
+description: An individual operation (HTTP method + URL template + parameters) within a workspace API, defining a single exposed endpoint and its request/response mapping in the APIM gateway.
+scope: HIGH
+notes: Operations are the granular endpoints of a production-fronting gateway API.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting an API operation removes a specific exposed endpoint, destroying that configuration and denying service to consumers that rely on the operation.
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing or getting an API's operations enumerates the gateway's exposed methods and URL templates for reconnaissance; returns no secret material.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating an API operation alters the gateway's exposed endpoint definitions (method, URL template, parameters) and how requests are mapped, manipulating operational routing.

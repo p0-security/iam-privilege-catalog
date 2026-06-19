@@ -1,0 +1,18 @@
+name: Kubernetes component statuses (Arc-connected cluster)
+description: The deprecated Kubernetes ComponentStatus resource on an Azure Arc-connected cluster, a server-synthesized read-only health report for control-plane components (etcd, scheduler, controller-manager).
+scope: LOW
+notes: Computed health view; no backing store and no persisted user data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks: []
+    notes: ComponentStatus has no persisted objects to remove; delete is effectively an inert no-op.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading componentstatuses reports control-plane component health, a low-sensitivity infrastructure reconnaissance signal.
+  write:
+    risks: []
+    notes: ComponentStatus is API-server-synthesized read-only; write requests are not persisted and grant no meaningful capability in isolation.

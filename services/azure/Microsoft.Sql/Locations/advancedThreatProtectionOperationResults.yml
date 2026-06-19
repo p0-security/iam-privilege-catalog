@@ -1,0 +1,11 @@
+name: Server ATP async operation result
+description: The result endpoint for an asynchronous server Advanced Threat Protection settings write operation.
+scope: LOW
+notes: Returns only transient operation outcome/status; no sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the result of an asynchronous server ATP settings write returns only operation outcome metadata and grants no meaningful attacker capability in isolation.

@@ -1,0 +1,24 @@
+name: Kubernetes Ingresses
+description: Kubernetes Ingress objects in an AKS managed cluster, which define HTTP(S) routing rules mapping external hostnames and paths to backend services, including TLS configuration.
+scope: HIGH
+notes: Ingress definitions describe the cluster's external network exposure surface; control over them governs how inbound traffic reaches services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting Ingresses removes the external routing rules that expose cluster services, severing inbound access and causing denial of service for the hosted applications.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading Ingresses enumerates external routing rules, hostnames, paths, TLS config, and backend service mappings, inventorying the cluster's network exposure topology.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+      - impact:defacement
+    notes: Creating/updating Ingresses lets an attacker reroute or expose traffic to attacker-controlled backends, surface internal services externally, and alter public-facing host/path routing.

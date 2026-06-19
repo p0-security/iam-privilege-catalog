@@ -1,0 +1,24 @@
+name: Network flow log diagnostic settings
+description: Extended diagnostic settings configure network flow logging (NSG/VNet flow logs) that records IP traffic flows for network monitoring and forensics.
+scope: MEDIUM
+notes: Flow logs are a key network detective/forensic control. Disabling them blinds detection of lateral movement and exfiltration. Network-monitoring asset = MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting a network flow-log diagnostic setting stops collection of network traffic flow records, destroying network audit data and removing a network monitoring/detection control.
+  Read:
+    risks:
+      - discovery:logs
+      - discovery:network
+    scope: LOW
+    notes: Reading a network flow-log diagnostic setting reveals whether and where flow logging is enabled and the associated network resources/storage targets, exposing both monitoring coverage and network topology for evasion planning.
+  Write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating a network flow-log diagnostic setting lets an attacker disable, alter, or redirect NSG/network flow logging, removing network traffic visibility used for intrusion detection and incident response.

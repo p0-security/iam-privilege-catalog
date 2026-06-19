@@ -1,0 +1,11 @@
+name: Cosmos DB SQL container throughput operation results
+description: Async operation-result endpoint that returns the status/result of an asynchronously submitted throughput operation against a Cosmos DB SQL container throughput setting.
+scope: LOW
+notes: Status/result polling endpoints expose only operation-completion metadata, not data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status of a prior asynchronous throughput operation, an inert status read with no standalone attacker capability.

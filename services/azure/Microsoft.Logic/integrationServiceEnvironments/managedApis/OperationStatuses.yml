@@ -1,0 +1,11 @@
+name: Integration Service Environment managed API operation statuses
+description: Asynchronous operation-status records for managed API operations within a Logic Apps Integration Service Environment.
+scope: LOW
+notes: Operation-status polling endpoint; discloses no sensitive content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the status of an asynchronous managed-API operation, an inert status-polling read that grants no meaningful attacker capability in isolation.

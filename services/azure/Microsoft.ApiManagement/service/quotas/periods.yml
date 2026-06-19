@@ -1,0 +1,17 @@
+name: API Management quota counters
+description: Quota counter state for API Management rate-limit/usage policies, tracking consumed quota against configured limits.
+scope: LOW
+notes: Non-sensitive operational throttling/usage state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the quota counter value for a specific period, a low-sensitivity inventory of rate-limit usage state.
+  write:
+    risks:
+      - impact:manipulation
+    scope: MEDIUM
+    notes: Sets/resets the per-period quota counter, letting an attacker clear consumed quota to evade rate-limiting and sustain abusive traffic for that period.

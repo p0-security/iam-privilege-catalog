@@ -1,0 +1,12 @@
+name: AKS available agent pool versions
+description: The list of agent-pool (Kubernetes/node) versions supported and available for an AKS managed cluster.
+scope: LOW
+notes: Low-sensitivity, largely static version catalog.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading available agent pool versions only enumerates supported Kubernetes/node versions for the cluster, the lowest-sensitivity version reconnaissance.

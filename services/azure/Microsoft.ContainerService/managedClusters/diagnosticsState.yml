@@ -1,0 +1,12 @@
+name: AKS cluster diagnostics state
+description: The diagnostics state of an AKS managed cluster — diagnostic configuration/status metadata for the cluster.
+scope: LOW
+notes: Low-sensitivity operational status metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the diagnostics state returns the cluster's diagnostic status/configuration metadata, providing read-only operational reconnaissance with no data or credential exposure.

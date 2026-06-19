@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (AADUserRiskEvents)
+description: A specific table within an Azure Monitor Log Analytics workspace. Data-plane read access returns the ingested log records stored in that table for querying.
+scope: MEDIUM
+notes: Per-table data-plane permission scoped to one log stream within a workspace; sensitivity depends on the source service but is monitoring/diagnostics telemetry that may contain operational PII.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Returns Entra ID Identity Protection user-risk-event records, exporting identity-security telemetry and enumerating which user accounts are flagged risky as compromise targets.

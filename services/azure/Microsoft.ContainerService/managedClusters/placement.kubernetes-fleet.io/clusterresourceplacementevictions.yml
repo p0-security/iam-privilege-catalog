@@ -1,0 +1,22 @@
+name: Fleet ClusterResourcePlacementEviction resource
+description: An Azure Kubernetes Fleet Manager placement object that requests forced eviction of a placed workload/resource from member clusters, overriding normal placement scheduling.
+scope: MEDIUM
+notes: Part of the multi-cluster fleet placement orchestration layer; controls where and whether workloads run across member clusters but is supporting orchestration config rather than the workload data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting an eviction removes a one-shot eviction record, altering fleet placement-orchestration state but undoing/clearing a control object rather than destroying organizational data or real infrastructure.
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only enumeration of eviction objects only inventories which placements have been targeted for eviction, yielding reconnaissance of fleet orchestration state with no secret exposure.
+  write:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    scope: HIGH
+    notes: Creating an eviction forcibly removes a placed workload from member clusters, disrupting the running service and manipulating fleet placement state.

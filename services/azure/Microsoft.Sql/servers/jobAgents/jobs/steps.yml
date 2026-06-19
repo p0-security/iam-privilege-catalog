@@ -1,0 +1,22 @@
+name: Azure SQL DB job step
+description: An Azure SQL DB job step is the executable unit of an elastic job, holding the actual T-SQL command text, the target group, and the credential reference used when the step runs against target databases.
+scope: HIGH
+notes: Steps contain the concrete T-SQL executed against production databases under the job credential, so write access to a step is direct code execution against data stores.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a job step removes part of the automation pipeline, disrupting the scheduled operation the job performs.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading a job step exposes the T-SQL command text, target group, and credential reference, providing reconnaissance of exactly what the automation runs and where.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating a job step lets an attacker inject arbitrary T-SQL executed against target databases under the job credential, enabling data manipulation and code execution as another identity.

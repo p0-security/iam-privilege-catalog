@@ -1,0 +1,23 @@
+name: Fleet ClusterResourceBinding
+description: A Kubernetes Fleet Manager ClusterResourceBinding is a scheduler-generated fleet object that binds a specific captured resource snapshot to a specific member cluster, representing a concrete placement decision.
+scope: HIGH
+notes: Bindings are the internal mechanism that realizes CRP placement onto individual member clusters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a binding unbinds resources from a member cluster, causing the corresponding propagated workloads to be removed and disrupting service on the affected cluster.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading bindings exposes the scheduler's concrete decisions of which resource snapshots are assigned to which member clusters, inventorying fleet placement state for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - escalation:lateral
+    notes: Writing a binding directly forces a resource snapshot onto a chosen member cluster, letting an attacker manipulate placement decisions, deploy/run their own workloads (hijack) on target clusters, and pivot laterally onto them.

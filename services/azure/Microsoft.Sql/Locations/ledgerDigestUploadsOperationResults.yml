@@ -1,0 +1,11 @@
+name: Azure SQL Database ledger digest upload operation results
+description: An async operation-result endpoint that reports the outcome state of ledger digest upload settings operations.
+scope: LOW
+notes: Operation-status polling endpoints expose only completion state, not configuration, data, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the result/status of a ledger-digest-upload settings async operation; no configuration, secrets, or data are exposed, so it is inert.

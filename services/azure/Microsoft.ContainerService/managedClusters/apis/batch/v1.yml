@@ -1,0 +1,12 @@
+name: AKS Kubernetes batch workloads
+description: Kubernetes batch API group objects (Jobs and CronJobs) inside an AKS managed cluster, which define batch and scheduled workloads and their pod templates.
+scope: MEDIUM
+notes: Data-plane (Kubernetes API) read access; pod templates can reveal container images, commands, args and volume/secret references, but the objects themselves do not return secret values.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only get/list of batch/v1 Job objects, enumerating batch workload definitions for reconnaissance.

@@ -1,0 +1,13 @@
+name: Log Analytics IntuneAuditLogs table
+description: A Log Analytics workspace table holding Microsoft Intune administrative audit records (admin/configuration change events for device management). This is a data-plane log table within Azure Monitor Log Analytics.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; audit records may reveal admin identities, device-management actions, and operational activity useful for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns Intune administrative audit log records, exporting (and enumerating) sensitive admin-action telemetry.

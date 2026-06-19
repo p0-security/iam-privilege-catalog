@@ -1,0 +1,12 @@
+name: Azure Site Recovery replication jobs
+description: Azure Site Recovery (ASR) replication jobs represent disaster-recovery operations (replication, failover, test-failover, reprotect) tracked within a Recovery Services vault.
+scope: LOW
+notes: These are control-plane DR orchestration jobs for protected production workloads; they expose operational state and configuration but not the protected data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only enumeration of replication job status/history, providing reconnaissance of DR operations and protected workloads.

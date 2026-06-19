@@ -1,0 +1,13 @@
+name: Network Security Perimeter Link Proxy
+description: A Network Security Perimeter link proxy that governs cross-perimeter connectivity associations, controlling how resources are linked/communicate across the perimeter isolation boundary.
+scope: HIGH
+notes: Controls the enforced network isolation boundary; reconfiguration can relax segmentation and bridge perimeters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:network
+      - destruction:defense
+    notes: Updating the link proxy can reconfigure the cross-perimeter association to relax the isolation boundary, exposing/connecting resources across perimeters (network movement) while weakening the perimeter defense control.

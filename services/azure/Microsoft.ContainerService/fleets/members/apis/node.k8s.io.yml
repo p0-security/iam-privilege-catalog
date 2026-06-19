@@ -1,0 +1,12 @@
+name: AKS fleet member Kubernetes node API (RuntimeClasses)
+description: The Kubernetes node.k8s.io data-plane API group on an AKS fleet member cluster, which exposes RuntimeClass objects describing available container-runtime configurations.
+scope: LOW
+notes: Read-only enumeration of node runtime configuration metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading RuntimeClass objects inventories the cluster's container-runtime configuration, a low-sensitivity infrastructure reconnaissance capability.

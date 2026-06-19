@@ -1,0 +1,11 @@
+name: AKS managed control plane health probe
+description: A Kubernetes API-server health/liveness probe endpoint (healthz/livez) exposed through the AKS managed control plane (aiManagers). It returns only the up/down readiness status of an internal control-plane subsystem.
+scope: LOW
+notes: These are operational liveness/readiness probes that return a bare ok/error status string; they expose no configuration, data, secrets, or meaningful inventory.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the autoregister-completion livez sub-check; returns only a health status.

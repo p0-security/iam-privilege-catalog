@@ -1,0 +1,23 @@
+name: Azure Automation Source Control
+description: An Azure Automation source control links the account to a Git repository (GitHub/Azure DevOps) whose code is synced into runbooks that execute under the account's identity, authenticated by a stored access token.
+scope: MEDIUM
+notes: The stored access token (PAT/OAuth) is never returned on a normal read; the read exposes only the linkage configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a source control removes the Git-to-runbook integration, destroying automation configuration and disrupting the runbook code-sync pipeline (the source repo and runbooks themselves are not deleted).
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a source control returns the linked repository URL, branch, and folder configuration (token not returned), providing reconnaissance of where runbook code originates.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+      - persistence:account
+    scope: HIGH
+    notes: Creating/updating a source control can repoint runbook sync at an attacker-controlled repo, injecting code (manipulation) that executes under the account identity (lateral movement) and delivers attacker-controlled code persistently.

@@ -1,0 +1,18 @@
+name: API Management API revisions
+description: The set of versioned revisions of an API on an Azure API Management gateway, representing the change history of the API's configuration.
+scope: HIGH
+notes: Revisions hold versioned API definitions and routing configuration for a gateway-fronted service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Removing all revisions of an API destroys its versioned configuration and can disrupt the gateway-fronted service.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Lists all revisions of an API, inventorying the versioned configuration history for reconnaissance of the API surface.

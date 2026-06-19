@@ -1,0 +1,23 @@
+name: DNS TLSA record set
+description: A TLSA (DANE) record set in an Azure public DNS zone. TLSA records publish which TLS certificate/public-key is trusted for a service name on the domain.
+scope: HIGH
+notes: Public-facing authoritative DNS for a single domain function; write/delete affects which TLS certificates are accepted for the domain's services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - destruction:defense
+    notes: Deleting the TLSA record set removes a public DNS network component and the DANE certificate-pinning defense, weakening TLS trust enforcement and enabling certificate substitution.
+  read:
+    risks:
+      - discovery:network
+    notes: Reads the TLSA record set, inventorying the domain's published certificate-binding (DANE) configuration; reconnaissance only.
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating TLSA/DANE records rebinds which TLS certificate is trusted for the domain, letting an attacker authorize a rogue certificate to intercept/hijack TLS connections and tamper with the certificate-pinning defense.

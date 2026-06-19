@@ -1,0 +1,23 @@
+name: NVA inbound security rules
+description: Inbound security rules on a Network Virtual Appliance (NVA) — a firewall/security appliance — that govern which inbound traffic (ports/sources) is permitted to reach the appliance and the services behind it.
+scope: HIGH
+notes: Acts as a network defense/firewall control fronting backend services for a single network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an inbound rule removes a firewall/traffic-filtering control on the NVA, disabling a network defense mechanism.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading the rule enumerates which inbound flows the appliance permits, revealing the firewall posture for reconnaissance.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating an inbound rule opens ingress paths through the appliance firewall, weakening a defense control, expanding network reachability to backend services, and altering the traffic-filtering config.

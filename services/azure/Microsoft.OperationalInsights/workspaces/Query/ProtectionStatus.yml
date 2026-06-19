@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (ProtectionStatus)
+description: A specific table in an Azure Log Analytics workspace, queried over the data plane via KQL. This table holds antimalware/endpoint-protection status telemetry reported by monitored machines.
+scope: MEDIUM
+notes: Reveals defensive coverage state per host; security-relevant monitoring data, MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Returns endpoint protection-status records, exporting the logs (exfiltration:logs) and revealing which machines lack antimalware/threat protection so an attacker can target undefended infrastructure (discovery:infra).

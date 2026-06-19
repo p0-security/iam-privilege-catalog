@@ -1,0 +1,11 @@
+name: Integration Service Environment metric definitions
+description: The Azure Monitor metric definitions (available metric names/types schema) for an Integration Service Environment.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Lists the available monitoring metric schema for the ISE; returns no metric values or stored data, only telemetry schema reconnaissance.

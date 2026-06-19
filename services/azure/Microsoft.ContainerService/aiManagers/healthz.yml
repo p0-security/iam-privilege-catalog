@@ -1,0 +1,11 @@
+name: AKS cluster health-probe endpoint
+description: The healthz liveness/readiness endpoint of a managed AKS cluster's Kubernetes API server, returning only operational health status. This is a data-plane status probe on the cluster.
+scope: LOW
+notes: Returns only liveness/readiness status; exposes no organizational data, configuration, or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the API server health endpoint returning only liveness status, an inert operation-status probe with no actionable attacker capability.

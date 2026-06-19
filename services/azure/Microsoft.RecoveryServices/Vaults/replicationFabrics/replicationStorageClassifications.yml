@@ -1,0 +1,12 @@
+name: ASR replication storage classifications
+description: Replication storage classifications are metadata objects within an Azure Site Recovery fabric describing the storage tiers/datastores and storage mappings available as replication targets.
+scope: LOW
+notes: Read-only DR storage-mapping metadata; low sensitivity infrastructure inventory.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads/lists storage classifications, enumerating the storage targets/mappings configured for replication within the fabric.

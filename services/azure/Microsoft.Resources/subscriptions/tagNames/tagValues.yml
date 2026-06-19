@@ -1,0 +1,20 @@
+name: Subscription Tag Value
+description: Subscription tag values are the permitted values associated with a subscription tag name, forming part of the organizational tagging taxonomy used for governance, cost allocation, and policy targeting.
+scope: LOW
+notes: Tags and their values are low-sensitivity operational metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deletes a subscription tag value, removing operational metadata that may underpin governance, cost allocation, or policy targeting.
+  read:
+    risks:
+      - discovery:metadata
+    notes: Gets or lists subscription tag values, enumerating operational metadata values for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Adds a subscription tag value, writing operational metadata used for cost allocation, automation, or policy targeting.

@@ -1,0 +1,12 @@
+name: Kubernetes PodSecurityPolicies (AKS Fleet member)
+description: Kubernetes PodSecurityPolicy objects on a member cluster of an AKS Fleet. PSPs are admission-control rules that constrain which pod security capabilities (privileged, hostPath/hostNetwork mounts, runAsRoot, capabilities) workloads may request.
+scope: HIGH
+notes: PSPs are a cluster security-enforcement defense gating container-to-node escape; loosening or removing them enables privileged workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+    notes: The PSP 'use' verb authorizes a workload to be admitted under a given (potentially permissive) policy, letting an attacker launch privileged/host-mounting pods that would otherwise be restricted, enabling node escape and host-level escalation.

@@ -1,0 +1,13 @@
+name: Log Analytics ADXTableUsageStatistics table
+description: A Log Analytics workspace data-plane table holding aggregate usage statistics about Azure Data Explorer tables. Reading it returns log rows of usage/volume metrics rather than event payloads.
+scope: MEDIUM
+notes: Monitoring/diagnostic metadata tier; aggregate statistics, lower sensitivity than event-content tables.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Read inventories ADX table usage/aggregate statistics; matches the discovery:logs 'aggregate stats' definition, with exfiltration:logs covering the exported rows.

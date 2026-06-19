@@ -1,0 +1,23 @@
+name: APIM workspace diagnostics
+description: A workspace diagnostic configures request/response tracing and logging (sampling, attached logger) across the API Management workspace.
+scope: MEDIUM
+notes: Diagnostics govern workspace-wide observability; modification affects detection coverage rather than data confidentiality.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting a workspace diagnostic stops collection of tracing/telemetry for the workspace, disrupting logging and incident response.
+  read:
+    risks:
+      - discovery:logs
+    scope: LOW
+    notes: Reading/listing workspace-level diagnostic settings inventories how logging/tracing is configured across the workspace, revealing the observability posture.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating a workspace diagnostic lets an attacker lower sampling or detach loggers so telemetry stops being captured across the workspace, weakening detection.

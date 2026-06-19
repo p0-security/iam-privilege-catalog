@@ -1,0 +1,11 @@
+name: Gremlin database throughput operation result
+description: An async operation-result polling endpoint for Gremlin database throughput-setting operations on a Cosmos DB account. It returns only the status/progress of a previously submitted asynchronous operation.
+scope: LOW
+notes: Pure status-polling endpoint; exposes no resource configuration, data, or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads the status of an async throughput operation; an inert polling no-op that grants no meaningful attacker capability in isolation.

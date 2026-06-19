@@ -1,0 +1,18 @@
+name: Managed database short-term retention policy
+description: The short-term (point-in-time restore) backup retention policy for a database in an Azure SQL Managed Instance, controlling how many days automated backups are retained for recovery.
+scope: LOW
+notes: This backup-retention setting is the recovery mechanism that mitigates data destruction and ransomware on a single database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the retention policy only reveals the backup/recoverability configuration of a managed database, which is infrastructure reconnaissance.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    scope: HIGH
+    notes: Updating the policy lets an attacker shrink the PITR retention window, weakening the backup-based recovery defense that mitigates data destruction/ransomware while altering protective configuration.

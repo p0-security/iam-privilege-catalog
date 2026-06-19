@@ -1,0 +1,12 @@
+name: Application Insights component feature capabilities
+description: Enumerates the feature capabilities available on / enabled for an Application Insights component.
+scope: LOW
+notes: Non-sensitive resource configuration inventory.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:infra
+    notes: Reads the component's available/enabled feature capabilities, a benign configuration reconnaissance read.

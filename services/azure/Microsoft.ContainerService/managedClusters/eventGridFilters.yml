@@ -1,0 +1,21 @@
+name: AKS cluster Event Grid filters
+description: Event Grid filters define the event-subscription/routing configuration that controls which AKS cluster lifecycle events are emitted to Event Grid handlers.
+scope: MEDIUM
+notes: Non-sensitive event-routing integration configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an Event Grid filter tears down the cluster's event-routing configuration, disrupting downstream event-driven automation/alerting.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read-only get only inventories the cluster's Event Grid filter/event-routing configuration.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating an Event Grid filter alters which cluster events are emitted and where they route, letting an attacker suppress or redirect event/notification signals.

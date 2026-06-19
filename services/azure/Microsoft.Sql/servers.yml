@@ -1,0 +1,23 @@
+name: Azure SQL Server
+description: An Azure SQL logical server that hosts one or more production SQL databases and governs their admin login, identity, networking, and encryption configuration.
+scope: HIGH
+notes: A primary production data store; control over the server confers broad control over hosted databases and their data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - destruction:infra
+    notes: Deleting the server destroys the server infrastructure and all hosted databases and their data, causing irrecoverable data loss and denial of service.
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists/gets server configuration properties (FQDN, admin login name, network and AAD-admin settings) without returning secret material, providing control-plane reconnaissance of a production database server.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+      - persistence:account
+    notes: Create/update can reset the administrator login/password, assign a managed identity to the server (lateral movement), and alter security-relevant configuration, granting persistent privileged access to the production database server.

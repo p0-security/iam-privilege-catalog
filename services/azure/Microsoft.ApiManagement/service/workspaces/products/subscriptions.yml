@@ -1,0 +1,12 @@
+name: APIM workspace product subscriptions
+description: Subscriptions entitling consumers to call a product's APIs in an APIM workspace, each tying a subscriber/account to subscription keys; this list returns subscription metadata and subscriber identities, not the secret keys themselves.
+scope: MEDIUM
+notes: The list operation does not return subscription keys (a separate listSecrets action does); only subscriber and subscription configuration is exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:account
+    notes: Lists subscriptions to a product, enumerating which subscriber accounts/identities are entitled to consume the APIs, providing reconnaissance targets without returning secret keys.

@@ -1,0 +1,20 @@
+name: Cosmos DB Table-API table
+description: A Cosmos DB Table-API table within a database account, the production key/value data store holding the organization's entities along with its throughput and configuration settings.
+scope: HIGH
+notes: Production data store supporting a single organizational function; sensitivity is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a Table-API table destroys the table and all entities it holds, irreversibly removing organizational data (mitigated only by backup).
+  read:
+    risks:
+      - discovery:data
+    notes: Reading or listing tables enumerates the data stores present in the account (without returning entity/row contents), letting an attacker inventory stored data objects.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Control-plane create/update alters the table's configuration (throughput, settings), manipulating operational settings of a production data store.

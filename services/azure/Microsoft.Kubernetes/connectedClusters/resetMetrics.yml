@@ -1,0 +1,11 @@
+name: Arc-connected cluster apiserver metrics/diagnostic endpoint
+description: A Kubernetes apiserver diagnostic metrics-reset endpoint on an Azure Arc-connected cluster. A read surfaces only non-sensitive operational metrics/state and does not actually reset anything.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading surfaces only operational metrics/state of the apiserver; no sensitive data and no mutation occurs on a read.

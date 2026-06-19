@@ -1,0 +1,22 @@
+name: Kubernetes pod disruption budgets (Arc-connected cluster)
+description: PodDisruptionBudgets are Kubernetes policy objects in an Azure Arc-connected cluster that constrain how many pods of a workload may be voluntarily disrupted (evicted/drained) at once, protecting workload availability during maintenance.
+scope: MEDIUM
+notes: These are availability/scheduling guardrails, not IAM/access-control policy; they affect operational continuity of cluster workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Deleting a PDB removes availability guardrails so evictions/drains can proceed unconstrained, allowing all replicas of a protected workload to be taken down simultaneously.
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only enumeration of PDB availability/scheduling configuration; reconnaissance of cluster workload settings with no secret or access-control disclosure.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Creating/updating a PDB alters operational availability config; a maliciously restrictive budget (e.g. minAvailable set high) can block node drains, evictions, and upgrades, disrupting cluster maintenance and availability.

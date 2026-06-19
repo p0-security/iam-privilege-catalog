@@ -1,0 +1,11 @@
+name: Deleted API Management services
+description: Soft-deleted API Management service instances that remain restorable within the soft-delete retention window.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists soft-deleted API Management services available for restore, a read-only inventory of recoverable infrastructure.

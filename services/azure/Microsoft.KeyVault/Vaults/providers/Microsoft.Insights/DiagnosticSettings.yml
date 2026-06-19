@@ -1,0 +1,17 @@
+name: Key Vault diagnostic settings
+description: The Azure Monitor diagnostic settings attached to a Key Vault, which control whether and where the vault's audit/log and metric data (e.g. AuditEvent) are collected and routed.
+scope: MEDIUM
+notes: Monitoring/diagnostics configuration over a credential store; control of it directly affects detection coverage for sensitive secret-access events.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Reading the diagnostic setting reveals which log/metric categories are enabled and where they are routed, letting an attacker inventory monitoring coverage before tampering or evasion; returns no secret material.
+  Write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating the diagnostic setting lets an attacker disable or redirect Key Vault audit log collection, blinding incident response and removing a defensive monitoring control over a credential store.

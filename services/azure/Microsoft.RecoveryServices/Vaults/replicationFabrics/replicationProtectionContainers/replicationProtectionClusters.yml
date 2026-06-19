@@ -1,0 +1,18 @@
+name: Site Recovery replication protection clusters
+description: An Azure Site Recovery replication protection cluster represents the disaster-recovery replication relationship and configuration for a clustered workload protected within a Recovery Services vault.
+scope: HIGH
+notes: These objects control failover/recovery of production workloads; manipulating them affects availability and recovery state but they do not themselves store the production data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the cluster removes the configured DR replication relationship, destroying recovery infrastructure and undermining recoverability (a DoS to the DR function) for the protected workloads.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Control-plane read enumerates the DR/replication topology and configuration (source/target items, recovery settings) for protected workloads, enabling reconnaissance without exposing secrets or production data.

@@ -1,0 +1,13 @@
+name: Arc connected cluster certificates API (CertificateSigningRequests)
+description: The certificates.k8s.io API group of an Azure Arc-enabled (connected) Kubernetes cluster, which holds CertificateSigningRequest (CSR) objects describing requested and issued client/serving certificates for cluster identities. Private keys are generated client-side and are never stored in these objects.
+scope: MEDIUM
+notes: CSR objects expose the requesting identity, requested usages/groups, approval status, and (after signing) the public signed certificate; they never contain private keys, so reading them yields identity-issuance reconnaissance rather than usable credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+      - discovery:policy
+    notes: Get/list of CSRs reveals which identities/groups are being granted cluster certificates, their usages, and approval state, identity- and access-control-issuance reconnaissance, plus general PKI infra inventory; the signed cert returned is public and unusable without its client-held private key.

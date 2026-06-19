@@ -1,0 +1,10 @@
+name: Backup operation status
+description: An asynchronous operation-status endpoint that returns the in-progress/succeeded/failed state of a previously submitted backup-vault operation.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Location-scoped async operation-status poll for backup operations; an inert read with no meaningful capability in isolation.

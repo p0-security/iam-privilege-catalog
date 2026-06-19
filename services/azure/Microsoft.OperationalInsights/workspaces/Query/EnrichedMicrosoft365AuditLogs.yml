@@ -1,0 +1,14 @@
+name: Log Analytics workspace table (EnrichedMicrosoft365AuditLogs)
+description: A Log Analytics workspace query table holding enriched Microsoft 365 audit logs spanning tenant-wide user and admin activity across email, files, SharePoint, and sign-ins. Reading it returns the stored audit records via the data plane.
+scope: HIGH
+notes: Broad cross-functional tenant-wide identity and activity audit data; higher sensitivity than single-service diagnostic tables.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+      - discovery:account
+    notes: Reading exports sensitive tenant-wide M365 audit content (exfiltration:logs), enumerates the logged activity (discovery:logs), and inventories accounts/identities and their behavior across the tenant for targeting (discovery:account).

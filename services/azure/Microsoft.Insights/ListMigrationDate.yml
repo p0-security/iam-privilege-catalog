@@ -1,0 +1,20 @@
+name: Azure Monitor pricing-model migration state
+description: Subscription-level Azure Monitor pricing-model migration metadata (the date/state of migration between monitoring billing models).
+scope: LOW
+notes: Billing/pricing-model configuration metadata for the monitoring service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - discovery:finance
+    notes: Reading back the subscription's pricing-model migration date discloses billing/pricing-plan metadata about the organization's monitoring spend.
+  Read:
+    risks:
+      - discovery:metadata
+    notes: Returns only the subscription migration date, a trivial metadata value granting at most minor reconnaissance.
+    name: Subscription migration date
+    parent:
+      description: A subscription-level operational status value reporting the Azure Monitor platform migration date for the subscription.
+      notes: Trivial, non-sensitive operational metadata with negligible attacker value.

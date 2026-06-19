@@ -1,0 +1,21 @@
+name: Attestation provider private endpoint connection proxies
+description: A private endpoint connection proxy is the internal connectivity plumbing the Private Link service uses to broker a private-endpoint connection to a Microsoft Azure Attestation provider. It is a supporting network sub-component of the attestation provider.
+scope: MEDIUM
+notes: Private-link connectivity components are supporting infrastructure for a single service; their main sensitivity is exposing or altering the network path to the attestation provider.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Attestation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the connection proxy tears down a private-endpoint network connectivity component, which can disrupt private connectivity to the attestation provider (DoS-like).
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the connection proxy enumerates the private-link connectivity plumbing of the attestation provider, providing network reconnaissance only.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating the connection proxy provisions or alters the private-endpoint binding to the attestation provider, enabling network movement onto the service and manipulation of its connectivity configuration.

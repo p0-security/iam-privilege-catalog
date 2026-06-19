@@ -1,0 +1,11 @@
+name: ExpressRoute gateway metric definitions
+description: Metric definitions expose the catalog of available Azure Monitor metric types/schema emitted by an ExpressRoute gateway; reading them returns monitoring metadata, not metric values.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Enumerates the available monitoring metric schema for the ExpressRoute gateway, low-value telemetry reconnaissance.

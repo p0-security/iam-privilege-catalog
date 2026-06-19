@@ -1,0 +1,10 @@
+name: ACR token async operation status
+description: A read-only endpoint that reports the progress/status of an asynchronous long-running token operation.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling async token operation status returns only transient progress state and grants no meaningful attacker capability in isolation.

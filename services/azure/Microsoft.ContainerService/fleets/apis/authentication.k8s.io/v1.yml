@@ -1,0 +1,12 @@
+name: AKS Fleet Kubernetes authentication API (authentication.k8s.io)
+description: The Kubernetes data-plane authentication API group (TokenReview / SelfSubjectReview objects) exposed through an Azure Kubernetes Fleet Manager fleet hub. These objects surface the authenticated identity/groups of a subject.
+scope: LOW
+notes: Read access enumerates identity/authentication information about subjects but does NOT return reusable credential or token material, so it is account reconnaissance rather than credential exfiltration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:account
+    notes: Reading authentication.k8s.io/v1 reveals authenticated subject identity/groups, supporting account discovery without returning credentials.

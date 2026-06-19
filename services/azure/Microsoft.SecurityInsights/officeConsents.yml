@@ -1,0 +1,17 @@
+name: Microsoft Sentinel Office data-connector consents
+description: Office consents are the authorization records that allow Microsoft Sentinel's Office 365 data connector to ingest Microsoft Office activity logs into the workspace.
+scope: MEDIUM
+notes: These records describe the security log-ingestion configuration; removing them breaks Office telemetry collection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deletes the Office 365 connector consent, severing ingestion of Office activity logs into Sentinel and thereby disabling that detection/log-collection source to blind the SOC.
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the configured Office 365 connector consents, inventorying which Office data sources are wired into Sentinel and how ingestion is set up.

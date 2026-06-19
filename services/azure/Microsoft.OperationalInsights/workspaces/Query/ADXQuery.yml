@@ -1,0 +1,13 @@
+name: Log Analytics ADXQuery table
+description: A Log Analytics workspace data-plane table recording Azure Data Explorer query-execution telemetry, including executed query text. Reading it returns the stored query log rows.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data tier; logged query text may disclose data shapes and sensitive query parameters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read exports logged ADX query text and execution details, revealing data-access patterns and potentially sensitive query parameters.

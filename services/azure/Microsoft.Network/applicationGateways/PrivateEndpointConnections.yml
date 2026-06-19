@@ -1,0 +1,22 @@
+name: Application Gateway Private Endpoint Connection
+description: An Application Gateway Private Endpoint Connection represents a consumer private endpoint's connection (and approval state) to an Application Gateway over Private Link.
+scope: HIGH
+notes: Governs which private endpoints may privately reach the gateway-fronted service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a connection severs the private-link path to the gateway, disrupting authorized private connectivity to the service.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading connections only inventories which private endpoints connect to the gateway and their state, which is network reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Updating a connection can approve/alter its state, authorizing an attacker-controlled private endpoint to reach the gateway-fronted service over the private network.

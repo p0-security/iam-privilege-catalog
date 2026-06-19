@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (AZMSAutoscaleLogs)
+description: A Log Analytics workspace query table holding Azure Messaging Services autoscale event logs. Reading it returns the stored scaling-event records via the data plane.
+scope: MEDIUM
+notes: Operational monitoring telemetry; MEDIUM-sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading exports autoscale event log content (exfiltration:logs) and enumerates the scaling telemetry being logged (discovery:logs).

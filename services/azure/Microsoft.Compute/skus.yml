@@ -1,0 +1,12 @@
+name: Compute SKUs catalog
+description: The list of Microsoft.Compute SKUs available to the subscription, including capabilities, regional availability, and restrictions.
+scope: LOW
+notes: Near-public capability catalog with minor subscription-specific availability detail; no sensitive data or control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists available Compute SKUs and their restrictions for the subscription, providing low-value infrastructure/capability reconnaissance.

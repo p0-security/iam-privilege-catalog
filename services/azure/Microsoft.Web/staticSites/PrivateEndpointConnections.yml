@@ -1,0 +1,22 @@
+name: Static Site private endpoint connection
+description: A connection record binding a consumer private endpoint to an Azure Static Web App, including its approval state, governing which private endpoints can privately reach the site.
+scope: HIGH
+notes: This control-plane object gates private network connectivity to a single static site; approving or removing it changes which networks can reach the site.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:network
+    notes: Deletes a private endpoint connection, severing a consumer's private-link path to the static site and disrupting authorized private connectivity.
+  Read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Gets or lists private endpoint connections and their approval state, enumerating the static site's private-link bindings for network reconnaissance.
+  Write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Approving/rejecting a private endpoint connection can attach an attacker-controlled private endpoint to the static site (or reject legitimate ones), granting private-network access and altering the connection's approval state.

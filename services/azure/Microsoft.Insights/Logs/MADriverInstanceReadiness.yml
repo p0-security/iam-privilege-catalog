@@ -1,0 +1,13 @@
+name: Log Analytics MADriverInstanceReadiness table
+description: A Log Analytics table holding Microsoft 365 Apps / Managed Desktop per-driver-instance readiness telemetry collected by Azure Monitor.
+scope: MEDIUM
+notes: Monitoring/diagnostic data tier; rows enumerate installed driver instances per device, a recon target for vulnerable-driver attacks.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Data-plane read exports driver-instance readiness records and inventories installed driver instances across the device fleet.

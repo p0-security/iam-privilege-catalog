@@ -1,0 +1,24 @@
+name: Web App deployment slot source control configuration
+description: The source-control (CI/CD) integration configuration of an App Service deployment slot, linking the slot to a Git repository/branch so commits are deployed to the running app slot.
+scope: MEDIUM
+notes: Controls what code the slot runs; mutating it can lead to arbitrary code execution under the app's (managed) identity. The config exposes the repository location but not repository contents or secret tokens.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting the slot's source-control configuration severs the continuous-deployment integration, altering the app's operational deployment state; the running app and its data are not destroyed.
+  Read:
+    risks:
+      - discovery:infra
+      - discovery:code
+    notes: Reading the slot's source-control configuration reveals the linked repository URL/branch and deployment settings, inventorying the deployment pipeline and where the app's code lives, without returning code or secrets.
+  Write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+      - impact:defacement
+    scope: HIGH
+    notes: Repointing the slot's source control to an attacker-controlled repository deploys arbitrary code that executes as the app and under its managed identity, manipulating the running application and defacing the public-facing site.

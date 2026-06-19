@@ -1,0 +1,11 @@
+name: Autoscale evaluations log table
+description: A Log Analytics / Azure Monitor table holding autoscale evaluation log records (metric/capacity evaluation decisions). This is a monitoring/diagnostics data-plane asset.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read of the AutoscaleEvaluationsLog table exports scaling-evaluation telemetry revealing capacity behavior.

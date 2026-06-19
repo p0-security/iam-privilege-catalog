@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (CassandraAudit)
+description: A specific table in an Azure Log Analytics (Azure Monitor) workspace, queried via the data plane, holding Cassandra database audit log records (queries, principals, accessed objects).
+scope: MEDIUM
+notes: Audit-trail log data capturing who-did-what against a database; can disclose query text and access patterns. MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading exports Cassandra audit records including query text and access patterns (exfiltration:logs) and enumerates audited database activity (discovery:logs).

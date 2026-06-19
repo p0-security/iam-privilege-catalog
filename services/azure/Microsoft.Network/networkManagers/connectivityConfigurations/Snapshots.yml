@@ -1,0 +1,12 @@
+name: Connectivity Configuration Snapshot
+description: A Connectivity Configuration Snapshot captures the deployed state of an Azure Virtual Network Manager connectivity configuration (hub-and-spoke or mesh peering topology) across managed virtual networks.
+scope: LOW
+notes: Exposes the deployed network connectivity/peering architecture across managed VNets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading a Connectivity Configuration Snapshot reveals the deployed hub-spoke/mesh peering topology managed by the network manager, inventorying network architecture.

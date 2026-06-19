@@ -1,0 +1,12 @@
+name: Subnet effective routing rules
+description: The resolved set of routing rules actually taking effect on a virtual network subnet.
+scope: LOW
+notes: Read-only view of the effective traffic routing/next-hops applied to a subnet.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the effective routing rules on a subnet reveals exactly how traffic is routed there, providing detailed network topology reconnaissance.

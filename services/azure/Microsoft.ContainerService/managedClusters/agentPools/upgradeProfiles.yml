@@ -1,0 +1,12 @@
+name: AKS agent pool upgrade profiles
+description: The upgrade profile of an AKS agent pool — the current and available Kubernetes/node upgrade versions for the pool.
+scope: LOW
+notes: Low-sensitivity version metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the upgrade profile only enumerates available/current Kubernetes and node upgrade versions, low-sensitivity version reconnaissance.

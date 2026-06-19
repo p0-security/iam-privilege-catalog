@@ -1,0 +1,12 @@
+name: Web App diagnostics detector
+description: App Service Diagnostics detectors that return health/troubleshooting analysis derived from operational telemetry for a web app or one of its deployment slots.
+scope: MEDIUM
+notes: Read-only diagnostic detectors expose operational/configuration insight about a single app but no stored data, secrets, or control-plane mutation.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates the available diagnostic detectors/categories for a deployment slot, an inventory of the app's diagnostic surface granting reconnaissance only.

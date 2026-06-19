@@ -1,0 +1,11 @@
+name: Azure SQL network security perimeter association proxy async operation
+description: A transient operation-status resource representing the asynchronous provisioning state of a network security perimeter association proxy operation for an Azure SQL resource.
+scope: LOW
+notes: Async operation-status polling endpoints expose only long-running operation progress, not configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the status of a long-running async operation returns only operation provisioning state and grants no meaningful attacker capability in isolation.

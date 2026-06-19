@@ -1,0 +1,12 @@
+name: Log Analytics NCMClusterOperationsLogs table
+description: A Log Analytics data-plane table holding ingested cluster operations log records for the workspace.
+scope: MEDIUM
+notes: Ingested operational log content describing cluster management activity and configuration detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: This data-plane read exports the ingested cluster-operations log records, allowing export of cluster management activity that may reveal infrastructure detail.

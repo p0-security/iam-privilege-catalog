@@ -1,0 +1,12 @@
+name: ExpressRoute LAG link members
+description: ExpressRoute LAG link members represent individual physical member ports/links within an ExpressRoute LAG link.
+scope: LOW
+notes: Read-only physical member-port topology of dedicated network links.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading a LAG link member only enumerates physical member-port configuration, providing network topology reconnaissance.

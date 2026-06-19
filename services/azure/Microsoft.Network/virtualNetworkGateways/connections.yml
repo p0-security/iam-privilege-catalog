@@ -1,0 +1,12 @@
+name: Virtual network gateway connections
+description: A VirtualNetworkGatewayConnection links an Azure VPN/ExpressRoute virtual network gateway to a peer (another gateway, a local network gateway, or an ExpressRoute circuit), defining cross-premises/hybrid connectivity, routing, and tunnel settings.
+scope: HIGH
+notes: Production hybrid-connectivity resource for a single organizational function. The IPSec pre-shared key is exposed only via a separate sharedkey operation, not by the plain connection read.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the connection returns its configuration (peer gateways, connection type, routing/BGP, status) for network reconnaissance, but not the shared key, so it is enumeration only.

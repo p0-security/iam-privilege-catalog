@@ -1,0 +1,11 @@
+name: Logic App workflow detector
+description: App Service-style diagnostic/health detector resources for a Logic App workflow, returning troubleshooting and health-signal output.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads diagnostic/health detector output about the workflow's operational state, low-sensitivity reconnaissance with no run payload or secret exposure.

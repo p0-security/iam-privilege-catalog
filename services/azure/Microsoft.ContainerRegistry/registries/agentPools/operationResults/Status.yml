@@ -1,0 +1,11 @@
+name: ACR agent pool async operation result status
+description: The async operation result status sub-resource for an Azure Container Registry agent pool. It reports only the completion/result state of an agent-pool management operation.
+scope: LOW
+notes: Status-polling endpoints expose only operation progress, never configuration, data, or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling an agent pool async operation result status returns only completion state and grants no actionable capability in isolation.

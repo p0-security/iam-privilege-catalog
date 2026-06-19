@@ -1,0 +1,22 @@
+name: Azure SQL Server Azure AD-only authentication setting
+description: The Azure AD (Entra) only authentication enforcement object on an Azure SQL logical server, which controls whether SQL password authentication is permitted alongside Azure AD authentication.
+scope: HIGH
+notes: An authentication-hardening / access-control configuration governing how principals authenticate to a production database server.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deletes the AAD-only enforcement object, removing the control that restricts the server to Azure AD authentication and re-permitting weaker SQL password authentication, thereby disabling a hardening defense.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reads whether the server enforces Azure AD-only authentication, disclosing the authentication-policy posture and whether weaker SQL password authentication remains a viable attack surface.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: "Adds/updates the AAD-only setting: disabling enforcement re-enables weaker SQL password authentication (weakening a defense control), while enabling it can lock out existing SQL-authenticated admins; either way it mutates a security configuration."

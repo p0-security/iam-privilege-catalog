@@ -1,0 +1,23 @@
+name: AKS PersistentVolumes
+description: Cluster-scoped Kubernetes PersistentVolume objects within an AKS aiManagers cluster, representing actual storage volumes (backing cloud disk/share references, capacity, access modes, reclaim policy).
+scope: HIGH
+notes: Data-plane (Kubernetes API) objects; they define where cluster data is stored but reading the object does not return the stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Deleting a PV removes the cluster's storage object and, under a Delete reclaim policy, destroys the underlying disk/share data, while breaking workloads bound to it.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Listing PVs inventories the cluster's storage backends, capacities, and source references, providing cluster-wide storage reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:data
+    notes: Creating/updating a cluster-scoped PV lets an attacker define a volume pointing at an existing or arbitrary backend and mount it into a controlled pod, manipulating cluster storage and exposing existing data.

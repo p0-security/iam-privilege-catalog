@@ -1,0 +1,23 @@
+name: Kubernetes resource quotas
+description: Kubernetes ResourceQuota objects in an Azure Arc-connected cluster. A ResourceQuota constrains aggregate resource consumption (CPU, memory, object counts) within a namespace.
+scope: MEDIUM
+notes: These are operational consumption guardrails, not IAM/access-control policy; their sensitivity is low and primarily operational.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:consumption
+    notes: Deleting resource quotas removes the namespace's consumption-limiting guardrail, allowing unbounded resource use.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read enumerates namespace resource limits and current usage, low-sensitivity operational reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:consumption
+    notes: Creating/updating resource quotas lets an attacker raise or remove namespace caps to enable resource over-consumption, or tighten them to constrain legitimate workloads.

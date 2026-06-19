@@ -1,0 +1,12 @@
+name: AKS guardrails versions
+description: Guardrails versions list the available AKS deployment-safeguards/policy-enforcement feature versions for a location.
+scope: LOW
+notes: Static, near-public regional catalog metadata; no organizational data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists available guardrails (policy enforcement) versions for a region, returning only version catalog metadata for low-value reconnaissance.

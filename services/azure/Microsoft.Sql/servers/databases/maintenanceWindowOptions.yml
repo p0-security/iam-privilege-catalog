@@ -1,0 +1,12 @@
+name: Database maintenance window options
+description: The list of selectable maintenance window scheduling options available for an Azure SQL / Data Warehouse database.
+scope: LOW
+notes: Low-sensitivity operational scheduling metadata; read-only enumeration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns only the available maintenance window choices for a database, benign configuration enumeration with no data or sensitive exposure.

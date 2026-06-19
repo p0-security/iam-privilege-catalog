@@ -1,0 +1,20 @@
+name: Integration Account group
+description: A B2B trading-partner grouping artifact within a Logic Apps integration account, used to organize partners/business identities for EDI integration workflows (not an IAM/RBAC group).
+scope: MEDIUM
+notes: Supporting integration configuration for a single B2B function; control-plane artifact, not an identity principal, holds no secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an integration account group, removing supporting B2B configuration and disrupting dependent integration workflows.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads an integration account group, letting an attacker inventory B2B partner-grouping configuration without exposing secrets or message content.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates an integration account group, allowing an attacker to alter B2B partner-grouping configuration used by integration workflows.

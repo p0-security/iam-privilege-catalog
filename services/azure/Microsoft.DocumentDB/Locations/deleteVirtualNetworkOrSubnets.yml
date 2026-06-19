@@ -1,0 +1,10 @@
+name: DocumentDB location (network notification callback)
+description: An internal cross-provider notification hook by which the Network Security Perimeter service signals to Microsoft.DocumentDB that perimeter updates are available. It conveys no data and effects no attacker-controllable change.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Despite the 'delete' in the name, this only notifies DocumentDB of an external VNet/subnet deletion; it confers no standalone destructive capability.

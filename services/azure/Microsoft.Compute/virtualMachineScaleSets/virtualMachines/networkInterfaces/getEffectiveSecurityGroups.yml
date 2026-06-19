@@ -1,0 +1,12 @@
+name: VM Scale Set instance network interfaces
+description: The network interface (NIC) resources of an individual VM instance within a Virtual Machine Scale Set.
+scope: LOW
+notes: Read-only network configuration disclosure for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Returns the effective NSG rules on a scale set VM NIC, disclosing firewall posture and gaps; read-only reconnaissance, not modification, so no destruction:defense.

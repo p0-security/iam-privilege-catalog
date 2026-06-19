@@ -1,0 +1,11 @@
+name: Logic business process development artifacts
+description: Business process development artifacts are the design-time definition/configuration of an Azure Integration Environments business process (the orchestration logic authored before deployment).
+scope: LOW
+notes: These hold automation/workflow definitions, not returned credential material; sensitivity is that of a supporting integration component.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Performs a stateless correctness check of an artifact definition; persists no change and returns no sensitive data, so it grants no meaningful capability in isolation.

@@ -1,0 +1,13 @@
+name: Log Analytics UpdateRunProgress table
+description: A Log Analytics workspace data-plane query against the UpdateRunProgress table, recording per-machine update-deployment run progress/results.
+scope: MEDIUM
+notes: Monitoring/diagnostics data revealing patch deployment timing and per-host outcomes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading the table exports per-machine patch run results, revealing which hosts are mid-patch or still pending updates.

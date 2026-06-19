@@ -1,0 +1,12 @@
+name: VM Scale Set instance public IP addresses
+description: The public IP address bound to an IP configuration of a Virtual Machine Scale Set instance NIC.
+scope: LOW
+notes: Reading enumerates an internet-facing endpoint for targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reads the public IP tied to a scale set VM IP configuration, enumerating an externally reachable endpoint for reconnaissance.

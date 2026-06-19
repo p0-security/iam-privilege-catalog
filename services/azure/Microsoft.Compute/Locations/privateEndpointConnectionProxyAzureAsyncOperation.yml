@@ -1,0 +1,11 @@
+name: Private endpoint connection proxy async operation status
+description: A read endpoint exposing the status/results of an asynchronous Private Endpoint Connection Proxy operation in Azure Compute.
+scope: LOW
+notes: Returns only operation-status polling information with no resource data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status of an asynchronous private-endpoint-connection-proxy operation, an inert operation-status read granting no meaningful attacker capability.

@@ -1,0 +1,23 @@
+name: Virtual Machine Scale Set instance run commands
+description: Managed run-command resources attached to an individual VM instance within an Azure Virtual Machine Scale Set, which configure and execute arbitrary scripts inside the instance's guest OS under its local and managed-identity context.
+scope: HIGH
+notes: Run commands are a direct in-guest code-execution primitive on production scale-set compute; secret parameters are masked on GET.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a run command on a scale-set instance removes that command resource and its stored execution record, a destructive change to compute infrastructure config scoped to the run-command artifact rather than the instance or its data.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Getting a scale-set instance run command's properties enumerates the configured script/parameters and execution status, providing reconnaissance of the code-execution surface without executing code or returning secrets.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:manipulation
+    notes: Creating or updating a run command on a scale-set instance executes attacker-supplied code as the instance's managed identity, enabling lateral movement to that identity, compute hijacking, and manipulation of in-guest data and configuration.

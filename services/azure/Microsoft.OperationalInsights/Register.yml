@@ -1,0 +1,11 @@
+name: Log Analytics resource provider registration
+description: Subscription-level action that registers a subscription with the Microsoft.OperationalInsights (Azure Log Analytics) resource provider, enabling use of its APIs.
+scope: LOW
+notes: Provider registration is an idempotent administrative enablement gate; it grants no data access or access-control change.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Idempotent registration no-op that enables the Log Analytics provider for a subscription and confers no attacker-relevant capability in isolation.

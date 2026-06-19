@@ -1,0 +1,13 @@
+name: Log Analytics workspace table data (AWSNetworkFirewallAlert)
+description: A per-table data-plane query permission on a Log Analytics workspace; this one returns rows of the AWSNetworkFirewallAlert table, which holds AWS Network Firewall alert logs ingested into the workspace.
+scope: MEDIUM
+notes: Network firewall detection telemetry revealing rules, blocked traffic, and topology; monitoring/log-data sensitivity tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reads AWS Network Firewall alert rows, exporting firewall-detection log content and revealing network defenses, triggered rules, and traffic of interest (reading does not disable the firewall).

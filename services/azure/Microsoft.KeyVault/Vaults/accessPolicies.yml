@@ -1,0 +1,13 @@
+name: Key Vault access policy
+description: A Key Vault access policy granting a principal data-plane permissions over the vault's keys, secrets, and certificates.
+scope: CRITICAL
+notes: Controls who can read/use all cryptographic and credential material in the vault, so it is a CRITICAL access-control asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:privilege
+      - impact:access
+    notes: Adds or merges/replaces a vault access policy, letting an attacker grant their own identity full key/secret/certificate permissions (escalation) and, via replace, remove legitimate principals' access (denial-of-access).

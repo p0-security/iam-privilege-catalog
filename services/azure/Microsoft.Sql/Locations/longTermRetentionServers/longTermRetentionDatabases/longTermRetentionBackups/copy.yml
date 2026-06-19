@@ -1,0 +1,12 @@
+name: Azure SQL long-term retention backup
+description: A long-term retention (LTR) backup of an Azure SQL database — a full, restorable point-in-time copy of the source production database's contents retained according to an LTR policy.
+scope: HIGH
+notes: An LTR backup holds the complete data of a single production database; it is both a recovery asset and a full copy of sensitive organizational data, so its destruction, immutability controls, and copy operations directly affect that database's confidentiality and recoverability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+    notes: Copying the LTR backup to a server/location the attacker controls replicates the full database contents, allowing later restore and read of the production data (data exfiltration).

@@ -1,0 +1,22 @@
+name: AVNM connectivity configurations
+description: An Azure Virtual Network Manager connectivity configuration defines cross-VNet connectivity topology (mesh or hub-and-spoke, effectively peering) applied to network groups.
+scope: HIGH
+notes: Controls inter-VNet reachability across many networks centrally.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a connectivity configuration tears down the managed inter-VNet peering/connectivity, severing reachability and disrupting services that depend on it (DoS-like).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Read-only disclosure of the mesh/hub-and-spoke connectivity topology across managed VNets, useful for network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a connectivity configuration establishes mesh or hub-and-spoke connectivity between VNets, enabling cross-VNet network movement to otherwise isolated resources and altering the network topology.

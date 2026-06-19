@@ -1,0 +1,12 @@
+name: NSP associable resource types
+description: A static, platform-level catalog of which resource types in a region can be associated with a Network Security Perimeter.
+scope: LOW
+notes: Generic provider capability metadata; not tenant-specific resource or policy data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing the associable resource types returns only a static capability catalog, a low-value metadata/infrastructure reconnaissance read.

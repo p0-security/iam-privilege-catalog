@@ -1,0 +1,24 @@
+name: Azure Automation PowerShell module
+description: An Azure Automation PowerShell module is an imported package/dependency available to runbooks within an Automation Account, providing cmdlets the automation scripts rely on.
+scope: MEDIUM
+notes: Modules are imported code dependencies executed inside runbooks under the Automation Account identity, making module write a supply-chain code-injection vector.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+      - impact:dos
+    notes: Deletes an imported PowerShell module package, breaking runbooks that depend on it and disrupting automation operations.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reads module metadata (name, version, provisioning state) for inventory of automation dependencies; does not return the module package contents or secrets.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+    scope: HIGH
+    notes: Creating/updating a module imports attacker-controlled code that is loaded and executed by runbooks under the Automation Account identity, enabling supply-chain code injection (lateral movement) and tampering with automation behavior.

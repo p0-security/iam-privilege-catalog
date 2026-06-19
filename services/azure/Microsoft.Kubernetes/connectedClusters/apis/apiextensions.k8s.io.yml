@@ -1,0 +1,12 @@
+name: Kubernetes API discovery endpoints (Arc-connected cluster)
+description: Kubernetes API discovery endpoints (/api, /apis, and their group/version documents) return the cluster's supported API groups, versions, and resource kinds used for client capability negotiation. These are the data-plane discovery resources exposed on an Azure Arc connected cluster.
+scope: LOW
+notes: Discovery documents expose only the API surface (which groups/versions/kinds exist), not any resource objects, configurations, secrets, or workload data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the apiextensions.k8s.io (CRD) group discovery returns only the group's supported versions, not the CustomResourceDefinitions; API-surface reconnaissance.

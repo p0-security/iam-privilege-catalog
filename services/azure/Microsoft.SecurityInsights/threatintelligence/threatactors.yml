@@ -1,0 +1,21 @@
+name: Sentinel TI threat actors
+description: TI Threat Actor objects are threat-intelligence records in Microsoft Sentinel describing adversaries and the indicators/TTPs the organization tracks. They feed detection and correlation logic.
+scope: MEDIUM
+notes: Defensive threat-intelligence knowledge base; reveals detection coverage and gaps when read, and weakens detections when altered.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a TI threat-actor object removes intelligence that detections and correlation rely on, disabling a defensive input and creating detection blind spots.
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading TI threat-actor objects lets an attacker inventory which adversaries and indicators defenders track, revealing detection coverage and gaps useful for evasion.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating TI threat-actor objects lets an attacker poison or falsify the threat intelligence driving detections, weakening defensive matching and manipulating SOC analytic inputs.

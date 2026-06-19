@@ -1,0 +1,12 @@
+name: Azure SQL database encryption protector (TDE)
+description: The Transparent Data Encryption (TDE) protector binding for an Azure SQL database, controlling which key (service-managed or customer Key Vault key) wraps the database encryption key. Revalidate re-checks the existing key binding; revert changes the active protector.
+scope: HIGH
+notes: Affects encryption-at-rest key management for a production database; mutating the protector can disrupt availability if the key becomes inaccessible.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Reverting the encryption protector changes the active TDE key binding (e.g. back to a service-managed or prior protector), altering the production database's encryption-at-rest configuration and key-management state.

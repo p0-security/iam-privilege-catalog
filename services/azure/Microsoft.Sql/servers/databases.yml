@@ -1,0 +1,22 @@
+name: Azure SQL Database
+description: An Azure SQL Database is a managed relational database hosted on a logical SQL server, storing production organizational data for an application or function.
+scope: HIGH
+notes: Control-plane operations manage the database resource and its configuration; the row data itself is on the data plane. The asset typically backs a single production function, hence HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - destruction:infra
+    notes: Deleting a database destroys the organizational data it holds along with the database resource itself, causing irrecoverable data loss absent backups and denial of service for the dependent function.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane read (isDataAction=false) returns database properties/configuration and enumerates databases, enabling infrastructure reconnaissance without exposing stored row data or secrets.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Create/update alters operational database configuration (SKU/service tier/tags) and can provision new costly higher-tier databases; control-plane only, so it does not read or escalate into the contained data.

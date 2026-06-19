@@ -1,0 +1,22 @@
+name: Azure Firewall NAT rule collection
+description: An Azure Firewall NAT rule collection holds the destination-NAT (DNAT) inbound translation rules that map external addresses/ports to internal services through the firewall.
+scope: HIGH
+notes: These rules govern how external traffic is forwarded into the protected network; their configuration reveals which internal endpoints are exposed for a single organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a NAT rule collection removes inbound translation/defense configuration, dismantling part of the firewall's protective posture and disrupting published services.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the NAT rule collection inventories inbound DNAT/translation rules, exposing how external traffic reaches internal services and which endpoints are published.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating NAT rules lets an attacker add DNAT entries that expose internal services to inbound external traffic, weakening the firewall defense and enabling pivoting into the protected network.

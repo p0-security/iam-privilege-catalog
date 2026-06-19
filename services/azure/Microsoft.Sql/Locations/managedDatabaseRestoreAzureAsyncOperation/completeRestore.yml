@@ -1,0 +1,12 @@
+name: Azure SQL managed database restore operation
+description: This operation finalizes an in-progress managed-database restore async operation, completing the restore that overwrites/instantiates the target database state.
+scope: HIGH
+notes: Acts on production managed-database content via the restore workflow.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Completing a managed database restore finalizes overwriting/replacing the live database with restored content, manipulating the production data state.

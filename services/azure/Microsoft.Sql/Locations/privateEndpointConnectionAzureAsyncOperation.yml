@@ -1,0 +1,11 @@
+name: SQL private endpoint connection async operation status
+description: An AzureAsyncOperation status endpoint for Azure SQL private endpoint connection operations.
+scope: LOW
+notes: Purely a long-running-operation polling endpoint; returns operation status, not resource secrets or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only the async operation status of a private-endpoint-connection operation, an inert status poll granting no meaningful capability.

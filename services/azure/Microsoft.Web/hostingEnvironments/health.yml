@@ -1,0 +1,11 @@
+name: App Service Environment health
+description: An App Service Environment's health details report the operational status and state of the hosting infrastructure that runs App Service / Functions workloads.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only retrieval of the hosting environment's health/status enables reconnaissance of infrastructure state with no data, credential, or configuration-modification capability.

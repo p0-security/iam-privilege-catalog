@@ -1,0 +1,12 @@
+name: Sentinel analytics/alert rules
+description: Microsoft Sentinel alert (analytics) rules are the detection logic of the SIEM, defining the queries and conditions that generate security alerts and incidents.
+scope: MEDIUM
+notes: These rules embody the organization's detection coverage; knowledge of them reveals exactly what is and is not monitored.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:consumption
+    notes: Triggering an on-demand run only forces re-execution of an existing detection query; in isolation it grants no detection-tampering or data access, merely consuming workspace query/compute capacity.

@@ -1,0 +1,13 @@
+name: Log Analytics table data (AZKVAuditLogs)
+description: A single Log Analytics workspace table holding Azure Key Vault audit telemetry. A data-plane read returns the actual log rows for this table.
+scope: MEDIUM
+notes: Log Analytics tables are monitoring/diagnostic assets (MEDIUM tier). Key Vault audit content records who accessed which secrets/keys/certificates and when, but does NOT contain the secret material itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Querying this table exports Key Vault access-audit records (caller identities, accessed objects, timestamps); it reveals credential-access patterns but returns no secret material, so this is log exfiltration, not exfiltration:crypto.

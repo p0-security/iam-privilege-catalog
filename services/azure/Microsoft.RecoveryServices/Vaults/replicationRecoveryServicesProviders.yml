@@ -1,0 +1,12 @@
+name: Recovery Services providers
+description: Recovery Services providers are the replication agents/hosts (e.g. on management servers or source hosts) registered to a Recovery Services vault for disaster recovery.
+scope: LOW
+notes: Read returns provider registration metadata; no credentials are exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists registered replication agents/hosts, inventorying DR infrastructure components.

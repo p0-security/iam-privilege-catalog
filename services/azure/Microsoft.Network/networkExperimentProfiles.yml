@@ -1,0 +1,21 @@
+name: Internet Analyzer Profile
+description: An Internet Analyzer (network experiment) profile is a supporting diagnostic resource that configures latency/performance measurement experiments against network endpoints.
+scope: MEDIUM
+notes: A monitoring/diagnostics resource; tampering affects measurement integrity rather than core production traffic routing.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an Internet Analyzer profile destroys a supporting diagnostics/measurement resource.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the profile returns its measurement configuration and measured endpoints, letting an attacker inventory monitored network endpoints.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating an Internet Analyzer profile alters performance-measurement configuration of a supporting monitoring resource.

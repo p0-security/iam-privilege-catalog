@@ -1,0 +1,12 @@
+name: Log Analytics AmlComputeClusterNodeEvent table
+description: A queryable Azure Log Analytics workspace table holding Azure Machine Learning compute-cluster node event telemetry ingested for monitoring.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data scoped to a single ML function; may contain operational identifiers and infrastructure details.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returning the actual AmlComputeClusterNodeEvent log records, allowing an attacker to export compute-cluster node telemetry.

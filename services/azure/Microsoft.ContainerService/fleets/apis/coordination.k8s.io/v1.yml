@@ -1,0 +1,12 @@
+name: AKS Fleet Kubernetes API (coordination.k8s.io group)
+description: Data-plane read access to the coordination.k8s.io API group (Lease objects) on an AKS Fleet member cluster's aggregated Kubernetes API. Leases are used for leader election and node/component heartbeats.
+scope: LOW
+notes: Read-only enumeration of coordination/heartbeat metadata; contains no secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only listing of coordination/v1 Lease objects yields only leader-election/heartbeat state as low-value infrastructure reconnaissance.

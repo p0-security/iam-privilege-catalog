@@ -1,0 +1,12 @@
+name: Static Site Linked Backends
+description: The linkage configuration that connects an Azure Static Web App's front end to a backend compute resource (App Service, Functions, Container App) for serving API traffic.
+scope: LOW
+notes: The linked backend determines where a public-facing static site routes its server-side/API requests.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:infra
+    notes: Read-only preflight check of whether a backend can be linked to a static site; surfaces backend reachability/eligibility without mutating resources.

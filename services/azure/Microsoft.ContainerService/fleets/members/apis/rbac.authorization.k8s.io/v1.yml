@@ -1,0 +1,12 @@
+name: AKS fleet member cluster RBAC resources
+description: Kubernetes rbac.authorization.k8s.io API group (Roles, RoleBindings, ClusterRoles, ClusterRoleBindings) on an AKS fleet member cluster, defining in-cluster access-control policy. Accessed via the fleet's managed Kubernetes data plane.
+scope: LOW
+notes: Reads disclose the cluster's authorization model, useful for mapping privilege-escalation paths; read-only and does not return credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading rbac.authorization/v1 roles and bindings enumerates cluster access-control policy to locate escalation paths.

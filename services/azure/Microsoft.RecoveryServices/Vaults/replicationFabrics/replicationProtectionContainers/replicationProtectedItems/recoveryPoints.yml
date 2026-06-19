@@ -1,0 +1,12 @@
+name: Site Recovery replication recovery points
+description: Azure Site Recovery replication recovery points are the point-in-time snapshots (identifiers/timestamps) a protected item can be failed over to.
+scope: LOW
+notes: This read enumerates recovery-point metadata only; it does not return the replicated data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Listing recovery points enumerates the available point-in-time recoverable states (timestamps/IDs) for protected items, an inventory of recoverable data state without returning the data content.

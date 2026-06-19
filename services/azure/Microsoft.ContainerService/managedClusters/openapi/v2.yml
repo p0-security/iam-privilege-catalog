@@ -1,0 +1,12 @@
+name: AKS cluster API server OpenAPI schema
+description: Data-plane access to the Kubernetes API server's OpenAPI v2 schema document, enumerating the available API resource types, endpoints, and installed CRDs of the cluster.
+scope: LOW
+notes: The schema exposes the cluster's API surface for reconnaissance but contains no instance data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the OpenAPI v2 schema enumerates the cluster's available API resources and CRDs, mapping the attack surface for reconnaissance.

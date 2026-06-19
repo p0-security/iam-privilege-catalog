@@ -1,0 +1,12 @@
+name: Community gallery
+description: A publicly/community-shared Azure Compute Gallery catalog, identified by location, exposing image definitions for broad consumption.
+scope: LOW
+notes: Effectively public image catalog metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading community gallery properties enumerates shared image catalog configuration; benign reconnaissance.

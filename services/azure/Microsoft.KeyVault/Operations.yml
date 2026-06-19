@@ -1,0 +1,11 @@
+name: Key Vault resource provider operations
+description: The static catalog of API operations exposed by the Microsoft.KeyVault resource provider.
+scope: PUBLIC
+notes: Effectively public API metadata; not organization-specific.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Listing the provider's available operations returns only static, effectively public API metadata and grants no access to any organizational asset.

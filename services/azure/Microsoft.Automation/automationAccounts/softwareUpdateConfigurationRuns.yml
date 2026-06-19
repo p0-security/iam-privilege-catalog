@@ -1,0 +1,12 @@
+name: Azure Automation software update configuration run
+description: A record of an executed Update Management software update deployment (patch run) within an Azure Automation account, holding status and results of patch deployments to managed machines.
+scope: LOW
+notes: Read-only operational metadata; exposes patch posture and managed-machine inventory but no data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a software update configuration run only returns the run status and configuration metadata, providing infrastructure reconnaissance of the account's patch deployments.

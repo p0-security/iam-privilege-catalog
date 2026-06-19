@@ -1,0 +1,12 @@
+name: Log Analytics ContainerServiceLog table
+description: A Log Analytics workspace table holding container orchestration/service logs (e.g. AKS/cluster service operational logs). This is a data-plane read.
+scope: MEDIUM
+notes: Exposes cluster/orchestration operational detail; monitoring log data, scope MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Exports container orchestration/service operational logs, revealing cluster operational detail.

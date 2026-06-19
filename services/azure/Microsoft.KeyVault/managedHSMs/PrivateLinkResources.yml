@@ -1,0 +1,12 @@
+name: Managed HSM private link resources
+description: Read-only listing of the private-link sub-resources (group IDs) available for a Managed HSM, describing the private-connectivity surface of the resource.
+scope: LOW
+notes: Network connectivity metadata; non-sensitive enumeration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Enumerates the HSM's available private-link targets, providing network reconnaissance of its connectivity options.

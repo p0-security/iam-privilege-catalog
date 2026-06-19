@@ -1,0 +1,11 @@
+name: API Management Private Link group resources
+description: Private Link group resources for an API Management instance, describing the private-endpoint connectivity groups available for the service.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reads the Private Link group resources, enumerating the service's private-networking connectivity options; read-only network reconnaissance.

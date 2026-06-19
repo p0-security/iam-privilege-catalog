@@ -1,0 +1,12 @@
+name: Azure AD Domain Services privilege-use log table
+description: A Log Analytics data-plane table holding Azure AD Domain Services privilege-use security audit records describing exercise of elevated rights.
+scope: MEDIUM
+notes: Monitoring/security telemetry revealing which principals hold and exercise elevated privileges.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: This data-plane read exports records of privileged-operation usage, exfiltrating sensitive security telemetry that identifies privileged accounts and actions.

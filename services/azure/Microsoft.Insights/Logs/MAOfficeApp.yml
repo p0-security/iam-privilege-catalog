@@ -1,0 +1,13 @@
+name: Log Analytics MAOfficeApp table
+description: A Log Analytics table holding Microsoft 365 Apps Office application inventory telemetry collected by Azure Monitor.
+scope: MEDIUM
+notes: Monitoring/diagnostic data tier; rows enumerate installed Office applications (software recon).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Data-plane read exports Office application inventory records and enumerates installed Office apps.

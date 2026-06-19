@@ -1,0 +1,11 @@
+name: Integration Account private endpoint connection proxies
+description: Private endpoint connection proxy sub-resources of a Logic Apps integration account, representing the private-link connectivity proxies that broker private network access to the integration account.
+scope: LOW
+notes: Controls private network reachability of the integration account; supporting network connectivity infrastructure for a single integration function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: A non-mutating validation/pre-flight check that neither changes state nor returns sensitive material; effectively inert in isolation.

@@ -1,0 +1,12 @@
+name: Load Balancer Probe
+description: A health probe on an Azure Load Balancer defines how backend instance health is checked (protocol, port, path, interval) to determine traffic eligibility.
+scope: HIGH
+notes: Configuration sub-resource of a load balancer; read is reconnaissance, while join allows other resources to reference the probe and attach into the load-balancing fabric.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joining the probe lets an attacker-controlled resource (e.g. a VM scale set healthProbe property) reference and bind into the load balancer's backend network path, enabling network movement.

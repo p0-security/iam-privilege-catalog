@@ -1,0 +1,31 @@
+name: Web Apps Slots Backup configuration
+description: The backup configuration of an App Service deployment slot, defining the backup schedule, included databases, and the target storage container (referenced by SAS URL).
+scope: HIGH
+notes: "The backup configuration object embeds credential material: a storageAccountUrl SAS URL to the backup container and full database connection strings for backed-up databases."
+privileges:
+  Action:
+    risks:
+      - impact:spend
+    notes: Triggering an on-demand backup writes app content/config to a storage target and consumes storage/compute; in isolation it neither returns nor destroys data.
+    name: Web App deployment slot
+    parent:
+      description: An Azure App Service deployment slot is a live, addressable instance of a web/function/Logic App hosting application code, configuration (app settings, connection strings), and an assigned managed identity. Slots can be swapped into the production endpoint.
+      notes: Slots host a single organizational function's production or staging workload; their configuration and managed identity make them a pivot point for code execution and lateral movement.
+    links:
+      - https://azure.permissions.cloud/iam/Microsoft.Web
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+  read:
+    risks:
+      - exfiltration:crypto
+      - discovery:infra
+    notes: "Verified against the REST API (config/backup/list): the BackupRequest response returns properties.storageAccountUrl (a SAS URL to the backup container) and properties.databases[].connectionString, so reading it exfiltrates usable credential material in addition to enumerating backup settings."
+    links:
+      - https://azure.permissions.cloud/iam/microsoft.web
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+  write:
+    risks:
+      - impact:manipulation
+    notes: Updating the slot backup configuration lets an attacker alter or disable the backup schedule/retention or redirect backups to attacker-controlled storage, undermining the app's recovery posture.
+    links:
+      - https://azure.permissions.cloud/iam/microsoft.web
+      - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations

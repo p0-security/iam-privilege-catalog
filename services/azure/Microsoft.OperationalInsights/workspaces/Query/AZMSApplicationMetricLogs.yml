@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (AZMSApplicationMetricLogs)
+description: A Log Analytics workspace query table holding Azure Messaging Services (Service Bus/Event Hubs/Relay) application metric logs. Reading it returns the stored telemetry records via the data plane.
+scope: MEDIUM
+notes: Operational monitoring telemetry; MEDIUM-sensitivity diagnostic data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading exports messaging application metric log content (exfiltration:logs) and inventories the telemetry being collected (discovery:logs).

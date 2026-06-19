@@ -1,0 +1,22 @@
+name: Kubernetes pod templates
+description: Kubernetes PodTemplate objects in an Azure Arc-connected cluster. A PodTemplate is a reusable, stored specification of a pod (container images, commands, environment, volume/secret mounts, service account) that controllers can reference to create pods.
+scope: HIGH
+notes: Templates describe workload configuration but are not themselves running workloads or secret stores; their write/delete semantics flow through controllers that instantiate them.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting pod templates removes stored workload-definition objects, disrupting controllers and deployment processes that reference them.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Data-plane read enumerates pod template definitions (images, commands, mounts, env references), revealing how workloads are configured. Pure reconnaissance; no secret material is returned.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Creating/updating pod templates lets an attacker define arbitrary container specs (image, command, mounts) that become the basis for instantiated pods, enabling resource hijacking and manipulation of operational workload configuration.

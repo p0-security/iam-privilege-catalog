@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (DeviceBehaviorEntities)
+description: A single named table within an Azure Log Analytics (Operational Insights) workspace, queried via the data plane. This table stores Microsoft Defender device behavioral-analytics entity records.
+scope: MEDIUM
+notes: Device behavioral-analytics tables contain endpoint security telemetry and reveal defensive detection coverage.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading this table exports Defender device behavioral-analytics entity records, disclosing endpoint security telemetry and detection context.

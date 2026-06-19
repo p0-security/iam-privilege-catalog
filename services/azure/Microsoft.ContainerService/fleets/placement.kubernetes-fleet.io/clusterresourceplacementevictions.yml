@@ -1,0 +1,22 @@
+name: Fleet placement eviction
+description: A KubeFleet ClusterResourcePlacementEviction is a data-plane orchestration object that forcibly removes (evicts) a placed resource/workload from a fleet member cluster, overriding normal placement scheduling.
+scope: HIGH
+notes: Fleet placement-control objects govern which workloads run on which member clusters; abusing them disrupts the single fleet/application function they orchestrate rather than tenant-wide controls.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting an eviction object removes the eviction request/record, altering placement-control operational state; it does not destroy organizational data or durable infrastructure.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Read/list only enumerates existing eviction objects across the fleet, providing reconnaissance of placement orchestration state with no data or credential exposure.
+  write:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Creating an eviction forcibly removes placed workloads from member clusters, disrupting the running service (DoS) and manipulating fleet placement state.

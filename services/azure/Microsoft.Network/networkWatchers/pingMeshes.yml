@@ -1,0 +1,20 @@
+name: PingMesh
+description: PingMesh is a Network Watcher diagnostic that probes connectivity and latency between specified VMs to monitor network health.
+scope: MEDIUM
+notes: A supporting monitoring/diagnostic resource; reveals reachability/topology between hosts but holds no organizational data and protects no production service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a PingMesh removes a network connectivity-diagnostic resource, degrading network observability but with no impact to production services or data.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading PingMesh details exposes the monitored VM set and inter-VM connectivity/latency results, inventorying network reachability and topology.
+  write:
+    risks:
+      - discovery:network
+    notes: Creating a PingMesh defines and provisions connectivity probes between chosen VMs, letting an attacker enumerate reachability across the network.

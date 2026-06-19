@@ -1,0 +1,12 @@
+name: Application Insights available billing features
+description: Enumerates the billing/pricing features available to be selected for an Application Insights component.
+scope: LOW
+notes: Exposes selectable pricing/billing options; low-sensitivity financial metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:finance
+    notes: Reads the catalog of available billing features, disclosing pricing/billing option metadata for the component.

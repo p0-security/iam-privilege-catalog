@@ -1,0 +1,13 @@
+name: Log Analytics workspace gateway
+description: The Log Analytics (OMS) gateway is a proxy component that forwards agent telemetry to the workspace for ingestion.
+scope: MEDIUM
+notes: Supporting log-collection infrastructure; its removal disrupts telemetry flow.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:logs
+    notes: Removes the gateway forwarding agent telemetry, destroying log-collection infrastructure and disrupting/weakening log ingestion (defense evasion).

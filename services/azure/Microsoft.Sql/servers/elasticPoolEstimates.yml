@@ -1,0 +1,15 @@
+name: Elastic Pool Estimate
+description: An Azure SQL elastic pool estimate is a capacity/sizing recommendation computed for a list of databases to help plan whether to consolidate them into an elastic pool.
+scope: LOW
+notes: Estimates are non-sensitive capacity-planning artifacts; they do not provision resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading existing elastic pool estimates returns previously computed sizing/capacity-planning metadata for the server, low-sensitivity infrastructure reconnaissance.
+  write:
+    risks: []
+    notes: Creating an elastic pool estimate runs a sizing calculation over a provided database list; it provisions no real resources and alters no operational data, granting no meaningful standalone attacker capability.

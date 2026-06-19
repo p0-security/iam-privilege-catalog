@@ -1,0 +1,22 @@
+name: Data collection endpoint
+description: An Azure Monitor data collection endpoint defining the ingestion endpoint configuration used to receive telemetry/logs into Log Analytics and Application Insights.
+scope: MEDIUM
+notes: Control-plane configuration of the monitoring ingestion path; it routes telemetry but does not itself store organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:logs
+      - destruction:infra
+    notes: Deleting the endpoint breaks the telemetry/log ingestion pipeline that depends on it, halting log collection and removing monitoring infrastructure.
+  Read:
+    risks:
+      - discovery:infra
+    notes: Reading the endpoint configuration only enumerates the monitoring ingestion infrastructure and its settings; no secret material is returned.
+  Write:
+    risks:
+      - impact:manipulation
+      - destruction:logs
+    notes: Creating or updating the endpoint lets an attacker alter or redirect the telemetry/log ingestion path, tampering with monitoring config and weakening or disrupting log collection.

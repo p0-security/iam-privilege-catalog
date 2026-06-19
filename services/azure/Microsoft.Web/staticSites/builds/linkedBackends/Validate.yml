@@ -1,0 +1,12 @@
+name: Static Site Build linked backends
+description: A linked backend is the association that wires a Static Web App build (frontend) to a backing service such as a Function App or API, defining how the static site routes its API calls.
+scope: LOW
+notes: Controls routing/integration for a single web application; not a credential or data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:infra
+    notes: Pre-flight validation that probes whether a candidate backend is reachable/eligible to link; returns config/eligibility status only, yielding minor infrastructure reconnaissance.

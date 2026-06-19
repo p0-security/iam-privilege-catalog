@@ -1,0 +1,22 @@
+name: Sentinel incident relations
+description: Incident relations are the links associating a Microsoft Sentinel incident with its related alerts, bookmarks, and entities, defining the correlated scope of a detected threat.
+scope: MEDIUM
+notes: Relations express what the SOC has correlated about an attack; reading them is reconnaissance, while altering or deleting them fragments the defenders' view of the threat scope.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting incident relations severs the links between an incident and its supporting alerts/entities, destroying investigation correlation and weakening defender visibility into the attack scope.
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading incident relations enumerates which alerts, bookmarks, and entities are linked to an incident, revealing the scope of what the SOC has correlated about a threat.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Updating incident relations lets an attacker alter which alerts/entities are linked to an incident, fragmenting the SOC's correlated view to obscure the true scope of an attack.

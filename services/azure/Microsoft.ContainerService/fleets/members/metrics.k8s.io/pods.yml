@@ -1,0 +1,12 @@
+name: Kubernetes pod metrics
+description: Kubernetes pod resource-usage metrics within an AKS fleet member cluster, served by the metrics.k8s.io API. Returns CPU and memory utilization for running pods.
+scope: LOW
+notes: Resource-utilization telemetry only; no application data or secrets are exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading pod metrics returns CPU/memory usage per pod, enabling read-only inventory of running workloads without exposing sensitive data.

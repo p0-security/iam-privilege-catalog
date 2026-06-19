@@ -1,0 +1,11 @@
+name: Recovery Services vault registered-identity operation results
+description: Operation results expose the status and result of an asynchronously submitted container registration/unregistration operation on the vault.
+scope: LOW
+notes: Operation-status polling only.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status/result of an async operation; an inert status read with no meaningful offensive capability in isolation.

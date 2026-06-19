@@ -1,0 +1,12 @@
+name: Azure resource logs data
+description: Data-plane access to the content of Azure resource logs, scoped to individual Azure resources or finer resource-level data entities.
+scope: MEDIUM
+notes: Log content can contain sensitive operational identifiers, request detail, and other confidential information.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: This data action grants read of actual resource-log content, allowing an attacker to export logs that may contain sensitive operational data.

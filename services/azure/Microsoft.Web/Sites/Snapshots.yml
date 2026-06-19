@@ -1,0 +1,12 @@
+name: App Service web app snapshots
+description: Point-in-time snapshots (restore points) of an App Service web app, capturing the app's content and configuration for recovery.
+scope: MEDIUM
+notes: Reading this resource type returns snapshot metadata/restore-point listings, not the snapshot contents themselves.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates available point-in-time restore points and their timestamps, providing read-only reconnaissance of the app's backup/recovery infrastructure without returning app data.

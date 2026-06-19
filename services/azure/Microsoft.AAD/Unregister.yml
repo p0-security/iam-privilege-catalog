@@ -1,0 +1,12 @@
+name: Domain Services resource provider registration
+description: Subscription-level registration/unregistration actions for the Microsoft.AAD (Azure AD Domain Services) resource provider.
+scope: MEDIUM
+notes: Provider registration is an enablement gate; unregistration can tear down the managed domain service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.AAD
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Unregistering the Domain Services provider can disable/disrupt managed domain services for the subscription, a denial-of-service effect against an identity-supporting function.

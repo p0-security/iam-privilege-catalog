@@ -1,0 +1,22 @@
+name: Virtual Hub route table (V2)
+description: A VirtualHubRouteTableV2 holds the routing configuration of a Virtual WAN hub, controlling how traffic is routed across the hub-and-spoke network.
+scope: HIGH
+notes: Routing control for a Virtual WAN hub; central to connectivity of attached spokes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the hub route table removes routing that connected spokes depend on, destroying a network component and disrupting connectivity for hosted services.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the route table inventories hub routing configuration and network topology, which is network reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating or updating the hub route table alters routing across the Virtual WAN, enabling traffic redirection/interception and reachability to additional network segments.

@@ -1,0 +1,21 @@
+name: Data collection endpoint scoped private link proxy
+description: A scoped private link proxy that defines private-network (Private Link) connectivity to an Azure Monitor data collection endpoint.
+scope: MEDIUM
+notes: Governs which private endpoints/networks can reach the monitoring ingestion path.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:network
+    notes: Deleting the proxy removes a private-network connectivity component for the endpoint, potentially severing private telemetry ingestion access.
+  Read:
+    risks:
+      - discovery:network
+    notes: Reading the proxy enumerates the private-network connectivity configuration of the data collection endpoint, providing network reconnaissance.
+  Write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating the proxy establishes or reroutes private-network reachability to the endpoint, enabling network movement/exposure and altering connectivity configuration.

@@ -1,0 +1,23 @@
+name: Kubernetes APIService registrations (AKS)
+description: APIService objects in the Kubernetes aggregation layer register API groups and route them to the built-in kube-apiserver or to aggregated/extension API servers (e.g. metrics-server). This is a control-plane configuration resource exposed as an AKS data-plane action.
+scope: HIGH
+notes: The aggregation layer is part of the cluster control plane; tampering with it can intercept or break API traffic, but reading it only exposes which API extensions are registered.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting APIService registrations removes aggregated/extension API groups (e.g. metrics-server, admission/extension APIs), breaking dependent control-plane functionality cluster-wide and causing denial of service.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Read/list of APIService objects enumerates the cluster's registered API groups and aggregated API backends, a control-plane reconnaissance primitive that returns no secret material.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating an APIService can register or redirect an aggregated API group to an attacker-controlled backend service, intercepting and manipulating control-plane API requests (including credentials/tokens flowing through them) and pivoting to those identities.

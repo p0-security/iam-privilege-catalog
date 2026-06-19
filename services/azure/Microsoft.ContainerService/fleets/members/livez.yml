@@ -1,0 +1,12 @@
+name: AKS Fleet member control-plane health probe
+description: A Kubernetes API server healthz/livez health-probe sub-endpoint exposed as an Azure data action on a member cluster of an AKS Fleet. The top-level livez endpoint reports the aggregate liveness status of the member's API server and enumerates its named sub-checks.
+scope: LOW
+notes: These are operational health-check endpoints that return only ok/failed status strings, never the underlying data, secrets, certificates, or configuration. They are among the lowest-sensitivity read operations in the resource provider.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: The aggregate livez endpoint confirms the fleet member's API server is reachable and can enumerate which control-plane sub-checks exist; trivial infra reconnaissance.

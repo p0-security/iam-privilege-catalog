@@ -1,0 +1,11 @@
+name: Microsoft Compute resource provider registration
+description: Subscription-level registration toggle for the Microsoft.Compute resource provider, which enables the provider namespace so Compute resources can be managed in the subscription.
+scope: LOW
+notes: Provider (un)registration is a subscription-wide administrative enablement toggle; it does not itself create, read, or delete resources or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Registering the subscription with the Compute provider is an idempotent enablement no-op that grants no data access, escalation, or destructive capability in isolation.

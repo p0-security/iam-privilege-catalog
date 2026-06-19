@@ -1,0 +1,20 @@
+name: Cosmos DB Gremlin database
+description: A Gremlin (graph) database resource within an Azure Cosmos DB database account, defining the control-plane container for graph stores and their provisioned throughput.
+scope: HIGH
+notes: Production graph data store supporting a single organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a Gremlin database destroys the database and all contained graphs and their organizational data.
+  read:
+    risks:
+      - discovery:infra
+    notes: Control-plane read/list enumerates the Gremlin database resource configuration (not the graph data itself), providing reconnaissance of the account's database layout.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Control-plane create/update provisions and alters the Gremlin database configuration of a production data store, manipulating its operational structure.

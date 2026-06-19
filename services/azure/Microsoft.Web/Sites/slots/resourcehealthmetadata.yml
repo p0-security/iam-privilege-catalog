@@ -1,0 +1,12 @@
+name: Web App slot resource health metadata
+description: Resource health/availability metadata for a Web App deployment slot.
+scope: LOW
+notes: Read-only non-sensitive health/configuration metadata.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading slot resource health metadata only inventories non-sensitive availability/configuration information.

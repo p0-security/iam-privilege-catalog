@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (ADF SSIS package execution component phases)
+description: A Log Analytics workspace query table holding ingested Azure Data Factory SSIS package execution component-phase log records. Reading it is a data-plane operation returning the stored log row content.
+scope: MEDIUM
+notes: Monitoring/diagnostics data is MEDIUM-sensitivity confidential operational telemetry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Returns SSIS execution component-phase rows, exporting detailed pipeline-execution timing/operational log content.

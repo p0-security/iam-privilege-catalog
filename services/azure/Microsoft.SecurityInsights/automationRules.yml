@@ -1,0 +1,21 @@
+name: Microsoft Sentinel automation rules
+description: Automation rules are Microsoft Sentinel SOAR orchestration objects that define conditions and automated actions (e.g. running playbooks, changing status, suppressing or auto-closing incidents) for incident handling.
+scope: MEDIUM
+notes: They govern automated incident response for a single security function; disabling them is defense evasion rather than tenant-wide control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an automation rule removes incident-response orchestration so incidents go un-triaged/unremediated, disabling a defense.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading automation rules reveals the SOAR response logic and trigger conditions, letting an attacker learn how incidents are handled and craft activity to evade automated response.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating an automation rule lets an attacker rewrite incident response, e.g. auto-close or suppress incidents matching their activity, disabling a defensive control.

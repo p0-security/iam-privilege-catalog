@@ -1,0 +1,10 @@
+name: App Service name availability check
+description: Utility operation that checks whether a proposed App Service resource name is available in the global namespace.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only a boolean availability result for a candidate name; at most confirms existence of a single named resource, granting no meaningful inventory capability.

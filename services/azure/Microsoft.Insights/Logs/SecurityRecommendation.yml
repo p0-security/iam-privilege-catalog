@@ -1,0 +1,13 @@
+name: Log Analytics SecurityRecommendation table
+description: A Log Analytics workspace table holding Microsoft Defender for Cloud security-recommendation records describing misconfigurations and unmitigated weaknesses.
+scope: MEDIUM
+notes: Security-finding data; reveals the environment's known weak points.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading exports the security-posture findings (exfiltration:logs) and inventories environment misconfigurations an attacker can target (discovery:infra).

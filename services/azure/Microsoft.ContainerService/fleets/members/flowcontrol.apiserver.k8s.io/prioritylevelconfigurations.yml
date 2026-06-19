@@ -1,0 +1,23 @@
+name: Kubernetes API Priority and Fairness PriorityLevelConfigurations
+description: Kubernetes PriorityLevelConfiguration objects within an AKS fleet member cluster. These define the concurrency limits and queueing behavior for each priority level in the API Priority and Fairness (APF) subsystem that protects the apiserver from overload.
+scope: HIGH
+notes: APF is a control-plane availability/overload-protection mechanism; manipulating it can degrade apiserver responsiveness. The configuration itself is non-sensitive operational metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - destruction:infra
+    notes: Deleting PriorityLevelConfigurations removes apiserver concurrency-control settings, disrupting request flow control and risking control-plane denial of service.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Reading PriorityLevelConfigurations enumerates apiserver concurrency/queue settings, low-sensitivity control-plane recon.
+  write:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Creating/updating PriorityLevelConfigurations changes apiserver concurrency/queue limits, letting an attacker throttle or exhaust request capacity and manipulate overload-protection config to degrade the control plane.

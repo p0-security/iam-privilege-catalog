@@ -1,0 +1,11 @@
+name: Azure Monitor operations catalog
+description: The static list of REST API operations supported by the Microsoft.Insights resource provider.
+scope: LOW
+notes: Public/static API capability catalog; not organization-specific.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks: []
+    notes: Listing the provider's available operations returns only a static, effectively public API catalog with no organization-specific information.

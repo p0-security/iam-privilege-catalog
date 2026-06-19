@@ -1,0 +1,13 @@
+name: Log Analytics ServiceFabricOperationalEvent table
+description: A Log Analytics query data action over the ServiceFabricOperationalEvent table, which stores Service Fabric cluster operational event telemetry.
+scope: MEDIUM
+notes: Application/cluster operational telemetry; may reveal topology and operational detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Querying this table exports Service Fabric cluster operational logs, revealing cluster topology and activity for reconnaissance.

@@ -1,0 +1,12 @@
+name: App Service Environment multi-role pool SKUs
+description: Available SKUs (sizes/tiers) for an App Service Environment multi-role (front-end) pool.
+scope: LOW
+notes: Sizing/capability catalog metadata for the hosting environment.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists available/assigned SKUs for an ASE multi-role pool, enumerating sizing and tier configuration of the hosting infrastructure.

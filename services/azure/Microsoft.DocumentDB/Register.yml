@@ -1,0 +1,11 @@
+name: Microsoft DocumentDB resource provider registration
+description: Subscription-level registration action that enables the Microsoft.DocumentDB resource provider.
+scope: LOW
+notes: Idempotent administrative enablement prerequisite; grants no data, identity, or infrastructure access by itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Registering the DocumentDB resource provider for the subscription is an enablement no-op granting no direct attacker capability in isolation.

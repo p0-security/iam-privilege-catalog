@@ -1,0 +1,13 @@
+name: Web App continuous WebJobs
+description: A continuous WebJob is a long-running background process/script hosted inside an Azure App Service (Web App), running on the app's compute alongside the web workload.
+scope: HIGH
+notes: Background-job compute tied to a single application function; can run code under the app's context and identity.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:hijack
+      - impact:spend
+    notes: Starting a continuous WebJob brings a background workload online on the App Service compute, enabling an attacker to run/restart workloads (resource hijacking) and incur compute spend.

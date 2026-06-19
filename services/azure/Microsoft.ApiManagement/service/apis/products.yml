@@ -1,0 +1,12 @@
+name: API associated products
+description: Products in Azure API Management group APIs for publishing and subscription-based access control; this operation lists the products that a given API is part of.
+scope: LOW
+notes: Read-only packaging/access-grouping relationship metadata, not data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists the products an API belongs to, providing read-only reconnaissance of API packaging and subscription access groupings with no sensitive data exposed.

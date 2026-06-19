@@ -1,0 +1,12 @@
+name: Log Analytics DeviceSkypeHeartbeat table
+description: A Log Analytics table (DeviceSkypeHeartbeat) in an Azure Monitor workspace that stores collected Skype/Teams device heartbeat telemetry log records.
+scope: MEDIUM
+notes: "Monitoring/diagnostics data: confidential operational telemetry, not core production data, hence MEDIUM scope."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returns the DeviceSkypeHeartbeat table, allowing export of Skype/Teams device heartbeat telemetry.

@@ -1,0 +1,11 @@
+name: SQL Server connection policy async operation
+description: A read-only endpoint that returns the in-progress status of an asynchronous server connection-policy update operation.
+scope: LOW
+notes: Returns only operation progress/completion state; exposes no resource configuration, data, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status of an in-progress connection-policy update; an inert async status read with no meaningful attacker capability in isolation.

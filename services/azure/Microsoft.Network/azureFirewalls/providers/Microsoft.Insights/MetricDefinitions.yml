@@ -1,0 +1,12 @@
+name: Azure Firewall metric definitions
+description: Azure Firewall metric definitions describe the monitoring metric schema (the list of available metrics) exposed for an Azure Firewall via Azure Monitor.
+scope: LOW
+notes: Read-only monitoring schema; no metric values or sensitive data are returned.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Returns only the catalog of available metrics for the firewall (telemetry schema), a low-sensitivity monitoring/logs inventory.

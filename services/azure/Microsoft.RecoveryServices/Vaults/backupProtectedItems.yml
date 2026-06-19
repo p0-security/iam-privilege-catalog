@@ -1,0 +1,12 @@
+name: Vault-wide protected items list
+description: A vault-wide listing of all protected items (workloads under backup) across a Recovery Services vault / subscription.
+scope: LOW
+notes: Read-only inventory of backup coverage useful for targeting reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists all protected items in the vault, giving an attacker a complete inventory of which workloads are backed up across the subscription for targeting, without exposing backup data.

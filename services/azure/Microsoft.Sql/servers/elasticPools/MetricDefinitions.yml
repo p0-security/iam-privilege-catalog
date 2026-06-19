@@ -1,0 +1,12 @@
+name: Azure SQL elastic pool metric definitions
+description: Read-only listing of the types/schema of metrics available for an Azure SQL elastic database pool (metric names, units, aggregation types), not the metric values themselves.
+scope: LOW
+notes: Monitoring schema metadata only; low inherent sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:metadata
+    notes: Lists the available metric types for elastic pools, inventorying monitoring schema metadata only.

@@ -1,0 +1,12 @@
+name: Key Vault
+description: An Azure Key Vault is a managed secrets store holding cryptographic keys, secrets, and certificates and their access/network configuration.
+scope: CRITICAL
+notes: "Key Vaults are CRITICAL-tier assets: they centralize credentials and cryptographic material relied on across many organizational functions."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joining the vault to a Network Security Perimeter alters its network trust boundary; though described as a linked access check used by the Network RP, the action can shift the vault's reachability into an attacker-chosen perimeter. Standalone offensive capability is more limited than the private-endpoint approval action.

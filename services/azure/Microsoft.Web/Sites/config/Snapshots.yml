@@ -1,0 +1,12 @@
+name: Web App config snapshots
+description: Saved point-in-time configuration snapshots of a Web App, used as restore points; the read enumerates available snapshots and their metadata.
+scope: LOW
+notes: Listing returns only snapshot metadata/restore-point inventory, not the secret values they contain (a separate listsecrets action).
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates available configuration snapshots/restore points without returning their secret contents, aiding reconnaissance.

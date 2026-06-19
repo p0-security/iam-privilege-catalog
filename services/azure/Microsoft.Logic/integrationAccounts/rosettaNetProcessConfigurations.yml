@@ -1,0 +1,20 @@
+name: Integration Account RosettaNet process configuration
+description: A RosettaNet PIP (Partner Interface Process) configuration artifact stored in a Logic Apps integration account, defining how B2B/EDI trading-partner messages are processed in integration workflows.
+scope: MEDIUM
+notes: Supporting integration configuration for a single B2B function; control-plane only, holds no secrets or message data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes the RosettaNet process configuration, removing supporting B2B integration config and disrupting dependent partner workflows (DoS-like).
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the RosettaNet process configuration, letting an attacker inventory how the integration account's B2B partner processing is set up without exposing secrets or message data.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates the RosettaNet process configuration, allowing an attacker to alter how B2B trading-partner messages are processed.

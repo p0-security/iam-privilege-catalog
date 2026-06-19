@@ -1,0 +1,10 @@
+name: Service group operation results
+description: The status/result of an asynchronous service group control-plane operation, returned for operation-status polling.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Management
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the result of a service group operation returns only operation status, an inert read with no meaningful attacker capability in isolation.

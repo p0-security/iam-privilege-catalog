@@ -1,0 +1,21 @@
+name: Kubernetes PodDisruptionBudgets (Fleet)
+description: PodDisruptionBudgets are Kubernetes policy objects that limit voluntary disruptions (evictions during node drains/upgrades) to maintain a minimum number of available pod replicas, scoped here to an AKS Fleet's member clusters.
+scope: MEDIUM
+notes: Operational availability-control config; not a security defense or data store, but abuse can disrupt cluster maintenance and workload availability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+    notes: Deleting a PDB removes availability guarantees, allowing mass eviction/drain of protected workloads and thus service disruption.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading PDBs only enumerates workload availability/disruption configuration, a reconnaissance capability with no secret or data exposure.
+  write:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Creating/updating a PDB (e.g. setting minAvailable equal to replica count) can block all node drains/evictions/maintenance, disrupting operations and manipulating cluster operational config.

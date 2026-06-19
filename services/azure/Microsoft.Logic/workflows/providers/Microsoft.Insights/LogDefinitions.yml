@@ -1,0 +1,12 @@
+name: Logic App workflow log definition
+description: Workflow log definitions enumerate the schema of log categories available for a Logic App workflow.
+scope: LOW
+notes: Read-only monitoring metadata; exposes only the available log categories, not any actual log data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading log definitions only enumerates the available log categories/schema for the workflow, low-value logs reconnaissance.

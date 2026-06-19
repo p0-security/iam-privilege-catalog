@@ -1,0 +1,12 @@
+name: Key Vault private link resources
+description: Private link resources enumerate the available Private Link sub-resource targets for a key vault used to establish private network connectivity.
+scope: LOW
+notes: Read-only network connectivity metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Lists available private link resources for the vault, providing network connectivity reconnaissance.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace table data (AWSRoute53Resolver)
+description: A per-table data-plane query permission on a Log Analytics workspace; this one returns rows of the AWSRoute53Resolver table, which holds AWS Route 53 Resolver DNS query logs ingested into the workspace.
+scope: MEDIUM
+notes: DNS resolution telemetry exposing internal hostnames and network topology; monitoring/log-data sensitivity tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reads ingested Route 53 Resolver DNS query log rows, exporting the log content and inventorying internal DNS names, endpoints, and resolution patterns.

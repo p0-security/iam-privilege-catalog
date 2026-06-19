@@ -1,0 +1,11 @@
+name: Worker App operation results
+description: The asynchronous operation-result/status endpoint for a Worker App long-running operation.
+scope: LOW
+notes: Returns only operation completion state; an operational polling endpoint.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the status/result of a prior async Worker App operation, an inert bookkeeping read that grants no meaningful attacker capability in isolation.

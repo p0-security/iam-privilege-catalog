@@ -1,0 +1,14 @@
+name: Storage Blob Service Blobs
+description: Blobs are the individual data objects (files) stored inside containers of an Azure Storage account's blob service. They hold an organization's unstructured production data such as documents, backups, media, and application data.
+scope: HIGH
+notes: Data-plane access to blobs directly exposes stored organizational data; ADLS Gen2 (hierarchical namespace) accounts also expose POSIX ownership/ACLs at the blob level.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+      - impact:manipulation
+      - escalation:privilege
+    notes: Executing blob commands as ADLS Gen2 superuser bypasses all POSIX ACL/ownership checks, granting unrestricted read, write, and access-control over any blob in the filesystem.

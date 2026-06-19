@@ -1,0 +1,11 @@
+name: Web App private link resources
+description: The private-link sub-resource group IDs (private-link resources) that an Azure Web App can expose via private endpoints.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:network
+    notes: Reads the private link resources (group IDs) available for the Web App, read-only inventory of which sub-resources can be exposed via private endpoints.

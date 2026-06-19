@@ -1,0 +1,12 @@
+name: Deleted Log Analytics workspaces
+description: Soft-deleted Azure Log Analytics workspaces still within their recoverable retention period.
+scope: LOW
+notes: Read-only inventory of former monitoring infrastructure; no log data or credentials exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing soft-deleted workspaces enumerates which monitoring workspaces existed and are recoverable, a read-only infrastructure reconnaissance signal.

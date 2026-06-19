@@ -1,0 +1,13 @@
+name: Log Analytics HDInsight query table (Spark environment events)
+description: A Log Analytics workspace query-scoped table holding HDInsight Spark environment-event log records ingested via diagnostic settings. The data-plane read returns the stored rows.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset tier. Environment-event logs can expose runtime configuration properties and environment settings/paths.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading this table exports Spark job environment/configuration event records (which may contain sensitive settings) and lets the holder inventory the logged environment data.

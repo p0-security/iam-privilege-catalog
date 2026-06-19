@@ -1,0 +1,10 @@
+name: Logic App workflow run operation status
+description: The workflow run operation status is the async long-running-operation polling endpoint that reports only the progress/completion state of a workflow run operation.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Trivial async status-polling read that exposes only operation progress state; grants no meaningful attacker capability in isolation.

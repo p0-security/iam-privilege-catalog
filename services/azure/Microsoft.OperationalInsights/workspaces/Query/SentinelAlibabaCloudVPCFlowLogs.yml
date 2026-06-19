@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (Sentinel Alibaba Cloud VPC flow logs)
+description: A Log Analytics workspace data-plane table storing Microsoft Sentinel-ingested Alibaba Cloud VPC flow logs. Read access returns the table's log records.
+scope: MEDIUM
+notes: VPC flow logs expose source/destination IPs, ports, and traffic flows, mapping network topology.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reading the table exports network-flow records (exfiltration:logs) and inventories network topology, IPs, and connectivity (discovery:network).

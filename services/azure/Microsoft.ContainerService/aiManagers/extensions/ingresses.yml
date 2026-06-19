@@ -1,0 +1,23 @@
+name: Kubernetes Ingresses (AI Managers extension)
+description: "A Kubernetes Ingress object inside an AKS/AI Managers cluster: an L7 routing rule that maps external hostnames/paths to in-cluster backend services, often fronting public-facing endpoints."
+scope: HIGH
+notes: Ingress objects define how the cluster exposes services externally (hostnames, paths, TLS, backends). This is a data-plane (isDataAction) operation governing network exposure of a single cluster's services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting Ingresses removes the routing rules that expose cluster services, destroying network configuration and denying inbound access to the hosted application.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading/listing Ingresses enumerates external routing rules, hostnames, paths, TLS config, and backend service mappings, providing network topology reconnaissance of exposed services.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+      - impact:defacement
+    notes: Creating/updating an Ingress can expose internal services externally and re-route traffic to attacker-controlled backends, enabling network movement, manipulation of routing, and defacement/interception of public-facing host/path routes.

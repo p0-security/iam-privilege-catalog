@@ -1,0 +1,12 @@
+name: Automation account metric definitions
+description: Azure Monitor metric definition schema for the Automation account, listing which telemetry metric types are available.
+scope: LOW
+notes: Read-only monitoring schema metadata; exposes no actual metric values or stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Lists available metric definitions, enumerating the monitoring/telemetry schema; low-value reconnaissance with no access to actual values or secrets.

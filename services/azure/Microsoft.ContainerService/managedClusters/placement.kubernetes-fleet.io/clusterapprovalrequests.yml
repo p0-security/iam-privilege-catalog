@@ -1,0 +1,21 @@
+name: Fleet ClusterApprovalRequest resource
+description: An Azure Kubernetes Fleet Manager object representing a manual approval gate for a staged update rollout across fleet member clusters.
+scope: HIGH
+notes: Gates the change-management flow that propagates configuration/workload changes to member clusters; manipulating it bypasses human approval controls.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting an approval request removes a rollout-gate object, altering the staged-update approval flow that governs how changes propagate across member clusters.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read-only enumeration of approval requests only inventories pending/approved staged-rollout gates, providing reconnaissance of the fleet rollout pipeline.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing/approving an approval request advances a gated staged update run, bypassing the human approval checkpoint to push rollout changes across member clusters.

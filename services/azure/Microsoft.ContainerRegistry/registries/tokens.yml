@@ -1,0 +1,24 @@
+name: ACR registry tokens
+description: ACR tokens are named, repository-scoped access principals bound to scope maps that authorize pull/push/delete operations against a container registry.
+scope: HIGH
+notes: Tokens are credential-backed access identities for the registry's image supply chain; their passwords are generated separately via the credentials action and are not returned by read.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Delete token removes a registry access-control credential and its scope-map binding, revoking legitimate principals' authorized registry access and destroying access-control state.
+  read:
+    risks:
+      - discovery:policy
+      - discovery:account
+    scope: MEDIUM
+    notes: Get/List token enumerates the registry's scoped-access principals and their scope-map permission bindings, revealing access-control configuration and identities without returning the token password.
+  write:
+    risks:
+      - persistence:account
+      - escalation:privilege
+    notes: Create/Update token provisions a durable attacker-controlled scoped credential identity and can broaden its scope-map permissions (push/pull/delete), establishing persistent privileged access to registry content.

@@ -1,0 +1,13 @@
+name: Log Analytics Perf table
+description: A Log Analytics workspace table holding performance-counter telemetry (CPU, memory, disk) from monitored hosts.
+scope: MEDIUM
+notes: Monitoring/diagnostics data plane; operational telemetry of modest sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reads host performance counters, exporting telemetry and revealing infrastructure inventory and resource utilization.

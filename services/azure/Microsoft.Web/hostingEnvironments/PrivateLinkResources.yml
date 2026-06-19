@@ -1,0 +1,12 @@
+name: App Service Environment private link resources
+description: The private-link sub-resource group IDs that an App Service Environment exposes for private endpoint connections.
+scope: LOW
+notes: Read-only connectivity metadata; no data or credential content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:network
+    notes: Lists the private-link group IDs the App Service Environment exposes, providing read-only connectivity metadata for private-endpoint network reconnaissance.

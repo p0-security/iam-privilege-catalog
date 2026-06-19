@@ -1,0 +1,21 @@
+name: Sentinel Workspace Manager groups
+description: Microsoft Sentinel Workspace Manager groups are configuration objects that group member Log Analytics workspaces under a central manager for distribution of security content (analytics rules, hunting queries, automation). They are a supporting management-tooling construct, not a primary data store.
+scope: MEDIUM
+notes: "Sensitivity is that of Sentinel security-management tooling: not primary data, but controls how detection content propagates across an organization's workspaces."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - destruction:metadata
+    notes: Deleting a group removes the grouping construct used to organize managed workspaces, disrupting the central-management configuration; the deleted object is config/grouping metadata rather than logs or primary infrastructure.
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only enumeration of which member workspaces are grouped for centralized content management; reconnaissance of the security-management topology.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a group alters which workspaces are targeted by centralized content pushes, manipulating the security-management configuration.

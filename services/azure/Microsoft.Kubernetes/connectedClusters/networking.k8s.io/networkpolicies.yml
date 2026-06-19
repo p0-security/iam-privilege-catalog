@@ -1,0 +1,23 @@
+name: Kubernetes network policies
+description: NetworkPolicies are Kubernetes objects defining pod-level ingress/egress firewall and segmentation rules within the connected (Azure Arc) Kubernetes cluster.
+scope: HIGH
+notes: Function as an intra-cluster network firewall/defense; loosening or deleting them enables lateral movement.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Deleting NetworkPolicies removes the network-segmentation firewall, eliminating a defense and restoring open pod-to-pod connectivity an attacker can exploit to reach isolated services.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading NetworkPolicies reveals the cluster's pod-level segmentation/firewall rules, letting an attacker map allowed traffic flows and find unsegmented lateral paths.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Creating/updating NetworkPolicies can loosen or override pod-to-pod segmentation, disabling a network-firewall defense and opening lateral paths to otherwise-isolated services.

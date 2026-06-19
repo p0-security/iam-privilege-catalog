@@ -1,0 +1,12 @@
+name: Connected cluster API server health probe
+description: A Kubernetes API server health-check probe sub-endpoint (healthz/livez) exposed as an Azure data action on an Arc-enabled connected cluster. It reports the liveness/readiness status of a specific control-plane subsystem or post-start hook.
+scope: LOW
+notes: These endpoints return only a pass/fail health status indicator; they do not expose configuration, stored data, RBAC policy contents, log contents, or secrets even when the path name (e.g. rbac/bootstrap-roles, etcd, log) suggests otherwise.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: The etcd livez probe reports only whether the API server can reach etcd, not etcd contents; no data exfiltration despite the etcd name.

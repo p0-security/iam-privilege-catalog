@@ -1,0 +1,13 @@
+name: Log Analytics MAOfficeAddinHealthEventNRT table
+description: A Log Analytics workspace table holding near-real-time Microsoft Office add-in health-event telemetry records. This is a data-plane log table within Azure Monitor Log Analytics.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; add-in event telemetry can reveal software/environment detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns near-real-time Office add-in health-event telemetry, exporting and enumerating add-in records.

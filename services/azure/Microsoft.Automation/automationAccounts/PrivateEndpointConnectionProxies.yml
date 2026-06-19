@@ -1,0 +1,22 @@
+name: Azure Automation private endpoint connection proxy
+description: An internal Private Link connection-proxy object used by Azure Automation to broker provisioning of private endpoint connectivity to the account.
+scope: HIGH
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the connection proxy tears down private-link connectivity plumbing for the Automation account, disrupting authorized private access.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the connection proxy only returns internal private-link connectivity configuration, constituting network reconnaissance.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating a private endpoint connection proxy establishes private network connectivity plumbing to the Automation account, enabling network movement and connectivity manipulation.

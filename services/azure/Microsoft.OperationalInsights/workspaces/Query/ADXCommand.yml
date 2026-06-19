@@ -1,0 +1,13 @@
+name: Log Analytics ADXCommand table
+description: A Log Analytics workspace data-plane table holding ingested Azure Data Explorer control-command telemetry. Reading it returns the stored log rows recording ADX admin/command activity.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data tier; may contain operational identifiers and command details but not credentials or primary production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read of the ADXCommand table exports logged ADX control-command activity, which may reveal command parameters and operational identifiers.

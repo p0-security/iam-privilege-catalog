@@ -1,0 +1,23 @@
+name: Fleet ClusterResourcePlacement
+description: A Kubernetes Fleet Manager ClusterResourcePlacement (CRP) is the user-facing fleet API object that selects Kubernetes resources on the hub cluster and propagates them to member clusters across the fleet.
+scope: HIGH
+notes: CRP is the primary control surface for multi-cluster workload distribution; whoever controls it can deploy or tear down workloads across many member clusters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a CRP halts propagation and tears down the placed workloads/config across all targeted member clusters, removing deployed infrastructure and disrupting the services it supports fleet-wide.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading CRPs enumerates which Kubernetes resources are propagated to which member clusters, inventorying the fleet's multi-cluster workload-placement topology for reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - escalation:lateral
+    notes: Creating/updating a CRP propagates attacker-chosen Kubernetes resources (workloads, configs) onto member clusters fleet-wide, enabling running of attacker workloads (hijack), tampering with deployed configuration (manipulation), and pivoting onto other clusters/identities (lateral).

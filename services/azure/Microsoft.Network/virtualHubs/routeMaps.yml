@@ -1,0 +1,23 @@
+name: Virtual Hub Route Map
+description: A Route Map is a child resource of a Virtual WAN Virtual Hub that defines route advertisement, matching, filtering, and transformation rules governing how traffic is routed across connected networks.
+scope: HIGH
+notes: Controls routing for a Virtual WAN hub interconnecting multiple networks.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a route map removes route transformation/filtering rules from the hub, disrupting or rerouting traffic across the Virtual WAN.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reading the route map exposes route-advertisement/filtering rules and prefixes, reconnaissance of the Virtual WAN routing topology.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a route map rewrites route advertisement/filtering on the hub, letting an attacker redirect, inject, or blackhole traffic and reach additional resources across connected networks.

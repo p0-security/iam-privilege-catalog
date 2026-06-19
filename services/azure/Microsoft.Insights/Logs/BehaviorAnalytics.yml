@@ -1,0 +1,13 @@
+name: Log Analytics BehaviorAnalytics table
+description: The BehaviorAnalytics table holds Microsoft Sentinel UEBA (User and Entity Behavior Analytics) records that profile the behavior of specific user and entity accounts for security detection.
+scope: MEDIUM
+notes: Security-analytics monitoring data; rows are keyed to specific identities/entities and expose what behavioral detections defenders track.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading the table exports UEBA security-analytics content and, because each record profiles a specific user/entity, enumerates identities and their behavior usable for targeting.

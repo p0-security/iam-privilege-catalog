@@ -1,0 +1,13 @@
+name: Log Analytics SysmonEvent table
+description: A Log Analytics workspace table holding Sysmon endpoint telemetry (process creation, command lines, network connections, file/hash events) used for threat detection.
+scope: MEDIUM
+notes: High-fidelity endpoint forensic data; exposes both sensitive activity and defensive monitoring coverage.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports detailed endpoint telemetry (exfiltration:logs) and reveals what host activity defenders monitor, aiding evasion (discovery:logs).

@@ -1,0 +1,13 @@
+name: Log Analytics ComputerGroup table
+description: A Log Analytics workspace table enumerating logical groupings/memberships of monitored computers. This is a data-plane read.
+scope: MEDIUM
+notes: Provides an inventory of monitored hosts and their groupings; monitoring data, scope MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Enumerates groupings of monitored machines, providing an inventory of the monitored host fleet for targeting.

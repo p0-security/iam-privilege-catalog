@@ -1,0 +1,12 @@
+name: Edge zone platform image version
+description: A platform/marketplace VM image version available in an Azure edge zone across publishers.
+scope: LOW
+notes: Largely public marketplace/platform image catalog metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading platform image versions in an edge zone only enumerates the available (largely public) image catalog.

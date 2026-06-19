@@ -1,0 +1,12 @@
+name: Application Insights ALM integration configuration
+description: Application Insights ALM (Application Lifecycle Management) work-item integration configuration, which links an Application Insights monitoring component to external work-item/ticketing systems such as Azure DevOps or Jira.
+scope: MEDIUM
+notes: Operational integration metadata for a monitoring resource; it routes telemetry findings into a tracking system but is not itself a security control or log store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:infra
+    notes: Reads the default ALM integration configuration for an Application Insights component, enumerating the default work-item tracker linkage; returns configuration metadata, not credentials.

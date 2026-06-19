@@ -1,0 +1,21 @@
+name: Storage account management locks
+description: Azure management locks (CanNotDelete/ReadOnly) applied to the storage account, which protect it from modification or deletion.
+scope: HIGH
+notes: Locks are a deny/protection control guarding a production data store; removing them enables otherwise-blocked destructive actions.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+    notes: Deletes a management lock guarding the storage account, removing a deny control and enabling subsequent destruction or modification.
+  read:
+    risks:
+      - discovery:policy
+    scope: LOW
+    notes: Reads the management-lock state on the account, revealing which protective locks exist so an attacker can identify unprotected resources or protections to bypass.
+  write:
+    risks:
+      - impact:access
+    notes: Creates/updates a management lock (ReadOnly/CanNotDelete) that can prevent authorized operators from modifying or deleting the account, denying legitimate operational access.

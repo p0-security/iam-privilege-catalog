@@ -1,0 +1,12 @@
+name: Azure Automation connection asset
+description: An Azure Automation Connection asset stores the authentication configuration runbooks use to connect to external services (e.g. service principal app/tenant IDs, certificate thumbprints, subscription bindings). Secret field values are stored encrypted and write-only.
+scope: LOW
+notes: Connection assets reference credential material, but the control plane does not return the encrypted secret field values in plaintext; they are resolved only at runbook runtime via Get-AutomationConnection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:infra
+    notes: Returns only an aggregate integer count of connection assets, leaking inventory size with no configuration or secret content.

@@ -1,0 +1,11 @@
+name: Application Insights components
+description: An Application Insights component is the Azure Monitor resource that ingests, stores, and retains application telemetry (requests, traces, exceptions, dependencies, metrics).
+scope: LOW
+notes: Monitoring/diagnostics asset whose data underpins detection and incident response.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks: []
+    notes: Platform-emitted notification event signaling the daily-cap warning threshold was reached; inert with no attacker capability in isolation.

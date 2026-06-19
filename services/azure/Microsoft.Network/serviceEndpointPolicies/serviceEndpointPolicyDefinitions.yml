@@ -1,0 +1,22 @@
+name: Service Endpoint Policy Definition
+description: A Service Endpoint Policy Definition is an individual allow rule within a Service Endpoint Policy, specifying the particular Azure service resources permitted for subnet egress.
+scope: HIGH
+notes: A sub-rule of the parent egress filtering defense; sensitivity tracks the parent policy at the single-network level.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a definition removes an enforced filtering rule, weakening the network egress access-control defense.
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading a definition enumerates the specific service-resource allow rules within the policy, aiding network access-control reconnaissance.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating a definition modifies the actual allow rules, letting an attacker broaden permitted service access and weaken the egress filtering defense.

@@ -1,0 +1,13 @@
+name: Log Analytics query table (AlertEvidence — security detections)
+description: A Log Analytics workspace query table holding the supporting evidence/entities behind security alerts (Microsoft Defender). This data-plane permission returns the stored evidence rows via KQL query.
+scope: MEDIUM
+notes: Security detection telemetry is MEDIUM scope; reveals what investigative artifacts defenders collected.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading AlertEvidence exports the detection evidence/entities (exfiltration:logs) and reveals what defenders captured, informing evasion (discovery:logs).

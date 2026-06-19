@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (AZMSArchiveLogs)
+description: A Log Analytics workspace query table holding Azure Messaging Services archive log records. Reading it returns the stored log records via the data plane.
+scope: MEDIUM
+notes: Operational diagnostic data; MEDIUM-sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading exports archive log content (exfiltration:logs) and reveals what archival activity is captured (discovery:logs).

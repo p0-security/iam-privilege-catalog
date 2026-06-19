@@ -1,0 +1,12 @@
+name: Azure IP Groups
+description: An IpGroup is a named, reusable collection of IP addresses and CIDR ranges that is referenced by Azure Firewall and firewall policy rules to define traffic sources/destinations.
+scope: HIGH
+notes: A single-function network access-control construct; modifying it affects firewall rule enforcement for the resources that reference it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: The join action attaches the IpGroup to a consuming resource (e.g. a firewall/firewall policy), wiring an IP set into network rule processing and enabling reachability changes across the network.

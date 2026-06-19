@@ -1,0 +1,13 @@
+name: Deleted SQL server
+description: A soft-deleted Azure SQL logical server resource that remains recoverable for a retention window along with the databases it hosted.
+scope: HIGH
+notes: Recovery re-instantiates a production database server and the data it contained.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:spend
+      - impact:manipulation
+    notes: Recovering a deleted server re-provisions chargeable SQL server infrastructure and resurrects the databases/data the organization intended to remove, altering infrastructure state.

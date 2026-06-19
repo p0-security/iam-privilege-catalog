@@ -1,0 +1,23 @@
+name: Gallery In-VM Access Control Profile
+description: A reusable Compute Gallery profile defining access-control rules (Metadata Security Protocol) governing in-guest process access to VM platform endpoints such as WireServer/IMDS. It is a template definition that takes effect on VMs that reference it.
+scope: HIGH
+notes: Governs reachability of the managed-identity/metadata endpoint, but as a gallery definition it is not a live attached policy and does not by itself grant a principal access.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - destruction:defense
+    notes: Deleting the profile removes the access-control policy that protects the metadata/identity endpoints, tearing down a defense for VMs that reference it.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reading the profile exposes the access-control allowlist rules governing in-guest endpoint access, revealing policy weak points.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating the profile rewrites the rules gating in-guest access to metadata/identity endpoints; loosening them weakens a protective defense for VMs that consume the profile.

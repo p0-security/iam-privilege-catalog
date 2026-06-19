@@ -1,0 +1,23 @@
+name: API Management operation-level policies
+description: "The operation-scoped API Management policy configuration: XML rules applied to a single API operation's request/response processing, including authentication, validation, rate limiting, and backend routing."
+scope: HIGH
+notes: Defines the enforced security and traffic-handling controls for one API operation; may reference embedded named-values/secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deletes an operation-level policy, removing that operation's enforced security controls and altering its request processing.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reads the operation-level policy, revealing the fine-grained security/access-control rules for a specific operation.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creates/updates an operation-level policy, letting an attacker disable security controls and rewrite request handling/routing for a specific operation.

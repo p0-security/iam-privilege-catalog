@@ -1,0 +1,21 @@
+name: API Management certificates
+description: An API Management certificate is a control-plane certificate object stored in an APIM service instance used to authenticate the gateway to backend services (client/mutual-TLS) and to validate backend identities. The private key material is held by the service and is not returned by control-plane reads.
+scope: HIGH
+notes: These certificates are credential/trust material for a single organizational function (the API gateway and its backends); compromise enables impersonation or MITM of backend connections, but control-plane reads expose only metadata, not private keys.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:dos
+    notes: Deletes a stored certificate, destroying the cryptographic material the gateway uses for backend authentication and breaking authenticated (mutual-TLS) backend connectivity, disrupting the dependent APIs.
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists certificates or gets certificate details (thumbprint, subject, expiry) without returning private-key material, so it only enables reconnaissance of the configured backend-auth certificate inventory.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating the certificate used for backend authentication lets an attacker substitute attacker-controlled credential/trust material into the gateway's backend-auth configuration, tampering with how APIM authenticates to backends.

@@ -1,0 +1,13 @@
+name: Log Analytics ConfigurationChange table
+description: A Log Analytics workspace table from Change Tracking recording software/file/registry/service change events on monitored machines. This is a data-plane read.
+scope: MEDIUM
+notes: Reveals system configuration drift and change history useful for reconnaissance; monitoring data, scope MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Exports change-tracking records of software/file/service/registry changes, revealing host configuration history and software details for reconnaissance.

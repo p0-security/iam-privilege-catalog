@@ -1,0 +1,13 @@
+name: Capacity Reservation Groups
+description: A capacity reservation group is a container that holds one or more capacity reservations and defines the scope across which reserved compute capacity is shared.
+scope: MEDIUM
+notes: Lightweight grouping/scaffolding resource for reserved compute capacity; the reservations it contains drive cost and consume quota.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:hijack
+      - impact:spend
+    notes: Deploying a new VM/VMSS against the reservation group lets an attacker spin up attacker-controlled compute on reserved capacity (cryptomining/workloads) at organizational expense.

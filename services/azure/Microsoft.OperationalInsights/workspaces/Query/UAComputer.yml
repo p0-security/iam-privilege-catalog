@@ -1,0 +1,13 @@
+name: Log Analytics workspace UAComputer table
+description: A data-plane Update/Upgrade Analytics table in an Azure Log Analytics workspace inventorying monitored computers/endpoints.
+scope: MEDIUM
+notes: Monitoring asset; provides a host inventory of the environment useful for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading UAComputer exports the inventory of monitored machines and their attributes, enabling host enumeration.

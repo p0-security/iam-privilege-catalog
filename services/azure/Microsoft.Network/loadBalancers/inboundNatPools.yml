@@ -1,0 +1,12 @@
+name: Load Balancer Inbound NAT Pool
+description: An inbound NAT pool on an Azure Load Balancer defines a range of frontend ports that are translated to backend instances, enabling per-instance inbound connectivity (e.g. SSH/RDP) across a scale set.
+scope: LOW
+notes: Configuration sub-resource of a load balancer; read is reconnaissance, while join attaches backends into the load-balanced network path.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Reading the inbound NAT pool definition only enumerates network forwarding configuration (port ranges, frontend mappings), which is read-only network reconnaissance.

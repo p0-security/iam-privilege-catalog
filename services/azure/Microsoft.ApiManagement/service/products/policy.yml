@@ -1,0 +1,23 @@
+name: API Management Product policy
+description: An Azure API Management Product policy is an XML configuration document that defines the gateway request/response processing pipeline applied to all APIs grouped under a product, including authentication (validate-jwt), IP filtering, rate limiting/quotas, CORS, and backend routing/transforms.
+scope: HIGH
+notes: Product policies are the security and access-control enforcement layer of the API gateway for a single organizational function; they can reference named values (secrets) but typically expose references rather than raw secret values.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting the product policy removes the gateway-enforced access-control and security controls (auth, IP filtering, rate limiting) applied to all APIs in the product, disabling defenses and stripping access-control policy.
+  read:
+    risks:
+      - discovery:policy
+    scope: MEDIUM
+    notes: Reading the product policy XML reveals the access-control and security enforcement rules (auth, IP filters, rate limits, routing), letting an attacker inventory defensive logic and locate weak points.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/overwriting the product policy lets an attacker strip authentication, IP filtering, and rate limiting on all APIs in the product (weakening defenses) and rewrite request/response handling, backend routing, and headers (manipulating operational traffic).

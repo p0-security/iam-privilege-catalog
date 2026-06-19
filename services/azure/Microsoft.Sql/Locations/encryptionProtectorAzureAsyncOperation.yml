@@ -1,0 +1,11 @@
+name: Azure SQL TDE encryption protector operation result
+description: An asynchronous operation-status tracker for Transparent Data Encryption (TDE) encryption-protector control-plane operations on Azure SQL. It reports the in-progress state of a long-running protector operation.
+scope: LOW
+notes: Despite the encryption subject, these endpoints return only operation progress/status, never key or protector secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads async-operation status for a TDE encryption-protector change, returning only progress; inert in isolation.

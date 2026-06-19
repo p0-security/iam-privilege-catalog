@@ -1,0 +1,12 @@
+name: App Service Environment metric definitions
+description: The Azure Monitor metric definitions for an App Service Environment - the schema enumerating which monitoring metrics are available, not the metric values themselves.
+scope: LOW
+notes: Low-sensitivity monitoring schema metadata; returns which metrics exist, not their values.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Enumerates the available metric definitions (telemetry schema/catalog) for the App Service Environment, low-value reconnaissance of the monitoring surface with no metric values.

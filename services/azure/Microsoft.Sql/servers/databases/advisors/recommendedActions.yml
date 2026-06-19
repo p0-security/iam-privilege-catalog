@@ -1,0 +1,17 @@
+name: Database Recommended Action
+description: A database recommended action is an individual tuning recommendation produced by an advisor (e.g. create or drop a specific index), with state indicating whether it has been applied.
+scope: LOW
+notes: Recommendation metadata may reference index/table identifiers, but exposes configuration hints rather than stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Read-only listing of recommended tuning actions enumerates configuration/recommendation metadata (including index/schema hints), a control-plane reconnaissance read.
+  write:
+    risks:
+      - impact:manipulation
+    scope: HIGH
+    notes: Applying a recommended action executes a schema/index change (e.g. creating or dropping an index) against the production database, manipulating its operational structure and potentially degrading performance.

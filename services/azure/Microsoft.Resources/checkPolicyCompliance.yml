@@ -1,0 +1,12 @@
+name: Policy compliance check
+description: The check policy compliance operation evaluates a resource's compliance status against assigned Azure Policy/governance policies.
+scope: LOW
+notes: Reveals which governance/security controls apply and where a resource is non-compliant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Checks a resource's compliance against policies, disclosing governance/policy posture and gaps an attacker can exploit to find weak points.

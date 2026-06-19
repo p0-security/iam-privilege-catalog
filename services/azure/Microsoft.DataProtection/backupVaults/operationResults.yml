@@ -1,0 +1,10 @@
+name: Backup vault operation results
+description: Operation results endpoint that returns the outcome of an asynchronous patch operation on a Backup Vault.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reading the result of an async patch operation is an operation-status poll yielding no sensitive data or capability.

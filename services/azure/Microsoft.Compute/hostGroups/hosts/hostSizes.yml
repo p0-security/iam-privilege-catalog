@@ -1,0 +1,12 @@
+name: Dedicated host size
+description: Enumerable SKU/size options to which an existing Azure dedicated host can be scaled up within a host group.
+scope: LOW
+notes: Non-sensitive capacity/sizing metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing available host sizes only enumerates capacity/SKU options for scale-up; trivial infrastructure reconnaissance.

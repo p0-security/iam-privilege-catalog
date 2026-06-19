@@ -1,0 +1,11 @@
+name: Backup vault name availability check
+description: Stateless validation utility that checks whether a requested Backup Vault name is available in the global namespace.
+scope: LOW
+notes: Reveals whether and how backup protection is configured, not backed-up data contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Returns only a support verdict for a feature/region; discloses no organizational data and grants no actionable capability.

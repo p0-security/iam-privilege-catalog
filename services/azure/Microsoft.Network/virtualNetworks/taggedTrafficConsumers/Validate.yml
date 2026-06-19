@@ -1,0 +1,11 @@
+name: VNet tagged traffic consumer
+description: A tagged traffic consumer is a sub-resource of an Azure Virtual Network that records which services consume tagged (service-endpoint) traffic and how that traffic is routed within the VNet.
+scope: LOW
+notes: Control-plane configuration of a production network resource; the consumer definitions themselves contain no secrets or customer data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Stateless pre-flight validation of a tagged traffic consumer configuration; makes no changes and returns no sensitive material, so it grants no meaningful capability in isolation.

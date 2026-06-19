@@ -1,0 +1,21 @@
+name: AKS cluster maintenance configurations
+description: Maintenance configurations define the cluster's scheduled-maintenance and auto-upgrade windows, controlling when node patching and Kubernetes upgrades may run.
+scope: MEDIUM
+notes: Non-sensitive operational scheduling configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting a maintenance configuration removes the constraints governing when patching/upgrades occur, manipulating operational maintenance behavior (e.g. reverting to defaults) rather than destroying real infrastructure or data.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Read-only get only inventories the cluster's maintenance-window scheduling configuration, low-value infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a maintenance configuration alters the cluster's patch/upgrade scheduling, letting an attacker defer security patching or force disruptive maintenance windows.

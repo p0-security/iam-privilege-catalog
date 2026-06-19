@@ -1,0 +1,12 @@
+name: Sentinel content product templates
+description: Content Product Templates are the catalog of installable Microsoft Sentinel content templates (analytics rules, workbooks, playbooks) available to a workspace.
+scope: LOW
+notes: Non-sensitive marketplace-style inventory of available content templates; no data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading available content product templates only enumerates installable detection/content templates, a low-sensitivity configuration inventory.

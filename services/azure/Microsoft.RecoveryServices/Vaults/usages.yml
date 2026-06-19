@@ -1,0 +1,12 @@
+name: Recovery Services Vault usage
+description: Read-only usage/quota metrics for a Recovery Services Vault (the backup and disaster-recovery vault resource).
+scope: LOW
+notes: Exposes resource consumption metadata only, not protected data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Returns vault usage details, enabling read-only reconnaissance of backup infrastructure capacity/configuration.

@@ -1,0 +1,12 @@
+name: Application Gateway
+description: Azure Application Gateway is a managed Layer-7 (HTTP/HTTPS) load balancer and reverse proxy with an integrated Web Application Firewall (WAF) that fronts production web applications, terminating TLS and routing traffic to backend pools.
+scope: HIGH
+notes: As the production ingress/edge for an application function (TLS termination, WAF defense, routing), control over it enables traffic manipulation, defense weakening, and denial of service for the service it fronts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Stopping the gateway takes the L7 ingress offline, denying service to the application it fronts.

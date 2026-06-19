@@ -1,0 +1,23 @@
+name: DNS CNAME record set
+description: An authoritative DNS CNAME record set within an Azure public DNS zone. A CNAME aliases a hostname to a canonical target name.
+scope: HIGH
+notes: DNS record data is published and resolvable by design (public); CNAME aliases pointing at deprovisioned targets are the classic dangling-subdomain-takeover vector.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the CNAME record set breaks resolution for the aliased subdomain (DoS).
+  read:
+    risks:
+      - discovery:network
+    scope: LOW
+    notes: Reading the CNAME record set reveals the alias target, useful reconnaissance for mapping infrastructure and spotting dangling-alias subdomain-takeover candidates; it confers no routing control itself.
+  write:
+    risks:
+      - takeover:domain
+      - impact:defacement
+      - impact:manipulation
+    notes: Creating/replacing the CNAME alias repoints a subdomain to attacker-controlled infrastructure, the classic subdomain-takeover and traffic-interception primitive that also enables defacement of the public-facing endpoint.

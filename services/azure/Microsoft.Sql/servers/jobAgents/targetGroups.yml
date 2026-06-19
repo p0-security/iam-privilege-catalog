@@ -1,0 +1,20 @@
+name: Azure SQL DB target group
+description: A target group for Azure SQL DB elastic jobs, defining the set of servers and databases (and connection metadata) that automation jobs are configured to execute against.
+scope: HIGH
+notes: Target groups determine the blast radius of automated T-SQL runs across the database fleet.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a target group removes the membership/target configuration that scheduled jobs depend on, breaking automation against those databases and disrupting operations similar to a localized denial of service.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading a target group enumerates the servers/databases jobs are scoped to run against, providing reconnaissance of the automation's reach and the database fleet.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a target group redefines which databases jobs execute against, letting an attacker redirect or broaden automated T-SQL runs onto additional/attacker-chosen production databases by altering the automation configuration.

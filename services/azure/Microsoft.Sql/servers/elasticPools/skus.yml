@@ -1,0 +1,12 @@
+name: Azure SQL elastic pool SKUs
+description: The collection of service tiers/SKUs available for an Azure SQL elastic pool, describing sizing and pricing-tier provisioning options.
+scope: LOW
+notes: Non-sensitive infrastructure-capability metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists available elastic pool SKUs, exposing only non-sensitive sizing/tier options useful for inventory and recon.

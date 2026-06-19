@@ -1,0 +1,13 @@
+name: Log Analytics MADeviceReadiness table
+description: A Log Analytics table holding Microsoft 365 Apps / Managed Desktop device update-readiness telemetry collected by Azure Monitor.
+scope: MEDIUM
+notes: Monitoring/diagnostic data tier; rows contain device identifiers and update-readiness state useful for endpoint reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Data-plane read returns the full contents of the device-readiness telemetry table, exporting log records and inventorying managed devices.

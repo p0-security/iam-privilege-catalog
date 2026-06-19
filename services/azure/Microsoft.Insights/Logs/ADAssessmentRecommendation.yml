@@ -1,0 +1,12 @@
+name: Log Analytics ADAssessmentRecommendation table (data plane)
+description: Data-plane access to the ADAssessmentRecommendation table in a Log Analytics workspace, holding Active Directory health and configuration assessment findings.
+scope: MEDIUM
+notes: AD assessment telemetry exposes directory configuration posture and gaps useful for reconnaissance of the identity environment.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reads the ADAssessmentRecommendation table, exporting AD configuration assessment findings that reveal hardening gaps useful for targeting the directory.

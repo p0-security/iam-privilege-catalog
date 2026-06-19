@@ -1,0 +1,12 @@
+name: Public IP DDoS Protection Plan reference cleanup
+description: An internal resource-provider action that clears the DDoS Protection Plan (DDPP) reference on a linked public IP address when the associated DDPP subscription is deleted.
+scope: MEDIUM
+notes: This is a system-invoked teardown callback rather than a normal user-facing operation; its net effect is detaching a DDoS-protection association from an internet-facing endpoint.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Removing the DDoS Protection Plan reference from a public IP detaches the DDoS defense association protecting an internet-facing endpoint, weakening volumetric-attack protection.

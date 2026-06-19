@@ -1,0 +1,13 @@
+name: Log Analytics AVNMNetworkGroupMembershipChange table
+description: A Log Analytics workspace table holding Azure Virtual Network Manager network-group membership-change records. Reading it returns the stored log rows.
+scope: MEDIUM
+notes: Monitoring data is MEDIUM scope; reveals virtual-network grouping/topology.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Exports VNet group membership-change logs and reveals network group composition/topology useful for reconnaissance.

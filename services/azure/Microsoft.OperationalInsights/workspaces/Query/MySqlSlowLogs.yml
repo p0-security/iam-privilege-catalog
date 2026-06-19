@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (MySqlSlowLogs)
+description: A Log Analytics workspace data-plane table holding ingested log/telemetry records. This operation reads rows from the MySqlSlowLogs table, which captures MySQL slow-query logs including statement text.
+scope: MEDIUM
+notes: Log Analytics tables are a monitoring/diagnostics asset; their rows can contain operationally sensitive details (identities, queries, IPs) depending on the source.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:data
+    notes: Reading this table exports slow-query records that embed full SQL statement text, exposing schema, table names, and embedded literal values.

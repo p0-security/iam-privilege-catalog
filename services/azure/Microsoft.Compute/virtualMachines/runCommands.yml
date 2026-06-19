@@ -1,0 +1,23 @@
+name: Virtual Machine run commands
+description: Managed run-command resources attached to an Azure virtual machine, which configure and execute arbitrary scripts inside the guest OS under the VM's local and managed-identity context.
+scope: HIGH
+notes: Run commands are a direct in-guest code-execution primitive on production compute; secret parameters are masked on GET.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a managed run command removes that command resource and its stored execution record on the VM, a destructive change to compute infrastructure config scoped to the run-command artifact rather than the VM or its data.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Getting a run command's properties enumerates the configured script/parameters and execution status on the VM, providing reconnaissance of the code-execution surface without executing anything or returning credentials.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:manipulation
+    notes: Creating or updating a run command executes attacker-supplied code on the VM as its system/managed identity, enabling lateral movement to that identity, hijacking the compute for arbitrary workloads, and manipulation of in-guest data and configuration.

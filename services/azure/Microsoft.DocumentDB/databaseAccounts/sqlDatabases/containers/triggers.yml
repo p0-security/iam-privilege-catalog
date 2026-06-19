@@ -1,0 +1,20 @@
+name: Cosmos DB SQL trigger
+description: A server-side JavaScript pre/post trigger bound to a Cosmos DB SQL container, executed automatically on document write operations.
+scope: HIGH
+notes: Trigger bodies are stored server-side code that intercepts and can rewrite data writes in the production database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deleting a trigger removes a server-side code artifact, disabling validation/transformation logic the container relies on.
+  read:
+    risks:
+      - discovery:code
+    notes: Reading/listing triggers returns the server-side JavaScript source bodies defined on the container.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a trigger injects server-side code that runs on writes, letting an attacker silently alter or tamper with data as it is inserted/updated.

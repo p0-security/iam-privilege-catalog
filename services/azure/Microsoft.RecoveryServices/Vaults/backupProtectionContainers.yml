@@ -1,0 +1,12 @@
+name: Backup protection containers list
+description: A subscription-wide listing of backup protection containers (registered backup sources such as servers, container registrations) belonging to the subscription.
+scope: LOW
+notes: Read-only inventory of the backup topology/infrastructure useful for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists all backup protection containers in the subscription, providing a broad inventory of registered backup infrastructure for reconnaissance.

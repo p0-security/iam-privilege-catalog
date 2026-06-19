@@ -1,0 +1,13 @@
+name: AKS Kubernetes RBAC API group
+description: Data-plane access to the Kubernetes rbac.authorization.k8s.io aggregated API group on an AKS managed cluster, which exposes Roles, ClusterRoles, RoleBindings, and ClusterRoleBindings.
+scope: HIGH
+notes: Read access discloses the cluster's full in-cluster access-control graph and the subjects bound to it, the primary map for identifying privilege-escalation paths.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+      - discovery:account
+    notes: Versioned read of rbac.authorization.k8s.io/v1 roles and bindings, enumerating cluster access-control policy and bound subjects for escalation reconnaissance.

@@ -1,0 +1,12 @@
+name: Private DNS zone
+description: An Azure Private DNS zone providing internal name resolution for a private namespace within linked virtual networks.
+scope: MEDIUM
+notes: This operation reads only the zone's top-level properties, not its record sets or VNet links.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: The join action authorizes linking a resource/VNet to the zone, letting an attacker attach a controlled network into the private name-resolution namespace and extend reachability to additional resources.

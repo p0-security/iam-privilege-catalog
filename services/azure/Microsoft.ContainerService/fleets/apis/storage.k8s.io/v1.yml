@@ -1,0 +1,12 @@
+name: AKS Fleet Kubernetes storage.k8s.io API resources
+description: The Kubernetes storage.k8s.io API group on an AKS Fleet cluster, which exposes storage configuration objects such as StorageClasses, VolumeAttachments, CSINodes, and CSIDrivers.
+scope: LOW
+notes: Read-only data-plane access to non-secret cluster storage configuration; useful for reconnaissance but returns no credentials or workload data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the stable storage.k8s.io/v1 resources, inventorying versioned storage infrastructure configuration.

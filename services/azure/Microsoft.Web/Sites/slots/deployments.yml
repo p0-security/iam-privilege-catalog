@@ -1,0 +1,21 @@
+name: Web Apps Slots Deployments
+description: Deployment records are the deployment-history entries/artifacts for an App Service slot, documenting which builds were deployed and serving as rollback points.
+scope: MEDIUM
+notes: These are operational history/metadata records, not the live running application code itself.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deleting a deployment record removes deployment artifacts/history (rollback points and audit trail) for the slot, impairing recovery and covering tracks without deleting the running app.
+  read:
+    risks:
+      - discovery:infra
+    notes: Getting deployment records only enumerates the slot's deployment history and metadata, which is infrastructure reconnaissance.
+  write:
+    risks:
+      - impact:manipulation
+    scope: HIGH
+    notes: Creating/updating a deployment record alters the slot's deployment state/history (e.g. which deployment is marked active), manipulating operational deployment data.

@@ -1,0 +1,11 @@
+name: Azure SQL Managed Instance DTC async operation status
+description: The status of an asynchronous Azure SQL Managed Instance DTC management operation.
+scope: LOW
+notes: Operation-status polling endpoint; returns only progress/state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling the async DTC operation status returns only operation progress/state and grants no meaningful attacker capability in isolation.

@@ -1,0 +1,12 @@
+name: Long-term retention backup
+description: Long-term retention (LTR) backups of Azure SQL databases, enumerable per server across all of its databases.
+scope: MEDIUM
+notes: Listing returns an inventory of backup objects and metadata, not the backup contents themselves.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Lists every LTR backup for all databases on a server, inventorying stored database-backup objects without exposing their contents.

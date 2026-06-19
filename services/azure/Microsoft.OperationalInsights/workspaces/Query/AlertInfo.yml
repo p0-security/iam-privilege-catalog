@@ -1,0 +1,13 @@
+name: Log Analytics query table (AlertInfo — security detections)
+description: A Log Analytics workspace query table holding security alert metadata/details (Microsoft Defender). This data-plane permission returns the stored alert-info rows via KQL query.
+scope: MEDIUM
+notes: Security detection telemetry is MEDIUM scope; reveals detection categories and severities.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading AlertInfo exports security alert metadata (exfiltration:logs) and reveals which detections/categories exist, aiding evasion (discovery:logs).

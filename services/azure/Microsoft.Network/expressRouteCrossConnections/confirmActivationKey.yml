@@ -1,0 +1,12 @@
+name: Express Route Cross Connection
+description: An ExpressRoute Cross Connection is the service-provider-facing representation of a dedicated private ExpressRoute circuit, exposing the interconnect configuration (bandwidth, peering location, service provider, provisioning state, service key) that bridges on-premises/provider networks to Azure.
+scope: HIGH
+notes: Production hybrid-connectivity infrastructure supporting a single connectivity function; manipulating or tearing it down affects all services that depend on the private link.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Confirming the activation key advances/validates the cross-connection provisioning state, mutating the operational connectivity configuration.

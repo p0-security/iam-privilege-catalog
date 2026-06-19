@@ -1,0 +1,12 @@
+name: Log Analytics AmlDataStoreEvent table
+description: A queryable Azure Log Analytics workspace table holding Azure Machine Learning datastore event telemetry ingested for monitoring.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data scoped to a single ML function; may reveal storage references and connection metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads datastore event log records, exporting telemetry that may disclose storage locations and access activity.

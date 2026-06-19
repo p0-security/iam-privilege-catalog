@@ -1,0 +1,13 @@
+name: Network Manager security user rule collection snapshot
+description: A snapshot of a deployed security user rule collection within an Azure Virtual Network Manager security user configuration - a grouping of baseline user-defined network security (allow/deny) rules applied across managed virtual networks.
+scope: LOW
+notes: Groups the baseline user-level traffic-control rules applied to subnets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+      - discovery:policy
+    notes: Reading the rule collection snapshot enumerates the grouped baseline network security rules, exposing the access-control posture for reconnaissance.

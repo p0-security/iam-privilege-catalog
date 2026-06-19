@@ -1,0 +1,13 @@
+name: Log Analytics OutboundConnection table
+description: A Log Analytics workspace table holding outbound network connection telemetry (destinations, processes, status) from monitored hosts.
+scope: MEDIUM
+notes: Monitoring/diagnostics data plane; reveals network egress patterns useful for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reads outbound connection telemetry, exporting log data and revealing network destinations and communication patterns.

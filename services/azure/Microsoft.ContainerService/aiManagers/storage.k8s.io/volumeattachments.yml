@@ -1,0 +1,21 @@
+name: Kubernetes VolumeAttachments (AKS)
+description: Cluster-scoped Kubernetes VolumeAttachment objects in an AKS-managed cluster that record the CSI attach/detach binding of persistent volumes to specific nodes.
+scope: MEDIUM
+notes: Storage-topology control objects for a single cluster; expose binding state but not the underlying volume data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting VolumeAttachments tears down the volume-to-node binding records and can force-detach volumes from running pods, disrupting stateful workloads.
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading/listing VolumeAttachments inventories which persistent volumes are attached to which nodes, revealing the cluster's storage topology.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating VolumeAttachments manipulates the CSI attach/detach state binding volumes to nodes, which can interfere with how persistent storage is mounted to workloads.

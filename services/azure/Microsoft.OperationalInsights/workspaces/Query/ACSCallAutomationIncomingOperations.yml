@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (ACSCallAutomationIncomingOperations)
+description: A Log Analytics workspace query table is a data-plane view of a specific log table inside an Azure Monitor / Log Analytics workspace. Reading it returns the actual row-level log records ingested into that table.
+scope: MEDIUM
+notes: Azure Communication Services Call Automation incoming-operation logs expose call-control API telemetry and call/participant identifiers.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Returns ACS Call Automation incoming-operation log records, exporting communications-orchestration API telemetry and identifiers.

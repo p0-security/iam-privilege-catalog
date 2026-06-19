@@ -1,0 +1,12 @@
+name: Kubernetes TokenReviews (Fleet)
+description: "A Kubernetes TokenReview is an authentication-delegation API object: submitting one validates a bearer token and returns the authenticated username, UID, and group memberships. It creates no persistent resource."
+scope: MEDIUM
+notes: Acts as a token-introspection oracle against the cluster's authentication system.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:account
+    notes: Creating TokenReviews lets an attacker validate stolen bearer tokens and resolve the identities/groups they map to, enabling identity enumeration; it does not return new credentials.

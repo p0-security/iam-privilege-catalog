@@ -1,0 +1,11 @@
+name: Microsoft Sentinel IP geodata enrichment
+description: IP geodata enrichment returns generic geolocation lookup information for a given IP address, used to enrich incident investigation context.
+scope: LOW
+notes: Reference lookup data carrying no organizational data; minimal attacker value.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Returns only generic geolocation reference data for an IP; an inert reconnaissance helper that exposes no organizational data in isolation.

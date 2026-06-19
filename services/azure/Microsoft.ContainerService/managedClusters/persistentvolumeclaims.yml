@@ -1,0 +1,23 @@
+name: Kubernetes PersistentVolumeClaims
+description: A Kubernetes PersistentVolumeClaim (PVC) is a namespace-scoped request that binds a workload to a backing PersistentVolume, defining where stateful application data resides.
+scope: HIGH
+notes: PVC objects reference storage bindings/capacity but do not themselves contain the stored data; the data lives in the bound volume.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Deleting a PVC can trigger reclamation/deletion of the bound persistent volume (under Delete reclaim policy), destroying stateful application data and detaching storage from running workloads.
+  read:
+    risks:
+      - discovery:data
+    scope: MEDIUM
+    notes: Reading PVCs enumerates the storage volumes bound to workloads, revealing where stateful organizational data is stored as a precursor to access.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:data
+    notes: Creating/updating PVCs lets an attacker bind/rebind existing persistent volumes into controlled pods to access stored data, and alter storage configuration backing applications; can also drive dynamic-provisioning spend.

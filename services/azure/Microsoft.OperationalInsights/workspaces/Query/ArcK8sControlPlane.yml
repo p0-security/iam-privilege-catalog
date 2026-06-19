@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (ArcK8sControlPlane)
+description: A Log Analytics workspace query table holding ingested log/telemetry records for a specific data type (here Azure Arc-enabled Kubernetes control-plane logs). Reading the table returns the stored log rows via the data plane.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset. Log content may include operational detail useful for reconnaissance, but does not include credential material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returning Arc-enabled Kubernetes control-plane log rows, exporting cluster operational telemetry that may reveal configuration and activity.

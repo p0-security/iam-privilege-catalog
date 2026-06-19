@@ -1,0 +1,12 @@
+name: Web Apps Slots Continuous Web Jobs
+description: Continuous WebJobs are long-running background processes (scripts/executables) that run on an App Service deployment slot's compute under the app's identity.
+scope: HIGH
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+    notes: Starting a continuous WebJob executes its code on the app's compute, typically under the slot's assigned managed identity, enabling resource hijacking and lateral movement via that identity.

@@ -1,0 +1,11 @@
+name: VM Scale Set runtime extension operation status
+description: This read-only operation returns the status of an asynchronous operation for a virtual machine scale set using the VM Runtime Service Extension.
+scope: LOW
+notes: Operation-status polling endpoint; exposes only progress metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polling async operation status returns only operation progress and grants no meaningful offensive capability in isolation.

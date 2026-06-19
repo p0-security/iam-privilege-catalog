@@ -1,0 +1,21 @@
+name: Kubernetes Roles
+description: Kubernetes Roles in an AKS-managed aiManagers cluster, which define sets of RBAC permission rules (verbs over resources) that are granted to subjects via bindings.
+scope: CRITICAL
+notes: Role definitions are core cluster access-control policy; manipulating them governs the permission surface up to cluster-admin.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting Roles destroys RBAC policy definitions and revokes the permissions legitimate workloads/operators depend on.
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading Roles inventories the permission rules defined in the cluster, exposing the access-control policy and identifying privileged roles to target.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating/updating a Role lets an attacker define or expand a permission set that bound subjects inherit, escalating privilege within the cluster.

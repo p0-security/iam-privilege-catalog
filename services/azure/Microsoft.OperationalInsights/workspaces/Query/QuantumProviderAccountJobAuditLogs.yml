@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (Quantum provider account job audit logs)
+description: A Log Analytics workspace data-plane table storing Azure Quantum provider-account job audit logs. Read access returns the table's audit records.
+scope: MEDIUM
+notes: Operational audit telemetry about quantum job submissions; sensitivity limited to the log content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading the table exports audit records describing quantum job activity (exfiltration:logs).

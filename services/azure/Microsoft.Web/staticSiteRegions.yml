@@ -1,0 +1,11 @@
+name: Static Site Region
+description: "The global list of Azure regions where Static Web Apps can be deployed: a stateless platform/catalog lookup of supported deployment locations."
+scope: LOW
+notes: Near-public reference data identical across tenants; exposes no organizational asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks: []
+    notes: Returns only the static catalog of supported Static Site regions, conferring no meaningful standalone attacker capability.

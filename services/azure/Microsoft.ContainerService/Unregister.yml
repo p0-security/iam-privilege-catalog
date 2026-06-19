@@ -1,0 +1,12 @@
+name: Container Service resource provider registration
+description: The subscription-level registration toggle for the Microsoft.ContainerService resource provider, which enables (or disables) the use of Container Service management APIs within the subscription.
+scope: MEDIUM
+notes: Provider registration flags are administrative enablement controls; they do not themselves hold or expose any organizational data or running resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Unregistering the provider can disable the ability to manage Container Service resources subscription-wide, disrupting operations against that function (denial-of-service) even though existing resources are not directly deleted.

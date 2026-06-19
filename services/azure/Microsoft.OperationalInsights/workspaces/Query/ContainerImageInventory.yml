@@ -1,0 +1,12 @@
+name: Log Analytics ContainerImageInventory table
+description: A Log Analytics workspace data table holding ContainerImageInventory records — an inventory of container images observed on monitored container hosts.
+scope: MEDIUM
+notes: Resource-inventory metadata enumerating images and versions rather than sensitive log payload; MEDIUM sensitivity as monitoring data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the container-image inventory, enumerating images and versions deployed in the environment and exposing potentially vulnerable images to target.

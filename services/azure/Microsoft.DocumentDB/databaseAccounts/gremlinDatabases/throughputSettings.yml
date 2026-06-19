@@ -1,0 +1,18 @@
+name: Gremlin database throughput setting
+description: The provisioned throughput (RU/s) configuration for a Gremlin (graph) database within an Azure Cosmos DB account, controlling the capacity and billing model of a production graph database.
+scope: LOW
+notes: This is a capacity/cost knob on a production database function, not the data itself; adverse changes degrade service availability or inflate metered spend.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading the Gremlin database throughput only discloses the provisioned capacity configuration value, infrastructure reconnaissance with no data or secret exposure.
+  write:
+    risks:
+      - impact:spend
+      - impact:dos
+    scope: HIGH
+    notes: Updating the Gremlin database's provisioned RU/s can be set high to inflate billing or low to throttle the graph database into denial of service.

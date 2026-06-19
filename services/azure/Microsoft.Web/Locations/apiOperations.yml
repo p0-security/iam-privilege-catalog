@@ -1,0 +1,11 @@
+name: Locations API operations catalog
+description: The static catalog of connector/API operations supported by the provider in a given region.
+scope: PUBLIC
+notes: Documentation-style provider metadata identical across tenants; not tied to any organizational asset.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Lists the available API operations for a location; static provider reference metadata granting no tenant-specific capability.

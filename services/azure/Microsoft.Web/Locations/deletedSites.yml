@@ -1,0 +1,11 @@
+name: Deleted Web App
+description: The properties of soft-deleted web apps retained at a region/location for potential restore.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:infra
+    notes: Read-only retrieval of soft-deleted web app properties; infrastructure inventory of decommissioned resources with no live data or secret content.

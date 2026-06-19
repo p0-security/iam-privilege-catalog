@@ -1,0 +1,24 @@
+name: Azure policy assignments
+description: A policy assignment binds a policy or initiative definition to a scope (management group, subscription, resource group, or resource), activating its enforcement. It is the artifact that actually enforces governance/security controls and may carry a managed identity for deployIfNotExists/modify effects.
+scope: HIGH
+notes: Assignments are the active-enforcement layer; modifying them changes which controls apply and can grant code execution under an attached managed identity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - destruction:defense
+    notes: Deleting a policy assignment stops active enforcement of a governance/security control at the scope, disabling a defense and removing the control that would otherwise constrain attacker actions.
+  read:
+    risks:
+      - discovery:policy
+    scope: LOW
+    notes: Reading a policy assignment reveals which governance controls are actively enforced at a scope, letting an attacker locate unprotected scopes and evasion paths.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating an assignment can disable or weaken enforced security guardrails at a scope; a deployIfNotExists/modify assignment attaches and runs remediation under a managed identity, enabling lateral movement and resource changes as that identity.

@@ -1,0 +1,22 @@
+name: Workspace APIs
+description: An API defined within an API Management workspace - the published definition (paths, schemas, backend serviceUrl, versioning) that the APIM gateway exposes to consumers and fronts to a backend service.
+scope: HIGH
+notes: APIM is a production-facing gateway for a single organizational function; its API configuration governs how external/internal callers reach backend services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting an API removes a published gateway endpoint, destroying that service configuration and denying service to all consumers that depend on it.
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing or getting API definitions inventories the gateway's exposed API surface and backend configuration for reconnaissance; returns no secret material.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:defacement
+    notes: Creating or updating an API alters the gateway's published definition and backend routing, manipulating how requests to a production-fronting service are handled and tampering with the public-facing API surface.

@@ -1,0 +1,11 @@
+name: Azure SQL transparent data encryption async operation
+description: Async operation-status resource tracking an in-progress transparent data encryption (TDE) operation on a logical database.
+scope: LOW
+notes: Returns operation progress only; no key material is exposed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls TDE async operation status; returns no key material or sensitive configuration.

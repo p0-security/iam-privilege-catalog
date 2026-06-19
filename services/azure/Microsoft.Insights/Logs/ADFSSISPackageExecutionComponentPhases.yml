@@ -1,0 +1,13 @@
+name: Azure Monitor Log Analytics table (Data Factory SSIS package execution component phases)
+description: A Log Analytics table holding Azure Data Factory SSIS package execution-component-phase records. This data-plane read returns fine-grained ETL package component/phase execution telemetry.
+scope: MEDIUM
+notes: Phase-level execution telemetry discloses data-pipeline component flow and structure for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading this table exports phase-level SSIS execution telemetry and discloses the data-pipeline component flow and structure.

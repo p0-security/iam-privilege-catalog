@@ -1,0 +1,12 @@
+name: AKS Fleet member control-plane health probe
+description: A Kubernetes API server healthz/livez health-probe sub-endpoint exposed as an Azure data action on a member cluster of an AKS Fleet. It reports only whether the CA-registration startup hook completed (a boolean readiness signal), not the CA material itself.
+scope: LOW
+notes: These are operational health-check endpoints that return only ok/failed status strings, never the underlying data, secrets, certificates, or configuration. Despite the 'ca' in the name, this probe returns no certificate or key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reports only whether CA-registration completed; returns no CA certificate or key material, so it is infra-status recon, not crypto exfiltration.

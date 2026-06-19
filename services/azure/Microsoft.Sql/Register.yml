@@ -1,0 +1,11 @@
+name: Microsoft SQL Database resource provider
+description: Subscription-level operations on the Microsoft SQL Database resource provider itself, governing provider registration and pre-provisioning checks rather than any specific server or database.
+scope: LOW
+notes: Provider-level control-plane operations; most are idempotent enablement or validation utilities with little inherent sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: Registers the subscription for the SQL provider to enable database creation; an idempotent enablement no-op that grants no data, identity, or destructive capability in isolation.

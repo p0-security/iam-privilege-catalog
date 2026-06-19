@@ -1,0 +1,12 @@
+name: Log Analytics DeviceCustomFileEvents log table
+description: A Log Analytics workspace data-plane query permission scoped to the DeviceCustomFileEvents table, which holds ingested Microsoft Defender for Endpoint file-activity telemetry (file paths, hashes, process detail).
+scope: MEDIUM
+notes: Endpoint security event telemetry; reveals file activity and detection coverage on monitored devices.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading this table exports endpoint file-event logs that may include sensitive file paths, hashes, and process detail.

@@ -1,0 +1,12 @@
+name: Kubernetes node metrics
+description: The metrics.k8s.io nodes endpoint exposes read-only node resource-utilization telemetry (CPU/memory, capacity) for the connected (Azure Arc) Kubernetes cluster.
+scope: LOW
+notes: Read-only operational telemetry; no sensitive data or control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading node metrics returns only node resource-utilization data and node inventory, low-sensitivity infrastructure reconnaissance (e.g. spotting idle capacity).

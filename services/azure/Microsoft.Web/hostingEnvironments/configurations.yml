@@ -1,0 +1,19 @@
+name: App Service Environment configurations
+description: The configuration of an App Service Environment (ASE), an isolated, dedicated App Service hosting environment including its networking, scaling, and platform settings.
+scope: MEDIUM
+notes: Supporting/isolation infrastructure shared by all apps it hosts; configuration includes network topology details.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+      - discovery:network
+    notes: Reading ASE configuration enumerates the isolated hosting environment's infrastructure and network topology (subnets, VIPs, cluster settings) for reconnaissance, returning no secrets or data.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    scope: HIGH
+    notes: Updating ASE configuration alters the networking/platform settings of the shared isolated environment that backs all hosted apps, enabling operational manipulation and potential disruption of all hosted workloads.

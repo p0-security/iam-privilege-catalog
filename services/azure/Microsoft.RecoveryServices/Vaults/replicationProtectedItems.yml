@@ -1,0 +1,12 @@
+name: Site Recovery protected items
+description: Azure Site Recovery protected items represent VMs/workloads enrolled for disaster-recovery replication within a Recovery Services vault.
+scope: LOW
+notes: Control-plane read returns replication configuration of protected workloads, not the workload data contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists which VMs/workloads are under DR replication and their replication configuration, an infrastructure inventory.

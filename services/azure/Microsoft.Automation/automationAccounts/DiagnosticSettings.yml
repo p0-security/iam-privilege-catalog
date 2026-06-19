@@ -1,0 +1,17 @@
+name: Automation account diagnostic settings
+description: Diagnostic settings on an Azure Automation account that control which logs and metrics are collected and where they are routed (Log Analytics, Event Hub, storage).
+scope: MEDIUM
+notes: Detective/monitoring control; reading or tampering affects telemetry coverage but exposes no stored data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading the diagnostic setting reveals which Automation log/metric categories are collected and their routing, letting an attacker map detection coverage before tampering.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Create/update lets an attacker disable or redirect collection of runbook/job audit logs, suppressing telemetry and removing a detective control.

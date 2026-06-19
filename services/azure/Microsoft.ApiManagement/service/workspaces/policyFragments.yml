@@ -1,0 +1,23 @@
+name: API Management policy fragments
+description: Policy fragments are reusable XML snippets of API Management gateway policy logic (authentication, authorization, rate limiting, IP filtering, request/response transformation, routing) that can be referenced by API/product/operation policies within a workspace.
+scope: HIGH
+notes: Fragments encode runtime gateway enforcement logic, including security controls; their content reveals and shapes how the gateway processes and protects API traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:dos
+    notes: Deleting a fragment removes shared policy logic (including security-enforcing controls) that referencing policies depend on, both disabling defenses and breaking the dependent API policies, disrupting those APIs.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading policy fragments returns the reusable policy XML (auth/routing/rate-limit logic), inventorying how the gateway enforces controls; it returns configuration, not secret material (named values are masked).
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating a fragment alters request/response processing for every API policy that references it, letting an attacker strip authentication/IP/rate-limit controls (defense weakening) and rewrite/redirect traffic (operational manipulation).

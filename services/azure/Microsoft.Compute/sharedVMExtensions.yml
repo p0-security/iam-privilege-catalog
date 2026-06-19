@@ -1,0 +1,22 @@
+name: Shared VM extensions
+description: A Shared VM Extension is a publishable, reusable VM extension definition (the parent container) whose versions carry code/scripts that execute on Azure VMs that install the extension.
+scope: HIGH
+notes: Because consuming VMs run the extension payload with elevated/system privileges, control over this distributable artifact is a supply-chain vector affecting every VM that installs it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deleting the shared extension definition removes a published, distributable extension artifact that VMs/deployments depend on, disrupting dependent operations.
+  read:
+    risks:
+      - discovery:infra
+    scope: MEDIUM
+    notes: Reading the extension definition only enumerates its configuration metadata, yielding infrastructure reconnaissance with no secret material returned.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating the shared extension definition lets an attacker stage or alter a distributable extension that runs on consuming VMs under their identities, enabling lateral movement and tampering with operational behavior.

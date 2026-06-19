@@ -1,0 +1,11 @@
+name: Resource provider operations catalog
+description: The static list of available REST API operation definitions exposed by the Microsoft.SecurityInsights resource provider.
+scope: LOW
+notes: Effectively public API-surface metadata; grants no access to any tenant data, configuration, or privilege.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Inert no-op in isolation — returns only the static operation catalog with no organizational data or actionable capability.

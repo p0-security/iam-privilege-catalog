@@ -1,0 +1,12 @@
+name: Network interconnect group subgroups
+description: An interconnect group subgroup is a configuration grouping under Azure network interconnect (high-speed/ExpressRoute-style) connectivity that organizes interconnect resources and their topology.
+scope: LOW
+notes: Read-only access exposes network interconnect topology metadata; not sensitive data, but useful for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: A read/get only returns the subgroup configuration, enabling inventory of network interconnect topology with no mutation or data access.

@@ -1,0 +1,12 @@
+name: Log Analytics workspace table data (AWSS3ServerAccess)
+description: A Log Analytics workspace query table holds log/telemetry records ingested into the Azure Monitor workspace; reading it returns the actual stored log content for that table.
+scope: MEDIUM
+notes: Monitoring/diagnostics data tier; ingested log records can contain sensitive operational identifiers, IPs, request details, and audit trails.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read of the AWSS3ServerAccess table, exporting ingested S3 server-access logs that reveal requester identities, bucket/object keys, and data-access patterns.

@@ -1,0 +1,13 @@
+name: Microsoft Security private endpoint connection proxy
+description: An internal private-endpoint connection proxy object that binds a private endpoint to the Microsoft Security (Defender for Cloud / Sentinel) service over Azure Private Link. Marked NRP-only (network resource provider plumbing).
+scope: MEDIUM
+notes: Supporting connectivity plumbing for the security service; touches network-path configuration, not data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Mutates the private-endpoint proxy properties, altering the private-link binding and potentially rerouting or exposing network access to the security service.

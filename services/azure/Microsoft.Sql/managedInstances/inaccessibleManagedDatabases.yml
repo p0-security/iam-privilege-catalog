@@ -1,0 +1,12 @@
+name: SQL Managed Instance inaccessible databases
+description: The list of managed databases in an inaccessible state within an Azure SQL Managed Instance (enumeration of database objects, not their contents).
+scope: LOW
+notes: Enumerates existence/names/state of databases without exposing stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:data
+    notes: Listing inaccessible managed databases enumerates database data stores (existence/names) as potential targets without returning contents.

@@ -1,0 +1,11 @@
+name: Microsoft.Web Regional Operation Results
+description: Regional asynchronous operation-result resources that return the completion status/outcome of long-running Microsoft.Web control-plane operations submitted in a location.
+scope: LOW
+notes: Transient operation-status metadata; carries no organizational data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Polls the result of a long-running regional operation, returning only completion status; an inert status-poll no-op with no attacker capability.

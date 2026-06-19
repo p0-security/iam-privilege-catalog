@@ -1,0 +1,12 @@
+name: Service tag details
+description: Service tag details enumerate Azure's published IP-address ranges grouped by service tag (e.g. Storage, Sql) for a region, used to build NSG/firewall rules.
+scope: LOW
+notes: Largely public reference data; offers only minor network reconnaissance value.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:network
+    notes: Returns published service-tag IP ranges, providing low-sensitivity network reference information useful for reconnaissance.

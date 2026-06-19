@@ -1,0 +1,13 @@
+name: Log Analytics SecurityIncident table
+description: A Log Analytics query data action over the SecurityIncident table, which stores Microsoft Sentinel incident records (correlated alerts, affected entities, investigation status).
+scope: MEDIUM
+notes: SIEM incident/investigation telemetry; discloses whether attacker activity is under investigation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Querying this table reveals open incidents and SOC investigation state, letting an attacker gauge detection and export embedded investigation evidence.

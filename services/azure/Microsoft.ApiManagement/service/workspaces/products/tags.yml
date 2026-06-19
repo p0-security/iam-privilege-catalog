@@ -1,0 +1,20 @@
+name: APIM workspace product tags
+description: Operational metadata tags attached to an APIM product within a workspace, used for organization, grouping, and filtering of products.
+scope: LOW
+notes: Tags carry only non-sensitive operational metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Detaches a tag from a product, deleting operational metadata used for grouping and filtering.
+  read:
+    risks:
+      - discovery:metadata
+    notes: Lists or gets tags associated with a product, enumerating non-sensitive operational metadata labels.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Assigns a tag to a product, altering operational metadata used for organization and filtering but conferring no access or compute capability.

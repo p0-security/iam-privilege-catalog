@@ -1,0 +1,19 @@
+name: App Service deployment (publishing) user
+description: The subscription-scoped App Service deployment (publishing) user that holds the FTP/Git deployment credentials used to push code to web apps.
+scope: MEDIUM
+notes: Reads do not return the plaintext password (write-only), but the account controls code deployment to App Service sites.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:account
+    notes: Returns the publishing user profile (deployment username and SCM URIs) without the secret, enumerating the deployment-credential identity as a target.
+  write:
+    risks:
+      - persistence:account
+      - escalation:lateral
+      - impact:manipulation
+    scope: HIGH
+    notes: Sets the deployment publishing user's username/password, letting an attacker establish known credentials for persistent Git/FTP code-push access, push code that runs under app identities (lateral movement), and alter deployed application content.

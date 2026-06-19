@@ -1,0 +1,17 @@
+name: Server threat detection policy
+description: The server-level threat detection (Advanced Threat Protection / Defender for SQL) policy controls security alerting that detects anomalous and malicious database activity on a logical SQL server.
+scope: MEDIUM
+notes: A defensive monitoring control; disabling it blinds incident detection for the database service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:policy
+    notes: Reading the threat-detection policy reveals whether security alerting is enabled and how it is configured, letting an attacker identify detection gaps before acting.
+  write:
+    risks:
+      - destruction:defense
+    scope: HIGH
+    notes: Updating the policy lets an attacker disable or weaken threat-detection alerting on the SQL server, removing a defense so subsequent abuse goes undetected.

@@ -1,0 +1,22 @@
+name: API Management API diagnostics
+description: Diagnostic settings for an API in Azure API Management, configuring request/response logging and tracing to destinations such as Application Insights, Event Hub, or Azure Monitor.
+scope: MEDIUM
+notes: Diagnostics are the logging/telemetry configuration for a single API; modifying or removing them affects detection and incident-response visibility.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting an API diagnostic removes its logging/tracing configuration, disabling log collection and disrupting incident response.
+  read:
+    risks:
+      - discovery:logs
+    notes: Reading API diagnostic settings inventories what logging/tracing is configured and where telemetry is sent.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating diagnostics lets an attacker reduce sampling, redirect, or disable logging/tracing to evade detection.

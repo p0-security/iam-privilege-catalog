@@ -1,0 +1,12 @@
+name: AKS fleet member cluster policy API group resources
+description: Kubernetes policy API group (PodDisruptionBudgets and legacy PodSecurityPolicies) on an AKS fleet member cluster, governing workload availability and pod-security posture. Accessed via the fleet's managed Kubernetes data plane.
+scope: LOW
+notes: This is the Kubernetes workload-policy group, not IAM/RBAC access-control policy; reads expose operational configuration only.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading policy/v1beta1 enumerates PodDisruptionBudget/PodSecurityPolicy configuration, workload/infrastructure reconnaissance only.

@@ -1,0 +1,20 @@
+name: APIM AI gateway tenants
+description: AI Gateway tenant configuration objects in an API Management service instance, governing multi-tenant partitioning/routing of AI gateway traffic.
+scope: MEDIUM
+notes: Control-plane multi-tenant configuration of the AI gateway; a supporting service component for a single API-gateway function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an AI Gateway tenant configuration, removing gateway infrastructure and disrupting that tenant's AI gateway operations (DoS-like effect).
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists/gets AI Gateway tenant configurations, providing read-only reconnaissance of the gateway's multi-tenant configuration; returns no secret material.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates/updates an AI Gateway tenant, letting an attacker alter tenant-scoped gateway settings that govern how AI traffic is partitioned and routed.

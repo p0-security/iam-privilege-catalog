@@ -1,0 +1,11 @@
+name: File service usage metrics
+description: File service usage/quota counters for a storage account's Azure Files service, reporting aggregate capacity/share-count consumption.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads non-sensitive file-service usage/quota statistics for the account, amounting only to read-only infrastructure capacity reconnaissance.

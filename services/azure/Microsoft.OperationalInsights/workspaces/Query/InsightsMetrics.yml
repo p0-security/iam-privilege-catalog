@@ -1,0 +1,13 @@
+name: Log Analytics InsightsMetrics table
+description: A log table in a Log Analytics workspace storing VM/container performance and resource metrics collected by VM/Container Insights.
+scope: MEDIUM
+notes: Operational monitoring telemetry; reveals the inventory and health of monitored infrastructure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading the table exfiltrates performance-metric telemetry and inventories the monitored infrastructure resources reporting metrics.

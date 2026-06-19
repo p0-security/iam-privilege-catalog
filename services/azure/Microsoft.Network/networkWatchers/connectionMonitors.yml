@@ -1,0 +1,21 @@
+name: Network Watcher connection monitors
+description: A Network Watcher connection monitor is a network diagnostic resource that periodically probes connectivity, latency, and reachability between specified source and destination endpoints.
+scope: MEDIUM
+notes: Connection monitors expose network topology/reachability telemetry and are metered diagnostic resources; they do not access application payload data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a connection monitor removes a connectivity/availability-monitoring mechanism, degrading operational and detection visibility into network reachability.
+  read:
+    risks:
+      - discovery:network
+    notes: Reading connection monitor details discloses configured source/destination endpoints and ports, inventorying network topology and monitored paths.
+  write:
+    risks:
+      - discovery:network
+      - impact:spend
+    notes: Creating/updating a connection monitor lets an attacker define probes between arbitrary endpoints to map reachability (network reconnaissance) and incurs metered monitoring cost.

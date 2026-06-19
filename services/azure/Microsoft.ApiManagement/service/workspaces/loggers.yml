@@ -1,0 +1,23 @@
+name: APIM workspace loggers
+description: An API Management workspace logger defines a telemetry/diagnostics sink (e.g. Application Insights or Event Hub) to which API gateway logs and traces are sent.
+scope: MEDIUM
+notes: Loggers are part of the observability/monitoring pipeline; tampering affects detection rather than data confidentiality.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting a logger removes the telemetry/log destination for the workspace, halting log collection and disrupting incident response and monitoring defenses.
+  read:
+    risks:
+      - discovery:logs
+    scope: LOW
+    notes: Reading/listing logger configuration inventories where APIM telemetry is shipped, revealing the logging setup an attacker would target to evade detection. Returns configuration metadata, not raw secret material.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating a logger lets an attacker redirect or break the telemetry destination (e.g. point to a dead Event Hub or change the instrumentation key), disabling reliable log collection and weakening monitoring as a defense.

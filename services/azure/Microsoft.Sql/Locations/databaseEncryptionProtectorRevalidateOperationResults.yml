@@ -1,0 +1,11 @@
+name: SQL database encryption protector revalidate operation results
+description: A location-scoped endpoint returning the result/completion status of a long-running database encryption protector revalidation operation.
+scope: LOW
+notes: Result-polling endpoint; exposes only operation outcome, no sensitive configuration, key material, or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Reads only the result/completion status of the revalidate operation; an inert poll with no offensive capability.

@@ -1,0 +1,12 @@
+name: Web App diagnostics categories
+description: Web App diagnostics categories are the list of available App Service diagnostic detectors/categories that can be queried for an app.
+scope: MEDIUM
+notes: Enumeration of diagnostic detector types; metadata about the monitoring surface, returns no telemetry content itself.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Listing the available diagnostic categories only enumerates which diagnostic/log detector types exist for the app, low-value reconnaissance of the monitoring surface.

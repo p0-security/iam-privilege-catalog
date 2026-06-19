@@ -1,0 +1,21 @@
+name: Arc-connected Kubernetes clusters
+description: An Azure Arc connectedCluster is the Azure-side control-plane projection of an external/on-prem Kubernetes cluster, holding onboarding configuration, agent settings, distribution metadata, and an optional system-assigned managed identity. Through it Azure manages, governs, and brokers credentialed access to a production Kubernetes cluster.
+scope: HIGH
+notes: Arc-connected clusters back production container workloads; control over the connectedCluster resource and its credential actions can yield in-cluster access, so the asset is high-to-critical sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the connectedCluster resource tears down the Arc registration/management binding of the Kubernetes cluster, destroying the Arc infrastructure object and disrupting Arc-based management and dependent governance for that cluster.
+  Read:
+    risks:
+      - discovery:infra
+    notes: Get/List of the connectedCluster resource enumerates cluster configuration and metadata (distribution, agent version, identity, connectivity) without returning credentials, enabling infrastructure reconnaissance of the Arc-connected Kubernetes estate.
+  Write:
+    risks:
+      - impact:manipulation
+    notes: Create/update of the connectedCluster resource alters Arc onboarding/agent configuration (and can attach a system-assigned identity) for a production cluster, manipulating its Azure-side control-plane settings; it does not itself return data-plane credentials.

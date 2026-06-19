@@ -1,0 +1,12 @@
+name: Storage account
+description: An Azure Storage account is a primary production data store holding blobs, files, queues, and tables, with control-plane configuration for networking, encryption, access keys, and custom domains.
+scope: HIGH
+notes: Storage accounts back a single organizational function's data; their access keys and SAS tokens are full-control data-plane credentials, making key/SAS-returning operations effectively account-takeover primitives.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Undocumented internal control-plane write that mutates storage-account properties; conservatively treated as operational config manipulation.

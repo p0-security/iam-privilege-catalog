@@ -1,0 +1,22 @@
+name: Web Apps Slots Hostname Bindings
+description: Hostname bindings map custom domains/hostnames to an App Service deployment slot, controlling how public traffic is routed to the app.
+scope: HIGH
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a hostname binding removes the custom-domain-to-slot mapping, tearing down the inbound network endpoint and denying service to traffic on that domain.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Getting hostname bindings only enumerates the custom domains mapped to the slot, disclosing network endpoint/topology information.
+  write:
+    risks:
+      - takeover:domain
+      - impact:defacement
+    notes: Creating/updating a hostname binding lets an attacker route a custom domain/subdomain to a slot they control, enabling domain takeover and defacement of public-facing content.

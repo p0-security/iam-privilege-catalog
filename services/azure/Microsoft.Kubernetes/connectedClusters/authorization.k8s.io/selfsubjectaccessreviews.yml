@@ -1,0 +1,12 @@
+name: Kubernetes SelfSubjectAccessReviews
+description: A Kubernetes SelfSubjectAccessReview is a query-shaped (POST/create) authorization API on an Azure Arc connected cluster that returns whether the calling identity itself is permitted to perform a specified action.
+scope: LOW
+notes: "Despite being a 'write', this resource is non-persistent and read-only in effect: it mutates nothing and only discloses the caller's own effective RBAC permissions."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Creating a SelfSubjectAccessReview lets an attacker enumerate their own effective permissions ('can-i' check) to find usable access and weak points without changing any state.

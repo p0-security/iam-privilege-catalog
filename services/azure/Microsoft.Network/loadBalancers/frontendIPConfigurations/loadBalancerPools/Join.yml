@@ -1,0 +1,12 @@
+name: Load balancer frontend IP backend address pool
+description: A load balancer frontend IP configuration backend address pool defines the set of backend targets that receive traffic arriving at a load balancer frontend IP.
+scope: HIGH
+notes: Determines how (potentially public-facing) traffic is distributed to backend service members for a single network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joining a resource into the backend pool places an attacker-controlled endpoint into the traffic path behind the frontend IP, enabling interception/redirection of load-balanced traffic.

@@ -1,0 +1,12 @@
+name: Log Analytics ADReplicationResult table (data plane)
+description: Data-plane access to the ADReplicationResult table in a Log Analytics workspace, holding Active Directory replication status telemetry.
+scope: MEDIUM
+notes: Replication telemetry exposes domain controller topology and health, aiding reconnaissance of the AD infrastructure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reads the ADReplicationResult table, exporting AD replication data that discloses domain controller topology and replication health.

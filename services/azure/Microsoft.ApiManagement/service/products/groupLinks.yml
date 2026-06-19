@@ -1,0 +1,21 @@
+name: APIM product-group links
+description: Associations binding APIM user/developer groups to an API product, governing which groups of consumers are entitled to subscribe to and access the product's APIs (APIM's consumer access model, distinct from Azure RBAC).
+scope: HIGH
+notes: Controls API-consumer entitlement for a single gateway product, not control-plane Azure permissions.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:access
+    notes: Deleting a product-group link revokes a group's entitlement to a product's APIs, denying authorized consumers their operational access.
+  read:
+    risks:
+      - discovery:policy
+    scope: LOW
+    notes: Listing product-group links reveals which groups are entitled to which products, exposing the gateway's consumer access-control mapping and over-permissioned products.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating a product-group link grants a (possibly attacker-controlled) group access to a product's APIs, broadening consumer entitlement by altering the gateway's access configuration.

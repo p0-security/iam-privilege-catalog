@@ -1,0 +1,13 @@
+name: AKS cluster logs
+description: Data-plane access to logs of an AKS managed cluster / its Kubernetes API server, which may contain operational details, identifiers, and occasionally tokens or sensitive application data.
+scope: MEDIUM
+notes: Log content is confidential operational data; reading it both enumerates available logs and exports their contents.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading cluster logs lets an attacker both inventory and export log content that may include sensitive operational data or credentials surfaced in log lines.

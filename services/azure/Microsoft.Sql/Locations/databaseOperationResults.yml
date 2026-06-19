@@ -1,0 +1,11 @@
+name: Azure SQL database operation result
+description: The status tracker for an in-progress or completed Azure SQL database management operation, used for polling.
+scope: LOW
+notes: Operation-status polling endpoint; exposes only progress/status.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks: []
+    notes: Inert operation-status poll; returns no sensitive data or configuration and grants no attacker capability in isolation.

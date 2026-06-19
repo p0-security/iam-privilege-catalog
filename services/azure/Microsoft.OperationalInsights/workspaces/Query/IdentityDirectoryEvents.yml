@@ -1,0 +1,13 @@
+name: Log Analytics workspace IdentityDirectoryEvents table
+description: A Log Analytics workspace query table holding Microsoft Defender for Identity directory activity records (account changes, group membership, authentication events) for Active Directory.
+scope: MEDIUM
+notes: Records enumerate directory accounts and their identity activity; useful for selecting compromise targets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Data-plane read exports directory/identity activity logs and enables inventory of AD accounts and identity activity as compromise targets.

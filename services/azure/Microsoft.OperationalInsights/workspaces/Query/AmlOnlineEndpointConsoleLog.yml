@@ -1,0 +1,12 @@
+name: Log Analytics AmlOnlineEndpointConsoleLog table
+description: A queryable Azure Log Analytics workspace table holding Azure Machine Learning online-endpoint container console (stdout/stderr) output ingested for monitoring.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data scoped to a single ML function; console output can inadvertently contain secrets, payloads, or stack traces.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads online-endpoint console log records, exporting container stdout/stderr that may leak sensitive runtime data.

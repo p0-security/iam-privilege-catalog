@@ -1,0 +1,21 @@
+name: API Management developer-portal content types
+description: Content types are schema definitions that structure content in the API Management developer portal (the public-facing portal for API consumers).
+scope: MEDIUM
+notes: Schema/metadata configuration for the developer portal; non-sensitive structural definitions.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes a content type (schema) definition, removing supporting portal configuration that structures developer-portal content.
+  read:
+    risks:
+      - discovery:infra
+    scope: LOW
+    notes: Returns the list/details of developer-portal content type (schema) definitions, enabling reconnaissance of portal content structure.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates/updates a content type (schema) definition, altering the developer-portal content schema/configuration.

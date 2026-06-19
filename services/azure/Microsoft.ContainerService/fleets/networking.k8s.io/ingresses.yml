@@ -1,0 +1,24 @@
+name: Kubernetes Ingresses (Fleet)
+description: Kubernetes Ingress objects governed by Azure Kubernetes Fleet Manager. These define L7 HTTP(S) routing rules (hosts, paths, backend services, TLS) that expose cluster services externally at the network edge.
+scope: HIGH
+notes: Ingress controls public-facing exposure and traffic routing for fleet-hosted applications; write access enables rerouting, exposure, and defacement.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting an Ingress removes the external routing/entry point for cluster services, severing public access and denying service to the hosted applications.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Read-only enumeration of L7 routing rules, hostnames, paths, backends, and TLS configuration maps the cluster's externally exposed attack surface.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+      - impact:defacement
+    notes: Creating/updating an Ingress lets an attacker reroute external traffic to attacker-controlled backends, expose internal services publicly, and hijack or deface public-facing host/path routing.

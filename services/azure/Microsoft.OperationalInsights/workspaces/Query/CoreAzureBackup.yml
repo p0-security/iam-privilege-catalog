@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (CoreAzureBackup)
+description: A specific log table within an Azure Log Analytics workspace, holding ingested monitoring/audit telemetry. This table holds Azure Backup core operational/job log records.
+scope: MEDIUM
+notes: Log Analytics tables contain collected diagnostic/audit telemetry; access is data-plane (isDataAction) and constrained to the named table. Sensitivity is monitoring-tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read exports Azure Backup job/inventory log records, revealing backup posture and protected-resource details.

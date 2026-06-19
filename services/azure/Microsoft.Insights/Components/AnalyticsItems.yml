@@ -1,0 +1,20 @@
+name: Application Insights analytics item
+description: A shared Application Insights analytics item is a saved KQL query, function, or folder stored on an Application Insights component and visible to all users of that component.
+scope: MEDIUM
+notes: These are operational monitoring artifacts (saved queries/functions), not the underlying telemetry; their contents can reveal monitored resources and schema.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting a shared analytics item removes team-wide saved queries/functions used operationally for monitoring, but not the underlying telemetry data.
+  Read:
+    risks:
+      - discovery:logs
+    notes: Reading a shared analytics item exposes saved KQL queries/functions over Application Insights telemetry, revealing what monitoring data and logic exist; it does not return the telemetry itself.
+  Write:
+    risks:
+      - impact:manipulation
+    notes: Writing a shared analytics item lets an attacker create or alter saved queries/functions other operators rely on, manipulating monitoring logic to mislead operations.

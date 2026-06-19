@@ -1,0 +1,12 @@
+name: Cross-tenant vault mapping
+description: The cross-tenant vault mapping configuration that links a Recovery Services vault to a vault in another tenant for backup/restore. It defines the cross-tenant backup trust relationship.
+scope: MEDIUM
+notes: The mapping is a trust-boundary configuration; reading it exposes the cross-tenant backup topology, and creating/removing it controls cross-tenant reach.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:infra
+    notes: Removing the mapping tears down the cross-tenant backup trust configuration, disrupting cross-tenant backup/restore operations in a DoS-like fashion without destroying the underlying backup data.

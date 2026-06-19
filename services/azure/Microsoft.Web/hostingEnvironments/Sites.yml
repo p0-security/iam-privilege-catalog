@@ -1,0 +1,12 @@
+name: App Service Environment Web Apps
+description: The web apps (sites) deployed within an App Service Environment.
+scope: LOW
+notes: Control-plane read enumerates app resources and hosting configuration but does not return app content, source code, or secrets.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates the web apps deployed in an ASE, providing an inventory of application infrastructure for reconnaissance without exposing data or credentials.

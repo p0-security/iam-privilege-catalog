@@ -1,0 +1,12 @@
+name: Azure SQL location capabilities
+description: Read-only metadata describing the SQL service features, editions, SKUs, and versions available to a subscription in a given Azure region.
+scope: LOW
+notes: Subscription/location-scoped capability listing; contains no customer data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Enumerates available SQL SKUs/editions/features for a location, providing only non-sensitive infrastructure reconnaissance.

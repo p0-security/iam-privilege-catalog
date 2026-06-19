@@ -1,0 +1,12 @@
+name: Azure Log Analytics table (WorkloadMonitoringPerf)
+description: A Log Analytics workspace table accessed via the data plane; this one is the WorkloadMonitoringPerf table, which holds workload performance counters/metrics for monitored resources.
+scope: MEDIUM
+notes: Aggregate performance telemetry of limited sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Returns workload performance-metric rows, exfiltrating monitoring telemetry that reveals workload characteristics.

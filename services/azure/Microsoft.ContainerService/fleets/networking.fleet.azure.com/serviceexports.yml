@@ -1,0 +1,22 @@
+name: Fleet ServiceExport
+description: A Kubernetes Fleet multi-cluster-services (MCS) ServiceExport CRD that marks a local member-cluster service to be published/exposed across the fleet to other member clusters.
+scope: HIGH
+notes: Controls which services are exposed across the multi-cluster network of a single fleet.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a ServiceExport withdraws a service from cross-cluster discovery, removing the multi-cluster network endpoint and denying consuming clusters access.
+  read:
+    risks:
+      - discovery:network
+    scope: MEDIUM
+    notes: Reads ServiceExport resources, enumerating which member-cluster services are published fleet-wide and mapping the multi-cluster network surface.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Writing a ServiceExport publishes a local service across the fleet, expanding network exposure to other member clusters and manipulating cross-cluster service connectivity.

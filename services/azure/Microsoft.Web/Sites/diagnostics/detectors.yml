@@ -1,0 +1,12 @@
+name: Web App diagnostics detectors
+description: App Service (Web App) diagnostics detectors, a self-service troubleshooting subsystem whose detector definitions and cached results report the app's configuration/health findings.
+scope: LOW
+notes: Surfaces infrastructure configuration/health metadata for reconnaissance; does not expose data-plane contents or secrets.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading detector definitions/results enumerates the app's diagnostic configuration and cached health findings, infrastructure reconnaissance with no data exposure.

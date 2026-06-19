@@ -1,0 +1,13 @@
+name: Application Insights AppServiceAntivirusScanLogs log table
+description: A Log Analytics / Application Insights telemetry table (data plane) holding Azure App Service antivirus scan result logs.
+scope: MEDIUM
+notes: Monitoring/diagnostics data that is also defense telemetry; per-application scope. Reveals AV scan coverage and detected threats.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read exports antivirus scan results and lets an attacker inventory defense scan coverage/findings to gauge detection posture.

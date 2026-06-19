@@ -1,0 +1,12 @@
+name: Log Analytics workspace (failover action)
+description: An Azure Log Analytics workspace, the monitoring/logging data store. This control-plane action initiates failover of the workspace to its replication location.
+scope: MEDIUM
+notes: The workspace is the central monitoring asset; disrupting its availability impairs logging and incident response.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Triggering failover to the replication location is a disruptive cutover that can interrupt log ingestion and query availability of the workspace.

@@ -1,0 +1,11 @@
+name: Web App slot log definitions
+description: The log definitions (available diagnostic log categories) for an App Service Web App deployment slot, exposing which log types exist via Azure Monitor, not the log contents.
+scope: LOW
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+    notes: Lists the available log categories for a Web App slot, enabling reconnaissance of what logging exists without returning log content.

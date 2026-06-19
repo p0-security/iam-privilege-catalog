@@ -1,0 +1,13 @@
+name: Log Analytics KubeHealth table
+description: A Log Analytics workspace table holding Kubernetes (AKS) cluster/node health monitoring records. This is a data-plane log table within Azure Monitor Log Analytics.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; health telemetry exposes infrastructure state and component inventory.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns Kubernetes health telemetry, exporting and enumerating cluster health records.

@@ -1,0 +1,12 @@
+name: Application Insights component metric definitions
+description: Metric definitions enumerate the Azure Monitor metric schema (names, units, dimensions) available for the Application Insights component, not the metric values.
+scope: LOW
+notes: Monitoring schema metadata only; returns which metrics exist, not their data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - discovery:logs
+    notes: Reading metric definitions only enumerates the available monitoring metric schema for the component, low-sensitivity monitoring metadata reconnaissance.

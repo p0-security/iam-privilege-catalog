@@ -1,0 +1,12 @@
+name: Azure SQL Database import/export operation
+description: The import/export async-operation sub-resource of an Azure SQL Database, listing in-progress BACPAC import/export operations and their status.
+scope: LOW
+notes: Reveals ongoing bulk data-movement activity and targets, not the data payload itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists in-progress import/export operations, allowing an attacker to inventory ongoing bulk data-movement activity and its status; it does not itself return the data payload.

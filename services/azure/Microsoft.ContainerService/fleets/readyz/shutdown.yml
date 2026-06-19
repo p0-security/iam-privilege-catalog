@@ -1,0 +1,12 @@
+name: AKS Fleet apiserver readyz health probe
+description: A Kubernetes apiserver readyz health-check endpoint exposed through the AKS Fleet (fleets) resource provider. It reports only the readiness/shutdown status of the control plane.
+scope: LOW
+notes: This is a data-plane read that returns a liveness/readiness status string; it does not trigger a shutdown.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads the shutdown readiness probe indicating whether the apiserver is in graceful shutdown; it does not itself cause a shutdown, so only infra status recon.

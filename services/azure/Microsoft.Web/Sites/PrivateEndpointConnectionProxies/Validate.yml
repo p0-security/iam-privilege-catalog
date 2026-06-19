@@ -1,0 +1,11 @@
+name: Web App Private Endpoint Connection Proxies
+description: Internal Private Link connection-proxy objects that broker and orchestrate private endpoint connectivity for an Azure App Service web app. They represent the plumbing state for how a web app is reached over a private network path.
+scope: LOW
+notes: Supporting connectivity plumbing for a single web app (a single organizational function), not a primary data store or identity asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks: []
+    notes: A stateless pre-flight validation that only checks a candidate proxy configuration and returns a verdict; it persists no change and discloses no sensitive material, so it is inert in isolation.

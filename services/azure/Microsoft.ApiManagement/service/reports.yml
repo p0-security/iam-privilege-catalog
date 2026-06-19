@@ -1,0 +1,12 @@
+name: API Management usage reports
+description: Aggregated usage/analytics reports for an Azure API Management service, summarized by time, region, developer, product, API, operation, and subscription.
+scope: MEDIUM
+notes: Reports expose operational telemetry and topology (traffic patterns, consumer activity) but not raw request payloads or secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reads aggregated usage reports, inventorying service topology and consumption patterns useful for reconnaissance and targeting.

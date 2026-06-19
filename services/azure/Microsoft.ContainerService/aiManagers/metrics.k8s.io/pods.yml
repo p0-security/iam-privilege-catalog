@@ -1,0 +1,12 @@
+name: Kubernetes pod metrics (AKS aiManagers metrics.k8s.io)
+description: The metrics.k8s.io pods resource (in the aiManagers AKS data plane) exposes runtime resource-usage telemetry (CPU/memory) for pods via the metrics API.
+scope: LOW
+notes: Read-only utilization telemetry; useful for reconnaissance of running workloads but not sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Reading pod metrics returns CPU/memory usage telemetry that enumerates running pods and their footprint, low-sensitivity reconnaissance.

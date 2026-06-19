@@ -1,0 +1,12 @@
+name: AKS fleet member Kubernetes autoscaling API
+description: The Kubernetes autoscaling data-plane API group on an AKS Fleet member cluster. It exposes HorizontalPodAutoscaler and related scaling configuration for cluster workloads.
+scope: LOW
+notes: Autoscaler configuration is non-sensitive infrastructure metadata; read-only listing yields workload-scaling reconnaissance only.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Versioned read of autoscaling/v2beta2 enumerates HPA scaling configuration, providing infrastructure discovery.

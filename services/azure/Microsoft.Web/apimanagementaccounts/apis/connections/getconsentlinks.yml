@@ -1,0 +1,12 @@
+name: Logic Apps API connection
+description: A managed API connection (Logic Apps / connector instance) that stores the configuration and authentication binding linking workflows to a backend service.
+scope: MEDIUM
+notes: Connections embed reusable backend credentials/OAuth tokens; secret material is exposed only via dedicated listsecrets/listconnectionkeys actions, while the resource itself supports a single integration function.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:infra
+    notes: Returns OAuth consent URLs that only initiate the authorization flow; in isolation it yields setup links and connection metadata, not usable credentials or completed access.

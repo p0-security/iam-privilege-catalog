@@ -1,0 +1,12 @@
+name: Azure Automation DSC reports
+description: Azure Automation DSC reports are the listing/metadata of compliance report records produced by managed nodes, summarizing which nodes reported and their status.
+scope: LOW
+notes: Report metadata inventories managed nodes and their high-level compliance status.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:infra
+    notes: Lists DSC report records, enumerating which nodes have reported and their summary status without returning full report content.

@@ -1,0 +1,12 @@
+name: Kubernetes SelfSubjectAccessReviews (Fleet)
+description: A Kubernetes SelfSubjectAccessReview is an authorization-query API object that reports whether the calling identity itself can perform a given action. It creates no persistent resource.
+scope: LOW
+notes: "Self-scoped: only reveals the caller's own effective permissions."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - discovery:policy
+    notes: Creating SelfSubjectAccessReviews lets the caller enumerate its own effective permissions, low-value self-reconnaissance for planning further actions.

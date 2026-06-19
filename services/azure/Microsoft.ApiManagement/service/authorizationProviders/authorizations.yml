@@ -1,0 +1,23 @@
+name: API Management credential-manager authorization (connection)
+description: An Authorization (connection) is a stored credential-manager record holding the OAuth access/refresh tokens (or client-credential secret) that APIM uses to call an OAuth-protected backend identity on the caller's behalf.
+scope: HIGH
+notes: "The stored tokens are encrypted and write-only: they are never returned by read/list APIs and are usable only at runtime through the get-authorization-context policy. Read operations expose only connection metadata/status."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:access
+    notes: Deleting an authorization destroys the stored OAuth token/credential connection and breaks the backend access that dependent APIs rely on, denying authorized operation.
+  read:
+    risks:
+      - discovery:infra
+    notes: Listing or getting authorizations enumerates which backend credential connections exist and their status, but does not return the underlying access/refresh tokens.
+  write:
+    risks:
+      - persistence:account
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating an authorization establishes a stored OAuth credential/connection bound to a backend identity, giving the attacker a durable, attacker-provisioned credential connection that APIM policies can use to act as that identity (lateral movement to the backend).
