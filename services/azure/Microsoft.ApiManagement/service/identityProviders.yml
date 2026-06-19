@@ -1,0 +1,19 @@
+name: APIM identity providers
+description: Identity provider configurations for an Azure API Management service, defining the external/federated authentication sources (AAD, OAuth, social logins) used to authenticate to the developer portal.
+scope: HIGH
+notes: These configurations govern who can authenticate to the API Management portal and management surface; their secrets are usable IdP credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:access
+    notes: Deleting an IdP configuration removes an authentication mechanism, disabling a defense and denying legitimate users their configured sign-in path.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+      - escalation:privilege
+    notes: Creating/updating an IdP lets an attacker redirect authentication to an attacker-controlled IdP or add a trusted source, manipulating and weakening the auth mechanism and admitting attacker-controlled identities.
