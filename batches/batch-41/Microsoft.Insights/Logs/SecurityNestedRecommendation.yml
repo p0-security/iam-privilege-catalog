@@ -1,0 +1,13 @@
+name: Log Analytics SecurityNestedRecommendation table
+description: A Log Analytics workspace table holding Microsoft Defender for Cloud nested security-recommendation findings describing resource misconfigurations and posture gaps.
+scope: MEDIUM
+notes: Security-finding data; reveals unremediated weaknesses across resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading exports the recommendation findings (exfiltration:logs) and reveals concrete environment misconfigurations and weak points (discovery:infra).

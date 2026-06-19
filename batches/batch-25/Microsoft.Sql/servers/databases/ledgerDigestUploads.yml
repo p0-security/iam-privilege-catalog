@@ -1,0 +1,13 @@
+name: Azure SQL Database ledger digest upload settings
+description: Ledger digest upload settings configure the cryptographic tamper-evidence feature of an Azure SQL ledger database, controlling whether and where integrity digests are published to immutable storage.
+scope: MEDIUM
+notes: This is an integrity/tamper-detection defense control; its configuration metadata reveals the database's anti-tampering posture.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Enabling/reconfiguring ledger digest uploads lets an attacker repoint the tamper-evidence digest destination to an untrusted store, undermining the integrity-attestation defense and manipulating its configuration.

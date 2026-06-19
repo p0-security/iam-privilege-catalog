@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (CDBPartitionKeyRUConsumption)
+description: A specific table in an Azure Log Analytics (Azure Monitor) workspace, queried via the data plane, holding Azure Cosmos DB per-partition-key request-unit (throughput) consumption telemetry.
+scope: MEDIUM
+notes: Numeric usage/throughput telemetry rather than message content; can reveal partition keys and access patterns. MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading exports partition-key RU consumption telemetry that can reveal partition keys and usage patterns (exfiltration:logs) and inventories the logged consumption activity (discovery:logs).

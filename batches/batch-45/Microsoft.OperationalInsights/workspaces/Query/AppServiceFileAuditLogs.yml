@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (AppServiceFileAuditLogs)
+description: A queryable table within an Azure Log Analytics workspace holding App Service file-change audit records.
+scope: MEDIUM
+notes: Monitoring/diagnostics data; file audit records disclose deployment/file-modification activity and reveal what file activity is monitored.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read exports file-change audit records and reveals monitored file activity useful for reconnaissance.

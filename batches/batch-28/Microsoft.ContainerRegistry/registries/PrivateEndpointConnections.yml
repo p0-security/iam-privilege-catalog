@@ -1,0 +1,17 @@
+name: Container registry private endpoint connection
+description: Private endpoint connections binding a private-link endpoint to a container registry, including their approval state, controlling private-network access to the registry.
+scope: HIGH
+notes: Control-plane objects that gate which networks can reach the registry for image pull/push; approving or removing them changes the registry's network exposure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deletes a private endpoint connection, removing a private-link binding and severing private connectivity to the registry for legitimate clients.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Approves or rejects a private endpoint connection, letting an attacker attach/expose the registry to an attacker-controlled private network and alter its connection approval state.

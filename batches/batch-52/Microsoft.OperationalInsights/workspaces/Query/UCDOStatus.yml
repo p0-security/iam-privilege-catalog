@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (UCDOStatus)
+description: A Log Analytics workspace query table is a data-plane view of a specific log table inside an Azure Monitor / Log Analytics workspace. Reading it returns the actual row-level log records ingested into that table.
+scope: MEDIUM
+notes: Monitoring/diagnostic telemetry is MEDIUM-sensitivity; per-device Delivery Optimization status records can expose device identifiers and download telemetry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Returns per-device Delivery Optimization status log records, exporting operational telemetry that enumerates devices and their download status.

@@ -1,0 +1,17 @@
+name: DiskAccess private endpoint connection proxies
+description: Private Endpoint Connection Proxy objects are internal Private Link wiring sub-resources of an Azure DiskAccess, used to broker private-endpoint connectivity for private import/export of managed disks and snapshots.
+scope: MEDIUM
+notes: These are supporting network-connectivity plumbing objects rather than data stores or credential holders; sensitivity is limited to the private-link configuration of a single disk-access resource.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a connection proxy tears down a private-link connectivity component, disrupting legitimate private access to the disk-access resource (DoS-like effect).
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a connection proxy establishes or alters the private-link path to the disk-access resource, enabling network movement to reach the resource privately and manipulation of its connectivity configuration.

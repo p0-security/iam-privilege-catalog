@@ -1,0 +1,18 @@
+name: IPv6 SQL server firewall rule
+description: An IPv6 server-level firewall rule on an Azure SQL logical server, defining the IPv6 source address ranges permitted to connect to the database server. It acts as a network access-control defense in front of the production database.
+scope: HIGH
+notes: Firewall rules gate network reachability of a production SQL database service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting a firewall rule removes a network firewall access-control entry guarding the SQL server, weakening the network defense and removing access-control policy.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Creating/updating (or overwriting all) firewall rules lets an attacker add their own IP ranges to expose the SQL server, weakening the network firewall defense and gaining network access to the database service.

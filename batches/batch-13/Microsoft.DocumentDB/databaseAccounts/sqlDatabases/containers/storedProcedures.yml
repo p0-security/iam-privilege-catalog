@@ -1,0 +1,21 @@
+name: Cosmos DB SQL stored procedure
+description: A server-side JavaScript stored procedure registered on a Cosmos DB SQL container that executes transactionally against the container's documents within the database engine.
+scope: HIGH
+notes: Server-side code that runs with the engine's access to the container's data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deleting a stored procedure removes a deployed server-side code artifact, breaking application logic that depends on it without destroying the underlying document data.
+  read:
+    risks:
+      - discovery:code
+      - exfiltration:code
+    notes: Reading a stored procedure returns its full server-side JavaScript source, both inventorying and exporting application logic that may reveal data-handling logic or embedded sensitive details.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a stored procedure injects attacker-controlled server-side JavaScript that executes against container data, enabling manipulation of operational data and logic when invoked.

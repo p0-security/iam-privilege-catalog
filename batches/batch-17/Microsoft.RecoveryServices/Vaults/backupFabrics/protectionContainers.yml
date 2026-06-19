@@ -1,0 +1,18 @@
+name: Backup protection containers
+description: A protection container in a Recovery Services Vault is the registration object that links a backup source/workload (e.g. a VM, SQL/SAP host, file share, or backup management server) to the vault so its items can be protected by backup policy.
+scope: HIGH
+notes: Control-plane backup configuration. Deleting/unregistering the container removes backup coverage and can tear down the recovery safety net for a single workload/function; it does not by itself touch the live source data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:defense
+    notes: Unregistering a protection container removes the backup linkage for a workload, destroying its backup configuration and disabling the backup defense that guards against ransomware/data loss; can cascade to loss of recovery points for that container.
+  write:
+    risks:
+      - impact:manipulation
+    scope: MEDIUM
+    notes: Creating/registering a protection container alters the vault's backup configuration; in isolation it adds a registration and changes operational backup setup but does not exfiltrate data, escalate privilege, or run workloads.

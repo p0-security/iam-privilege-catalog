@@ -1,0 +1,18 @@
+name: Fleet ClusterSchedulingPolicySnapshot
+description: A KubeFleet placement data-plane object capturing a point-in-time scheduling/placement policy that governs which member clusters receive propagated workloads.
+scope: HIGH
+notes: This is a workload-scheduling policy of the Azure Kubernetes Fleet placement engine, not an IAM/RBAC access-control policy.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Deleting the scheduling policy snapshot removes the active placement-decision state, disrupting how workloads are distributed across the fleet.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Writing the scheduling policy snapshot alters the decision of where workloads are placed, letting an attacker redirect or concentrate workloads onto attacker-chosen member clusters.

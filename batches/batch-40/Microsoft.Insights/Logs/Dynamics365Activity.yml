@@ -1,0 +1,12 @@
+name: Log Analytics Dynamics365Activity table
+description: A Log Analytics workspace table holding ingested Microsoft Dynamics 365 user-activity audit log records. Reading it is a data-plane operation that returns the stored log rows.
+scope: MEDIUM
+notes: CRM/ERP user-activity audit telemetry that may reference business records and user behavior.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Returns Dynamics 365 user-activity audit logs, exposing who accessed which business records and user-behavior patterns.

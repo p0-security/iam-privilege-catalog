@@ -1,0 +1,12 @@
+name: Managed database Advanced Threat Protection settings
+description: Managed database Advanced Threat Protection settings are the per-database toggle controlling whether Microsoft Defender threat detection/alerting is enabled on a SQL managed-instance database.
+scope: MEDIUM
+notes: A resource-scoped defensive monitoring control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Updating the managed database ATP settings lets an attacker disable Defender threat detection/alerting on the database, removing a defensive monitoring mechanism to evade detection.

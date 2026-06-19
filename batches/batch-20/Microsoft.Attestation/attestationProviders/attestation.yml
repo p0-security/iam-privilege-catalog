@@ -1,0 +1,18 @@
+name: Azure Attestation provider
+description: An Azure Attestation provider instance, a control-plane resource for Microsoft Azure Attestation that verifies the trustworthiness of platforms and the integrity of binaries running inside trusted execution environments (TEEs such as Intel SGX/VBS enclaves, TPMs, and confidential VMs).
+scope: MEDIUM
+notes: "This is a supporting security/trust-verification service: its attestation policies gate confidential-computing trust decisions for relying parties, but it does not itself store sensitive organizational data or hold tenant-wide controls."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Attestation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:defense
+    notes: Deleting the attestation provider destroys the infrastructure and tears down the attestation-based trust-verification defense, breaking attestation flows (DoS-like impact) for dependent confidential-computing workloads.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Create/update of the attestation provider lets an attacker alter the trust-validation configuration (attestation policy), both manipulating operational state and loosening which enclaves/binaries are trusted, subverting the trust-enforcement gate relying parties depend on.

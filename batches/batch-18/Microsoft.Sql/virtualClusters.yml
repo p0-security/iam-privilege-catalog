@@ -1,0 +1,17 @@
+name: Azure SQL Virtual Cluster
+description: An Azure SQL virtual cluster is the dedicated network/compute infrastructure that hosts one or more SQL Managed Instance deployments within a subnet.
+scope: HIGH
+notes: Virtual clusters underpin production Managed Instance databases; control-plane changes affect connectivity and availability of the hosted database service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a virtual cluster tears down the infrastructure hosting SQL Managed Instances, destroying it and denying service to the dependent production databases.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a virtual cluster alters the infrastructure configuration that hosts production SQL Managed Instances.

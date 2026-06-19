@@ -1,0 +1,13 @@
+name: Log Analytics GCPMonitoring log table
+description: A Log Analytics workspace data-plane query permission scoped to the GCPMonitoring table, which holds ingested Google Cloud Monitoring metrics and operational telemetry.
+scope: MEDIUM
+notes: Operational monitoring data; may include resource identifiers and performance signals.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading this table exports GCP monitoring metrics and lets an attacker inventory infrastructure resources and activity.

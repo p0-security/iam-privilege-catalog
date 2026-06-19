@@ -1,0 +1,17 @@
+name: Azure Route Filter Rule
+description: A Route Filter Rule is a sub-resource of an Azure Route Filter that specifies the BGP community values determining which prefixes are advertised/accepted over ExpressRoute Microsoft peering.
+scope: HIGH
+notes: Rules define the concrete routing-control logic for a single hybrid-connectivity (ExpressRoute) function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deletes a route filter rule, removing a route-advertisement control and altering/disrupting which prefixes are advertised over ExpressRoute peering.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creates or updates a route filter rule, changing which BGP community prefixes are advertised/accepted over ExpressRoute peering, manipulating routing and potentially exposing additional reachable network resources.

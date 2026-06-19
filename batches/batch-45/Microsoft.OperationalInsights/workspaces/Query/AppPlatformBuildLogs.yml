@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (AppPlatformBuildLogs)
+description: A queryable table within an Azure Log Analytics workspace holding Azure Spring Apps build logs collected from the platform.
+scope: MEDIUM
+notes: Monitoring/diagnostics data; build logs can leak build configuration and dependency details.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read exports Spring Apps build output, potentially exposing build configuration and operational details.

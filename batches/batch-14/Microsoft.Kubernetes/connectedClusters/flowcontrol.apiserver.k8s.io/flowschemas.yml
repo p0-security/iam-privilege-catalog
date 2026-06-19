@@ -1,0 +1,18 @@
+name: Kubernetes API Priority and Fairness FlowSchemas (Arc connected cluster)
+description: FlowSchema objects are Kubernetes API Priority and Fairness (APF) control-plane resources that classify incoming kube-apiserver requests into priority levels, governing request fairness and throttling. Surfaced via Azure Arc on a connected cluster.
+scope: HIGH
+notes: These objects shape control-plane (kube-apiserver) request handling for the entire cluster; tampering can degrade or deny the control plane, but they hold no organizational data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - destruction:defense
+    notes: Deleting FlowSchemas removes apiserver request-fairness/overload-protection rules, disabling a built-in defense and degrading or denying control-plane availability.
+  write:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Creating/updating FlowSchemas reclassifies apiserver request flows, letting an attacker starve or throttle legitimate (including control-plane) traffic, manipulating control-plane behavior and causing denial of service.

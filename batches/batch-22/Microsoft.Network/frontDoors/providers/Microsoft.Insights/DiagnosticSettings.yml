@@ -1,0 +1,13 @@
+name: Front Door diagnostic setting
+description: The Azure Monitor diagnostic setting for an Azure Front Door resource, which configures whether and where logs/metrics are exported (Log Analytics workspace, storage account, event hub) and which categories are enabled.
+scope: MEDIUM
+notes: Controls audit/diagnostic logging coverage for a public-facing edge/CDN service; monitoring-tier sensitivity with evasion relevance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating the Front Door diagnostic setting lets an attacker disable or redirect log/metric collection, suppressing audit logging and weakening a detective control to evade incident response.

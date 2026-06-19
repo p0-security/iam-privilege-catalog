@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (SCGPoolExecutionLog)
+description: A queryable table within an Azure Log Analytics workspace that stores Spring Cloud Gateway pool execution log records. Reading it returns the stored rows via a data-plane KQL query.
+scope: MEDIUM
+notes: Log Analytics tables hold monitoring/diagnostic data at MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Returns gateway pool execution log rows, exporting operational runtime log data.

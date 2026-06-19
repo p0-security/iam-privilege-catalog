@@ -1,0 +1,16 @@
+name: Site Recovery network mappings
+description: Azure Site Recovery network mappings are disaster-recovery configuration objects that pair a source network with a target/recovery network so that failed-over machines attach to the correct network.
+scope: MEDIUM
+notes: These are DR configuration associations within a Recovery Services vault, not actual network resources; their sensitivity derives from disaster-recovery readiness and topology disclosure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a network mapping removes the DR network association object, breaking failover network plumbing and degrading disaster-recovery readiness.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a network mapping alters DR failover network configuration so recovered workloads could land on a wrong or attacker-influenced network, manipulating operational config.

@@ -1,0 +1,13 @@
+name: Log Analytics StorageMoverAuditLogs table
+description: A Log Analytics workspace table holding ingested Azure Storage Mover audit-log records (data-migration activity). It is monitoring data within an Azure Monitor / Log Analytics workspace.
+scope: MEDIUM
+notes: Monitoring/diagnostic data store; medium sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports Storage Mover migration audit records, which may expose storage paths/resource detail (exfiltration:logs), and enumerates logged migration activity (discovery:logs).

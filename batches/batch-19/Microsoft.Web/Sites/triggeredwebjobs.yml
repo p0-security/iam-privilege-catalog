@@ -1,0 +1,13 @@
+name: App Service triggered WebJobs
+description: "Triggered (scheduled/on-demand) WebJobs hosted by an App Service web app: deployed scripts/executables that run as background tasks in the app's runtime."
+scope: HIGH
+notes: WebJobs run in the web app's process and inherit the site's managed identity.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a triggered WebJob removes a deployed background task component of the production app, destroying that workload and disrupting the function it performs.

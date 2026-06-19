@@ -1,0 +1,12 @@
+name: Microsoft.ContainerRegistry provider registration
+description: A control-plane action on the Microsoft.ContainerRegistry resource provider that registers (or unregisters) a subscription with the provider.
+scope: MEDIUM
+notes: An idempotent prerequisite enablement toggle; registration grants no data access and does not alter access-control, while unregistration is typically blocked while registries still exist.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Unregistering the Container Registry provider can block creation and management-plane operations for registries subscription-wide, a denial-of-service against a supporting service.

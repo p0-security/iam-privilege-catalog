@@ -1,0 +1,19 @@
+name: Kubernetes CustomResourceDefinitions (Fleet)
+description: CustomResourceDefinitions (CRDs) are cluster-scoped objects that extend the Kubernetes API with custom resource types, defining the schemas backing operators and controllers. In a Fleet they describe the extended API surface across member clusters.
+scope: HIGH
+notes: CRDs define the cluster's extension/operator API surface; their schemas and conversion webhooks influence how controllers process custom resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:data
+      - impact:dos
+    notes: Deleting a CRD cascades to delete every custom resource instance of that type, destroying operator/application state and breaking the controllers that depend on it, disrupting cluster operations.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating CRDs alters the cluster API schema and can register attacker-defined types or change validation/conversion webhooks (a MITM/control-plane manipulation surface), and can subvert or break security/policy controllers that depend on those definitions.

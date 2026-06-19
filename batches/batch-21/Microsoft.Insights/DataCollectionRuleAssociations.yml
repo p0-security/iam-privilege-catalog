@@ -1,0 +1,18 @@
+name: Data collection rule associations
+description: A data collection rule association binds a monitored resource to a data collection rule, determining which telemetry-collection configuration applies to that resource. It is control-plane configuration of monitoring coverage.
+scope: MEDIUM
+notes: Defines monitoring topology; manipulation affects detection coverage rather than primary data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting an association detaches a resource from its collection rule, halting that resource's telemetry/log collection and creating a monitoring blind spot.
+  Write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating an association rebinds a resource to a different (or weaker) collection rule, redirecting or suppressing its telemetry collection to evade detection.

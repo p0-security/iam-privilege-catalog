@@ -1,0 +1,16 @@
+name: APIM tag-API links
+description: Associations binding organizational tags to APIs, used to group, categorize, filter, and surface APIs (e.g., in the developer portal).
+scope: LOW
+notes: Purely operational organizational metadata; no access-control or data-plane effect.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting a tag-API link removes the tag-to-API association, destroying operational metadata used to group and surface APIs.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating a tag-API link alters organizational tagging metadata used to group/filter APIs, with no access or data-plane effect beyond manipulating operational categorization.

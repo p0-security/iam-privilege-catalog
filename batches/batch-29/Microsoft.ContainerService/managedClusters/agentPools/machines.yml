@@ -1,0 +1,14 @@
+name: AKS agent-pool machine
+description: An AKS managedClusters/agentPools/machines resource represents an individual node (VM) within an AKS cluster's agent pool, including its configuration, image, network, and status.
+scope: HIGH
+notes: Nodes are production compute backing a single cluster's workloads; managing them affects the cluster's capacity and can run attacker workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:hijack
+      - impact:spend
+      - impact:manipulation
+    notes: Creating or updating an agent-pool machine provisions or reconfigures cluster compute nodes, letting an attacker add capacity to run their own workloads (hijack), incur infrastructure spend, and alter node configuration backing a production cluster.

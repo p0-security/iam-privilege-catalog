@@ -1,0 +1,17 @@
+name: Virtual WAN virtual hub proxies
+description: A virtual hub proxy is a Virtual WAN sub-resource representing the proxy/connectivity definition for a virtual hub, the central routing component that interconnects spokes, branches, and on-premises sites within the WAN.
+scope: HIGH
+notes: Central Virtual WAN routing/connectivity configuration supporting production hybrid networking across connected spokes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the proxy removes a central Virtual WAN hub connectivity component, disrupting inter-network routing for all spokes transiting that hub.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating the proxy alters central Virtual WAN hub connectivity/routing, enabling traffic redirection and broader network movement across connected spokes.

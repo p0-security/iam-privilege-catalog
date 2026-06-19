@@ -1,0 +1,16 @@
+name: APIM products
+description: "API Management products: named groupings of APIs published to consumers with associated subscription, approval, visibility, and quota/throttling policies."
+scope: MEDIUM
+notes: Products define how APIs are exposed and gated for developer-portal consumers; they are gateway configuration for a single organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes a product, removing the API grouping and its dependent subscriptions, disrupting consumer access to the bundled APIs.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a product, altering which APIs are exposed and the subscription/approval/visibility/quota policies that gate consumer access to the gateway.

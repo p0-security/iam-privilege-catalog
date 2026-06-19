@@ -1,0 +1,18 @@
+name: API Management loggers
+description: An API Management logger is the control-plane configuration that defines where the gateway forwards its diagnostic/telemetry data (e.g. Application Insights or Event Hub), including the sink type and target.
+scope: MEDIUM
+notes: Loggers are MEDIUM-sensitivity supporting/monitoring infrastructure; tampering weakens audit/detection but does not itself touch primary production data or identities. Secret credentials on the logger are masked on read.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deletes a logger, halting forwarding of the gateway's diagnostic/telemetry data to its sink, destroying log collection and removing a detection mechanism for incident response.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating a logger lets an attacker redirect, narrow, or break the diagnostic/telemetry pipeline so gateway logs are dropped or diverted, suppressing log collection and weakening detection, mirroring the diagnostic-settings write precedent.

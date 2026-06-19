@@ -1,0 +1,17 @@
+name: Azure SQL Server virtual network rule
+description: An Azure SQL Server virtual network rule is a server-level network access-control entry that permits a specific VNet subnet to reach the logical SQL server, acting as part of the server's network firewall.
+scope: HIGH
+notes: These rules form a network defense boundary controlling which networks can connect to the database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a VNet rule removes a network access-control restriction on the SQL server, altering the firewall posture and weakening the defensive network boundary protecting the database.
+  write:
+    risks:
+      - escalation:network
+      - destruction:defense
+    notes: Create/Update can authorize an attacker-controlled subnet to reach the production SQL server, expanding network access to the database while weakening the network-firewall defense.

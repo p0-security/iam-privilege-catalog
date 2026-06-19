@@ -1,0 +1,14 @@
+name: Log Analytics query table (AgriFoodProviderAuthLogs)
+description: A Log Analytics workspace query table holding provider authentication log records for an Azure Data Manager for Agriculture (AgriFood) workload. This data-plane permission returns the stored auth log rows via KQL query.
+scope: MEDIUM
+notes: Authentication log data is MEDIUM scope; it records auth events (identities, access patterns) but not live reusable credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+      - discovery:account
+    notes: Reading the table exports authentication log records (exfiltration:logs), enumerates logged events (discovery:logs), and reveals provider identities/principals present in auth events (discovery:account).

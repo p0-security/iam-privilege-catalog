@@ -1,0 +1,18 @@
+name: Fleet MemberCluster resource
+description: A Fleet MemberCluster resource is the registration record that joins an AKS cluster into an Azure Kubernetes Fleet, defining its membership and join configuration (including any managed identity used for the join).
+scope: HIGH
+notes: Membership controls whether a cluster participates in fleet-wide workload placement; writing it can onboard attacker-controlled clusters or alter the join identity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a MemberCluster evicts a cluster from the fleet, severing centralized placement/management and disrupting fleet-orchestrated workloads on that production cluster.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Writing a MemberCluster onboards or reconfigures a cluster's fleet membership, letting an attacker attach a controlled cluster as a placement target or alter the join (and its associated identity), manipulating fleet membership and extending reach across the fleet.

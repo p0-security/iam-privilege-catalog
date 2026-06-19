@@ -1,0 +1,17 @@
+name: Action group endpoint NSP association proxy
+description: The association proxy that binds an Azure Monitor action group notification endpoint into a Network Security Perimeter (NSP) of the Microsoft.Network provider, defining the network-isolation enforcement boundary around the endpoint.
+scope: MEDIUM
+notes: The protected asset is alerting/notification infrastructure; the NSP association is a network defense control governing reachability of the action group endpoint.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the NSP association proxy detaches the action group endpoint from its network security perimeter, removing the network-isolation defense boundary that restricts who can reach it.
+  Write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating the NSP association can change the perimeter binding or switch to a lenient learning/disabled enforcement mode, weakening the network-isolation defense and altering the endpoint's network access-control configuration.

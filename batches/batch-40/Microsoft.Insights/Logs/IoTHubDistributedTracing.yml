@@ -1,0 +1,13 @@
+name: Log Analytics IoTHubDistributedTracing table
+description: A Log Analytics workspace table holding Azure IoT Hub distributed-tracing telemetry (device-to-cloud message trace records). This is a data-plane log table within Azure Monitor Log Analytics.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; trace records may expose device identifiers, message flows, and IoT topology.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns IoT Hub distributed-tracing records, exporting and enumerating message-flow telemetry.

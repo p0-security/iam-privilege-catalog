@@ -1,0 +1,18 @@
+name: ExpressRoute circuit connections
+description: An ExpressRoute circuit connection links two ExpressRoute circuit peerings together (ExpressRoute Global Reach), establishing connectivity between separate private networks/sites across circuits.
+scope: HIGH
+notes: Connections extend reachability across distinct private networks, so they govern cross-network hybrid connectivity for a production function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a circuit connection tears down the inter-circuit (Global Reach) link, removing cross-network connectivity and disrupting services that rely on it.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a circuit connection (e.g. Global Reach) links circuits together, letting an attacker extend network reachability across connected private networks and alter inter-circuit routing.

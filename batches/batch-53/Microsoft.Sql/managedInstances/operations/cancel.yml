@@ -1,0 +1,12 @@
+name: SQL Managed Instance operations
+description: The management-operation history/status records for an Azure SQL Managed Instance (async administrative operations performed against the instance).
+scope: MEDIUM
+notes: Read-only operational activity metadata; no data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Cancelling a pending async management operation can interrupt in-progress administrative tasks (scaling, restore, provisioning), disrupting operations.

@@ -1,0 +1,17 @@
+name: Gateway API associations
+description: The set of APIs associated with (exposed through) a specific API Management gateway, controlling which API resources the gateway routes to its backends.
+scope: HIGH
+notes: Governs the operational API surface served by a single gateway.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Removes an API from a gateway, stopping the gateway from serving it (DoS for consumers) and altering the operational routing configuration.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Adds an API to a gateway, altering which APIs/backends the gateway serves and routes to, manipulating the production routing/exposure configuration.

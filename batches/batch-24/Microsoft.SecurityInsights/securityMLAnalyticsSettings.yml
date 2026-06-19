@@ -1,0 +1,17 @@
+name: Sentinel ML analytics (detection) settings
+description: Microsoft Sentinel machine-learning analytics settings — the configuration of behavioral/anomaly and Fusion threat-detection rules in the SIEM.
+scope: MEDIUM
+notes: Defines which behavioral detections run and their thresholds; reading reveals blind spots, modifying/deleting disables detections.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deletes an ML analytics detection setting, removing a behavioral/anomaly detection rule and creating a SIEM blind spot to evade incident response.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Updates ML analytics detection settings, letting an attacker disable, weaken, or tamper with behavioral threat detections to evade alerting on their activity.

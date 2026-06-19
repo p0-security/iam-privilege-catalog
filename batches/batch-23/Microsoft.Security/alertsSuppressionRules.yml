@@ -1,0 +1,11 @@
+name: Security alert suppression rules
+description: Security alert suppression rules in Defender for Cloud define criteria for automatically dismissing or suppressing matching security alerts. They directly control which detections produce alerts.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Creating or updating a suppression rule lets an attacker silence security alerts matching their own activity, directly disabling detection to evade incident response.

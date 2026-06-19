@@ -1,0 +1,21 @@
+name: AKS cluster custom resources
+description: Arbitrary Kubernetes custom resources (CRD-backed objects) inside an AKS managed cluster, accessed via the AKS data plane. These objects hold operator state, application configuration, and CRDs that can wrap secret-like or sensitive operational data.
+scope: HIGH
+notes: Data-plane access to in-cluster objects for a single cluster function; sensitivity depends on what CRDs the cluster hosts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting custom resources destroys in-cluster data/configuration objects and the controller state managed via CRDs.
+  read:
+    risks:
+      - exfiltration:data
+      - discovery:data
+    notes: A data-plane read of arbitrary custom resources can both enumerate and return the contents of sensitive CRD-stored objects, enabling exfiltration of in-cluster data.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating arbitrary custom resources lets an attacker alter operational cluster state and drive controllers/operators that act on those objects.

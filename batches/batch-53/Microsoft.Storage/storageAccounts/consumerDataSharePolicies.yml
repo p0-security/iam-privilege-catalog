@@ -1,0 +1,12 @@
+name: Storage account consumer Data Share policies
+description: Configuration governing the storage account's participation as a consumer in Azure Data Share (inbound data shares landing into the account).
+scope: MEDIUM
+notes: Controls data-flow into the account; a supporting governance/sharing configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates/updates the consumer data-share policy, altering the configuration that controls which data shares may write into the account.

@@ -1,0 +1,18 @@
+name: Web App slot hybrid connection relay
+description: Azure Relay hybrid-connection bindings that link a Web App deployment slot to on-premises or private backend network endpoints.
+scope: HIGH
+notes: Provides the slot's network connectivity path to backend/on-prem resources.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a hybrid connection relay severs the network path to backend/on-prem resources, disrupting dependent service operations.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a hybrid connection relay reconfigures the slot's connectivity to reach additional private/on-prem network endpoints, enabling network movement.

@@ -1,0 +1,17 @@
+name: Kubernetes custom resource definitions (CRDs)
+description: CustomResourceDefinitions are cluster-scoped Kubernetes resources that register new custom API types/schemas, extending the API server with resource kinds managed by installed operators and controllers.
+scope: HIGH
+notes: CRDs define the cluster's extended API surface; altering or removing them affects all operators/controllers and the custom resources of those types cluster-wide.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:data
+    notes: Deleting a CRD cascade-deletes all custom resources of that type cluster-wide, destroying both the API-extension infrastructure and the operator-managed objects/data those resources hold.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating CRDs alters cluster-wide API type definitions and schemas, allowing tampering with operator/controller behavior; CRDs can also embed conversion webhooks to intercept requests.

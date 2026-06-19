@@ -1,0 +1,13 @@
+name: Marketplace purchase
+description: The marketplace purchase action acquires/provisions a paid third-party or Microsoft offering from the Azure Marketplace.
+scope: MEDIUM
+notes: Metered/billable action; can provision deployable offerings.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:spend
+      - impact:hijack
+    notes: Purchasing a marketplace offering incurs uncontrolled organizational spend and can provision attacker-usable workloads/images.

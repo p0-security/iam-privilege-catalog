@@ -1,0 +1,12 @@
+name: Shared VM image version
+description: A SharedVMImageVersion is a concrete, bootable version of an organization-specific custom VM image used to provision VMs.
+scope: MEDIUM
+notes: Private, tenant-owned bootable image artifacts; expose image configuration but no secrets or data content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:spend
+    notes: Replicates an image version to additional target regions, provisioning replica storage that drives cross-region infrastructure spend without organizational benefit.

@@ -1,0 +1,19 @@
+name: AKS fleet member cluster Ingresses
+description: Kubernetes Ingress objects inside an AKS fleet member cluster, accessed via the Azure data plane. An Ingress defines external HTTP(S) routing rules, hostnames, TLS bindings, and backend service mappings that expose cluster services.
+scope: HIGH
+notes: Controls the cluster's external network exposure surface and public-facing routing.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting Ingresses (incl. DeletesCollection) removes the external routing/entrypoint for cluster services, severing inbound access and causing denial of service for exposed applications.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+      - impact:defacement
+    notes: Creating/updating an Ingress lets an attacker expose internal services externally, reroute public traffic to attacker-controlled backends (manipulation), and alter public-facing routing/content (defacement).

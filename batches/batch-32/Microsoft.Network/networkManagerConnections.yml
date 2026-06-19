@@ -1,0 +1,18 @@
+name: Network Manager connections
+description: A network manager connection records the management association by which a network manager governs a target subscription or management group (the connected scope establishes the network manager's authority over that scope).
+scope: HIGH
+notes: Control-plane trust binding for centralized network governance; the record itself is configuration metadata, not network data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:access
+      - destruction:defense
+    notes: Deleting a connection severs centralized management of the scope, removing the network manager's centrally-enforced security configurations (defenses) and denying legitimate administrators operational control over those networks.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a connection enrolls a subscription/management group under a (possibly attacker-controlled) network manager, extending centralized network control over additional resources and altering the management trust boundary.

@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (AGCAccessLogs)
+description: A Log Analytics workspace query table holding ingested log records for a specific data type (here Application Gateway for Containers access logs). Reading the table returns the stored log rows via the data plane.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset. Access logs can contain request URLs, client IPs, and headers.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returning Application Gateway for Containers access-log rows, exporting request/traffic telemetry (URLs, client IPs, headers).

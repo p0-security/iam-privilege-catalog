@@ -1,0 +1,17 @@
+name: Web App hybrid connection relays
+description: A hybrid connection relay on a Web App is an Azure Relay-backed network bridge that lets the app reach a specific backend TCP endpoint (often on-premises or in a private network) by host and port.
+scope: HIGH
+notes: Configuration discloses the relay namespace and target host/port (network topology); the relay's send/listen keys are credential material retrieved via a separate listKeys action.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the web app's relay tears down the network path to its backend/on-prem endpoint, disrupting connectivity for the dependent application function.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a relay lets an attacker repoint or add a network bridge so the app reaches additional private/on-prem endpoints (network movement) and alters the app's operational connectivity configuration.

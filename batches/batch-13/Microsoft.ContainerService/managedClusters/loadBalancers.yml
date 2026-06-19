@@ -1,0 +1,18 @@
+name: AKS managed cluster load balancer configuration
+description: An AKS managed-cluster load balancer configuration defines how inbound/outbound traffic for the cluster's services is distributed across node pools (frontend IPs, backend pools, rules).
+scope: HIGH
+notes: Governs network exposure of a production AKS cluster's services; changes can re-expose, redirect, or sever cluster traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the configuration removes a network component fronting cluster services, breaking inbound traffic distribution and denying access to the services that depend on it.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating the configuration mutates how cluster services are exposed and routed, letting an attacker redirect or expose backend/frontend traffic, manipulating operational networking and gaining network reach to cluster services.

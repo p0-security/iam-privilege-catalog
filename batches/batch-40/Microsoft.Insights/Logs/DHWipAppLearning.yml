@@ -1,0 +1,12 @@
+name: Log Analytics DHWipAppLearning table
+description: A Log Analytics workspace data-plane table holding Windows Information Protection app-learning telemetry (which apps handle protected data on managed devices).
+scope: MEDIUM
+notes: Monitoring/diagnostic data, not a primary production data store; sensitivity is MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read exports WIP app-learning records revealing app/data-handling behavior.

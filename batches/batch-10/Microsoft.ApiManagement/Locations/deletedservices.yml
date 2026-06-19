@@ -1,0 +1,12 @@
+name: Deleted API Management service
+description: A soft-deleted API Management service instance retained for the soft-delete period, restorable until purged.
+scope: HIGH
+notes: Read exposes only recoverable-service metadata; purge permanently destroys the recovery path.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Purges a soft-deleted API Management service permanently with no restore option, irreversibly destroying the service infrastructure and its configuration and defeating the soft-delete recovery window.

@@ -1,0 +1,17 @@
+name: Kubernetes Fleet LimitRanges
+description: Kubernetes LimitRange objects within AKS Fleet-managed clusters. LimitRanges are per-namespace resource-governance policy objects that constrain CPU/memory requests and limits for pods and containers, acting as a guardrail against resource abuse.
+scope: MEDIUM
+notes: Data-plane (isDataAction) constraint/policy objects scoped to a single namespace; they govern resource consumption rather than holding production data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+    notes: Deleting LimitRanges removes the resource-constraint enforcement policy for a namespace, lifting the limits that would otherwise bound workload resource consumption.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: "Writing LimitRanges alters resource-governance policy: relaxing or removing per-namespace ceilings enables oversized/abusive workloads (e.g. cryptomining), while tightening them can disrupt legitimate pods."

@@ -1,0 +1,12 @@
+name: Application Insights component extended query results
+description: Extended query results return the output of analytics queries executed over the component's collected telemetry/log records.
+scope: MEDIUM
+notes: Query output can surface raw telemetry containing sensitive request and application data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reading extended query results returns telemetry query output from the component, enabling export of potentially sensitive log/trace data.

@@ -1,0 +1,17 @@
+name: Fleet ClusterResourcePlacementDisruptionBudget resource
+description: An Azure Kubernetes Fleet Manager placement object defining an availability guardrail that caps how many placements may be voluntarily disrupted at once across member clusters.
+scope: HIGH
+notes: Acts as a protective control limiting concurrent workload disruption during evictions and rollouts; weakening it broadly affects fleet availability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the disruption budget removes the guardrail that caps simultaneous placement disruption, disabling an availability-protection control and leaving fleet workloads exposed to unconstrained eviction/rollout disruption.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Writing a disruption budget can loosen or neutralize the guardrail that limits concurrent placement disruption, weakening an availability defense and manipulating fleet governance config.

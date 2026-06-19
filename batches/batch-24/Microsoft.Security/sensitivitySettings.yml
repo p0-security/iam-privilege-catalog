@@ -1,0 +1,12 @@
+name: Tenant sensitivity settings
+description: Tenant-level data sensitivity classification settings (sensitive info types, labels, thresholds) used by Microsoft Defender for Cloud's data-security detection.
+scope: MEDIUM
+notes: Tenant-wide scope, but the asset is a detection/classification configuration control rather than the data it classifies.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Updating tenant-wide sensitivity settings lets an attacker weaken the classification rules driving detection, blinding sensitive-data alerting across the tenant.

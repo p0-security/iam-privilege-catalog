@@ -1,0 +1,13 @@
+name: Defender for Cloud security recommendations
+description: "Defender for Cloud security recommendations (tasks): the inventory of open security findings and misconfigurations across resources in the scope."
+scope: MEDIUM
+notes: Listing them reveals where defenses are lacking; their workflow state can be mutated by the start/resolve/activate/dismiss actions.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Marking a recommendation resolved falsely closes an open finding, suppressing defensive visibility into an unremediated weakness while tampering with the posture state.

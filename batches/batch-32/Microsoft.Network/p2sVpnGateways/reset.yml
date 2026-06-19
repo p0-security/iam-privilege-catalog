@@ -1,0 +1,12 @@
+name: Point-to-site VPN gateway
+description: A Point-to-Site (P2S) VPN gateway is a virtual-hub network component that provides remote-access VPN connectivity, letting individual clients establish secure tunnels into a virtual network / virtual WAN.
+scope: HIGH
+notes: Controls remote-access ingress into the private network; compromise can expose or sever connectivity for a single network function.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Resetting the gateway drops all active client connections and interrupts the remote-access service, a temporary denial of service.

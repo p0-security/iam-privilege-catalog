@@ -1,0 +1,13 @@
+name: Network Security Group diagnostic settings
+description: Azure Monitor diagnostic settings attached to a Network Security Group, controlling which NSG logs/metrics (e.g. flow and event logs) are collected and to which destinations they are routed.
+scope: MEDIUM
+notes: These settings govern detective security telemetry for network access controls; weakening them undermines incident response.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Create/update lets an attacker disable or redirect NSG flow/event log collection, suppressing security telemetry and removing a detective control over network access.

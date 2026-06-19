@@ -1,0 +1,13 @@
+name: Database diagnostic settings
+description: Configuration controlling which logs/metrics are collected for an Azure SQL database and where they are routed (diagnostic settings).
+scope: MEDIUM
+notes: Reveals detection/logging coverage; tampering can blind monitoring.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creates/updates diagnostic settings, letting an attacker disable or redirect database log/audit collection to suppress telemetry and evade detection.

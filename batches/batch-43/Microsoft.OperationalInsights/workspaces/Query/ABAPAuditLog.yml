@@ -1,0 +1,12 @@
+name: Log Analytics ABAPAuditLog table
+description: A Log Analytics workspace query table holding SAP ABAP security/audit log records ingested into Azure Monitor.
+scope: MEDIUM
+notes: Audit-log telemetry table; contents can include security-relevant activity and user/system identifiers.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read of the ABAPAuditLog table exports SAP audit log records that may reveal security-relevant activity.

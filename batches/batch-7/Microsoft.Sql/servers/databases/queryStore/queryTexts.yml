@@ -1,0 +1,12 @@
+name: Query Store query texts
+description: Query Store query texts are the captured raw SQL statement texts of queries executed against an Azure SQL database, retained for performance analysis. The text often embeds literal parameter values, predicates, identifiers, and schema details.
+scope: HIGH
+notes: Although a diagnostic feature, the stored SQL text can leak production data values and full schema, so reading it is effectively data exfiltration from inside the database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:data
+    notes: Returns the actual executed SQL statement text, which routinely contains literal values and sensitive identifiers, exfiltrating data and schema from within the production database.

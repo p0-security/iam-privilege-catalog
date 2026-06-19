@@ -1,0 +1,14 @@
+name: Azure Firewall application-rule aggregation log table (Log Analytics)
+description: A Log Analytics workspace query data-plane permission scoped to the AZFWApplicationRuleAggregation table, which stores aggregated Azure Firewall application-rule (L7/FQDN) traffic telemetry ingested into the workspace.
+scope: MEDIUM
+notes: Log/monitoring data is MEDIUM-sensitivity, but firewall traffic logs expose network topology, allowed/denied destinations, and defensive posture useful for reconnaissance and evasion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+      - discovery:network
+    notes: Data-plane read exports aggregated application-rule traffic records and inventories which FQDN/HTTP destinations internal hosts reach and how firewall application rules are applied.

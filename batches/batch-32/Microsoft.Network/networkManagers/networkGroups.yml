@@ -1,0 +1,18 @@
+name: Network Manager network group
+description: A network group is a logical grouping of network resources (VNets/subnets) within a Network Manager that serves as the target scope for connectivity and security admin configurations.
+scope: HIGH
+notes: Group membership determines which VNets receive centrally managed connectivity and security rules, so it indirectly governs network posture once configurations are committed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:manipulation
+    notes: Deleting a network group removes the membership grouping that connectivity and security configurations target, detaching member VNets from managed enforcement and altering effective network governance.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a network group changes which VNets are members and thus which receive connectivity and security configurations, manipulating the governance scope and positioning resources for expanded connectivity once configs are committed.

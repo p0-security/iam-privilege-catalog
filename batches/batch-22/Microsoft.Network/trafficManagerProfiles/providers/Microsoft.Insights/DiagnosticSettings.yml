@@ -1,0 +1,13 @@
+name: Traffic Manager diagnostic settings
+description: The diagnostic settings of a Traffic Manager profile, defining which logs/metrics are collected and to which destinations (storage, Event Hub, Log Analytics) they are routed.
+scope: MEDIUM
+notes: Controls logging/monitoring posture; reading reveals detection coverage, writing can disable or redirect log collection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating diagnostic settings lets an attacker disable or redirect Traffic Manager log/metric collection, blinding incident response and removing a detection control.

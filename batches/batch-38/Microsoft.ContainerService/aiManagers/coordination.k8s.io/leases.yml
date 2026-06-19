@@ -1,0 +1,17 @@
+name: Kubernetes Leases
+description: Kubernetes Lease objects (coordination.k8s.io) used for leader election among controllers/operators and for node heartbeats within the cluster.
+scope: MEDIUM
+notes: Leases hold low-sensitivity operational coordination state, but tampering can disrupt controller failover and node health.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+    notes: Deleting leases removes leader-election locks and node heartbeats, forcing re-election/failover churn or marking nodes unhealthy, degrading cluster operations.
+  write:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Writing leases lets an attacker hijack or corrupt leader-election/heartbeat state, stalling or disrupting controllers and HA components that depend on lease coordination.

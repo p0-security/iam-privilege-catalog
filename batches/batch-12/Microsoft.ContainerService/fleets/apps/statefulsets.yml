@@ -1,0 +1,19 @@
+name: Kubernetes StatefulSets (Fleet)
+description: A Kubernetes StatefulSet is a workload controller managing stateful application pods with stable identities and attached persistent volumes, propagated across Azure Kubernetes Fleet Manager member clusters.
+scope: HIGH
+notes: StatefulSets back stateful services (e.g. databases) with persistent storage and run under pod service-account identities, making them a high-value target on production clusters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting StatefulSets removes stateful workload controllers across the fleet, destroying running infrastructure and disrupting the backing services (persistent-volume retention is policy-dependent).
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating StatefulSets runs attacker-controlled containers with attached persistent volumes (workload hijack and access to stateful data), assumes pod service-account identities for lateral movement, and alters operational workload configuration.

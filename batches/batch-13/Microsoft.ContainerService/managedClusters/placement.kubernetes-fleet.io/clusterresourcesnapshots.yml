@@ -1,0 +1,18 @@
+name: Fleet ClusterResourceSnapshot
+description: A Kubernetes Fleet Manager ClusterResourceSnapshot is an immutable captured set of the Kubernetes resource manifests selected by a ClusterResourcePlacement for propagation to member clusters.
+scope: HIGH
+notes: Snapshots record the actual resource manifests (workload/config definitions) that the fleet propagates.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a snapshot removes the manifest record that active placements/bindings reconcile against, disrupting propagation and the workloads it represents across the fleet.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Writing a snapshot alters the captured resource manifests propagated to member clusters, allowing injection of attacker-controlled workloads (hijack) and tampering with the deployed configuration (manipulation).

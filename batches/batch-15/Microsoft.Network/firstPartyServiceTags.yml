@@ -1,0 +1,18 @@
+name: First party service tags
+description: A first party service tag is a named, Microsoft-managed grouping of IP address prefixes that NSG/firewall rules can reference to express allow/deny rules against well-known Azure service ranges.
+scope: HIGH
+notes: Reference network metadata used to author firewall/NSG rules; security-relevant for a single network function when writable.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:network
+    notes: Deleting a service tag removes an IP-prefix definition that firewall/NSG rules depend on, breaking rule resolution (destruction:network) and disrupting the filtering defense built on it (destruction:defense).
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating a service tag changes the IP set that firewall/NSG rules resolve to, so referencing rules can be silently broadened to permit attacker traffic, weakening defenses (destruction:defense) and manipulating network policy (impact:manipulation).

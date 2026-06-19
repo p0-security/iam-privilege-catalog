@@ -1,0 +1,12 @@
+name: Logic App workflow run action
+description: A workflow run action represents a single executed step within a Logic App run, including links to that step's inputs and outputs.
+scope: MEDIUM
+notes: Action inputs/outputs commonly carry the actual sensitive business data, API responses, and payloads flowing between workflow steps.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+    notes: Expression traces reveal the evaluated runtime values of an action's expressions, exposing concrete intermediate data (and potentially secrets) flowing through the workflow.

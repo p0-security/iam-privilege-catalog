@@ -1,0 +1,17 @@
+name: Network Verifier analysis run
+description: An Analysis Run is an execution and its results for a Network Verifier analysis intent, reporting whether traffic paths are reachable and which rules allow/deny them. It is diagnostic result data.
+scope: MEDIUM
+notes: Run results detail reachability, allowed/denied flows, and topology, which is high-value network reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an analysis run removes verification result records; impact is confined to diagnostic data, not live network resources.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating an analysis run triggers a metered network-verification job (spend) and alters/produces diagnostic run state and results.

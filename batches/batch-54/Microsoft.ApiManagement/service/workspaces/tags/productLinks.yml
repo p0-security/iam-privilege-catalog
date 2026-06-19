@@ -1,0 +1,16 @@
+name: APIM workspace Tag-product links
+description: Tag-product links are association records within an API Management workspace that map tags to specific products for categorization and filtering.
+scope: LOW
+notes: Non-sensitive relationship metadata; modifying or reading it does not alter the products themselves or expose their configuration or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deletes a tag-product link, removing association metadata without affecting the underlying products or tags.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a tag-product link, altering association metadata that categorizes products without modifying the products themselves.

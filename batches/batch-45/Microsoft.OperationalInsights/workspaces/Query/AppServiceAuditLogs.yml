@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (AppServiceAuditLogs)
+description: A queryable table within an Azure Log Analytics workspace holding App Service audit records (e.g., FTP/Kudu publishing and access activity).
+scope: MEDIUM
+notes: Monitoring/diagnostics data; audit records disclose who accessed the service and how, and reveal what activity is monitored.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read exports App Service access/publishing audit records and reveals audit-logging coverage useful for reconnaissance.

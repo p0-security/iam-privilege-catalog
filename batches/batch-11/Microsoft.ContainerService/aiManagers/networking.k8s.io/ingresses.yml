@@ -1,0 +1,19 @@
+name: Kubernetes Ingresses
+description: Kubernetes Ingress objects define L7 HTTP(S) routing rules (hostnames, paths, TLS, backend services) that expose cluster services externally.
+scope: HIGH
+notes: Ingress objects define the cluster's external attack surface and public-facing routing for a single application/function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting Ingresses removes the external routing fronting services, severing public access and causing denial of service to dependent applications.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+      - impact:defacement
+    notes: Creating/updating Ingresses lets an attacker reroute or expose internal services, hijack host/path rules to attacker-controlled backends, and alter public-facing endpoints (defacement).

@@ -1,0 +1,17 @@
+name: Firewall policy rule collection group draft
+description: A staged (not-yet-deployed) draft of an Azure Firewall policy rule collection group, holding pending network/application firewall rule changes before they are published to the live firewall policy.
+scope: HIGH
+notes: A draft is staged configuration only; it does not enforce traffic filtering until deployed, so its security impact is bounded to the prepared (not active) ruleset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deletes the staged firewall rule collection group draft, discarding pending configuration changes; the live enforced firewall policy is unaffected, so this tampers with staged operational config rather than removing an active defense.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creates or updates the firewall rule collection group draft, letting an attacker author permissive/weakened rules that tamper with the staged security configuration and, once deployed, undermine the Azure Firewall defense.

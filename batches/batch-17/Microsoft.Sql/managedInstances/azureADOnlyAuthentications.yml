@@ -1,0 +1,17 @@
+name: Managed instance Azure AD-only authentication policy
+description: The Azure AD-only authentication object on a SQL Managed Instance controls whether logins are restricted to Azure Active Directory (Entra ID) and local SQL password authentication is disabled.
+scope: HIGH
+notes: This is an authentication-enforcement control; its state determines whether weaker password-based SQL auth is permitted on the instance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting this object removes the enforcement requiring AAD-only authentication, re-permitting weaker SQL password logins and disabling an authentication defense.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Setting this object can disable AAD-only enforcement, re-enabling weaker SQL password authentication and degrading the instance's authentication defense posture.

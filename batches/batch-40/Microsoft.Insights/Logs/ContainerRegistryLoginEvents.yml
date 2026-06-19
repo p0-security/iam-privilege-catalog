@@ -1,0 +1,13 @@
+name: Log Analytics ContainerRegistryLoginEvents table
+description: The ContainerRegistryLoginEvents table holds Azure Container Registry authentication event log records (login identities, source IPs, outcomes) ingested into a Log Analytics workspace.
+scope: MEDIUM
+notes: Audit/monitoring data that records which principals and source addresses authenticate to the registry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading the table exports ACR authentication log content and enumerates the identities/principals that authenticate to the registry, revealing accounts to target.

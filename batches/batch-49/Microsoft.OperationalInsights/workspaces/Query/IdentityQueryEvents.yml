@@ -1,0 +1,13 @@
+name: Log Analytics IdentityQueryEvents table
+description: A log table in a Log Analytics workspace storing identity/directory query event telemetry (e.g. AD/LDAP/SAMR lookups captured by Defender for Identity).
+scope: MEDIUM
+notes: Directory-query telemetry exposing accounts and objects being enumerated.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading the table exfiltrates directory-query telemetry and surfaces account/object identities involved in directory lookups.

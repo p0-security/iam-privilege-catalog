@@ -1,0 +1,16 @@
+name: Kubernetes ComponentStatuses (AKS)
+description: Kubernetes ComponentStatus is a deprecated, system-computed read-only object reporting the health of control-plane components (etcd, scheduler, controller-manager) of an AKS managed cluster.
+scope: LOW
+notes: ComponentStatus is a derived/ephemeral status resource holding no sensitive data or credentials; writes and deletes are largely inert against this system-managed object.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Removes control-plane component status records; low practical effect since these are system-regenerated derived status objects.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Nominally permits altering reported component health state; impact is minimal because ComponentStatus is effectively a read-only computed object.

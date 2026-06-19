@@ -1,0 +1,18 @@
+name: Resource Guard Proxy
+description: A ResourceGuard proxy binds a backup vault to a ResourceGuard, enforcing Multi-User Authorization (MUA) so critical destructive backup operations require additional approval.
+scope: HIGH
+notes: This binding is the defense that protects backups from malicious deletion/tampering; its presence/absence reveals the vault's anti-ransomware posture.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting the ResourceGuard proxy removes the MUA enforcement from the vault, disabling the anti-ransomware defense and tearing down the access-control gate that would otherwise deny destructive backup operations.
+  write:
+    risks:
+      - impact:manipulation
+    scope: MEDIUM
+    notes: Creating/updating a ResourceGuard proxy alters the MUA protection binding on the vault; in isolation it adds protection but manipulates the security configuration governing destructive backup operations.

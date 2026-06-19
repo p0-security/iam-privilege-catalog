@@ -1,0 +1,23 @@
+name: Microsoft Sentinel cases (incidents)
+description: Cases are Microsoft Sentinel incident records aggregating security alerts, affected entities, comments, and analyst findings from the SOC investigation workflow.
+scope: MEDIUM
+notes: Cases reveal whether and what an attacker's activity has been detected, and embed log-derived alert evidence.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting a case destroys the incident record and its alert/evidence linkage, erasing detection of attacker activity and disrupting incident response.
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading a case exposes incident details, alerts, and log-derived evidence, letting an attacker learn what defenders have detected and exfiltrate the associated security findings.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Updating a case lets an attacker close, downgrade, or reclassify an active incident and tamper with its data, suppressing the SOC response to their activity.

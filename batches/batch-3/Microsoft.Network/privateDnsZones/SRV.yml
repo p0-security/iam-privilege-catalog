@@ -1,0 +1,17 @@
+name: Private DNS SRV record set
+description: An SRV (service-location) record set within an Azure Private DNS zone, which advertises the host and port of internal services (e.g. LDAP, SIP, Kerberos) for resources in linked virtual networks.
+scope: HIGH
+notes: SRV records direct service-discovery clients to host/port endpoints; manipulating them can redirect client traffic to attacker-controlled endpoints.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the SRV record set breaks internal service discovery, causing denial of service for dependent applications.
+  write:
+    risks:
+      - impact:manipulation
+      - takeover:domain
+    notes: Creating/replacing SRV records redirects internal service discovery to attacker-controlled hosts/ports, manipulating resolution and arbitrarily routing client traffic for that name.

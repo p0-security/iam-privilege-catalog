@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (DatabricksLakeviewConfig)
+description: A Log Analytics workspace query table holding ingested log/telemetry records for a specific data type. Reading it (a data-plane action) returns the table's collected log content via KQL query.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; sensitivity is MEDIUM. Content can include sensitive operational identifiers but is not a primary production data store, key vault, or identity system.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads Databricks Lakeview dashboard-configuration telemetry, allowing export of config/monitoring log data.

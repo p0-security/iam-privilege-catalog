@@ -1,0 +1,13 @@
+name: Log Analytics table data (Azure Data Share logs)
+description: A Log Analytics workspace table (MicrosoftDataShareReceivedSnapshotLog) holding Azure Data Share inbound (received) snapshot activity logs in Azure Monitor.
+scope: MEDIUM
+notes: Monitoring telemetry exposing inbound data-sharing activity and dataset identifiers; reveals data-flow relationships, not the shared data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports inbound data-sharing snapshot log records (exfiltration:logs) and enumerates received datasets/sharing relationships (discovery:logs).

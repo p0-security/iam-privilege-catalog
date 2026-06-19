@@ -1,0 +1,18 @@
+name: Fleet managed namespaces
+description: A fleet managed namespace is an Azure Kubernetes Fleet Manager object defining a Kubernetes namespace configuration (placement, quotas, labels, isolation boundaries) that is propagated and reconciled across member clusters of the fleet.
+scope: HIGH
+notes: Fleet managed namespaces govern multi-cluster workload tenancy and isolation boundaries; changes propagate across member clusters, so the asset supports a single organizational function spanning the fleet.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a fleet managed namespace removes the namespace and its propagated workloads/resources across member clusters, destroying infrastructure and disrupting the services running in it.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Creating/updating a fleet managed namespace alters multi-cluster tenancy boundaries, quotas, and placement, and stands up an attacker-controlled namespace across member clusters in which workloads can be scheduled.

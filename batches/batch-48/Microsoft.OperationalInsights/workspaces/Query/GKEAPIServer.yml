@@ -1,0 +1,12 @@
+name: Log Analytics workspace table data (GKEAPIServer)
+description: A Log Analytics workspace query table holds log/telemetry records ingested into the Azure Monitor workspace; reading it returns the actual stored log content for that table.
+scope: MEDIUM
+notes: Monitoring/diagnostics data tier; ingested log records can contain sensitive operational identifiers, IPs, request details, and audit trails.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read of the GKEAPIServer table, exporting ingested Kubernetes API-server control-plane logs that may reveal cluster operations and request details.

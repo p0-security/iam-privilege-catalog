@@ -1,0 +1,17 @@
+name: Network Manager security user configurations
+description: A security user configuration within an Azure Virtual Network Manager defines a baseline set of NSG-like security rules applied to managed network groups. Unlike admin rules, user rules can be overridden by resource-level NSGs.
+scope: HIGH
+notes: A baseline network defense layer; weaker than admin rules because resource owners' NSGs can override it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a security user configuration removes the baseline NSG-like security rule set applied across managed network groups, disabling a baseline network defense layer.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating a security user configuration alters the baseline NSG-like security rules applied to managed network groups, weakening or manipulating the network defense posture (effect is bounded since NSGs can override these rules).

@@ -1,0 +1,13 @@
+name: SQL Database current sensitivity labels
+description: The currently applied data-classification sensitivity labels on columns of an Azure SQL (server) database.
+scope: MEDIUM
+notes: Applied labels feed auditing and label-based data-protection/DLP controls; they map the location of sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Batch-updating the applied labels lets an attacker strip or falsify column classifications, manipulating operational metadata and weakening audit/DLP detection tied to those labels.

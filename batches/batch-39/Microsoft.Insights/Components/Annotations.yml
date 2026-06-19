@@ -1,0 +1,16 @@
+name: Application Insights annotations
+description: Application Insights annotations are deployment/release/event markers overlaid on the telemetry timeline of an Application Insights component, used operationally to correlate metrics and incidents with releases.
+scope: MEDIUM
+notes: Annotations are operational monitoring metadata, not application data or secrets; sensitivity is moderate (monitoring/diagnostics).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:metadata
+    notes: Deletes an annotation marker, removing operational metadata that analysts use to correlate telemetry with deployments, which can obscure incident timelines.
+  Write:
+    risks:
+      - impact:manipulation
+    notes: Creates/alters annotation markers, letting an attacker inject misleading deployment context to confuse incident correlation; limited direct impact.

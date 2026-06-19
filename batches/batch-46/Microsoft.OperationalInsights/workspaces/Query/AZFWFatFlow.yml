@@ -1,0 +1,14 @@
+name: Log Analytics workspace query table (AZFWFatFlow)
+description: A Log Analytics workspace query table is a data-plane view of a specific log table inside an Azure Monitor / Log Analytics workspace. Reading it returns the actual row-level log records ingested into that table.
+scope: MEDIUM
+notes: Azure Firewall fat-flow (top-flow) logs expose network traffic records including source/destination IPs, ports, and traffic volumes, useful for network reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+      - discovery:network
+    notes: Returns Azure Firewall top/fat-flow log records (source/dest IPs, ports, volumes), exporting network flow logs and enabling network-topology/traffic reconnaissance.

@@ -1,0 +1,19 @@
+name: Kubernetes RuntimeClasses (fleet member)
+description: Kubernetes RuntimeClass objects are cluster-scoped resources selecting the container runtime handler (e.g. standard runc vs sandboxed gVisor/Kata) and node scheduling parameters that pods reference.
+scope: MEDIUM
+notes: RuntimeClasses govern container isolation; steering workloads to a less-isolated runtime weakens the sandbox defense.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting RuntimeClasses removes runtime handler definitions pods reference, preventing scheduling of dependent workloads and disrupting operations.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    scope: HIGH
+    notes: Writing RuntimeClasses lets an attacker define or alter runtime handlers, swapping a sandboxed runtime for a less-isolated one to weaken container isolation defenses that pods then inherit.

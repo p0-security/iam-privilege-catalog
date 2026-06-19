@@ -1,0 +1,13 @@
+name: Log Analytics query table (AirflowDagProcessingLogs)
+description: A Log Analytics workspace query table holding Apache Airflow DAG-processing log records (e.g. from Azure Data Factory Managed Airflow). This data-plane permission returns the stored log rows via KQL query.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data is MEDIUM scope; pipeline logs may surface configuration or parameter values.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading the table exports Airflow DAG-processing log records (exfiltration:logs) and enumerates logged pipeline activity (discovery:logs).

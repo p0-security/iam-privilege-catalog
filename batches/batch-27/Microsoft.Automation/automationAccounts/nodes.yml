@@ -1,0 +1,18 @@
+name: Azure Automation DSC nodes
+description: Desired State Configuration (DSC) node registrations within an Azure Automation account, representing the machines (VMs/servers) onboarded to and managed by Automation State Configuration for ongoing desired-state enforcement.
+scope: HIGH
+notes: DSC nodes are a configuration-management control plane over a fleet of managed machines; writing them effectively pushes configuration/code that executes on those hosts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting/unregistering a DSC node removes the machine's configuration-enforcement binding, destroying the node-management state and halting ongoing desired-state enforcement on that resource.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating a DSC node assignment binds a managed machine to an attacker-chosen node configuration, altering the desired state enforced on the host and effectively running configuration/code on that node for lateral reach onto managed compute.

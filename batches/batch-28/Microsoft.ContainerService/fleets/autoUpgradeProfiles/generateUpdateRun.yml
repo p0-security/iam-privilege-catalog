@@ -1,0 +1,13 @@
+name: AKS Fleet auto-upgrade profile
+description: An AKS Fleet auto-upgrade profile defines the automated Kubernetes/node-image upgrade orchestration policy (channel, target versions, schedule) that governs how member clusters in a fleet are upgraded.
+scope: HIGH
+notes: Controls lifecycle/upgrade orchestration across multiple member clusters; mutating it can force or stall version rollouts fleet-wide, but it holds no secrets or workload data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Generating an update run from the profile triggers a fleet-wide upgrade rollout that mutates and rolls/reboots member-cluster versions, altering operational state and risking disruption of running workloads.

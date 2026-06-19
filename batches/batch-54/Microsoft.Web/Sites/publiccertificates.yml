@@ -1,0 +1,16 @@
+name: Web App public certificates
+description: Public certificates (public-key component only, no private key) loaded into a web app's trust store for outbound TLS trust/validation.
+scope: MEDIUM
+notes: These hold no private cryptographic material; they are supporting trust configuration for a single app.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes a public certificate the app relies on for TLS trust, removing supporting configuration that can break the app's outbound TLS/authentication (DoS-like infra destruction); no private key is involved.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a public certificate in the app's trust store; an attacker can plant or replace a trusted public cert to manipulate the app's outbound TLS-trust configuration. No private key is installed, so no crypto-exfil or persistence headline.

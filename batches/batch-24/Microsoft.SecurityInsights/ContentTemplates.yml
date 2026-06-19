@@ -1,0 +1,17 @@
+name: Microsoft Sentinel content templates
+description: Microsoft Sentinel content hub templates package deployable SIEM security content such as analytics/detection rules, hunting queries, workbooks, and playbooks within a Log Analytics workspace.
+scope: MEDIUM
+notes: This content constitutes the SIEM's detection and automation logic; altering or removing it directly affects defensive coverage and incident response.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting installed content templates removes packaged detection content (analytics rules, hunting queries, playbooks) from Sentinel, disabling defensive coverage and aiding evasion.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Installing/updating content templates writes detection and automation content into the SIEM, letting an attacker inject, alter, or overwrite analytics rules and playbooks to weaken or subvert detection logic.

@@ -1,0 +1,17 @@
+name: Firewall Policy Draft
+description: A staged (uncommitted) draft of an Azure Firewall Policy, holding the pending network/application firewall rule collections (allow/deny rules, NAT, threat-intel config) before they are deployed to the live policy.
+scope: HIGH
+notes: Holds the network defense ruleset; reveals or alters firewall filtering posture.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a firewall policy draft discards staged firewall security-rule configuration, disrupting the intended defensive policy before it can be applied.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating the draft stages permissive/weakened firewall rules that, once deployed, degrade the network defense and alter operational filtering configuration.

@@ -1,0 +1,17 @@
+name: Fleet ServiceImport
+description: A Kubernetes Fleet multi-cluster-services (MCS) ServiceImport CRD that represents a service exported from another member cluster being made reachable into a local member cluster across the fleet network.
+scope: HIGH
+notes: Defines cross-cluster service reachability; manipulating it affects the multi-cluster networking fabric of a single fleet.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a ServiceImport severs cross-cluster service reachability, breaking the multi-cluster network path and denying dependent workloads access.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Writing a ServiceImport wires a cross-cluster service into a member cluster, granting reach to services on other fleet clusters and manipulating multi-cluster routing config.

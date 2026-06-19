@@ -1,0 +1,12 @@
+name: Network interface IP configuration
+description: A NIC IP configuration is the binding of a private/public IP, subnet, and load-balancer/backend association within a network interface.
+scope: HIGH
+notes: It is a sub-resource of a NIC describing IP-level network placement of a single workload.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joins a NIC IP configuration to a subnet, public IP, or load balancer backend, placing the interface onto a target network to reach or expose additional resources.

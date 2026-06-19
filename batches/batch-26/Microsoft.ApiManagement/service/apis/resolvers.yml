@@ -1,0 +1,17 @@
+name: APIM GraphQL resolvers
+description: GraphQL resolvers in Azure API Management define how individual GraphQL schema fields are resolved to backend data sources (HTTP/Cosmos/SQL endpoints) for an API fronted by the APIM gateway.
+scope: HIGH
+notes: Resolver definitions are gateway control-plane configuration describing API-to-backend wiring; they do not themselves hold secrets but reveal backend topology for a production API gateway.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:dos
+    notes: Per the authoritative description this operation 'Deletes the policy configuration at the Api', removing the gateway's enforced request-processing/security policy (auth, JWT validation, rate-limiting, IP filtering) and breaking resolver behavior for that API function.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a GraphQL resolver lets an attacker re-point field resolution to an attacker-controlled or unintended backend and alter the data the production API serves, manipulating operational request/response behavior.

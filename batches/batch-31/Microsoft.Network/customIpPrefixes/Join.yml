@@ -1,0 +1,12 @@
+name: Custom IP prefixes
+description: A Custom IP Prefix (BYOIP) is an Azure resource representing a customer-owned public IP address range that Azure provisions and advertises on the organization's behalf, from which public IP addresses can be allocated.
+scope: HIGH
+notes: These resources govern an organization's owned public IP address space; deleting or onboarding ranges affects reachability of services that depend on those addresses.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: The join action lets a resource (e.g. a public IP prefix) attach to and derive public IPs from the BYOIP range, binding attacker-controllable resources onto the organization's owned address space to expose/route services on that network.

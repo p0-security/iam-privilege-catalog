@@ -1,0 +1,23 @@
+name: Connector (on-premises data) gateway
+description: An on-premises data gateway resource used by App Service / Logic Apps / Power Platform connectors to bridge cloud workflows to internal on-premises data sources and services.
+scope: MEDIUM
+notes: Supporting integration component that brokers connectivity between cloud services and internal resources; a single integration function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: A generic action on a connector gateway can alter the gateway's operational configuration/state that bridges cloud connectors to backend data sources, manipulating operational connectivity.
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the gateway tears down the integration bridge, destroying the infrastructure and denying service to all connections/workflows that route through it.
+    name: Connector Gateway
+  write:
+    risks:
+      - impact:manipulation
+    notes: Create/update mutates the gateway's connectivity configuration, letting an attacker reconfigure or repoint how the bridge brokers backend connections.
+    name: Connector Gateway

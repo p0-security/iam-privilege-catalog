@@ -1,0 +1,19 @@
+name: Kubernetes daemonsets (Arc-connected cluster)
+description: Kubernetes DaemonSet objects in an Azure Arc-connected cluster; controllers that ensure a copy of a pod runs on every (or selected) node, accessed via the cluster data plane.
+scope: HIGH
+notes: Workload controllers expose container images, mounted volumes/host paths, environment references, and node placement; controlling them means running code on cluster nodes within a single organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting daemonsets removes node-level workloads across all nodes, destroying running infrastructure and disrupting the services those pods provide.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating a daemonset schedules attacker-controlled containers on every node (resource hijacking), can mount host paths or use pod service-account tokens for lateral movement, and tampers with running workload configuration.

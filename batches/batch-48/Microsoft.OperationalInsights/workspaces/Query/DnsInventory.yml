@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (DnsInventory)
+description: A specific table inside an Azure Monitor Log Analytics workspace; this resource type controls data-plane query access to the DnsInventory table, which catalogs collected DNS server/zone/record configuration.
+scope: MEDIUM
+notes: Monitoring asset; the inventory discloses DNS infrastructure and network topology. MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Data-plane read returning the DNS inventory; exports the log content and enumerates DNS servers/zones, disclosing network DNS infrastructure.

@@ -1,0 +1,13 @@
+name: Azure Monitor Log Analytics table (Data Factory SSIS package executable statistics)
+description: A Log Analytics table holding Azure Data Factory SSIS package executable-statistics records. This data-plane read returns ETL package execution metrics and performance telemetry.
+scope: MEDIUM
+notes: Execution statistics reveal the structure and performance of data-pipeline packages, supporting reconnaissance of ETL infrastructure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading this table exports SSIS package execution metrics and reveals package structure and performance details.

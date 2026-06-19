@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (MDPResourceLog)
+description: A single named table within an Azure Log Analytics (Operational Insights) workspace, queried via the data plane. This table stores Managed DevOps Pools resource log telemetry.
+scope: MEDIUM
+notes: Resource logs are operational/diagnostic telemetry about CI/CD pool infrastructure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading this table exports Managed DevOps Pools resource log records, disclosing CI/CD pool operational telemetry.

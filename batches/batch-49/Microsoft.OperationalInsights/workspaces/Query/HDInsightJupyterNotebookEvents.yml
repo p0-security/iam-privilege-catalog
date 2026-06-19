@@ -1,0 +1,13 @@
+name: Log Analytics HDInsight query table (Jupyter notebook events)
+description: A Log Analytics workspace query-scoped table holding HDInsight Jupyter notebook event records ingested via diagnostic settings. The data-plane read returns the stored rows.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset tier. Notebook event logs can embed code/command fragments and interactive-session detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading this table exports recorded Jupyter notebook activity (potentially including executed code/command content) and lets the holder inventory the logged session data.

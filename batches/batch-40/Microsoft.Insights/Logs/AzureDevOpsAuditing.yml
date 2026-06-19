@@ -1,0 +1,13 @@
+name: Azure DevOps auditing table
+description: A Log Analytics / Azure Monitor table holding Azure DevOps audit log records (repository, pipeline, and permission activity). This is a monitoring/diagnostics data-plane asset.
+scope: MEDIUM
+notes: DevOps audit records reveal CI/CD operations, repository/project structure, and identity activity of high reconnaissance value.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read of the AzureDevOpsAuditing table exports DevOps audit records revealing pipeline/repo and identity activity for reconnaissance.

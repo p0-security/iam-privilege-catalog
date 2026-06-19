@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (EGNSuccessfulMqttConnections)
+description: A specific log table within an Azure Log Analytics workspace recording Event Grid Namespace successful MQTT connection events; this data-plane read returns the stored records.
+scope: MEDIUM
+notes: Monitoring/diagnostics data (MEDIUM). Content inventories active MQTT clients and their connection metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading this table exports successful-MQTT-connection telemetry (exfiltration:logs) and enumerates active-client connection log entries (discovery:logs).

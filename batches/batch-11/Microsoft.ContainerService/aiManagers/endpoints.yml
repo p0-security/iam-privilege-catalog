@@ -1,0 +1,18 @@
+name: Kubernetes Endpoints (AKS aiManagers)
+description: The Kubernetes Endpoints resource within an AKS aiManagers cluster, mapping each Service to the backing pod IP:port sets that receive its traffic.
+scope: HIGH
+notes: Reveals and controls internal service routing and network topology for the cluster's workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting Endpoints removes the Service-to-pod backend mapping, breaking service routing and causing denial of service for the affected workloads.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Writing Endpoints lets an attacker repoint a Service's backend IP:port set to attacker-controlled targets, hijacking/intercepting in-cluster traffic and reaching additional network resources.

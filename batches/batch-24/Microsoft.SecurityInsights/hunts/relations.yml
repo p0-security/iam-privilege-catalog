@@ -1,0 +1,17 @@
+name: Sentinel hunt relations
+description: Hunt relations in Microsoft Sentinel are the links connecting a threat-hunting investigation to its related entities, bookmarks, and findings. They capture the scope and direction of active SOC investigations.
+scope: MEDIUM
+notes: Investigation/monitoring artifacts inside a Sentinel workspace; sensitive to defenders but not production data or live detections.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deleting hunt relations erases the evidence-to-hunt linkages an in-progress investigation relies on, degrading the SOC's threat-hunting/IR capability and tampering with the analyst's view.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating hunt relations lets an attacker inject misleading links into a SOC threat hunt, polluting or steering an analyst's incident-response workflow.

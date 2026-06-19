@@ -1,0 +1,18 @@
+name: Azure Load Balancer
+description: An Azure Load Balancer distributes inbound traffic across backend pool members (VMs/NICs) using frontend IP configurations, health probes, and load-balancing rules.
+scope: HIGH
+notes: Fronts production services for a single organizational function; reconfiguration can redirect or expose backend traffic and deletion takes the fronted service offline.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a load balancer removes the traffic-distribution endpoint fronting a production service, causing denial of service.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+      - impact:dos
+    notes: Creating/updating a load balancer lets an attacker repoint backend pools, frontends, or rules to attacker-controlled targets or expose services, redirecting production traffic and disrupting availability.

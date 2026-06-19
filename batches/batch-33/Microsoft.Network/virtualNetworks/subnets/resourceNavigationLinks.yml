@@ -1,0 +1,16 @@
+name: Resource navigation link
+description: An internal control-plane marker recording which resource is linked into (associated with) a subnet.
+scope: HIGH
+notes: System-managed linkage metadata that records subnet-to-resource associations; not itself a reachability grant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a resource navigation link removes the subnet-to-resource association, a destructive network-configuration change that can disrupt the linked service's network integration.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a resource navigation link alters the subnet-to-resource association metadata, manipulating operational network configuration.

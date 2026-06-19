@@ -1,0 +1,13 @@
+name: Log Analytics workspace DHAppReliability table
+description: A Device Health / Desktop Analytics advanced-hunting table (DHAppReliability) surfaced through a Log Analytics workspace, holding application reliability and crash telemetry.
+scope: MEDIUM
+notes: Operational/monitoring telemetry revealing the installed application estate and stability. Confidential but not a primary production data store, hence MEDIUM asset sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading this table exports application reliability telemetry, revealing installed applications and their stability for reconnaissance.

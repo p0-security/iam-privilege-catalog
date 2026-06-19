@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (DCRLogTroubleshooting)
+description: A per-table data-plane read permission on an Azure Log Analytics workspace, scoped to a single named table. DCRLogTroubleshooting holds Data Collection Rule troubleshooting diagnostic records.
+scope: MEDIUM
+notes: Log Analytics tables store collected monitoring telemetry; this table is low-sensitivity ingestion-pipeline diagnostics, but access remains monitoring-grade (MEDIUM).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading this table exports DCR troubleshooting diagnostics, revealing log-collection configuration and pipeline state; mostly low-value telemetry but still log content.

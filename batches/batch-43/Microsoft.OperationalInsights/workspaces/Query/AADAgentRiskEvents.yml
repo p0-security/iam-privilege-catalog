@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (Entra ID agent risk events)
+description: A Log Analytics workspace data-plane table storing Entra ID agent identity risk-detection events. Read access returns the table's log records.
+scope: MEDIUM
+notes: Identity risk-event telemetry exposes which agent identities are flagged as risky, useful for selecting compromise targets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading the table exports identity risk-detection records (exfiltration:logs) and enumerates at-risk agent identities as compromise targets (discovery:account).

@@ -1,0 +1,13 @@
+name: Web App site extensions
+description: "Site (Kudu/SCM) extensions installed on an Azure App Service web app: add-on tooling and code components that run inside the app's environment."
+scope: HIGH
+notes: Site extensions execute code within the App Service worker under the app's identity; they are a code-deployment and runtime-tooling surface for a production web app.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+    notes: Invoking site-extension (Kudu/SCM) APIs runs extension functionality such as command/console/file operations in the app's runtime and identity context, enabling lateral movement and manipulation of app state.

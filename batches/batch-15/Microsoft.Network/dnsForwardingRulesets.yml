@@ -1,0 +1,17 @@
+name: DNS Forwarding Ruleset
+description: An Azure Private DNS Resolver DNS Forwarding Ruleset is the container that holds conditional DNS forwarding rules governing how outbound DNS queries from linked virtual networks are resolved.
+scope: HIGH
+notes: Controls internal/private name resolution for production VNets; affects a single network function rather than public-facing domains.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the ruleset tears down conditional DNS forwarding for all linked VNets, breaking name resolution and disrupting dependent services.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the ruleset alters the conditional-forwarding configuration for linked VNets, manipulating operational DNS resolution behavior.

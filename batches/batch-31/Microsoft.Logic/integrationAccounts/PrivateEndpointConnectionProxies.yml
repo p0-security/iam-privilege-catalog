@@ -1,0 +1,17 @@
+name: Integration Account private endpoint connection proxies
+description: Private endpoint connection proxy sub-resources of a Logic Apps integration account, representing the private-link connectivity proxies that broker private network access to the integration account.
+scope: HIGH
+notes: Controls private network reachability of the integration account; supporting network connectivity infrastructure for a single integration function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting private endpoint connection proxies removes network connectivity components, disrupting private access to the service (DoS-like effect).
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating private endpoint connection proxies can establish/approve private network connectivity to the integration account, enabling network movement and altering network exposure configuration.

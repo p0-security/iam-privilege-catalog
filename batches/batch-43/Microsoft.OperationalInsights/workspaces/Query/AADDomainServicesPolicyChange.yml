@@ -1,0 +1,13 @@
+name: Log Analytics AADDomainServicesPolicyChange table
+description: A Log Analytics workspace data-plane table holding Azure AD Domain Services policy-change audit events (security/group-policy modifications).
+scope: MEDIUM
+notes: Monitoring/diagnostics telemetry; MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:policy
+    notes: Reading this table exports records of security/group-policy changes, revealing access-control policy configuration history and potential weak points.

@@ -1,0 +1,13 @@
+name: Log Analytics MAOfficeAddinEntityHealth table
+description: A Log Analytics workspace table holding Microsoft Office add-in entity-health telemetry records. This is a data-plane log table within Azure Monitor Log Analytics.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; add-in health telemetry can reveal deployed software inventory.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns Office add-in entity-health telemetry, exporting and enumerating application health records.

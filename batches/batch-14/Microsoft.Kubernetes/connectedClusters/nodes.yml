@@ -1,0 +1,18 @@
+name: Azure Arc connected-cluster Kubernetes nodes
+description: Node objects in the Kubernetes data plane of an Azure Arc-enabled (connected) cluster, representing the worker hosts that run cluster workloads, including their capacity, labels, taints, addresses, and runtime/kernel versions.
+scope: HIGH
+notes: These are data-plane (isDataAction) RBAC permissions on the Kubernetes API itself; they manage cluster-level infrastructure objects rather than individual application data, but node control governs scheduling and availability for all hosted workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting node objects removes compute capacity from the cluster and evicts the workloads scheduled on those nodes, destroying infrastructure and denying service.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Creating/updating node objects lets an attacker cordon/uncordon, taint, or relabel nodes to manipulate scheduling and operational cluster state, disrupting workloads across the cluster.

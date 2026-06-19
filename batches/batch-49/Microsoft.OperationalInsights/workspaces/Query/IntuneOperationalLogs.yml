@@ -1,0 +1,12 @@
+name: Log Analytics IntuneOperationalLogs table
+description: A log table in a Log Analytics workspace storing Intune operational/enrollment event telemetry from device management.
+scope: MEDIUM
+notes: Operational device-management telemetry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading the table exfiltrates Intune operational telemetry reflecting device-management activity.

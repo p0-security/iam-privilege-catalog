@@ -1,0 +1,12 @@
+name: Key Vault certificate
+description: An Azure Key Vault certificate is a managed X.509 certificate object that bundles a private key, the certificate (public) material, and an issuance/lifecycle policy. It is a credential used by applications and services for TLS, signing, and authentication.
+scope: CRITICAL
+notes: Certificates contain private key material; compromise enables impersonation/MITM of dependent services. Vaults are CRITICAL-sensitivity assets per the scope guide.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Recovers a soft-deleted certificate, reversing a prior delete and restoring the certificate/key to active state, altering the vault's operational set of trusted credentials.

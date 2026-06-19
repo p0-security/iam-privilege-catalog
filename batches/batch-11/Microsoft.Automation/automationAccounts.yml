@@ -1,0 +1,18 @@
+name: Azure Automation Account
+description: An Azure Automation account is the top-level container for runbooks, schedules, assets (variables, credentials, certificates), DSC/hybrid-worker registration, and an optional managed/Run As identity used to execute automation across the subscription.
+scope: HIGH
+notes: The account's managed/Run As identity often holds broad subscription roles, and the account holds runbook code and secret assets, making it a high-value automation control point.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deletes the entire account and all contained runbooks, schedules, and assets, removing automation infrastructure and causing denial of service to every workflow it drives.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating the account can attach or alter a system/user-assigned managed identity and reconfigure the automation environment, enabling acquisition of an identity for running code (lateral movement) and manipulation of automation configuration.

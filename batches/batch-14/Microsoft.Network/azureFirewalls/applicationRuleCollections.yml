@@ -1,0 +1,17 @@
+name: Azure Firewall application rule collection
+description: An Azure Firewall application rule collection holds the FQDN/application-layer filtering rules (allowed/denied FQDNs, protocols) that the firewall enforces for traffic to and from protected networks.
+scope: HIGH
+notes: Firewall rules are the network security defense and access-control policy for a single organizational function's network perimeter.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the application rule collection removes enforced FQDN/application filtering rules, disabling the network defense governing egress/application traffic.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating the application rule collection lets an attacker add permissive FQDN egress rules or weaken filtering, disabling the firewall defense and enabling exfiltration/egress paths.

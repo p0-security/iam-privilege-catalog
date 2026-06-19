@@ -1,0 +1,13 @@
+name: Container registry diagnostic settings
+description: The Azure Monitor diagnostic settings of an Azure Container Registry, controlling which logs and metrics are collected and where they are routed.
+scope: MEDIUM
+notes: Diagnostic settings are a detective/audit control; reading reveals the logging posture and writing can disable or redirect log collection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating diagnostic settings lets an attacker disable or redirect registry log collection, disrupting incident response and removing a detective defense.

@@ -1,0 +1,18 @@
+name: Sentinel incident tasks
+description: Microsoft Sentinel incident tasks are SOC investigation/remediation checklist items attached to security incidents, capturing analyst response steps, notes, and completion state. They are security-operations workflow records.
+scope: MEDIUM
+notes: Exposes SOC investigation methodology and response progress; useful to an attacker for understanding what defenders are tracking.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deleting incident tasks removes SOC response/investigation records on an active incident, disrupting and degrading the incident-response process and erasing analyst tracking artifacts.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Updating tasks lets an attacker alter SOC response checklists/notes (e.g. mark remediation complete or insert misleading content), tampering with the incident-response workflow to mislead defenders and impede response.

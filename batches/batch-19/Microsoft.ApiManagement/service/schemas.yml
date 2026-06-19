@@ -1,0 +1,16 @@
+name: API Management schemas
+description: API schema definitions registered in an API Management service, describing the data structures used to validate and shape API requests and responses.
+scope: MEDIUM
+notes: Configuration/metadata describing API surface; no secret or business data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting a schema removes API definition metadata the gateway relies on, which can break dependent API validation/processing.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a schema alters the operational API definition used by the gateway, manipulating how requests/responses are validated and processed.

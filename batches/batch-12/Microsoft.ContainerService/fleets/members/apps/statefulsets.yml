@@ -1,0 +1,19 @@
+name: Kubernetes StatefulSets (Fleet member)
+description: Kubernetes StatefulSet objects on an Azure Fleet member cluster; controllers managing ordered, stateful application pods with stable identities and persistent volume claim templates.
+scope: HIGH
+notes: Govern stateful workloads bound to persistent data; write access enables arbitrary container execution and identity inheritance, and reads expose stateful topology and config.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting StatefulSets (incl. DeleteCollection) removes stateful workload controllers and pods, disrupting the backed service.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating StatefulSets runs attacker-controlled stateful containers (which can mount existing persistent volumes), inherits service-account tokens for lateral movement, and manipulates running workloads.

@@ -1,0 +1,13 @@
+name: Log Analytics ConfigurationData table
+description: A Log Analytics workspace table inventorying current configuration state (installed software, services, daemons, files) of monitored machines. This is a data-plane read.
+scope: MEDIUM
+notes: Provides detailed per-host software/service inventory useful for targeting vulnerabilities; monitoring data, scope MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Exports the inventory of installed software, services, and configuration across monitored machines, enabling detailed infrastructure reconnaissance for targeting.

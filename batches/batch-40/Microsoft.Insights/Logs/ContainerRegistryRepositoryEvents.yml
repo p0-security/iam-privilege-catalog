@@ -1,0 +1,12 @@
+name: Log Analytics ContainerRegistryRepositoryEvents table
+description: The ContainerRegistryRepositoryEvents table holds Azure Container Registry repository activity log records (push/pull/delete with repository and image references) ingested into a Log Analytics workspace.
+scope: MEDIUM
+notes: Monitoring/diagnostic telemetry describing image repository activity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reading the table exports ACR repository activity log content, including image/repository names and push/pull/delete operations.

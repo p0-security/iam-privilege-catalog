@@ -1,0 +1,12 @@
+name: Azure Site Recovery protection containers
+description: ASR replication protection containers are logical groupings within a replication fabric that hold protected items (replicated VMs/machines) and define the DR replication topology in a Recovery Services vault.
+scope: MEDIUM
+notes: Containers define how production workloads are grouped and replicated for disaster recovery; they hold configuration, not the protected data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating protection containers alters the DR replication configuration governing which workloads are protected and how, manipulating recovery infrastructure settings.

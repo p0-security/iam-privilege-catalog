@@ -1,0 +1,18 @@
+name: Resource Management private link association
+description: A private link association binds an Azure Policy assignment to a Resource Management Private Link, controlling which networks may perform resource-management (control-plane) operations under that scope. It is a governance/network-isolation plumbing construct.
+scope: MEDIUM
+notes: Affects control-plane network reachability and policy enforcement scoping rather than holding data or credentials directly.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - destruction:network
+    notes: Deleting the association removes the policy-bound private-link linkage; this tears down both a governance binding and the network-isolation component tying resource management to a private link.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating or updating the association alters how resource management is bound to a private link, manipulating control-plane network/governance configuration and potentially extending private-network reachability of the management plane.

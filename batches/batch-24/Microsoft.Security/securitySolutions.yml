@@ -1,0 +1,17 @@
+name: Defender for Cloud security solutions
+description: A Defender for Cloud security solution is a control-plane record of a registered/integrated defensive product (e.g. partner WAF, next-gen firewall, anti-malware) connected to Microsoft Defender for Cloud.
+scope: MEDIUM
+notes: Represents supporting security infrastructure; the asset is the inventory and configuration of deployed defensive tooling for a subscription.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a registered security solution removes a deployed defensive mechanism/integration, disabling its protection and monitoring coverage to aid evasion.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating a security solution lets an attacker reconfigure or weaken a registered defensive integration, degrading detection/protection while altering the security configuration.

@@ -1,0 +1,12 @@
+name: Logic App workflow trigger
+description: A trigger for a Logic App workflow that defines how and when the workflow is invoked (schedule, conditions, type) and tracks its execution state.
+scope: MEDIUM
+notes: Triggers control workflow invocation; reading is reconnaissance, while run/reset/setState actions alter execution behavior of the automation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Resetting a trigger clears its checkpoint/state cursor, causing the workflow to reprocess or skip events, thereby manipulating operational processing behavior.

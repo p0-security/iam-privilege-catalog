@@ -1,0 +1,12 @@
+name: Log Analytics StorageMoverCopyLogsTransferred table
+description: A Log Analytics workspace table holding Azure Storage Mover transferred-copy logs (per-file transfer records, often including file paths/names). Reading it returns the stored log rows.
+scope: MEDIUM
+notes: Monitoring data is MEDIUM scope; may reveal file names/paths of migrated content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Exports per-file transfer records that can reveal file names, paths, and migration data structure.

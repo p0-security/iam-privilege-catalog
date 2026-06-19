@@ -1,0 +1,19 @@
+name: Web App Slot Sitecontainers
+description: Sitecontainers define the container image references and runtime configuration (image, registry, target port, authType, managed-identity binding) for a deployment slot of an Azure App Service web app.
+scope: HIGH
+notes: A single application's compute/deployment configuration; the passwordSecret is a write-only reference not returned on read.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a slot's sitecontainers tears down the container configuration the app depends on, destroying infrastructure and disrupting the hosted service.
+  Write:
+    risks:
+      - impact:hijack
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating sitecontainers lets an attacker point the slot at an arbitrary container image to run attacker-controlled code (hijack), rewrite the app's operational config (manipulation), and bind it to the app's managed identity to act as that identity (lateral).

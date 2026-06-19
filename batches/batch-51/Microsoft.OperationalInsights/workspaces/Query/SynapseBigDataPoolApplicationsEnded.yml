@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (SynapseBigDataPoolApplicationsEnded)
+description: A specific log table within an Azure Log Analytics (Operational Insights) workspace. Reading it via the query data-plane returns the collected diagnostic/telemetry log records stored in that table.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data is MEDIUM sensitivity; log contents can include operational identifiers, caller IPs, resource paths, and sometimes query text, but are not the primary production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Returns Synapse Spark big-data pool application completion logs that can reveal job details and execution metadata.

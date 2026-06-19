@@ -1,0 +1,16 @@
+name: Integration Account Map
+description: An Integration Account Map is an XSLT/Liquid transformation artifact stored in a Logic Apps integration account that defines how B2B/EDI and other messages are transformed as they flow through integration workflows.
+scope: MEDIUM
+notes: Supporting integration component; holds business transformation logic but is not a primary production data store or credential.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deletes a transformation map artifact, breaking workflows that depend on it.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or overwriting the transformation map alters how messages are transformed in dependent workflows, letting an attacker tamper with operational data processing.

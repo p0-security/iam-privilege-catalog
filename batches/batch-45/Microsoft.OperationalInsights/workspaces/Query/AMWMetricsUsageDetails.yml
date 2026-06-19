@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (AMWMetricsUsageDetails)
+description: A Log Analytics workspace query table holding ingested log records for a specific data type (here Azure Monitor Workspace metrics usage details). Reading the table returns the stored rows via the data plane.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset. Records are metric usage/ingestion telemetry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returning Azure Monitor Workspace metrics-usage-detail rows, exporting monitoring usage telemetry from the workspace.

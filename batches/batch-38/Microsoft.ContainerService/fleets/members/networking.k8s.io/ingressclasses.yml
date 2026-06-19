@@ -1,0 +1,17 @@
+name: Kubernetes IngressClasses (fleet member)
+description: Kubernetes IngressClass objects are cluster-scoped resources that map Ingress objects to their controller implementation and parameters, governing how ingress routing is handled cluster-wide.
+scope: MEDIUM
+notes: IngressClasses are supporting routing configuration; non-sensitive to read but cluster-wide in write/delete effect.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting IngressClasses removes the controller bindings dependent Ingresses rely on, breaking external routing cluster-wide and disrupting access to exposed services.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing IngressClasses alters the cluster-wide controller/parameter mapping all Ingresses depend on, manipulating how external traffic is routed and handled.

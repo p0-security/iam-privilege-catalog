@@ -1,0 +1,16 @@
+name: AKS managed cluster snapshots
+description: An AKS managed cluster snapshot captures a managed cluster's configuration posture (network profile, Kubernetes version, SKU, settings) as a baseline for creating or replicating clusters.
+scope: MEDIUM
+notes: Captures cluster configuration metadata only, not in-cluster data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Delete destroys a stored cluster-configuration baseline used for recovery/replication.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Create writes a cluster-configuration artifact that can stage/alter baselines used to seed cluster creation; captures configuration only, no data or identity access.

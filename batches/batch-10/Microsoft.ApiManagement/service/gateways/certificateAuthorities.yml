@@ -1,0 +1,17 @@
+name: API Management gateway certificate authorities
+description: Certificates assigned to a self-hosted API Management gateway as trusted Certificate Authorities, used for client-certificate (mutual TLS) validation of API consumers.
+scope: HIGH
+notes: Controls the trust anchors the gateway uses to authenticate clients; tampering subverts an authentication control for a single API service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Unassigning a trusted CA removes a client-certificate validation trust anchor, disabling part of the gateway's mTLS authentication defense and breaking validation for legitimate clients.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Assigning an attacker-controlled certificate as a trusted CA alters the gateway's mTLS trust chain so forged client certificates are accepted, weakening the certificate-validation authentication defense and manipulating security configuration.

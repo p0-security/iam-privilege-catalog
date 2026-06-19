@@ -1,0 +1,18 @@
+name: Storage account advanced platform metrics
+description: Advanced platform metrics configuration controls telemetry/monitoring metric collection for a storage account.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset; its destruction or alteration impairs detection and incident-response visibility.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting the metrics configuration removes telemetry/monitoring collection for the storage account, destroying observability signal and weakening detection capability.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating the metrics configuration lets an attacker alter or effectively disable telemetry collection, weakening monitoring and detection coverage.

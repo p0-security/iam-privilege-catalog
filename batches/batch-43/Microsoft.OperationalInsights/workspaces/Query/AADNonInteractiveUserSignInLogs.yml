@@ -1,0 +1,13 @@
+name: Log Analytics AADNonInteractiveUserSignInLogs table
+description: A Log Analytics workspace data-plane table holding Entra ID non-interactive (token-based) user sign-in telemetry.
+scope: MEDIUM
+notes: Monitoring/diagnostics identity telemetry; MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading this table exports non-interactive sign-in records exposing user accounts, client apps, source IPs, and automated auth patterns.

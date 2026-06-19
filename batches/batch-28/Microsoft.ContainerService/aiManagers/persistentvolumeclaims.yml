@@ -1,0 +1,18 @@
+name: AKS PersistentVolumeClaims
+description: Kubernetes PersistentVolumeClaim objects within an AKS aiManagers cluster, representing a workload's request to bind storage (size, storage class, access mode) to a backing PersistentVolume.
+scope: HIGH
+notes: Data-plane (Kubernetes API) objects scoped to a single cluster; they describe storage bindings but reading them does not return the stored data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Deleting a PVC detaches storage from running workloads and, under a Delete reclaim policy, triggers destruction of the bound PersistentVolume and its data.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:data
+    notes: Creating/updating a PVC alters storage-binding config and can bind an attacker-controlled pod to an existing PersistentVolume holding other workloads' data, gaining access to that data.

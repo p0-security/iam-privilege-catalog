@@ -1,0 +1,13 @@
+name: Log Analytics IntuneDevices table
+description: A log table in a Log Analytics workspace storing the Intune managed-device inventory (device names, OS, owners, identifiers).
+scope: MEDIUM
+notes: Enumerates enrolled endpoints and their user/owner associations.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading the table exfiltrates managed-device inventory telemetry and enumerates the organization's enrolled endpoint fleet for targeting.

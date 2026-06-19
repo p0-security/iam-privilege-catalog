@@ -1,0 +1,17 @@
+name: Storage account management (lifecycle) policy
+description: A storage account lifecycle management policy defines automated rules that tier, expire, or delete blobs based on age/conditions. It is an operational data-governance configuration on the storage account, not an IAM/RBAC access-control policy.
+scope: MEDIUM
+notes: Controls automated data handling/retention but does not grant or deny principal access; supporting operational config rather than a primary data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting the lifecycle policy removes the configured automated tiering/expiration/deletion rules, altering operational data-handling behavior.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:data
+    notes: Writing the lifecycle policy lets an attacker set aggressive auto-expire/delete rules that cause blobs to be automatically (and potentially irreversibly) deleted over time, and alters operational data-management behavior.

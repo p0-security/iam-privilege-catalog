@@ -1,0 +1,18 @@
+name: AKS trusted access role bindings
+description: AKS trusted access role bindings grant an Azure source resource's managed identity a chosen Kubernetes RBAC role inside a managed cluster, establishing cross-resource access into the cluster.
+scope: CRITICAL
+notes: These bindings control privileged, potentially cluster-admin access into AKS, making the asset highly sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting trusted access role bindings removes the RBAC grants tying Azure identities to the cluster, destroying access-control policy and revoking legitimate services'/operators' authorized cluster access.
+  write:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+    notes: Creating/updating a trusted access role binding grants an Azure resource's managed identity a chosen RBAC role inside the cluster, directly escalating privilege and enabling lateral movement into the AKS control plane via a controlled identity.

@@ -1,0 +1,18 @@
+name: DNS Resolver Policy virtual network link
+description: A DNS Resolver Policy virtual network link binds a DNS Resolver (DNS security) policy to a virtual network, determining which VNet's DNS traffic is governed by the policy's DNS filtering/firewall rules.
+scope: HIGH
+notes: These links control where DNS-based defenses (allow/block filtering) are enforced; tampering detaches or weakens protection for a network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:network
+    notes: Deleting the VNet link detaches the DNS security policy from a virtual network, disabling DNS filtering enforcement (defense removal) and tearing down the network binding component.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating the link controls which DNS security policy applies to a VNet, letting an attacker rebind to a permissive policy or detach the protective policy, weakening DNS filtering defenses while manipulating the network security configuration.

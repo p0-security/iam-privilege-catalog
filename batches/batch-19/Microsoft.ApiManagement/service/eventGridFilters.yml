@@ -1,0 +1,16 @@
+name: API Management Event Grid filters
+description: Event Grid filter configuration controlling which API Management lifecycle events are emitted to Event Grid subscribers (notifications, automation, monitoring).
+scope: MEDIUM
+notes: Governs event routing used for downstream monitoring/alerting and automation; tampering can suppress or redirect operational event signals.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting Event Grid filters removes the event-notification integration; when those events feed alerting/detection, removal suppresses event-based detection of malicious operations on the service.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Setting Event Grid filters alters which API Management events are published and where they route, letting an attacker suppress or redirect event notifications and tamper with event-driven monitoring/automation.

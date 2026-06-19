@@ -1,0 +1,13 @@
+name: Azure Network location operations
+description: Location-scoped internal control-plane action operations of the Microsoft.Network resource provider, covering capability checks, resource-move orchestration, ownership management, Azure Network Manager configuration, load balancer control, and effective-topology reads. These are management-plane operations rather than tenant data access.
+scope: HIGH
+notes: Many of these are internal/undocumented platform operations; their sensitivity ranges from inert pre-flight checks to high-impact network configuration writes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Sets the admin state of load balancer backend addresses, letting an attacker forcibly take healthy VM/VMSS backends out of rotation to disrupt the fronted service.

@@ -1,0 +1,17 @@
+name: DNS Resolver Outbound Endpoint
+description: A DNS Resolver Outbound Endpoint is the subnet-attached egress point of an Azure Private DNS Resolver that forwards conditional DNS queries from a VNet to external/on-prem DNS servers per configured forwarding rulesets.
+scope: HIGH
+notes: Controls hybrid/private name resolution for a VNet; manipulation can redirect resolution, and its loss breaks DNS for dependent workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the outbound endpoint removes a DNS-resolution network component, breaking conditional/outbound DNS forwarding and disrupting name resolution for dependent workloads (DoS).
+  write:
+    risks:
+      - impact:manipulation
+    notes: Create/update alters the outbound endpoint governing the network path for conditional DNS forwarding, letting an attacker manipulate where private DNS queries are resolved/routed.

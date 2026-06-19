@@ -1,0 +1,17 @@
+name: AKS Fleet member Kubernetes events
+description: Kubernetes Events on a member cluster of an AKS Fleet, accessed through the Azure RBAC data plane. Events are advisory diagnostic records of object lifecycle, scheduling, scaling, and failures in the cluster.
+scope: MEDIUM
+notes: Events are low-sensitivity operational telemetry; they form part of the cluster's activity/audit-adjacent trail but contain no secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+    notes: Deleting events removes the cluster's activity/audit-adjacent trail that incident responders rely on, helping an attacker erase traces of their actions.
+  write:
+    risks:
+      - impact:manipulation
+    scope: LOW
+    notes: Writing events injects misleading/fabricated event records into the cluster activity stream to confuse operators and incident responders monitoring observability tooling.

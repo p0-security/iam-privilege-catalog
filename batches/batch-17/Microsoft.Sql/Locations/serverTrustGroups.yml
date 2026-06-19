@@ -1,0 +1,18 @@
+name: Azure SQL Server Trust Group
+description: A Server Trust Group establishes a trust relationship between Azure SQL Managed Instances, enabling cross-instance connectivity features such as distributed transactions and managed-instance links.
+scope: HIGH
+notes: Trust groups define which managed instances trust each other; they govern inter-instance connectivity within a production database service function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a trust group tears down the inter-instance trust relationship that distributed transactions and cross-instance features depend on, disrupting dependent operations.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating a trust group wires managed instances into a shared trust boundary, extending reachability between database instances on the same network and altering operational trust configuration.

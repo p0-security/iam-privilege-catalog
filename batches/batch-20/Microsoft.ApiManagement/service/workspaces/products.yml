@@ -1,0 +1,17 @@
+name: APIM products
+description: An API Management product is a grouping of one or more APIs published to consumers, with subscription/approval requirements and visibility settings that govern how the APIs are exposed.
+scope: MEDIUM
+notes: Products define the gateway's published API surface and access terms; their definitions are configuration metadata, not secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a product removes the API grouping and its associated subscriptions, destroying the publishing construct and disrupting all consumers that reach the APIs through it.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a product alters API publishing configuration (which APIs are exposed, subscription/approval requirements), letting an attacker weaken access controls or change how APIs are surfaced.

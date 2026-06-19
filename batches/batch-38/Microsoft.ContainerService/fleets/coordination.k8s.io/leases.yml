@@ -1,0 +1,17 @@
+name: Fleet Kubernetes leases
+description: Kubernetes Lease objects (coordination.k8s.io) inside an Azure Fleet hub cluster, used for leader election among controllers and for node/component heartbeats.
+scope: MEDIUM
+notes: Leases carry no application data; they hold coordination metadata (holder identity, renew times). Their value to an attacker is reconnaissance (read) and control-plane coordination disruption (write/delete).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+    notes: Deleting leases removes leader-election locks and heartbeats, forcing re-election churn and node-not-ready handling that disrupts controller coordination.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Writing leases lets an attacker hijack or falsify leader-election locks and heartbeats, disrupting controller coordination and degrading control-plane availability.

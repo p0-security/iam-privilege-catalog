@@ -1,0 +1,12 @@
+name: Log Analytics DeviceAppLaunch table
+description: A Log Analytics workspace table holding device application launch/usage telemetry. This is a data-plane read.
+scope: MEDIUM
+notes: Low-sensitivity usage analytics telemetry; monitoring log data, scope MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Exports device application launch/usage telemetry, revealing which apps run on monitored devices.

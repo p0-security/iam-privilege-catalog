@@ -1,0 +1,17 @@
+name: Fleet InternalServiceImport
+description: A Kubernetes Fleet multi-cluster-services (MCS) InternalServiceImport CRD that is the internal reconciliation representation backing imported cross-cluster service reachability between member clusters.
+scope: HIGH
+notes: Internal plumbing for cross-cluster service routing within a single fleet's multi-cluster network.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting an InternalServiceImport removes the internal cross-cluster import state, severing multi-cluster service reachability for dependent workloads.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Writing an InternalServiceImport manipulates the internal cross-cluster service-routing state, establishing/altering multi-cluster reachability to services on other fleet clusters.

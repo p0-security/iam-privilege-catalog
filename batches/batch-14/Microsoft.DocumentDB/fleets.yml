@@ -1,0 +1,17 @@
+name: Cosmos DB fleets
+description: A fleet is a fleet-level management/grouping construct in Cosmos DB (DocumentDB) that governs and coordinates a group of database accounts.
+scope: HIGH
+notes: Management-grouping construct spanning multiple production database accounts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a fleet destroys the management/grouping infrastructure governing a set of production database accounts, disrupting fleet-level coordinated operations.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Create/update reconfigures the fleet-wide management grouping governing multiple database accounts (manipulation) and can provision pooled/fleet capacity that incurs cost (spend).

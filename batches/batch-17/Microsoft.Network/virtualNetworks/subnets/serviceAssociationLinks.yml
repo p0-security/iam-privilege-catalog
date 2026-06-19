@@ -1,0 +1,16 @@
+name: Service association link
+description: An internal control-plane marker recording the delegated service that is associated with (injected into) a subnet.
+scope: HIGH
+notes: System-managed delegation/association metadata; not itself a reachability grant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a service association link removes the subnet's service-delegation binding, a destructive network-configuration change that can disrupt the associated service.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a service association link alters the subnet's service delegation/association binding, manipulating operational network configuration.

@@ -1,0 +1,17 @@
+name: Kubernetes RoleBindings (AKS fleet member)
+description: Kubernetes namespaced RoleBindings on a member cluster of an AKS fleet. A RoleBinding grants the permissions of a referenced Role/ClusterRole to a set of subjects (users, groups, service accounts), and is the core of Kubernetes RBAC access control.
+scope: CRITICAL
+notes: RBAC bindings govern who can do what in the cluster; controlling them enables cluster-admin-level privilege escalation, hence CRITICAL.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting RoleBindings removes RBAC grants, destroying access-control policy and revoking legitimate principals' authorized access to the cluster.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating/updating a RoleBinding binds any role (including admin) to an attacker-controlled subject, directly granting elevated cluster privileges.

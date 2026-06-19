@@ -1,0 +1,13 @@
+name: Log Analytics workspace table data (AADDomainServicesSystemSecurity)
+description: A per-table data-plane query permission on a Log Analytics workspace; this one returns rows of the AADDomainServicesSystemSecurity table, which holds Azure AD Domain Services system security (domain-controller) event logs.
+scope: MEDIUM
+notes: Domain security/audit telemetry revealing accounts and authentication activity within the managed domain; monitoring/log-data sensitivity tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reads AAD DS system security event rows, exporting the domain security/audit logs and enumerating accounts and their authentication activity for targeting.

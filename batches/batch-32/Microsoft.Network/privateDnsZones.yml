@@ -1,0 +1,17 @@
+name: Private DNS zone
+description: An Azure Private DNS zone providing internal name resolution for a private namespace within linked virtual networks.
+scope: HIGH
+notes: This operation reads only the zone's top-level properties, not its record sets or VNet links.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the zone removes internal name resolution for all dependent services and linked VNets, destroying network resolution infrastructure and causing denial of service.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the zone alters internal DNS namespace configuration, but because record sets and VNet links are explicitly excluded from this permission, it cannot by itself inject records, redirect traffic, or attach networks.

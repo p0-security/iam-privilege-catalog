@@ -1,0 +1,13 @@
+name: Log Analytics OfficeActivity table
+description: A Log Analytics workspace query table holding Office 365 audit-activity logs, recording user and admin actions across Exchange, SharePoint, Teams, and Azure AD.
+scope: MEDIUM
+notes: Audit log data exposing user identities and behavioral/access patterns; MEDIUM sensitivity but high reconnaissance value for account targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Read returns Office 365 audit records exposing user/admin identities and their mailbox, file, and sign-in actions, enabling log exfiltration and account discovery for targeting.

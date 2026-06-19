@@ -1,0 +1,18 @@
+name: Azure Policy exemption
+description: A policy exemption excludes a specified scope or resources from evaluation by one or more Azure Policy assignments, suppressing those policies' audit/deny effects for the exempted target. It is a governance/compliance guardrail-bypass object.
+scope: MEDIUM
+notes: Exemptions directly determine where security and compliance enforcement does not apply, so they map gaps in defensive guardrails.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+    notes: Deletes a policy/governance object; while removing an exemption generally re-imposes (rather than weakens) enforcement, the modeled capability is deletion of an access-governance/policy artifact.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    scope: HIGH
+    notes: Creating an exemption suppresses Azure Policy enforcement (including security/deny baselines) for an attacker-chosen scope, disabling a defensive guardrail so non-compliant or malicious configurations go unblocked.

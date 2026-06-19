@@ -1,0 +1,16 @@
+name: Cosmos DB SQL user-defined function
+description: A server-side JavaScript user-defined function bound to a Cosmos DB SQL container, executed within query evaluation against the container's documents.
+scope: HIGH
+notes: UDF bodies are stored server-side code that runs in the production database's data context.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deleting a UDF removes a server-side code artifact, breaking queries that depend on it.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a UDF injects attacker-controlled server-side code that executes during queries against container data, altering how data is computed/returned.

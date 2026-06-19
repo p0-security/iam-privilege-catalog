@@ -1,0 +1,17 @@
+name: P2S VPN gateway proxy
+description: A P2SVpnGateway proxy definition holds point-to-site VPN server/proxy configuration controlling remote-client connectivity into the connected network.
+scope: HIGH
+notes: Remote-access VPN configuration for a single network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the proxy removes a remote-access VPN network component, disrupting point-to-site connectivity for legitimate clients.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating or updating the proxy alters point-to-site VPN configuration, enabling manipulation of remote-access connectivity and broadened inbound reachability into the connected network.

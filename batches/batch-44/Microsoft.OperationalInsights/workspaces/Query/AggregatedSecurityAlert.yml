@@ -1,0 +1,13 @@
+name: Log Analytics AggregatedSecurityAlert table
+description: A Log Analytics workspace query table holding aggregated security-alert/detection records ingested into Azure Monitor.
+scope: MEDIUM
+notes: Security-detection telemetry; reading it reveals defensive coverage, what threats have been detected, and monitoring blind spots.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read of the AggregatedSecurityAlert table exports security-detection records and lets an attacker learn which detections have fired, aiding evasion.

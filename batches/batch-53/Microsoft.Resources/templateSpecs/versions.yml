@@ -1,0 +1,16 @@
+name: Azure template spec versions
+description: Template Spec Versions are the versioned child resources that hold the actual ARM/Bicep template body for a Template Spec.
+scope: MEDIUM
+notes: This is where the deployable IaC content (and any embedded parameters/configuration) is stored.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deletes a specific template spec version, destroying a stored deployable IaC artifact without affecting running infrastructure.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates the template body of a spec version, letting an attacker inject or alter the IaC content that operators subsequently deploy.

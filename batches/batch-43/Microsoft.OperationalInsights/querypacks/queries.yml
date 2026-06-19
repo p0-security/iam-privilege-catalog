@@ -1,0 +1,24 @@
+name: Azure Monitor Query Pack
+description: A Query Pack is a container resource that stores reusable Log Analytics KQL queries, allowing teams to share saved monitoring/investigation queries across workspaces.
+scope: MEDIUM
+notes: A monitoring support artifact; it holds query logic/tooling, not the log data itself, so its inherent sensitivity is low to medium.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Performing actions on queries within a query pack (search/create/modify saved queries) lets an attacker alter the operational saved-query content analysts rely on.
+  delete:
+    risks:
+      - destruction:metadata
+    scope: LOW
+    notes: Deleting query-pack queries removes saved KQL query definitions used operationally for investigation, with no effect on underlying log data.
+    name: Log Analytics query pack queries
+  write:
+    risks:
+      - impact:manipulation
+    scope: LOW
+    notes: Create/update of saved query-pack queries lets an attacker alter shared analyst query definitions to mislead investigations; does not touch log data or detections directly.
+    name: Log Analytics query pack queries

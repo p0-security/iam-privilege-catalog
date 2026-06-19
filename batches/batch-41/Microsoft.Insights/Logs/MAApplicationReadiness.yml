@@ -1,0 +1,13 @@
+name: Log Analytics MAApplicationReadiness table (Azure Migrate)
+description: "A Log Analytics (Azure Monitor) table holding Azure Migrate application-readiness telemetry: migration/deployment readiness and compatibility assessment of discovered applications."
+scope: MEDIUM
+notes: Monitoring/assessment data plane; reveals application inventory and assessment results.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Data-plane read returns application-readiness assessment records, exporting log data (exfiltration:logs) and enumerating application inventory and readiness state (discovery:infra).

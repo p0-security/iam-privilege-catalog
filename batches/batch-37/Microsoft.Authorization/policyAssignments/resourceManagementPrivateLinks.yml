@@ -1,0 +1,17 @@
+name: Resource Management Private Link
+description: A Resource Management Private Link establishes private (Private Link) connectivity to the Azure Resource Manager (ARM) control plane, restricting management-plane traffic to a private network path.
+scope: MEDIUM
+notes: Governs the network path used to reach the ARM management plane rather than data or identities; configuration sensitivity is at the supporting-infrastructure / network-connectivity level.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the private link removes the private connectivity component to the ARM control plane, which can disrupt management access over that path (DoS-like).
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating the private link establishes/alters a private network path to the ARM control plane, enabling network movement toward management traffic and manipulation of the connectivity configuration.

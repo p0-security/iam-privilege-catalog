@@ -1,0 +1,12 @@
+name: Data collection endpoint
+description: An Azure Monitor data collection endpoint defining the ingestion endpoint configuration used to receive telemetry/logs into Log Analytics and Application Insights.
+scope: MEDIUM
+notes: Control-plane configuration of the monitoring ingestion path; it routes telemetry but does not itself store organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - impact:manipulation
+    notes: Forcing a failback changes the operational state/routing of the ingestion path, allowing manipulation or disruption of telemetry flow.

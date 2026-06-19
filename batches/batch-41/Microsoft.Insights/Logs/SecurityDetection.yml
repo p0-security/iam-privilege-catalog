@@ -1,0 +1,13 @@
+name: Log Analytics SecurityDetection table
+description: A Log Analytics workspace table holding security detection/alert records produced by monitoring and threat-detection pipelines.
+scope: MEDIUM
+notes: Reveals what defenders observe; valuable for evasion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports detection/alert log content (exfiltration:logs) and reveals which detections have fired so an attacker can evade them (discovery:logs).

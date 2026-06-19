@@ -1,0 +1,18 @@
+name: Diagnostic settings
+description: Azure diagnostic settings define which platform logs and metrics a resource emits and where they are routed (Log Analytics, Storage, Event Hub).
+scope: MEDIUM
+notes: Monitoring/diagnostics configuration; sensitivity is MEDIUM as it governs detection telemetry rather than primary data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting a diagnostic setting halts log/metric collection to monitoring sinks, destroying audit visibility and removing a detective control.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating diagnostic settings lets an attacker disable categories or redirect log/metric collection, suppressing telemetry and weakening detection.

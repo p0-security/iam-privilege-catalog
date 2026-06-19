@@ -1,0 +1,17 @@
+name: DNS Private Resolver
+description: An Azure DNS Private Resolver is hybrid name-resolution infrastructure linked to a virtual network, enabling DNS queries to flow between Azure VNets and on-premises networks.
+scope: HIGH
+notes: Controls name resolution for a single network function; tampering can redirect or break DNS for dependent workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a DNS Resolver removes the network component responsible for private DNS resolution, breaking name resolution for the linked VNet and causing denial of service for dependent services.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a DNS Resolver alters the name-resolution infrastructure bound to a VNet, letting an attacker reconfigure how queries are handled to disrupt or redirect resolution for that network.

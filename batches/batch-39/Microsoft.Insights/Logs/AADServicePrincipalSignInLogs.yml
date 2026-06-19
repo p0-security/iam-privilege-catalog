@@ -1,0 +1,13 @@
+name: Azure Monitor Log Analytics table (AAD service principal sign-in logs)
+description: A Log Analytics table holding Entra ID (Azure AD) service principal sign-in records. This data-plane read returns authentication telemetry for non-human identities (service principals/apps), including sign-in times, sources, and outcomes.
+scope: MEDIUM
+notes: Enumerating service principal sign-in activity highlights non-human identities and their access patterns as escalation/lateral-movement targets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading this table exports service principal sign-in telemetry and enumerates non-human identities and their authentication behavior for targeting.

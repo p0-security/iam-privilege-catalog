@@ -1,0 +1,12 @@
+name: Log Analytics ACSCallSummaryUpdates table
+description: A Log Analytics workspace query table holding Azure Communication Services call-summary telemetry ingested into Azure Monitor.
+scope: MEDIUM
+notes: Call-summary telemetry; records describe communication sessions and may contain participant metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read of the ACSCallSummaryUpdates table exports call-summary telemetry describing communication sessions.

@@ -1,0 +1,16 @@
+name: Azure Automation connection type asset
+description: An Azure Automation connection type asset defines the schema (field names and types) used by connection assets in an Automation account. It is a template/definition, not a populated connection, and holds no credential values itself.
+scope: MEDIUM
+notes: Connection types are schema/metadata definitions; the actual secret values live in connection assets, not in the connection type. Sensitivity is low.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deleting a connection type removes the schema definition that connection assets and runbooks depend on, destroying operational metadata and potentially breaking dependent connections.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a connection type alters the schema definition that connection assets are built from, manipulating automation configuration without itself exposing or planting credentials.

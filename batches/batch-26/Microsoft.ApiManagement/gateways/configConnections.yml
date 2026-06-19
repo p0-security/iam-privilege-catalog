@@ -1,0 +1,16 @@
+name: API Management gateway config connections
+description: A gateway config connection is the binding resource that links a gateway to the API Management service/workspace configuration it pulls and applies.
+scope: HIGH
+notes: The config connection controls which configuration drives a gateway's behavior for a single API function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a config connection severs the gateway from its configuration source, disrupting the API routing it provides.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a config connection alters the binding that drives a production gateway's effective configuration and routing behavior.

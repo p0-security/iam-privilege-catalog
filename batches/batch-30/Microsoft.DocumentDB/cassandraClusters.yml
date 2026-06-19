@@ -1,0 +1,19 @@
+name: Managed Cassandra cluster
+description: A managed Apache Cassandra cluster hosted by Azure Cosmos DB (the control-plane resource that hosts a production NoSQL database and its data nodes).
+scope: HIGH
+notes: A production database service supporting a single organizational function; its hosted data is sensitive, but control-plane operations on the cluster do not directly read the stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:data
+      - impact:dos
+    notes: Deleting a managed Cassandra cluster tears down the database infrastructure and the data it hosts, causing irreversible data loss and denial of service for the dependent function.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating or updating a managed Cassandra cluster alters its control-plane configuration (capacity, networking, seed/auth settings) and can provision costly database infrastructure.

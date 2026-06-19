@@ -1,0 +1,16 @@
+name: APIM workspace API version sets
+description: API Version Sets within an Azure API Management workspace — configuration objects that group and organize the versions of an API and govern how those versions are exposed/routed by the gateway.
+scope: MEDIUM
+notes: Non-sensitive API versioning/grouping configuration for a single API gateway function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an API version set, removing the versioning configuration APIs depend on and potentially disrupting version routing/availability.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates an API version set, altering the versioning configuration that controls how API versions are grouped, exposed, and routed.

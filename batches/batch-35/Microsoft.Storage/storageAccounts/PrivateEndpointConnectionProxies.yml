@@ -1,0 +1,17 @@
+name: Storage Account Private Endpoint Connection Proxies
+description: Internal proxy objects representing the private-link plumbing that binds a private endpoint to a storage account, used to coordinate private-endpoint connection state.
+scope: HIGH
+notes: These control-plane objects govern private network connectivity to a production storage account; they expose no data directly but altering them changes how the account is reached.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deletes the connection proxy, tearing down a private-link connectivity component and disrupting private access to the storage account.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creates/updates the connection proxy, establishing or altering the private-link binding to expose the storage account to an attacker-influenced network.

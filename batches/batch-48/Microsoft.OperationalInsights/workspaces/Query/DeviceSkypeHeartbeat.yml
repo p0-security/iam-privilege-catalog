@@ -1,0 +1,12 @@
+name: Log Analytics workspace DeviceSkypeHeartbeat table
+description: A Microsoft Defender for Endpoint advanced-hunting table (DeviceSkypeHeartbeat) surfaced through a Log Analytics workspace, holding Defender sensor / Skype connectivity heartbeat telemetry indicating device presence and sensor health.
+scope: MEDIUM
+notes: Low-sensitivity connectivity/health telemetry. Confidential but not a primary production data store, hence MEDIUM asset sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading this table exports low-sensitivity sensor/connectivity heartbeat log data; limited additional reconnaissance value.

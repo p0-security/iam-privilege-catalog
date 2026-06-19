@@ -1,0 +1,14 @@
+name: Web App Slot configuration
+description: The configuration sub-resource of an App Service deployment slot, holding the slot's runtime/site settings, app settings, and connection strings. Slots are staging/production variants of a Web App.
+scope: CRITICAL
+notes: The control-plane Read masks secret values; the security-sensitive settings (publishing credentials, connection strings) are returned only by the separate list/Action.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+      - takeover:account
+    notes: Explicitly returns the slot's security-sensitive settings including publishing credentials, app settings, and connection strings; the publishing credentials are a reusable deployment credential and connection strings yield access to backing data stores.

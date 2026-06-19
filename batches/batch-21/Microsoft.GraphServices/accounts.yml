@@ -1,0 +1,17 @@
+name: GraphServices account
+description: A Microsoft.GraphServices account resource represents the control-plane binding/onboarding for Microsoft Graph (Microsoft 365 lightweight admin / Graph billing and access).
+scope: MEDIUM
+notes: Read-only enumeration of these accounts returns control-plane configuration metadata, not the underlying Graph data or secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.GraphServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes a GraphServices account resource, tearing down the provisioned Graph billing/access binding and disrupting the dependent service (DoS-like for that function).
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating or updating a GraphServices account resource alters its operational/onboarding configuration and provisions a billable Graph account binding, enabling config manipulation and unwanted spend.

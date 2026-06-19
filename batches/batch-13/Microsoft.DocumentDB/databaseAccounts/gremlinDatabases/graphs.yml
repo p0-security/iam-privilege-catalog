@@ -1,0 +1,16 @@
+name: Cosmos DB Gremlin graph
+description: A Gremlin graph (container) resource within a Gremlin database of an Azure Cosmos DB account, defining the control-plane schema/partitioning and provisioned throughput for a graph data store.
+scope: HIGH
+notes: Production graph data store supporting a single organizational function; the graph container holds vertex/edge data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a Gremlin graph destroys the graph container and all vertex/edge data it holds, an irreversible data-destruction capability.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Control-plane create/update alters the Gremlin graph container's schema/configuration and provisioned throughput, manipulating the operational structure of a production graph store.

@@ -1,0 +1,18 @@
+name: Load Balancer Inbound NAT Rule
+description: A load balancer inbound NAT rule forwards a specific frontend port to a port on a backend instance, exposing that instance for inbound connections (e.g. RDP/SSH).
+scope: HIGH
+notes: Inbound NAT rules define inbound exposure paths for a single service; creating them can expose otherwise-internal resources to inbound traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting an inbound NAT rule removes a port-forwarding component, disrupting inbound access to the backend service it fronts.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating an inbound NAT rule can forward external traffic to internal backend ports, exposing otherwise-private services (network movement) and altering operational forwarding configuration.

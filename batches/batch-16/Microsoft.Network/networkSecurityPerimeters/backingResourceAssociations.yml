@@ -1,0 +1,19 @@
+name: Network Security Perimeter backing resource associations
+description: Associations binding a resource into a Network Security Perimeter (NSP) — a network isolation boundary that controls inbound/outbound access for the resources enclosed within it.
+scope: HIGH
+notes: Defines membership and enforcement mode of the perimeter isolation defense for a single network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Deleting an association removes the resource from the perimeter, stripping its network-isolation defense and re-exposing it to broader network access.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating an association can place a resource in Learning/transition mode or alter its perimeter binding, weakening the isolation defense and broadening network reachability to the resource.

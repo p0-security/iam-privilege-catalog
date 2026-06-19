@@ -1,0 +1,18 @@
+name: API Management API operation policies configuration
+description: API operation policy configuration is the XML policy document applied at the operation level in API Management, defining request/response processing such as authentication (validate-jwt), IP filtering, rate limiting, and backend routing.
+scope: HIGH
+notes: Policies are the gateway's security-enforcement layer; they reference secrets indirectly via named-value placeholders ({{...}}) rather than embedding resolved secret values.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deletes the operation-level policy, stripping its enforced auth/IP-filter/rate-limit controls and reverting the endpoint to unprotected default processing.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Sets the operation-level policy, letting an attacker disable enforced auth/IP-filter/rate-limit defenses and rewrite request/response handling or reroute the backend.

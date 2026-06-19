@@ -1,0 +1,18 @@
+name: Application security group address prefix sets
+description: An address prefix set is a named grouping of IP address prefixes within an application security group, referenced by NSG/network security rules to define which traffic the rules match.
+scope: HIGH
+notes: These groupings feed network filtering enforcement, so they are security-relevant configuration for a single network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:network
+    notes: Deleting an address prefix set removes a network-filtering component NSG rules depend on, disrupting/disabling the firewall enforcement (destruction:defense) and tearing down a network access-control construct (destruction:network).
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating an address prefix set rewrites the IP prefixes NSG rules match, letting an attacker widen permitted ranges to weaken firewall/segmentation (destruction:defense) and manipulate operational network config (impact:manipulation).

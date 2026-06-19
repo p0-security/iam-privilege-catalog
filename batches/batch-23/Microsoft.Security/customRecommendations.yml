@@ -1,0 +1,17 @@
+name: Defender for Cloud custom recommendations
+description: Custom security recommendation/assessment definitions in Microsoft Defender for Cloud that define posture rules used to evaluate and flag resource configurations.
+scope: MEDIUM
+notes: These rules constitute part of the organization's security-posture detection logic; reading them reveals coverage and gaps, modifying/removing them weakens detection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deletes a custom recommendation, removing a posture-detection rule and disabling part of the org's security assessment coverage.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creates or updates custom recommendation definitions, letting an attacker weaken or skew the posture-detection rules to evade flagging.

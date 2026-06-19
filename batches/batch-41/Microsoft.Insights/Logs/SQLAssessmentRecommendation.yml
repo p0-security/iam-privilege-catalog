@@ -1,0 +1,13 @@
+name: Log Analytics SQLAssessmentRecommendation table
+description: A Log Analytics workspace table holding SQL Server configuration/security best-practice assessment recommendation findings.
+scope: MEDIUM
+notes: Findings disclose database configuration and security weaknesses an attacker could target.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports SQL assessment findings (exfiltration:logs) and lets an attacker inventory database misconfigurations as targets (discovery:logs).

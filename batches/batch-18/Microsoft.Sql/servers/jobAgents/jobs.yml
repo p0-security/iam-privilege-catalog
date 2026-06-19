@@ -1,0 +1,17 @@
+name: Azure SQL DB job
+description: An Azure SQL DB elastic job is a control-plane orchestration object on a job agent that schedules and runs T-SQL automation across one or more target databases, executing under a stored job credential.
+scope: HIGH
+notes: Jobs run code against production databases under another identity, so write access is effectively code execution against data stores; the job object holds scheduling/target configuration while job steps hold the actual T-SQL.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a job removes the scheduled automation orchestration object, disrupting the operational/maintenance tasks it performs against databases.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating a job lets an attacker schedule automation that executes T-SQL against target databases under the job's stored credential, manipulating data and acting as another database identity.

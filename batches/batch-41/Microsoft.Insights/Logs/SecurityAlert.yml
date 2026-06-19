@@ -1,0 +1,13 @@
+name: Log Analytics SecurityAlert table
+description: A Log Analytics workspace table holding Microsoft Defender / Sentinel security detection alerts.
+scope: MEDIUM
+notes: Reveals what threats have been detected and the organization's detection coverage and blind spots; high value for evasion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reads security detection alerts, exporting sensitive detection data and letting an attacker learn which of their activities are detected to evade response.

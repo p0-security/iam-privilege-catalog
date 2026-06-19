@@ -1,0 +1,12 @@
+name: Managed HSM key
+description: A Managed HSM key is an HSM-backed cryptographic key whose private material is non-exportable; this control-plane operation manages the key resource and its metadata.
+scope: CRITICAL
+notes: The key store is a critical cryptographic asset; control-plane reads return key metadata and public attributes but not the protected private key material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates the first version of a new key only if it does not already exist (no overwrite or version update of existing keys), introducing attacker-controlled key material into the critical HSM key store.

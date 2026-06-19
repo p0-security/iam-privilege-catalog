@@ -1,0 +1,17 @@
+name: Fleet ResourceOverride
+description: A Kubernetes Fleet Manager ResourceOverride is a policy CRD that defines JSON-patch mutations (e.g. container images, env, commands, replica counts) applied to namespaced Kubernetes resources as they are propagated from the fleet hub to member clusters.
+scope: HIGH
+notes: Live override policies directly shape what workloads run across member clusters, making write access a fleet-wide workload-injection surface.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting a ResourceOverride removes the mutation rules governing placement (e.g. stripping intended hardening overrides), changing the effective configuration of workloads propagated across the fleet.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Creating/updating a ResourceOverride lets an attacker inject arbitrary mutations (images, commands, env, securityContext) into workloads propagated to member clusters, tampering with deployments fleet-wide and running attacker-controlled containers.

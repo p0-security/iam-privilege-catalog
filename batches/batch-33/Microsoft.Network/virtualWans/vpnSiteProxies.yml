@@ -1,0 +1,17 @@
+name: Virtual WAN VPN site proxies
+description: A VPN site proxy is a Virtual WAN sub-resource representing the proxy/connectivity definition for a remote VPN site attached to the WAN. It describes how a branch/on-premises site connects into the Virtual WAN hub.
+scope: HIGH
+notes: Virtual WAN hybrid-connectivity configuration component supporting a single organizational function's production networking.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the proxy removes a Virtual WAN connectivity component, disrupting reachability for the associated remote site.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating the proxy alters Virtual WAN site connectivity configuration, manipulating routing/peering and potentially extending network reach to attacker-controlled sites.

@@ -1,0 +1,13 @@
+name: Extended database blob auditing policy
+description: The extended blob auditing policy configured on an individual Azure SQL Database, controlling whether and where database activity is audited and logged.
+scope: MEDIUM
+notes: A detective/logging control; reading or altering it affects detection coverage rather than the data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Changes the database audit policy, letting an attacker disable or redirect audit logging to evade detection (destruction:logs) and remove a security monitoring control (destruction:defense).

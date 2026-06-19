@@ -1,0 +1,13 @@
+name: Log Analytics DnsInventory table
+description: A Log Analytics workspace data-plane table holding ingested DNS server/zone inventory records.
+scope: MEDIUM
+notes: Monitoring data revealing DNS infrastructure and network naming topology; sensitivity is MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Data-plane read exports DNS server/zone inventory exposing network naming and topology.

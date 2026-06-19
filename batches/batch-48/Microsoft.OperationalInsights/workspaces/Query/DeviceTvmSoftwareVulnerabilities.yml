@@ -1,0 +1,13 @@
+name: Log Analytics workspace DeviceTvmSoftwareVulnerabilities table
+description: A Microsoft Defender for Endpoint Threat & Vulnerability Management advanced-hunting table (DeviceTvmSoftwareVulnerabilities) surfaced through a Log Analytics workspace, holding per-device known software vulnerability (CVE) findings.
+scope: MEDIUM
+notes: High-value security-posture telemetry directly mapping exploitable weaknesses to devices. Confidential but not a primary production data store, hence MEDIUM asset sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reading this table exports per-device known-CVE findings, directly handing an attacker a prioritized list of exploitable weaknesses across the fleet.

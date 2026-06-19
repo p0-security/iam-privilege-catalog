@@ -1,0 +1,18 @@
+name: AKS managed cluster mesh memberships
+description: A mesh membership is the configuration that associates an AKS managed cluster with a service mesh, governing how the cluster's workloads are enrolled into mesh-mediated service-to-service networking and trust.
+scope: HIGH
+notes: Mesh membership configuration describes a single cluster's service-mesh enrollment and network/routing posture; it controls connectivity for that cluster's workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a mesh membership tears down the cluster's service-mesh networking integration, disrupting mesh-routed service-to-service communication and denying service for workloads that depend on the mesh.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a mesh membership alters the cluster's service-mesh enrollment and service-to-service traffic, manipulating network configuration and potentially extending reachability to additional in-mesh services.

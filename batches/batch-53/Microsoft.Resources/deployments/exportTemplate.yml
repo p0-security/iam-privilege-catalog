@@ -1,0 +1,13 @@
+name: ARM deployment
+description: An Azure Resource Manager (ARM) deployment is a control-plane record of a template-based provisioning operation at management-group or tenant scope, capturing which resources were deployed and their configuration.
+scope: MEDIUM
+notes: The deployment record itself is metadata/history; the dangerous capability is the write path, which executes an arbitrary template that can provision any resource type including role assignments, managed identities, and compute.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:infra
+      - exfiltration:metadata
+    notes: Exporting a deployment's template returns the full infrastructure-as-code definition and may surface embedded parameter values and identifiers, providing detailed configuration disclosure beyond mere enumeration.

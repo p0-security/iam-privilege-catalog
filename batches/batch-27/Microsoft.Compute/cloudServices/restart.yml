@@ -1,0 +1,12 @@
+name: Azure Cloud Service
+description: An Azure Cloud Service (classic/extended) is a managed compute deployment that hosts an application across one or more role instances (worker/web roles) on platform-managed VMs.
+scope: HIGH
+notes: A production compute resource supporting a single organizational function; control-plane operations here can disrupt or hijack the hosted application.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Restarting one or more role instances causes a transient interruption of the running service.

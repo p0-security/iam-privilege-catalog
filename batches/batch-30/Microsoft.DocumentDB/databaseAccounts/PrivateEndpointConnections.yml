@@ -1,0 +1,17 @@
+name: Cosmos DB account private endpoint connection
+description: A Private Link private-endpoint connection record gating private-network access between a consumer endpoint and a Cosmos DB database account, including approval state.
+scope: HIGH
+notes: Control-plane network connectivity for a production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a connection severs a consumer's private-link path to the account, destroying a network component and denying authorized private access to the service.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating (e.g. approving) a connection can attach an attacker-controlled private endpoint to the production Cosmos DB account, granting private-network access to an otherwise-isolated data store and altering its approval/connectivity state.

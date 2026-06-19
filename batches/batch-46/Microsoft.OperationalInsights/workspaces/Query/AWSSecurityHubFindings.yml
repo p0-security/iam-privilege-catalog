@@ -1,0 +1,13 @@
+name: Log Analytics workspace table data (AWSSecurityHubFindings)
+description: A per-table data-plane query permission on a Log Analytics workspace; this one returns rows of the AWSSecurityHubFindings table, which holds AWS Security Hub security findings ingested into the workspace.
+scope: MEDIUM
+notes: Security-finding telemetry that maps misconfigurations and defensive posture; monitoring/log-data sensitivity tier.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reads ingested AWS Security Hub finding rows, exporting the log content and inventorying the organization's misconfigured infrastructure and detected weaknesses.

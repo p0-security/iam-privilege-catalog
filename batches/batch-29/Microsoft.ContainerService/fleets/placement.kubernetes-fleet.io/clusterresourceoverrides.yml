@@ -1,0 +1,18 @@
+name: Fleet ClusterResourceOverride
+description: A KubeFleet placement data-plane object defining per-cluster mutation rules (e.g. image, command, env, security context) applied to resources as they are propagated to member clusters.
+scope: HIGH
+notes: Part of the Azure Kubernetes Fleet multi-cluster placement engine; overrides directly shape what the deployed workload looks like on each member cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Deleting an override removes per-cluster customizations from propagated resources, altering the effective deployed configuration and potentially disrupting workloads that depend on those overrides.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Writing an override injects arbitrary modifications into resources before they are applied to member clusters, letting an attacker swap images/commands, tamper with workloads, and run malicious containers fleet-wide.

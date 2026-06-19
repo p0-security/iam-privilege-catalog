@@ -1,0 +1,20 @@
+name: Automation software update configuration
+description: An Azure Automation Update Management configuration that schedules patch deployments (with optional pre/post runbook tasks) against a targeted fleet of managed VMs/servers.
+scope: MEDIUM
+notes: Orchestrates code/update execution across a fleet of managed machines, often under the Automation account's identity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deleting an update configuration removes scheduled patching, leaving managed machines unpatched (degrading a maintenance/security control) and disrupting the operational update process.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:manipulation
+    scope: HIGH
+    notes: Creating/updating an update configuration schedules patch runs and attacker-controlled pre/post scripts that execute on targeted machines under the Automation identity, enabling code execution across the fleet, workload hijack, and tampering with the patching process.

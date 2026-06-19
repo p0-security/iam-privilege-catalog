@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (NCCKubernetesAPIAuditLogs)
+description: A Log Analytics workspace query table holding ingested Kubernetes API-server audit logs. Reading it is a data-plane operation returning the stored audit log rows.
+scope: MEDIUM
+notes: Log Analytics tables are monitoring/diagnostics data stores of MEDIUM sensitivity; K8s audit logs record who-did-what including identities, RBAC actions, and request bodies that can contain secrets/configmaps.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Exports Kubernetes API audit records revealing principals, actions, and resources; request bodies can embed secrets/configmaps and the records expose control-plane activity useful for reconnaissance.

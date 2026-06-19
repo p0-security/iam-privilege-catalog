@@ -1,0 +1,16 @@
+name: API Management API/tag associations
+description: Associations between tags and an API in Azure API Management, used for organizing and grouping APIs.
+scope: LOW
+notes: Non-sensitive organizational labeling/grouping metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Detaching a tag from the API removes a labeling metadata association used operationally.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Assigning a tag to the API modifies its organizational labeling metadata associations.

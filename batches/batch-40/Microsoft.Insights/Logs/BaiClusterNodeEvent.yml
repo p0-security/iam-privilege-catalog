@@ -1,0 +1,12 @@
+name: Log Analytics BaiClusterNodeEvent table
+description: The BaiClusterNodeEvent table holds Batch AI per-node event log records ingested into a Log Analytics workspace.
+scope: MEDIUM
+notes: Monitoring/diagnostic telemetry for a single compute workload function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reading the table exports Batch AI node-level event log content.

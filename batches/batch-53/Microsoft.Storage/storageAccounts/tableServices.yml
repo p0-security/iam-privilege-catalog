@@ -1,0 +1,12 @@
+name: Storage table service
+description: The table service of a storage account exposes NoSQL key/value table storage and its control-plane properties (CORS, storage analytics logging/metrics settings). The data-plane holds organizational table data.
+scope: MEDIUM
+notes: Control-plane property reads expose only service configuration, not table data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Sets table service properties such as CORS and storage-analytics logging/metrics, allowing an attacker to alter operational service configuration and potentially loosen CORS or disable analytics logging.

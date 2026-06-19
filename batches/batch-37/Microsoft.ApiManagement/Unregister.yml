@@ -1,0 +1,12 @@
+name: API Management resource provider registration
+description: Subscription-level register/unregister actions for the Microsoft.ApiManagement resource provider, controlling whether a subscription is enabled to create and manage API Management (API gateway) resources.
+scope: MEDIUM
+notes: Provider register/unregister are subscription-level administrative toggles, not operations on any API Management instance's contents or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Unregistering the API Management provider can disrupt the subscription's ability to manage and operate its API gateway resources, a denial-of-service effect without deleting existing data.

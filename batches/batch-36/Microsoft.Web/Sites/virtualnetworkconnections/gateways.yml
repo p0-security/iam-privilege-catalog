@@ -1,0 +1,13 @@
+name: App Service web app virtual network connection gateways
+description: Gateway configuration for an App Service web app's virtual network connection (the point-to-site VPN gateway linking the app to a network).
+scope: HIGH
+notes: Gateway config can include VPN package details used to establish private connectivity.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Updates the VNet connection gateway (including the point-to-site VPN package/config), altering and extending the app's reachability into a private network.

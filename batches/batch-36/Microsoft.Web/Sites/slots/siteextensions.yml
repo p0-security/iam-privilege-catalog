@@ -1,0 +1,18 @@
+name: Web App slot site extensions
+description: Site extensions are installed add-on code modules/packages that run in-process inside an App Service deployment slot's worker, extending or modifying the web app's runtime behavior.
+scope: HIGH
+notes: Because extensions execute as code inside the app's process (under the app's identity), they are a sensitive control surface for a single production web app.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an installed site extension removes a deployed code component the slot depends on, tearing down supporting infrastructure and potentially disrupting the app.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+      - impact:hijack
+    notes: Installing/updating a site extension deploys code that executes inside the app worker process under the app's managed identity, enabling code execution as the resource identity (lateral movement), tampering with app behavior, and abusing its compute.

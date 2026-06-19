@@ -1,0 +1,12 @@
+name: Web App instance processes
+description: Instance processes are the live worker processes running the web app's workload on a given App Service instance, exposed via the Kudu/SCM process API.
+scope: HIGH
+notes: Runtime process detail can include command lines and environment variables, which on App Service commonly hold connection strings and secrets.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Stopping a running worker process on an app instance terminates the workload, causing a denial of service for that instance.

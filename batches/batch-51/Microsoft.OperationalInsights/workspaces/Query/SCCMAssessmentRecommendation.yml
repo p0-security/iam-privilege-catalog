@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (SCCMAssessmentRecommendation)
+description: A specific table in an Azure Log Analytics workspace, queried over the data plane via KQL. This table holds System Center Configuration Manager (SCCM) assessment recommendation findings.
+scope: MEDIUM
+notes: Exposes infrastructure configuration findings and weaknesses; MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Returns Configuration Manager assessment findings, exporting the logs (exfiltration:logs) and inventorying infrastructure configuration and identified weaknesses for targeting (discovery:infra).

@@ -1,0 +1,18 @@
+name: Disk access private endpoint connections
+description: A DiskAccess private endpoint connection represents the binding between a private endpoint and a DiskAccess resource, providing private-link connectivity to the managed-disk import/export path.
+scope: HIGH
+notes: Connection state controls which networks can reach the disk-access (disk data egress) path.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a private endpoint connection tears down established private connectivity to the DiskAccess, disrupting authorized private access to the disk import/export path (DoS-like).
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Approving/rejecting a private endpoint connection lets an attacker authorize an attacker-controlled private endpoint into the disk-access path (network movement) or alter connection state to control exposure.

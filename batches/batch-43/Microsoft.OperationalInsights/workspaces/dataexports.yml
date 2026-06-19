@@ -1,0 +1,19 @@
+name: Log Analytics data export rule
+description: A data export rule that continuously forwards selected Log Analytics workspace tables to a Storage Account or Event Hub.
+scope: MEDIUM
+notes: Controls the log-collection/forwarding pipeline; sits at the monitoring-and-defense layer.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting the export rule halts continuous forwarding of workspace logs to downstream SIEM/storage destinations, disrupting log collection and weakening detection and incident response.
+  write:
+    risks:
+      - exfiltration:logs
+      - collection:data
+      - impact:manipulation
+    notes: Creating/updating an export rule can continuously stream ingested workspace logs to an attacker-controlled Storage Account or Event Hub, enabling automated collection and log exfiltration while altering the logging pipeline configuration.

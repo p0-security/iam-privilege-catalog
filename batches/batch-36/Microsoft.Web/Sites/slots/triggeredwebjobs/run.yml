@@ -1,0 +1,13 @@
+name: Web App slot triggered WebJobs
+description: Triggered WebJobs are on-demand/scheduled background executables or scripts deployed to a deployment slot of an Azure App Service web app.
+scope: HIGH
+notes: Application code/logic running for a single web app function.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+    notes: Invoking a triggered WebJob executes code in the slot's runtime context, running as the app's managed identity (lateral movement) and consuming its compute for arbitrary workloads (hijack).

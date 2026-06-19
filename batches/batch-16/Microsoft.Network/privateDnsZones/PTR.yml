@@ -1,0 +1,16 @@
+name: Private DNS PTR record set
+description: A PTR (reverse-lookup) record set within an Azure Private DNS zone, which maps internal IP addresses back to hostnames for resources in linked virtual networks.
+scope: HIGH
+notes: Reverse-DNS records reveal internal IP-to-hostname topology; manipulating them can spoof host identity but does not route forward traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the PTR record set removes reverse-lookup resolution, disrupting services that depend on reverse DNS within the network.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/replacing PTR records lets an attacker spoof reverse-DNS mappings, defeating host-identity/trust checks and falsifying logging within the zone.

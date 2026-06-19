@@ -1,0 +1,13 @@
+name: Log Analytics query table (Alert — security detections)
+description: A Log Analytics workspace query table holding security alert records (Microsoft Sentinel / Defender detections). This data-plane permission returns the stored alert rows via KQL query.
+scope: MEDIUM
+notes: Security detection telemetry is MEDIUM scope; reading it reveals defensive coverage, aiding evasion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading the Alert table exports security detection records (exfiltration:logs) and reveals which detections fired so an attacker can gauge defensive coverage and evade (discovery:logs).

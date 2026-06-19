@@ -1,0 +1,17 @@
+name: Kubernetes LimitRanges (Arc-connected cluster)
+description: Kubernetes LimitRange objects on an Azure Arc-connected cluster, which define per-namespace default/min/max compute (CPU/memory) constraints for pods and containers.
+scope: MEDIUM
+notes: LimitRanges are operational resource-governance configuration scoped to a namespace.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+    notes: Deleting LimitRanges removes the namespace's resource-constraint guardrails, lifting the caps that otherwise bound workload consumption.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Writing LimitRanges alters namespace compute caps; relaxing them lets an attacker schedule oversized resource-hungry workloads (e.g. cryptomining) or tighten them to disrupt legitimate pods.

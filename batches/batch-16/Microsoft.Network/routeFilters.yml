@@ -1,0 +1,17 @@
+name: Azure Route Filter
+description: A Route Filter is an Azure Network resource that controls which BGP community prefixes (e.g. Microsoft 365 / Azure PaaS service routes) are advertised over ExpressRoute Microsoft peering.
+scope: HIGH
+notes: Route filters govern routing for a single hybrid-connectivity (ExpressRoute) function; misconfiguration disrupts that connectivity or alters reachable network prefixes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deletes the route filter, removing the route-advertisement control governing ExpressRoute peering and disrupting connectivity to dependent services.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creates or updates the route filter, altering which BGP community prefixes are advertised/accepted over ExpressRoute peering, manipulating operational routing and potentially broadening reachable network prefixes.

@@ -1,0 +1,12 @@
+name: Storage Task
+description: A storage task (Azure Storage Actions) is a serverless automation resource that performs bulk data operations (set-tier, set-tags, set-immutability, delete-blob) across millions of objects in multiple storage accounts based on defined conditions.
+scope: MEDIUM
+notes: A storage task is supporting automation infrastructure; once assigned to accounts its operations execute against blob data at scale.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Promoting a specific task version to current changes which set of conditional blob operations becomes active, altering the operational data-management logic applied to assigned accounts.

@@ -1,0 +1,18 @@
+name: Azure SQL Managed Instance server trust certificate
+description: A server trust certificate on a SQL Managed Instance establishes the cryptographic cross-server trust used by the managed-instance link / distributed availability group / distributed-transaction features to authenticate a remote SQL Server.
+scope: HIGH
+notes: These certificates define a trust boundary between database environments; read returns only the public certificate (no private key), while write/delete can establish or tear down trust used for cross-instance connectivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:dos
+    notes: Deleting a server trust certificate tears down the established cross-server trust, removing a trust-enforcement component and breaking the link/distributed-transaction service that depends on it.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+    notes: Uploading a server trust certificate establishes cross-server trust toward an attacker-controlled SQL Server, letting the attacker bridge access between instances and tamper with the instance's trust configuration.

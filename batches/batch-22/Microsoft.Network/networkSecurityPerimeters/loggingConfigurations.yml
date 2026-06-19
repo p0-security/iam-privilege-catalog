@@ -1,0 +1,18 @@
+name: Network Security Perimeter Logging Configuration
+description: The logging configuration for a Network Security Perimeter, controlling which access/security events on the perimeter isolation boundary are logged and how they are routed.
+scope: MEDIUM
+notes: Governs audit visibility over a network security/isolation boundary; tampering degrades detection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting the configuration stops collection of security-perimeter access logs, removing detection coverage and disrupting incident response.
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating the configuration lets an attacker disable, narrow, or reroute security-perimeter access logging to evade detection and weaken a defensive monitoring control.

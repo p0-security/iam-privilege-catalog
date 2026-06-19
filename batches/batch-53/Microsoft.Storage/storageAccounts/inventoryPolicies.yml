@@ -1,0 +1,17 @@
+name: Storage blob inventory policy
+description: A blob inventory policy configures scheduled, automated generation of reports listing all blobs/containers in a storage account into a destination container.
+scope: MEDIUM
+notes: Operational data-governance/reporting configuration, not an access-control policy.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deletes the inventory policy, disabling the account's automated inventory-reporting feature (an operational configuration change/disruption).
+  write:
+    risks:
+      - impact:manipulation
+      - collection:data
+    notes: Creates/updates an inventory policy, letting an attacker schedule automated, recurring enumeration of all blobs/containers (names, metadata, sizes) into a chosen destination and alter the reporting configuration.

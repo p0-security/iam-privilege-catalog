@@ -1,0 +1,12 @@
+name: Log Analytics WindowsServerAssessmentRecommendation table
+description: A Log Analytics workspace table holding security/health assessment recommendations for Windows server machines. Monitoring/diagnostic log data enumerating findings.
+scope: MEDIUM
+notes: Findings map per-server misconfigurations and vulnerabilities, providing an attacker a target map.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read exports server assessment-recommendation records enumerating exploitable misconfigurations.

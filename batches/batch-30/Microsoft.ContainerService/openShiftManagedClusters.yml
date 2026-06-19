@@ -1,0 +1,19 @@
+name: OpenShift managed cluster
+description: An Azure Red Hat OpenShift managed cluster resource, a production container-orchestration cluster with node profiles, networking, and agent pool configuration.
+scope: HIGH
+notes: Production compute resource supporting a single organizational function; control-plane reads expose configuration but not credential material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting an OpenShift managed cluster destroys the production cluster infrastructure and all hosted workloads, causing denial of service for the function it supports.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - impact:spend
+    notes: Creating or updating an OpenShift managed cluster lets an attacker alter cluster configuration and provision node pools to run their own workloads (e.g. cryptomining), manipulating operational infrastructure and incurring spend.

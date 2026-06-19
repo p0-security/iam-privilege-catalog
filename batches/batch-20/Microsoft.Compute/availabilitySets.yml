@@ -1,0 +1,16 @@
+name: Availability Sets
+description: An availability set is a logical compute grouping that distributes VMs across fault and update domains to improve availability; it is a free placement construct that holds no data and runs no workloads itself.
+scope: MEDIUM
+notes: Supporting compute placement infrastructure with no data plane; sensitivity is limited to configuration/topology of the VMs that depend on it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an availability set removes a supporting compute placement/grouping resource (which must be empty of VMs to delete), a limited-blast-radius infrastructure destruction.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating an availability set alters fault/update-domain grouping configuration that underpins VM placement, manipulating supporting infrastructure config, but it provisions no compute and touches no data.

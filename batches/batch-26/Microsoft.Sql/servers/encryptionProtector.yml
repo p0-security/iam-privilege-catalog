@@ -1,0 +1,13 @@
+name: Azure SQL Server Encryption Protector
+description: The Azure SQL Server Encryption Protector is the server-level Transparent Data Encryption (TDE) key configuration that binds all databases on the server to either a service-managed key or a customer-managed Key Vault key. It is the cryptographic-control surface for data-at-rest across the whole server.
+scope: CRITICAL
+notes: Controlling this asset governs encryption of every database on the server; changing or invalidating the key can lock out all data, making it a critical, server-wide control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:encryption
+      - impact:dos
+    notes: Sets the server TDE protector; an attacker can repoint encryption at a key they control (ransomware-style extortion) or at a key they can revoke, rendering all databases on the server inaccessible.

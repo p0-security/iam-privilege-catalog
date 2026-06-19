@@ -1,0 +1,12 @@
+name: Key Vault managed storage account
+description: A Key Vault managed storage account is a vault object that links Key Vault to an Azure Storage account so the vault manages (and auto-regenerates) the storage account's access keys and issues SAS tokens on its behalf. The object holds the storage account resource ID, the active key name, and the auto-regeneration period.
+scope: CRITICAL
+notes: This is a deprecated Key Vault feature that nonetheless mediates storage-account credentials; objects here govern credential issuance for the backing storage account, making the asset credential-management-sensitive (CRITICAL).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+    notes: Produces a backup file bundling the managed storage account definition together with its SAS material, exporting credential-bearing data that can be restored or replayed to obtain access to the backing storage account.

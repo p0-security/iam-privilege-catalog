@@ -1,0 +1,18 @@
+name: Network Security Perimeter
+description: A Network Security Perimeter (NSP) is an Azure isolation/defense boundary that centrally manages and enforces network access controls (inbound/outbound access rules) for a group of associated PaaS resources.
+scope: HIGH
+notes: Acts as a network defense control governing access to multiple PaaS services; its access rules and membership constitute the enforced security posture for the resources it protects.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:network
+    notes: Deleting an NSP tears down the entire isolation/defense boundary protecting associated PaaS resources, removing a security control and exposing those services to broader network access.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating an NSP lets an attacker loosen or reconfigure the isolation boundary and its access rules, weakening a network defense and altering enforced access for the protected PaaS resources.

@@ -1,0 +1,16 @@
+name: APIM tags
+description: Tags defined within an Azure API Management service instance, used to organize and group APIs, products, and operations.
+scope: LOW
+notes: Operational metadata with minimal direct sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deletes a tag, removing operational metadata used to categorize API Management resources.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating tags alters operational metadata used to organize APIs and products.

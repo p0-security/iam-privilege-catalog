@@ -1,0 +1,18 @@
+name: API Management workspace notification recipient emails
+description: The set of raw email addresses subscribed as recipients of a publisher notification within an APIM workspace.
+scope: MEDIUM
+notes: Recipient email lists are operational configuration exposing administrator/publisher contact addresses; no secrets or production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Removes an email from notification recipients, suppressing delivery of operational/security notifications to legitimate parties and weakening detection.
+  write:
+    risks:
+      - impact:manipulation
+      - collection:data
+    notes: Adds an arbitrary email address to the notification recipient list, letting an attacker redirect or fan out copies of publisher notifications (which may contain operational details) to an address they control.

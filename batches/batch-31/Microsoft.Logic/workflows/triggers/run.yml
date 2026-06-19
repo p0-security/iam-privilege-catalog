@@ -1,0 +1,14 @@
+name: Logic App workflow trigger
+description: A trigger for a Logic App workflow that defines how and when the workflow is invoked (schedule, conditions, type) and tracks its execution state.
+scope: HIGH
+notes: Triggers control workflow invocation; reading is reconnaissance, while run/reset/setState actions alter execution behavior of the automation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:spend
+    notes: Executing the trigger runs the workflow on demand under the Logic App's managed identity and connections, reaching downstream systems (lateral movement), abusing the resource for work (hijack), and incurring metered execution cost.

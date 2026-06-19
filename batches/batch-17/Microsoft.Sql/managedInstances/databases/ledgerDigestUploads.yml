@@ -1,0 +1,13 @@
+name: SQL Managed Instance database ledger digest upload settings
+description: Configuration for Azure SQL Managed Instance database ledger digest uploads, a tamper-evidence integrity feature that periodically writes cryptographic digests of ledger tables to an external immutable store (Azure Storage or Confidential Ledger) so unauthorized data changes can be detected.
+scope: HIGH
+notes: This is a per-database integrity/defense control; compromising it does not directly expose database data but undermines the ability to detect tampering of a single database (one organizational function).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Enabling/reconfiguring digest uploads lets an attacker redirect digests to an attacker-controlled store or otherwise alter the tamper-evidence configuration, weakening the integrity defense and altering its operational config.

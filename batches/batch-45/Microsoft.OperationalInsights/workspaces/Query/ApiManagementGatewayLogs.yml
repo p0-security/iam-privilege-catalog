@@ -1,0 +1,12 @@
+name: Log Analytics ApiManagementGatewayLogs table
+description: A Log Analytics workspace data-plane table holding Azure API Management gateway request log records ingested into Azure Monitor.
+scope: MEDIUM
+notes: May contain request URLs, headers, client IPs, and tokens captured during API traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads the ApiManagementGatewayLogs table, exporting API gateway request logs that can expose endpoints, request details, and potentially tokens.

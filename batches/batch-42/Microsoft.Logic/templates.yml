@@ -1,0 +1,16 @@
+name: Logic flow organization templates
+description: Flow organization templates are reusable, organization-scoped workflow/flow definition templates that other flows are instantiated from (Power Automate-style automation templates).
+scope: MEDIUM
+notes: Template bodies are automation definitions/config, not credential material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deletes a flow organization template, destroying a stored reusable automation artifact; it removes only the template, not any deployed/running flow infrastructure.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a flow organization template, letting an attacker inject or alter a shared, reusable workflow definition that downstream flows are built from.

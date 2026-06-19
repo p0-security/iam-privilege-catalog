@@ -1,0 +1,12 @@
+name: Managed database threat detection policy
+description: The Advanced Threat Protection / threat-detection (security alert) policy for an Azure SQL Managed Instance database, controlling whether and how anomalous-activity alerts are generated.
+scope: HIGH
+notes: This is a per-database defensive detection control; disabling it lets malicious database activity proceed unobserved.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Updating the policy lets an attacker disable or weaken threat-detection alerting on the managed database to operate undetected.

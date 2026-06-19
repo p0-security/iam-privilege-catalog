@@ -1,0 +1,18 @@
+name: Kubernetes Endpoints (Arc-connected cluster)
+description: Kubernetes Endpoints objects on an Azure Arc-connected cluster, which map a Service to the set of backend pod IP addresses and ports that receive its traffic.
+scope: HIGH
+notes: Endpoints define the in-cluster data path; controlling them controls where service traffic is routed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting Endpoints removes the backend targets behind services, severing connectivity and denying service to the affected workloads.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Writing Endpoints repoints a service's backends to attacker-controlled IPs/ports, hijacking or intercepting in-cluster traffic and pivoting to other network resources.

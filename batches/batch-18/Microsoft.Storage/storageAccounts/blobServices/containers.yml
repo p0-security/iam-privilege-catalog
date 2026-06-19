@@ -1,0 +1,16 @@
+name: Storage blob containers
+description: A blob container within a storage account's blob service, holding organizational blob data and its access/immutability configuration.
+scope: HIGH
+notes: Containers are production data stores supporting an organizational function; their configuration governs data exposure and retention/WORM protection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a container destroys the container and all blobs it holds, irreversibly removing organizational data.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Patch/create a container modifies configuration (public-access level, metadata), altering operational settings of a production data store.

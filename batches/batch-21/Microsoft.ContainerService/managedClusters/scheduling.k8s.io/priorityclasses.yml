@@ -1,0 +1,18 @@
+name: Kubernetes PriorityClasses (AKS)
+description: Cluster-scoped Kubernetes PriorityClass objects that define scheduling priority values and preemption policy for pods within an AKS managed cluster.
+scope: MEDIUM
+notes: Scheduling configuration; manipulation affects which workloads run/are preempted but exposes no sensitive data and is not an access-control or data asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting PriorityClasses removes scheduling configuration that pods reference, disrupting pod admission/scheduling for dependent workloads and causing operational disruption.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Creating/updating PriorityClasses lets an attacker define high-priority preempting classes that evict and starve legitimate workloads, manipulating scheduling and causing denial of service.

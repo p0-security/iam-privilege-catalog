@@ -1,0 +1,13 @@
+name: App Service Environment Worker Pool
+description: A Worker pool of an App Service Environment is a tier of dedicated compute instances that actually run the apps hosted in the ASE, with its own SKU and instance-count configuration.
+scope: HIGH
+notes: Capacity/SKU configuration of the compute that runs hosted apps; sensitivity tracks the single-function hosting environment it serves.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating or updating a Worker pool changes the ASE worker SKU/instance count, altering the compute capacity available to hosted apps and provisioning additional costly dedicated instances.

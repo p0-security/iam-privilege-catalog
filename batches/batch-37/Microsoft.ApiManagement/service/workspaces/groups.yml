@@ -1,0 +1,17 @@
+name: APIM workspace groups
+description: Developer groups defined within an APIM workspace; these access-control groupings govern which developers can access products and APIs through the developer portal.
+scope: MEDIUM
+notes: These are API Management developer-portal authorization constructs, not Azure RBAC identities; their blast radius is scoped to API/product consumption within the APIM service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:access
+      - destruction:policy
+    notes: Deletes a workspace group, removing an access-control grouping and revoking the product/API access of all its members, denying authorized developers their access.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a workspace group definition, altering the access-control grouping structure; on its own a group confers access only once tied to products and members.

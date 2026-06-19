@@ -1,0 +1,21 @@
+name: Web Apps slot Functions host function keys
+description: Functions host function keys are app-level bearer credentials valid for invoking any function across the function app slot.
+scope: HIGH
+notes: Credential material gating app-wide function invocation; invoked functions run under the app's assigned managed identity.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:access
+      - impact:dos
+    notes: Deleting a host-level function key destroys credential material valid across all functions in the app and revokes the invocation access legitimate callers depend on, denying authorized access app-wide.
+  write:
+    risks:
+      - persistence:account
+      - escalation:lateral
+      - exfiltration:crypto
+      - impact:manipulation
+    notes: PUT creates/overwrites a host-level function key with an attacker-chosen value and returns the resolved key, planting a persistent credential valid across all functions in the app and granting invocation as the app identity.

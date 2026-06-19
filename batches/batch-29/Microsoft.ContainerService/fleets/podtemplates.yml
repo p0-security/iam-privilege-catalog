@@ -1,0 +1,18 @@
+name: Kubernetes pod templates (AKS Fleet)
+description: PodTemplates are namespaced Kubernetes objects holding reusable pod specifications (container images, commands, env vars, volume and secret mounts, service-account references) used by controllers to instantiate pods in AKS Fleet-managed clusters.
+scope: HIGH
+notes: Pod specs can reference mounted secrets and service-account identities, making them sensitive workload-configuration assets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting pod templates removes reusable workload definitions, altering operational configuration that controllers reference; templates alone do not run pods so this is config tampering rather than infra teardown.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - escalation:lateral
+    notes: Writing pod templates lets an attacker define pod specs that run arbitrary container images and bind to service-account identities/mounted secrets, enabling workload hijacking and lateral movement via assumed identities when controllers instantiate the template.

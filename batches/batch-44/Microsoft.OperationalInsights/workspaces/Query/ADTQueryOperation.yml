@@ -1,0 +1,12 @@
+name: Log Analytics workspace query table (Azure Digital Twins query operation)
+description: A Log Analytics workspace query table holding ingested Azure Digital Twins query-operation log records. Reading it is a data-plane operation returning the stored log row content.
+scope: MEDIUM
+notes: Monitoring/diagnostics data is MEDIUM-sensitivity confidential operational telemetry; logged query text may expose data references and environment structure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Returns ADT query-operation rows whose query text may reveal sensitive twin-graph access patterns and identifiers, enabling log exfiltration.

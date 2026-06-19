@@ -1,0 +1,14 @@
+name: Log Analytics search job
+description: An asynchronous search job in a Log Analytics workspace that runs a KQL query over ingested/archived log tables and materializes the matching records into a new results table.
+scope: MEDIUM
+notes: Operates over potentially the entire workspace's log data and is a metered (scan/ingestion-billed) operation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - exfiltration:logs
+      - collection:data
+      - impact:spend
+    notes: Running a search job scans workspace log tables and persists matching records into a new table, enabling bulk automated collection/export of log content while incurring metered scan/ingestion cost.

@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (OTelResources)
+description: A per-table data-plane read permission on a Log Analytics workspace, granting query access to the rows of one specific log/telemetry table ingested into the workspace.
+scope: MEDIUM
+notes: Log Analytics tables hold ingested monitoring, security, and application telemetry. Sensitivity is MEDIUM (monitoring/diagnostic data), though individual tables can contain confidential operational detail, command lines, identifiers, or security-detection context.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Reads OpenTelemetry resource-descriptor telemetry (service/host/instance attributes), exporting the records and enumerating the monitored services and infrastructure.

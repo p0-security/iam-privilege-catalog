@@ -1,0 +1,13 @@
+name: Log Analytics DatabricksSQLPermissions table
+description: A Log Analytics workspace table holding ingested Azure Databricks SQL permission/grant audit log records. Reading it is a data-plane operation that returns the stored log rows.
+scope: MEDIUM
+notes: Records access-control grant/revoke activity, revealing who holds which data-access privileges.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:policy
+    notes: Returns SQL grant/revoke audit events, exporting log content and revealing the access-control structure (who holds what privileges) to find authorization weak points.

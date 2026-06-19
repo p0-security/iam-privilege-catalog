@@ -1,0 +1,13 @@
+name: Cassandra keyspace throughput setting
+description: The provisioned throughput (RU/s) configuration for a Cassandra keyspace within an Azure Cosmos DB account, controlling the capacity and billing model of a production database namespace.
+scope: HIGH
+notes: This is a capacity/cost knob on a production database function, not the data itself; adverse changes degrade service availability or inflate metered spend.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:spend
+      - impact:dos
+    notes: Migrating the keyspace offer to manual throughput lets an attacker pin capacity high (excess spend) or low (throttling/DoS) on the production database.

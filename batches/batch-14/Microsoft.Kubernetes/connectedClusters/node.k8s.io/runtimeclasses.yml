@@ -1,0 +1,18 @@
+name: Kubernetes RuntimeClasses (Arc-connected cluster)
+description: RuntimeClass is a cluster-scoped Kubernetes object that defines the container runtime handler (e.g. runc, gVisor, Kata) and overhead/scheduling settings pods can select. This is the data-plane resource exposed on an Azure Arc connected cluster.
+scope: HIGH
+notes: RuntimeClass governs which runtime/isolation profile pods run under, so it is a workload-isolation-relevant config object, though it holds no secrets or workload data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Delete/DeleteCollection removes runtime-handler config objects, breaking scheduling of any pods that reference them and disrupting dependent workloads.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Create/Update lets an attacker define or alter a runtime handler, redirecting admitted pods to a less-isolated/privileged runtime, which both manipulates operational cluster config and weakens a workload-isolation defense.

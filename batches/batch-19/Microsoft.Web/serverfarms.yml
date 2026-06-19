@@ -1,0 +1,19 @@
+name: App Service Plan
+description: An App Service Plan (serverfarm) is the compute hosting tier (region, OS, SKU/pricing tier, instance count) that runs one or more Azure App Service web apps, function apps, and API apps.
+scope: HIGH
+notes: Production compute supporting the web applications hosted on it; the asset itself holds no data plane but its lifecycle and scale directly govern the availability and cost of every app on the plan.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting an App Service Plan destroys the compute infrastructure hosting all its apps, taking the dependent web services offline (denial of service).
+  Write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - impact:spend
+    notes: Creating or updating an App Service Plan provisions/scales billable compute the attacker can run workloads on (hijack/spend) and reconfigures the hosting tier backing production apps (manipulation).

@@ -1,0 +1,16 @@
+name: Domain Services OU container
+description: OU containers represent organizational-unit structure within an Azure AD Domain Services managed domain, organizing directory objects, group policy scope, and delegated administration.
+scope: HIGH
+notes: Part of the managed AD directory; its structure governs object placement and administrative delegation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.AAD
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an OU container removes part of the managed domain's organizational-unit structure and the directory objects it organizes, destroying directory infrastructure and disrupting administration/policy scoping.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing an OU container creates/modifies organizational-unit structure in the managed domain, manipulating directory configuration that controls object placement, GPO and delegation scope.

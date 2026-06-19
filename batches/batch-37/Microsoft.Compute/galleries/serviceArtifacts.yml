@@ -1,0 +1,16 @@
+name: Compute gallery service artifacts
+description: Gallery Service Artifacts in an Azure Compute Gallery (Shared Image Gallery), artifact definitions distributed to VMs and scale sets during provisioning.
+scope: MEDIUM
+notes: A supporting image-distribution resource; artifacts feed downstream VM/scale-set provisioning, giving write access supply-chain relevance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deletes a gallery service artifact, destroying a distributable image-gallery artifact and disrupting dependent provisioning workflows.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a gallery service artifact, letting an attacker alter or insert artifact definitions distributed to VM/scale-set provisioning, a supply-chain manipulation of operational deployment content.

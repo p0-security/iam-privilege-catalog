@@ -1,0 +1,16 @@
+name: ACR cache rule
+description: A cache rule configures pull-through caching for an Azure Container Registry, mapping a target repository path to an upstream source registry (optionally referencing a credential set). It controls which upstream images the registry pulls and serves.
+scope: MEDIUM
+notes: Cache rules govern the image supply chain; manipulating them can redirect or poison image pulls into downstream pipelines.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes a cache rule, removing pull-through cache configuration and disrupting the registry's ability to source and serve cached upstream images.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a cache rule, letting an attacker redirect which upstream source images are pulled and cached, potentially seeding attacker-controlled content into the supply chain.

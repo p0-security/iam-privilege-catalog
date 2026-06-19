@@ -1,0 +1,18 @@
+name: AKS Fleet InternalMemberCluster resource
+description: A data-plane Fleet InternalMemberCluster resource holding the fleet hub's internal membership, reconciliation, and health bookkeeping for a member cluster.
+scope: HIGH
+notes: Internal membership state drives fleet placement/reconciliation; mutating it can influence which clusters are governed and how workloads propagate, but it holds no secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the InternalMemberCluster resource tears down the fleet hub's internal record of a member cluster, breaking reconciliation/health tracking and disrupting fleet-managed orchestration for that cluster.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Writing the InternalMemberCluster resource mutates the cluster's internal fleet-management state, manipulating which clusters are governed and influencing workload propagation, enabling lateral reach into fleet-orchestrated clusters.

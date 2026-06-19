@@ -1,0 +1,12 @@
+name: Web App slot triggered WebJobs
+description: Triggered WebJobs are on-demand/scheduled background executables or scripts deployed to a deployment slot of an Azure App Service web app.
+scope: HIGH
+notes: Application code/logic running for a single web app function.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a triggered WebJob removes deployed background-task code from the slot, disrupting that app function.

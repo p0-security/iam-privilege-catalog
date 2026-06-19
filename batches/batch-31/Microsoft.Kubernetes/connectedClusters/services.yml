@@ -1,0 +1,17 @@
+name: Kubernetes services (connected cluster)
+description: Kubernetes Service objects on an Azure Arc-enabled (connected) cluster. Services define network endpoints (ClusterIP/NodePort/LoadBalancer), ports, and selectors that front and route traffic to cluster workloads.
+scope: HIGH
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting Service objects removes the network endpoints/routing that front workloads, severing connectivity and causing denial of service to the hosted applications.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating Services lets an attacker redirect traffic (alter selectors), expose internal workloads externally via LoadBalancer/NodePort, and reach additional resources on the cluster network.

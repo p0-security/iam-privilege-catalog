@@ -1,0 +1,16 @@
+name: Cassandra view
+description: A Cassandra View is a control-plane-defined materialized view / query projection over data in a Cassandra keyspace within a Cosmos DB database account. It shapes how underlying production table data is exposed.
+scope: HIGH
+notes: Resource of a single production database function; the view definition governs operational data projections.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a Cassandra view destroys a defined data projection/schema object in a production database, removing the derived data it materializes.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a Cassandra view alters the schema/projection definition over production keyspace data, manipulating operational data structures.

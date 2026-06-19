@@ -1,0 +1,19 @@
+name: Kubernetes CustomResourceDefinitions (AKS)
+description: Cluster-wide Kubernetes CustomResourceDefinitions (CRDs) on an AKS managed cluster that define extended API types installed by operators and controllers.
+scope: CRITICAL
+notes: CRDs back operators such as service meshes, cert managers, secret stores, and policy controllers; their custom resource instances hold operational state and configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - destruction:data
+      - impact:dos
+    notes: Deleting a CRD cascade-deletes every custom resource instance of that type cluster-wide (wiping operator state, certificates, and policy CRs) and breaks the dependent controllers, destroying infrastructure and data and causing denial of service.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating CRDs alters cluster-wide API schemas and can hijack conversion webhooks or shadow/redefine types used by security operators and policy controllers, manipulating operational behavior and undermining policy-as-CRD defenses.

@@ -1,0 +1,19 @@
+name: Kubernetes ReplicaSets
+description: Kubernetes ReplicaSet objects within an AKS fleet member cluster. ReplicaSets are workload controllers that maintain a stable set of replica pods, defining pod templates (container images, env, volume mounts, service accounts).
+scope: HIGH
+notes: Controlling ReplicaSets lets an attacker run arbitrary containers and inherit pod service-account identities; reading them inventories running workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting ReplicaSets tears down the controllers managing application pods, destroying running workload infrastructure and disrupting the hosted service.
+  write:
+    risks:
+      - impact:hijack
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating a ReplicaSet schedules attacker-controlled containers (cryptomining/botnet) and lets the pods run under existing service-account identities, enabling resource hijacking, workload manipulation, and lateral movement to those identities.

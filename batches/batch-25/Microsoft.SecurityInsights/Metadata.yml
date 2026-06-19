@@ -1,0 +1,16 @@
+name: Sentinel content metadata
+description: Metadata records describing Microsoft Sentinel content items (solutions, analytics-rule templates, parsers, workbooks) — versions, authorship, dependencies, and source associations.
+scope: LOW
+notes: Descriptive catalog metadata used to manage installed content; not the detection logic or data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deletes content metadata records, removing operational descriptive metadata used to manage and version installed Sentinel content.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writes/overwrites content metadata, allowing an attacker to alter operational descriptors (versions, dependencies, source associations) that drive content management without touching the detections themselves.

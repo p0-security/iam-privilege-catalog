@@ -1,0 +1,18 @@
+name: Network authorization policies
+description: A network authorization policy defines access-control rules governing which principals or resources may connect to, join, or associate with a network resource.
+scope: HIGH
+notes: Reading reveals the access-control posture for network association; writing/deleting alters who can connect, making the asset security-relevant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+    notes: Deleting the policy removes the access-control rules constraining network association, lifting deny restrictions that would otherwise block attacker connectivity.
+  write:
+    risks:
+      - escalation:privilege
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating the policy lets an attacker grant additional principals/resources permission to connect, which is both a privilege grant (escalation:privilege) and expansion of reachable network (escalation:network), while manipulating the access-control config (impact:manipulation).

@@ -1,0 +1,18 @@
+name: AKS AI Manager resource quotas
+description: Kubernetes ResourceQuota objects within an AKS AI Manager namespace that constrain aggregate compute/memory/object consumption for workloads in that namespace.
+scope: MEDIUM
+notes: Operational guardrail objects; they govern capacity limits, not sensitive data or identities.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:consumption
+      - impact:manipulation
+    notes: Deleting a quota removes the namespace's consumption guardrail, lifting limits so workloads can exhaust the shared resource pool.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:consumption
+    notes: Creating/updating a quota lets an attacker tighten limits to block legitimate scheduling or loosen/remove them to consume the shared resource pool.

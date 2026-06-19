@@ -1,0 +1,18 @@
+name: AKS cluster extension addons
+description: Extension addons are cluster extensions (Helm-packaged components/agents) installed into an AKS cluster, covering both functional and security/monitoring tooling that runs as in-cluster workloads.
+scope: HIGH
+notes: Addon write deploys code that can run under the cluster/node managed identity, making this resource a lateral-movement and workload-execution surface.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an extension addon removes a deployed in-cluster component, disrupting the function it provides; if the addon is security/monitoring tooling this can also blind defenses.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:manipulation
+    notes: Creating/updating an extension addon deploys attacker-chosen Helm/extension components that run as in-cluster workloads, enabling code execution under cluster/managed identities (lateral movement), running attacker workloads (hijack), and tampering with cluster configuration.

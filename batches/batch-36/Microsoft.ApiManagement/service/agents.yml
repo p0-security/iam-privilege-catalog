@@ -1,0 +1,16 @@
+name: APIM AI gateway agents
+description: AI agent definitions configured in an API Management service instance, defining agent orchestration/routing behavior for the AI gateway.
+scope: MEDIUM
+notes: Control-plane configuration of AI gateway agents; a supporting service component for a single API-gateway function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an AI agent definition, removing gateway configuration and disrupting agent-backed API traffic (DoS-like effect).
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates/updates an AI agent definition, letting an attacker alter the gateway's agent configuration and how agent requests are routed/processed.

@@ -1,0 +1,13 @@
+name: Log Analytics table data (Azure Health Data Services audit logs)
+description: A Log Analytics workspace table (MicrosoftHealthcareApisAuditLogs) holding Azure Health Data Services (FHIR/DICOM) audit records in Azure Monitor.
+scope: MEDIUM
+notes: Sensitive audit telemetry that may reference PHI access patterns and patient/resource identifiers, but is a diagnostics table rather than the primary PHI data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Read exports healthcare-API audit records that may reference PHI access (exfiltration:logs) and enumerates who accessed which patient resources (discovery:logs).

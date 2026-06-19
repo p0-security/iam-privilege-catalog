@@ -1,0 +1,12 @@
+name: Log Analytics AppServiceHTTPLogs table
+description: A Log Analytics workspace data-plane table holding App Service HTTP access log records (request URLs, methods, status codes, client IPs, user agents) ingested via diagnostic settings.
+scope: MEDIUM
+notes: Per-table data-plane read permission on monitoring/diagnostic logs; sensitivity is that of collected operational log content rather than a primary production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads HTTP request log records that can disclose accessed URLs, client IPs and request metadata for an App Service.

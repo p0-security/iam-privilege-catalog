@@ -1,0 +1,18 @@
+name: API Management certificates
+description: API Management certificates are stored certificate entities (uploaded PFX or Key Vault references) used for mutual-TLS / client-certificate authentication from the gateway to backend services.
+scope: HIGH
+notes: The stored certificate is a credential the gateway presents to backends; control-plane reads expose only metadata, but write/delete affect backend trust material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:dos
+    notes: Deleting a stored certificate destroys the cryptographic credential material used for backend authentication and breaks any API whose backend connection depends on mutual TLS, disrupting that service.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Adding/updating the backend-authentication certificate substitutes the client credential the gateway presents to backends (mutual TLS); an attacker can supply a controlled certificate to impersonate the gateway toward backend services (lateral movement) and tamper with the trust configuration.

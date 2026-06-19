@@ -1,0 +1,13 @@
+name: Azure SQL Database import/export extension
+description: The database extensions endpoint that drives import/export (BACPAC) operations against an Azure SQL Database, moving the full contents of a production database in or out.
+scope: HIGH
+notes: Touches the entire data plane of a production database via bulk import/export.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - exfiltration:data
+      - impact:manipulation
+    notes: A write triggers a BACPAC export of the full database to attacker-controlled storage (exfiltration) or an import that overwrites/loads database contents (manipulation).

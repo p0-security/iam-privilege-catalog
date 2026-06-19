@@ -1,0 +1,16 @@
+name: APIM group users
+description: The membership association between API Management developer-portal groups and user accounts; groups gate visibility of and access to API products.
+scope: MEDIUM
+notes: Group membership governs which products/APIs a developer-portal account can see and subscribe to, so it functions as an access-control grouping within the APIM instance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:access
+    notes: Removing a user from a group revokes that account's group-derived product/API access, denying authorized operational access.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Adding a controlled user to a group grants that account the product/API access tied to the group, escalating its effective privileges in the developer portal.

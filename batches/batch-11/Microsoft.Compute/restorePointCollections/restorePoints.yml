@@ -1,0 +1,17 @@
+name: VM restore points
+description: "Restore points: individual point-in-time crash-consistent snapshots of a VM's OS and data disks, stored within a restore point collection."
+scope: HIGH
+notes: Each restore point is a full copy of VM disk data; the snapshot data itself is reachable only via separate SAS-URI retrieval.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deletes a restore point, destroying a point-in-time VM disk backup and reducing recoverability.
+  write:
+    risks:
+      - impact:spend
+    scope: MEDIUM
+    notes: Creating a restore point provisions a point-in-time disk snapshot, consuming backup storage and incurring cost; it copies disk state into a controlled snapshot but does not by itself return that data.

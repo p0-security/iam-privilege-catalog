@@ -1,0 +1,13 @@
+name: Log Analytics SharePointOnlineAssessmentRecommendation table
+description: A Log Analytics workspace table holding SharePoint Online assessment recommendation records ingested into Azure Monitor.
+scope: MEDIUM
+notes: Assessment-recommendation logs surface configuration posture and security/best-practice findings about the SharePoint environment; confidential operational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Read returns the SharePoint Online assessment recommendation rows, exporting log content that inventories SharePoint configuration and posture weaknesses.

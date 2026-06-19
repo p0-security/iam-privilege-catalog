@@ -1,0 +1,18 @@
+name: Fleet ClusterResourceBinding
+description: A KubeFleet placement data-plane object that binds a captured ClusterResourceSnapshot to a specific member cluster, recording the decision to propagate a set of workload manifests to that cluster.
+scope: HIGH
+notes: Part of the Azure Kubernetes Fleet multi-cluster placement engine; controlling these objects steers what workloads run across the fleet's member clusters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Deleting a binding tears down the placement linkage, withdrawing bound workloads from member clusters and disrupting the services they support.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Creating/updating a binding controls which resource snapshot is propagated to which member cluster, letting an attacker manipulate placement and force attacker-chosen workloads to run on target clusters.

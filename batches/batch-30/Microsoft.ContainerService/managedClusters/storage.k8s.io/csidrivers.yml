@@ -1,0 +1,17 @@
+name: Kubernetes CSIDrivers (AKS)
+description: Cluster-scoped Kubernetes CSIDriver objects in an AKS managed cluster that register Container Storage Interface drivers and their cluster-wide mount/attach behavior (attachRequired, fsGroupPolicy, podInfoOnMount, volumeLifecycleModes).
+scope: HIGH
+notes: These objects govern how the kubelet interacts with storage drivers cluster-wide, including security-relevant mount fields; they do not contain stored data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting CSIDriver objects deregisters the storage driver, breaking volume provisioning, attach, and mount for every workload that relies on it across the cluster.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating CSIDriver objects alters cluster-wide storage driver behavior including security-relevant mount fields (fsGroupPolicy, podInfoOnMount, attachRequired), manipulating how volumes are mounted for every workload using that driver.

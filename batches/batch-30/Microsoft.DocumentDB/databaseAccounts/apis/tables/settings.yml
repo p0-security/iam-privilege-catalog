@@ -1,0 +1,13 @@
+name: Cosmos DB table throughput setting
+description: The provisioned throughput (RU/s) configuration for a Cosmos DB Table-API table, controlling the table's request capacity and the dimension Cosmos DB bills on.
+scope: HIGH
+notes: Throughput is a metered provisioning knob on a production data store; it controls capacity/billing but not the stored data content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:dos
+      - impact:spend
+    notes: Updating a Table-API table's RU/s lets an attacker throttle/deny the production workload or raise capacity to inflate Cosmos DB spend.

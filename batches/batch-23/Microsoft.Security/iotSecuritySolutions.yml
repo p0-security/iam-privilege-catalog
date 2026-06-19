@@ -1,0 +1,17 @@
+name: IoT security solutions
+description: IoT Security Solutions are Microsoft Defender for IoT deployments that connect to IoT Hub(s) to provide threat monitoring, alerting, and recommendations across an IoT/OT estate.
+scope: MEDIUM
+notes: These are a threat-protection/monitoring defense for IoT workloads; modifying or removing them blinds detection for that estate.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an IoT security solution removes threat protection and monitoring for the IoT estate, disabling a defense mechanism and disrupting incident response.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating or updating an IoT security solution lets an attacker reconfigure or weaken IoT threat-monitoring settings, degrading the defense for IoT workloads.

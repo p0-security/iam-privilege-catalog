@@ -1,0 +1,17 @@
+name: Fleet InternalMemberCluster resource
+description: A Fleet InternalMemberCluster resource is the hub-side internal object that tracks a member cluster's join/heartbeat/health state used by the fleet control plane to coordinate reconciliation.
+scope: HIGH
+notes: It reflects internal coordination state rather than directly carrying workloads; manipulating it alters reported membership/health used to drive placement reconciliation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting an InternalMemberCluster removes the hub-side internal record for a cluster, breaking its participation in the fleet and disrupting reconciliation and placement-driven workloads.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing an InternalMemberCluster alters the hub-side internal membership/heartbeat/health state of a cluster, manipulating the operational coordination data that drives placement reconciliation (e.g. spoofing health).

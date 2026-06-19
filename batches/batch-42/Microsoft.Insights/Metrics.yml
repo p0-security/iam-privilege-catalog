@@ -1,0 +1,22 @@
+name: Azure Monitor pricing-model migration state
+description: Subscription-level Azure Monitor pricing-model migration metadata (the date/state of migration between monitoring billing models).
+scope: MEDIUM
+notes: Billing/pricing-model configuration metadata for the monitoring service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - impact:manipulation
+    notes: A generic metric action on the monitoring plane that can submit/emit metric telemetry; injecting false metrics can skew dashboards and suppress or trigger metric-based alerting.
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reading actual metric values exports time-series telemetry (utilization, request counts, activity patterns) revealing operational behavior of resources.
+    name: Azure Monitor metrics
+  Write:
+    risks:
+      - impact:manipulation
+    notes: This data action writes custom metric values into Azure Monitor, letting an attacker inject or falsify telemetry to corrupt monitoring data and evade or falsely trigger metric-based alerting.
+    name: Azure Monitor metrics

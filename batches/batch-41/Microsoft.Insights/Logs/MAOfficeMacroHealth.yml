@@ -1,0 +1,13 @@
+name: Log Analytics MAOfficeMacroHealth table
+description: A Log Analytics / Azure Monitor table holding Microsoft Managed Desktop / Desktop Analytics telemetry. The MAOfficeMacroHealth table records Office macro/automation health telemetry across managed devices.
+scope: MEDIUM
+notes: Monitoring/diagnostics data tier. Macro telemetry can reveal macro usage and configuration weaknesses useful for targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:infra
+    notes: Data-plane read returns Office macro-health rows, exporting log content and revealing macro usage/configuration posture across endpoints.

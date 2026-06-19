@@ -1,0 +1,17 @@
+name: Scheduled query rule NSP association proxy
+description: The association proxy that binds an Azure Monitor scheduled query (log alert) rule into a Network Security Perimeter (NSP) of the Microsoft.Network provider, defining the network-isolation enforcement boundary around the alert-rule resource.
+scope: MEDIUM
+notes: The protected asset is alerting/monitoring infrastructure; the NSP association is a network defense control governing reachability of the resource.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the NSP association proxy detaches the scheduled query rule from its network security perimeter, removing the network-isolation defense boundary that restricts who can reach the resource.
+  Write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating the NSP association can change the perimeter binding or switch to a lenient learning/disabled enforcement mode, weakening the network-isolation defense and altering the resource's network access-control configuration.

@@ -1,0 +1,17 @@
+name: Log Analytics workspace configuration scope
+description: A configuration scope defines which resources are bound to a Log Analytics workspace's data-collection configuration, controlling what telemetry the workspace gathers.
+scope: MEDIUM
+notes: Supporting monitoring/diagnostics configuration object; not a primary data store but governs observability coverage.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting a configuration scope removes the binding that drives log collection for the scoped resources, halting ingestion and degrading monitoring-based detection.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a configuration scope alters which resources feed data collection, letting an attacker tamper with monitoring coverage to blind or skew telemetry.

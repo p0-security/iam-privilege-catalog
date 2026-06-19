@@ -1,0 +1,18 @@
+name: Managed HSM private endpoint connection proxy
+description: The connection-proxy object that brokers a Microsoft.Network Private Endpoint connection to a Managed HSM, used internally during private-endpoint provisioning and lifecycle.
+scope: HIGH
+notes: Governs private network reachability to the HSM; write/delete affect connectivity, read only inventories it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the connection proxy tears down a private-endpoint network connectivity component, removing the network component and disrupting legitimate private access to the HSM.
+  write:
+    risks:
+      - escalation:network
+    scope: CRITICAL
+    notes: Creating/updating the connection proxy provisions or alters the private-endpoint binding to the HSM, enabling network movement toward the critical key store.

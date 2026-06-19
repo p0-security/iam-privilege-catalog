@@ -1,0 +1,13 @@
+name: Resource diagnostic settings
+description: Diagnostic settings define which log and metric categories of a resource are exported and to which destinations (Log Analytics workspace, storage, event hub). They are the control-plane configuration of resource-level audit/diagnostic export.
+scope: MEDIUM
+notes: Governs the audit trail; weakening it disrupts incident response but does not expose primary organizational data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating or updating a diagnostic setting lets an attacker disable categories or redirect/remove log and metric export, suppressing the audit trail as a classic defense-evasion primitive.

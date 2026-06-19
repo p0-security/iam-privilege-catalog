@@ -1,0 +1,18 @@
+name: Azure Automation hybrid runbook worker
+description: A Hybrid Runbook Worker is an on-prem or VM machine registered to an Azure Automation account that executes runbook code outside the Azure sandbox, typically under a configured (often privileged) identity.
+scope: HIGH
+notes: Write/move/delete on these workers are high impact because the workers run code as a configured identity; reads only inventory the execution hosts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a hybrid runbook worker removes a registered execution node, destroying automation infrastructure and disrupting runbook jobs that depend on it.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+    notes: Registering a hybrid runbook worker enrolls a machine that executes runbook code under the worker's identity, enabling code execution as that identity (lateral movement) and use of the registered compute to run attacker workloads.

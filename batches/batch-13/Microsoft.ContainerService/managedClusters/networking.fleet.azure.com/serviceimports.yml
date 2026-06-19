@@ -1,0 +1,17 @@
+name: Fleet ServiceImport resource
+description: A Kubernetes Fleet Manager networking custom resource (data-plane, networking.fleet.azure.com) representing a multi-cluster service imported into a member cluster, enabling workloads to reach services exported by other clusters in the fleet.
+scope: HIGH
+notes: Governs cross-cluster service discovery and reachability; manipulation affects multi-cluster network connectivity for a single cluster's workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Delete tears down the cross-cluster service binding, removing the network path through which the cluster reaches a multi-cluster service and causing DoS for dependent workloads.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Create/update binds a cross-cluster service into this cluster, manipulating multi-cluster service-discovery config and expanding reachability to services on other fleet member clusters (network movement).

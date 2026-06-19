@@ -1,0 +1,19 @@
+name: AKS fleet member cluster Deployments
+description: Kubernetes Deployment workload controllers inside an AKS fleet member cluster, accessed via the Azure data plane. A Deployment manages replicated application pods (the primary way stateless workloads run in the cluster).
+scope: HIGH
+notes: Data-plane access to the cluster's primary application workloads in a production AKS cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting Deployments (incl. DeletesCollection) removes the controllers and their pods, tearing down the backing application and destroying running cluster workloads.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating a Deployment runs arbitrary attacker containers (resource hijacking) under the pods' service-account identity (lateral movement) and manipulates the running application's operational state.

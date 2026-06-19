@@ -1,0 +1,16 @@
+name: APIM workspace Tag-API links
+description: Tag-API links are association records within an API Management workspace that map tags to specific APIs for categorization and filtering.
+scope: LOW
+notes: Non-sensitive relationship metadata; modifying or reading it does not alter the APIs themselves or expose their definitions, secrets, or data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:metadata
+    notes: Deletes a tag-API link, removing association metadata without affecting the underlying APIs or tags.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a tag-API link, altering association metadata that categorizes APIs without modifying the APIs themselves.

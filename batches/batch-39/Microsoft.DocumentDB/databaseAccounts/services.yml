@@ -1,0 +1,18 @@
+name: CosmosDB service resource
+description: A CosmosDB Service Resource is a supporting control-plane feature provisioned on a Cosmos DB database account, such as a dedicated gateway, materialized-views builder, or data-transfer service. It backs the database account but does not itself hold row data.
+scope: MEDIUM
+notes: Control-plane (management) resource; provisions billable dedicated compute that supports a single database account.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the service resource tears down supporting infrastructure (e.g. dedicated gateway), disrupting the capability that depends on it.
+  write:
+    risks:
+      - impact:spend
+      - impact:manipulation
+    notes: Creating/updating the service resource provisions billable dedicated compute (driving spend) and alters the account's operational service configuration.

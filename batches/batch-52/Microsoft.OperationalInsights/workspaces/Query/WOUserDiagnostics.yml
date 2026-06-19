@@ -1,0 +1,12 @@
+name: Log Analytics workspace table data (WOUserDiagnostics)
+description: A Log Analytics workspace table queried via the data plane; this table (WOUserDiagnostics) holds Windows 365 / Cloud PC user diagnostic log records ingested into the Azure Monitor workspace.
+scope: MEDIUM
+notes: Monitoring/diagnostics data. Reading it exports collected telemetry that may include sensitive operational detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returns stored user-diagnostic log rows, enabling export of that diagnostic telemetry.

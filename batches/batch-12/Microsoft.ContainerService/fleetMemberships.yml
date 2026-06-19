@@ -1,0 +1,17 @@
+name: AKS Fleet membership extension
+description: A fleet membership extension is the binding/linkage configuration that associates a Kubernetes cluster with a Fleet Manager hub, establishing the cluster-to-fleet relationship.
+scope: HIGH
+notes: This is control-plane linkage metadata for centralized multi-cluster management; it contains no workload data or credentials by itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the membership extension severs the cluster-to-fleet binding, removing the cluster from centralized management and disrupting orchestration.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the membership extension establishes or alters the binding that places a cluster under fleet control, manipulating the orchestration relationship for a production cluster.

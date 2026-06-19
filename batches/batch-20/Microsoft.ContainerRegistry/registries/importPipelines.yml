@@ -1,0 +1,18 @@
+name: Container registry import pipelines
+description: An import pipeline is a container registry sub-resource that defines automated ingestion of artifacts (container images/OCI artifacts) from an external Azure Storage source into the registry, using a user-assigned managed identity and a Key Vault SAS-token reference.
+scope: MEDIUM
+notes: Import pipelines form part of the registry's artifact supply chain; their configuration references identities and secret locations (by reference, not value) and controls what content can flow into the registry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an import pipeline removes the artifact-ingestion infrastructure, disrupting the registry's automated import workflow.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    scope: HIGH
+    notes: Create/Update lets an attacker point ingestion at attacker-controlled storage to inject malicious artifacts (supply-chain manipulation) and bind a user-assigned managed identity under which the pipeline runs, enabling use of that identity.

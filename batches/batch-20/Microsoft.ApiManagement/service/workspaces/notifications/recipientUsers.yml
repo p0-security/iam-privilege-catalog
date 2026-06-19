@@ -1,0 +1,17 @@
+name: API Management workspace notification recipient users
+description: The set of API Management users subscribed as recipients of a publisher notification (e.g. subscription requests, quota limit, new issue) within an APIM workspace.
+scope: MEDIUM
+notes: Notification recipient lists are operational configuration; they reveal which user identities receive alerts but contain no secrets or production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Removes a user from notification recipients, suppressing delivery of operational/security alerts (e.g. subscription/quota events) to legitimate staff and thereby weakening detection.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Adds a user to the notification recipient list, altering alerting configuration so an attacker can insert a controlled identity to receive operational/publisher notifications.

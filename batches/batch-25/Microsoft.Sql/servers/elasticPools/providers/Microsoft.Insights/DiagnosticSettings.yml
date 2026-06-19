@@ -1,0 +1,13 @@
+name: Elastic pool diagnostic settings
+description: Azure Monitor diagnostic settings for an Azure SQL elastic pool, controlling which logs and metrics are collected and where they are routed (Log Analytics, Storage, Event Hub).
+scope: MEDIUM
+notes: Monitoring/diagnostic configuration; modifying it is an evasion-relevant defense control even though it holds no business data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Creating/updating the diagnostic setting lets an attacker disable or redirect log/metric collection, disrupting incident response and weakening detective controls.

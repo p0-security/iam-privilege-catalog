@@ -1,0 +1,20 @@
+name: Azure Automation Variable Asset
+description: An Azure Automation variable asset is a named value stored in an Automation account and consumed by runbooks/DSC; variables can be plaintext or marked encrypted (secure).
+scope: HIGH
+notes: Variables commonly hold operational config and, when not marked encrypted, are frequently misused to store connection strings, endpoints, and other sensitive values that the management-plane read returns in cleartext; encrypted variable values are NOT returned by the management API.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deletes a variable asset, destroying stored automation config/state that runbooks depend on and potentially breaking the workflows that consume it.
+  read:
+    risks:
+      - exfiltration:data
+    notes: The control-plane read returns the value of non-encrypted variables (encrypted values are withheld), exposing operational config and any sensitive values stored unencrypted.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a variable alters operational values consumed by runbooks, letting an attacker poison config (e.g. redirect endpoints or change parameters) and manipulate automation behavior.

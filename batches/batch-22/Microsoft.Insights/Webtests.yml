@@ -1,0 +1,18 @@
+name: Web tests
+description: Application Insights webtests (synthetic availability monitors) that periodically probe target endpoint URLs to detect outages, including their target URLs, frequency, and request settings.
+scope: MEDIUM
+notes: Configuration controls an availability-monitoring/detection mechanism and generates recurring outbound requests.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:defense
+      - destruction:infra
+    notes: Deleting a webtest removes an availability monitor, eliminating a detection mechanism for outages (defense destruction) and tearing down the monitoring resource itself.
+  Write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating a webtest lets an attacker alter or effectively disable availability monitoring (weakening outage detection) and tamper with what the synthetic monitor probes.

@@ -1,0 +1,18 @@
+name: Network authentication policies
+description: Authentication policies define access-control/authentication enforcement rules applied to Azure Network resources.
+scope: HIGH
+notes: Configuration that governs how authentication is enforced; weakening or removing it can permit unauthorized access to network resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - destruction:defense
+    notes: Deleting the policy removes an access-control/authentication enforcement mechanism, disabling a defense and potentially enabling access that would otherwise be denied.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating the policy lets an attacker weaken or rewrite authentication enforcement (a defense) and manipulate the security configuration governing network access.

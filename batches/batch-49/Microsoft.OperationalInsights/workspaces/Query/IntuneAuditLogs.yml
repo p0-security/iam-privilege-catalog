@@ -1,0 +1,12 @@
+name: Log Analytics IntuneAuditLogs table
+description: A log table in a Log Analytics workspace storing Intune (Microsoft Endpoint Manager) administrative audit records of device-management actions.
+scope: MEDIUM
+notes: Reveals management activity, configuration changes, and administrator identities.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reading the table exfiltrates Intune administrative audit telemetry exposing management actions and operator activity.

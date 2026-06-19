@@ -1,0 +1,16 @@
+name: Verifier Workspace
+description: A Verifier Workspace is a container resource within Azure Virtual Network Manager that holds network reachability-analysis tooling (intents and runs) used to validate connectivity across managed virtual networks.
+scope: MEDIUM
+notes: This is a supporting network-diagnostics/analysis construct on the management plane; it does not itself carry production traffic or data, though its contents reveal network topology.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a Verifier Workspace destroys the analysis container and its child intents/runs, a supporting-infrastructure destruction with no impact on live network paths.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a Verifier Workspace alters the diagnostic/analysis container configuration but does not change live network connectivity, RBAC, or data.

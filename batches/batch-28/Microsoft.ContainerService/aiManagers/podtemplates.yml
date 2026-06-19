@@ -1,0 +1,18 @@
+name: AKS PodTemplates
+description: Kubernetes PodTemplate objects within an AKS aiManagers cluster, holding reusable pod specifications (container images, commands, env vars, volume mounts, service-account references).
+scope: HIGH
+notes: Data-plane (Kubernetes API) objects; specs may reference secrets/service accounts and reveal workload configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting pod templates removes reusable workload-definition objects relied on for provisioning pods, disrupting deployment configuration.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Writing pod templates defines arbitrary container specs (attacker images, mounted service-account tokens) that, when instantiated, run attacker workloads under cluster identities, enabling hijacking and lateral movement.

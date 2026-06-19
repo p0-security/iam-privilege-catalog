@@ -1,0 +1,12 @@
+name: Azure Log Analytics table (WindowsEvent)
+description: A Log Analytics workspace table accessed via the data plane; this one is the WindowsEvent table, which holds collected Windows Event Log records (system/security/logon events).
+scope: MEDIUM
+notes: OS event telemetry; can contain logon, account, and security-relevant detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Returns ingested Windows Event Log entries, exfiltrating potentially security-relevant log content.

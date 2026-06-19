@@ -1,0 +1,18 @@
+name: SQL Managed Instance long-term retention policy
+description: The long-term backup retention (LTR) policy for an Azure SQL managed database, governing how long backups are retained for recovery.
+scope: HIGH
+notes: A recovery/backup defense control protecting a production database against data loss and ransomware.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Removing/resetting the LTR policy eliminates long-term backup retention, disabling the recovery defense that protects against data destruction/ransomware.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Updating the LTR policy lets an attacker shorten or weaken backup retention, undermining the backup defense that mitigates data destruction/ransomware for a production database.

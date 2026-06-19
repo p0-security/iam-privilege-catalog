@@ -1,0 +1,12 @@
+name: Recovery Services Vault storage config
+description: Storage/redundancy configuration of a Recovery Services Vault (e.g. backup storage redundancy type and cross-region-restore settings).
+scope: MEDIUM
+notes: Governs backup durability/resilience settings, not the backup data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Updates the vault storage redundancy/cross-region-restore configuration, altering operational backup-durability settings that affect recoverability.

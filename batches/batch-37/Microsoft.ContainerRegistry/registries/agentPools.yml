@@ -1,0 +1,17 @@
+name: Container registry agent pools
+description: Dedicated managed build-compute pools (VM size, count, tier) that execute ACR Tasks (image build/run workloads) for a container registry.
+scope: MEDIUM
+notes: Supporting build infrastructure of the registry; control-plane configuration that does not contain registry image data or credentials.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an agent pool, tearing down the dedicated build-compute backing ACR Tasks and disrupting build/task operations.
+  write:
+    risks:
+      - impact:hijack
+      - impact:spend
+    notes: Creates or updates an agent pool, provisioning managed compute an attacker can use to run arbitrary build/task workloads (e.g. cryptomining) at organizational expense.

@@ -1,0 +1,18 @@
+name: AKS fleet cluster mesh profile
+description: An AKS Fleet cluster mesh profile defining the cross-cluster service-mesh networking and connectivity configuration among member clusters of a managed Kubernetes fleet.
+scope: HIGH
+notes: Controls inter-cluster network reachability across a fleet; misconfiguration can bridge or expose otherwise isolated clusters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the mesh profile tears down cross-cluster connectivity, removing network components and disrupting inter-cluster service traffic.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating the mesh profile reconfigures cross-cluster connectivity, manipulating fleet networking and potentially bridging clusters to extend network reach.

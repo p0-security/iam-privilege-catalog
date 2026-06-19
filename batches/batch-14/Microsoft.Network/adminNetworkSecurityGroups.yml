@@ -1,0 +1,19 @@
+name: Admin Network Security Group
+description: An AVNM Admin (security-admin) Network Security Group defines high-priority security rules centrally enforced across managed virtual networks that override regular NSGs and cannot be overridden by subnet owners.
+scope: HIGH
+notes: Admin NSGs are a tenant/scope-wide enforced network defense (mandatory firewall layer); weakening them exposes services across the managed network for a single organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:network
+    notes: Deleting an Admin NSG removes the centrally enforced security-admin rules acting as a mandatory network defense, both disabling that defense and tearing down a network security component, exposing managed networks.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating an Admin NSG lets an attacker weaken or rewrite the high-priority security-admin rules that override regular NSGs org-wide, disabling the enforced network defense and opening reachability to additional resources.

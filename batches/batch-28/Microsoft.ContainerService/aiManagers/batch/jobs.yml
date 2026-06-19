@@ -1,0 +1,20 @@
+name: Kubernetes Jobs
+description: Kubernetes Job objects (batch/v1) that define one-off / batch containerized workloads run to completion within an AKS/managed cluster namespace.
+scope: HIGH
+notes: Jobs run arbitrary containers that can mount service-account tokens and secrets, so write access grants code execution and identity abuse within the cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - destruction:infra
+    notes: Deleting jobs terminates running/queued batch workloads, disrupting the operations they perform and removing workload infrastructure.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+      - impact:spend
+    notes: Creating/updating jobs runs arbitrary containers that execute under a pod service-account identity and can mount secrets, enabling resource hijacking, lateral movement to workload identities, workload manipulation, and compute spend.

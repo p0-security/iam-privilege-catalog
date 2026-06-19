@@ -1,0 +1,17 @@
+name: Private DNS Zone Group
+description: A Private DNS Zone Group links a private endpoint to one or more private DNS zones, controlling how the endpoint's FQDN resolves to its private IP for private-link connectivity.
+scope: HIGH
+notes: Affects name resolution and reachability of the private-linked service for a single network function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the zone group removes private DNS resolution for the endpoint, breaking name resolution and connectivity to the backing service.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating the zone group rewires how the private endpoint resolves, manipulating network config and enabling redirection/reach into private-linked services on the VNet.

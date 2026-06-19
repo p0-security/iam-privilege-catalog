@@ -1,0 +1,13 @@
+name: Log Analytics AegPublishFailureLogs table
+description: A Log Analytics workspace data-plane table holding Azure Event Grid publish-failure telemetry. Reading it returns the stored publish-failure log rows.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data tier; may reveal topic identifiers and event content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read exports Event Grid publish-failure log rows, exposing publisher activity, topic identifiers, and failure details.

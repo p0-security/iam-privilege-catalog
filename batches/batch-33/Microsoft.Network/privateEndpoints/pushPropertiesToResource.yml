@@ -1,0 +1,12 @@
+name: Private Endpoint
+description: An Azure Private Endpoint is a network interface that connects a VNet privately to an Azure PaaS resource or private link service over a private IP, establishing private connectivity into otherwise network-isolated services.
+scope: HIGH
+notes: Controls private network reachability into backing PaaS resources (storage, key vault, databases) supporting a single function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Internal NRP-client operation that pushes private endpoint property updates to the linked resource, mutating the private-link connection configuration of the endpoint.

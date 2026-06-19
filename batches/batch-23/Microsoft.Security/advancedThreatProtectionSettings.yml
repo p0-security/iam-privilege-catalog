@@ -1,0 +1,12 @@
+name: Advanced Threat Protection settings
+description: Advanced Threat Protection settings are the per-resource toggle controlling whether Microsoft Defender threat detection/alerting is enabled on a resource (e.g. SQL, Storage).
+scope: MEDIUM
+notes: A resource-scoped defensive monitoring control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Updating ATP settings lets an attacker disable threat protection/detection on a resource, removing a defensive monitoring mechanism to evade detection.

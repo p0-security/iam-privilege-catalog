@@ -1,0 +1,13 @@
+name: Kubernetes ServiceAccounts (AKS data plane)
+description: Kubernetes ServiceAccount objects within an AKS managed cluster representing in-cluster identities that workloads authenticate as and that are bound to RBAC roles.
+scope: CRITICAL
+notes: Identities themselves; manipulating or impersonating them is high impact, but plain enumeration of the objects is low-sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - escalation:privilege
+    notes: Impersonating a ServiceAccount lets an attacker act directly as that identity with its bound RBAC permissions, a direct lateral-movement and privilege-escalation primitive (potentially to cluster-admin-bound accounts).

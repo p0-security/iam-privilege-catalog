@@ -1,0 +1,16 @@
+name: ACR package archive
+description: An Archive is a control-plane resource in an Azure Container Registry that groups/manages package artifacts retained in the registry. It represents stored software supply-chain artifacts.
+scope: MEDIUM
+notes: Archives are artifact resources; per the taxonomy, deleting them is artifact destruction and altering them is supply-chain manipulation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:artifact
+    notes: Deletes an Archive from the registry, destroying stored package artifacts.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates an Archive, letting an attacker alter registry artifact configuration that feeds the software supply chain.

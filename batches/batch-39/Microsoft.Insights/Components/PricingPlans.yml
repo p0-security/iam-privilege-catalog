@@ -1,0 +1,12 @@
+name: Application Insights component pricing plan
+description: The pricing plan of an Application Insights component defines its billing tier, daily data ingestion cap, and retention configuration for telemetry.
+scope: MEDIUM
+notes: Control-plane billing/quota configuration of a monitoring resource; not customer data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Write:
+    risks:
+      - impact:spend
+    notes: Writing the pricing plan can raise the data cap or billing tier to drive up metered monitoring cost, or lower the cap to throttle telemetry ingestion.

@@ -1,0 +1,13 @@
+name: Container registry image content (push)
+description: The data-plane image-push capability of an Azure Container Registry, allowing creation and overwrite of container image tags, layers, and manifests.
+scope: HIGH
+notes: Images pushed here are pulled and executed by downstream clusters and pipelines, making push a supply-chain code-execution vector.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Pushing lets an attacker overwrite or inject backdoored images into the artifact supply chain, manipulating stored artifacts and gaining execution wherever downstream workloads run them.

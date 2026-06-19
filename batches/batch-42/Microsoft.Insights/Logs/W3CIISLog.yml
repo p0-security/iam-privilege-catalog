@@ -1,0 +1,12 @@
+name: Log Analytics W3CIISLog table
+description: A Log Analytics workspace table holding W3C-format IIS web-server access logs (URLs, client IPs, user agents, query strings). Monitoring/diagnostic log data.
+scope: MEDIUM
+notes: Request logs can contain sensitive parameters, session identifiers, or PII embedded in URLs/query strings.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read exports IIS access logs that may contain client IPs, request URLs and query-string parameters.

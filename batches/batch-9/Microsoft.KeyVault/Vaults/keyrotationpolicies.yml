@@ -1,0 +1,13 @@
+name: Key Vault key rotation policy
+description: A Key Vault key rotation policy defines the automated rotation schedule and lifetime/expiry actions for a cryptographic key in a Key Vault.
+scope: CRITICAL
+notes: The rotation policy is a defensive cryptographic-hygiene control bound to a CRITICAL-tier key asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Updates a key's rotation policy, letting an attacker disable or weaken automatic key rotation (degrading a cryptographic-hygiene defense) or force premature rotation that creates a new key version and can disrupt systems pinned to a specific version.

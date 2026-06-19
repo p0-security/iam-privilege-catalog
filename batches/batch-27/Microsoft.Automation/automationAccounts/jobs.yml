@@ -1,0 +1,14 @@
+name: Azure Automation job
+description: An Azure Automation job is an execution instance of a runbook (automation script) within an Automation Account. Runbooks typically run under the Automation Account's managed identity or Run As credentials with privileges across managed resources.
+scope: HIGH
+notes: Automation Account identities are frequently granted broad privileges (e.g. Contributor) to manage subscription resources, making job control a strong lateral-movement and code-execution surface. Runbook scripts and their output commonly contain hardcoded secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:spend
+    notes: Creating a job executes a runbook as arbitrary code under the Automation Account's managed/Run As identity, enabling lateral movement to that identity, running attacker workloads, and incurring compute spend.

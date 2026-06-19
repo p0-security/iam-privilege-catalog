@@ -1,0 +1,18 @@
+name: Virtual Machine in Scale Set
+description: An individual virtual machine instance within an Azure Virtual Machine Scale Set, a production compute resource that runs application workloads and may carry an attached managed identity.
+scope: HIGH
+notes: Production compute supporting a single organizational function; instances can hold managed identities and host application data on attached disks.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deletes a specific scale-set VM instance, destroying production compute infrastructure and removing capacity backing the service (denial of service).
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Updating instance properties alters production compute configuration and can change identity/extension associations, enabling operational manipulation and binding/using a managed identity for lateral movement.

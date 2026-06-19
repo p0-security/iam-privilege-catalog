@@ -1,0 +1,12 @@
+name: Log Analytics workspace table data (ASRv2HealthEvents)
+description: A Log Analytics workspace table queried via the data plane; this table (ASRv2HealthEvents) holds Azure Site Recovery v2 health-event log records ingested into the Azure Monitor workspace.
+scope: MEDIUM
+notes: Monitoring/diagnostics data. Reading it exports disaster-recovery replication health telemetry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returns ASR v2 health-event log rows, exporting DR replication health telemetry.

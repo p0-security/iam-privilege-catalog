@@ -1,0 +1,13 @@
+name: Cosmos DB Table throughput setting
+description: The provisioned-throughput (RU/s) capacity configuration for an Azure Cosmos DB Table API table. This is a control-plane setting that governs metered capacity and performance, not the table data itself.
+scope: HIGH
+notes: Backs a production data store; throughput changes are metered and directly affect service availability and billing, but do not expose or alter the stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:spend
+      - impact:dos
+    notes: Updating provisioned RU/s lets an attacker raise capacity to inflate metered spend, or lower it to throttle/starve the production table (denial-of-service). Does not touch stored data.

@@ -1,0 +1,16 @@
+name: Logic automation project applications
+description: Automation project applications are deployed application/workflow components defined within a Logic automation project.
+scope: MEDIUM
+notes: Configuration holds automation logic, not returned credential material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deletes an automation project application, removing a deployed automation component and disrupting the workflows it provides (DoS-like effect).
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates an automation project application, letting an attacker alter the deployed application/workflow logic that executes within the project.

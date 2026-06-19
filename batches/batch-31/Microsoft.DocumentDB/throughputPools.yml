@@ -1,0 +1,14 @@
+name: Cosmos DB throughput pools
+description: A throughput pool is a shared provisioned-throughput (RU/s) capacity construct in Cosmos DB (DocumentDB) that multiple database accounts can draw from.
+scope: HIGH
+notes: Capacity/cost-management infrastructure backing production database accounts.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+      - impact:dos
+    notes: This write verb includes create/update/delete of the pool; an attacker can alter shared capacity backing many accounts (manipulation), provision/raise costly pooled RU/s (spend), and shrink or remove the pool to starve dependent accounts of throughput (dos).

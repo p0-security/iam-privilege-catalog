@@ -1,0 +1,18 @@
+name: Azure SQL server communication links
+description: Server communication links configure cross-database (elastic) query connectivity from an Azure SQL server to databases on another server, enabling distributed queries across SQL databases.
+scope: HIGH
+notes: Control-plane connectivity configuration; the link enables cross-database reachability when present.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a communication link removes cross-database connectivity, destroying the configured link and breaking dependent elastic queries.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a communication link establishes cross-database/cross-server query connectivity, altering operational config and extending reach to additional database resources.

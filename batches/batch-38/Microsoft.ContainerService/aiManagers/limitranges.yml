@@ -1,0 +1,16 @@
+name: AI Manager limit ranges
+description: Kubernetes-style LimitRange objects for an AKS AI Manager namespace, defining default/min/max resource (CPU, memory) constraints applied to workloads in that namespace.
+scope: MEDIUM
+notes: These are operational resource-governance constraints, not IAM/access-control policy or sensitive data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting limit ranges removes a namespace's resource-constraint guardrails, lifting caps that otherwise bound workload resource consumption.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing limit ranges alters a namespace's resource-constraint policy, e.g. relaxing or removing caps that would otherwise bound workload resource consumption.

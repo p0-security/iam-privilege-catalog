@@ -1,0 +1,13 @@
+name: Log Analytics SecurityBaseline table
+description: A Log Analytics query data action over the SecurityBaseline table, which stores Defender for Cloud OS/configuration baseline assessment results (per-host hardening findings) collected into the workspace.
+scope: MEDIUM
+notes: Monitoring/security telemetry; data-plane read exposes defensive posture but is not a primary production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Querying this table exports per-host baseline findings (where machines deviate from secure configuration), inventorying defensive coverage and giving an attacker a map of weak hosts.

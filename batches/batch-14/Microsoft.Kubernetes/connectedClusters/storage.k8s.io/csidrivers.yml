@@ -1,0 +1,17 @@
+name: Kubernetes CSIDriver objects (Arc-connected cluster)
+description: CSIDriver objects are cluster-scoped Kubernetes storage.k8s.io resources that register the Container Storage Interface driver plugins installed on a cluster and declare their attach/mount/fsGroup behavior. Exposed as Azure Arc connected-cluster data actions.
+scope: HIGH
+notes: Configuration metadata about storage plugins; not data or secrets, but cluster-wide in effect when written or deleted.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting CSIDriver objects removes storage driver registration cluster-wide, breaking volume provisioning/mounting for stateful workloads (denial of service).
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating CSIDriver objects alters cluster-wide storage driver configuration (fsGroupPolicy, podInfoOnMount, attach/mount semantics), manipulating how all dependent workloads provision and mount volumes.

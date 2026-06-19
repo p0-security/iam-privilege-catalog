@@ -1,0 +1,16 @@
+name: IPAM pool static CIDR
+description: An IPAM Pool Static CIDR is a reserved IP address-space allocation within an Azure Virtual Network Manager IPAM pool, used to centrally plan and assign address ranges across managed networks.
+scope: MEDIUM
+notes: Address-management metadata; supporting network-planning infrastructure rather than a live traffic path.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a static CIDR removes a reserved address-space allocation, destroying network address-management state that dependent resources rely on and risking addressing conflicts.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a static CIDR alters centrally managed address-space allocations, which can carve out or overlap ranges and disrupt automated IP assignment across managed networks.

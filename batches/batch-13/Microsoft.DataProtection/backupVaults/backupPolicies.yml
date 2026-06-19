@@ -1,0 +1,16 @@
+name: Backup policies
+description: A backup policy in an Azure Backup Vault defines the retention and scheduling rules governing how protected workloads are backed up and how long recovery points are kept.
+scope: HIGH
+notes: Backup policies are the data-protection control that ensures recoverability; weakening them undermines the organization's defense against data loss and ransomware.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a backup policy removes the retention/protection rules governing backups, disabling the data-protection defense that ensures recoverability.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a backup policy lets an attacker alter retention/schedule (e.g. shorten retention) to undermine recoverability, manipulating the operational protection configuration.

@@ -1,0 +1,17 @@
+name: API Management language models
+description: API Management language models are registrations of LLM backends in the APIM GenAI/AI gateway, defining which models the gateway proxies and routes traffic to for AI-fronting APIs.
+scope: HIGH
+notes: Control-plane config of an AI gateway; model registrations reference backends whose credentials are stored separately as named-value secrets, so these resources hold routing config rather than secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a language-model registration removes a backend the gateway routes to, breaking LLM proxying for dependent AI APIs (DoS-like disruption).
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating/updating a language-model registration repoints which LLM backend the gateway proxies (config manipulation, enabling redirection of AI traffic to an attacker-chosen/controlled model) and can register a costly metered backend driving spend.

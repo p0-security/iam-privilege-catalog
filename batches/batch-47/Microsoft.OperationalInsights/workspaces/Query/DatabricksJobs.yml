@@ -1,0 +1,12 @@
+name: Databricks diagnostic log table (Log Analytics)
+description: A Log Analytics workspace table that stores diagnostic/audit log records emitted by Azure Databricks (here, Databricks job-execution activity). Reading it is a data-plane query returning ingested log content.
+scope: MEDIUM
+notes: Monitoring/diagnostics data sits in the MEDIUM sensitivity tier; log records can carry sensitive operational details (parameters, query text, paths) but are not the underlying resources or credentials themselves.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Data-plane read returns ingested Databricks job-activity log records, letting an attacker export operational telemetry that may reveal job parameters and pipeline behavior.

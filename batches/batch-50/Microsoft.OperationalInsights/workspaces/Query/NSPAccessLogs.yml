@@ -1,0 +1,13 @@
+name: Log Analytics NSPAccessLogs table
+description: A Log Analytics workspace query table holding Network Security Perimeter access logs, which record inbound/outbound access decisions at the network security perimeter boundary.
+scope: MEDIUM
+notes: Monitoring/diagnostic log data; sensitivity is MEDIUM, but the records reveal network access patterns and segmentation useful for reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Data-plane read returns stored NSP access-log records, exporting security/access telemetry that discloses network access patterns and perimeter topology.

@@ -1,0 +1,17 @@
+name: AKS AI Manager services
+description: Kubernetes Service objects within an AKS AI Manager namespace that define network endpoints, ports, selectors, and exposure (ClusterIP/NodePort/LoadBalancer) fronting workloads.
+scope: HIGH
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting services removes the network endpoints fronting workloads, severing connectivity and denying service to the affected application.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating services can re-route traffic to attacker-controlled backends or expose internal workloads (LoadBalancer/NodePort), enabling network reachability and traffic manipulation.

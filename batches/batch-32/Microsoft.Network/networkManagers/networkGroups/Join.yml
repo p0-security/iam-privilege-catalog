@@ -1,0 +1,13 @@
+name: Network Manager network group
+description: A network group is a logical grouping of network resources (VNets/subnets) within a Network Manager that serves as the target scope for connectivity and security admin configurations.
+scope: HIGH
+notes: Group membership determines which VNets receive centrally managed connectivity and security rules, so it indirectly governs network posture once configurations are committed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Join adds a network resource (VNet) into a network group, subjecting it to the group's connectivity configurations (peering/mesh) which can establish reachability to additional networked resources and alters the resource's effective network posture.

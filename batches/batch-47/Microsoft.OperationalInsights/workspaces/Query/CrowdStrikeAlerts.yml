@@ -1,0 +1,13 @@
+name: Log Analytics CrowdStrikeAlerts log table
+description: A Log Analytics workspace data-plane query permission scoped to the CrowdStrikeAlerts table, which holds ingested CrowdStrike EDR alert records.
+scope: MEDIUM
+notes: Defensive security telemetry; reading it reveals what malicious activity the EDR has flagged, aiding evasion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Reading this table exports EDR alerts and lets an attacker learn which of their actions tripped detections, informing defense evasion.

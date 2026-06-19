@@ -1,0 +1,16 @@
+name: Container registry Event Grid filters
+description: An Event Grid filter on an Azure Container Registry that controls which registry events are routed to an Event Grid subscription.
+scope: MEDIUM
+notes: Supporting event-routing integration config for a registry; destinations are Azure Event Grid resources rather than arbitrary external endpoints.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting an Event Grid filter removes the registry's event-routing integration, disrupting downstream event-driven consumers and potentially suppressing event-based monitoring.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating an Event Grid filter alters which registry events are routed, letting an attacker suppress or redirect operational event delivery to evade event-driven detection/automation.

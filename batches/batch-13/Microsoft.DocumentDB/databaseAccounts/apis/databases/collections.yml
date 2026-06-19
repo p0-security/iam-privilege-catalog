@@ -1,0 +1,16 @@
+name: Cosmos DB MongoDB-API collection
+description: A Cosmos DB MongoDB-API collection within a database, the production document data store holding the organization's documents along with its shard key, indexes, and throughput configuration.
+scope: HIGH
+notes: Production data store supporting a single organizational function; sensitivity is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a MongoDB-API collection destroys the collection and all documents it holds, irreversibly removing organizational data (mitigated only by backup).
+  write:
+    risks:
+      - impact:manipulation
+    notes: Control-plane create/update alters the collection's structure/configuration (shard key, indexes, throughput), manipulating operational settings of a production data store.

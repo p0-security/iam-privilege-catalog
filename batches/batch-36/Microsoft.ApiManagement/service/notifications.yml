@@ -1,0 +1,17 @@
+name: API Management service
+description: An Azure API Management (APIM) service instance is a managed API gateway that fronts, secures, and routes traffic to a business function's backend APIs, holding gateway policies, named-value secrets, certificates, custom domains, and developer/subscription identities.
+scope: MEDIUM
+notes: The gateway sits on the public-facing path of an organizational function's APIs and can hold credential material (named values, certificates, subscription keys) and a managed identity; treat it as a single-function production service of HIGH sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Sending notifications to specified users lets an attacker emit arbitrary messages from the trusted APIM service, usable for phishing/social-engineering of portal users.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating publisher notifications lets an attacker alter which events trigger alerts and who receives them, potentially suppressing or redirecting operational alerts to evade detection.
+    name: API Management publisher notifications

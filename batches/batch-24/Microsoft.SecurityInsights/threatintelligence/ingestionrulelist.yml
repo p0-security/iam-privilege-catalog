@@ -1,0 +1,13 @@
+name: Sentinel threat-intelligence ingestion rules
+description: Microsoft Sentinel threat-intelligence ingestion rules that govern how TI indicators are filtered, transformed, and accepted into the SIEM.
+scope: MEDIUM
+notes: These rules are detection-tuning policy controlling which threat-intelligence indicators feed Sentinel detections; reading or altering them affects detection coverage.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating TI ingestion rules lets an attacker filter out or suppress indicators (e.g. their own infrastructure), blinding TI-based detections and tampering with security configuration.

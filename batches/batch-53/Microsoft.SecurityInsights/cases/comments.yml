@@ -1,0 +1,12 @@
+name: Sentinel incident case comments
+description: Microsoft Sentinel case (incident) comments are analyst notes attached to SIEM incident records, capturing investigation context, findings, and triage decisions.
+scope: MEDIUM
+notes: Part of the SOC's incident-response workflow; their contents reveal what investigators know about ongoing or past intrusions.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating case comments lets an attacker inject misleading content into incident-investigation records, polluting SOC operational data and potentially misdirecting response.

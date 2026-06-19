@@ -1,0 +1,17 @@
+name: Private Link Service
+description: A Private Link Service is the provider-side resource that exposes a backend service (fronted by a standard load balancer) for private consumption via Azure Private Endpoints. It defines visibility, auto-approval lists, NAT IP configuration, and the set of approved private endpoint connections.
+scope: HIGH
+notes: Controls private network exposure of a single backend service; sensitivity is that of a production network resource for one organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the Private Link Service removes the private connectivity component fronting a backend service, severing access for connected consumers (DoS-like for that network path).
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating the Private Link Service can expose a backend service privately to additional networks/subscriptions and alter its visibility/auto-approval configuration, enabling network movement and manipulation of the connectivity surface.

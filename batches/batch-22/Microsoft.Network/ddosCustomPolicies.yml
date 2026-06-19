@@ -1,0 +1,17 @@
+name: DDoS customized policy
+description: A DDoS customized policy defines tuned DDoS mitigation protection thresholds and settings applied to network resources (public IPs) to defend against volumetric attacks.
+scope: MEDIUM
+notes: A network defense control; not a primary data store. This is a legacy/deprecated DDoS protection resource type.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the policy removes the configured DDoS mitigation, exposing the associated public endpoints to volumetric/denial-of-service attacks.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating the policy lets an attacker weaken or retune DDoS mitigation thresholds, degrading a defensive control and altering protective configuration.

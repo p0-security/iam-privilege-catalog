@@ -1,0 +1,13 @@
+name: Log Analytics AZFWApplicationRule table
+description: A Log Analytics workspace data-plane table holding Azure Firewall application-rule log records (allowed/denied FQDN traffic and rule hits).
+scope: MEDIUM
+notes: Per-table data-plane read permission on network/firewall logs; content reveals egress destinations and firewall rule behavior.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reads Azure Firewall application-rule records, exporting log data and revealing allowed/denied FQDN traffic and the firewall's network access patterns.

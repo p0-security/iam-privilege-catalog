@@ -1,0 +1,12 @@
+name: Recovery Services vault monitoring alerts
+description: Monitoring alerts are the backup/replication health and security alert signals generated for a Recovery Services vault.
+scope: MEDIUM
+notes: Detection/monitoring signal data; low operational sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Resolving (clearing) an alert suppresses a detection signal for the vault, weakening monitoring/alerting and aiding evasion of incident response.

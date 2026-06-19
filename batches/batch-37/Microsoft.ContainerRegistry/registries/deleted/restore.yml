@@ -1,0 +1,12 @@
+name: Container registry deleted artifacts
+description: The deleted-artifacts sub-resource exposes soft-deleted images/manifests/artifacts in a container registry that are retained and recoverable during the deletion-retention window.
+scope: MEDIUM
+notes: Represents recoverable artifact objects (stored data) pending purge.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Restoring soft-deleted artifacts re-introduces previously removed (potentially vulnerable or malicious) images into the active registry, altering the artifact set served to deployment consumers.

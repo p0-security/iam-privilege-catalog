@@ -1,0 +1,13 @@
+name: Azure SQL database replication links
+description: Replication links represent the geo-replication relationship between a primary Azure SQL database and its secondary replica(s), forming the disaster-recovery and availability topology for a single database.
+scope: HIGH
+notes: These are control-plane DR/availability infrastructure for one database function, not the data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - destruction:data
+    notes: A forced failover that explicitly allows data loss both disrupts service and permanently discards unreplicated committed transactions, causing irreversible data destruction.

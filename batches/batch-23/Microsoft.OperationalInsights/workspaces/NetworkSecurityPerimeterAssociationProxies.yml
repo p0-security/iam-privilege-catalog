@@ -1,0 +1,18 @@
+name: Log Analytics workspace Network Security Perimeter association proxy
+description: The association proxy that binds a Log Analytics workspace into a Network Security Perimeter (NSP) of the Microsoft.Network provider, defining its access/enforcement mode and forming a network-isolation boundary around the workspace.
+scope: MEDIUM
+notes: The protected asset is an Azure Monitor / Log Analytics workspace, a monitoring and diagnostics data store; the NSP association is a network-isolation defense control around it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Deleting the NSP association proxy detaches the workspace from its network security perimeter, tearing down the network-isolation defense and re-exposing the workspace to broader network reachability.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating the NSP association proxy can rebind the workspace's perimeter or switch enforcement to a learning/transition mode, weakening the network-isolation defense and altering the workspace's network access-control configuration.

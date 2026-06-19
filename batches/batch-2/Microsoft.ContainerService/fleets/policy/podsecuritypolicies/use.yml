@@ -1,0 +1,12 @@
+name: Kubernetes PodSecurityPolicies (Fleet)
+description: PodSecurityPolicies are cluster-level admission-control objects that constrain what pods may do (privileged mode, hostPath/hostNetwork/hostPID, capabilities, volume types), enforcing a pod-security defense across an AKS Fleet's member clusters.
+scope: HIGH
+notes: A security defense mechanism; weakening or removing it permits privileged pods that can escalate to node/cluster control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+    notes: The 'use' verb authorizes a subject to create pods bound to a (potentially permissive) PSP; using a privileged policy lets a controlled workload run with elevated capabilities, escalating to the node.

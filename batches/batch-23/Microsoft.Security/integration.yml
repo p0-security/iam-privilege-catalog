@@ -1,0 +1,17 @@
+name: Defender for Cloud integration
+description: Microsoft Defender for Cloud integration connectors that wire Defender to external/security tooling and route security findings and alerts.
+scope: MEDIUM
+notes: Affects the defensive alerting/monitoring pipeline rather than access control or data plane.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an integration severs the connection that exports Defender alerts/findings to external security systems, disabling a defensive alerting/monitoring pathway.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating an integration lets an attacker alter or break the connection forwarding security findings/alerts to external tooling, weakening detection/response and tampering with alert routing.

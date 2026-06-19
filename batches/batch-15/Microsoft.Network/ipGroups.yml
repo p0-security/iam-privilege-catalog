@@ -1,0 +1,18 @@
+name: Azure IP Groups
+description: An IpGroup is a named, reusable collection of IP addresses and CIDR ranges that is referenced by Azure Firewall and firewall policy rules to define traffic sources/destinations.
+scope: HIGH
+notes: A single-function network access-control construct; modifying it affects firewall rule enforcement for the resources that reference it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - destruction:defense
+    notes: Deleting an IpGroup removes the IP set backing firewall rules, both destroying a network component and breaking the firewall rules that depend on it (a defense mechanism).
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating an IpGroup alters the IP set referenced by Azure Firewall rules, letting an attacker add their own ranges or remove trusted ones to weaken firewall enforcement.

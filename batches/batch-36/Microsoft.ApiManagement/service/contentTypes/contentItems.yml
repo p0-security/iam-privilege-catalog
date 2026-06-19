@@ -1,0 +1,18 @@
+name: API Management developer-portal content items
+description: Content items are the actual content entries (pages/blocks) rendered in the API Management developer portal, which is public-facing for API consumers.
+scope: MEDIUM
+notes: Portal content is largely public-facing, so read disclosure value is low.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:defacement
+    notes: Deletes content items, removing published portal content (destruction) and degrading/defacing the public-facing developer portal.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:defacement
+    notes: Creates/updates content items rendered in the public-facing developer portal, enabling defacement of public content and manipulation of operational portal content.

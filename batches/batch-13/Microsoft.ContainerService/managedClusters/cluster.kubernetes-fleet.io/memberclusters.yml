@@ -1,0 +1,18 @@
+name: AKS Fleet MemberCluster resource
+description: A data-plane Fleet MemberCluster resource representing a managed cluster's membership in an AKS Fleet, tracking its enrollment, placement, and association with the fleet hub for centralized orchestration.
+scope: HIGH
+notes: Membership objects govern which clusters are under centralized fleet orchestration; writing them can bring clusters under attacker-influenced workload/config propagation, but they hold no secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting the MemberCluster resource detaches a cluster from fleet management, destroying the membership object and disrupting fleet-driven workload placement and propagation for that cluster.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Writing the MemberCluster resource enrolls or reconfigures a cluster's fleet membership, placing it under centralized fleet orchestration so propagated workloads/config can reach it, enabling lateral reach across fleet-managed clusters.

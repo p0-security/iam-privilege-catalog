@@ -1,0 +1,18 @@
+name: Web App premier add-ons
+description: Premier (marketplace) add-on resources attached to an Azure App Service web app to extend its functionality.
+scope: MEDIUM
+notes: Supporting/auxiliary infrastructure for a single app function; can be billable.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a premier add-on removes a supporting infrastructure component the app depends on, destroying it and potentially disrupting the function it provides.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating/updating a premier add-on alters the app's supporting configuration and provisions a billable marketplace add-on, incurring spend.

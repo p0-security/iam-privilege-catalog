@@ -1,0 +1,13 @@
+name: Azure AD Domain Services logon/logoff log table
+description: A Log Analytics data-plane table holding Azure AD Domain Services logon/logoff session security audit records.
+scope: MEDIUM
+notes: Monitoring/security telemetry revealing account session activity (who logged in/out, when, from where).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: This data-plane read exports session authentication records tied to accounts and hosts, exfiltrating logs and aiding account/session reconnaissance.

@@ -1,0 +1,16 @@
+name: VPN gateway NAT rule
+description: A NAT rule on a VPN gateway defines IP address translation for site-to-site VPN traffic, used to resolve overlapping address spaces between connected networks. It is production network-edge configuration.
+scope: HIGH
+notes: Governs how cross-premises VPN traffic is address-translated and routed; writes/deletes affect production hybrid connectivity.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a NAT rule removes a network address-translation component, breaking the affected site-to-site connectivity in a DoS-like network destruction.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a NAT rule alters how production VPN traffic is address-translated and routed, manipulating operational network configuration to redirect or disrupt connectivity.

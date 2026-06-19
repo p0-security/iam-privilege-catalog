@@ -1,0 +1,17 @@
+name: Sentinel alert rule response actions
+description: Microsoft Sentinel alert rule actions are the automated response configuration (SOAR playbooks/automation) that fire when a detection rule triggers.
+scope: HIGH
+notes: Reveals the organization's automated incident-response posture and remediation behavior.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an alert rule's response actions removes the automated remediation/notification that would fire on a detection, neutralizing the defensive response chain.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Updating an alert rule's response actions lets an attacker disable or redirect automated remediation playbooks, neutralizing the SOC's automated reaction to detections.

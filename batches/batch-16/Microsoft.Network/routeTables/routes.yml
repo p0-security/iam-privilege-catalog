@@ -1,0 +1,17 @@
+name: Azure Route
+description: An individual user-defined route within an Azure route table, specifying an address prefix and a next-hop type/IP for traffic forwarding.
+scope: HIGH
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting a route removes a traffic-steering rule, breaking or rerouting connectivity for the affected prefixes.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+      - impact:dos
+    notes: Creating/updating a route changes the next hop for traffic, enabling redirection to an attacker-controlled appliance (interception/lateral reach) or blackholing prefixes for DoS.

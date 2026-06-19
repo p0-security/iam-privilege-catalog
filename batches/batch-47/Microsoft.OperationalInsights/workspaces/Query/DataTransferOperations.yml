@@ -1,0 +1,13 @@
+name: Log Analytics table data (DataTransferOperations)
+description: A single Log Analytics workspace table holding data-transfer operations telemetry. A data-plane read returns the actual log rows for this table.
+scope: MEDIUM
+notes: Log Analytics tables are monitoring/diagnostic assets (MEDIUM tier). Content describes transfer jobs, sources, destinations, and volumes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Querying this table exports data-transfer operation records (sources, destinations, volumes), mapping data-movement activity.

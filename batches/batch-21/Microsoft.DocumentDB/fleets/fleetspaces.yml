@@ -1,0 +1,16 @@
+name: Cosmos DB Fleetspace resource
+description: A Fleetspace is a Cosmos DB Fleet management grouping that governs pooled throughput and tenancy configuration for member database accounts.
+scope: MEDIUM
+notes: This is supporting management/governance infrastructure; it does not directly hold or expose the underlying database data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a Fleetspace tears down the fleet-management grouping, disrupting pooled-throughput governance of member accounts while leaving the database accounts and their data intact.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a Fleetspace alters the fleet-level grouping/throughput-pooling configuration that governs how member accounts are managed and billed, manipulating control-plane state.

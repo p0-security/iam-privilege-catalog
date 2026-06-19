@@ -1,0 +1,13 @@
+name: Security governance assignments
+description: Governance assignments that attach remediation ownership and SLAs/due dates to Defender for Cloud security assessment findings.
+scope: MEDIUM
+notes: Security-posture management metadata (remediation tracking), not Azure RBAC role assignments.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating/updating governance assignments lets an attacker alter remediation ownership and deadlines to deprioritize or suppress findings, weakening the security-governance process.

@@ -1,0 +1,17 @@
+name: Kubernetes CSINode objects (AKS fleet)
+description: Cluster-scoped Kubernetes CSINode objects that record, per node, which CSI drivers are available and the node's storage topology and volume limits used for volume scheduling.
+scope: HIGH
+notes: Per-node storage topology metadata for a single AKS fleet/cluster; influences scheduler volume placement but holds no secrets or identity material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting CSINode objects removes node storage capability metadata, disrupting the scheduler's volume placement/attachment and denying storage to workloads on affected nodes.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing CSINode objects tampers with per-node storage topology and volume-limit metadata the scheduler relies on, manipulating volume placement/attachment decisions across the cluster.

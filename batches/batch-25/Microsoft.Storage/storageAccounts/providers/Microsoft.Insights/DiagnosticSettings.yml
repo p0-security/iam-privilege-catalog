@@ -1,0 +1,13 @@
+name: Storage account diagnostic settings
+description: Diagnostic settings on a storage account that control which logs and metrics are collected and where they are routed (Log Analytics, Event Hub, storage).
+scope: MEDIUM
+notes: Detective/monitoring control; reading it reveals monitoring coverage but exposes no stored data or secrets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Create/update lets an attacker disable or redirect log/metric collection for the account, suppressing audit telemetry and removing a detective control.

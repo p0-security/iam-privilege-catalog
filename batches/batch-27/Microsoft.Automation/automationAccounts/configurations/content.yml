@@ -1,0 +1,12 @@
+name: Automation DSC configuration media content
+description: Azure Automation configuration media content is the raw DSC configuration source (the PowerShell configuration script) stored in an Automation account that is compiled and applied to managed nodes.
+scope: HIGH
+notes: DSC configuration source frequently embeds infrastructure topology, parameters, and secrets, so reading it is source-code/data exfiltration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:code
+    notes: Reading the configuration media content returns the raw DSC configuration script source, exporting operational source code that may also reveal embedded secrets and infrastructure details.

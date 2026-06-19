@@ -1,0 +1,17 @@
+name: ASR replication fabrics
+description: An Azure Site Recovery replication fabric is a disaster-recovery infrastructure container within a Recovery Services vault representing a source or target site/environment (e.g. on-prem, Azure region) used to orchestrate replication and failover.
+scope: MEDIUM
+notes: Supporting disaster-recovery/business-continuity infrastructure; control-plane configuration rather than the protected production data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deletes a fabric, destroying DR replication infrastructure and disrupting ongoing replication/recovery for protected workloads.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates a fabric, altering the DR replication topology/configuration that protected workloads depend on.

@@ -1,0 +1,18 @@
+name: Attestation provider NSP association proxies
+description: A Network Security Perimeter (NSP) association proxy represents the binding between a Microsoft Azure Attestation provider and a Network Security Perimeter, which enforces a network-isolation boundary (access mode and rules) around the service.
+scope: MEDIUM
+notes: The NSP association acts as a network-layer defense controlling which traffic can reach the attestation provider; modifying it changes the security posture of a single service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Attestation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:network
+    notes: Deleting the NSP association proxy removes the attestation provider's binding to its Network Security Perimeter, tearing down a network-isolation defense boundary (and its network association component).
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Writing the NSP association proxy can change or weaken the Network Security Perimeter binding/access mode (e.g. switching to a lenient/learning mode), degrading the network-isolation defense and altering security configuration.

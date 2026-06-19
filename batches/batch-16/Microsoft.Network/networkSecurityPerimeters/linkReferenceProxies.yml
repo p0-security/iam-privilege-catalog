@@ -1,0 +1,14 @@
+name: Network Security Perimeter link reference proxy
+description: A link-reference proxy object within an Azure Network Security Perimeter (NSP), which defines how a PaaS resource is associated/linked across the perimeter's isolation boundary controlling which resources may communicate across it.
+scope: HIGH
+notes: NSP is a network-isolation/data-exfiltration defense boundary; altering its link references changes cross-perimeter reachability.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:network
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating a link reference proxy can attach resources into the perimeter and bridge cross-perimeter connectivity (network movement), while reconfiguring/weakening the perimeter's isolation enforcement (defense) and manipulating its connectivity config.

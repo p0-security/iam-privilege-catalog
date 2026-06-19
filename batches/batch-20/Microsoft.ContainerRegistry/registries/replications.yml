@@ -1,0 +1,17 @@
+name: Container registry replications
+description: A geo-replication of an Azure Container Registry that maintains a synchronized copy of the registry's contents in an additional region.
+scope: MEDIUM
+notes: Supporting redundancy/distribution infrastructure for a registry; premium-tier feature that incurs per-region billing.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting a replication tears down a geo-replicated regional copy, removing redundancy and degrading regional pull latency/availability while the home registry remains operational.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating/updating a replication alters the registry's geo-replication topology and provisions additional billed regional replicas, incurring metered spend.

@@ -1,0 +1,18 @@
+name: Virtual network gateway connection
+description: A VirtualNetworkGatewayConnection links a virtual network gateway to a peer (another gateway, a local network gateway for site-to-site VPN, or an ExpressRoute circuit), establishing cross-premises or cross-network IPsec/ExpressRoute connectivity.
+scope: HIGH
+notes: These connections bridge Azure VNets with on-premises or partner networks; compromise can expose the IPsec pre-shared key, intercept tunnel traffic, or sever connectivity for dependent workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deletes the gateway connection, tearing down the VPN/ExpressRoute tunnel and severing connectivity to the remote network, causing denial of service for dependent workloads.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating or updating a gateway connection alters cross-network connectivity configuration and can establish or repoint a tunnel toward attacker-controlled networks, enabling network movement and operational manipulation.

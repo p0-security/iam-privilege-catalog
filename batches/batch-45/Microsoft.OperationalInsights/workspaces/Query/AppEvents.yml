@@ -1,0 +1,12 @@
+name: Log Analytics AppEvents table
+description: A Log Analytics workspace data-plane table holding Application Insights custom event telemetry ingested into Azure Monitor.
+scope: MEDIUM
+notes: May contain application-specific identifiers and user activity context.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Reads the AppEvents table, exporting custom event telemetry that can include business and user activity data.

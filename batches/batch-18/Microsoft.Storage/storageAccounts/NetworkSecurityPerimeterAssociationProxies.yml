@@ -1,0 +1,17 @@
+name: Storage account Network Security Perimeter association
+description: The association binding a storage account to an Azure Network Security Perimeter (NSP), which enforces a network-isolation boundary that, in enforced mode, overrides the account firewall and governs which traffic can reach the account's data.
+scope: HIGH
+notes: NSP is a network-isolation defense control for the data store; in enforced mode it takes precedence over the account's allowed-networks settings, while transition (learning) mode logs but does not block.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the NSP association proxy detaches the storage account from its perimeter, removing the network-isolation defense and re-exposing the account to broader network access.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating the association can switch the enforcement mode (e.g. enforced to transition/learning), weakening or disabling the network-perimeter defense and altering the account's network access-control configuration.

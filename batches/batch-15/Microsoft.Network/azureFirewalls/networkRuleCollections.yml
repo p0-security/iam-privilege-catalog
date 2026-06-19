@@ -1,0 +1,18 @@
+name: Azure Firewall network rule collection
+description: An Azure Firewall network rule collection holds the network-layer (IP/port/protocol) allow and deny rules that the firewall enforces on traffic transiting the protected network.
+scope: HIGH
+notes: These rules act as a perimeter network defense for the workloads behind the firewall; their configuration reveals the security posture and exposure of a single organizational function's network.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a network rule collection removes the firewall filtering rules that act as a defense, disabling protective traffic filtering for the network it guards.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating network rules lets an attacker add permissive allow rules that weaken the firewall defense, alter its filtering configuration, and open lateral network paths to otherwise protected services.

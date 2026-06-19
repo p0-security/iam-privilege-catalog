@@ -1,0 +1,19 @@
+name: Kubernetes Deployments
+description: Kubernetes Deployment workload controllers in an AKS managed cluster, which manage replicated application pods, their container images, configuration, and service-account bindings.
+scope: HIGH
+notes: Deployment specs expose container images, environment variables, mounted secret/config references, and service-account assignments; control over them grants arbitrary workload execution.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting Deployments tears down running application workloads and their pods, destroying deployed infrastructure and causing denial of service for the hosted functions.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating a Deployment runs arbitrary attacker containers under chosen service accounts, enabling resource hijacking (cryptomining/backdoors), lateral movement via mounted service-account tokens, and tampering with production application workloads.

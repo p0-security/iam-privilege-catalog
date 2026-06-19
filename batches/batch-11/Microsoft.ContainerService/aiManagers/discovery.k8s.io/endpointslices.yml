@@ -1,0 +1,18 @@
+name: AKS AI Managers Kubernetes EndpointSlices
+description: Kubernetes EndpointSlice objects within an AKS AI Managers cluster, mapping Services to the backing pod IP addresses and ports that serve their traffic.
+scope: HIGH
+notes: EndpointSlices expose internal network topology; control over them governs in-cluster service routing.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting EndpointSlices (including DeleteCollection) removes the endpoint mappings that direct traffic to service backends, breaking connectivity and causing denial of service.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Writing EndpointSlices lets an attacker repoint service backends to attacker-controlled endpoints, manipulating in-cluster routing and enabling interception/man-in-the-middle access to other networked resources.

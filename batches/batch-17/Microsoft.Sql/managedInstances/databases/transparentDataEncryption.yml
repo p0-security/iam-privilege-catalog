@@ -1,0 +1,13 @@
+name: Azure SQL Managed Database Transparent Data Encryption
+description: Transparent Data Encryption (encryption-at-rest) configuration state for an Azure SQL Managed Instance database.
+scope: HIGH
+notes: Reveals/controls the at-rest encryption defense posture; does not expose key material itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Changing TDE can disable encryption-at-rest on a production managed database, removing a data-protection defense control while altering its security configuration.

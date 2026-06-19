@@ -1,0 +1,11 @@
+name: App Service file audit logs table
+description: A Log Analytics / Azure Monitor table holding records of file-change activity on App Service content. This is a monitoring/diagnostics data-plane asset.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read of the AppServiceFileAuditLogs table exports file-modification audit records that may reveal sensitive operational activity.

@@ -1,0 +1,12 @@
+name: Resource name validation utility
+description: A stateless control-plane utility on the Microsoft.Resources provider that validates whether a proposed resource name is syntactically valid and not a reserved word.
+scope: MEDIUM
+notes: Touches no deployed resource and returns only a validity verdict.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Resources
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: Populates/stages target resource configuration during a regional move, which writes/alters resource configuration state as part of relocating resources.

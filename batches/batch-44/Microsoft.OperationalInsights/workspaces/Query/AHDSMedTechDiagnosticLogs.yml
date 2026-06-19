@@ -1,0 +1,13 @@
+name: Log Analytics workspace log table (AHDSMedTechDiagnosticLogs)
+description: A single named log table within an Azure Log Analytics (Azure Monitor) workspace, holding ingested diagnostic/telemetry records for a specific Azure service. Reading it executes a data-plane KQL query that returns the table's stored log rows.
+scope: MEDIUM
+notes: Monitoring/diagnostic telemetry for one service is a MEDIUM-sensitivity asset; individual log tables may contain operationally useful identifiers (IPs, request metadata) but are not primary production data stores.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Returns Azure Health Data Services MedTech diagnostic log records from a healthcare IoT ingestion pipeline, exporting diagnostic telemetry that may carry sensitive device/patient-data identifiers.

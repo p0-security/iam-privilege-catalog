@@ -1,0 +1,18 @@
+name: Network Security Perimeter link reference
+description: A Network Security Perimeter (NSP) link reference is the reciprocal/inbound side of a cross-perimeter link, recording which other perimeters connect to this perimeter across the network isolation boundary.
+scope: HIGH
+notes: Link references represent the accepted inbound trust relationships of an NSP, the logical network isolation defense for Azure PaaS resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:dos
+    notes: Deleting a link reference tears down an accepted inbound cross-perimeter association, dismantling a configured isolation-defense relationship and severing legitimate communication for dependent services.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Creating/updating a link reference accepts/establishes an inbound cross-perimeter connection, weakening the isolation defense and opening network reachability into this perimeter.

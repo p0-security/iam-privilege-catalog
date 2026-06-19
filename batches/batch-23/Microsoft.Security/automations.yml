@@ -1,0 +1,16 @@
+name: Defender for Cloud automations
+description: A Defender for Cloud automation (workflow automation) defines how security alerts, recommendations, and assessments trigger automated responses such as Logic Apps, Event Hubs, or Log Analytics exports. It is the configuration of the org's automated security response pipeline.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an automation removes an automated security-response/notification workflow, disabling a defense mechanism and disrupting incident response.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating or updating an automation lets an attacker disable, alter, or redirect automated security-response workflows, weakening defenses and manipulating the response pipeline (e.g. misrouting alert data).

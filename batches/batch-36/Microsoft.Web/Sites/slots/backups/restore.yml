@@ -1,0 +1,13 @@
+name: Web App deployment slot backups
+description: Backup objects and backup configuration for an App Service web app deployment slot, capturing the slot's content, configuration, and connected databases to a storage destination for recovery.
+scope: HIGH
+notes: Backups are a recovery mechanism; restoring overwrites live state and deleting them defeats recovery. Read/list operations expose only backup metadata (status, destination, schedule), not backup contents or credentials.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Restoring a slot backup overwrites the slot's live content, configuration, and connected databases with the backup state, manipulating operational data and disrupting the running slot during the restore.

@@ -1,0 +1,12 @@
+name: Object replication restore point
+description: An object-replication restore point — a point-in-time recovery artifact used to restore blob data to a prior state.
+scope: HIGH
+notes: A backup/recovery artifact for a single storage account's data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deleting a restore point destroys a recovery artifact, undermining the backup-based ability to restore organizational data.

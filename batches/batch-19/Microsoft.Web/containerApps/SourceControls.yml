@@ -1,0 +1,18 @@
+name: Container App source control
+description: A Container App source control resource is the CI/CD binding that links the app to a Git repository (repo URL, branch, build settings) so committed code is automatically built and deployed into the app.
+scope: HIGH
+notes: Deployment-pipeline configuration whose write path enables code execution in production; the read path exposes only the binding config (no token returned).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting the source-control binding removes the app's CI/CD deployment integration, disrupting the delivery pipeline configuration.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - escalation:lateral
+    notes: Creating/updating the binding repoints the app's CI/CD at an attacker-controlled repository so attacker code is built and deployed, manipulating the running app, hijacking compute, and executing under the app's managed identity for lateral movement.

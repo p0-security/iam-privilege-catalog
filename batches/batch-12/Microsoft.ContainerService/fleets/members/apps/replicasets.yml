@@ -1,0 +1,19 @@
+name: Kubernetes ReplicaSets (Fleet member)
+description: Kubernetes ReplicaSet objects on an Azure Fleet member cluster; controllers that maintain a stable set of replica pods from a pod template (typically managed by Deployments).
+scope: HIGH
+notes: Lower-level pod-replica controllers; write access permits arbitrary pod scheduling and identity inheritance, reads expose pod-template config.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting ReplicaSets (incl. DeleteCollection) removes the controllers and their backing pods, disrupting the served application.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating ReplicaSets schedules attacker-controlled pods, mounts service-account tokens for lateral movement, and alters workload pod templates.

@@ -1,0 +1,12 @@
+name: Log Analytics Alert table (data plane)
+description: Data-plane access to the Alert table in a Log Analytics workspace, holding records of fired security and operational alerts.
+scope: MEDIUM
+notes: Alert records reveal what detections have triggered, exposing defender visibility to an attacker.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Reads the Alert table, exporting fired alert records so an attacker can learn what activity has been detected and tailor evasion.

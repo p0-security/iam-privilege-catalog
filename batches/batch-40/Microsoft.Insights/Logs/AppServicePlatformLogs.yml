@@ -1,0 +1,11 @@
+name: App Service platform logs table
+description: A Log Analytics / Azure Monitor table holding App Service platform/runtime diagnostic logs. This is a monitoring/diagnostics data-plane asset.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Read of the AppServicePlatformLogs table exports runtime/platform diagnostic log content.

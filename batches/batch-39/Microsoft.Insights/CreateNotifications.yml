@@ -1,0 +1,12 @@
+name: Azure Monitor test notifications
+description: An action resource that dispatches test notifications (email/SMS/webhook/etc.) to a caller-supplied receiver list to validate Azure Monitor action-group delivery.
+scope: MEDIUM
+notes: Invokes metered notification channels on demand; does not alter persistent alert configuration. Metered/abusable service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Write:
+    risks:
+      - impact:spend
+    notes: Sending test notifications to an attacker-supplied receiver list invokes metered notification channels, enabling message/spam generation and incurring spend with no benefit to the org.

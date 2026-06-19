@@ -1,0 +1,16 @@
+name: Microsoft Sentinel workspace manager configurations
+description: Microsoft Sentinel workspace manager configurations hold the enablement state and settings of the centralized Sentinel management feature that governs how security content is distributed across workspaces.
+scope: MEDIUM
+notes: The configuration is the control mechanism enabling fleet-wide defensive content governance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the workspace manager configuration tears down the centralized security-content management capability, disrupting coordinated governance and propagation of defensive content across workspaces.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating the workspace manager configuration enables or reconfigures the central management feature, altering how security content is governed across workspaces.

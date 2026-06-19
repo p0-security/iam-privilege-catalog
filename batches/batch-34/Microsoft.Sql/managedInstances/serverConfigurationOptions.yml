@@ -1,0 +1,12 @@
+name: Azure SQL Managed Instance server configuration option
+description: Server configuration options of an Azure SQL Managed Instance — instance-level operational settings (e.g., max degree of parallelism and similar server tunables) for the production managed database instance.
+scope: HIGH
+notes: Control-plane configuration of a production database instance; reads expose configuration, writes alter operational behavior.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Updating a Managed Instance server configuration option alters the operational configuration of a production database instance, enabling an attacker to change server behavior (control-plane manipulation).

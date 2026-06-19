@@ -1,0 +1,16 @@
+name: Azure Policy enrollment
+description: A policy enrollment binds a scope (subscription/management group) into an Azure Policy governance/compliance program, controlling how policy enforcement applies there.
+scope: MEDIUM
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - destruction:defense
+    notes: Deleting a policy enrollment unbinds the governance/policy regime from a scope, destroying the enrollment and disabling its compliance/defense enforcement.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/altering a policy enrollment changes which governance regime applies at a scope, manipulating operational compliance configuration.

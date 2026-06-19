@@ -1,0 +1,12 @@
+name: Application whitelistings (adaptive application controls)
+description: Microsoft Defender for Cloud adaptive application control (allow-listing) policies that define which executables are permitted to run on protected machines.
+scope: HIGH
+notes: An execution-control defense; its rules reveal which binaries are allowed and where gaps exist.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Creating/updating an allow-listing lets an attacker add malicious binaries to the allow-list or loosen adaptive application control, defeating the execution-prevention defense.

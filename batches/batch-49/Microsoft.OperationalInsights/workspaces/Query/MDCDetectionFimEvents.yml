@@ -1,0 +1,13 @@
+name: Log Analytics workspace query table (MDCDetectionFimEvents)
+description: A queryable log table within an Azure Log Analytics workspace. Data-plane read of this resource returns the ingested log/telemetry rows stored in the named table.
+scope: MEDIUM
+notes: Log Analytics tables hold monitoring/diagnostic data for a single service or function; sensitivity is MEDIUM unless the logs carry highly sensitive content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Returns Defender for Cloud file-integrity-monitoring detection events, exporting security telemetry that reveals monitored files and FIM detection coverage.

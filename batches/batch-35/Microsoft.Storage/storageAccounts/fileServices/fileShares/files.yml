@@ -1,0 +1,22 @@
+name: Storage File Service Files
+description: Files and folders stored within an Azure Files share inside a storage account. This is the data plane of the file share, holding the actual organizational file data.
+scope: HIGH
+notes: Production file shares commonly hold sensitive business documents, application config, and home-directory data; data-plane access grants direct read/write/delete of that content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    notes: Deletes files/folders from the share, directly destroying organizational data.
+  read:
+    risks:
+      - exfiltration:data
+      - discovery:data
+    notes: Returns file/folder contents and directory listings, enabling both exfiltration of stored file data and enumeration of stored objects.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:encryption
+    notes: Creates/overwrites files and folders, letting an attacker tamper with organizational data and overwrite files with encrypted content for ransomware extortion.

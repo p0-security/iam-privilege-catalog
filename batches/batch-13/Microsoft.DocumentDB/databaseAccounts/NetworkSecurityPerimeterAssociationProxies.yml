@@ -1,0 +1,18 @@
+name: Cosmos DB Network Security Perimeter association proxy
+description: A Network Security Perimeter (NSP) association proxy binds the Cosmos DB database account into an NSP network-isolation boundary and records its membership and access mode.
+scope: HIGH
+notes: Controls the network-isolation defense posture of a single database account.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Deleting the NSP association proxy detaches the database account from its network-isolation perimeter, tearing down a network defense boundary and re-exposing the service to broader network access.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:network
+    notes: Writing the NSP association proxy lets an attacker alter the perimeter binding or switch to a permissive/learning access mode, weakening the network-isolation defense and broadening network reachability to the database.

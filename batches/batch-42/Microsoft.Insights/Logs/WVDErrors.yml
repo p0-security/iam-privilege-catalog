@@ -1,0 +1,12 @@
+name: Azure Log Analytics table (WVDErrors)
+description: A Log Analytics workspace table accessed via the data plane; this one is the Azure Virtual Desktop WVDErrors table, which records error/diagnostic events for AVD sessions and hosts.
+scope: MEDIUM
+notes: AVD error telemetry; may reveal host/session state and configuration detail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+    notes: Returns AVD error-event rows, exfiltrating diagnostic log content.

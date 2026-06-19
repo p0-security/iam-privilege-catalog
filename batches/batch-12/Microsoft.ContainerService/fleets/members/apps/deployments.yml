@@ -1,0 +1,19 @@
+name: Kubernetes Deployments (Fleet member)
+description: Kubernetes Deployment objects on an Azure Fleet member cluster; declarative controllers that manage replicated, stateless application pods including their full pod template (container images, env vars, secret/configmap references, security context).
+scope: HIGH
+notes: Workload controllers govern what code runs in the cluster; write access permits arbitrary container execution and identity inheritance via mounted service-account tokens, while reads expose application topology and embedded configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting Deployments (incl. DeleteCollection) tears down the controllers and their pods, removing workload infrastructure and disrupting the backed service.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating Deployments runs attacker-controlled containers (cryptomining/botnet), crafts pods that mount service-account tokens for lateral movement, and tampers with running application config.

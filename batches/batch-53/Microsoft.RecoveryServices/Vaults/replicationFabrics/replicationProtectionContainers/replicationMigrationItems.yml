@@ -1,0 +1,17 @@
+name: Azure Site Recovery migration items
+description: Azure Site Recovery (ASR) migration items represent source machines (VMware/Hyper-V/physical/Azure VMs) being replicated to Azure for migration. The item is the control-plane object that governs replication settings, target configuration, and migration/cutover lifecycle for a single workload.
+scope: MEDIUM
+notes: Replicated workloads are production machines and their disks are continuously copied to target/cache storage, so control over migration items can affect production resilience and stand up copies of production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a migration item tears down the replication/migration relationship for a workload, destroying the DR/migration setup and disrupting the ability to migrate or recover that workload.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a migration item alters the replication/migration configuration (e.g. target VM/network settings) for a workload, manipulating operational disaster-recovery state.

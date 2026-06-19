@@ -1,0 +1,20 @@
+name: Virtual Machine Extensions
+description: Virtual machine extensions are agents/code (e.g. CustomScript, RunCommand, antimalware, Azure Monitor Agent) installed on the guest OS of an Azure VM and managed through the VM control plane.
+scope: HIGH
+notes: Extensions are the canonical Azure primitive for arbitrary in-guest code execution; write access effectively means SYSTEM/root on the VM under its attached managed identity. The GET API does not return protectedSettings, so reads expose only non-secret configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:logs
+      - destruction:infra
+    notes: Deleting an extension can uninstall the VM's security/antimalware agent (Defender) to blind defenses, remove the monitoring/log-collection agent (AMA/Log Analytics) to halt log collection, and tears down installed agent infrastructure on the host.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:manipulation
+    notes: Creating/updating an extension (CustomScript/RunCommand) executes attacker-supplied code as SYSTEM/root on the guest, allowing theft/abuse of the VM's managed-identity token (lateral movement), running attacker workloads (hijack), and tampering with the running system and its software/config (manipulation).

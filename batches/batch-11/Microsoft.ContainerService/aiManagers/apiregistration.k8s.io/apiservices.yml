@@ -1,0 +1,18 @@
+name: Kubernetes APIService registrations (API aggregation layer)
+description: APIService objects in the apiregistration.k8s.io group register API groups/versions with the Kubernetes API aggregation layer, mapping a group/version to either the built-in API server or an external aggregated (extension) API server. This is data-plane (Kubernetes object) access within an AKS-managed 'aiManagers' cluster.
+scope: HIGH
+notes: Control over the aggregation layer can redirect or intercept Kubernetes API traffic for a group/version, making write/delete on these objects a cluster-control-plane MITM and availability primitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting an APIService unregisters an aggregated API group/version (e.g. metrics.k8s.io), breaking that API surface and denying service to controllers and clients that depend on it.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating an APIService re-points an API group/version to an attacker-controlled aggregated backend, manipulating API routing and enabling interception of (potentially credential-bearing) API requests to pivot toward other identities/services.

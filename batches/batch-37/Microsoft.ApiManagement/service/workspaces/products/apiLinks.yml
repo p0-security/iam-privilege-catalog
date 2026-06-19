@@ -1,0 +1,17 @@
+name: APIM Product-API links
+description: Product-API links are association records in an Azure API Management workspace that bundle APIs into a subscribable product, determining which APIs a product exposes to its subscribers.
+scope: MEDIUM
+notes: These define the API exposure surface of a single gateway product; the links are configuration, not secret material or stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - impact:access
+    notes: Deleting a product-API link detaches an API from a product, removing it from the product's subscribers and disrupting authorized consumers' access to that API.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating a product-API link changes which APIs a product exposes to subscribers, altering the gateway's published API surface.

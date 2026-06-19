@@ -1,0 +1,13 @@
+name: Server Blob Auditing Policy
+description: The server-level blob auditing policy for an Azure SQL logical server, controlling whether and how database activity is audited and where audit logs are written, for all databases on the server.
+scope: MEDIUM
+notes: Auditing is a detection/log-collection control; reading reveals coverage and writing can disable it server-wide.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Setting the server blob auditing policy lets an attacker disable or redirect SQL audit logging across all databases on the server, destroying log collection and removing a detection defense.

@@ -1,0 +1,13 @@
+name: Virtual Machine diagnostic settings
+description: The Microsoft.Insights diagnostic setting for a Virtual Machine defines which logs/metrics are collected and where they are routed (Log Analytics, Storage, Event Hub). It controls the VM's monitoring/telemetry pipeline.
+scope: MEDIUM
+notes: Monitoring/diagnostics configuration; modifying it can blind detection, but reading it only reveals coverage.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Writing the setting lets an attacker disable or redirect VM log/metric collection, blinding incident response and degrading detective defenses.

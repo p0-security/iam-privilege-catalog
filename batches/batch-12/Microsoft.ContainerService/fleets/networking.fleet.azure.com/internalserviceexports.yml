@@ -1,0 +1,18 @@
+name: Fleet InternalServiceExport (cross-cluster service networking)
+description: An AKS Fleet Manager InternalServiceExport resource that exposes a Kubernetes Service from one member cluster for internal cross-cluster reachability across the fleet.
+scope: HIGH
+notes: Data-plane fleet networking object that governs internal service-to-service connectivity between member clusters; controls the multi-cluster network exposure surface for a single application function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting an export removes cross-cluster service exposure, tearing down connectivity that dependent clusters rely on and disrupting the service.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating/updating an export exposes a cluster-internal service to other fleet member clusters, enabling network movement to additional clusters and altering cross-cluster routing configuration.

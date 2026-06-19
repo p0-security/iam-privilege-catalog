@@ -1,0 +1,13 @@
+name: Log Analytics GCPIDS log table
+description: A Log Analytics workspace data-plane query permission scoped to the GCPIDS table, which holds ingested Google Cloud IDS (intrusion-detection) findings and network threat telemetry.
+scope: MEDIUM
+notes: Security/defensive telemetry; reading it reveals what the IDS detects and aids evasion.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:network
+    notes: Reading this table exports IDS detections and exposes monitored network flows and detection coverage, useful for evading network defenses.

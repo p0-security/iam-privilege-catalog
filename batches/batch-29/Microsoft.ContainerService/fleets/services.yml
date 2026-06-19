@@ -1,0 +1,18 @@
+name: Kubernetes services (fleet)
+description: Kubernetes Service objects within an AKS fleet namespace, which define network endpoints, selectors, cluster IPs, ports, and external exposure (ClusterIP/NodePort/LoadBalancer) that front workloads.
+scope: HIGH
+notes: Networking objects controlling traffic routing and external exposure of cluster workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting Service objects removes the network endpoints fronting workloads, severing connectivity and causing denial of service for the affected applications.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating Services can reroute traffic via selectors or expose internal workloads externally (LoadBalancer/NodePort), manipulating network routing and enabling network movement to additional cluster resources.

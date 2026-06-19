@@ -1,0 +1,13 @@
+name: Log Analytics KubeMonAgentEvents table
+description: A Log Analytics workspace table holding Kubernetes container-monitoring-agent event records. This is a data-plane log table within Azure Monitor Log Analytics.
+scope: MEDIUM
+notes: Monitoring/diagnostic data; agent events reveal monitoring configuration and cluster state.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:logs
+      - discovery:logs
+    notes: Data-plane read returns monitoring-agent event records, exporting and enumerating agent/cluster telemetry.

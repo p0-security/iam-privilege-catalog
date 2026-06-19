@@ -1,0 +1,18 @@
+name: API Connection Access Policies
+description: Connection access policies are the access-control entries (objectId/tenantId grants) governing which principals may use an Azure API Connection, which brokers credentialed access to a backend service (e.g. for Logic Apps).
+scope: HIGH
+notes: The connection wraps stored/delegated credentials to a backend system; access to use it confers access to that backend.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting access policies removes access-control grants on the connection (destruction:policy), stripping legitimate principals (e.g. a Logic App's managed identity) of their authorized access to use the connection (impact:access).
+  Write:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+    notes: Adding/updating an access policy lets an attacker grant an attacker-chosen principal authorization to use the connection (escalation:privilege); because the connection brokers credentialed access to a backend, the granted identity can then reach that backend (escalation:lateral).

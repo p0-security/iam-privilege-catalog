@@ -1,0 +1,17 @@
+name: Kubernetes NetworkPolicies (fleet member)
+description: Kubernetes NetworkPolicy objects in a fleet member cluster define pod-level ingress/egress firewall rules that segment and isolate workload traffic. They act as the in-cluster network defense controlling which pods can communicate.
+scope: HIGH
+notes: NetworkPolicies are a network segmentation defense for a single cluster; their removal or weakening enables lateral movement between workloads.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting NetworkPolicies removes the pod-traffic firewall, defaulting affected pods back to allow-all and tearing down the network segmentation defense.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Writing NetworkPolicies lets an attacker loosen or rewrite pod-traffic firewall rules, disabling the segmentation defense and altering security configuration to open lateral paths.

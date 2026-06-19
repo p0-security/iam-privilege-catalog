@@ -1,0 +1,13 @@
+name: Log Analytics HDInsight query table (Spark BlockManager events)
+description: A Log Analytics workspace query-scoped table holding HDInsight Spark BlockManager event log records ingested via diagnostic settings. The data-plane read returns the stored rows.
+scope: MEDIUM
+notes: Monitoring/diagnostics asset tier. Low-level executor/storage runtime telemetry with limited sensitive content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - discovery:logs
+      - exfiltration:logs
+    notes: Reading this table exports Spark BlockManager runtime event telemetry and lets the holder inventory logged executor/storage activity.

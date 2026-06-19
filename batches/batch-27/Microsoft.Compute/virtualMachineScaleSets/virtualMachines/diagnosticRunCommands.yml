@@ -1,0 +1,19 @@
+name: VMSS instance diagnostic run commands
+description: A diagnostic run command is a sub-resource attached to an individual virtual machine within a Virtual Machine Scale Set that defines a script/command executed inside the instance for diagnostic purposes and stores its configuration and captured output.
+scope: MEDIUM
+notes: Run commands execute code inside the guest OS under the instance context and any attached managed identity, so the write capability is high-impact; the resource itself is scoped to a single compute instance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+    notes: Deleting the run command removes that sub-resource and its stored output from the instance, destroying the configuration artifact (and any forensic record of prior executions) without affecting the VM or its data.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:hijack
+      - impact:manipulation
+    scope: HIGH
+    notes: Creating/updating a run command executes attacker-supplied script inside the scale-set instance under its context and managed identity, enabling pivot to that identity, commandeering the host for arbitrary workloads, and tampering with the guest OS.

@@ -1,0 +1,13 @@
+name: Log Analytics AADB2CRequestLogs table
+description: A Log Analytics workspace data-plane table holding Azure AD B2C authentication request telemetry (consumer sign-in events, identifiers, IP addresses, and auth results).
+scope: MEDIUM
+notes: Monitoring/diagnostics data; sensitivity is confidential identity telemetry rather than a primary production store, hence MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Reading this table exports B2C consumer authentication records and enumerates customer identities and their sign-in activity for targeting.

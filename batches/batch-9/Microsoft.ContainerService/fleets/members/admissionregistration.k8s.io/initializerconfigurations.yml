@@ -1,0 +1,18 @@
+name: Kubernetes initializer configurations (fleet member)
+description: InitializerConfigurations are cluster-wide Kubernetes admission-control objects (a deprecated dynamic admission mechanism) that register initializers which intercept and can modify objects as they are admitted to the API server, accessed here as a data action against a fleet member cluster.
+scope: CRITICAL
+notes: Cluster-wide admission-control objects govern what is admitted to and mutated within the entire Kubernetes cluster; write access to them is a recognized cluster-takeover primitive, making the asset cluster-admin-equivalent.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting initializerconfigurations removes a cluster-wide admission-control hook that may enforce security policy on object creation, disabling a defense mechanism so non-conforming or malicious objects are admitted unchecked.
+  write:
+    risks:
+      - escalation:lateral
+      - impact:manipulation
+      - destruction:defense
+    notes: Writing an initializerconfiguration registers a cluster-wide admission interceptor that mutates objects on creation, enabling injection of sidecars/credentials/service accounts (movement onto workload identities), arbitrary cluster-wide config manipulation, and subversion of admission-time policy enforcement.

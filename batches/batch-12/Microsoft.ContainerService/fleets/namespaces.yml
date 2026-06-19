@@ -1,0 +1,19 @@
+name: Kubernetes Fleet namespaces
+description: Kubernetes Namespace objects within AKS Fleet-managed clusters. Namespaces are the logical tenancy/isolation boundaries that organize and contain workloads, configuration, secrets, and RBAC scoping across the fleet's clusters.
+scope: HIGH
+notes: Data-plane (isDataAction) objects defining the cluster's segmentation; creating/deleting them cascades to the contained workloads and data, so write/delete are HIGH-impact while reads are reconnaissance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+      - destruction:data
+    notes: Deleting a namespace cascades to delete all workloads, configuration, and persisted data it contains, destroying infrastructure, wiping organizational data, and disrupting the services it hosts.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+    notes: Creating/updating namespaces lets an attacker carve out new tenancy boundaries to host their own workloads and alter the isolation/labeling configuration of existing ones across the fleet.

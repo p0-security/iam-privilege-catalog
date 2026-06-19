@@ -1,0 +1,13 @@
+name: Log Analytics PowerBIActivity table
+description: A Log Analytics workspace query table holding Power BI activity/audit logs, recording user actions on reports, datasets, and workspaces.
+scope: MEDIUM
+notes: Audit log data exposing user identities and data-access patterns; MEDIUM sensitivity but high reconnaissance value for account targeting.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - discovery:account
+    notes: Read returns Power BI audit records exposing user identities and their report/dataset access events, enabling log exfiltration and account discovery for targeting.

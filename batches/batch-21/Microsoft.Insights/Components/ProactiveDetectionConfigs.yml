@@ -1,0 +1,13 @@
+name: Application Insights proactive detection configuration
+description: The Smart/Proactive Detection configuration of an Application Insights component, which defines automated anomaly and failure-detection alerting rules.
+scope: MEDIUM
+notes: Reading or modifying this reveals or alters a monitoring defense mechanism.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Writing this config lets an attacker disable or weaken anomaly/smart-detection alerting (a defense) and otherwise tamper with detection settings to evade notice.

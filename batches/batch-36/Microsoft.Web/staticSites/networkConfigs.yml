@@ -1,0 +1,18 @@
+name: Static Site Network Config
+description: Static Site network configuration defines the network integration (VNet integration / private endpoint bindings) for an Azure Static Web App.
+scope: HIGH
+notes: Network plumbing supporting a single application's connectivity to backend resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Disconnecting the network configuration removes the static site's VNet/private-endpoint integration, a network-component deletion that can break private connectivity and disrupt the service.
+  Write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Updating the network configuration lets an attacker rewire the site's VNet/private-endpoint integration to expose the service or reach additional resources on the connected network, while altering operational network config.

@@ -1,0 +1,18 @@
+name: Kubernetes StorageClasses (Fleet)
+description: Cluster-scoped Kubernetes StorageClass objects on an AKS Fleet, which define how persistent volumes are dynamically provisioned (provisioner, parameters, reclaim policy, backing storage tier).
+scope: MEDIUM
+notes: Storage provisioning configuration is supporting cluster infrastructure; it governs how volumes are created but does not itself contain stored data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting StorageClasses removes provisioning configuration that PersistentVolumeClaims depend on, breaking dynamic volume provisioning and disrupting dependent stateful workloads.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:spend
+    notes: Creating/updating StorageClasses lets an attacker alter provisioner/parameters/reclaim policy and define classes that provision costly backing storage tiers for dynamically created volumes.

@@ -1,0 +1,17 @@
+name: Resource Management Private Link private endpoint connection
+description: A private endpoint connection under a Resource Management Private Link represents an established/pending private-endpoint binding (and its approval state) connecting a private endpoint to the ARM management private link.
+scope: MEDIUM
+notes: A network-connectivity sub-component of the resource management private link; sensitivity tracks supporting management-plane network infrastructure.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the connection removes a private-endpoint network connectivity component, which can disrupt private access to the management plane (DoS-like).
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating the connection can approve/establish a private-endpoint binding to the ARM management private link, enabling network movement and manipulation of the connection's approval state.

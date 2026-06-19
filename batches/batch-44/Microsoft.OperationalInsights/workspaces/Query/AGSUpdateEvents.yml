@@ -1,0 +1,12 @@
+name: Log Analytics workspace table (AGSUpdateEvents)
+description: A Log Analytics workspace query table holding ingested update/change-event telemetry. Reading it is a data-plane operation returning the stored log rows.
+scope: MEDIUM
+notes: Log Analytics tables are monitoring/diagnostics data stores of MEDIUM sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+    notes: Exports update/change-event records revealing system update activity ingested into the workspace.

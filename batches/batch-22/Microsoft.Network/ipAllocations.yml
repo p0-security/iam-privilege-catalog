@@ -1,0 +1,16 @@
+name: Azure IP Allocations
+description: An IpAllocation is a reserved IP address allocation object used for static IP address planning and reservation across VNets/subnets.
+scope: MEDIUM
+notes: Supporting network addressing/planning resource; lower sensitivity than firewall-enforcing constructs.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting an IpAllocation removes a reserved IP addressing component, which can disrupt address assignment for dependent network resources.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating/updating an IpAllocation alters reserved IP address ranges and their VNet/subnet associations, manipulating network addressing configuration.
