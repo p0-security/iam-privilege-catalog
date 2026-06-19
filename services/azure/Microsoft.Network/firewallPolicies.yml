@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deletes a Firewall Policy, removing the network firewall ruleset (a defense) and the traffic access-control policy it enforces, exposing protected resources.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    notes: Reads a Firewall Policy, disclosing rule collections, allowed/denied flows, and threat-protection posture, revealing both the network layout and the enforced access-control policy to find gaps.
   write:
     risks:
       - destruction:defense

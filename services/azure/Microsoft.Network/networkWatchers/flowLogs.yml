@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a flow log stops collection of NSG/VNet traffic logs, destroying audit data and removing a network monitoring defense to evade detection and disrupt incident response.
-  read:
-    risks:
-      - discovery:logs
-    notes: Getting flow log details enumerates the network flow logging configuration (target NSG/resource, storage destination, enabled state), allowing reconnaissance of network traffic-monitoring coverage.
   write:
     risks:
       - destruction:logs

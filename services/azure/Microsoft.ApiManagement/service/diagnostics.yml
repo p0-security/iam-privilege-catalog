@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a diagnostic disables log/telemetry collection for the service, disrupting incident response and aiding evasion.
-  read:
-    risks:
-      - discovery:logs
-    notes: Lists/reads diagnostic configurations, inventorying what logging and telemetry is collected.
   write:
     risks:
       - destruction:logs

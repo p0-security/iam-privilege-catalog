@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a SQL container destroys the container and all documents/items it holds, irreversibly removing organizational data (mitigated only by backup).
-  read:
-    risks:
-      - discovery:data
-    notes: Reading or listing containers enumerates the data stores present in the account (without returning item contents), letting an attacker inventory stored data objects.
   write:
     risks:
       - impact:manipulation

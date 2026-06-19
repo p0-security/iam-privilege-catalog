@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Detaches a tag from an API, deleting operationally-used metadata associations.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Lists/gets tags associated with an API, enabling inventory of metadata tags only.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:dos
     notes: Deleting an extension can remove a security/monitoring agent (anti-malware, Defender, Log Analytics/diagnostic agent) acting as a defense, and removes installed functionality, disrupting the workload the extension provides on the instance.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading an extension's properties inventories which extensions and their non-protected configuration are installed on a scale-set VM instance, infrastructure reconnaissance that does not return protected secret values.
   write:
     risks:
       - escalation:lateral

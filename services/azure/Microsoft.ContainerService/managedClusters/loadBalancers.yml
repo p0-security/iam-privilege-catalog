@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the configuration removes a network component fronting cluster services, breaking inbound traffic distribution and denying access to the services that depend on it.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the load balancer configuration enumerates the cluster's network front-end/backend settings (IPs, backend pools, rules), read-only network reconnaissance of how cluster services are fronted.
   write:
     risks:
       - impact:manipulation

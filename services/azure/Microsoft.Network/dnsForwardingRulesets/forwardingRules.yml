@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a forwarding rule removes the conditional resolution path for its domain, breaking name resolution and disrupting dependent connectivity.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a forwarding rule discloses which domains forward to which target DNS servers, reconnaissance of resolution paths.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting node objects removes compute capacity from the cluster, evicting workloads and disrupting the services scheduled on those nodes.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading/listing nodes enumerates the cluster's compute hosts and their configuration/capacity, providing reconnaissance for workload placement and targeting.
   write:
     risks:
       - impact:manipulation

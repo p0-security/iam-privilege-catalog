@@ -10,12 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a scoped resource unlinks a monitoring resource from the private scope, breaking its private connectivity path.
-  Read:
-    risks:
-      - discovery:network
-      - discovery:infra
-    scope: LOW
-    notes: Reading a scoped resource enumerates which Azure Monitor resources are bound into the private scope, inventorying both the private-network linkage and the underlying monitoring infrastructure.
   Write:
     risks:
       - impact:manipulation

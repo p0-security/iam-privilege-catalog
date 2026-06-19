@@ -11,11 +11,6 @@ privileges:
       - impact:dos
       - impact:manipulation
     notes: Removes an API from a gateway, stopping the gateway from serving it (DoS for consumers) and altering the operational routing configuration.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists which APIs are wired to a gateway, a read-only inventory of the gateway's exposed API configuration.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a replication tears down a geo-replicated regional copy, removing redundancy and degrading regional pull latency/availability while the home registry remains operational.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get/List enumerates the registry's geo-replication configuration (regions, status), exposing infrastructure topology but no secret or image data.
   write:
     risks:
       - impact:manipulation

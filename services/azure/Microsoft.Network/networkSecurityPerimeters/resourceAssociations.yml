@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Deleting an association detaches the resource from the perimeter, removing its network-isolation defense and broadening its reachability to attacker-controlled networks.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading an association reveals which PaaS resources are bound to the perimeter and in what enforcement mode, inventorying the protected-resource topology and which assets are unprotected.
   write:
     risks:
       - destruction:defense

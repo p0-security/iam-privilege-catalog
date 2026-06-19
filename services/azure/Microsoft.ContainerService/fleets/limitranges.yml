@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:policy
     notes: Deleting LimitRanges removes the resource-constraint enforcement policy for a namespace, lifting the limits that would otherwise bound workload resource consumption.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reading/listing LimitRanges enumerates the per-namespace resource-constraint policy configuration, revealing permissive limits an attacker can plan to abuse.
   write:
     risks:
       - impact:manipulation

@@ -1,18 +1,13 @@
 name: VMSS Runtime Service Extension role
 description: A Role within a Virtual Machine Scale Set's Virtual Machine Runtime Service Extension defines configuration for the runtime service that executes across the scale set's instances.
-scope: MEDIUM
+scope: HIGH
 notes: The runtime service extension runs on production scale-set compute, so role configuration governs behavior executing on those instances.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Compute
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the role's properties only inventories the extension role configuration on the scale set, which is infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation
       - escalation:lateral
-    scope: HIGH
     notes: Updating the role of a runtime-service extension alters configuration that executes across scale-set instances, manipulating operational compute config and enabling behavior/code to run in the context of those instances' identities.

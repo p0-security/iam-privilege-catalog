@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting RoleBindings tears down RBAC grants, destroying access-control policy and stripping legitimate operators of their cluster access.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading RoleBindings enumerates which subjects are granted which roles, mapping the cluster access-control graph and revealing escalation paths.
   write:
     risks:
       - escalation:privilege

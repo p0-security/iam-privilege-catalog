@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:policy
     notes: Deletes a policy/governance object; while removing an exemption generally re-imposes (rather than weakens) enforcement, the modeled capability is deletion of an access-governance/policy artifact.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading an exemption discloses which scopes are excused from Azure Policy enforcement, letting an attacker inventory existing gaps in governance/security controls.
   write:
     risks:
       - destruction:defense

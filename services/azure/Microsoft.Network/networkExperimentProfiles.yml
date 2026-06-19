@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an Internet Analyzer profile destroys a supporting diagnostics/measurement resource.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the profile returns its measurement configuration and measured endpoints, letting an attacker inventory monitored network endpoints.
   write:
     risks:
       - impact:manipulation

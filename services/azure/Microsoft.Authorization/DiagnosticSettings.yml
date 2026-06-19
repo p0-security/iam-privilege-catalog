@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a diagnostic setting halts log/metric collection to monitoring sinks, destroying audit visibility and removing a detective control.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading diagnostic settings inventories what logging/metrics are configured and where routed, useful reconnaissance for planning evasion.
   write:
     risks:
       - destruction:logs

@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - destruction:defense
     notes: Deleting a policy set definition version removes governance/compliance enforcement logic (audit/deny initiatives), destroying the policy and disabling the security control it provided.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading a policy set definition version exposes the governance/compliance rules that may be enforced, revealing controls and gaps an attacker could exploit.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a managed run command removes that command resource and its stored execution record on the VM, a destructive change to compute infrastructure config scoped to the run-command artifact rather than the VM or its data.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Getting a run command's properties enumerates the configured script/parameters and execution status on the VM, providing reconnaissance of the code-execution surface without executing anything or returning credentials.
   write:
     risks:
       - escalation:lateral

@@ -18,6 +18,3 @@ privileges:
     scope: HIGH
     notes: Despite the /read suffix this returns the workspace shared keys (credential material), so it is cryptographic exfiltration; the keys let an attacker authenticate as an agent and inject or forge log data into the workspace (impact:manipulation).
     name: Log Analytics workspace shared keys
-    parent:
-      description: The shared (primary/secondary) keys of an Azure Log Analytics (Operational Insights) workspace, used by Microsoft Monitoring Agents and the Data Collector API to authenticate and ingest telemetry into the workspace.
-      notes: These are reusable workspace ingestion credentials scoped to a single monitoring workspace; they permit data ingestion but are not tenant-wide RBAC credentials.

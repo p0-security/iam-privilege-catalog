@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting an eviction object removes the eviction request/record, altering placement-control operational state; it does not destroy organizational data or durable infrastructure.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read/list only enumerates existing eviction objects across the fleet, providing reconnaissance of placement orchestration state with no data or credential exposure.
   write:
     risks:
       - impact:dos

@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting Jobs (including DeleteCollection) removes running/queued batch workloads, disrupting in-progress processing and the operations that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading Job specs inventories batch workload configuration and pod templates (images, commands, secret/volume references), providing cluster infrastructure reconnaissance without returning secret values.
   write:
     risks:
       - impact:hijack

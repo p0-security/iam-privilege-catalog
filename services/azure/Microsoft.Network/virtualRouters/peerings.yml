@@ -9,11 +9,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the peering tears down a BGP route exchange, removing routes and disrupting network connectivity.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the peering enumerates BGP peer ASN/IP and routing configuration, providing network topology reconnaissance.
   write:
     risks:
       - impact:manipulation

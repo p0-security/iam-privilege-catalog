@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes the connection proxy, tearing down a private-link connectivity component and disrupting private access to the SQL server (implied DoS).
-  read:
-    risks:
-      - discovery:network
-    notes: List/get inventories the SQL server's private-link connectivity proxy configuration; read-only network reconnaissance.
   write:
     risks:
       - escalation:network

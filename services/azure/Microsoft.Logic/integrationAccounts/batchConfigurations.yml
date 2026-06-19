@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a batch configuration, disrupting batched message processing in dependent integration workflows.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads batch-configuration settings, enabling reconnaissance of how the integration account batches and releases messages.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting a maintenance configuration removes the constraints governing when patching/upgrades occur, manipulating operational maintenance behavior (e.g. reverting to defaults) rather than destroying real infrastructure or data.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only get only inventories the cluster's maintenance-window scheduling configuration, low-value infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

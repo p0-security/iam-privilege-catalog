@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:infra
     notes: Deleting the endpoint breaks the telemetry/log ingestion pipeline that depends on it, halting log collection and removing monitoring infrastructure.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reading the endpoint configuration only enumerates the monitoring ingestion infrastructure and its settings; no secret material is returned.
   Write:
     risks:
       - impact:manipulation

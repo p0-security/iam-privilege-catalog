@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a premier add-on removes a supporting infrastructure component the app depends on, destroying it and potentially disrupting the function it provides.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of premier add-on configuration inventories supporting infrastructure attached to the app.
   write:
     risks:
       - impact:manipulation

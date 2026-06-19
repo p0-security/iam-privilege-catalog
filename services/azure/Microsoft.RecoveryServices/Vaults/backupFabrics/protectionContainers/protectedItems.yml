@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deletes a protected item and stops protection, removing its backup recovery points and destroying the recovery copies that would otherwise mitigate a ransomware or data-destruction attack.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Returns control-plane configuration of a single protected item (what is backed up and under which policy), enabling reconnaissance of backup coverage without exposing the backed-up data itself.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a private endpoint connection removes a network access path to the HSM, destroying a network component and disrupting legitimate private connectivity (DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the connection state only enumerates the HSM's private network connectivity configuration, which is network reconnaissance.
   write:
     risks:
       - escalation:network

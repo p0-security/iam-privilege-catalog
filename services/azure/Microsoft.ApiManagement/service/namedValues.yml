@@ -1,6 +1,6 @@
 name: API Management named values
 description: Named values are key/value constants (some flagged secret or backed by Key Vault) referenced across all API configurations and policies in an API Management instance.
-scope: MEDIUM
+scope: HIGH
 notes: May hold or reference credentials and backend URLs; secret-flagged values are masked on GET and require the listValue action to reveal.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
@@ -10,13 +10,9 @@ privileges:
     risks:
       - impact:dos
       - impact:manipulation
-    scope: HIGH
     notes: Deletes a named value referenced by policies/API configs, breaking dependent policy evaluation (DoS) and altering operational configuration.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists/gets named value definitions and non-secret values (secret values are masked here), enumerating the configuration constants used across policies.
   write:
     risks:
       - impact:manipulation
+    scope: MEDIUM
     notes: Creates/updates a named value, altering constant/secret values consumed across all API policies and configurations (e.g. backend URLs, headers), manipulating operational behavior.

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a private endpoint connection, removing a private-link binding and disrupting private connectivity to the storage account.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Lists private endpoint connections, enumerating private-link bindings and approval state for network reconnaissance.
   write:
     risks:
       - escalation:network

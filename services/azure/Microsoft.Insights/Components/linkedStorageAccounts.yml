@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Insights
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  Read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read returning which storage account is linked to the component, enabling reconnaissance of the diagnostics-storage wiring; returns no telemetry data or secret material.
   Write:
     risks:
       - impact:manipulation

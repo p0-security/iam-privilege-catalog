@@ -1,6 +1,6 @@
 name: Kubernetes events
 description: Kubernetes Event objects in an AKS managed cluster, recording operational activity such as pod scheduling, image pulls, errors, and lifecycle changes for cluster objects.
-scope: LOW
+scope: MEDIUM
 notes: Events are low-sensitivity operational telemetry, but they reveal cluster activity and can serve as an audit-adjacent trail used during incident response.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.ContainerService
@@ -10,13 +10,9 @@ privileges:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Deleting events erases the operational/audit-like trail of cluster activity, disrupting incident response and obscuring traces of attacker actions.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading events lets an attacker inventory cluster activity (scheduling, failures, image pulls) for reconnaissance of workloads and infrastructure state.
   write:
     risks:
       - impact:manipulation
+    scope: LOW
     notes: Creating/updating events lets an attacker inject fabricated or misleading event records into the cluster's activity stream to confuse operators and pollute detection signals.

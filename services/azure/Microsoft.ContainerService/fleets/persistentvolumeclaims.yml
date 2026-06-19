@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a PVC releases the binding and, under a Delete reclaim policy, triggers teardown of the bound volume and its underlying data while detaching storage from running stateful workloads.
-  read:
-    risks:
-      - discovery:data
-      - discovery:infra
-    notes: Reading PVCs enumerates storage claims, capacity, storage class and bound volumes, inventorying where cluster data resides and the supporting storage configuration without returning the data itself.
   write:
     risks:
       - impact:manipulation

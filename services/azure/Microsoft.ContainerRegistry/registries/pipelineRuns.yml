@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a pipeline run removes the execution record/resource for an import/export job; primarily destroys operational run state and can obscure prior transfer activity.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get/List enumerates the status, history, and configuration of past import/export executions, which is read-only infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

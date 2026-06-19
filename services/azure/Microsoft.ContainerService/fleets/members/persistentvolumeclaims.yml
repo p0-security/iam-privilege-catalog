@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a PVC unbinds and, under the common/default Delete reclaim policy, releases and deletes the backing PersistentVolume and its data, destroying organizational data and disrupting dependent stateful workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reads/lists PVCs, enumerating storage claims, capacities, storage classes, and bound volumes for a cluster's stateful workloads (storage reconnaissance).
   write:
     risks:
       - impact:manipulation

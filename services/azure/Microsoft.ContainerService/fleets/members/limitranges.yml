@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:policy
     notes: Deleting limitranges removes the per-namespace resource-constraint policy enforcement, lifting caps that would otherwise bound workload resource consumption.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading limitranges enumerates per-namespace resource-constraint configuration, low-sensitivity reconnaissance of cluster resource governance.
   write:
     risks:
       - impact:manipulation

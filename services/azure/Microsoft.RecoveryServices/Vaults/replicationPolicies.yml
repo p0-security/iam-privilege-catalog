@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a replication policy removes the DR configuration governing protection, destroying recovery settings and undermining the ability to recover associated protected workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of DR policy settings (RPO/retention/frequency); reconnaissance of recovery configuration, explicitly not access-control policy so discovery:policy does not apply.
   write:
     risks:
       - impact:manipulation

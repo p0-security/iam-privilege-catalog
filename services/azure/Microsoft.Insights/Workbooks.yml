@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes a workbook, destroying a saved monitoring/visualization artifact (queries and dashboards) used operationally.
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads a workbook definition, exposing embedded KQL queries and monitored resource references that reveal infrastructure layout and monitoring posture.
   Write:
     risks:
       - impact:manipulation

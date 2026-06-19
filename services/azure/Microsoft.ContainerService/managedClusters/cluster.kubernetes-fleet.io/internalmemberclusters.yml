@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the InternalMemberCluster resource tears down the fleet hub's internal record of a member cluster, breaking reconciliation/health tracking and disrupting fleet-managed orchestration for that cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: This data-plane read enumerates the internal fleet membership/health state for a cluster, infrastructure reconnaissance of the fleet control linkage without secret exposure.
   write:
     risks:
       - impact:manipulation

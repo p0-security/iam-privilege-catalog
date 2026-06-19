@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting replication controllers tears down the controllers and the pods they maintain, destroying running workload infrastructure and denying service to the applications they back.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read enumerates replication controller definitions, replica counts, and embedded pod specs, providing infrastructure reconnaissance of running workloads.
   write:
     risks:
       - impact:hijack

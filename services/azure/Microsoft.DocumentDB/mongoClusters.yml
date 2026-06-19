@@ -11,10 +11,6 @@ privileges:
       - destruction:data
       - destruction:infra
     notes: Deleting the cluster destroys the production database and all data it holds along with the underlying infrastructure, an irreversible data- and infrastructure-destruction primitive with DoS effect.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane get/list of cluster configuration (SKU, topology, endpoints, settings) for infrastructure reconnaissance; returns no data or secret material.
   write:
     risks:
       - impact:manipulation

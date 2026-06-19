@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Removes the service-to-backend mappings, severing service connectivity and causing denial of service for affected workloads.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Enumerates service-to-pod IP/port mappings, providing read-only internal network topology reconnaissance.
   write:
     risks:
       - impact:manipulation

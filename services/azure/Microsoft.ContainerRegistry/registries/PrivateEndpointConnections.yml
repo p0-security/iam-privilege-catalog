@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a private endpoint connection, removing a private-link binding and severing private connectivity to the registry for legitimate clients.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Gets or lists private endpoint connections, enumerating the registry's private-link bindings and approval state for network reconnaissance.
   write:
     risks:
       - escalation:network

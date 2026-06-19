@@ -1,18 +1,13 @@
 name: Vault backup encryption config
 description: The backup resource encryption configuration of a Recovery Services vault, describing how vault backups are encrypted at rest (e.g. customer-managed key reference / Key Vault key URI and identity settings).
-scope: MEDIUM
+scope: HIGH
 notes: Holds encryption-configuration metadata, not the key material itself; the configuration governs protection of backup data.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the encryption config reveals the CMK/Key Vault key reference and encryption settings used for the vault, which is infrastructure-configuration reconnaissance (no key material returned).
   write:
     risks:
       - impact:manipulation
       - impact:encryption
-    scope: HIGH
     notes: Updating the encryption config lets an attacker swap the customer-managed key protecting backups, manipulating the vault's protection posture and enabling encryption of backups under an attacker-controlled key (ransom vector).

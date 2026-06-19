@@ -1,7 +1,7 @@
-name: Web App functions
-description: A function within an App Service Function App, comprising the deployed executable code/logic, its bindings/trigger configuration, and invocation keys.
+name: Web App
+description: An Azure App Service site (Web App, Function App, or Logic App Standard) is a managed hosting resource that runs an organization's application code, often with an attached managed identity, app settings/connection strings, and a public-facing endpoint.
 scope: HIGH
-notes: Runs application logic under the function app's compute and (any attached) managed identity; supports a single organizational function.
+notes: Production application hosting for a single organizational function; can hold secrets in app settings, run code under a managed identity, and serve public traffic.
 links:
   - https://azure.permissions.cloud/iam/microsoft.web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
@@ -11,23 +11,16 @@ privileges:
       - impact:manipulation
       - escalation:lateral
     notes: Managing/invoking functions lets an attacker create or run function code that executes under the app's managed identity, enabling config/code manipulation and lateral movement.
-    name: Web App
-    parent:
-      description: An Azure App Service site (Web App, Function App, or Logic App Standard) is a managed hosting resource that runs an organization's application code, often with an attached managed identity, app settings/connection strings, and a public-facing endpoint.
-      notes: Production application hosting for a single organizational function; can hold secrets in app settings, run code under a managed identity, and serve public traffic.
   delete:
     risks:
       - destruction:infra
       - impact:dos
     notes: Deletes a function from the app, removing its deployed code/logic and disrupting the service it backs.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reads a function's configuration/binding metadata, inventorying the deployed function without returning secret material.
+    name: Web App functions
   write:
     risks:
       - impact:manipulation
       - escalation:lateral
       - impact:hijack
     notes: Creating/updating a function lets an attacker inject or alter executable code that runs under the app's (managed) identity, enabling code manipulation, lateral movement via that identity, and hijacking compute to run arbitrary workloads.
+    name: Web App functions

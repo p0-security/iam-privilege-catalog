@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting (or DeleteCollection across the namespace) tears down stateful workload controllers and their pods, destroying running infrastructure and denying service to the hosted applications.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing StatefulSets enumerates workload pod specs (images, env, volume and secret references, replica topology), which is infrastructure reconnaissance of the cluster's stateful applications.
   write:
     risks:
       - impact:hijack

@@ -17,6 +17,3 @@ privileges:
       - impact:manipulation
     notes: Despite the /read verb, this returns the actual workspace shared keys (agent-connection credentials) rather than metadata, so it is cryptographic exfiltration that also enables forged data injection.
     name: Log Analytics workspace shared keys
-    parent:
-      description: Workspace shared keys are the primary/secondary ingestion credentials used to connect Microsoft Operational Insights agents (and the Data Collector API) to a Log Analytics workspace to submit log data.
-      notes: These are workspace-scoped ingestion credentials for a single monitoring resource, not tenant identity credentials; holding them lets an attacker forge telemetry into one workspace but does not grant broad lateral movement or account takeover.

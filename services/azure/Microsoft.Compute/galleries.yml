@@ -11,11 +11,6 @@ privileges:
       - destruction:artifact
       - destruction:infra
     notes: Deletes the gallery and its contained image-definition/version artifacts, destroying VM image artifacts and the distribution infrastructure deployments depend on.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Gets gallery properties, a read-only inventory of the image-artifact container configuration with no access to image contents.
   write:
     risks:
       - impact:manipulation

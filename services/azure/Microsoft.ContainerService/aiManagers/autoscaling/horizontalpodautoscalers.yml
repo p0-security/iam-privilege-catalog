@@ -9,10 +9,6 @@ privileges:
     risks:
       - impact:dos
     notes: Deleting an HPA removes autoscaling from its target workload, leaving it unable to scale to meet demand and degrading availability under load; the underlying workload itself is not destroyed.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing HPAs enumerates autoscaling configuration (target workloads, min/max replicas, metric thresholds), providing non-sensitive infrastructure reconnaissance of scaling behavior.
   write:
     risks:
       - impact:manipulation

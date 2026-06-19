@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting Event Grid filters removes the event-notification integration; when those events feed alerting/detection, removal suppresses event-based detection of malicious operations on the service.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Gets the Event Grid filter configuration, returning only event-routing/notification metadata, which is read-only reconnaissance.
   write:
     risks:
       - impact:manipulation

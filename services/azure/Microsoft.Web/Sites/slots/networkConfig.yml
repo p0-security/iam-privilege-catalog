@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the slot network configuration removes VNet integration/network components, tearing down the network path and disrupting connectivity for the hosted service.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the slot's network configuration inventories VNet integration, subnets, and access-restriction settings, providing network-posture reconnaissance.
   write:
     risks:
       - escalation:network

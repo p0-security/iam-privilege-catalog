@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting initializer configurations removes admission-control enforcement that may act as a security guardrail, disabling an admission-time defense for the cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: HIGH
-    notes: Data-plane read enumerates the admission-control posture (which initializers/interceptors are configured), reconnaissance of cluster admission defenses without returning secret material.
   write:
     risks:
       - escalation:privilege

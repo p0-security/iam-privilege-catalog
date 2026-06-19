@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a MongoDB collection irreversibly destroys all documents it holds, removing organizational data (mitigated only by backups).
-  read:
-    risks:
-      - discovery:data
-    notes: Control-plane read/list enumerates the MongoDB collections within a database (inventory of stored data containers) without returning document contents or secret material.
   write:
     risks:
       - impact:manipulation

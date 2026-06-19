@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes a transformation map artifact, breaking workflows that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    notes: The management-plane read returns the map's configuration/metadata, enabling reconnaissance of the transformation artifact; the raw content body requires the separate callback URL action.
   write:
     risks:
       - impact:manipulation

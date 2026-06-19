@@ -11,10 +11,6 @@ privileges:
       - impact:dos
       - destruction:infra
     notes: Deleting CronJobs removes scheduled workloads, disrupting recurring operational processes (backups, cleanup, reconciliation) and destroying workload infrastructure.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing/getting CronJobs enumerates scheduled-workload definitions (images, commands, schedules) for reconnaissance of what runs in the cluster.
   write:
     risks:
       - impact:hijack

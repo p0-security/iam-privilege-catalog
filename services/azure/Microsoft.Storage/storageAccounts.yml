@@ -12,11 +12,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes the entire storage account, destroying all contained data and the account infrastructure and denying service to every dependent workload.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets account control-plane properties (endpoints, SKU, network rules, settings) without returning data or keys, enabling infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

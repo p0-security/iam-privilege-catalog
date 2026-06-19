@@ -11,11 +11,6 @@ privileges:
       - impact:consumption
       - impact:manipulation
     notes: Deleting a quota removes the namespace's consumption guardrail, lifting limits so workloads can exhaust the shared resource pool.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading resource quotas only enumerates the namespace's capacity-limit configuration, low-value infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

@@ -11,10 +11,6 @@ privileges:
       - impact:dos
       - impact:manipulation
     notes: Deleting the scheduling policy snapshot removes the active placement-decision state, disrupting how workloads are distributed across the fleet.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the scheduling policy snapshot reveals how and where workloads are distributed across member clusters, aiding reconnaissance of cluster targeting.
   write:
     risks:
       - impact:manipulation

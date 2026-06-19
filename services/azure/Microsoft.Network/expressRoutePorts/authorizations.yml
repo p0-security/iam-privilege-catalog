@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes the authorization, tearing down the connectivity grant for a linked circuit and disrupting the private network connection (DoS to the dependent link).
-  read:
-    risks:
-      - discovery:network
-    notes: Control-plane Get/List of the authorization returns its configuration and provisioning state, enabling inventory of private network connectivity authorizations.
   write:
     risks:
       - escalation:network

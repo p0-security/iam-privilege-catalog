@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes a tag, removing organizational labeling metadata without affecting the underlying APIs, products, or operations.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Lists or gets tag definitions in a workspace, enumerating organizational labeling metadata for reconnaissance.
   write:
     risks:
       - impact:manipulation

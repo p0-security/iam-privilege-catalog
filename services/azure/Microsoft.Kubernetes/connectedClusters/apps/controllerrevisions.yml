@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting ControllerRevisions destroys the rollout/rollback history snapshots of DaemonSets/StatefulSets, removing operational state needed to revert to prior known-good workload configurations.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading ControllerRevisions exposes historical pod-template snapshots of DaemonSets/StatefulSets, inventorying workload configuration.
   write:
     risks:
       - impact:manipulation

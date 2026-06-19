@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting removes the DNS routing profile so the domain can no longer route to any backend, destroying the routing layer and denying public access to fronted services.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading discloses the profile's DNS-based routing method and endpoint configuration, inventorying the public-facing network/DNS topology.
   write:
     risks:
       - takeover:domain

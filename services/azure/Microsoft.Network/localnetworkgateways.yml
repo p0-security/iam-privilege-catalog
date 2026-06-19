@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the local network gateway removes the on-prem peer definition backing the site-to-site VPN, tearing down hybrid connectivity and causing a DoS-like loss of the network link.
-  read:
-    risks:
-      - discovery:network
-    notes: Getting the local network gateway exposes the on-premises peer IP and routed address spaces, providing network-topology reconnaissance of the hybrid connection.
   write:
     risks:
       - impact:manipulation

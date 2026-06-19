@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a packet capture removes the diagnostic/forensic mechanism and any captured traffic records, eliminating network-traffic visibility used for incident response.
-  read:
-    risks:
-      - discovery:network
-    notes: Gets the packet capture definition (target, filters, storage location), inventorying diagnostic configuration but not the captured payload.
   write:
     risks:
       - exfiltration:data

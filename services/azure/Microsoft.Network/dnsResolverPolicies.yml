@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - destruction:network
     notes: Deleting a DNS Resolver Policy removes the DNS-layer security filtering defense and its associated network DNS-security component, disabling protection and disrupting governed resolution.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading a DNS Resolver Policy discloses the DNS security/filtering configuration, enabling reconnaissance of the network's DNS defense posture before tampering.
   write:
     risks:
       - destruction:defense

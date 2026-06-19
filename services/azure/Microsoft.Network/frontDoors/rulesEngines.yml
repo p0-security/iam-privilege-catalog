@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a rules engine removes routing/transform logic from the public-facing Front Door, disrupting and degrading how requests are served.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a rules engine only inventories the edge routing/transform rule configuration, which is read-only reconnaissance.
   write:
     risks:
       - impact:manipulation

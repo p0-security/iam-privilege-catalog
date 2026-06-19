@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:logs
     notes: Control-plane delete that severs the workspace's customer-managed storage linkage, breaking log/query/custom-log storage and ingestion and impairing log availability and incident response.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane Get returning the linked storage account configuration, inventorying which storage backs the workspace data categories without returning credentials or log content.
   write:
     risks:
       - impact:manipulation

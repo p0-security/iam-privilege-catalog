@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a private endpoint connection, severing a consumer's private-link path to the App Service Environment and disrupting authorized private connectivity to the hosted apps.
-  Read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Gets or lists the App Service Environment's private endpoint connections and approval state, enumerating its private-link bindings for network reconnaissance.
   Write:
     risks:
       - escalation:network

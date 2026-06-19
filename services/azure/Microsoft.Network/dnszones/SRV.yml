@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the SRV record set removes service-location records so dependent clients can no longer resolve the named services, causing denial-of-service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the SRV record set enumerates service-location entries (target hosts, ports, priorities), giving an attacker reconnaissance of the domain's service topology.
   write:
     risks:
       - takeover:domain

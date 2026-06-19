@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a tag-product link removes operational tagging/categorization metadata associating tags with products, without destroying the underlying product or data.
-  read:
-    risks:
-      - discovery:metadata
-    scope: LOW
-    notes: Read/list of tag-to-product association records only enumerates organizational tagging metadata, enabling inventory of how products are categorized.
   write:
     risks:
       - impact:manipulation

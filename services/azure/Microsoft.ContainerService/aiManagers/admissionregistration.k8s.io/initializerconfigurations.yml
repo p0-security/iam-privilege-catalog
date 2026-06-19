@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting initializer configurations removes cluster-wide admission enforcement, disabling a security defense and the policy it imposes so previously-constrained malicious object creation proceeds unchecked.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading initializer configurations enumerates which admission interceptors gate object creation cluster-wide, revealing the policy-enforcement topology and where gaps exist to bypass.
   write:
     risks:
       - destruction:defense

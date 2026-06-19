@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the virtual router removes routing infrastructure, destroying a network component and disrupting BGP-based connectivity for dependent services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the virtual router inventories its BGP/routing configuration, which is network reconnaissance.
   write:
     risks:
       - impact:manipulation

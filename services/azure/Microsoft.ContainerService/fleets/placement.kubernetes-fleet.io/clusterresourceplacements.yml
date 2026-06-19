@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a CRP removes the placement policy, causing fleet-wide withdrawal of the propagated resources from member clusters and disrupting the orchestrated workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading a ClusterResourcePlacement enumerates the fleet's placement policies and which resources are scheduled to which member clusters, revealing the multi-cluster deployment topology for reconnaissance.
   write:
     risks:
       - impact:manipulation

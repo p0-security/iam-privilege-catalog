@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the gateway removes the remote-access network component, severing point-to-site connectivity for all clients (denial of service).
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the gateway returns its configuration (client address pools, connection configs, associated hub/VNet), enabling reconnaissance of the network ingress infrastructure.
   write:
     risks:
       - impact:manipulation

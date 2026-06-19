@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a RuntimeClass removes runtime configuration that pods reference, breaking scheduling of dependent workloads (a localized denial of service).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading RuntimeClasses inventories the available container runtime handlers and scheduling constraints, revealing isolation boundaries available to workloads.
   write:
     risks:
       - impact:manipulation

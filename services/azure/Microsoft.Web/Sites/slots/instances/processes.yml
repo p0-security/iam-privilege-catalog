@@ -10,8 +10,3 @@ privileges:
     risks:
       - impact:dos
     notes: Killing/deleting a running process on the slot worker instance terminates the executing application, disrupting service availability.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Listing/getting running processes inventories the runtime workload and process configuration of the slot instance for reconnaissance.

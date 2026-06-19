@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the connection proxy tears down a private-link connectivity component, severing the private path and disrupting authorized private access to the registry (DoS-like).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the connection proxy inventories the registry's private-link connectivity configuration, providing read-only network reconnaissance for a single registry.
   write:
     risks:
       - escalation:network

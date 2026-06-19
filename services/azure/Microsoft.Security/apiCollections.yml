@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting (offboarding) an API collection removes Defender for APIs threat monitoring from those endpoints, disabling a detection defense.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing API collections inventories which APIs are onboarded to Defender for APIs, exposing monitoring coverage gaps an attacker can target.
   write:
     risks:
       - impact:manipulation

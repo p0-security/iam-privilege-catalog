@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the link severs private name resolution between the zone and the linked VNet, breaking name-based service discovery and disrupting dependent workloads.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the link only enumerates which virtual networks are bound to the zone and whether registration is enabled, which is network-topology reconnaissance.
   write:
     risks:
       - escalation:network

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a communication link removes cross-database connectivity, destroying the configured link and breaking dependent elastic queries.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets server communication links, inventorying cross-database query connectivity configuration without exposing data or credentials.
   write:
     risks:
       - impact:manipulation

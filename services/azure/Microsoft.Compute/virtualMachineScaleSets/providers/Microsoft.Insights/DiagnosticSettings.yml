@@ -1,18 +1,13 @@
 name: VM Scale Set diagnostic settings
 description: The Microsoft.Insights diagnostic setting for a Virtual Machine Scale Set defines which logs/metrics are collected and where they are routed (Log Analytics, Storage, Event Hub). It controls the scale set's monitoring/telemetry pipeline.
-scope: LOW
+scope: MEDIUM
 notes: Monitoring/diagnostics configuration; modifying it can blind detection, but reading it only reveals coverage.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Compute
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the setting reveals which logs/metrics are collected and their destinations, letting an attacker inventory monitoring coverage to find blind spots before evasion.
   write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Writing the setting lets an attacker disable or redirect scale-set log/metric collection, blinding incident response and weakening detective defenses.

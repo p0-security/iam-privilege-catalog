@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a binding unbinds resources from a member cluster, causing the corresponding propagated workloads to be removed and disrupting service on the affected cluster.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading bindings exposes the scheduler's concrete decisions of which resource snapshots are assigned to which member clusters, inventorying fleet placement state for reconnaissance.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting PSPs removes the admission-control security policy that constrains pod privileges, disabling a defense and tearing down access-control policy that would otherwise deny privileged pods.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading PSPs enumerates the cluster's pod admission/security policy, revealing where security constraints are weak or absent for later bypass.
   write:
     risks:
       - destruction:defense

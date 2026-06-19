@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the circuit tears down the dedicated private connectivity between on-premises and Azure, severing hybrid traffic and causing denial of service for dependent services.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the circuit returns its network configuration (peerings, bandwidth, service provider, provisioning state), inventorying a production private-connectivity resource for reconnaissance.
   write:
     risks:
       - impact:manipulation

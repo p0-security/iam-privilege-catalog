@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting CronJobs removes scheduled batch workloads, destroying the deployed object and disrupting the recurring operations they perform.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading CronJobs inventories scheduled workload definitions and their pod specs (images, commands, secret references), providing infrastructure reconnaissance of the cluster's batch processing.
   write:
     risks:
       - impact:hijack

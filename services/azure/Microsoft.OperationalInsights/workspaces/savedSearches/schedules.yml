@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a scheduled saved search removes a recurring detection/alert query, disabling a monitoring defense and aiding evasion.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reads a scheduled saved-search configuration, inventorying what queries/alerts are scheduled without returning log data.
   write:
     risks:
       - destruction:defense

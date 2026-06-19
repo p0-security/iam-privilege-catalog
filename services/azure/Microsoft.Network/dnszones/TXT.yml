@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the TXT record set removes SPF/DKIM/DMARC and verification records, breaking email authentication and domain-validation flows for the domain (a DoS against the affected functions).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only retrieval of the TXT record set inventories SPF/DKIM/DMARC and domain-verification tokens, which is reconnaissance of the domain's published DNS configuration; it returns no secret material.
   write:
     risks:
       - takeover:domain

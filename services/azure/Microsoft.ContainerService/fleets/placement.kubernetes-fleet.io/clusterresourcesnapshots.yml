@@ -11,10 +11,6 @@ privileges:
       - impact:dos
       - impact:manipulation
     notes: Deleting a snapshot removes the manifest payload backing a placement, disrupting reconciliation and the workloads it drives across member clusters.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a snapshot exposes the captured resource manifests slated for placement, inventorying the fleet's workload configuration and topology.
   write:
     risks:
       - impact:manipulation

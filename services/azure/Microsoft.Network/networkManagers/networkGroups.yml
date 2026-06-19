@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:manipulation
     notes: Deleting a network group removes the membership grouping that connectivity and security configurations target, detaching member VNets from managed enforcement and altering effective network governance.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a network group reveals which VNets/resources are grouped as configuration targets, providing network membership and topology reconnaissance.
   write:
     risks:
       - impact:manipulation

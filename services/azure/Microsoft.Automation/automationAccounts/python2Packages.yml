@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deleting a Python 2 package removes a runbook dependency artifact, which can break automation jobs that import it.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a Python 2 package returns metadata (name, version, state), inventorying runbook dependencies without exposing code or secrets.
   write:
     risks:
       - escalation:lateral

@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - destruction:data
     notes: Deleting the integration account destroys the supporting resource and all contained B2B artifacts (partners, agreements, schemas, maps, certificates), breaking dependent workflows (DoS-like).
-  read:
-    risks:
-      - discovery:infra
-    notes: Returns the integration account resource configuration (control-plane metadata), enabling inventory of the B2B integration infrastructure without returning secret material.
   write:
     risks:
       - impact:manipulation

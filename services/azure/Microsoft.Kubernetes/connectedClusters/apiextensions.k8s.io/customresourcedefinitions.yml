@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - destruction:data
     notes: Deleting a CRD cascade-deletes all custom resources of that type cluster-wide, destroying both the API-extension infrastructure and the operator-managed objects/data those resources hold.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading CRDs inventories the cluster's installed API extensions, operators, and custom schemas, mapping the attack surface.
   write:
     risks:
       - impact:manipulation

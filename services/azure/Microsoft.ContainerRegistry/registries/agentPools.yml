@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an agent pool, tearing down the dedicated build-compute backing ACR Tasks and disrupting build/task operations.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Gets or lists agent pool configuration, inventorying the registry's dedicated build-compute infrastructure.
   write:
     risks:
       - impact:hijack

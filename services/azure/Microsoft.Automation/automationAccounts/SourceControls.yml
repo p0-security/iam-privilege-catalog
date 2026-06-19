@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a source control removes the Git-to-runbook integration, destroying automation configuration and disrupting the runbook code-sync pipeline (the source repo and runbooks themselves are not deleted).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a source control returns the linked repository URL, branch, and folder configuration (token not returned), providing reconnaissance of where runbook code originates.
   write:
     risks:
       - impact:manipulation

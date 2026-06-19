@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an export pipeline, removing the configured artifact-export infrastructure and disrupting legitimate replication/export workflows.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Gets or lists export pipeline configuration, inventorying the registry's artifact-export infrastructure and its target storage configuration.
   write:
     risks:
       - exfiltration:data

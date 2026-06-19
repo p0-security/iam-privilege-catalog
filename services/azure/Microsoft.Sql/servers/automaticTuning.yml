@@ -1,17 +1,12 @@
 name: Azure SQL Server automatic tuning settings
 description: Server-level automatic tuning configuration for an Azure SQL logical server, controlling engine behaviors such as automatic index creation/drop and forced plan correction.
-scope: LOW
+scope: HIGH
 notes: Performance-tuning configuration; not data or credentials.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only retrieval of the server's automatic tuning configuration, a low-sensitivity control-plane inventory.
   write:
     risks:
       - impact:manipulation
-    scope: HIGH
     notes: Updating automatic tuning alters operational engine behavior (forcing index create/drop or plan correction), manipulating production database configuration and potentially degrading performance.

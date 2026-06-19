@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:logs
     notes: Deleting events removes the operational/activity trail used for monitoring and incident response, erasing evidence of attacker actions and disrupting forensic visibility.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading/listing events enumerates cluster activity and resource state, providing reconnaissance into the AI Manager's operations without exposing secrets or organizational data.
   write:
     risks:
       - impact:manipulation

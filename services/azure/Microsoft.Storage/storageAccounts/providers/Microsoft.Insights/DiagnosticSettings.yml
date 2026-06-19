@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Storage
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic setting reveals which log/metric categories are enabled and where they route, letting an attacker map detection coverage to plan evasion; returns no secret material.
   write:
     risks:
       - destruction:logs

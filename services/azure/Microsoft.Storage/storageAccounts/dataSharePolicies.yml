@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:policy
     notes: Deletes the data-share governance policy, removing an access-control constraint that would otherwise limit how the account's data can be shared.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reads the data-share policy configuration, letting an attacker inventory the account's sharing/access-control posture to find weak points.
   write:
     risks:
       - impact:manipulation

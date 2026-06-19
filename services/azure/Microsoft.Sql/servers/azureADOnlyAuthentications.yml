@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deletes the AAD-only enforcement object, removing the control that restricts the server to Azure AD authentication and re-permitting weaker SQL password authentication, thereby disabling a hardening defense.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reads whether the server enforces Azure AD-only authentication, disclosing the authentication-policy posture and whether weaker SQL password authentication remains a viable attack surface.
   write:
     risks:
       - destruction:defense

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a business process removes the workflow/process definition resource, disrupting the integration function it supports (localized DoS).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the business process discloses the workflow/process definition configuration (control-plane reconnaissance of integration logic).
   write:
     risks:
       - impact:manipulation

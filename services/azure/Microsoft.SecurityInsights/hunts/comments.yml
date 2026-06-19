@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting hunt comments removes analyst investigation notes, erasing incident-response context and impeding defender collaboration (anti-forensics).
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading hunt comments exposes analyst notes and investigation context, revealing what the security team knows about an attacker's activity.
   write:
     risks:
       - impact:manipulation

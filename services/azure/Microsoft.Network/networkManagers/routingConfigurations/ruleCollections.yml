@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a routing rule collection removes routing configuration applied across managed subnets, breaking connectivity for dependent services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only retrieval of a routing rule collection enumerates how traffic routing is configured across managed subnets, providing network reconnaissance.
   write:
     risks:
       - impact:manipulation

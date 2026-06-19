@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an IoT security solution removes threat protection and monitoring for the IoT estate, disabling a defense mechanism and disrupting incident response.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading IoT security solutions inventories the IoT monitoring configuration and the hubs/devices it covers, revealing defensive coverage and gaps.
   write:
     risks:
       - impact:manipulation

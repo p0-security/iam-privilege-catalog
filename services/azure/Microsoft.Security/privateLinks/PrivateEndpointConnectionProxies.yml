@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy tears down a private-link connectivity component, disrupting private access to the security service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Get/List of the connection proxy only enumerates the private-link connectivity configuration, i.e. read-only network reconnaissance.
   write:
     risks:
       - escalation:network

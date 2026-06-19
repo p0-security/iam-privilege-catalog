@@ -12,11 +12,6 @@ privileges:
       - destruction:logs
       - destruction:infra
     notes: Deleting an extension can uninstall the VM's security/antimalware agent (Defender) to blind defenses, remove the monitoring/log-collection agent (AMA/Log Analytics) to halt log collection, and tears down installed agent infrastructure on the host.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Returns the extension's publisher, type, version and public (non-protected) settings, letting an attacker inventory installed agents and the host's security/monitoring posture. No secret material is returned on read.
   write:
     risks:
       - escalation:lateral

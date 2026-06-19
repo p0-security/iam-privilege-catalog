@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the private endpoint connection removes a private network access path to the vault, disrupting clients that depend on private link (DoS-like effect).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the connection state only enumerates which private endpoints are bound to the vault and their approval status, i.e. network reconnaissance of the vault's private-link topology.
   write:
     risks:
       - escalation:network

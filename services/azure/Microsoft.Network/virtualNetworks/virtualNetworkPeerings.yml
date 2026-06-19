@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a peering, tearing down cross-VNet connectivity and disrupting services that depend on the inter-network path.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reads a peering definition, enumerating cross-VNet connectivity and topology for reconnaissance.
   write:
     risks:
       - escalation:network

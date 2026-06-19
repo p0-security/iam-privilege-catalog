@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Delete removes the orchestration object governing staged fleet update rollouts, disrupting controlled update propagation across member clusters.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read/list only enumerates the staged-update strategy configuration (stages, ordering, member-cluster grouping), giving infrastructure reconnaissance of the fleet rollout orchestration with no secret or data exposure.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a queue destroys all messages it contains, an irreversible loss of organizational data in transit and disruption of downstream consumers.
-  read:
-    risks:
-      - discovery:data
-    scope: LOW
-    notes: Listing/reading queues enumerates the existing queue data objects and their metadata without exposing message contents.
   write:
     risks:
       - impact:manipulation

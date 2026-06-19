@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an update run removes the upgrade-orchestration object, disrupting planned or in-progress coordinated cluster upgrades.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only retrieval of an update run's configuration and status, exposing upgrade-orchestration details for reconnaissance; no secrets returned.
   write:
     risks:
       - impact:manipulation

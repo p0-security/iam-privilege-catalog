@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a view removes a saved dashboard/visualization artifact (operational metadata) without affecting the underlying log data.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a view returns its saved dashboard/query definition, exposing monitoring configuration and the kinds of telemetry tracked as low-sensitivity reconnaissance.
   write:
     risks:
       - impact:manipulation

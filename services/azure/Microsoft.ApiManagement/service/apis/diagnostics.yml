@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deletes the API's diagnostic configuration, disabling log/telemetry collection for that API and disrupting incident response.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reads the API's diagnostic settings, inventorying what logging/tracing is enabled and where telemetry is routed.
   write:
     risks:
       - destruction:logs

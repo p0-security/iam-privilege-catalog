@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a private endpoint connection, removing a network component and disrupting private connectivity to the vault (DoS-like for the backup service).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Returns all private endpoint connections, inventorying the vault's network connectivity configuration.
   write:
     risks:
       - escalation:network

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the PTR record set removes reverse-lookup resolution, disrupting services that depend on reverse DNS within the network.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the PTR record set exposes internal IP-to-hostname mappings, aiding network topology reconnaissance.
   write:
     risks:
       - impact:manipulation

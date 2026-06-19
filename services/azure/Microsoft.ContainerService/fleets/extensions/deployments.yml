@@ -11,10 +11,6 @@ privileges:
       - impact:dos
       - destruction:infra
     notes: Deleting Deployments tears down running application workloads, causing denial of service to the functions they support and destroying deployed workload infrastructure.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading Deployment specs inventories application workload configuration (images, replicas, env vars, mounts, service-account refs) across the fleet.
   write:
     risks:
       - impact:hijack

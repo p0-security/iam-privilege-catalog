@@ -11,11 +11,6 @@ privileges:
       - destruction:account
       - impact:access
     notes: Deletes a local SFTP user, destroying the identity and denying the legitimate principal's data-plane access to the storage account.
-  read:
-    risks:
-      - discovery:account
-    scope: LOW
-    notes: Lists local SFTP users on the storage account, enumerating identities as targets for credential compromise.
   write:
     risks:
       - persistence:account

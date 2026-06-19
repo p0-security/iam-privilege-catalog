@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the schema artifact, removing the message-validation/transformation definition that dependent integration workflows rely on (disrupts message processing).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the schema's configuration/definition (control plane), enabling reconnaissance of the integration's message-structure definitions without returning secret material.
   write:
     risks:
       - impact:manipulation

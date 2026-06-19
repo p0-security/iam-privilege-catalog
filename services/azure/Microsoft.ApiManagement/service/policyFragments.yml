@@ -11,11 +11,6 @@ privileges:
       - impact:dos
       - destruction:defense
     notes: Deleting a policy fragment removes shared gateway logic relied upon by referencing API policies, breaking those APIs (DoS) and, when the fragment enforced auth/throttling/IP-filtering, removing a security defense.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading a policy fragment returns the reusable policy XML, revealing gateway processing logic, backend routing, security handling, and referenced named-value names useful for attack planning.
   write:
     risks:
       - impact:manipulation

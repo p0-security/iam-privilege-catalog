@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting a role assignment destroys an access-control binding, which can strip legitimate principals of access (denial-of-access) and tear down deny/constraining grants that would otherwise limit the attacker.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading role assignments enumerates who holds what access at a scope, letting an attacker map the RBAC graph and identify privileged targets or weak points.
   write:
     risks:
       - escalation:privilege

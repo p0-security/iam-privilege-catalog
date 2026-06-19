@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an automation rule removes incident-response orchestration so incidents go un-triaged/unremediated, disabling a defense.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading automation rules reveals the SOAR response logic and trigger conditions, letting an attacker learn how incidents are handled and craft activity to evade automated response.
   write:
     risks:
       - destruction:defense

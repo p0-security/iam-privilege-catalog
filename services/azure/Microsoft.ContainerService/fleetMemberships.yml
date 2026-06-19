@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the membership extension severs the cluster-to-fleet binding, removing the cluster from centralized management and disrupting orchestration.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read-only GET enumerates the cluster-to-fleet binding configuration, providing infrastructure reconnaissance of fleet enrollment.
   write:
     risks:
       - impact:manipulation

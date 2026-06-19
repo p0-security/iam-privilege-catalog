@@ -11,7 +11,3 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deletes the Office 365 connector consent, severing ingestion of Office activity logs into Sentinel and thereby disabling that detection/log-collection source to blind the SOC.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists the configured Office 365 connector consents, inventorying which Office data sources are wired into Sentinel and how ingestion is set up.

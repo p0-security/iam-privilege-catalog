@@ -9,11 +9,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deletes first-party app configuration settings on the plan, altering/removing operational configuration of a supporting plan component which can disrupt dependent app behavior.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only retrieval of first-party app settings on the plan, configuration reconnaissance of a supporting component with no secret material returned in isolation.
   write:
     risks:
       - impact:manipulation

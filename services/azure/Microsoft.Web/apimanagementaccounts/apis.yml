@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes the managed API/connector definition, destroying the resource and breaking dependent connections and workflows that invoke it.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only retrieval of the managed API/connector definition, enabling inventory of the API configuration and operations without exposing secrets or data.
   write:
     risks:
       - impact:manipulation

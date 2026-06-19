@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the connection proxy tears down a private-endpoint network connectivity component, which can disrupt private connectivity to the management plane.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the connection proxy enumerates the private-endpoint connection plumbing for the management private link, providing network reconnaissance.
   write:
     risks:
       - escalation:network

@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting mutating webhook configurations strips cluster-wide admission mutation/enforcement (e.g. security sidecar injection, policy mutation), disabling defenses so malicious objects that would be mutated or rejected are admitted unchanged.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading mutating webhook configurations enumerates which webhooks intercept and mutate API objects and their endpoints, exposing the cluster's admission-enforcement topology and bypass opportunities.
   write:
     risks:
       - destruction:defense

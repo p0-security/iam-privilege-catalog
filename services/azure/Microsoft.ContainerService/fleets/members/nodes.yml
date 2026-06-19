@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting node objects removes worker hosts from the cluster, evicting their pods and disrupting the services they run, equivalent to denial of service.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading/listing nodes inventories the cluster's worker hosts, their capacity, labels, conditions, and addresses, supporting infrastructure reconnaissance and workload-placement targeting.
   write:
     risks:
       - impact:manipulation

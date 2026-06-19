@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the security operator removes the identity that drives a Defender for Cloud security plan, disabling that defense mechanism's coverage at the scope.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading the security operators enumerates which managed identities/RBAC bindings enable Defender for Cloud at the scope, exposing access-control posture of the security tooling.
   write:
     risks:
       - escalation:lateral

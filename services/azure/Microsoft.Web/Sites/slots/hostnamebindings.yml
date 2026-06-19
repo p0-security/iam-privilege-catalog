@@ -10,11 +10,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a hostname binding removes the custom-domain-to-slot mapping, tearing down the inbound network endpoint and denying service to traffic on that domain.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Getting hostname bindings only enumerates the custom domains mapped to the slot, disclosing network endpoint/topology information.
   write:
     risks:
       - takeover:domain

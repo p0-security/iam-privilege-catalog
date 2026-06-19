@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the run command removes that sub-resource and its stored output from the instance, destroying the configuration artifact (and any forensic record of prior executions) without affecting the VM or its data.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the run command only enumerates its configuration and status on the instance; it does not execute code or return credentials.
   write:
     risks:
       - escalation:lateral

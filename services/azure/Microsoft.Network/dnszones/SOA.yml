@@ -1,17 +1,12 @@
 name: DNS SOA record set
 description: "The Start of Authority (SOA) record of an Azure public DNS zone, holding zone-authority metadata: primary nameserver, admin contact, serial number, and refresh/retry/expire/minimum-TTL timers."
-scope: LOW
+scope: HIGH
 notes: DNS record data is published and resolvable by design (public); the SOA governs zone propagation and negative-caching behavior but does not map individual names to hosts.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the SOA record discloses zone authority metadata (primary nameserver, serial, refresh/retry/expire timers), low-sensitivity reconnaissance of the zone's administrative configuration.
   write:
     risks:
       - impact:manipulation
-    scope: HIGH
     notes: Updating the SOA record alters authoritative zone parameters (serial, refresh/retry/expire and minimum/negative-caching TTLs), manipulating resolution and propagation behavior across the domain, but it does not by itself reroute traffic to attacker hosts.

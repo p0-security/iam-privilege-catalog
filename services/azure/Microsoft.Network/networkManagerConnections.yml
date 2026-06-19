@@ -11,11 +11,6 @@ privileges:
       - impact:access
       - destruction:defense
     notes: Deleting a connection severs centralized management of the scope, removing the network manager's centrally-enforced security configurations (defenses) and denying legitimate administrators operational control over those networks.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a network manager connection enumerates which network manager governs a subscription/management group, exposing the network governance topology and trust relationships.
   write:
     risks:
       - escalation:network

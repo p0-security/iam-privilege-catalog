@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a SQL database destroys all contained containers and organizational data, an irreversible data-destruction action mitigated only by backups.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading/listing SQL databases enumerates the data stores present in the account (control-plane inventory of data objects) without returning the documents inside.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Detaches a tag from a product, deleting operational metadata used for grouping and filtering.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Lists or gets tags associated with a product, enumerating non-sensitive operational metadata labels.
   write:
     risks:
       - impact:manipulation

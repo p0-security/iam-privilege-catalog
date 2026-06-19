@@ -11,7 +11,3 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes a running role instance, tearing down a compute node and disrupting the hosted service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane get returns the instance configuration, enabling inventory of the production compute infrastructure.

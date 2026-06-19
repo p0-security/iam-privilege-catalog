@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the hub route table removes routing that connected spokes depend on, destroying a network component and disrupting connectivity for hosted services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the route table inventories hub routing configuration and network topology, which is network reconnaissance.
   write:
     risks:
       - impact:manipulation

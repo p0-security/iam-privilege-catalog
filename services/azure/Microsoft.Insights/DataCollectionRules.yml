@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a DCR halts the telemetry/log collection it governs, blinding incident response and removing a detective control.
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading a DCR inventories what telemetry is collected and where it is routed, exposing monitoring coverage and gaps for evasion planning.
   Write:
     risks:
       - destruction:logs

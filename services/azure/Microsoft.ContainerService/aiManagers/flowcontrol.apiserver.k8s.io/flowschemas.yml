@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:dos
     notes: Deleting FlowSchemas removes API-server request-fairness rules, disrupting request handling and degrading control-plane availability for other clients.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading FlowSchemas inventories the API-server request-classification configuration, low-sensitivity control-plane reconnaissance.
   write:
     risks:
       - impact:dos

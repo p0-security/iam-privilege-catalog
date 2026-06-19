@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deletes a named value, destroying a stored configuration/secret entry that gateway policies depend on and breaking dependent API operations.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists or gets named value details, enumerating named-value keys and metadata; secret values are masked here, so this is reconnaissance only.
   write:
     risks:
       - impact:manipulation

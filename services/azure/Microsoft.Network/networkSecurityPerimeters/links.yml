@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:dos
     notes: Deleting a link tears down an approved cross-perimeter association, removing a configured isolation-defense relationship and severing legitimate communication for services that depend on the link.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a link returns the cross-perimeter connectivity configuration, enabling read-only reconnaissance of how perimeters are wired and where isolation weak points exist.
   write:
     risks:
       - destruction:defense

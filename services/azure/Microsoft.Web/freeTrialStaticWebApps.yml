@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a free-trial static web app destroys the hosting infrastructure and its served public content, removing the site.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Listing free-trial static web apps only enumerates these trial site resources and their configuration, providing infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

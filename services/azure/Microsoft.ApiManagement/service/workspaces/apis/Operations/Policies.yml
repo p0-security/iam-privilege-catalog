@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:manipulation
     notes: Deleting the operation policy strips its enforced security controls (auth, IP filtering, rate limiting, validation) and reverts request handling to default, weakening defenses and altering operational behavior at that endpoint.
-  read:
-    risks:
-      - discovery:policy
-      - discovery:infra
-    notes: Reading the operation-level policy reveals enforced security controls (auth, JWT validation, IP filtering, rate limits) and backend routing logic, exposing weak points and backend topology for reconnaissance.
   write:
     risks:
       - destruction:defense

@@ -11,10 +11,6 @@ privileges:
       - destruction:crypto
       - impact:access
     notes: Deleting an authorization destroys the stored OAuth token/credential connection and breaks the backend access that dependent APIs rely on, denying authorized operation.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing or getting authorizations enumerates which backend credential connections exist and their status, but does not return the underlying access/refresh tokens.
   write:
     risks:
       - persistence:account

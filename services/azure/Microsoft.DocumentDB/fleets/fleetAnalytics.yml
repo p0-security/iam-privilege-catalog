@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the FleetAnalytics resource, removing a supporting analytics/monitoring component for the fleet with a limited, DoS-like blast radius.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read/list of the FleetAnalytics configuration, enabling reconnaissance of analytics resource settings without returning stored data or secrets.
   write:
     risks:
       - impact:manipulation

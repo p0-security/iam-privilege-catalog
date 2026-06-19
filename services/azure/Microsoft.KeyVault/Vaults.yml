@@ -11,10 +11,6 @@ privileges:
       - destruction:crypto
       - impact:dos
     notes: Deleting a key vault destroys the keys, secrets, and certificates it contains (cryptographic destruction) and removes a service that dependent production workloads rely on (denial of service).
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read returns only vault configuration (SKU, URI, access policies, network ACLs), enabling reconnaissance of the vault; it does not return any key, secret, or certificate material.
   write:
     risks:
       - escalation:privilege

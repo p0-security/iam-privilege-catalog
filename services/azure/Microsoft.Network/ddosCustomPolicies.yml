@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the policy removes the configured DDoS mitigation, exposing the associated public endpoints to volumetric/denial-of-service attacks.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the policy definition only inventories the DDoS defense configuration (protection thresholds), a read-only reconnaissance of the defensive posture.
   write:
     risks:
       - destruction:defense

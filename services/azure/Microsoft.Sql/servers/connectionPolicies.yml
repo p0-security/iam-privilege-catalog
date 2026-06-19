@@ -1,17 +1,12 @@
 name: SQL Server connection policy
 description: The server connection policy controls how clients connect to an Azure SQL server (Default/Proxy/Redirect connection type).
-scope: LOW
+scope: HIGH
 notes: Read-only config of a production SQL server's client connectivity routing.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:network
-    notes: Reads the connection policy (Default/Proxy/Redirect), revealing how clients are routed to the SQL server; network reconnaissance returning no data or credentials.
   write:
     risks:
       - impact:manipulation
-    scope: HIGH
     notes: Creates/updates the connection policy, altering how clients route to the production SQL server (e.g., forcing Proxy/Redirect), modifying operational connectivity configuration.

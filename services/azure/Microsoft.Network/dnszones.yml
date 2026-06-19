@@ -12,11 +12,6 @@ privileges:
       - impact:dos
       - takeover:domain
     notes: Deleting the zone destroys all authoritative DNS for the domain (taking down every record set), causing resolution outage and freeing the namespace for dangling-domain re-registration/takeover.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the zone returns only zone-level properties (tags, etag, record-set counts) and not the record sets themselves, so it is DNS/network resource reconnaissance.
   write:
     risks:
       - takeover:domain

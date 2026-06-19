@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a security solution removes a registered defensive tool/integration, disabling a defense mechanism and disrupting detection.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing deployed security solutions inventories the defensive tooling/integrations in the environment, enabling reconnaissance to find blind spots.
   write:
     risks:
       - destruction:defense

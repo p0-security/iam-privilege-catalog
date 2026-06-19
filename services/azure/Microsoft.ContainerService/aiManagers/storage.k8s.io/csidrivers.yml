@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting CSIDriver registrations deregisters storage drivers cluster-wide, breaking volume provisioning, attachment, and mounting for every workload that depends on that driver.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing CSIDriver objects enumerates the registered CSI storage drivers and their capabilities, which is infrastructure reconnaissance of the storage subsystem.
   write:
     risks:
       - impact:manipulation

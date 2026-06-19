@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a PVC detaches storage from running workloads and, under a Delete reclaim policy, triggers destruction of the bound PersistentVolume and its data.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Listing PVCs enumerates the cluster's storage claims (capacities, storage classes, bound volume names), providing storage-layout reconnaissance without exposing the underlying data.
   write:
     risks:
       - impact:manipulation

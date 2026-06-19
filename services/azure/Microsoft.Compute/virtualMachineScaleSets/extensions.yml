@@ -12,11 +12,6 @@ privileges:
       - destruction:logs
       - destruction:infra
     notes: Deleting a scale-set extension can strip the security/antimalware agent (Defender) across all instances to blind defenses, remove the monitoring/log-collection agent (AMA/Log Analytics) to halt log collection fleet-wide, and tears down installed agent infrastructure on every node.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Returns the fleet-wide extension configuration (publisher, type, version, public settings), letting an attacker inventory installed agents and the scale set's security/monitoring posture. No secret material is returned on read.
   write:
     risks:
       - escalation:lateral

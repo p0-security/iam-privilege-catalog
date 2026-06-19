@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an indicator removes a detection signature, blinding the SIEM to matching attacker activity.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading TI inventories the IOCs the SOC tracks, letting an attacker learn detection coverage and tailor evasion.
   write:
     risks:
       - destruction:defense

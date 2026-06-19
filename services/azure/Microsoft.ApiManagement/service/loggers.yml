@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deletes a logger, halting forwarding of the gateway's diagnostic/telemetry data to its sink, destroying log collection and removing a detection mechanism for incident response.
-  read:
-    risks:
-      - discovery:logs
-    notes: Lists loggers or gets logger details, inventorying the diagnostic/telemetry destinations configured for the service for incident-response reconnaissance.
   write:
     risks:
       - destruction:logs

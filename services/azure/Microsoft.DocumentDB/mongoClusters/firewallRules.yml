@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a firewall rule removes a network access-control entry; removing a restrictive rule weakens the cluster's network defensive posture.
-  read:
-    risks:
-      - discovery:network
-    notes: Read/list of the cluster's firewall rules enumerates the IP allow-list, letting an attacker reconnoiter permitted source ranges and identify gaps in the database's network defense.
   write:
     risks:
       - destruction:defense

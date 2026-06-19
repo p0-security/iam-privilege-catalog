@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - destruction:defense
     notes: Deleting the Network Manager tears down centrally managed connectivity and removes the enforced security admin rules, destroying network management components and the network-wide defense enforcement they provide.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the Network Manager reveals its managed scope and configuration, enabling reconnaissance of the centralized network governance setup.
   write:
     risks:
       - impact:manipulation

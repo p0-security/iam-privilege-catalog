@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the service tears down the gateway and takes down every API it fronts, both destroying infrastructure and denying service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading service metadata only inventories the gateway's configuration (SKU, hostnames, network settings) and does not return secret material.
   write:
     risks:
       - impact:manipulation

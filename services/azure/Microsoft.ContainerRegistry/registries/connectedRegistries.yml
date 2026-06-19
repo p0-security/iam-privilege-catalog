@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a connected registry tears down an edge/mirror replication endpoint, disrupting artifact distribution to that location.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get/List enumerates the edge/mirror topology and sync configuration without returning credentials, making it infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

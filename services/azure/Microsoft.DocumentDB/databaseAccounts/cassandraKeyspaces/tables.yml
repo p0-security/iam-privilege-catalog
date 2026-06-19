@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a Cassandra table destroys the table and all organizational data it contains, an irreversible data-destruction capability on a production store.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read/list enumerates the table resource configuration and schema (not the stored row data), providing reconnaissance of the database structure.
   write:
     risks:
       - impact:manipulation

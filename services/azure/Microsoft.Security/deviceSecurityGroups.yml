@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting device security groups removes the configured threat-detection rules/baselines for those devices, disabling a detection defense.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reading device security groups discloses the configured detection rules, baselines, and allowlists, letting an attacker identify what behavior is monitored and how to evade it.
   write:
     risks:
       - impact:manipulation

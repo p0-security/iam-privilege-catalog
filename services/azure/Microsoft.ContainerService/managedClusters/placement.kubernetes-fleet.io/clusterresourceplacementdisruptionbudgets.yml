@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the disruption budget removes the guardrail that caps simultaneous placement disruption, disabling an availability-protection control and leaving fleet workloads exposed to unconstrained eviction/rollout disruption.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read-only enumeration of disruption budgets only inventories the availability-guardrail configuration, providing reconnaissance useful for planning mass disruption.
   write:
     risks:
       - impact:manipulation

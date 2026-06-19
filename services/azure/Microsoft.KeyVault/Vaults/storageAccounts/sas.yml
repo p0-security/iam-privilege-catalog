@@ -11,7 +11,3 @@ privileges:
       - destruction:crypto
       - impact:access
     notes: Deletes a SAS definition, removing the credential-issuance template that applications depend on to obtain storage-access tokens, destroying the credential object and denying authorized data-plane access.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the SAS definition (template, SAS type, signing-key reference, validity); the live signed SAS token value is retrieved through the separate vault secrets data-plane endpoint, so this management read only discloses credential-issuance configuration, not a usable token.

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a favorite removes a saved query/view, destroying operational UI metadata with negligible impact on telemetry.
-  Read:
-    risks:
-      - discovery:metadata
-    notes: Reading a favorite only exposes saved query/dashboard view metadata, low-sensitivity reconnaissance.
   Write:
     risks:
       - impact:manipulation

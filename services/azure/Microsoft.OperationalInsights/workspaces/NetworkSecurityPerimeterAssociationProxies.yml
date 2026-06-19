@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Deleting the NSP association proxy detaches the workspace from its network security perimeter, tearing down the network-isolation defense and re-exposing the workspace to broader network reachability.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the NSP association proxy inventories whether and how the workspace is bound to its network security perimeter and its enforcement mode, mapping the defensive network boundary for reconnaissance.
   write:
     risks:
       - destruction:defense

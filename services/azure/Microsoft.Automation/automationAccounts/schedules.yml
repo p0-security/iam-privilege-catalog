@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a schedule removes the trigger configuration for automation jobs, disrupting the scheduled operational processes that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a schedule asset exposes only automation timing/recurrence configuration metadata, a low-sensitivity reconnaissance of how and when runbooks are triggered.
   write:
     risks:
       - impact:manipulation

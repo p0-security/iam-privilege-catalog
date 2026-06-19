@@ -11,8 +11,3 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a triggered WebJob removes a deployed background task component of the production app, destroying that workload and disrupting the function it performs.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists/gets the configured triggered WebJobs and their settings, inventorying the app's background workloads without returning the job scripts or secrets.

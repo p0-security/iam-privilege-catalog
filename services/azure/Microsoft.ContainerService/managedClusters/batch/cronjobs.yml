@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting CronJobs (including DeleteCollection) removes scheduled workload definitions, halting recurring jobs the cluster depends on and denying the functions they support.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading CronJob specs inventories scheduled workload configuration (images, commands, env, secret/volume references), which is cluster infrastructure reconnaissance; it returns configuration, not the secret values themselves.
   write:
     risks:
       - impact:hijack

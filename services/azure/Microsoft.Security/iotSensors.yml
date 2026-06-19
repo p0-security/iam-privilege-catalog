@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a sensor removes a threat-detection component, blinding monitoring of the OT/IoT network.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read/get of sensor configuration lets an attacker inventory the deployed defensive sensors and their settings, reconnaissance of the security monitoring infrastructure.
   write:
     risks:
       - destruction:defense

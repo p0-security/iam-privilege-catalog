@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a tag-operation link removes operational tagging/categorization metadata associating tags with API operations, without destroying the operation itself.
-  read:
-    risks:
-      - discovery:metadata
-    scope: LOW
-    notes: Read/list of tag-to-operation association records only enumerates organizational tagging metadata, enabling inventory of how API operations are categorized.
   write:
     risks:
       - impact:manipulation

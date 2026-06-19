@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Deleting the NSP association proxy detaches the database account from its network-isolation perimeter, tearing down a network defense boundary and re-exposing the service to broader network access.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the NSP association proxies inventories how the database account is bound into its network-isolation perimeter and its access mode, mapping the network defense boundary for reconnaissance.
   write:
     risks:
       - destruction:defense

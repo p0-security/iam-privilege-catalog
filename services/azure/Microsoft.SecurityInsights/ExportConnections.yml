@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting an export connection tears down a configured export of Sentinel security data, disrupting downstream log delivery to SIEM/storage and weakening the detection/monitoring pipeline.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading export connections enumerates configured export destinations and settings, revealing where security data is routed (reconnaissance of data-flow configuration); the management response does not return secret material.
   write:
     risks:
       - exfiltration:logs

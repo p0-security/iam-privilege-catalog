@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting workspace manager members detaches workspaces from centralized governance, severing propagation of managed defensive content and disrupting consistent detection coverage.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading workspace manager members only enumerates which Sentinel workspaces are centrally managed, mapping the SIEM management topology without exposing sensitive data.
   write:
     risks:
       - impact:manipulation

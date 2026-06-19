@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting Deployment Safeguards removes the admission-policy enforcement entirely, disabling a defense control and destroying the associated deployment-restricting policy.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading Deployment Safeguards reveals the enforcement mode (warn vs enforce), exclusions, and active guardrails, letting an attacker find gaps in admission controls.
   write:
     risks:
       - destruction:defense

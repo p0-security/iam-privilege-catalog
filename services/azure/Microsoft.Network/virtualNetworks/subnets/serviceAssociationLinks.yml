@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a service association link removes the subnet's service-delegation binding, a destructive network-configuration change that can disrupt the associated service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only retrieval only inventories which delegated service is associated with a subnet, providing network reconnaissance.
   write:
     risks:
       - impact:manipulation

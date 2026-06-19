@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deletes a scope map, removing the access-control policy bound to registry tokens; this destroys RBAC configuration and can revoke legitimate principals' access to repositories.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reads scope maps, disclosing the repository-level access-control definitions used by registry tokens and revealing the permission model's weak points.
   write:
     risks:
       - escalation:privilege

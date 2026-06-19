@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the NSP association detaches the data collection endpoint from its network security perimeter, tearing down the network-isolation defense boundary that otherwise restricts access to the endpoint.
-  Read:
-    risks:
-      - discovery:network
-    notes: Reading the NSP association proxy enumerates which network security perimeter the data collection endpoint is bound to, revealing the network-isolation boundary configuration for reconnaissance.
   Write:
     risks:
       - destruction:defense

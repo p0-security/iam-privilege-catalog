@@ -11,10 +11,6 @@ privileges:
       - impact:dos
       - impact:manipulation
     notes: Deleting a PDB removes availability guardrails so evictions/drains can proceed unconstrained, allowing all replicas of a protected workload to be taken down simultaneously.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only enumeration of PDB availability/scheduling configuration; reconnaissance of cluster workload settings with no secret or access-control disclosure.
   write:
     risks:
       - impact:manipulation

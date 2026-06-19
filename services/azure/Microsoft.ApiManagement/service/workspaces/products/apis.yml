@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - impact:dos
     notes: Removes an API from a product, altering exposure configuration and disrupting subscriber access to that API through the product.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists the APIs associated with a product, inventorying product/API membership configuration.
   write:
     risks:
       - impact:manipulation

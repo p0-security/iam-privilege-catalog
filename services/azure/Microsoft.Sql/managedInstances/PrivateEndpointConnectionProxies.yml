@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the connection proxy tears down a private-endpoint network connectivity component of the managed instance, disrupting legitimate private access (DoS-like network destruction).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Listing/getting the connection proxy enumerates the managed instance's private-endpoint network connectivity configuration (network reconnaissance only).
   write:
     risks:
       - escalation:network

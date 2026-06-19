@@ -11,10 +11,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a managed database destroys all organizational data it holds (mitigated only by backups) and removes the service supporting that function, causing denial of service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane get returns the managed database's configuration/metadata (not the row data inside), enabling reconnaissance/inventory of the database resource.
   write:
     risks:
       - impact:manipulation

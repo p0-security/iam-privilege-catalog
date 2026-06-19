@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting an NVA connection tears down a network connectivity/routing component, severing traffic paths through the appliance and causing denial of service for dependent services.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading an NVA connection enumerates the appliance's routing/connectivity configuration, providing network topology reconnaissance without returning secrets.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - destruction:defense
     notes: Deleting hierarchy settings reverts tenant-wide guardrails (require-authorization-for-group-creation, default group) to permissive defaults, removing an enforced governance defense and altering inheritance for new groups/subscriptions.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reading hierarchy settings reveals governance configuration (default group, requireAuthorizationForGroupCreation), exposing access-control guardrails and weak points an attacker can target.
   write:
     risks:
       - impact:manipulation

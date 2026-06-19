@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes a reusable VM image definition artifact from the gallery, disrupting deployments that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the definition only enumerates image-template metadata (OS type, publisher, generation), a read-only infrastructure inventory.
   write:
     risks:
       - impact:manipulation

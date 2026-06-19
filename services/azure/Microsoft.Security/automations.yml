@@ -9,11 +9,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an automation removes an automated security-response/notification workflow, disabling a defense mechanism and disrupting incident response.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reading automations reveals how security events are routed and responded to, letting an attacker learn the defensive workflows and where exports go in order to evade them.
   write:
     risks:
       - destruction:defense

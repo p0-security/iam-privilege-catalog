@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a vCenter registration removes the VMware discovery source, disrupting discovery and replication of source VMs (DoS-like effect on DR).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading registered vCenters inventories the VMware replication source infrastructure tied to the vault.
   write:
     risks:
       - impact:manipulation

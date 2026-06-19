@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting the lifecycle policy removes the configured automated tiering/expiration/deletion rules, altering operational data-handling behavior.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads the lifecycle policy configuration, inventorying the account's automated data-tiering/retention rules without exposing data or credentials.
   write:
     risks:
       - impact:manipulation

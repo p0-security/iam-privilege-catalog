@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - destruction:artifact
     notes: Deleting a versioned override snapshot removes a controller-tracked override-policy artifact, disrupting override versioning and altering how cluster-scoped resources are reconciled and propagated to member clusters.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read/list returns the captured override-policy configuration, providing reconnaissance into how cluster-scoped resources are mutated when placed onto member clusters; no secret or data exposure.
   write:
     risks:
       - impact:manipulation

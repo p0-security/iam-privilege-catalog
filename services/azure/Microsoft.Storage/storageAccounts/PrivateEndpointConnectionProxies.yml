@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes the connection proxy, tearing down a private-link connectivity component and disrupting private access to the storage account.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the connection proxy only inventories the storage account's private-link connectivity configuration (network reconnaissance).
   write:
     risks:
       - escalation:network

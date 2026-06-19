@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting CSIStorageCapacity objects strips the scheduler's capacity view, blocking capacity-aware volume provisioning and disrupting stateful workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Enumerates per-topology reported storage capacity, providing benign infrastructure reconnaissance of the cluster storage layer.
   write:
     risks:
       - impact:manipulation

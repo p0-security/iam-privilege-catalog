@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:access
     notes: Removes a user from a group, revoking the product/API access that membership conferred and denying that developer their authorized access.
-  read:
-    risks:
-      - discovery:account
-    scope: LOW
-    notes: Lists the user entities belonging to a group, inventorying developer-portal accounts and their group memberships as targets for compromise.
   write:
     risks:
       - escalation:privilege

@@ -10,12 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the resolver-level policy removes the gateway's enforced auth/JWT/IP-filter/rate-limit controls from the GraphQL API, stripping a defense layer from the production gateway.
-  read:
-    risks:
-      - discovery:infra
-      - discovery:policy
-    scope: MEDIUM
-    notes: Get/list of the resolver-level policy configuration discloses the enforced request-processing and security rules (auth, IP filtering, rate limits), surfacing the gateway's access-control enforcement and gaps for reconnaissance.
   write:
     risks:
       - destruction:defense

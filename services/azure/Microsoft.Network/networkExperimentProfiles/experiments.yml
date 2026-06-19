@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a test removes a supporting measurement/diagnostic resource, a low-blast-radius deletion with no service-hosting role.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the test configuration inventories the endpoints/targets being measured, a low-sensitivity network reconnaissance read.
   write:
     risks:
       - impact:manipulation

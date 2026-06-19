@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting mutating webhook configurations removes admission controllers that frequently enforce security/policy (e.g. Gatekeeper, Kyverno, image/identity verification), disabling those defenses across the cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: HIGH
-    notes: Data-plane read enumerates mutating webhook endpoints, rules, failure policies, and CA bundles, reconnaissance of admission interception points without returning private secrets.
   write:
     risks:
       - escalation:privilege

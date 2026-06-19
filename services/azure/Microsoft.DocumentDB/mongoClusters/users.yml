@@ -11,10 +11,6 @@ privileges:
       - destruction:account
       - impact:access
     notes: Deleting a database user destroys that cluster account and denies the legitimate principal its authorized access to the production database.
-  read:
-    risks:
-      - discovery:account
-    notes: Read/list of cluster users inventories the database accounts and their roles, identifying targets for credential compromise and privilege analysis.
   write:
     risks:
       - persistence:account

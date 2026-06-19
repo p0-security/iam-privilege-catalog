@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Storage
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the file-service diagnostic setting discloses which logs/metrics are collected and where routed, letting an attacker map monitoring coverage before tampering.
   write:
     risks:
       - destruction:logs

@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting an incident removes the SOC's consolidated record of a detected threat, destroying investigation/detection evidence and disrupting incident response to evade detection.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading an incident exposes what the SOC has detected (correlated alerts, affected entities, investigation state), letting an attacker learn whether their activity has been noticed.
   write:
     risks:
       - destruction:defense

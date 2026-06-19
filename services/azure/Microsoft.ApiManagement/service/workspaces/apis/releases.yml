@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Removes all releases of an API (or a specific release), unpublishing the current revision and taking the live API out of service.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists API revisions/releases and reads release details, inventorying the deployment configuration and revision/rollback history of the workspace's APIs.
   write:
     risks:
       - impact:manipulation

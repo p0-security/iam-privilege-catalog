@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the usage configuration removes a supporting configuration component of the integration account, a limited infrastructure destruction.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only retrieval of the usage configuration only inventories non-sensitive resource configuration (control-plane reconnaissance).
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a connection type removes the schema definition that connection assets and runbooks depend on, destroying operational metadata and potentially breaking dependent connections.
-  read:
-    risks:
-      - discovery:metadata
-    scope: LOW
-    notes: Reading a connection type returns only the field/schema definitions describing how connection assets are structured, exposing configuration metadata and no secret values.
   write:
     risks:
       - impact:manipulation

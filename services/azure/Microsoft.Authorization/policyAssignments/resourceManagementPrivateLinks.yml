@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the private link removes the private connectivity component to the ARM control plane, which can disrupt management access over that path (DoS-like).
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the private link returns its private-connectivity configuration, letting an attacker inventory the private network path to the ARM control plane.
   write:
     risks:
       - escalation:network

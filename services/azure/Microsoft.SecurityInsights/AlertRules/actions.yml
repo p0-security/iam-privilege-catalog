@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an alert rule's response actions removes the automated remediation/notification that would fire on a detection, neutralizing the defensive response chain.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading an alert rule's response actions reveals the configured SOAR/automation playbooks tied to detections, helping an attacker anticipate and evade automated response.
   write:
     risks:
       - destruction:defense

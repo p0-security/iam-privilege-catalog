@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a graph destroys the container and all vertices/edges it holds, causing irreversible loss of organizational data.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading or listing graphs enumerates the data containers within a Gremlin database, inventorying stored data objects without returning graph contents.
   write:
     risks:
       - impact:manipulation

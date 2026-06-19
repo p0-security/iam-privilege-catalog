@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy removes a Virtual WAN connectivity component, disrupting reachability for the associated remote site.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the proxy enumerates remote VPN site connectivity configuration within the Virtual WAN for network reconnaissance.
   write:
     risks:
       - escalation:network

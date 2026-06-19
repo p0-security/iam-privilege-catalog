@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting StorageClasses removes the dynamic-provisioning definitions the cluster relies on, breaking new PVC fulfillment and denying storage to stateful workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading/listing StorageClasses enumerates the cluster's storage provisioning configuration (provisioners, parameters, reclaim policies), giving infrastructure reconnaissance with no data or credential exposure.
   write:
     risks:
       - impact:manipulation

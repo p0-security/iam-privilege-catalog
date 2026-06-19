@@ -1,18 +1,13 @@
 name: Site Recovery alert settings
 description: Azure Site Recovery (within a Recovery Services vault) alert/notification settings that govern how and to whom replication-health and failover alerts are sent.
-scope: LOW
+scope: MEDIUM
 notes: These are monitoring/alerting configuration objects; their value to an attacker is understanding or weakening detection coverage of the DR pipeline.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads Site Recovery alert/notification settings, revealing how replication-health alerting is configured (recipients, thresholds), useful for understanding detection coverage to evade.
   write:
     risks:
       - destruction:defense
       - impact:manipulation
-    scope: MEDIUM
     notes: Creating/updating alert settings lets an attacker disable or redirect replication-failure and failover alerts, suppressing the monitoring that would surface malicious DR disruption.

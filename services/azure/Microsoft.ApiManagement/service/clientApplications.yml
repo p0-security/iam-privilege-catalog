@@ -11,11 +11,6 @@ privileges:
       - destruction:account
       - impact:access
     notes: Deleting a client application removes a registered application identity (destruction:account) and revokes a legitimate consumer's authorized API access (impact:access).
-  read:
-    risks:
-      - discovery:account
-    scope: MEDIUM
-    notes: Listing/getting client application registrations enumerates the application identities that authenticate to the APIs, providing targets for compromise (does not return secrets).
   write:
     risks:
       - persistence:account

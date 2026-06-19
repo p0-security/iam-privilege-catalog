@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deleting a deployment record removes deployment artifacts/history (rollback points and audit trail) for the slot, impairing recovery and covering tracks without deleting the running app.
-  read:
-    risks:
-      - discovery:infra
-    notes: Getting deployment records only enumerates the slot's deployment history and metadata, which is infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

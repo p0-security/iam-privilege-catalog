@@ -11,10 +11,6 @@ privileges:
       - destruction:data
       - impact:manipulation
     notes: Deleting ControllerRevisions destroys the rollout/rollback history of StatefulSets/DaemonSets, removing the ability to revert to known-good states and disrupting controller-managed operational state.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading ControllerRevisions exposes historical DaemonSet/StatefulSet pod-template specs, revealing workload configuration and embedded references useful for reconnaissance.
   write:
     risks:
       - impact:manipulation

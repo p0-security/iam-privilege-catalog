@@ -1,18 +1,13 @@
 name: Recovery Services Vault config
 description: Backup configuration of a Recovery Services Vault, including the soft-delete state and enhanced-security/immutability protection settings that guard recovery points.
-scope: LOW
+scope: HIGH
 notes: These settings are the primary defenses protecting backups from deletion/tampering; their state reveals the vault's protective posture.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads vault configuration including soft-delete and security settings, exposing the backup vault's protective posture for reconnaissance.
   write:
     risks:
       - destruction:defense
       - impact:manipulation
-    scope: HIGH
     notes: Updates vault config to disable soft-delete and security/immutability protections, removing the defense that prevents backups from being permanently destroyed (a key ransomware enabler), and altering operational backup settings.

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes an authorization server, removing the OAuth configuration that protected APIs and the developer portal depend on, tearing down the auth integration and disrupting OAuth-protected access.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists or gets authorization server details explicitly WITHOUT secrets, returning OAuth endpoints, grant types, scopes, and client IDs, enabling reconnaissance of the auth integration but not credential exfiltration.
   write:
     risks:
       - impact:manipulation

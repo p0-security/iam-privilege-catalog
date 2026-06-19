@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:logs
     notes: Deleting a summary rule halts its scheduled aggregation and removes the summarized-log pipeline, disrupting log collection and incident-response visibility.
-  read:
-    risks:
-      - discovery:logs
-    scope: LOW
-    notes: Gets a summary rule's configuration (query, schedule, destination), inventorying the log-aggregation setup without returning the underlying log rows.
   write:
     risks:
       - impact:manipulation

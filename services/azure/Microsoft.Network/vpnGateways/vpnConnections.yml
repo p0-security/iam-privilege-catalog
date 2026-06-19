@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the connection tears down the site-to-site tunnel, severing cross-premises connectivity for dependent workloads.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the connection inventories tunnel topology, peer addresses, and routing/BGP config for reconnaissance; the control-plane get does not return the IPsec shared key.
   write:
     risks:
       - escalation:network

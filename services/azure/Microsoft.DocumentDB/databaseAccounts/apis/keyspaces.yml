@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a keyspace cascades to destroy all tables and the organizational data they contain, an irreversible data-destruction primitive.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading or listing keyspaces enumerates the data containers/namespaces in the account, inventorying where stored data lives without returning row contents.
   write:
     risks:
       - impact:manipulation

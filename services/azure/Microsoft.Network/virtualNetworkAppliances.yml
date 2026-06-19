@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an in-path virtual network appliance removes a network traffic-handling component, destroying network infrastructure and disrupting connectivity for dependent workloads (DoS).
-  read:
-    risks:
-      - discovery:network
-    notes: Getting a virtual network appliance returns its routing/traffic-handling configuration, enabling reconnaissance of a production network component and its topology without modification.
   write:
     risks:
       - impact:manipulation

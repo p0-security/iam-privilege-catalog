@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the VM destroys production compute infrastructure and denies the service it hosts.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading VM properties (size, OS, network interfaces, identity, image, extensions) is read-only infrastructure reconnaissance of a production compute resource.
   write:
     risks:
       - escalation:lateral

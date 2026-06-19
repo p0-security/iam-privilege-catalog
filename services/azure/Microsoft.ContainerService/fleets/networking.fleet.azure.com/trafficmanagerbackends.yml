@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting removes an endpoint from the Traffic Manager routing pool, disrupting public traffic delivery to that backend.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading enumerates which fleet service endpoints are registered as Traffic Manager backends, revealing public DNS routing targets and topology.
   write:
     risks:
       - impact:manipulation

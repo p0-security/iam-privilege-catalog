@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deletes a private endpoint connection, severing a private-link binding and disrupting private connectivity for clients depending on it.
-  Read:
-    risks:
-      - discovery:network
-    notes: Gets or lists the Web App's private endpoint connections and their approval state, read-only reconnaissance of which networks privately reach the app.
   Write:
     risks:
       - escalation:network

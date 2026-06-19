@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:infra
     notes: Deletes the Network Watcher, removing the regional network monitoring/diagnostics capability (including flow logging it manages) and impeding network visibility and incident response.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads the Network Watcher resource definition, inventorying the diagnostic resource's own configuration.
   write:
     risks:
       - impact:manipulation

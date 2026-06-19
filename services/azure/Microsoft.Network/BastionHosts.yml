@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a Bastion Host removes the network component providing secure RDP/SSH access, disrupting legitimate administrators' ability to reach VMs (denial of service).
-  read:
-    risks:
-      - discovery:network
-    notes: Reading a Bastion Host returns its configuration (subnet, public IP, SKU, features), inventorying the secure-access network component fronting internal VMs.
   write:
     risks:
       - impact:manipulation

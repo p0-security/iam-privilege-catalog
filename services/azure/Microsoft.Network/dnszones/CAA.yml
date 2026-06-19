@@ -12,11 +12,6 @@ privileges:
       - destruction:defense
       - takeover:domain
     notes: Deleting the CAA record set removes a DNS network component and tears down the restriction on which CAs may issue certificates for the domain, re-enabling any CA to issue certs.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the CAA record set only enumerates DNS configuration (authorized CAs, TTL, tags, etag), which is network/DNS reconnaissance and exposes no secret material.
   write:
     risks:
       - takeover:domain

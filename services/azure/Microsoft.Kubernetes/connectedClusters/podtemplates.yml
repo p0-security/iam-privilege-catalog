@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting pod templates removes stored workload-definition objects, disrupting controllers and deployment processes that reference them.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Data-plane read enumerates pod template definitions (images, commands, mounts, env references), revealing how workloads are configured. Pure reconnaissance; no secret material is returned.
   write:
     risks:
       - impact:manipulation

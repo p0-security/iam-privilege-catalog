@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a connection proxy tears down a private-link connectivity component, disrupting legitimate private access to the disk-access resource (DoS-like effect).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a connection proxy enumerates the private-link connectivity configuration of the disk-access resource, a read-only network reconnaissance capability that returns no secret material.
   write:
     risks:
       - escalation:network

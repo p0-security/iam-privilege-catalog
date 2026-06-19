@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an MCP tool removes gateway configuration that exposes an API operation, disrupting dependent AI/agent integrations (DoS-like loss of gateway functionality).
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets the MCP tool definitions configured on an API, enumerating gateway exposure/routing configuration; returns config metadata, not secrets or backend data.
   write:
     risks:
       - impact:manipulation

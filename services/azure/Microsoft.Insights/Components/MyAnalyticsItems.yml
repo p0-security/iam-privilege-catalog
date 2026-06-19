@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a personal analytics item removes only the caller's own private saved query artifacts, a minimal single-user operation.
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading personal analytics items exposes only the caller's own saved queries over telemetry, low-sensitivity reconnaissance.
   Write:
     risks:
       - impact:manipulation

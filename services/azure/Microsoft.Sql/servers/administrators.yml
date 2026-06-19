@@ -11,12 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deletes the Azure AD administrator binding, removing the access-control assignment (policy destruction) and denying the legitimate administrator their authorized access.
-  read:
-    risks:
-      - discovery:policy
-      - discovery:account
-    scope: HIGH
-    notes: Reads the configured Azure AD administrator object, revealing both the server's access-control binding and the privileged identity (a high-value target) that controls it.
   write:
     risks:
       - escalation:privilege

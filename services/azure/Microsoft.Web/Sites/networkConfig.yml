@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deletes the App Service network/VNet-integration config, removing network components and disrupting the production service's connectivity to its dependencies.
-  read:
-    risks:
-      - discovery:network
-    notes: Reads the App Service network/VNet-integration configuration, inventorying network topology and access-restriction settings of a production web app.
   write:
     risks:
       - impact:manipulation

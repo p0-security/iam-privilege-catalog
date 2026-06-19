@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:dos
     notes: Deleting PriorityLevelConfigurations removes API-server concurrency-control settings, disrupting request handling and degrading control-plane availability.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading PriorityLevelConfigurations inventories API-server concurrency/queueing limits, low-sensitivity control-plane reconnaissance.
   write:
     risks:
       - impact:dos

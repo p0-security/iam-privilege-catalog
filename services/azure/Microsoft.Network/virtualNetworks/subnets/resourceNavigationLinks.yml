@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a resource navigation link removes the subnet-to-resource association, a destructive network-configuration change that can disrupt the linked service's network integration.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only retrieval only inventories which resources are linked into a subnet, providing network/topology reconnaissance.
   write:
     risks:
       - impact:manipulation

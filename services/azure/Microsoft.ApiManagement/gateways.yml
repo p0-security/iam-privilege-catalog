@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a gateway removes the infrastructure that routes API traffic, disrupting the APIs it fronts (DoS-like effect inherent to destruction:infra).
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Control-plane read that lists or gets gateway resource configuration, enabling reconnaissance of the API gateway deployment and ingress topology.
   write:
     risks:
       - impact:manipulation

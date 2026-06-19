@@ -12,10 +12,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a data center removes the nodes and data replicas hosting the cluster in that region, destroying infrastructure and its hosted data copies and degrading/denying service availability.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading or listing data centers in a Cassandra cluster only inventories regional/topology configuration; no data or secrets are exposed.
   write:
     risks:
       - impact:manipulation

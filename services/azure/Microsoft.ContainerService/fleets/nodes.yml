@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting node objects removes worker compute from the cluster, evicting hosted workloads and reducing capacity, causing denial of service to running applications.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading/listing nodes inventories the worker compute substrate (capacity, addresses, labels, taints) of the fleet's clusters for reconnaissance and targeting.
   write:
     risks:
       - impact:manipulation

@@ -11,8 +11,3 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Removing all revisions of an API destroys its versioned configuration and can disrupt the gateway-fronted service.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists all revisions of an API, inventorying the versioned configuration history for reconnaissance of the API surface.

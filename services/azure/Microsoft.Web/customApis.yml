@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the connector removes integration infrastructure, breaking dependent Logic Apps/flows in a localized denial-of-service fashion.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Get/list returns the connector configuration (backend host references, API definition), inventorying integration infrastructure for reconnaissance without returning secret material.
   Write:
     risks:
       - impact:manipulation

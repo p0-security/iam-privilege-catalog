@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a Fleetspace tears down the fleet-management grouping, disrupting pooled-throughput governance of member accounts while leaving the database accounts and their data intact.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing a Fleetspace only inventories the fleet-management grouping configuration, which is control-plane reconnaissance with no data or secret disclosure.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a model provider removes a configured upstream LLM integration, disrupting inference traffic routed through it (a targeted DoS-like infrastructure removal).
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Control-plane read that lists/gets model-provider configuration, letting an attacker inventory which upstream LLM providers the gateway is wired to; returns config, not credential values.
   write:
     risks:
       - impact:manipulation

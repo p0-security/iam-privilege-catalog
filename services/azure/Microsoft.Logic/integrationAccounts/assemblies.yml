@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes an uploaded assembly artifact, removing custom code and breaking dependent maps/workflows.
-  read:
-    risks:
-      - discovery:code
-    notes: Reading the assembly inventories the custom .NET code artifacts registered in the integration account.
   write:
     risks:
       - impact:manipulation

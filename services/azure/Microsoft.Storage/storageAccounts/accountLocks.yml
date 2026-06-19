@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:policy
     notes: Deletes a management lock guarding the storage account, removing a deny control and enabling subsequent destruction or modification.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reads the management-lock state on the account, revealing which protective locks exist so an attacker can identify unprotected resources or protections to bypass.
   write:
     risks:
       - impact:access

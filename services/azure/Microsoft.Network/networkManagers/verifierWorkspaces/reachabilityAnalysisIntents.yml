@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a Reachability Analysis Intent removes a diagnostic test definition, a minor supporting-infrastructure destruction with no production network impact.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a Reachability Analysis Intent reveals the source/destination/protocol of configured connectivity tests, exposing network topology and reachability targets.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting pod templates removes reusable workload definitions, altering operational configuration that controllers reference; templates alone do not run pods so this is config tampering rather than infra teardown.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading pod templates inventories workload specifications including images, commands, mounts and referenced service accounts/secrets, providing reconnaissance of cluster workload structure and attack surface.
   write:
     risks:
       - impact:manipulation

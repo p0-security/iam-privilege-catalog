@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Delete tears down the cluster compute infrastructure, destroying the resource and denying service to any workloads it hosts.
-  read:
-    risks:
-      - discovery:infra
-    notes: Get/read returns the cluster's control-plane configuration, allowing an attacker to inventory the cluster infrastructure for reconnaissance.
   write:
     risks:
       - impact:manipulation

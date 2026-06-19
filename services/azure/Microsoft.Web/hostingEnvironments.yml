@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an ASE destroys the dedicated hosting infrastructure and takes down every app hosted in it, equivalent to denial of service for that function.
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading ASE properties inventories the hosting environment configuration (capacity, networking, tier) as control-plane reconnaissance; returns no secret material.
   Write:
     risks:
       - impact:manipulation

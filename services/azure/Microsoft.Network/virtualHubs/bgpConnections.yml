@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a BGP connection tears down a routing peering, breaking dynamic route propagation and disrupting connectivity for dependent network segments.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading a BGP connection inventories the hub's routing peer configuration, revealing network topology and peering relationships for reconnaissance.
   write:
     risks:
       - impact:manipulation

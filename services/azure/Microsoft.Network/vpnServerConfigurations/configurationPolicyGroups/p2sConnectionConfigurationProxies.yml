@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a P2S connection configuration proxy removes a VPN connection configuration component, disrupting Point-to-Site client connectivity.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a P2S connection configuration proxy enumerates VPN client connection/routing configuration, providing network reconnaissance with no secret disclosure.
   write:
     risks:
       - impact:manipulation

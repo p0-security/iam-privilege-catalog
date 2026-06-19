@@ -10,10 +10,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting Service objects removes the network endpoints/routing that front workloads, severing connectivity and causing denial of service to the hosted applications.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading/listing Service objects enumerates network endpoints, ports, selectors, and load-balancer/cluster IPs, mapping the cluster's internal and external attack surface.
   write:
     risks:
       - impact:manipulation

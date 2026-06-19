@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a data share removes the sharing configuration, disrupting downstream consumers that depend on the share, but does not delete the underlying stored data.
-  read:
-    risks:
-      - discovery:data
-    scope: LOW
-    notes: Listing or getting data shares enumerates which datasets are being shared and with whom, inventorying stored/shared data objects without returning the data contents themselves.
   write:
     risks:
       - exfiltration:data

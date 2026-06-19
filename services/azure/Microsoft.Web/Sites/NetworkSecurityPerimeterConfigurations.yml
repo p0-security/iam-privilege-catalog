@@ -10,11 +10,3 @@ privileges:
     risks:
       - impact:manipulation
     notes: Reconciling the NSP configuration re-applies/alters the app's perimeter association, changing its enforced network boundary state.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the stored NSP configuration inventories the web app's network-perimeter rules and membership, useful reconnaissance for finding gaps in the network defense around the production app.
-    name: Web App Network Security Perimeter configuration
-    parent:
-      description: The Network Security Perimeter configuration stored on an App Service Web App, describing the NSP membership and network access rules enforced around the web application.
-      notes: Describes the network-defense boundary for a single production web service; reading it reveals the isolation posture.

@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Storage
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic setting reveals which logs/metrics are collected for the queue service and where they route, enabling reconnaissance of logging posture ahead of evasion.
   write:
     risks:
       - destruction:logs

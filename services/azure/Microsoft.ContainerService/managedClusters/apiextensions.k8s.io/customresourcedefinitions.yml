@@ -12,11 +12,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a CRD cascade-deletes every custom resource instance of that type cluster-wide (wiping operator state, certificates, and policy CRs) and breaks the dependent controllers, destroying infrastructure and data and causing denial of service.
-  read:
-    risks:
-      - discovery:infra
-    scope: HIGH
-    notes: Reading CRDs inventories the cluster's installed operators, controllers, and extended API schemas, revealing the operational/extension footprint for reconnaissance; no secret data returned.
   write:
     risks:
       - impact:manipulation

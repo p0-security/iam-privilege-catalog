@@ -11,10 +11,6 @@ privileges:
       - impact:manipulation
       - destruction:data
     notes: Deletes relations between an entity and related incidents/alerts, removing investigation-graph linkages and tampering with incident-response context.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reads relations linking an entity to related investigation resources, enabling reconnaissance of the SIEM investigation graph.
   write:
     risks:
       - impact:manipulation

@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic setting reveals what logging/metrics are enabled and where they route, helping an attacker identify monitoring blind spots and plan evasion.
   write:
     risks:
       - destruction:logs

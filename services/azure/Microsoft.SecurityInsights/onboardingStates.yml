@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deletes the onboarding state, offboarding Microsoft Sentinel from the workspace and disabling the entire SIEM/detection-and-response layer.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads whether Sentinel is onboarded on a workspace, revealing SIEM deployment/coverage posture as low-value reconnaissance.
   write:
     risks:
       - impact:manipulation

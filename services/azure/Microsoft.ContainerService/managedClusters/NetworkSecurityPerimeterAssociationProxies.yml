@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Delete detaches the cluster from its network security perimeter, removing the network-isolation defense and exposing the cluster to broader network access.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Get reveals the cluster's NSP membership and boundary configuration, reconnaissance of its network-isolation defense posture.
   write:
     risks:
       - destruction:defense

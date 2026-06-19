@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy tears down a private connectivity component, disrupting access to the linked service (DoS-like network destruction).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the proxy enumerates private link connectivity state and topology, providing network reconnaissance only.
   write:
     risks:
       - escalation:network

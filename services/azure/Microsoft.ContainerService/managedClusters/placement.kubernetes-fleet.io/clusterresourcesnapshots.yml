@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a snapshot removes the manifest record that active placements/bindings reconcile against, disrupting propagation and the workloads it represents across the fleet.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a snapshot enumerates the captured Kubernetes resource manifests selected for propagation, providing configuration/infrastructure reconnaissance of the fleet's workloads.
   write:
     risks:
       - impact:manipulation

@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting incident relations severs the links between an incident and its supporting alerts/entities, destroying investigation correlation and weakening defender visibility into the attack scope.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading incident relations enumerates which alerts, bookmarks, and entities are linked to an incident, revealing the scope of what the SOC has correlated about a threat.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the AI Manager destroys the managed AI infrastructure resource and disrupts the workloads/services that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading the AI Manager returns its control-plane configuration for reconnaissance; secret material is gated behind the separate listCredential action.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting releases unpublishes the live API revision(s), disrupting availability of the served API to consumers.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists or gets API releases, inventorying which revisions are currently published/live (reconnaissance of deployment state).
   write:
     risks:
       - impact:manipulation

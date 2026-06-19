@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a table destroys the container and all rows it holds, causing irreversible loss of organizational data.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading or listing tables enumerates the data containers within a keyspace, inventorying stored data objects without returning row contents.
   write:
     risks:
       - impact:manipulation

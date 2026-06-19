@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a VNet rule removes a network access-control restriction on the SQL server, altering the firewall posture and weakening the defensive network boundary protecting the database.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: List/Get of VNet rules inventories which subnets/VNets are permitted network access to the SQL server, providing network access-control reconnaissance.
   write:
     risks:
       - escalation:network

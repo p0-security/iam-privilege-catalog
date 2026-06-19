@@ -12,12 +12,6 @@ privileges:
       - destruction:policy
       - escalation:network
     notes: Deleting a NetworkPolicy removes the pod-traffic firewall/access-control enforcement, reverting to allow-all and exposing previously isolated workloads to unrestricted lateral traffic.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    scope: MEDIUM
-    notes: Read-only enumeration of pod-traffic segmentation rules reveals the network topology and access-control weak points an attacker can use to plan lateral movement.
   write:
     risks:
       - destruction:defense

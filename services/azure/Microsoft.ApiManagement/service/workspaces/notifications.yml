@@ -1,7 +1,7 @@
-name: API Management workspace publisher notifications
-description: Workspace publisher notifications are the API Management configuration that defines which operational/service events generate notifications and which recipients (publisher email addresses/users) receive them.
+name: API Management workspaces
+description: API Management workspaces are logical sub-environments within an API Management service that group and isolate APIs, products, policies, and named values for a team or organizational function.
 scope: MEDIUM
-notes: Low-sensitivity operational alerting configuration; primarily relevant to incident awareness rather than data access.
+notes: Workspaces front backend services and host policy configuration (including secret-bearing named values), so control over them affects how a single organizational function's APIs are served.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
@@ -10,16 +10,8 @@ privileges:
     risks:
       - impact:manipulation
     notes: Sends a notification to a specified user, letting an attacker emit attacker-controlled messages through a trusted channel for spoofing/phishing of portal users.
-    name: API Management workspaces
-    parent:
-      description: API Management workspaces are logical sub-environments within an API Management service that group and isolate APIs, products, policies, and named values for a team or organizational function.
-      notes: Workspaces front backend services and host policy configuration (including secret-bearing named values), so control over them affects how a single organizational function's APIs are served.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading publisher notification settings enumerates notification types and recipient details, low-sensitivity reconnaissance of the workspace's operational alerting configuration.
   write:
     risks:
       - impact:manipulation
     notes: Creating/updating publisher notifications alters recipient lists and notification configuration, letting an attacker suppress or redirect operational/security event alerts to reduce operator awareness of malicious changes.
+    name: API Management workspace publisher notifications

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a configuration snapshot removes a captured analysis baseline/artifact; impact is limited to diagnostic tooling, not live network.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading a configuration snapshot exposes a captured view of network topology and settings, enabling detailed network reconnaissance.
   write:
     risks:
       - impact:manipulation

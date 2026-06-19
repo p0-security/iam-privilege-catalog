@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the zone removes internal name resolution for all dependent services and linked VNets, destroying network resolution infrastructure and causing denial of service.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reads only the zone's top-level properties (not record sets or VNet links), inventorying the internal name-resolution namespace as read-only reconnaissance.
   write:
     risks:
       - impact:manipulation

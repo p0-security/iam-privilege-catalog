@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a hostname binding removes the custom-domain endpoint that routes traffic to the web app, tearing down the public network binding and breaking inbound access (DoS) for that domain.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading hostname bindings enumerates the custom domains/hostnames and SSL configuration mapped to the app, which is public-endpoint/network reconnaissance.
   write:
     risks:
       - takeover:domain

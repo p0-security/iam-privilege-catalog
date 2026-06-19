@@ -11,11 +11,6 @@ privileges:
       - destruction:artifact
       - impact:dos
     notes: Deletes an imported PowerShell module package, breaking runbooks that depend on it and disrupting automation operations.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads module metadata (name, version, provisioning state) for inventory of automation dependencies; does not return the module package contents or secrets.
   write:
     risks:
       - escalation:lateral

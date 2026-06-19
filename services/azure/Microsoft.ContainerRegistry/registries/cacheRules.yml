@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a cache rule, removing pull-through cache configuration and disrupting the registry's ability to source and serve cached upstream images.
-  read:
-    risks:
-      - discovery:infra
-    notes: Gets or lists cache rules, enabling inventory of the registry's pull-through caching configuration (upstream sources and target repos) without returning secret material.
   write:
     risks:
       - impact:manipulation

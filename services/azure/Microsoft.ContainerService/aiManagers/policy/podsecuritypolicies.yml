@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting a PodSecurityPolicy removes a cluster-wide admission-control defense and its access-control policy object, stripping the constraints that would otherwise block privileged, escape-capable workloads.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading PodSecurityPolicies enumerates the cluster's pod-admission security constraints, revealing which privileged-pod controls are enforced so an attacker can locate gaps to exploit.
   write:
     risks:
       - destruction:defense

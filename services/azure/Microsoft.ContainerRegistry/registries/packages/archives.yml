@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes an Archive from the registry, destroying stored package artifacts.
-  read:
-    risks:
-      - discovery:infra
-    notes: Gets or lists Archive properties on the control plane, enabling inventory of registry artifact resources but not retrieval of artifact content or any secrets.
   write:
     risks:
       - impact:manipulation

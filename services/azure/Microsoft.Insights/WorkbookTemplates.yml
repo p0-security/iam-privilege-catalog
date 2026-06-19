@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deleting a workbook template removes a stored monitoring/visualization artifact, with no impact on underlying logs or organizational data.
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a workbook template returns the monitoring dashboard/query definition, inventorying observability configuration and what resources/queries it references for reconnaissance.
   Write:
     risks:
       - impact:manipulation

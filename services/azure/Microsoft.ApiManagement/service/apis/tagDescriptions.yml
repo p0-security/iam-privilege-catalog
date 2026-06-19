@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes a tag description, removing non-sensitive descriptive/labeling metadata associated with the API.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Lists/gets tag descriptions scoped to an API, returning only descriptive organizational metadata for low-value reconnaissance.
   write:
     risks:
       - impact:manipulation

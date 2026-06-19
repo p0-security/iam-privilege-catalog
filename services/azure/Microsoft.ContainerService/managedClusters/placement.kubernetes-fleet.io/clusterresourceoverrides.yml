@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting a ClusterResourceOverride removes the override applied during propagation, changing what cluster-scoped resources are deployed to member clusters fleet-wide (e.g. dropping a security-hardening patch) without destroying the underlying live resources.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the ClusterResourceOverride enumerates the override/JSON-patch rules and cluster selectors governing how cluster-scoped resources are mutated across member clusters, which is configuration reconnaissance returning no secret material.
   write:
     risks:
       - impact:manipulation

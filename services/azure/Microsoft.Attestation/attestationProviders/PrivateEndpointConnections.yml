@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a private endpoint connection removes a private-endpoint network connectivity component, which can disrupt private access to the attestation provider (DoS-like).
-  read:
-    risks:
-      - discovery:network
-    notes: Reading private endpoint connections enumerates the established/pending private-link bindings and their approval state, providing network reconnaissance of the attestation provider's connectivity.
   write:
     risks:
       - escalation:network

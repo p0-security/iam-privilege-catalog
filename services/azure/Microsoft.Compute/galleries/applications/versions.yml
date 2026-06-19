@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deleting a gallery application version removes a published deployable artifact, breaking deployments that reference it.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a gallery application version returns its configuration (e.g., source package reference, scripts) for reconnaissance of the deployable artifact, without exposing secret material.
   write:
     risks:
       - impact:manipulation

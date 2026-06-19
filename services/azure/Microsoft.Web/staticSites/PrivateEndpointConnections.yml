@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a private endpoint connection, severing a consumer's private-link path to the static site and disrupting authorized private connectivity.
-  Read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Gets or lists private endpoint connections and their approval state, enumerating the static site's private-link bindings for network reconnaissance.
   Write:
     risks:
       - escalation:network

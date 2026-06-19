@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deletes the API ACL entries, tearing down the access-control policy that restricts callers, which can strip authorized principals' access while relaxing restrictions guarding the API.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reads the API ACL, letting an attacker inventory which identities are authorized to invoke the API and locate gaps in the access policy.
   write:
     risks:
       - escalation:privilege

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a schema removes API definition metadata the gateway relies on, which can break dependent API validation/processing.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists or gets registered API schemas, inventorying the API definition configuration and structure of the gateway.
   write:
     risks:
       - impact:manipulation

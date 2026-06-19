@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting Endpoints removes the Service-to-pod backend mapping, breaking service routing and causing denial of service for the affected workloads.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading Endpoints reveals the Service-to-pod IP:port mappings, inventorying internal cluster network topology and service backends for reconnaissance.
   write:
     risks:
       - impact:manipulation

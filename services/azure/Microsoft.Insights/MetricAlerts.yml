@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a metric alert removes a detection/alerting mechanism, preventing notification on the monitored condition and hindering incident response.
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading a metric alert inventories scopes, criteria, and action groups, letting an attacker map detection coverage and identify blind spots.
   Write:
     risks:
       - destruction:defense

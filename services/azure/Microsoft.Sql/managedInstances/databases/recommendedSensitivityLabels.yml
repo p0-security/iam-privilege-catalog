@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:metadata
-    notes: Listing recommended labels reveals which columns the engine flags as likely sensitive, giving an attacker a ready-made inventory of high-value data targets.
   write:
     risks:
       - impact:manipulation

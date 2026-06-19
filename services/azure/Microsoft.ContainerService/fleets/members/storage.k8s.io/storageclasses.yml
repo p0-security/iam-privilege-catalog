@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting StorageClasses removes provisioning definitions so new PersistentVolumeClaims can no longer be satisfied; already-provisioned volumes keep working, so the impact is to future provisioning rather than immediate workload disruption.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing/getting StorageClasses enumerates how the cluster dynamically provisions volumes (provisioner, parameters), which is infrastructure reconnaissance with no data or secret exposure.
   write:
     risks:
       - impact:manipulation

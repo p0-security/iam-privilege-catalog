@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an AI agent definition, removing gateway configuration and disrupting agent-backed API traffic (DoS-like effect).
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists/gets AI agent definitions, providing read-only inventory of the gateway's agent configuration; returns no secret material.
   write:
     risks:
       - impact:manipulation

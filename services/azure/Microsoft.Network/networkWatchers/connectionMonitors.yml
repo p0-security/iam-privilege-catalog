@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a connection monitor removes a connectivity/availability-monitoring mechanism, degrading operational and detection visibility into network reachability.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading connection monitor details discloses configured source/destination endpoints and ports, inventorying network topology and monitored paths.
   write:
     risks:
       - discovery:network

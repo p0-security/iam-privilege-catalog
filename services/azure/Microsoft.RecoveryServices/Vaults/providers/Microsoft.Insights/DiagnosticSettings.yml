@@ -1,18 +1,13 @@
 name: Recovery Services vault diagnostic settings
 description: The diagnostic settings of a Recovery Services vault, defining where vault logs and metrics are routed (Log Analytics, storage, event hub) and which categories are enabled.
-scope: LOW
+scope: MEDIUM
 notes: Controls log/metric export; central to audit and incident response.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reveals where and whether vault logs/metrics are exported, useful reconnaissance of the logging pipeline before tampering.
   write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Creating/updating diagnostic settings lets an attacker disable or redirect vault log collection, disrupting incident response and evading detection.

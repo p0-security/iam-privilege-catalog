@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a model removes an AI gateway routing target, disrupting dependent consumers of that model.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read lists/gets model definitions under a provider, enabling inventory of the AI gateway's exposed models with no secret material returned.
   write:
     risks:
       - impact:manipulation

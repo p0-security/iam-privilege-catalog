@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a policy snapshot removes the policy record the fleet scheduler reconciles against, disrupting placement decisions and the dependent workloads across member clusters.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a policy snapshot reveals the scheduling policy (target clusters, replica counts, affinity) used to place workloads across the fleet, aiding reconnaissance of placement logic.
   write:
     risks:
       - impact:manipulation

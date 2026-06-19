@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting trusted access role bindings removes the RBAC grants tying Azure identities to the cluster, destroying access-control policy and revoking legitimate services'/operators' authorized cluster access.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading trusted access role bindings reveals which Azure resources/identities are granted RBAC access into the cluster, exposing access-control relationships and escalation targets.
   write:
     risks:
       - escalation:privilege

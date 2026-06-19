@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the CNAME record set breaks resolution for the aliased subdomain (DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the CNAME record set reveals the alias target, useful reconnaissance for mapping infrastructure and spotting dangling-alias subdomain-takeover candidates; it confers no routing control itself.
   write:
     risks:
       - takeover:domain

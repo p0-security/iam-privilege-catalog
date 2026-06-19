@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a premier add-on removes a supporting extension/component from the slot, akin to a localized denial of service for that add-on functionality.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading premier add-on configuration only inventories which supporting add-ons are provisioned on the slot.
   write:
     risks:
       - impact:manipulation

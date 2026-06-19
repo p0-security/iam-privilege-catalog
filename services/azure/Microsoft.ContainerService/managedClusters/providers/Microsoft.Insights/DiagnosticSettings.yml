@@ -1,18 +1,13 @@
 name: AKS managed cluster diagnostic settings
 description: Azure Monitor diagnostic settings attached to an AKS managed cluster, controlling which platform log and metric categories are collected and where they are routed (Log Analytics, Storage, Event Hub).
-scope: LOW
+scope: MEDIUM
 notes: "A detective control: the diagnostic setting governs cluster audit/control-plane log and metric export used for monitoring and incident response."
 links:
   - https://azure.permissions.cloud/iam/Microsoft.ContainerService
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic setting reveals which log/metric categories are collected and their routing destinations, letting an attacker inventory logging coverage and find detection gaps before evasion; no secret material is returned.
   write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Creating or updating the diagnostic setting lets an attacker disable or reroute cluster log/metric collection, suppressing the audit trail and removing a detective control to blind incident response.

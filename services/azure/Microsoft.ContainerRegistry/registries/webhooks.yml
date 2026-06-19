@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a webhook removes the registry's event-notification component, disrupting downstream CI/CD or alerting automation that depends on registry events.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get/List returns webhook configuration (service URI, trigger scope, status) but not the custom-header secrets, so it only inventories the registry's notification configuration.
   write:
     risks:
       - impact:manipulation

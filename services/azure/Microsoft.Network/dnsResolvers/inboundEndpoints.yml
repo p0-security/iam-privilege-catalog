@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an inbound endpoint removes the network ingress point for DNS queries, disrupting inbound private name resolution into the VNet and causing denial of service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Control-plane get returning the inbound endpoint's configuration (private IP, subnet binding), useful for network reconnaissance but granting no modification or secret access.
   write:
     risks:
       - impact:manipulation

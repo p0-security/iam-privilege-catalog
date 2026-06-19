@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deletes the inventory policy, disabling the account's automated inventory-reporting feature (an operational configuration change/disruption).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the inventory policy configuration, revealing which blobs/containers are catalogued and the report destination — read-only reconnaissance of the account's inventory setup.
   write:
     risks:
       - impact:manipulation

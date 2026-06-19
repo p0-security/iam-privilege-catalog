@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a container destroys the container and all blobs it holds, irreversibly removing organizational data.
-  read:
-    risks:
-      - discovery:data
-    notes: Getting a container returns its existence and properties, letting an attacker inventory the data containers present in the account (does not return blob contents).
   write:
     risks:
       - impact:manipulation

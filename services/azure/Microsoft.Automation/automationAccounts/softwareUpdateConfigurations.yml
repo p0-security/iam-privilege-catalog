@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - impact:manipulation
     notes: Deleting an update configuration removes scheduled patching, leaving managed machines unpatched (degrading a maintenance/security control) and disrupting the operational update process.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading an update configuration enumerates targeted machines, schedules, and linked scripts, providing infrastructure reconnaissance without execution or data access.
   write:
     risks:
       - escalation:lateral

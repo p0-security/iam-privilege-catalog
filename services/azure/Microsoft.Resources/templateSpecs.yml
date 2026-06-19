@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes a template spec (and its versions), destroying a stored reusable IaC artifact without affecting any deployed infrastructure.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Gets or lists template specs, letting an attacker inventory the organization's stored infrastructure-as-code definitions as reconnaissance.
   write:
     risks:
       - impact:manipulation

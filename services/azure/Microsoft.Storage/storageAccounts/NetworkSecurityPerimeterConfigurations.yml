@@ -11,11 +11,3 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Applies/reconciles the account's Network Security Perimeter configuration, allowing an attacker to alter or weaken the network-isolation boundary and expand reachability to the data store.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the NSP configuration inventories the account's perimeter rules and membership, useful reconnaissance for finding gaps in the network defense around the data store.
-    name: Storage account Network Security Perimeter configuration
-    parent:
-      description: The stored Network Security Perimeter configuration for a storage account, describing the perimeter rules, profiles, access mode, and membership that govern network access to the account.
-      notes: Reading these rules reveals the network defense boundary protecting the data store.

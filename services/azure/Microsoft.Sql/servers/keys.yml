@@ -11,10 +11,6 @@ privileges:
       - destruction:crypto
       - impact:dos
     notes: Deleting a server key removes a TDE protector reference; if it is the active protector this destroys cryptographic configuration the database depends on and can render encrypted data inaccessible.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing/getting server keys returns the TDE protector key references and properties rather than secret material, enabling reconnaissance of the encryption configuration only.
   write:
     risks:
       - impact:encryption

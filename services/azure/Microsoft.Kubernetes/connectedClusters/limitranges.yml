@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:policy
     notes: Deleting LimitRanges removes the namespace's resource-constraint guardrails, lifting the caps that otherwise bound workload consumption.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading LimitRanges inventories namespace resource-constraint configuration, low-sensitivity infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

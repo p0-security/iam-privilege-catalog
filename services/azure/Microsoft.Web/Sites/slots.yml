@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a slot tears down a deployed application instance and its configuration, destroying that infrastructure and denying service for the function it hosts.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reading slot properties enumerates the app's configuration and hosting metadata for reconnaissance; control-plane read does not return secret app-setting values.
   Write:
     risks:
       - impact:manipulation

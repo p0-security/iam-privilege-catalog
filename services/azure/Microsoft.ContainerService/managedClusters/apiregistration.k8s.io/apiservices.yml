@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting APIService registrations removes aggregated/extension API groups (e.g. metrics-server, admission/extension APIs), breaking dependent control-plane functionality cluster-wide and causing denial of service.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read/list of APIService objects enumerates the cluster's registered API groups and aggregated API backends, a control-plane reconnaissance primitive that returns no secret material.
   write:
     risks:
       - impact:manipulation

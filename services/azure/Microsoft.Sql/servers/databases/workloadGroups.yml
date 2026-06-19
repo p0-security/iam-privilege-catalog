@@ -11,11 +11,6 @@ privileges:
       - impact:dos
       - destruction:infra
     notes: Drops a workload group, removing resource-governance allocations and disrupting the prioritized query workloads that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists the workload-management groups, read-only inventory of the database's resource-governance configuration.
   write:
     risks:
       - impact:manipulation

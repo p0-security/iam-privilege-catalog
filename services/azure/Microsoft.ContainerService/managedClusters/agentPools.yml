@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an agent pool removes the worker-node compute backing the cluster, destroying infrastructure and evicting the workloads scheduled on it.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading an agent pool returns node-pool configuration (VM size, count, version, networking), providing read-only reconnaissance of the cluster's production compute. No secret material returned.
   write:
     risks:
       - impact:hijack

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes an annotation marker, removing operational metadata that analysts use to correlate telemetry with deployments, which can obscure incident timelines.
-  Read:
-    risks:
-      - discovery:metadata
-    scope: LOW
-    notes: Reads/enumerates annotation markers, exposing deployment/release timing as low-value reconnaissance.
   Write:
     risks:
       - impact:manipulation

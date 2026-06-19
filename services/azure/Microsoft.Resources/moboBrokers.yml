@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:access
     notes: Deleting a mobo broker tears down the delegated-management infrastructure, destroying the broker resource and severing the authorized operators' delegated access to the managed resources (denial-of-access, DoS-like).
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Getting or listing mobo brokers only enumerates the delegated-management broker resources and their configuration, providing infrastructure reconnaissance of cross-tenant delegation relationships.
   write:
     risks:
       - escalation:lateral

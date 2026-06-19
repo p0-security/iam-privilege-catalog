@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Logic
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the automation project principal enumerates which identities hold access to the project, letting an attacker map the access-control bindings and identify privileged targets; it returns configuration, not secret material.
   write:
     risks:
       - escalation:privilege

@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting Roles removes RBAC permission definitions, destroying access-control policy and denying authorized principals (who depend on those roles) their operational access.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading/listing Roles inventories the permission rule sets defined in the cluster, exposing the RBAC policy structure and escalation targets.
   write:
     risks:
       - escalation:privilege

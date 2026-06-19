@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the mesh profile tears down cross-cluster connectivity, removing network components and disrupting inter-cluster service traffic.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the mesh profile inventories cross-cluster connectivity/topology configuration, enabling network reconnaissance of the fleet.
   write:
     risks:
       - impact:manipulation

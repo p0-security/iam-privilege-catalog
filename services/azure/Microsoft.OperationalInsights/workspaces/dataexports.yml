@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting the export rule halts continuous forwarding of workspace logs to downstream SIEM/storage destinations, disrupting log collection and weakening detection and incident response.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the export rule reveals which log tables are exported and to which destination, inventorying the log-collection pipeline; it does not return the log data itself.
   write:
     risks:
       - exfiltration:logs

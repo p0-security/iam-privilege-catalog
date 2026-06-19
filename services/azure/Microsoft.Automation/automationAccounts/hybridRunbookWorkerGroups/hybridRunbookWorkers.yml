@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a hybrid runbook worker removes a registered execution node, destroying automation infrastructure and disrupting runbook jobs that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a hybrid runbook worker only inventories the machines registered to execute runbooks, providing infrastructure reconnaissance of execution targets.
   write:
     risks:
       - escalation:lateral

@@ -9,10 +9,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Detaches a tag from an operation, deleting organizational grouping metadata with no effect on API logic or data.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Lists or gets tags on an operation, enumerating non-sensitive organizational metadata labels.
   write:
     risks:
       - impact:manipulation

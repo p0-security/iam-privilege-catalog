@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a backend removes the upstream routing target that APIs depend on, breaking the affected API paths and causing denial of service for that function.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading/listing backend definitions inventories the upstream service endpoints/URLs APIM proxies to, mapping internal infrastructure. The standard GET returns configuration but not the backend secret material (exposed only via the separate listSecrets action).
   write:
     risks:
       - impact:manipulation

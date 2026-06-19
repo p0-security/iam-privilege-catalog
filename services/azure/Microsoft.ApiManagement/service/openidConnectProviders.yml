@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deletes an OIDC provider, removing an authentication mechanism that gates API access and breaking authorization for dependent APIs.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reads OIDC provider configuration explicitly without secrets, disclosing the authentication/authorization setup so an attacker can locate weak points in the API's identity controls.
   write:
     risks:
       - impact:manipulation

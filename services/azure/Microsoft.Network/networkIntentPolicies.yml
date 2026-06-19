@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a network intent policy removes a network configuration component, potentially disrupting the network connectivity behavior that depends on it.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a network intent policy inventories internal network intent/configuration definitions, which is network reconnaissance with no secret or data disclosure.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - impact:access
       - impact:dos
     notes: Deleting a subscription immediately revokes the associated keys, cutting off legitimate consumers' authorized access to the product's APIs and disrupting dependent integrations.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets subscription entities explicitly WITHOUT keys, inventorying who is subscribed to which products; exposes no credential material.
   write:
     risks:
       - escalation:privilege

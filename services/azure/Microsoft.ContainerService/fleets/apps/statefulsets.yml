@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting StatefulSets removes stateful workload controllers across the fleet, destroying running infrastructure and disrupting the backing services (persistent-volume retention is policy-dependent).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading StatefulSet specs inventories stateful workload configuration (images, persistent-volume claims, env, secret references) for reconnaissance; it returns config references, not stored data.
   write:
     risks:
       - impact:hijack

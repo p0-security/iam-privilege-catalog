@@ -11,10 +11,6 @@ privileges:
       - impact:manipulation
       - impact:dos
     notes: Detaching the Function App removes the build's backend API binding, altering its configuration and disrupting that build's dynamic functionality.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Listing the registered user-provided Function Apps for a build inventories the backend resources wired into that build (reconnaissance).
   Write:
     risks:
       - impact:manipulation

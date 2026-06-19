@@ -12,11 +12,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a CRD cascades to delete every custom resource instance of that type, destroying operator/application state and breaking the controllers that depend on it, disrupting cluster operations.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading CRDs inventories the installed operators, controllers, and custom API types, mapping the cluster's extension attack surface for follow-on targeting.
   write:
     risks:
       - impact:manipulation

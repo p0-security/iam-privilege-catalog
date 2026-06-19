@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting an InternalServiceImport removes the internal cross-cluster import state, severing multi-cluster service reachability for dependent workloads.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reads InternalServiceImport resources, enumerating the internal cross-cluster service-import state and multi-cluster network topology.
   write:
     risks:
       - escalation:network

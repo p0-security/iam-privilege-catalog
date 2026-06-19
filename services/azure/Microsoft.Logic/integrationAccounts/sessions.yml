@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deletes B2B/EDI session state, destroying operational tracking data (control numbers) and disrupting correct message correlation in dependent workflows.
-  read:
-    risks:
-      - discovery:data
-    notes: Reads B2B/EDI session state such as control numbers, inventorying operational message-exchange data tracked by the integration account.
   write:
     risks:
       - impact:manipulation

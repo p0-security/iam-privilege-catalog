@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a private endpoint removes a network connectivity component, disrupting private access to the SQL job agent service (DoS-like effect).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a private endpoint configuration lets an attacker inventory the SQL job agent's private network connectivity (target service, connection state).
   write:
     risks:
       - escalation:network

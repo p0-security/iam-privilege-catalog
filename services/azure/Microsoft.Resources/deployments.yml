@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a deployment removes only the deployment history record, not the underlying provisioned resources, destroying operational deployment metadata and obscuring prior change activity.
-  read:
-    risks:
-      - discovery:infra
-    notes: Getting or listing deployments enumerates what infrastructure was provisioned and its deployment configuration, providing infrastructure reconnaissance.
   write:
     risks:
       - escalation:privilege

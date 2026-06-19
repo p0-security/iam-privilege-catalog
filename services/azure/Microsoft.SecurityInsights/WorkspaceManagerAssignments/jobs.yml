@@ -11,10 +11,6 @@ privileges:
       - impact:manipulation
       - destruction:metadata
     notes: Deletes content-publishing job records, removing operational job-tracking metadata and altering the management/audit state of the publishing process without destroying the underlying content or logs.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only enumeration of content-publishing job status/history across managed workspaces; reconnaissance of the security-management orchestration.
   write:
     risks:
       - impact:manipulation

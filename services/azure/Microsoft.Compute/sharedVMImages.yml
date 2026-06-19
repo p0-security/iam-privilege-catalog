@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes a shared VM image definition, destroying a reusable image artifact that provisioning workflows depend on.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the properties of a shared VM image, enabling read-only inventory of the org's custom image artifacts and configuration for target mapping.
   write:
     risks:
       - impact:manipulation

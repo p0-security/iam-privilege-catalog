@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the peering proxy tears down a VNet peering relationship, removing connectivity between VNets and causing DoS for services that depend on the peered path.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only retrieval of the peering proxy definition only inventories cross-VNet peering/connectivity configuration, enabling network reconnaissance.
   write:
     risks:
       - escalation:network

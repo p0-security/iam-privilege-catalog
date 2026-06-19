@@ -11,11 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting the profile halts archival/export of subscription Activity Log events, destroying log collection and disabling a detection mechanism.
-  Read:
-    risks:
-      - discovery:logs
-    scope: LOW
-    notes: Reading the profile reveals which Activity Log categories are collected and where they are exported, useful recon for evading or targeting logging.
   Write:
     risks:
       - destruction:logs

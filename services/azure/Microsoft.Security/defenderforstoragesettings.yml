@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the settings tears down storage threat protection at the scope, disabling detection of malicious storage activity.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the settings reveals whether and how storage threat protection is enabled, letting an attacker map coverage gaps before abusing storage.
   write:
     risks:
       - destruction:defense

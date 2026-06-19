@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the AAAA record set removes IPv6 name resolution for the hostname, destroying a network component and denying service.
-  read:
-    risks:
-      - discovery:network
-    notes: Getting the AAAA record set discloses hostname-to-IPv6 mappings, enumerating network endpoints and topology.
   write:
     risks:
       - takeover:domain

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the profile removes the fleet's upgrade-orchestration configuration object, disrupting governed patching/upgrade automation without destroying the underlying clusters or their data.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the profile only enumerates the fleet's upgrade-orchestration configuration (channel, versions, schedule), read-only infrastructure reconnaissance with no secret exposure.
   write:
     risks:
       - impact:manipulation

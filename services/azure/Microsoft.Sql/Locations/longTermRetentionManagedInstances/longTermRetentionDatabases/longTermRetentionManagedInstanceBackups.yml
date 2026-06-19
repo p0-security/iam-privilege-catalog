@@ -10,8 +10,3 @@ privileges:
     risks:
       - destruction:data
     notes: Deletes an LTR backup of a managed instance database, destroying organizational recovery data and undermining backup-based mitigation.
-  read:
-    risks:
-      - discovery:data
-    scope: MEDIUM
-    notes: Lists/gets LTR backups for a managed instance database, enumerating stored backup recovery points without returning their contents.

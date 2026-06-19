@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:metadata
-    notes: Reading the applied labels enumerates the classification metadata indicating which columns contain sensitive data, aiding targeted data discovery.
   write:
     risks:
       - impact:manipulation

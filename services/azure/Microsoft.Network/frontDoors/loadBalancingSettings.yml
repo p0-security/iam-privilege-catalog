@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: The operation name is /delete despite the mislabeled 'Creates or updates' displayName/description; removing load balancing settings that routing rules depend on breaks backend distribution and disrupts the public-facing service (DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Gets load balancing settings, inventorying health-probe/distribution configuration — network reconnaissance.
   write:
     risks:
       - impact:manipulation

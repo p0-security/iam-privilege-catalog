@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - impact:dos
     notes: Deleting an in-flight staged update run aborts the rollout, manipulating deployment state and potentially leaving member clusters in an inconsistent, partially-updated condition that disrupts controlled propagation.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of staged update runs only inventories rollout orchestration configuration and progress, providing fleet-wide infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

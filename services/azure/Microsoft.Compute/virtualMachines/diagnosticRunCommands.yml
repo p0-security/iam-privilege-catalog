@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:logs
     notes: Deleting the run command removes the resource and its captured command output, erasing the diagnostic evidence trail of executed commands and hindering incident response.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the run command returns its properties and may surface prior command script/output for a single VM.
   write:
     risks:
       - escalation:lateral

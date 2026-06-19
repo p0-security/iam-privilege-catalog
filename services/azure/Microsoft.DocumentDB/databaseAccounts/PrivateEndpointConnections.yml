@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a connection severs a consumer's private-link path to the account, destroying a network component and denying authorized private access to the service.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reads/lists the private endpoint connections and their approval state, inventorying which consumer networks can privately reach the account; read-only network reconnaissance.
   write:
     risks:
       - escalation:network

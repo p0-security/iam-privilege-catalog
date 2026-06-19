@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Delete/deletecollection data action that removes RuntimeClass objects; deleting a class referenced by running or pending pods breaks their admission/scheduling, destroying runtime config and disrupting dependent workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only data action that enumerates available RuntimeClass configurations, revealing which runtime handlers and isolation settings pods can use; pure infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

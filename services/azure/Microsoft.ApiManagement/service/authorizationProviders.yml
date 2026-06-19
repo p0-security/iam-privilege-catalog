@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an authorization provider removes the credential-provider integration and cascades to delete all its child connections and access policies (confirmed by docs), breaking every API/policy that depends on it for backend authorization.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Listing or getting authorization providers enumerates the configured OAuth credential-provider integrations and their non-secret settings; client secrets and tokens are not returned.
   write:
     risks:
       - impact:manipulation

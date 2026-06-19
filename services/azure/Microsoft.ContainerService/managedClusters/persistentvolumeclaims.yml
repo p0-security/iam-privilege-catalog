@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a PVC can trigger reclamation/deletion of the bound persistent volume (under Delete reclaim policy), destroying stateful application data and detaching storage from running workloads.
-  read:
-    risks:
-      - discovery:data
-    scope: MEDIUM
-    notes: Reading PVCs enumerates the storage volumes bound to workloads, revealing where stateful organizational data is stored as a precursor to access.
   write:
     risks:
       - impact:manipulation

@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting deployments tears down application workloads, destroying running infrastructure and causing denial of service for the hosted applications.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing deployments inventories application workload configuration (images, replicas, env, pod templates), providing infrastructure reconnaissance of running services.
   write:
     risks:
       - impact:hijack

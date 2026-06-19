@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a model definition removes a routable model entry from the gateway catalog, disrupting consumers that route to that model (a localized DoS-like effect).
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of model definitions under a provider, letting an attacker inventory the gateway's configured model catalog (non-sensitive configuration).
   write:
     risks:
       - impact:manipulation

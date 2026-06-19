@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes the ExpressRoutePort, severing dedicated private connectivity and disrupting any service depending on the link.
-  read:
-    risks:
-      - discovery:network
-    notes: Reads ExpressRoutePort configuration (bandwidth, peering location, link details), enabling inventory of dedicated network connectivity infrastructure.
   write:
     risks:
       - impact:manipulation

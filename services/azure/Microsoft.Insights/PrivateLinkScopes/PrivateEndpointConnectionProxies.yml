@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the connection proxy tears down a private-link connectivity component, removing the private network path to the monitoring scope and disrupting authorized private access (DoS-like network destruction).
-  Read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the connection proxy enumerates the AMPLS private-link connectivity configuration, yielding read-only network reconnaissance.
   Write:
     risks:
       - escalation:network

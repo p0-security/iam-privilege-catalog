@@ -11,12 +11,3 @@ privileges:
       - impact:manipulation
       - impact:spend
     notes: Migrating the app's MySQL database moves/transforms backing data and provisions new database resources, manipulating production data and incurring cost.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads the status/configuration of the web app's MySQL migration, yielding operational infrastructure reconnaissance with no data or credential exposure.
-    name: Web App MySQL migration
-    parent:
-      description: The migrateMySql resource exposes the status and configuration of an in-app MySQL migration operation for a Web App (moving a local MySQL database to Azure Database for MySQL).
-      notes: Read-only operation status/configuration; returns migration progress and settings, not database data or credentials.

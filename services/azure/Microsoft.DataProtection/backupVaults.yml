@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - destruction:infra
     notes: Deleting a backup vault destroys the vault and all recovery points/backups it contains, eliminating the organization's recovery capability and the backup infrastructure itself.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Getting a backup vault returns its resource configuration object, providing infrastructure reconnaissance of the backup setup.
   write:
     risks:
       - impact:manipulation

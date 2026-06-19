@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:manipulation
     notes: Deletes an API-level policy, removing that API's enforced security controls (auth, IP filtering, rate limits) and altering its request processing.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reads the API-level policy, exposing that API's security/access-control enforcement so an attacker can identify weaknesses.
   write:
     risks:
       - impact:manipulation

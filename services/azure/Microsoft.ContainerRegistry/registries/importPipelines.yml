@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an import pipeline removes the artifact-ingestion infrastructure, disrupting the registry's automated import workflow.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get/List returns the pipeline configuration (source storage reference, Key Vault secret URI by ID, options) without returning the secret values themselves, so it is read-only infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

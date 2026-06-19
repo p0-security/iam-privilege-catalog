@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting an approval request removes a rollout gate object, altering the staged-update change-control workflow state.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read/list only enumerates pending approval-gate objects, revealing rollout/gating workflow state for reconnaissance with no secrets returned.
   write:
     risks:
       - impact:manipulation

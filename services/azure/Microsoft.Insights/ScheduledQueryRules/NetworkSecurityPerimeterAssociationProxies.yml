@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the NSP association proxy detaches the scheduled query rule from its network security perimeter, removing the network-isolation defense boundary that restricts who can reach the resource.
-  Read:
-    risks:
-      - discovery:network
-    notes: Reading the NSP association proxy only enumerates whether and how the scheduled query rule is bound to its network security perimeter and its enforcement mode, providing reconnaissance of the resource's network-isolation defense posture.
   Write:
     risks:
       - destruction:defense

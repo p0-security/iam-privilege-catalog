@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the record set removes IPv6 name resolution for the host, breaking connectivity to the service it fronts (DoS within the VNet).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the AAAA record set discloses internal hostname-to-IPv6 mappings, inventorying private endpoints and topology.
   write:
     risks:
       - impact:manipulation

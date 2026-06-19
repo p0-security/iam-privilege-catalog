@@ -11,11 +11,6 @@ privileges:
       - destruction:metadata
       - impact:dos
     notes: Deletes the custom-domain ownership verification identifiers, removing the domain-binding metadata which can break custom-domain validation and disrupt the app's public-facing access.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reads the custom-domain ownership verification identifiers bound to the app, enumerating domain-binding configuration for reconnaissance.
   write:
     risks:
       - takeover:domain

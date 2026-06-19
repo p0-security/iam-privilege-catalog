@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a ResourceGuard removes the multi-user-authorization defense, re-enabling unguarded destructive backup operations (deleting backups, reducing retention, disabling soft delete).
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reading a ResourceGuard reveals which critical backup operations are protected by multi-user authorization, exposing the access-control defense configuration to find weak points.
   write:
     risks:
       - impact:manipulation

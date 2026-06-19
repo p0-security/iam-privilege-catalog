@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the Event Grid filter removes the app's event-routing configuration, disrupting event-driven integrations for that single app.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the filter only enumerates the app's event-subscription/routing configuration, useful for reconnaissance; no secret or data exposure.
   write:
     risks:
       - impact:manipulation

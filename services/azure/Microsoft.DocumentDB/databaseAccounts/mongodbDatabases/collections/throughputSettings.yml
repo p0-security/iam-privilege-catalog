@@ -1,19 +1,14 @@
 name: MongoDB collection throughput setting
 description: A throughput (RU/s) capacity configuration for a Cosmos DB MongoDB-API collection. It is a control-plane setting governing provisioned request-unit capacity and metered cost for a production collection, but does not itself expose the stored data.
-scope: LOW
+scope: HIGH
 notes: Throughput controls availability and billing of a production collection; it is capacity/cost configuration, not the data itself.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the collection throughput setting only discloses provisioned-capacity/cost configuration metadata, i.e. read-only infrastructure reconnaissance.
   write:
     risks:
       - impact:spend
       - impact:dos
       - impact:manipulation
-    scope: HIGH
     notes: Updating provisioned RU/s lets an attacker raise capacity to inflate billing (spend), lower it to throttle the collection into denial-of-service (dos), or otherwise alter operational capacity configuration (manipulation).

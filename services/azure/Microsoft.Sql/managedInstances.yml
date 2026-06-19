@@ -12,10 +12,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the managed instance destroys the production database server and all hosted organizational data, causing irreversible data loss and denial of service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing/getting managed instance properties is control-plane reconnaissance that inventories database infrastructure configuration without returning stored data or secrets.
   write:
     risks:
       - impact:manipulation

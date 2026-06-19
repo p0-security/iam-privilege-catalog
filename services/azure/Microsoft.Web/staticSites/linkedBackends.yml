@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Unlinks the backend from the static site, severing the front-end-to-API wiring and breaking the application's dynamic/server-side functionality (denial of service for that function).
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of the backends linked to a static site; reconnaissance of the site-to-backend integration topology.
   Write:
     risks:
       - impact:manipulation

@@ -11,7 +11,3 @@ privileges:
       - destruction:crypto
       - impact:access
     notes: Deletes the managed storage account definition (and its SAS definitions/issuance state), removing the vault-managed credential object and denying applications that rely on the vault to mint storage credentials. The underlying storage account and its data remain intact.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the managed storage account definition (storage account resource ID, active key name, regeneration period); it does not return the storage key or a live SAS token, so it is reconnaissance of credential-management configuration.

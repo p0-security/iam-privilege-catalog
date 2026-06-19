@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the throughput setting discloses non-sensitive provisioned-capacity configuration, useful only for infrastructure reconnaissance.
   write:
     risks:
       - impact:dos

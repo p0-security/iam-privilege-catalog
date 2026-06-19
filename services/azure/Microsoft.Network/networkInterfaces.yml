@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a NIC, removing the network component that connects the VM and severing connectivity for the hosted service (DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reads a single NIC definition, disclosing its IP addresses, subnet, and NSG/route associations for network reconnaissance.
   write:
     risks:
       - impact:manipulation

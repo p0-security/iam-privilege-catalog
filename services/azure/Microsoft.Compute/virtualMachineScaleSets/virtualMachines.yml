@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes a specific scale-set VM instance, destroying production compute infrastructure and removing capacity backing the service (denial of service).
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read of a scale-set VM instance's properties (size, image, NICs, identity references) for infrastructure reconnaissance; returns no secret material or data-plane contents.
   write:
     risks:
       - impact:manipulation

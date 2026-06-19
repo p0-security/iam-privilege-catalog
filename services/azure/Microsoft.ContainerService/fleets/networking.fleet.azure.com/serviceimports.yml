@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a ServiceImport severs cross-cluster service reachability, breaking the multi-cluster network path and denying dependent workloads access.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reads ServiceImport resources, enumerating which cross-cluster services are reachable into the fleet and revealing multi-cluster network topology.
   write:
     risks:
       - escalation:network

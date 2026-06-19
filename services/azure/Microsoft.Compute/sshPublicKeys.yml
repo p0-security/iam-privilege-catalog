@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the stored public-key resource removes a low-sensitivity provisioning config object; it does not affect keys already deployed to running VMs.
-  read:
-    risks:
-      - discovery:infra
-    notes: Getting an SSH public key resource returns only the non-secret public key and metadata, amounting to read-only inventory rather than credential disclosure.
   write:
     risks:
       - impact:manipulation

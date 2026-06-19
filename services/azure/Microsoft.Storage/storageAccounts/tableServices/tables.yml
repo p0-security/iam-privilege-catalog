@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Control-plane delete of a table resource destroys the table and all entity data it contains.
-  read:
-    risks:
-      - discovery:data
-    notes: Lists/gets table resources, enumerating the data containers present in the account without returning entity contents.
   write:
     risks:
       - impact:manipulation

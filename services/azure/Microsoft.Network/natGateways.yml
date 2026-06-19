@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the NAT gateway removes the egress component, severing outbound connectivity for dependent subnets (effective denial of service).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Getting the NAT gateway definition only inventories egress network configuration (associated subnets/public IPs), read-only network reconnaissance.
   write:
     risks:
       - impact:manipulation

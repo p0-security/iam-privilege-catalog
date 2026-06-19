@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Deleting network policies removes the pod-level firewall enforcement, defaulting traffic to allow, defeating segmentation defenses and enabling unrestricted lateral network movement across the cluster.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    notes: Reading/listing network policies discloses the in-cluster firewall/segmentation rules, revealing both network layout and the access-control boundaries an attacker can exploit for lateral movement.
   write:
     risks:
       - destruction:defense

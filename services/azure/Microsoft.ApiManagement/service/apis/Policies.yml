@@ -11,12 +11,6 @@ privileges:
       - destruction:defense
       - impact:manipulation
     notes: Deleting the API policy strips whatever protections it enforced (authentication, authorization, IP filtering, rate limiting), weakening the gateway's defenses and reverting/altering how requests are processed.
-  read:
-    risks:
-      - discovery:policy
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reads the API-level policy XML, exposing the gateway's authentication, IP-filtering, rate-limiting, and backend-routing rules so an attacker can locate access-control weak points before tampering.
   write:
     risks:
       - impact:manipulation

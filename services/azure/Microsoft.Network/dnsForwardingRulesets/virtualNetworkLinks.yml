@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the link detaches conditional DNS forwarding from a virtual network, disrupting name resolution for workloads in that VNet.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the link enumerates which virtual networks are bound to the ruleset, network topology reconnaissance.
   write:
     risks:
       - escalation:network

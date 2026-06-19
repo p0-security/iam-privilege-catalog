@@ -11,10 +11,6 @@ privileges:
       - impact:manipulation
       - impact:dos
     notes: Deleting an override removes per-cluster customizations from propagated resources, altering the effective deployed configuration and potentially disrupting workloads that depend on those overrides.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading overrides inventories the per-cluster modifications applied during propagation, exposing how workloads are customized across member clusters.
   write:
     risks:
       - impact:manipulation

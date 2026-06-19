@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a security user configuration removes the baseline NSG-like security rule set applied across managed network groups, disabling a baseline network defense layer.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a security user configuration discloses the baseline NSG-like security rule set applied across managed network groups, enabling reconnaissance of the network defense posture.
   write:
     risks:
       - destruction:defense

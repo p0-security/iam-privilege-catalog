@@ -11,12 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting validating webhook configurations removes admission-time policy enforcement (e.g. Gatekeeper/Kyverno/Pod Security), disabling a cluster-wide defense and allowing previously-blocked malicious resources.
-  read:
-    risks:
-      - discovery:infra
-      - discovery:policy
-    scope: HIGH
-    notes: Reading validating webhook configurations enumerates the cluster's policy-enforcement admission controls (Gatekeeper/Kyverno/Pod Security), their endpoints and failure policy, revealing what is enforced and where it can be evaded.
   write:
     risks:
       - destruction:defense

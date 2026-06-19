@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the SRV record set breaks internal service discovery, causing denial of service for dependent applications.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the SRV record set reveals internal service locations, ports, and host targets, providing detailed service-discovery reconnaissance.
   write:
     risks:
       - impact:manipulation

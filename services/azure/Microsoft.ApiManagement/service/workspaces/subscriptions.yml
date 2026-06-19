@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:access
     notes: Deleting a subscription revokes a legitimate consumer's authorized access to the product's APIs, denying authorized operational access.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Description explicitly returns the subscription entity 'without keys', so it only enumerates which users subscribe to which products for reconnaissance and yields no credential material.
   write:
     risks:
       - impact:manipulation

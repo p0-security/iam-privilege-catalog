@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a custom IP prefix removes the advertised public IP range from Azure, withdrawing its advertisement and causing denial of service for any resources using addresses derived from it.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: A control-plane get/list that returns the BYOIP range configuration (CIDR, provisioning/commissioning state), letting an attacker inventory the organization's owned public IP ranges.
   write:
     risks:
       - impact:manipulation

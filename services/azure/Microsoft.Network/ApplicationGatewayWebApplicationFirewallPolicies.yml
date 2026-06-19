@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the WAF policy removes the web-application-firewall defense protecting the application gateway, exposing backend services to attack.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the WAF policy enumerates the firewall ruleset, exclusions, and mode, revealing the defensive configuration and where bypass gaps exist.
   write:
     risks:
       - destruction:defense

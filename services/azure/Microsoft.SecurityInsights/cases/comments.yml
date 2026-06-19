@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading case comments lets an attacker inventory SOC investigation notes and analyst findings, learning whether and how their activity is being investigated.
   write:
     risks:
       - impact:manipulation

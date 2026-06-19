@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:dos
     notes: Deleting a PDB removes availability guarantees, allowing mass eviction/drain of protected workloads and thus service disruption.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading PDBs only enumerates workload availability/disruption configuration, a reconnaissance capability with no secret or data exposure.
   write:
     risks:
       - impact:dos

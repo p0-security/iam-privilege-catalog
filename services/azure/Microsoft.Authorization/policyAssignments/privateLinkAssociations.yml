@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - destruction:network
     notes: Deleting the association removes the policy-bound private-link linkage; this tears down both a governance binding and the network-isolation component tying resource management to a private link.
-  read:
-    risks:
-      - discovery:policy
-      - discovery:network
-    notes: Reading the association reveals how the policy assignment is wired to a Resource Management Private Link, inventorying both governance/policy configuration and the network-isolation linkage for reconnaissance.
   write:
     risks:
       - impact:manipulation

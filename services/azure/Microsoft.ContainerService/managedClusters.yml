@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the managed cluster destroys the entire Kubernetes control plane and node infrastructure, taking all hosted workloads offline (denial of service).
-  read:
-    risks:
-      - discovery:infra
-    scope: HIGH
-    notes: Get/read returns the cluster's control-plane configuration (node pools, network profile, identity references, addons) for infrastructure reconnaissance, but returns no credential material.
   write:
     risks:
       - impact:manipulation

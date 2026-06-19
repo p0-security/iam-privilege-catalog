@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - destruction:defense
     notes: Deleting a policy definition removes a governance/security rule construct, destroying the control and disabling the enforcement it would provide once assigned.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reading a policy definition exposes the rule logic and effect, helping an attacker understand how a control works and where it can be evaded.
   write:
     risks:
       - impact:manipulation

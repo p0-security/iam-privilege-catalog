@@ -9,11 +9,6 @@ privileges:
     risks:
       - impact:dos
     notes: Deleting a job schedule unlinks a runbook from its schedule, halting automated operations (e.g. scheduled backups, remediation, scaling) and disrupting the service they support.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a job schedule enumerates which runbooks are wired to which schedules, mapping the automation execution surface without altering or running anything.
   write:
     risks:
       - escalation:lateral

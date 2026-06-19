@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an integration severs the connection that exports Defender alerts/findings to external security systems, disabling a defensive alerting/monitoring pathway.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading integration config inventories how Defender forwards findings/alerts to external tooling, revealing the defensive monitoring topology.
   write:
     risks:
       - destruction:defense

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy removes a private-network connectivity component for the endpoint, potentially severing private telemetry ingestion access.
-  Read:
-    risks:
-      - discovery:network
-    notes: Reading the proxy enumerates the private-network connectivity configuration of the data collection endpoint, providing network reconnaissance.
   Write:
     risks:
       - escalation:network

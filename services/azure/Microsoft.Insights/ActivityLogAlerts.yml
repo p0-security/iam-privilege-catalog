@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an activity log alert removes a detection rule that would otherwise notify defenders of suspicious management-plane events, allowing the attacker to operate without triggering notifications.
-  Read:
-    risks:
-      - discovery:logs
-    scope: LOW
-    notes: Reading an activity log alert inventories which control-plane conditions are monitored and where notifications go, revealing detection coverage and blind spots to plan evasion.
   Write:
     risks:
       - destruction:defense

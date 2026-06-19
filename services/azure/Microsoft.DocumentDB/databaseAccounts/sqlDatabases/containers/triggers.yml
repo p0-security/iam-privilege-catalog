@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deleting a trigger removes a server-side code artifact, disabling validation/transformation logic the container relies on.
-  read:
-    risks:
-      - discovery:code
-    notes: Reading/listing triggers returns the server-side JavaScript source bodies defined on the container.
   write:
     risks:
       - impact:manipulation

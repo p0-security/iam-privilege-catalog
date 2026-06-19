@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes the ALM integration configuration, removing the operational linkage between monitoring telemetry and external work-item tracking.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reads the ALM integration configuration, inventorying how Application Insights is wired to external work-item tracking systems; returns configuration settings, not secret material.
   Write:
     risks:
       - impact:manipulation

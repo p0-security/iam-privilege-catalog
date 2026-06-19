@@ -11,10 +11,6 @@ privileges:
       - destruction:data
       - destruction:defense
     notes: Deletes watchlists, destroying curated reference data and breaking the analytics/correlation rules that depend on it, degrading detection coverage.
-  read:
-    risks:
-      - discovery:data
-    notes: Reads watchlist contents, exposing curated reference data (allow/deny lists, VIP/asset lists, IOCs) that reveals detection context and high-value targets.
   write:
     risks:
       - impact:manipulation

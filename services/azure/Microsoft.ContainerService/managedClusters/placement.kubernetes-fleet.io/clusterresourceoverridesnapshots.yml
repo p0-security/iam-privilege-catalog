@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a snapshot removes a captured override revision used for rollout tracking, destroying operational revision metadata/history without directly affecting live resources.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a snapshot enumerates a point-in-time copy of cluster-scoped override configuration, revealing how fleet workloads are mutated; reconnaissance with no secret or data exposure.
   write:
     risks:
       - impact:manipulation

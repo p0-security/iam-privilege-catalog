@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the schema document describing the API, exposing its detailed structural definition for reconnaissance without returning secrets or stored data.
   write:
     risks:
       - impact:manipulation

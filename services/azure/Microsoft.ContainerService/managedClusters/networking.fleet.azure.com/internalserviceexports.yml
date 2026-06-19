@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting withdraws a service from cross-cluster discovery, tearing down a network routing component and breaking inter-cluster service availability.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading enumerates which internal services are exported across the fleet, mapping cross-cluster service/network topology for reconnaissance.
   write:
     risks:
       - escalation:network

@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes the connection, destroying the authenticated binding so dependent Logic Apps/integrations break, similar in effect to a denial of service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read returns the connection's configuration (backend target, auth type, status) without secret values, enabling reconnaissance of how integrations are wired.
   write:
     risks:
       - impact:manipulation

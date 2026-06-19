@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the security contact removes the alert-notification recipient, stopping alert delivery and degrading incident response.
-  read:
-    risks:
-      - discovery:account
-    scope: LOW
-    notes: Reading the security contact reveals the administrator emails/identities notified of alerts, useful for targeting and confirming notification routing.
   write:
     risks:
       - destruction:defense

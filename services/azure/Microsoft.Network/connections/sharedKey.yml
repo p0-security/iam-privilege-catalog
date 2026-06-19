@@ -22,6 +22,3 @@ privileges:
       - escalation:network
     notes: Despite the /action naming, this GET returns the connection's IPsec pre-shared key (credential material), enabling exfiltration of the secret and, by reuse, establishing/impersonating the tunnel to reach the connected network.
     name: Virtual network gateway connection
-    parent:
-      description: A VirtualNetworkGatewayConnection links a virtual network gateway to a peer (another gateway, a local network gateway for site-to-site VPN, or an ExpressRoute circuit), establishing cross-premises or cross-network IPsec/ExpressRoute connectivity.
-      notes: These connections bridge Azure VNets with on-premises or partner networks; compromise can expose the IPsec pre-shared key, intercept tunnel traffic, or sever connectivity for dependent workloads.

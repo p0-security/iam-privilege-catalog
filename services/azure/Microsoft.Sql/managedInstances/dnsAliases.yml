@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a DNS alias removes the connection endpoint name clients depend on, breaking name resolution to the managed instance and denying service to dependent applications.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Listing/getting DNS aliases enumerates the connection endpoint names mapped to the managed instance, providing network/endpoint reconnaissance with no data access.
   write:
     risks:
       - takeover:domain

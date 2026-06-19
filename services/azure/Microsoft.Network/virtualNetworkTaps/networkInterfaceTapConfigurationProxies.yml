@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy removes the traffic-mirroring association from the virtual network tap, a network-component deletion that can also disrupt legitimate monitoring feeds.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the proxy enumerates which network interfaces are mirrored to the tap, exposing the traffic-collection topology as network reconnaissance.
   write:
     risks:
       - collection:data

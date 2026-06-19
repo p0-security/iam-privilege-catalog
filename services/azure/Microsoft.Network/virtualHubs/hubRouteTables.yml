@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a hub route table removes routing across the Virtual WAN hub, breaking connectivity between connected networks.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a hub route table only inventories routing topology and next-hops across the WAN hub, which is network reconnaissance.
   write:
     risks:
       - impact:manipulation

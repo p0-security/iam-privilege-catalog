@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a route table removes routing for associated subnets, disrupting connectivity for hosted services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a route table definition enumerates routing configuration (address prefixes, next hops), enabling network topology reconnaissance.
   write:
     risks:
       - impact:manipulation

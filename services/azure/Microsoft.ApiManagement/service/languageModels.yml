@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a language-model registration removes a backend the gateway routes to, breaking LLM proxying for dependent AI APIs (DoS-like disruption).
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets the registered language-model backend definitions on the AI gateway, enumerating which models/backends are configured; returns config metadata, not credentials.
   write:
     risks:
       - impact:manipulation

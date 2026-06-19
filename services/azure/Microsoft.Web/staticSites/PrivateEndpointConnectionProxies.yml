@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes the connection proxy, tearing down a private-link connectivity component and disrupting private access to the static site.
-  Read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reads the connection proxy, inventorying the static site's private-link connectivity configuration; read-only network reconnaissance with no data or credential exposure.
   Write:
     risks:
       - escalation:network

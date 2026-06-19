@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the NSP association proxy detaches the vault from its network security perimeter, removing the network-isolation defense that restricts who can reach the secret store.
-  read:
-    risks:
-      - discovery:network
-    notes: The displayName/description ("Delete...") is a metadata error; the verb is /read, so it only enumerates the vault's NSP association configuration, providing reconnaissance of the vault's network defense posture.
   write:
     risks:
       - destruction:defense

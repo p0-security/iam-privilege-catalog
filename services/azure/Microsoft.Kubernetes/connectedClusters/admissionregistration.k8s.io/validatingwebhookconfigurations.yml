@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting validating webhook configurations removes cluster-wide admission-control enforcement, disabling a security defense and the policy that would otherwise reject malicious or noncompliant resources.
-  read:
-    risks:
-      - discovery:policy
-    scope: HIGH
-    notes: Reading validating webhook configurations inventories the cluster's admission-control policy enforcement points, revealing which security guardrails exist and where gaps can be exploited.
   write:
     risks:
       - destruction:defense

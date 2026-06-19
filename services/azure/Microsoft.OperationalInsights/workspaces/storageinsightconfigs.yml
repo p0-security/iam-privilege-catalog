@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting the storage insight configuration stops the workspace from reading data from the storage account, disabling that log-collection source and degrading monitoring/detection coverage.
-  read:
-    risks:
-      - discovery:infra
-    notes: Gets a storage insight configuration, revealing the linked storage account and ingestion source settings for reconnaissance, without returning data or keys.
   write:
     risks:
       - impact:manipulation

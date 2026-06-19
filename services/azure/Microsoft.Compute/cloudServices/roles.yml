@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Compute
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Returns the role's compute configuration (SKU, instance count), enabling infrastructure reconnaissance.
   write:
     risks:
       - impact:hijack

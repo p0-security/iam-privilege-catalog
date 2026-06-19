@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a private endpoint connection tears down established private connectivity to the DiskAccess, disrupting authorized private access to the disk import/export path (DoS-like).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a private endpoint connection only enumerates the connection configuration and approval state, yielding network reconnaissance.
   write:
     risks:
       - escalation:network

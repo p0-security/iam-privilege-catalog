@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a nested endpoint removes a routing target so Traffic Manager stops routing traffic to the nested profile, destroying a network component and denying service to those backends.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a nested endpoint inventories the hierarchical routing topology (the child profile it references and its routing properties), which is network reconnaissance.
   write:
     risks:
       - takeover:domain

@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Authorization
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading these requests enumerates pending and active RBAC grants and their assignees at a scope, exposing the privileged-access state and escalation targets.
   write:
     risks:
       - escalation:privilege

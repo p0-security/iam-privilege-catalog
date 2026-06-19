@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a webhook removes the runbook trigger integration, destroying automation configuration and disrupting any workflow that depends on it.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a webhook returns only its configuration metadata (target runbook, expiry, enabled state), not the secret invocation URI, so it is mere reconnaissance of the trigger.
   write:
     risks:
       - escalation:lateral

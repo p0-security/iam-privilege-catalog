@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an analysis run removes verification result records; impact is confined to diagnostic data, not live network resources.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading an analysis run returns reachability/connectivity results, disclosing network paths, allowed/denied flows, and topology.
   write:
     risks:
       - impact:manipulation

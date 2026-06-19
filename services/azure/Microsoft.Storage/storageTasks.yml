@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a storage task removes the automation resource, disrupting the data-management workflows that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    notes: Getting a storage task's properties inventories its configured conditions and blob operations, reconnaissance of the data-management automation.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Delete tears down the multi-cluster management hub, destroying the orchestration resource and disrupting centralized management across all member clusters.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get returns the fleet's configuration and member-cluster topology, enabling reconnaissance of the multi-cluster management plane.
   write:
     risks:
       - impact:manipulation

@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:infra
     notes: Deleting the component tears down the monitoring resource and its retained telemetry, removing logs (evasion) and destroying diagnostic infrastructure.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reading component configuration enumerates the monitoring resource's settings; the returned instrumentation key is a write-only ingestion identifier, not a data-read credential, so this is reconnaissance only.
   Write:
     risks:
       - impact:manipulation

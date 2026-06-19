@@ -10,12 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the workspace policy removes the gateway's enforced auth/IP-filter/rate-limit controls applied across all APIs in the workspace, weakening defenses broadly.
-  read:
-    risks:
-      - discovery:infra
-      - discovery:policy
-    scope: MEDIUM
-    notes: Get/list of the workspace-level policy configuration discloses the enforced request-processing and security rules applied across all APIs in the workspace, exposing the broad enforcement posture and weak points.
   write:
     risks:
       - destruction:defense

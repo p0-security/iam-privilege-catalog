@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an IOC removes a detection signal so attacker activity matching it goes unflagged.
-  read:
-    risks:
-      - discovery:data
-    scope: LOW
-    notes: Reading IOCs reveals which indicators of the attacker's infrastructure are already tracked, enabling evasion.
   write:
     risks:
       - destruction:defense

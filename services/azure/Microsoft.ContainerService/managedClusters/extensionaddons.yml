@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an extension addon removes a deployed in-cluster component, disrupting the function it provides; if the addon is security/monitoring tooling this can also blind defenses.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only get only enumerates installed extension-addon configuration (publisher, type, version), letting an attacker inventory deployed components and the cluster's security/monitoring posture.
   write:
     risks:
       - escalation:lateral

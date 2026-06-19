@@ -11,12 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the source-control configuration disconnects the app's continuous-deployment integration, destroying the deployment-pipeline config and disrupting the ability to deploy or update the service.
-  Read:
-    risks:
-      - discovery:infra
-      - discovery:code
-    scope: MEDIUM
-    notes: Reading the source-control configuration reveals the linked repository URL, branch, and deployment settings, inventorying both the deployment pipeline and the location of the application's source code.
   Write:
     risks:
       - impact:manipulation

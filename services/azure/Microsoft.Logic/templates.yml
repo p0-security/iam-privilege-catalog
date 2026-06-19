@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes a flow organization template, destroying a stored reusable automation artifact; it removes only the template, not any deployed/running flow infrastructure.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads or lists a flow organization template, letting an attacker inventory reusable automation/workflow definitions as reconnaissance.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting PriorityClasses removes scheduling configuration that pods reference, disrupting pod admission/scheduling and operations across the cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read/list only enumerates cluster scheduling-priority configuration; pure infrastructure reconnaissance with no data or credential exposure.
   write:
     risks:
       - impact:manipulation

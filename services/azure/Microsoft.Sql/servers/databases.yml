@@ -11,10 +11,6 @@ privileges:
       - destruction:data
       - destruction:infra
     notes: Deleting a database destroys the organizational data it holds along with the database resource itself, causing irrecoverable data loss absent backups and denial of service for the dependent function.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read (isDataAction=false) returns database properties/configuration and enumerates databases, enabling infrastructure reconnaissance without exposing stored row data or secrets.
   write:
     risks:
       - impact:manipulation

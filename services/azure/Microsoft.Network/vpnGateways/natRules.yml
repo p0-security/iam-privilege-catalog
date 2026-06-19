@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a NAT rule removes a network address-translation component, breaking the affected site-to-site connectivity in a DoS-like network destruction.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reads NAT rule configuration, disclosing address-translation and IP-mapping details of the VPN gateway for network reconnaissance.
   write:
     risks:
       - impact:manipulation

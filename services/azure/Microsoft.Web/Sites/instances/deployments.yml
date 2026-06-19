@@ -10,8 +10,3 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a deployment record removes deployment-history metadata, hampering rollback and obscuring operational/audit state without destroying the running app or its data.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading deployment records enumerates the app's deployment history and status metadata, providing infrastructure/release-configuration reconnaissance without returning source or secrets.

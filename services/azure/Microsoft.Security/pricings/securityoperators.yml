@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - impact:access
     notes: Deleting a security operator removes the managed identity that runs a Defender plan, disabling that plan's protection and revoking the legitimate operational access tied to it.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the operators enumerates which Defender plans are active and the identities operating them, exposing both posture and identity targets.
   write:
     risks:
       - escalation:lateral

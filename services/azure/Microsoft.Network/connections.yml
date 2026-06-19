@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deletes the gateway connection, tearing down the VPN/ExpressRoute tunnel and severing connectivity to the remote network, causing denial of service for dependent workloads.
-  read:
-    risks:
-      - discovery:network
-    notes: Reads the gateway connection configuration (peers, gateway references, connection type, routing), enabling network-topology reconnaissance. This control-plane GET does not return the shared key.
   write:
     risks:
       - impact:manipulation

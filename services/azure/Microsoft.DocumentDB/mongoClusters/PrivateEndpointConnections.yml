@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a private endpoint connection severs an approved private-link path to the cluster, destroying a network component and disrupting legitimate private access (DoS-like effect captured by destruction:network).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading/listing private endpoint connections enumerates which consumer endpoints are bound to the cluster and their approval state, providing network reconnaissance.
   write:
     risks:
       - escalation:network

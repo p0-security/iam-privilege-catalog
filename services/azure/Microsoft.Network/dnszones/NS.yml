@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the NS delegation record set breaks resolution for the delegated subdomain, making everything hosted under it unresolvable (DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the NS record set enumerates nameserver delegations for the zone and its child subdomains, mapping the domain's authority structure.
   write:
     risks:
       - takeover:domain

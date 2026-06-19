@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a migration item tears down the replication/migration relationship for a workload, destroying the DR/migration setup and disrupting the ability to migrate or recover that workload.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading migration items enumerates which workloads are replicated and their migration/target configuration, providing infrastructure reconnaissance without returning data or secrets.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting PVs removes the storage objects backing stateful workloads and, depending on reclaim policy, destroys the underlying persisted data while breaking all workloads bound to them.
-  read:
-    risks:
-      - discovery:data
-      - discovery:infra
-    notes: Reading PVs inventories cluster storage objects and exposes backing storage references (disk handles, NFS/CSI endpoints, capacity), revealing both where data is persisted and the supporting storage infrastructure.
   write:
     risks:
       - impact:manipulation

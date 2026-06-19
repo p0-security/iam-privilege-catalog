@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting custom resources (including DeleteCollection) removes controller-managed objects, tearing down the infrastructure operators reconcile and disrupting dependent services.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading arbitrary custom resources inventories operator/controller configuration and CRD-defined objects across the cluster.
   write:
     risks:
       - impact:manipulation

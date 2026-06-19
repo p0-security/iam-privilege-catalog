@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting this object removes the enforcement requiring AAD-only authentication, re-permitting weaker SQL password logins and disabling an authentication defense.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reading this object reveals whether AAD-only enforcement is active, exposing whether legacy SQL password authentication is still permitted as a weak access-control point.
   write:
     risks:
       - destruction:defense

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting alert rules removes detection coverage entirely, blinding the SOC to the corresponding attacker activity.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading alert rules reveals the SIEM's detection logic and coverage, letting an attacker identify blind spots and craft activity that evades detection.
   write:
     risks:
       - destruction:defense

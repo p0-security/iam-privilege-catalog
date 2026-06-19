@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a sync member tears down a replication relationship, disrupting data synchronization for the affected database.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Listing/getting sync members inventories the databases participating in synchronization and their connection configuration, enabling reconnaissance of the replication topology.
   write:
     risks:
       - impact:manipulation

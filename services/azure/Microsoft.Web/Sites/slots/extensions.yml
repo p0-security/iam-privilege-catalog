@@ -1,19 +1,14 @@
 name: Web Apps slot site extensions
 description: Site (Kudu/SCM) extensions installed on an App Service deployment slot are code modules/tooling that run inside the app's sandbox.
-scope: MEDIUM
+scope: HIGH
 notes: Control-plane configuration of the app's runtime components; reads return no secret material.
 links:
   - https://azure.permissions.cloud/iam/microsoft.web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only get only enumerates the installed site extensions and their configuration on the slot, providing reconnaissance of the app's runtime environment.
   write:
     risks:
       - escalation:lateral
       - impact:hijack
       - impact:manipulation
-    scope: HIGH
     notes: Installing/updating a site extension deploys code that runs in the app worker process under the app's managed identity, enabling code execution as that identity, abuse of the compute, and tampering with app behavior.

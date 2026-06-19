@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting a PSP removes a pod-admission security control, allowing previously-blocked privileged/host-mounting pods to be scheduled and tearing down the enforcing security policy.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: A read/list data action that enumerates the pod-admission security constraints in effect, letting an attacker map which restrictions are enforced and find a permissive/weak policy to abuse.
   write:
     risks:
       - destruction:defense

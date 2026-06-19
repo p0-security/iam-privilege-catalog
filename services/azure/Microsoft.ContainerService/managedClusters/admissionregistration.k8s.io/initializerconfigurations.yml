@@ -11,12 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting initializer configurations removes admission-time enforcement, disabling a cluster-wide defense and the access-control/policy gating applied at admission.
-  read:
-    risks:
-      - discovery:infra
-      - discovery:policy
-    scope: HIGH
-    notes: Reading initializer configurations enumerates the cluster's admission-control enforcement posture, revealing infrastructure wiring and policy weak points to target or bypass; returns no secret material.
   write:
     risks:
       - destruction:defense

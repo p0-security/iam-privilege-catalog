@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an API operation removes a specific exposed endpoint, destroying that configuration and denying service to consumers that rely on the operation.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing or getting an API's operations enumerates the gateway's exposed methods and URL templates for reconnaissance; returns no secret material.
   write:
     risks:
       - impact:manipulation

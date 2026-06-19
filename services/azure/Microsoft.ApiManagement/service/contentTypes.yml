@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a content type (schema) definition, removing supporting portal configuration that structures developer-portal content.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Returns the list/details of developer-portal content type (schema) definitions, enabling reconnaissance of portal content structure.
   write:
     risks:
       - impact:manipulation

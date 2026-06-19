@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Security
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading governance rules discloses how findings are routed, prioritized, and escalated, helping an attacker predict and exploit gaps in the defensive process.
   write:
     risks:
       - impact:manipulation

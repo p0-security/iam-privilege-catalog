@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an API removes a published gateway endpoint, destroying that service configuration and denying service to all consumers that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing or getting API definitions inventories the gateway's exposed API surface and backend configuration for reconnaissance; returns no secret material.
   write:
     risks:
       - impact:manipulation

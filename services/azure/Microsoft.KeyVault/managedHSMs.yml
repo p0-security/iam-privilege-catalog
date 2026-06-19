@@ -12,10 +12,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the Managed HSM destroys the entire key store and all cryptographic material it holds, causing irreversible cryptographic destruction, infrastructure loss, and denial of service to every dependent service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read returns HSM properties/configuration (SKU, network ACLs, soft-delete/purge state, RBAC config) but not key material, so it is infrastructure reconnaissance of a critical crypto asset.
   write:
     risks:
       - impact:manipulation

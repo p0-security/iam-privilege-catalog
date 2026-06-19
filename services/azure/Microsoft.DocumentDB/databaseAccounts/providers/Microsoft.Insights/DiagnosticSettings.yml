@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Despite the mislabeled 'Write diagnostic setting' displayName, the description confirms this GETS the setting, revealing whether/where logs are routed so an attacker can map detection coverage before evasion.
   write:
     risks:
       - destruction:logs

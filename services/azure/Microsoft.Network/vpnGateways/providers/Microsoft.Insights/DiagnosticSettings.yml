@@ -1,18 +1,13 @@
 name: VPN gateway diagnostic settings
 description: Diagnostic settings control whether and where a VPN gateway's logs and metrics are collected and routed (Log Analytics, storage, event hub).
-scope: LOW
+scope: MEDIUM
 notes: Reading reveals monitoring coverage; writing can disable/redirect log collection.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic settings reveals whether and where logs are collected, letting an attacker identify logging gaps for evasion planning.
   write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Creating or updating diagnostic settings lets an attacker disable or redirect VPN gateway log/metric collection, blinding incident response and weakening detective defenses.

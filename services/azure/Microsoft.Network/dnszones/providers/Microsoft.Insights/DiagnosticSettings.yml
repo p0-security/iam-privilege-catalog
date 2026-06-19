@@ -1,18 +1,13 @@
 name: DNS zone diagnostic settings
 description: Diagnostic settings that control which logs and metrics are collected for an Azure DNS zone and where they are routed (Log Analytics, storage, event hub).
-scope: LOW
+scope: MEDIUM
 notes: Monitoring/diagnostics configuration asset; controlling it affects detection coverage rather than DNS data itself.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic settings only enumerates whether and where DNS logs/metrics are collected, useful reconnaissance for planning evasion.
   write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Creating or updating diagnostic settings lets an attacker disable or redirect DNS log/metric collection, disrupting incident response and weakening a detection control.

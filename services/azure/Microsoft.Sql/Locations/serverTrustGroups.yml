@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a trust group tears down the inter-instance trust relationship that distributed transactions and cross-instance features depend on, disrupting dependent operations.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Returning existing trust groups inventories the cross-instance trust/connectivity topology, providing reconnaissance of inter-instance relationships.
   write:
     risks:
       - escalation:network

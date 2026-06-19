@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:policy
     notes: Deleting the policy removes the access-control rules constraining network association, lifting deny restrictions that would otherwise block attacker connectivity.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading the policy discloses the access-control rules governing network association, letting an attacker inventory the policy to find weak points.
   write:
     risks:
       - escalation:privilege

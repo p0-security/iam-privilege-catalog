@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a config connection severs the gateway from its configuration source, disrupting the API routing it provides.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read/list of config connections enumerates how gateways are bound to their configuration source, providing infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

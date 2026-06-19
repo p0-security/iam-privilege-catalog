@@ -11,11 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a monitored object removes the association that drives telemetry/log collection for the targeted scope, halting log gathering and weakening monitoring-based detection and incident response.
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a monitored object enumerates the targeting scope and data-collection-rule associations, revealing the monitoring topology as reconnaissance.
   Write:
     risks:
       - impact:manipulation

@@ -1,17 +1,12 @@
 name: Database Data Masking Policy Rule
 description: An individual rule within an Azure SQL Database's dynamic data masking policy, specifying which column is masked and the masking function applied.
-scope: MEDIUM
+scope: HIGH
 notes: Reveals exactly which columns hold sensitive data and how they are protected.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading a masking rule reveals exactly which columns are masked and how, identifying sensitive-data targets and bypass opportunities.
   write:
     risks:
       - destruction:defense
-    scope: HIGH
     notes: Setting/altering a masking rule lets an attacker remove or weaken masking on a specific sensitive column, defeating the protection defense to expose its real values.

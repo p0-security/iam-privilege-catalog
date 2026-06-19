@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a Front Door removes the global edge/routing/CDN front-end, tearing down a network component and causing denial of service for the fronted public application.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a Front Door inventories its routing rules, frontend endpoints, and backend pools, exposing public-facing network topology for reconnaissance.
   write:
     risks:
       - impact:manipulation

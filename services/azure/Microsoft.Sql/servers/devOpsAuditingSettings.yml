@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the policy reveals whether and how DevOps auditing is configured, letting an attacker assess logging/detection coverage before acting.
   write:
     risks:
       - destruction:logs

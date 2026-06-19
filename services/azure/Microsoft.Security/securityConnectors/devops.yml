@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the DevOps connector removes Defender for Cloud security scanning of the connected DevOps environment, disabling that defense mechanism.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the DevOps configuration reveals the connector's integration setup (linked DevOps environment, scanning scope) for reconnaissance.
   write:
     risks:
       - destruction:defense

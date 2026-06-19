@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the workspace manager configuration tears down the centralized security-content management capability, disrupting coordinated governance and propagation of defensive content across workspaces.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading workspace manager configurations only enumerates whether and how the central management feature is configured, providing reconnaissance of the security-management posture.
   write:
     risks:
       - impact:manipulation

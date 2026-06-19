@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deletes a group used for product/API authorization, destroying the access-control grouping and revoking legitimate members' access to the products/APIs they relied on.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Lists/gets groups, inventorying the authorization grouping structure that controls which users access which products and APIs, revealing access-control weak points.
   write:
     risks:
       - escalation:privilege

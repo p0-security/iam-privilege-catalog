@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the event-routing filter, removing the hosting environment's event-notification plumbing and disrupting downstream event-driven automation.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only get only inventories the event-routing/subscription configuration of the hosting environment.
   write:
     risks:
       - impact:manipulation

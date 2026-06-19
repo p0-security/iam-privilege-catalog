@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a mesh membership tears down the cluster's service-mesh networking integration, disrupting mesh-routed service-to-service communication and denying service for workloads that depend on the mesh.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading a mesh membership only inventories the cluster's service-mesh association configuration, a control-plane reconnaissance action exposing no secret material.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a MongoDB-API collection destroys the collection and all documents it holds, irreversibly removing organizational data (mitigated only by backup).
-  read:
-    risks:
-      - discovery:data
-    notes: Reading or listing collections enumerates the data stores present in the MongoDB-API database (without returning document contents), letting an attacker inventory stored data objects.
   write:
     risks:
       - impact:manipulation

@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Deleting an association removes the resource from the perimeter, stripping its network-isolation defense and re-exposing it to broader network access.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the association enumerates which resources are bound inside the perimeter and their access modes, mapping the network isolation boundary for reconnaissance.
   write:
     risks:
       - destruction:defense

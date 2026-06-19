@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a domain list removes the allow/block domain set backing DNS security rules, disabling or degrading the DNS filtering defense that depends on it.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only get of a domain list discloses the configured allow/block domain entries used by DNS security rules, providing reconnaissance of the network defense configuration.
   write:
     risks:
       - destruction:defense

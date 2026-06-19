@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes the hub's connection-policy component, removing connectivity-governing configuration and potentially disrupting connectivity through the production hub.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Control-plane read that returns the hub's connection-policy configuration, letting an attacker inventory hub connectivity/admission rules for reconnaissance.
   write:
     risks:
       - impact:manipulation

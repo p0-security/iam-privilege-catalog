@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a configuration policy group removes a P2S VPN access component, disrupting connectivity for clients that depend on it (DoS-like effect on the connectivity function).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a configuration policy group enumerates P2S VPN client grouping/access policy, providing network reconnaissance without disclosing secret material.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting CSINode objects removes node storage-driver registration the scheduler relies on, breaking volume attachment/scheduling and denying storage to stateful workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Enumerates installed CSI drivers and node storage topology, providing storage-layer infrastructure reconnaissance with no data or secrets exposed.
   write:
     risks:
       - impact:manipulation

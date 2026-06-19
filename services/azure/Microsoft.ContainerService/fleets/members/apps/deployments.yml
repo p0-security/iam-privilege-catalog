@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting Deployments (incl. DeleteCollection) tears down the controllers and their pods, removing workload infrastructure and disrupting the backed service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing Deployments inventories workload configuration (images, replicas, env, mounted-secret references) for reconnaissance.
   write:
     risks:
       - impact:hijack

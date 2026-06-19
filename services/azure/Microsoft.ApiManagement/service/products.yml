@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a product, removing the API grouping and its dependent subscriptions, disrupting consumer access to the bundled APIs.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists or reads product definitions, inventorying the API offerings, their bundled APIs, and access/subscription configuration of the gateway.
   write:
     risks:
       - impact:manipulation

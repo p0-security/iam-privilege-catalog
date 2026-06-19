@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting an IoT site removes the logical grouping metadata used to organize sensors, without destroying the sensors or their monitoring themselves.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading an IoT site returns the logical grouping/topology of monitored sensors, low-to-moderate reconnaissance of the monitoring deployment.
   write:
     risks:
       - impact:manipulation

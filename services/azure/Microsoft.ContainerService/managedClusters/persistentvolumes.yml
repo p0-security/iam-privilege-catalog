@@ -12,10 +12,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting PVs removes storage bindings workloads depend on (DoS), tears down storage infrastructure, and with a Delete reclaim policy destroys the underlying persisted data.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing PVs enumerates cluster storage configuration and backing-store references (volume handles, capacity, claim refs) but does not return the data inside the volumes, so it is infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

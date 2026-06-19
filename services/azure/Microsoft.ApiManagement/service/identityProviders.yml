@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:access
     notes: Deleting an IdP configuration removes an authentication mechanism, disabling a defense and denying legitimate users their configured sign-in path.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reads IdP configuration without secrets, inventorying the authentication/access-control setup to find weak points.
   write:
     risks:
       - impact:manipulation

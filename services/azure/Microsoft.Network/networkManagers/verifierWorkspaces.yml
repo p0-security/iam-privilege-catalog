@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a Verifier Workspace destroys the analysis container and its child intents/runs, a supporting-infrastructure destruction with no impact on live network paths.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a Verifier Workspace enumerates the network-verification configuration container, exposing metadata about the network analyses being performed (reconnaissance).
   write:
     risks:
       - impact:manipulation

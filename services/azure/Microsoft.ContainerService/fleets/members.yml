@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a fleet member removes a production cluster from centralized fleet orchestration, tearing down the membership and disrupting coordinated update/config rollout to that cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read-only GET returns which AKS cluster is enrolled and its membership/update settings, letting an attacker inventory fleet-managed cluster infrastructure.
   write:
     risks:
       - impact:manipulation

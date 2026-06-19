@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the TXT record set removes verification/SPF/policy entries, disrupting validations and services that depend on them.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the TXT record set exposes internal text data such as verification tokens, SPF, and policy strings within the private zone.
   write:
     risks:
       - impact:manipulation

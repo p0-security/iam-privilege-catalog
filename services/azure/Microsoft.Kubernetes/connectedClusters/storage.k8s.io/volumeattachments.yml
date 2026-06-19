@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting VolumeAttachments forcibly detaches persistent volumes from nodes, disrupting access to backing storage for running stateful workloads and causing denial of service.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read/list only enumerates which volumes are attached to which nodes, providing storage topology reconnaissance with no data or secret exposure.
   write:
     risks:
       - impact:manipulation

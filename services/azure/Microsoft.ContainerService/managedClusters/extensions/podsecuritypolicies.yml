@@ -12,10 +12,6 @@ privileges:
       - destruction:policy
       - escalation:privilege
     notes: Deleting PodSecurityPolicies removes the admission-control security policy that restricts privileged workloads, disabling a defense, destroying access-control policy, and permitting privileged pods that escalate to the node/host.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading PodSecurityPolicies inventories the cluster's pod-admission security constraints, revealing where privileged-pod restrictions are weak and exploitable.
   write:
     risks:
       - destruction:defense

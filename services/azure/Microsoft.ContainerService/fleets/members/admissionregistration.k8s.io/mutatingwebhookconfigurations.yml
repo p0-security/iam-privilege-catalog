@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - impact:dos
     notes: Deleting mutating webhook configurations removes admission-time controls that frequently enforce security defaults (sidecar/policy/identity injection), disabling a defense; deleting a failurePolicy=Fail webhook can also block all matching admissions, disrupting cluster operations.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading mutatingwebhookconfigurations inventories the webhooks that rewrite admitted objects and their endpoints/rules/CA bundles, revealing the admission posture and where the cluster can be subverted, without exposing secret material.
   write:
     risks:
       - escalation:lateral

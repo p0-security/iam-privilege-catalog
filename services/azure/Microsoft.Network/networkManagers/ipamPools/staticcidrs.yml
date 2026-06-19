@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a static CIDR removes a reserved address-space allocation, destroying network address-management state that dependent resources rely on and risking addressing conflicts.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading a static CIDR inventories allocated IP address ranges, providing reconnaissance of the organization's address plan.
   write:
     risks:
       - impact:manipulation

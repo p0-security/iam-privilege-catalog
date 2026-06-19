@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting an authorization permission removes an access-control grant on a stored credential, destroying policy data and revoking other principals' authorized use of the connection.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Listing/getting authorization permissions enumerates which principals are granted access to use a stored OAuth credential, revealing the access-control configuration of a credential-bearing resource.
   write:
     risks:
       - escalation:privilege

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: The operation NAME verb is /delete, removing the action that fires on a scheduled detection alert, disabling alert delivery and aiding evasion; the displayName 'Upsert...' is mislabeled.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reads the action configuration tied to a scheduled search, exposing alert/notification wiring for reconnaissance without returning log data.
   write:
     risks:
       - destruction:defense

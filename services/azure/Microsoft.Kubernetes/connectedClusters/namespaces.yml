@@ -12,11 +12,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a Namespace cascade-deletes all contained workloads, configs, secrets, and data, causing broad infrastructure and data loss plus denial of service for that tenant.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading/listing Namespaces enumerates the cluster's tenancy and workload partitioning, mapping structure for further targeting.
   write:
     risks:
       - impact:manipulation

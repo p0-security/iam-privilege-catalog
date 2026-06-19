@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an instance pool destroys the compute infrastructure hosting managed instances, disrupting the dependent database service.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading an instance pool returns its control-plane configuration, enabling infrastructure reconnaissance without exposing data or secrets.
   write:
     risks:
       - impact:manipulation

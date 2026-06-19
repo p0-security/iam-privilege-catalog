@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - destruction:defense
     notes: Removing/resetting the LTR policy eliminates long-term backup retention, disabling the recovery defense that protects against data destruction/ransomware.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the LTR policy only reveals backup-retention configuration, useful for planning recovery-defeating actions but low-sensitivity in isolation.
   write:
     risks:
       - impact:manipulation

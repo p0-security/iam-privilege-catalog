@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a security standard removes a control-set definition used for posture assessment, disabling a defense mechanism.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading security standards enumerates the defined security/compliance control set, revealing the defensive policy framework and its blind spots.
   write:
     risks:
       - destruction:defense

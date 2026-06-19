@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a web application firewall removes a web-application-layer defensive control, exposing the protected service to attack traffic.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the WAF inventory enumerates the web-application firewall defenses and the network-facing services they protect, exposing coverage and potential bypasses; returns no secret material.
   write:
     risks:
       - destruction:defense

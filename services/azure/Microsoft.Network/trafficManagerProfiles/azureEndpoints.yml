@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an endpoint stops Traffic Manager from routing traffic to that backend, removing a network routing target and disrupting service availability for the affected target.
-  read:
-    risks:
-      - discovery:network
-    notes: Reads the full endpoint properties, inventorying the specific backend target and routing configuration behind the profile's DNS name.
   write:
     risks:
       - takeover:domain

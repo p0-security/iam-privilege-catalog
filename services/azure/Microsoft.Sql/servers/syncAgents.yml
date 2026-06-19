@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a sync agent removes the Data Sync infrastructure component, disrupting database synchronization for the affected databases.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only listing/get of sync agent properties, inventorying data-sync infrastructure configuration without returning credentials.
   write:
     risks:
       - impact:manipulation

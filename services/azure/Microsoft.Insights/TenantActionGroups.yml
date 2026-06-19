@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a tenant action group removes the notification/automation target that alert rules fire into, silencing tenant-wide alert delivery and disrupting incident detection and response.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reading a tenant action group inventories the alert notification/automation configuration (receivers, webhook URLs, runbook targets), providing reconnaissance of the tenant's monitoring/alerting posture without returning secret material.
   Write:
     risks:
       - impact:manipulation

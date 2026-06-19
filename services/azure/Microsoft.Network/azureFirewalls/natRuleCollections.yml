@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a NAT rule collection removes inbound translation/defense configuration, dismantling part of the firewall's protective posture and disrupting published services.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the NAT rule collection inventories inbound DNAT/translation rules, exposing how external traffic reaches internal services and which endpoints are published.
   write:
     risks:
       - destruction:defense

@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting the policy halts cross-account blob replication, disrupting the configured data-protection/redundancy pipeline by altering operational replication state.
-  read:
-    risks:
-      - discovery:infra
-    notes: Returns the replication policy configuration including source/destination account and container mappings, enabling reconnaissance of replication topology and data flows.
   write:
     risks:
       - impact:manipulation

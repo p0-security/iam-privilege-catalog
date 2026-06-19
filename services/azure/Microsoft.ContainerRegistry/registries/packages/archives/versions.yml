@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes an Archive version, destroying a specific stored versioned artifact.
-  read:
-    risks:
-      - discovery:infra
-    notes: Gets or lists Archive version properties on the control plane, enabling inventory of artifact versions without accessing content.
   write:
     risks:
       - impact:manipulation

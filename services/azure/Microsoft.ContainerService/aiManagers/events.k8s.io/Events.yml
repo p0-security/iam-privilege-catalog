@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:logs
     notes: Deleting events (including DeleteCollection) removes the cluster's activity record, erasing forensic traces and hampering incident response and detection.
-  read:
-    risks:
-      - discovery:logs
-      - discovery:infra
-    notes: Reading Kubernetes events inventories the cluster activity record and reveals workload/scheduling details and resource names useful for reconnaissance.
   write:
     risks:
       - impact:manipulation

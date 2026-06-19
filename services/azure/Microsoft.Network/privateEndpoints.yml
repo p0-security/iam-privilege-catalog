@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a private endpoint removes the private-link connectivity component, cutting off access to the linked service and causing a denial of service for dependent traffic.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a private endpoint inventories the private-link network connection (target resource, subnet, private IP), constituting network reconnaissance.
   write:
     risks:
       - escalation:network

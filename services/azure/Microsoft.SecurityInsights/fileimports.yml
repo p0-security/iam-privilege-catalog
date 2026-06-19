@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a File Import removes ingested security data objects from the workspace, destroying data used for detection and investigation.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading File Import objects enumerates the imported data sets and their metadata staged in the workspace, providing reconnaissance over the ingested security data.
   write:
     risks:
       - impact:manipulation

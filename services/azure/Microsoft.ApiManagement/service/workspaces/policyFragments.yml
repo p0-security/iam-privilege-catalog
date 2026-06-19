@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:dos
     notes: Deleting a fragment removes shared policy logic (including security-enforcing controls) that referencing policies depend on, both disabling defenses and breaking the dependent API policies, disrupting those APIs.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading policy fragments returns the reusable policy XML (auth/routing/rate-limit logic), inventorying how the gateway enforces controls; it returns configuration, not secret material (named values are masked).
   write:
     risks:
       - impact:manipulation

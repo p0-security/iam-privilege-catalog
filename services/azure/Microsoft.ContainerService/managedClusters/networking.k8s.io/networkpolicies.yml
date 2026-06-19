@@ -12,11 +12,6 @@ privileges:
       - destruction:policy
       - escalation:network
     notes: Deleting NetworkPolicies removes the in-cluster access-control rules that deny traffic, disabling a network defense, destroying segmentation policy, and opening lateral paths between isolated workloads; identical to the extensions variant.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    notes: Reading NetworkPolicy objects (networking.k8s.io API group) inventories the cluster's pod-traffic firewall/segmentation rules, revealing allowed flows and weak points; semantically identical to the extensions variant.
   write:
     risks:
       - destruction:defense

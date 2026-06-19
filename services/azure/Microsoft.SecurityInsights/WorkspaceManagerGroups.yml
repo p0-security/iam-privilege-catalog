@@ -11,10 +11,6 @@ privileges:
       - impact:manipulation
       - destruction:metadata
     notes: Deleting a group removes the grouping construct used to organize managed workspaces, disrupting the central-management configuration; the deleted object is config/grouping metadata rather than logs or primary infrastructure.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only enumeration of which member workspaces are grouped for centralized content management; reconnaissance of the security-management topology.
   write:
     risks:
       - impact:manipulation

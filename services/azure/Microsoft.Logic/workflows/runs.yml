@@ -11,7 +11,3 @@ privileges:
       - destruction:data
       - destruction:logs
     notes: Deleting a run destroys its recorded execution history/payload references and erases the audit trail of what the workflow processed, disrupting incident response.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading a run returns run-level status/metadata (state, trigger summary, start/end), enumerating execution history; the full action input/output payloads are exposed via the separate actions endpoints, not this top-level read.

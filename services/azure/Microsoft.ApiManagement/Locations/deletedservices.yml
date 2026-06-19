@@ -10,8 +10,3 @@ privileges:
     risks:
       - destruction:infra
     notes: Purges a soft-deleted API Management service permanently with no restore option, irreversibly destroying the service infrastructure and its configuration and defeating the soft-delete recovery window.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Gets a soft-deleted API Management service by location, enumerating recoverable deleted-service metadata, which is read-only infrastructure reconnaissance.

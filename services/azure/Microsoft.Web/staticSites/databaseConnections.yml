@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes the database connection linking a Static Web App to its backend database, removing the data-tier binding and breaking the site's data-driven features (denial of service for that function).
-  Read:
-    risks:
-      - discovery:infra
-    notes: Plain GET returns the connection's overview (target database resourceId, region, identity) with the connection string masked, so it only inventories the backend-database wiring; the secret requires the separate show action.
   Write:
     risks:
       - impact:manipulation

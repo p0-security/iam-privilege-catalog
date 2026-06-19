@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an operation removes an exposed endpoint from the published API, disrupting consumers that depend on it.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists/gets the operations of an API, enumerating the individual exposed endpoints and methods for reconnaissance of the API surface.
   write:
     risks:
       - impact:manipulation

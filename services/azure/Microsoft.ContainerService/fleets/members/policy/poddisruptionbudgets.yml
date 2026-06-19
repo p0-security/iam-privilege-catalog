@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:dos
     notes: Deleting PDBs removes the availability-protection policy guarding workloads, so node drains/evictions can take down all replicas of a service simultaneously, enabling denial of service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists/reads PDB objects, enumerating workload availability constraints and disruption tolerances across the cluster for reconnaissance; no sensitive data exposed.
   write:
     risks:
       - impact:manipulation

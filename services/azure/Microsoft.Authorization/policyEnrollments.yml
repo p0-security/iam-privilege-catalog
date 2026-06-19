@@ -10,11 +10,6 @@ privileges:
       - destruction:policy
       - destruction:defense
     notes: Deleting a policy enrollment unbinds the governance/policy regime from a scope, destroying the enrollment and disabling its compliance/defense enforcement.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reading a policy enrollment inventories how a scope is enrolled in policy governance, aiding reconnaissance of the compliance/access-control posture.
   write:
     risks:
       - impact:manipulation

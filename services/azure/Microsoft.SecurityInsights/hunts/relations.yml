@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - impact:manipulation
     notes: Deleting hunt relations erases the evidence-to-hunt linkages an in-progress investigation relies on, degrading the SOC's threat-hunting/IR capability and tampering with the analyst's view.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading hunt relations enumerates what entities/bookmarks defenders are correlating in an active hunt, disclosing the content and direction of an ongoing security investigation.
   write:
     risks:
       - impact:manipulation

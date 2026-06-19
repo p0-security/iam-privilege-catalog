@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes the tagged traffic consumer, removing a network routing/consumer component of the VNet and potentially disrupting dependent service traffic (DoS-like effect).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only get of the tagged traffic consumer definition; only enumerates VNet traffic-routing configuration for reconnaissance.
   write:
     risks:
       - impact:manipulation

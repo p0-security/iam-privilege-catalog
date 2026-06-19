@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Security
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading ATP settings reveals whether threat protection is enabled on a resource, letting an attacker identify monitored versus blind targets before acting.
   write:
     risks:
       - destruction:defense

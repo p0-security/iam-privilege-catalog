@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting a ClusterRole destroys a cluster-wide access-control policy object and breaks every binding referencing it, revoking the access of all subjects assigned that role.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading ClusterRoles discloses the exact permission sets of cluster-wide roles, letting an attacker identify over-privileged or exploitable roles to target or bind to.
   write:
     risks:
       - escalation:privilege

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deletes an ML analytics detection setting, removing a behavioral/anomaly detection rule and creating a SIEM blind spot to evade incident response.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reads ML-based detection rule settings, revealing which behavioral/anomaly detections are configured so an attacker can identify monitoring gaps to evade.
   write:
     risks:
       - destruction:defense

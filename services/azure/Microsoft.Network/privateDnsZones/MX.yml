@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the MX record set removes internal mail-routing resolution, causing denial of service for dependent mail services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the MX record set inventories internal mail-routing hostnames, TTL, and tags, providing network reconnaissance of the private zone.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deletes the app's VNet integration, removing a network connectivity component and severing the app's access to private backend services, implying denial of service.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reads the app's VNet connection configuration, inventorying the private network topology (VNet/subnet) the app is integrated into.
   write:
     risks:
       - escalation:network

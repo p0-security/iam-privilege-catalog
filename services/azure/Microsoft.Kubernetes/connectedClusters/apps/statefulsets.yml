@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a StatefulSet (or DeleteCollection) tears down stateful workload pods, destroying infrastructure and denying service (and potentially orphaning persistent volumes).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing StatefulSets enumerates stateful workload configuration including volume-claim templates and images, providing infrastructure reconnaissance.
   write:
     risks:
       - impact:hijack

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting VolumeAttachments tears down volume-to-node bindings, force-detaching storage from nodes and disrupting pods that have those volumes mounted.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading/listing VolumeAttachments enumerates which persistent volumes are attached to which nodes, providing storage-topology reconnaissance.
   write:
     risks:
       - impact:manipulation

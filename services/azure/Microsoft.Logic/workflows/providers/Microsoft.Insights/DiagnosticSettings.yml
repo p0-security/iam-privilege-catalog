@@ -1,18 +1,13 @@
 name: Logic App workflow diagnostic setting
 description: A workflow diagnostic setting controls which logs and metrics are collected for a Logic App workflow and where they are routed (Log Analytics, storage, event hub).
-scope: LOW
+scope: MEDIUM
 notes: Diagnostic settings are a monitoring/detection control; reading them reveals monitoring coverage an attacker would target for evasion.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Logic
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic settings inventories which logs/metrics are collected and their destinations, aiding reconnaissance of monitoring coverage for evasion.
   write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Creating/updating the diagnostic setting lets an attacker disable or redirect workflow log/metric collection, blinding incident response and weakening detection.

@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Deleting the association proxy detaches the resource's perimeter binding, removing its network-isolation defense and broadening its reachability.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the association proxy enumerates the perimeter-to-resource binding, providing the same protected-topology reconnaissance as reading the association directly.
   write:
     risks:
       - destruction:defense

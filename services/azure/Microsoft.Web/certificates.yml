@@ -11,11 +11,6 @@ privileges:
       - destruction:crypto
       - impact:dos
     notes: Deleting a certificate destroys the cryptographic material bound to apps/custom domains, breaking TLS/HTTPS and disrupting the dependent web services.
-  Read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Listing certificates returns certificate resource metadata (thumbprints, subjects, expiry) but not private key material, so it is reconnaissance of the TLS certificate inventory only.
   Write:
     risks:
       - impact:manipulation

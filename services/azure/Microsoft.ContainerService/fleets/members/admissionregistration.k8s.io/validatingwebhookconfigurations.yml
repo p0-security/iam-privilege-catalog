@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - impact:dos
     notes: Deleting validating webhook configurations removes cluster-wide policy-enforcement admission gates (Gatekeeper/Kyverno/Pod Security), disabling a key defense so malicious or non-compliant objects are admitted; for a fail-closed webhook, deletion can also block legitimate API operations, disrupting operations.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading validatingwebhookconfigurations enumerates the policy-enforcing admission webhooks and their rules/endpoints, exposing exactly which security policies are enforced so an attacker can find gaps to evade, without exposing secret material.
   write:
     risks:
       - destruction:defense

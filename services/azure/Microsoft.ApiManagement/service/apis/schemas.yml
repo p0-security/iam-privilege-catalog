@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting the API schema removes the request/response validation definition, altering gateway request handling and potentially breaking schema-dependent policies.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads the API schema definitions, exposing the API's data-structure/contract for crafting requests; read-only reconnaissance returning no organizational data or secrets.
   write:
     risks:
       - impact:manipulation

@@ -11,12 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Delete token removes a registry access-control credential and its scope-map binding, revoking legitimate principals' authorized registry access and destroying access-control state.
-  read:
-    risks:
-      - discovery:policy
-      - discovery:account
-    scope: MEDIUM
-    notes: Get/List token enumerates the registry's scoped-access principals and their scope-map permission bindings, revealing access-control configuration and identities without returning the token password.
   write:
     risks:
       - persistence:account

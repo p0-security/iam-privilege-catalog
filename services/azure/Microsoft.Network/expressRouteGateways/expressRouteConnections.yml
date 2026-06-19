@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the connection tears down the hybrid link between on-premises and Azure, removing a network component and cutting connectivity for dependent services.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the connection enumerates hybrid-connectivity configuration (circuit linkage, routing weight, peerings), providing network reconnaissance.
   write:
     risks:
       - escalation:network

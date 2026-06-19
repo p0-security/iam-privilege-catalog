@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - escalation:privilege
     notes: Deleting a deny assignment removes an explicit-deny rule that was overriding Allow grants and blocking actions; lifting it unblocks the attacker's otherwise-denied actions, effectively escalating their access.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading deny assignments exposes the explicit-deny rules in force, letting an attacker learn which actions/principals are blocked and plan around those access-control constraints.
   write:
     risks:
       - impact:access

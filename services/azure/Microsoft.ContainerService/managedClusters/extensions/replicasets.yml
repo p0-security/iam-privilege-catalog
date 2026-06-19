@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting ReplicaSets tears down the controllers managing application pods, terminating those pods and disrupting the services they support.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading ReplicaSets inventories workload controllers and their pod specs (images, replica counts), mapping the cluster's running application infrastructure.
   write:
     risks:
       - impact:hijack

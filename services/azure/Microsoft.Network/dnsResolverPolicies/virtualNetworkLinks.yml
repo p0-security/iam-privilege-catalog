@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:network
     notes: Deleting the VNet link detaches the DNS security policy from a virtual network, disabling DNS filtering enforcement (defense removal) and tearing down the network binding component.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only get of a VNet link inventories which virtual networks are bound to a DNS security policy, providing reconnaissance of the policy enforcement scope and network topology.
   write:
     risks:
       - destruction:defense

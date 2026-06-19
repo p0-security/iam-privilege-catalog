@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a GraphServices account resource, tearing down the provisioned Graph billing/access binding and disrupting the dependent service (DoS-like for that function).
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists GraphServices account resources in a resource group, enumerating their control-plane configuration as reconnaissance without disclosing secret material.
   write:
     risks:
       - impact:manipulation

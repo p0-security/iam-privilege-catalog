@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:dos
     notes: Per the authoritative description this operation 'Deletes the policy configuration at the Api', removing the gateway's enforced request-processing/security policy (auth, JWT validation, rate-limiting, IP filtering) and breaking resolver behavior for that tenant-scoped API.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get/list of tenant-scoped GraphQL resolver definitions enumerates how API fields map to backend data sources, providing read-only reconnaissance of the API's backend wiring without returning data or secrets.
   write:
     risks:
       - impact:manipulation

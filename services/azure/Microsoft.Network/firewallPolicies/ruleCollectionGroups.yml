@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the rule collection group removes the firewall's enforced filtering rules, disabling the network defense for resources behind the policy.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    notes: Reading the rule collection group enumerates the firewall's allow/deny ruleset, revealing the defensive posture and access-control gaps an attacker can exploit.
   write:
     risks:
       - destruction:defense

@@ -11,10 +11,6 @@ privileges:
       - destruction:data
       - destruction:defense
     notes: Deleting a TI Bulk Action can remove threat-intelligence indicators in bulk, destroying IOC data and stripping the indicators that drive detections.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading TI Bulk Action objects enumerates the threat-intelligence bulk operation records in the workspace, providing reconnaissance over the TI data and pipeline state.
   write:
     risks:
       - impact:manipulation

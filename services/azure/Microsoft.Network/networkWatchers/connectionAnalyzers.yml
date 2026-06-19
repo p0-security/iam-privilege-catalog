@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a network connectivity diagnostic resource, removing a supporting monitoring/observability component.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the analyzer exposes its source/destination test configuration and intended network paths/endpoints, enabling network topology reconnaissance.
   write:
     risks:
       - impact:manipulation

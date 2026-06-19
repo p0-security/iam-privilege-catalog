@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting scanners removes the sensitive-data discovery defense, disabling detection of exposed sensitive data.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading scanner configuration exposes the sensitive-data scanning posture and coverage, helping an attacker locate unmonitored data stores.
   write:
     risks:
       - destruction:defense

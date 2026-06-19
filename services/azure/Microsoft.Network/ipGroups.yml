@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - destruction:defense
     notes: Deleting an IpGroup removes the IP set backing firewall rules, both destroying a network component and breaking the firewall rules that depend on it (a defense mechanism).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading an IpGroup returns its configured IP/CIDR ranges, letting an attacker inventory the network address objects used in firewall rules.
   write:
     risks:
       - impact:manipulation

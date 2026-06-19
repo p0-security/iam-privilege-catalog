@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting Deployments removes the controllers managing application pods across the fleet, destroying running infrastructure and causing denial of service to the backed application functions.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading Deployment specs inventories application workload configuration (images, replicas, env, mounted resource references) for reconnaissance; it returns config references, not secret values.
   write:
     risks:
       - impact:hijack

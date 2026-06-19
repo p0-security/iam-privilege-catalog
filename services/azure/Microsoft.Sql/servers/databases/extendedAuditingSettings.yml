@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reads the database audit policy, revealing whether and where activity is logged so an attacker can identify detection gaps before acting.
   write:
     risks:
       - destruction:logs

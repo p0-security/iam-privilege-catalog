@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting probe settings removes a Front Door routing/network component and disrupts backend health evaluation and traffic delivery for the hosted service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the probe configuration enumerates backend health-check paths and routing behavior, supporting network reconnaissance; returns no secret material.
   write:
     risks:
       - impact:manipulation

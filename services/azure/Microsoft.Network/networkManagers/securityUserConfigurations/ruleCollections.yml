@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a rule collection removes a group of centrally managed network security rules acting as a defense, eliminating intended traffic restrictions across the targeted VNets.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a rule collection enumerates which network groups the security rules apply to and the structure of the traffic controls, revealing the network security posture and gaps.
   write:
     risks:
       - destruction:defense

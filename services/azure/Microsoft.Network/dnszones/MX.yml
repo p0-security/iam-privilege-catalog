@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the MX record set removes mail routing for the domain, destroying a network component and denying inbound email delivery.
-  read:
-    risks:
-      - discovery:network
-    notes: Getting the MX record set discloses the domain's mail-server routing, inventorying mail infrastructure for reconnaissance.
   write:
     risks:
       - takeover:domain

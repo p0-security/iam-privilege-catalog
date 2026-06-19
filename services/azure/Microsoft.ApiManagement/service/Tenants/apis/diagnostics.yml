@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting an API diagnostic removes its logging/tracing configuration, disabling log collection and disrupting incident response.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading API diagnostic settings inventories what logging/tracing is configured and where telemetry is sent.
   write:
     risks:
       - destruction:logs

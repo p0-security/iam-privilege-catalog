@@ -12,11 +12,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a namespace cascades to delete all contained workloads, configs, secrets, and persistent data, destroying infrastructure and organizational data and denying service for that function.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading/listing namespaces inventories the cluster's logical partitions and the organizational functions/tenants they host, mapping the cluster for further targeting.
   write:
     risks:
       - impact:manipulation

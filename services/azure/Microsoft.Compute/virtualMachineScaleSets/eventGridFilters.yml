@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the event-routing filter, removing the scale set's event-notification plumbing and disrupting downstream event-driven automation.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only get of the filter only inventories event-routing configuration of the scale set.
   write:
     risks:
       - impact:manipulation

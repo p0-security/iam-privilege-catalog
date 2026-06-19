@@ -11,11 +11,6 @@ privileges:
       - destruction:crypto
       - impact:dos
     notes: Deleting a stored certificate destroys the cryptographic credential material used for backend authentication and breaks any API whose backend connection depends on mutual TLS, disrupting that service.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Confirmed via the REST contract that the get/list response returns only metadata (subject, thumbprint, expirationDate, optional Key Vault reference) and not private-key material, so this is reconnaissance of the gateway's backend-auth trust configuration.
   write:
     risks:
       - impact:manipulation

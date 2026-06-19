@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes the DR configuration, removing the geo-replication/failover resilience infrastructure and degrading availability and recoverability of the production database.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists the DR/replication configurations including this server, inventorying failover topology and partner servers as reconnaissance.
   write:
     risks:
       - impact:manipulation

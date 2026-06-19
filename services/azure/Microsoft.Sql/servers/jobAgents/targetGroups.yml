@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a target group removes the membership/target configuration that scheduled jobs depend on, breaking automation against those databases and disrupting operations similar to a localized denial of service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a target group enumerates the servers/databases jobs are scoped to run against, providing reconnaissance of the automation's reach and the database fleet.
   write:
     risks:
       - impact:manipulation

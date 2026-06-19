@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting installed content templates removes packaged detection content (analytics rules, hunting queries, playbooks) from Sentinel, disabling defensive coverage and aiding evasion.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading installed content templates only inventories which detection/automation content packages are deployed in the workspace, providing reconnaissance of defensive coverage without exposing secrets.
   write:
     risks:
       - impact:manipulation

@@ -10,7 +10,3 @@ privileges:
     risks:
       - destruction:crypto
     notes: Deletes a certificate and all its versions, destroying the active private key/credential material. Soft-delete may permit recovery, but the operation destroys cryptographic secret data.
-  read:
-    risks:
-      - discovery:data
-    notes: Lists certificates and reads certificate properties/metadata but does not return private key material, so it only enables inventory of stored cryptographic objects.

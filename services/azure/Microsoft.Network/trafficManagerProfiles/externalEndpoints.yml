@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an external endpoint removes a routing target so Traffic Manager stops routing traffic to it, destroying a network component and denying service to the fronted backend.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading an external endpoint inventories the routing target configuration (target FQDN, weight, priority, geo-mapping), which is network/topology reconnaissance.
   write:
     risks:
       - takeover:domain

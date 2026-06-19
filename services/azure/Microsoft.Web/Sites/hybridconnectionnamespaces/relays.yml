@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the web app's relay tears down the network path to its backend/on-prem endpoint, disrupting connectivity for the dependent application function.
-  read:
-    risks:
-      - discovery:network
-    notes: Control-plane read returns the web app's relay configuration (namespace, target host/port), enabling reconnaissance of the app's hybrid/private backend connectivity; no keys are returned.
   write:
     risks:
       - escalation:network

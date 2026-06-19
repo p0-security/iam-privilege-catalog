@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deletes a trading-partner definition, destroying B2B configuration data and breaking agreements/workflows that reference that partner.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads a trading-partner definition, enabling inventory of B2B partner identity/qualifier configuration.
   write:
     risks:
       - impact:manipulation

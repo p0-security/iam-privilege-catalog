@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an analysis intent removes a network-verification configuration object; limited blast radius confined to diagnostic tooling.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading an analysis intent reveals which network paths/segments the org verifies, disclosing topology intent and resource references for reconnaissance.
   write:
     risks:
       - impact:manipulation

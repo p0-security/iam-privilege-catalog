@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an OpenShift managed cluster destroys the production cluster infrastructure and all hosted workloads, causing denial of service for the function it supports.
-  read:
-    risks:
-      - discovery:infra
-    notes: Getting an OpenShift managed cluster returns its configuration (node profiles, networking, versions), letting an attacker inventory the production cluster's infrastructure; no secret material is returned at the control plane.
   write:
     risks:
       - impact:manipulation

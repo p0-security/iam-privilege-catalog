@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the pool tears down the shared compute infrastructure backing its databases, disrupting service for the function they support.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read returning elastic pool configuration (capacity, settings); enables infrastructure reconnaissance but exposes no data or secrets.
   write:
     risks:
       - impact:manipulation

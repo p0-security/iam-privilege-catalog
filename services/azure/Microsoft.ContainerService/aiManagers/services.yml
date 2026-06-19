@@ -10,11 +10,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting services removes the network endpoints fronting workloads, severing connectivity and denying service to the affected application.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading services enumerates network endpoints, ports, and topology of exposed workloads, network reconnaissance.
   write:
     risks:
       - impact:manipulation

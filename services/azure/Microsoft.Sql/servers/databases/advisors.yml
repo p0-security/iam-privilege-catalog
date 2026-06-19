@@ -1,17 +1,12 @@
 name: Database Advisor
 description: An Azure SQL database advisor represents a performance/tuning advisor (e.g. index recommendations, parameterization) attached to a single database, along with its auto-execute configuration.
-scope: LOW
+scope: HIGH
 notes: Control-plane tuning configuration; does not itself expose stored data, but governs automatic application of schema/index changes to a production database.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only listing of the database's available tuning advisors only enumerates configuration metadata, a control-plane reconnaissance read.
   write:
     risks:
       - impact:manipulation
-    scope: HIGH
     notes: Updating the advisor's auto-execute status controls whether tuning actions (e.g. automatic index create/drop) are applied automatically to a production database, manipulating its operational configuration and performance.

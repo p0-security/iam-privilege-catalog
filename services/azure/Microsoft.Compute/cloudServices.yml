@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the entire Cloud Service tears down the compute infrastructure and takes down the hosted service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read returns the configuration/properties of the Cloud Service, enabling infrastructure inventory; discloses no secret material.
   write:
     risks:
       - impact:manipulation

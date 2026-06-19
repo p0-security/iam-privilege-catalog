@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes the database connection of a Static Web App build, removing that environment's data-tier binding and breaking its data-driven functionality (denial of service for that build).
-  Read:
-    risks:
-      - discovery:infra
-    notes: Build-scoped GET returns the connection overview (database resourceId, region, identity) with the connection string masked, inventorying the backend-database wiring without exposing the credential.
   Write:
     risks:
       - impact:manipulation

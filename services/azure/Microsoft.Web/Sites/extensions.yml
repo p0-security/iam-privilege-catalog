@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an installed site extension, removing deployed components from the app and degrading or disrupting its function.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists the installed site extensions, inventorying the app's add-on components for reconnaissance with no data or secret return.
   write:
     risks:
       - escalation:lateral

@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting webhook configurations removes admission-control enforcement cluster/fleet-wide, disabling the security defense so otherwise-blocked malicious or privileged workloads can be admitted.
-  read:
-    risks:
-      - discovery:policy
-    scope: HIGH
-    notes: Reading the webhook configurations inventories which admission-control defenses are enforced and where the gaps are, enabling an attacker to find unguarded operations before acting.
   write:
     risks:
       - destruction:defense

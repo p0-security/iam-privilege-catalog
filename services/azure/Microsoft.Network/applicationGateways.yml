@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the gateway removes the L7 ingress fronting an application, destroying the network component and denying service to the hosted application.
-  read:
-    risks:
-      - discovery:network
-    notes: Get returns the full gateway configuration (listeners, backend pools, routing rules, TLS/WAF settings, frontend IPs), which is network/L7 topology reconnaissance.
   write:
     risks:
       - impact:manipulation

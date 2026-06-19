@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting an IpAllocation removes a reserved IP addressing component, which can disrupt address assignment for dependent network resources.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading an IpAllocation returns reserved IP address ranges and associations, letting an attacker inventory the network addressing plan.
   write:
     risks:
       - impact:manipulation

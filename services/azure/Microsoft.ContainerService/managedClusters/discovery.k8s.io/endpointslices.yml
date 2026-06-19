@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting EndpointSlices removes the endpoint backing for Services, severing service-to-pod routing and causing denial of service to the affected workloads.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only get/list of EndpointSlices reveals the backend pod IPs and ports behind every Service, providing a detailed map of internal cluster network topology.
   write:
     risks:
       - impact:manipulation

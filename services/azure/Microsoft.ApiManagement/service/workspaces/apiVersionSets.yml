@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an API version set, removing the versioning configuration APIs depend on and potentially disrupting version routing/availability.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists or gets API version set details, inventorying the gateway's API versioning configuration for reconnaissance with no secret or data exposure.
   write:
     risks:
       - impact:manipulation

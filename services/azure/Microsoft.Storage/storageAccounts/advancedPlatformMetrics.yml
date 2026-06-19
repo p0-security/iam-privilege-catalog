@@ -11,11 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting the metrics configuration removes telemetry/monitoring collection for the storage account, destroying observability signal and weakening detection capability.
-  read:
-    risks:
-      - discovery:logs
-    scope: LOW
-    notes: Reading the metrics configuration inventories the monitoring/telemetry setup for the storage account, low-sensitivity logging reconnaissance.
   write:
     risks:
       - destruction:logs

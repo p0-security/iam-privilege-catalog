@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:dos
     notes: Deleting a server trust certificate tears down the established cross-server trust, removing a trust-enforcement component and breaking the link/distributed-transaction service that depends on it.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Listing/getting server trust certificates returns the public certificate and trust configuration (no private key), enabling reconnaissance of the instance's cross-server trust relationships.
   write:
     risks:
       - escalation:lateral

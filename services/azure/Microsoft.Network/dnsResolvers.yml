@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a DNS Resolver removes the network component responsible for private DNS resolution, breaking name resolution for the linked VNet and causing denial of service for dependent services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Control-plane get returning the resolver's configuration (linked VNet, provisioning state), enabling network reconnaissance without modification or secret disclosure.
   write:
     risks:
       - impact:manipulation

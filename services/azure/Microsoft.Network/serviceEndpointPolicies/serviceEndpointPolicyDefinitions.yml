@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a definition removes an enforced filtering rule, weakening the network egress access-control defense.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a definition enumerates the specific service-resource allow rules within the policy, aiding network access-control reconnaissance.
   write:
     risks:
       - destruction:defense

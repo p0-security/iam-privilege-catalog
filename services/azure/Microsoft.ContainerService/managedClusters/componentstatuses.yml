@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Removes control-plane component status records; low practical effect since these are system-regenerated derived status objects.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads control-plane component health, providing read-only infrastructure reconnaissance with no sensitive data exposure.
   write:
     risks:
       - impact:manipulation

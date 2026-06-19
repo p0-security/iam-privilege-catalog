@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a peering removes the BGP routing relationship on the private circuit, severing the routed path and disrupting traffic that depends on it (DoS implied by network destruction).
-  read:
-    risks:
-      - discovery:network
-    notes: Reading a peering enumerates BGP/routing configuration (VLAN IDs, ASNs, address prefixes) of the private interconnect, which is network reconnaissance.
   write:
     risks:
       - impact:manipulation

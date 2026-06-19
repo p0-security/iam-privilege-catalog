@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an unlocked immutability policy removes the WORM protection guarding blobs, disabling a defense against data destruction and ransomware.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the immutability policy discloses the WORM retention/lock configuration, revealing whether data-protection defenses are present and bypassable.
   write:
     risks:
       - impact:access

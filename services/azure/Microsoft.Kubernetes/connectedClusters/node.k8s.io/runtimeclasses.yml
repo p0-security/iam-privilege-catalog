@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Delete/DeleteCollection removes runtime-handler config objects, breaking scheduling of any pods that reference them and disrupting dependent workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get/List enumerates the cluster's configured container-runtime handlers, revealing available runtimes and isolation boundaries; read-only infrastructure reconnaissance with no data or credential exposure.
   write:
     risks:
       - impact:manipulation

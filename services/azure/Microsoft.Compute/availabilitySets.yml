@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an availability set removes a supporting compute placement/grouping resource (which must be empty of VMs to delete), a limited-blast-radius infrastructure destruction.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading availability set properties only enumerates compute infrastructure grouping configuration, providing reconnaissance value with no data or credential exposure.
   write:
     risks:
       - impact:manipulation

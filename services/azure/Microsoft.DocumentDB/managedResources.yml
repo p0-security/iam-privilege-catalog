@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a managed resource tears down supporting infrastructure, which can disrupt the service it backs.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a managed resource only returns its control-plane configuration state, an inventory of supporting infrastructure.
   write:
     risks:
       - impact:manipulation

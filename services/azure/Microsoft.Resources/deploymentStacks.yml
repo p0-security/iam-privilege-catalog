@@ -11,12 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes a deployment stack and, depending on delete mode, can cascade-delete all of its managed resources, destroying infrastructure and disrupting the services it hosts.
-  read:
-    risks:
-      - discovery:infra
-      - discovery:policy
-    scope: MEDIUM
-    notes: Gets or lists deployment stacks, revealing the managed-resource inventory, the backing template reference, and the denySettings (access-control lock configuration) for reconnaissance of protections to bypass.
   write:
     risks:
       - impact:manipulation

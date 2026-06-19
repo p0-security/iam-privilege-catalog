@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the service resource tears down supporting infrastructure (e.g. dedicated gateway), disrupting the capability that depends on it.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the service resource only enumerates the configuration of supporting infrastructure (e.g. dedicated gateway), yielding infrastructure reconnaissance with no data or secrets returned.
   write:
     risks:
       - impact:spend

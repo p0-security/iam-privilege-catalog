@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the RosettaNet process configuration, removing supporting B2B integration config and disrupting dependent partner workflows (DoS-like).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the RosettaNet process configuration, letting an attacker inventory how the integration account's B2B partner processing is set up without exposing secrets or message data.
   write:
     risks:
       - impact:manipulation

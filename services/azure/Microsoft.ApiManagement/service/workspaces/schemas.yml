@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an API schema, removing contract configuration that dependent APIs rely on and potentially breaking those APIs.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists or reads registered API schema definitions, inventorying the API contract/configuration of the workspace gateway.
   write:
     risks:
       - impact:manipulation

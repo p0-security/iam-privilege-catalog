@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a table destroys the container and all entity data it holds in the production data store.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading/listing tables enumerates the data containers present in the account without returning their entity contents; inventories stored data objects.
   write:
     risks:
       - impact:manipulation

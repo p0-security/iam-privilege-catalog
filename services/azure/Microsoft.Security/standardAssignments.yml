@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a standard assignment removes enforcement of a security/compliance standard from a scope, disabling a posture-assessment defense and reducing detection coverage.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading standard assignments enumerates which security/compliance standards are enforced on a scope, revealing the defensive posture configuration and gaps an attacker could exploit.
   write:
     risks:
       - destruction:defense

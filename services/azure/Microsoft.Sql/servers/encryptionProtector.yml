@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Returns the TDE protector configuration (protector type and Key Vault key URI/reference) for the server, exposing the encryption setup but not the key material itself.
   write:
     risks:
       - impact:encryption

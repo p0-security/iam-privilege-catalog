@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:manipulation
     notes: Deleting the API-level policy strips the enforced security controls (auth, IP filtering, rate limiting, validation) protecting every operation of the API and reverts request handling to default, weakening defenses and altering operational behavior.
-  read:
-    risks:
-      - discovery:policy
-      - discovery:infra
-    notes: Reading the API-level policy reveals the security controls and backend routing enforced across all operations of the API, exposing weak points and backend topology for reconnaissance.
   write:
     risks:
       - destruction:defense

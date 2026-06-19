@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the AMPLS removes the private-link construct fronting Azure Monitor resources, severing private connectivity for connected consumers.
-  Read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the AMPLS returns its private-connectivity configuration, access modes, and which resources/endpoints are linked, providing read-only network reconnaissance.
   Write:
     risks:
       - impact:manipulation

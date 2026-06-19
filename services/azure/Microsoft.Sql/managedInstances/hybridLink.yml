@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the distributed availability group, tearing down the replication/availability infrastructure for the managed instance with a DoS-like effect on replication and migration.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists/gets the distributed availability group configuration (replication topology, endpoints), giving infrastructure reconnaissance of the replication relationship without returning data or secrets.
   write:
     risks:
       - impact:manipulation

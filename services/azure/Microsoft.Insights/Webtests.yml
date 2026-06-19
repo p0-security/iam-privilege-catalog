@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:infra
     notes: Deleting a webtest removes an availability monitor, eliminating a detection mechanism for outages (defense destruction) and tearing down the monitoring resource itself.
-  Read:
-    risks:
-      - discovery:infra
-      - discovery:network
-    notes: Reads webtest configuration, disclosing monitored endpoint URLs and request settings, inventorying both the monitoring setup and the target network endpoints.
   Write:
     risks:
       - impact:manipulation

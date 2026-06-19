@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting a ResourceOverride removes the mutation rules governing placement (e.g. stripping intended hardening overrides), changing the effective configuration of workloads propagated across the fleet.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read/list enumerates the override/patch rules applied to namespaced resources during multi-cluster placement, giving configuration reconnaissance with no secret or data exposure.
   write:
     risks:
       - impact:manipulation

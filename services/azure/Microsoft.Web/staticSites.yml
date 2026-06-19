@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the static site resource, removing the hosted public-facing application infrastructure and causing denial of service for that function.
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Control-plane get of the static site's configuration/properties; reconnaissance only with no secret disclosure.
   Write:
     risks:
       - impact:manipulation

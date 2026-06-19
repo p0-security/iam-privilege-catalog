@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the proxy removes a defense-plan association component, potentially detaching network resources from DDoS protection and weakening the mitigation coverage.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the proxy definition returns network defense association configuration metadata, enabling reconnaissance of how resources are linked to the protection plan.
   write:
     risks:
       - impact:manipulation

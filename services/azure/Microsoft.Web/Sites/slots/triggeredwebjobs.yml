@@ -10,7 +10,3 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a triggered WebJob removes deployed background-task code from the slot, disrupting that app function.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading triggered WebJobs enumerates the configured background jobs on the slot; the management-plane read returns job metadata/configuration rather than source code itself.

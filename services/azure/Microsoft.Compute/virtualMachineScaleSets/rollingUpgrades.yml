@@ -10,12 +10,3 @@ privileges:
     risks:
       - impact:manipulation
     notes: Cancelling an in-progress rolling upgrade halts the orchestrated rollout mid-flight, leaving instances in a mixed/inconsistent model state and interfering with the intended deployment process.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Returns rolling-upgrade progress/state, a benign infrastructure status read.
-    name: Virtual Machine Scale Set rolling upgrades
-    parent:
-      description: The latest rolling-upgrade status of an Azure Virtual Machine Scale Set, reporting progress/state of an in-place upgrade across instances.
-      notes: Read-only operational deployment status of compute infrastructure.

@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting the schema removes the API's contract/validation definition, disrupting and altering how the gateway processes requests.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the API schema inventories the API's structural contract/definition, providing control-plane reconnaissance of the API surface.
   write:
     risks:
       - impact:manipulation

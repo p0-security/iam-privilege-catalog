@@ -11,8 +11,3 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a continuous WebJob removes a deployed background workload from the App Service, destroying that running component and disrupting the function it performs (DoS-like).
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the continuous WebJob configuration only enumerates the existence and settings of background jobs on the app, a read-only infrastructure reconnaissance with no data or credential exposure.

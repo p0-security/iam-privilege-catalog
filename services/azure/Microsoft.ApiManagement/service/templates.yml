@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Resetting an email template to its built-in default discards customized notification content, altering operational messaging rather than destroying organizational data.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading email template content/configuration exposes only the gateway's notification message structure, a low-value configuration inventory with no secret or organizational data.
   write:
     risks:
       - impact:manipulation

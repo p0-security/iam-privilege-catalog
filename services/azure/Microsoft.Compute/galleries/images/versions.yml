@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes the deployable image-version artifact, breaking provisioning and scale-out that reference that version.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a version only enumerates version/replication metadata of the image artifact, a read-only infrastructure inventory.
   write:
     risks:
       - impact:manipulation

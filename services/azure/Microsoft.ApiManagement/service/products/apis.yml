@@ -11,11 +11,6 @@ privileges:
       - impact:dos
       - impact:manipulation
     notes: Removing an API from a product severs subscribers' access to that API through the product, disrupting consumers (DoS-like) while altering the gateway's operational access configuration.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only listing of the APIs bundled into a product; enumerates the gateway's exposed API surface for reconnaissance without returning data or secrets.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting the localized definition removes the API's descriptor/schema metadata that clients and tooling rely on operationally.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the localized definition inventories the API's configuration/operation surface, providing reconnaissance of the integration.
   write:
     risks:
       - impact:manipulation

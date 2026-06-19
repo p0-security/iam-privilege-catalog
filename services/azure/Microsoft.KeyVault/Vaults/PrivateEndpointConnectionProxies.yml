@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy removes a private network connectivity path to the vault, disrupting legitimate private access (DoS-like).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reads the proxy's connection state, inventorying the vault's private network connectivity configuration.
   write:
     risks:
       - escalation:network

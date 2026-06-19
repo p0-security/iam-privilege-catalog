@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an OU container removes part of the managed domain's organizational-unit structure and the directory objects it organizes, destroying directory infrastructure and disrupting administration/policy scoping.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading OU containers enumerates the managed domain's organizational-unit structure, reconnaissance of the directory layout without returning secret material.
   write:
     risks:
       - impact:manipulation

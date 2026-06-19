@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Detaching a tag from the API removes a labeling metadata association used operationally.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Listing tags associated with the API enumerates organizational labeling metadata and associations.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes a shared VM image version, destroying a specific bootable image artifact that deployments rely on for provisioning.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the properties of a shared VM image version, enabling inventory of the org's concrete bootable image artifacts and their configuration.
   write:
     risks:
       - impact:manipulation

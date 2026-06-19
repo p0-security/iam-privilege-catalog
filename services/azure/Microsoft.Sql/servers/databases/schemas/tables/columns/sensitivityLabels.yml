@@ -11,11 +11,6 @@ privileges:
       - destruction:metadata
       - destruction:defense
     notes: Deleting a column's sensitivity label destroys operational classification metadata and removes the defensive signal that flags sensitive data, weakening DLP/auditing controls.
-  read:
-    risks:
-      - discovery:metadata
-    scope: LOW
-    notes: Reading a column's sensitivity label reveals classification metadata identifying which columns hold sensitive data, aiding targeting reconnaissance.
   write:
     risks:
       - impact:manipulation

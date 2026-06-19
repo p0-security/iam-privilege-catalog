@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a product removes the API grouping and its associated subscriptions, destroying the publishing construct and disrupting all consumers that reach the APIs through it.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets product definitions, inventorying the published API products and their configuration for reconnaissance; no secrets returned.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:policy
     notes: Deleting a management lock removes the protective control that would otherwise block deletion or modification, clearing the way for downstream destructive actions.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading management locks enumerates the CanNotDelete/ReadOnly protections in place, informing an attacker which resources are guarded before attempting destructive actions.
   write:
     risks:
       - impact:access

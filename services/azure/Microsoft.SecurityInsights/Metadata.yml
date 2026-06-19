@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes content metadata records, removing operational descriptive metadata used to manage and version installed Sentinel content.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Reads descriptive metadata about installed Sentinel content, enabling read-only inventory of the content catalog.
   write:
     risks:
       - impact:manipulation

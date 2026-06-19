@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the Container App tears down the compute resource and takes the hosted service offline, destroying infrastructure and denying service for that function.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane get returns the app's configuration (image, ingress, scale, env-var and identity references) for reconnaissance but does not return secret values, which require listSecrets.
   write:
     risks:
       - impact:manipulation

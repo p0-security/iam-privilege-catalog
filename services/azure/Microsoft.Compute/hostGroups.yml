@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the host group removes the dedicated-host placement container (only permitted when empty), disrupting placement for dependent hosts/VMs.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the host group only inventories dedicated-host placement configuration (zones, fault domains, capacity), pure infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

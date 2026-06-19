@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Deleting a security rule removes a firewall control acting as a network defense; removing a deny rule re-exposes protected services and enables broader network reachability (removing an allow rule can also cause DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a security rule discloses the firewall allow/deny configuration (ports, sources, destinations), letting an attacker map open paths and identify weak points.
   write:
     risks:
       - destruction:defense

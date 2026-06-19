@@ -1,17 +1,12 @@
 name: Database Automatic Tuning
 description: Azure SQL automatic tuning settings for a database control whether the engine automatically creates/drops indexes and forces query plans.
-scope: LOW
+scope: HIGH
 notes: Control-plane configuration governing automatic structural changes to a production database.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only retrieval of automatic tuning settings only enumerates the database's tuning configuration metadata.
   write:
     risks:
       - impact:manipulation
-    scope: HIGH
     notes: Updating automatic tuning settings can enable or disable automatic index creation/dropping and plan forcing, altering the operational structure and performance of a production database.

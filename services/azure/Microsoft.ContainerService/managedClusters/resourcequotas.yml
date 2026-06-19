@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - impact:hijack
     notes: Deleting a ResourceQuota removes the enforcement object that caps namespace consumption, eliminating a governance guardrail and freeing an attacker to consume cluster capacity for their own workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading ResourceQuota objects only enumerates namespace resource-limit configuration, low-sensitivity infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

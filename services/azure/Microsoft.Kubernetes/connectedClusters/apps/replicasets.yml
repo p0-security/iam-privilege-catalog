@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a ReplicaSet (or DeleteCollection) removes the pods it maintains, destroying running infrastructure and disrupting the backed service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing ReplicaSets enumerates the pod templates and replica configuration backing workloads, providing infrastructure reconnaissance.
   write:
     risks:
       - impact:hijack

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a job step removes part of the automation pipeline, disrupting the scheduled operation the job performs.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading a job step exposes the T-SQL command text, target group, and credential reference, providing reconnaissance of exactly what the automation runs and where.
   write:
     risks:
       - impact:manipulation

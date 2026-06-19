@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting a firewall rule removes a network firewall access-control entry guarding the SQL server, weakening the network defense and removing access-control policy.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Listing/getting firewall rules inventories the allowed IPv6 ranges protecting the SQL server, useful reconnaissance for finding network gaps.
   write:
     risks:
       - destruction:defense

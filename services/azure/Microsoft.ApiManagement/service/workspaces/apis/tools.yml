@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Workspace-scoped delete of an MCP tool removes gateway configuration exposing an API operation, disrupting dependent integrations (DoS-like).
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Workspace-scoped list/get of MCP tool definitions for an API, enumerating gateway exposure/routing configuration; returns config metadata, not secrets.
   write:
     risks:
       - impact:manipulation

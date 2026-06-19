@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an AI Gateway tenant configuration, removing gateway infrastructure and disrupting that tenant's AI gateway operations (DoS-like effect).
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists/gets AI Gateway tenant configurations, providing read-only reconnaissance of the gateway's multi-tenant configuration; returns no secret material.
   write:
     risks:
       - impact:manipulation

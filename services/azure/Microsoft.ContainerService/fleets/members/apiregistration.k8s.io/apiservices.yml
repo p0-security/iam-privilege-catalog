@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an APIService deregisters an API group (e.g. metrics or extension API servers), breaking access to those resource types and disrupting clients and controllers that depend on them.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading/listing APIServices only enumerates registered API groups and aggregated API server backends, providing infrastructure reconnaissance of the cluster's API topology.
   write:
     risks:
       - impact:manipulation

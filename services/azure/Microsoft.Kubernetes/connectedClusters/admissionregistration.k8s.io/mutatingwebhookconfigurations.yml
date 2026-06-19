@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting mutating webhook configurations removes cluster-wide admission-control mutation/enforcement, disabling defensive policy-enforcement webhooks (e.g. policy/security mutators) so non-compliant or malicious objects pass unmodified.
-  read:
-    risks:
-      - discovery:infra
-    scope: HIGH
-    notes: This data-plane read enumerates the cluster's mutating admission webhooks (endpoints, rules, CA bundles), revealing admission-control wiring useful for planning evasion, without returning credential material.
   write:
     risks:
       - escalation:privilege

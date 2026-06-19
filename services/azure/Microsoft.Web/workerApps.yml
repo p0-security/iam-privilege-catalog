@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a Worker App destroys the compute resource and the workload it hosts, causing a denial-of-service-like loss of that function.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Getting a Worker App's properties is read-only reconnaissance of the compute resource's configuration.
   write:
     risks:
       - impact:manipulation

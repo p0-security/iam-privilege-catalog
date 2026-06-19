@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - impact:dos
     notes: Deleting a PDB removes the availability guardrail protecting a workload, allowing mass simultaneous eviction/drain to take all replicas offline (denial of service).
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets PodDisruptionBudgets, inventorying workload availability constraints and pod selectors as infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

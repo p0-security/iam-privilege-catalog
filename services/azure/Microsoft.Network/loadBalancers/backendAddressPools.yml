@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the backend pool removes the routing target for the load balancer, destroying a network component and denying service to the fronted application.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reads the backend pool definition, enumerating backend members and routing configuration for network reconnaissance only.
   write:
     risks:
       - impact:manipulation

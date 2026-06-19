@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading the firewall's diagnostic settings reveals which log/metric categories are collected and their destinations, letting an attacker map detection coverage to plan evasion.
   Write:
     risks:
       - destruction:logs

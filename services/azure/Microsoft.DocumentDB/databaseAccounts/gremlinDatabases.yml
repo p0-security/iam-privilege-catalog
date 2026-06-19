@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a Gremlin database destroys the database and all contained graphs and their organizational data.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read/list enumerates the Gremlin database resource configuration (not the graph data itself), providing reconnaissance of the account's database layout.
   write:
     risks:
       - impact:manipulation

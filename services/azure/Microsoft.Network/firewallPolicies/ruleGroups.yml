@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the rule group removes the firewall filtering rules, disabling a network defense and opening the protected network to traffic that would otherwise be blocked.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the rule group discloses the firewall ruleset (allow/deny rules, address groups), letting an attacker map network defenses and find gaps to exploit.
   write:
     risks:
       - destruction:defense

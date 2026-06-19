@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - destruction:defense
     notes: Removes a recipient email so operational/security notifications no longer reach legitimate operators, suppressing alerting and weakening detection.
-  read:
-    risks:
-      - discovery:account
-    scope: LOW
-    notes: Enumerates the email addresses/contacts subscribed to a notification, a low-sensitivity inventory of identities associated with the service.
   write:
     risks:
       - impact:manipulation

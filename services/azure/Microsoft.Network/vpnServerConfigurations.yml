@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the configuration removes the backing for P2S VPN connectivity, disrupting remote access to the network.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: GET enumerates VPN auth methods, protocols, and address pools for network reconnaissance; the GET response does not return the RADIUS secret material itself.
   write:
     risks:
       - impact:manipulation

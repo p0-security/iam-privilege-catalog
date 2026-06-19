@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Automation
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic setting reveals which Automation log/metric categories are collected and their routing, letting an attacker map detection coverage before tampering.
   write:
     risks:
       - destruction:logs

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a private link service proxy tears down the private-link connection path, destroying a network component and disrupting private access to the linked service (DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a private link service proxy inventories the private-link connection plumbing between consumer and service, providing network reconnaissance of connectivity.
   write:
     risks:
       - escalation:network

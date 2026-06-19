@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a public IP prefix removes the reserved public IP address range, disrupting any service depending on those addresses (DoS-like effect).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the prefix definition only inventories the reserved public IP range and its configuration, which is network reconnaissance.
   write:
     risks:
       - impact:manipulation

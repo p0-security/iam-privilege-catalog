@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting a JWT authenticator tears down the cluster's authentication/identity-mapping configuration, destroying access-control policy and severing legitimate token-based users from their authorized access to the cluster.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the JWT authenticator discloses the cluster's authentication/access-control configuration (trusted issuers, audiences, claim mappings), letting an attacker inventory the auth policy and identify how to forge or map tokens to cluster identities. Returns configuration, not secret material.
   write:
     risks:
       - escalation:privilege

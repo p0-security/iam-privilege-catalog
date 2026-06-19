@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reads the diagnostic setting to reveal whether and where Bastion logs are exported, letting an attacker assess monitoring coverage before acting.
   write:
     risks:
       - destruction:logs

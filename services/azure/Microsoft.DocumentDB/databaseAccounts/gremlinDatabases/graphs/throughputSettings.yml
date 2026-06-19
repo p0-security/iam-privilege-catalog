@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the configured throughput of a graph, inventorying resource capacity configuration without exposing data or credentials.
   write:
     risks:
       - impact:dos

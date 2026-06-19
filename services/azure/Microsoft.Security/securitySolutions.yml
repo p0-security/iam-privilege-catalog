@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a registered security solution removes a deployed defensive mechanism/integration, disabling its protection and monitoring coverage to aid evasion.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the registered security solutions inventories which defensive products are deployed, letting an attacker map the security posture and find coverage gaps; returns no secret material.
   write:
     risks:
       - destruction:defense

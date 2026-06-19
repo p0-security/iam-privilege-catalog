@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a service group removes an organizational grouping construct used operationally for resource scoping/observability, destroying structural metadata without affecting the underlying resources, data, or RBAC inheritance.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a service group inventories an organizational grouping construct, a low-sensitivity reconnaissance read of how resources are organized.
   write:
     risks:
       - impact:manipulation

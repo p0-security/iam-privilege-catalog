@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes the watcher, removing automation infrastructure and halting the monitoring/automation function it provides.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Returns the watcher's configuration (associated runbook, schedule, parameters, status) only; reconnaissance of automation infrastructure, no secrets returned.
   write:
     risks:
       - escalation:lateral

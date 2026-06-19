@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:consumption
     notes: Deleting resource quotas removes the namespace's consumption-limiting guardrail, allowing unbounded resource use.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read enumerates namespace resource limits and current usage, low-sensitivity operational reconnaissance.
   write:
     risks:
       - impact:manipulation

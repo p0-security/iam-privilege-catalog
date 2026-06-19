@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the connector removes Defender for Cloud monitoring of the onboarded environment, disabling threat detection and blinding incident response.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the connector returns its onboarding/monitoring configuration, letting an attacker inventory which environments are monitored and how Defender for Cloud is wired up.
   write:
     risks:
       - destruction:defense

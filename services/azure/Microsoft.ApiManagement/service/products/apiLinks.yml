@@ -11,11 +11,6 @@ privileges:
       - impact:access
       - impact:manipulation
     notes: Deleting a product-API link removes an API from a product, disrupting subscribers' access to that API through the product and altering the gateway's exposure configuration.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Listing product-API links inventories which APIs are exposed through which products, providing reconnaissance of the gateway's published API surface.
   write:
     risks:
       - impact:manipulation

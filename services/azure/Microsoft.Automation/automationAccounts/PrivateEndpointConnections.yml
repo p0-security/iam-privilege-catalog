@@ -10,11 +10,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the connection removes a private network access path to the Automation account, disrupting authorized private connectivity.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the connection status only enumerates the account's private network connectivity configuration, which is network reconnaissance.
   write:
     risks:
       - escalation:network

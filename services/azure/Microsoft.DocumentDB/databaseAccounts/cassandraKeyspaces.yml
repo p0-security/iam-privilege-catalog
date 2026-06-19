@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a Cassandra keyspace irreversibly destroys all tables and rows it contains, removing organizational data (mitigated only by backups).
-  read:
-    risks:
-      - discovery:data
-    notes: Control-plane read/list enumerates the Cassandra keyspaces present in the account (inventory of stored data containers) without returning row data or secret material.
   write:
     risks:
       - impact:manipulation

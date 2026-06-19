@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - destruction:artifact
     notes: Deleting a versioned override snapshot removes a controller-tracked override-policy artifact, disrupting override versioning and altering how namespaced resources are reconciled and propagated across member clusters.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read/list returns a versioned snapshot of namespaced override rules, providing configuration reconnaissance into fleet placement behavior with no secret or data exposure.
   write:
     risks:
       - impact:manipulation

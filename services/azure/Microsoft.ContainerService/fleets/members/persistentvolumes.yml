@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting cluster-scoped PVs removes the storage objects backing workloads and, under a Delete reclaim policy, destroys the underlying data, disrupting any pods relying on that storage.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reads/lists cluster-scoped PVs, enumerating backing storage references (disk handles, NFS/CSI sources, paths), capacities, and reclaim policies, mapping where data resides.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a master custom IP prefix removes the parent advertised public IP block and any child prefixes derived from it, withdrawing advertisement and causing broad denial of service for dependent services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: A control-plane get/list returning the parent BYOIP block definition, letting an attacker inventory the organization's aggregate owned public IP address ranges.
   write:
     risks:
       - impact:manipulation

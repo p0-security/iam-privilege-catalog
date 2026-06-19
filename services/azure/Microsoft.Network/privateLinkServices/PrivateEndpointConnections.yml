@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an established connection severs a consumer's private-link path to the service, destroying a network connection and denying service to legitimate consumers.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a connection definition inventories which consumer endpoints are connected or pending to the Private Link service and their approval state; read-only network reconnaissance.
   write:
     risks:
       - escalation:network

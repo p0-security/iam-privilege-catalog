@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Logic
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the development artifact definition, letting an attacker inventory the automation/workflow configuration as reconnaissance; returns no secret material.
   write:
     risks:
       - impact:manipulation

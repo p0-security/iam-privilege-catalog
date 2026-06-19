@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the slot's VNet integration removes the network connection component, cutting the app off from the integrated private network and disrupting dependent traffic.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading VNet connections inventories the private network topology the slot is integrated with, revealing reachable subnets/VNets.
   write:
     risks:
       - escalation:network

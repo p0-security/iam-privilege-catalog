@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - destruction:defense
     notes: Deleting the subscription removes the vault's event-notification integration; when that subscription feeds alerting, it also disables event-based detection of malicious vault operations.
-  read:
-    risks:
-      - discovery:infra
-    notes: Views the EventGrid subscription configuration, inventorying the vault's notification/event-routing setup.
   write:
     risks:
       - impact:manipulation

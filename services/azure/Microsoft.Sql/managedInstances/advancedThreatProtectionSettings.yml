@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the managed instance ATP settings discloses whether threat protection is enabled, useful reconnaissance of the defensive posture without yielding data or secrets.
   write:
     risks:
       - destruction:defense

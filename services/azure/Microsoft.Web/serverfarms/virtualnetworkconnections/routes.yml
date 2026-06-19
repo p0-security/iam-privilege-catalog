@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting VNet connection routes removes network routing components, disrupting connectivity for apps relying on those routes.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading VNet connection routes enumerates the network routing configuration for reconnaissance.
   write:
     risks:
       - impact:manipulation

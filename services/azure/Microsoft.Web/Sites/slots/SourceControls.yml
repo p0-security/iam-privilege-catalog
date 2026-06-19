@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting the slot's source-control configuration severs the continuous-deployment integration, altering the app's operational deployment state; the running app and its data are not destroyed.
-  Read:
-    risks:
-      - discovery:infra
-      - discovery:code
-    notes: Reading the slot's source-control configuration reveals the linked repository URL/branch and deployment settings, inventorying the deployment pipeline and where the app's code lives, without returning code or secrets.
   Write:
     risks:
       - impact:manipulation

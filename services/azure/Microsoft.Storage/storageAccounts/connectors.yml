@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a connector tears down the integration configuration, disrupting dependent data flows (DoS-like effect) without touching underlying stored data.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Listing or getting connector properties enumerates connector configuration, providing infrastructure reconnaissance with no secret material returned.
   write:
     risks:
       - impact:manipulation

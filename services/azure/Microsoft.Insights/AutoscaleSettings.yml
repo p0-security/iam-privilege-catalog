@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the autoscale setting removes the scaling configuration so the backing service can no longer scale to meet demand, degrading availability under load.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reading the autoscale setting inventories scaling configuration (target resource, thresholds, min/max capacity), enabling infrastructure reconnaissance.
   Write:
     risks:
       - impact:manipulation

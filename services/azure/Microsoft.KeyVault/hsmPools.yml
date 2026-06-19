@@ -11,10 +11,6 @@ privileges:
       - destruction:crypto
       - destruction:infra
     notes: Deleting an HSM pool destroys the infrastructure hosting cryptographic keys, irreversibly removing both the crypto material it backs and the underlying key-management infrastructure (DoS to dependents).
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read returns only the HSM pool's configuration/properties (not key material), enabling reconnaissance of cryptographic infrastructure.
   write:
     risks:
       - impact:manipulation

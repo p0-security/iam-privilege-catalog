@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting/unregistering a DSC node removes the machine's configuration-enforcement binding, destroying the node-management state and halting ongoing desired-state enforcement on that resource.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists/gets the DSC nodes registered to the Automation account, enumerating which machines are under configuration management for reconnaissance without returning configuration content or secrets.
   write:
     risks:
       - impact:manipulation

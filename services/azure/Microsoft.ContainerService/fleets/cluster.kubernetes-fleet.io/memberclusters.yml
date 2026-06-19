@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a MemberCluster evicts a cluster from the fleet, severing centralized placement/management and disrupting fleet-orchestrated workloads on that production cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading MemberCluster resources inventories which clusters are joined to the fleet and their registration/membership state, providing fleet-topology reconnaissance.
   write:
     risks:
       - impact:manipulation

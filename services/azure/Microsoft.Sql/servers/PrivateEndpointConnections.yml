@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a private endpoint connection, tearing down the private-link path to the production SQL server and disrupting private access for dependent clients (implied DoS).
-  read:
-    risks:
-      - discovery:network
-    notes: List/get enumerates the private-link bindings and approval state of the SQL server, providing read-only network reconnaissance of its private connectivity topology.
   write:
     risks:
       - escalation:network

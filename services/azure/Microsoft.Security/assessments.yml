@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Security
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading security assessments enumerates the subscription's security findings and misconfigurations, giving an attacker a map of vulnerable resources to target.
   write:
     risks:
       - impact:manipulation

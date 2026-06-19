@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:logs
     notes: Deleting a Sentinel setting removes a configured detection/analytics capability and can disrupt the associated security data/log collection (e.g. EyesOn/UEBA ingestion), disabling a defense and impairing incident response.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading Sentinel settings reveals which SIEM analytics and detection features are enabled, exposing the SOC's detection configuration and blind spots.
   write:
     risks:
       - destruction:defense

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a public certificate the app relies on for TLS trust, removing supporting configuration that can break the app's outbound TLS/authentication (DoS-like infra destruction); no private key is involved.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads the public (non-secret) certificate blob/metadata bound to the app, providing only reconnaissance of certificate/trust configuration with no private-key or credential exposure.
   write:
     risks:
       - impact:manipulation

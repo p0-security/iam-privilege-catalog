@@ -1,18 +1,13 @@
 name: Managed HSM diagnostic settings
 description: Azure Monitor diagnostic settings for a Managed HSM that control whether and where the HSM's audit logs and metrics are collected and routed (Log Analytics, storage, event hub).
-scope: LOW
+scope: MEDIUM
 notes: Controls a detective security control; tampering disrupts incident response, but reading only discloses the logging configuration.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.KeyVault
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic setting discloses whether/where HSM audit logs are routed, exposing monitoring posture so an attacker can plan evasion.
   Write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Creating/updating the diagnostic setting lets an attacker disable or redirect HSM audit log collection, suppressing logs and weakening a detective defense to evade detection of key operations.

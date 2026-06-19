@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the interconnect group removes the construct organizing ExpressRoute interconnect redundancy, destroying connectivity infrastructure and potentially disrupting dependent hybrid connectivity.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the interconnect group enumerates the grouping of ExpressRoute interconnects, enabling reconnaissance of hybrid-connectivity topology.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes the private-link proxy, removing a private-network connectivity component and potentially disrupting private access to the workspace.
-  read:
-    risks:
-      - discovery:network
-    notes: Reads private-link connectivity configuration, inventorying the workspace's private network access paths.
   write:
     risks:
       - escalation:network

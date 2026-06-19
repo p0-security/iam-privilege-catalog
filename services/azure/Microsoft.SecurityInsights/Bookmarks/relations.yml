@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:logs
     notes: Deleting a bookmark relation removes investigation artifacts tying evidence to incidents/entities, disrupting incident response and forensic reconstruction.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading bookmark relations exposes how investigation findings link to incidents/entities, revealing what the SOC is actively investigating.
   write:
     risks:
       - impact:manipulation

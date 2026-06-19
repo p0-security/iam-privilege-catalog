@@ -11,12 +11,6 @@ privileges:
       - impact:dos
       - destruction:crypto
     notes: Deleting a connection asset removes the stored credential/connection configuration that runbooks depend on, destroying the credential material and breaking dependent automation jobs (denial of service to those workflows).
-  read:
-    risks:
-      - discovery:infra
-      - discovery:account
-    scope: MEDIUM
-    notes: A control-plane get returns connection field metadata and non-secret values (identity/endpoint references) but not the encrypted credential values, so this is reconnaissance of credential-bearing identities and configuration, not secret exfiltration.
   write:
     risks:
       - persistence:account

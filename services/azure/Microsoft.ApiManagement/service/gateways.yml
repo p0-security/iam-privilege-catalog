@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a gateway removes the infrastructure serving APIs through it, disrupting traffic routing for the dependent service (DoS-like).
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of registered gateways and their configuration metadata; returns no secret material, only infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

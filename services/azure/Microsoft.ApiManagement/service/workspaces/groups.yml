@@ -11,11 +11,6 @@ privileges:
       - impact:access
       - destruction:policy
     notes: Deletes a workspace group, removing an access-control grouping and revoking the product/API access of all its members, denying authorized developers their access.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Lists or gets workspace group definitions, inventorying the access-control groupings that govern product/API access and revealing the authorization structure.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - destruction:defense
     notes: Deleting a protected item tears down replication and discards the recovery copy/recovery points, destroying DR data and removing the recovery defense for the workload.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read/list enumerates which workloads are DR-protected and their replication configuration (source/target, disks, recovery points), providing infrastructure reconnaissance of the DR estate.
   write:
     risks:
       - impact:manipulation

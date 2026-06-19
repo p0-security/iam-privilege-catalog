@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - impact:dos
     notes: Deleting a named value removes a constant referenced by API policies/configs, breaking every policy that depends on it and disrupting the affected APIs while altering operational configuration.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Listing/getting named values inventories the constant values and metadata used across API policies/configs; secret-flagged values are masked, so this is configuration reconnaissance rather than secret disclosure.
   write:
     risks:
       - impact:manipulation

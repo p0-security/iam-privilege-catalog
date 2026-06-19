@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a load balancer removes the traffic-distribution endpoint fronting a production service, causing denial of service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a load balancer definition exposes frontend IPs, backend pools, and rules, providing reconnaissance of how a service is fronted.
   write:
     risks:
       - impact:manipulation

@@ -11,12 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a network flow-log diagnostic setting stops collection of network traffic flow records, destroying network audit data and removing a network monitoring/detection control.
-  Read:
-    risks:
-      - discovery:logs
-      - discovery:network
-    scope: LOW
-    notes: Reading a network flow-log diagnostic setting reveals whether and where flow logging is enabled and the associated network resources/storage targets, exposing both monitoring coverage and network topology for evasion planning.
   Write:
     risks:
       - destruction:logs

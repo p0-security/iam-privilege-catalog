@@ -5,14 +5,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Security
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  delete:
-    risks: []
-    notes: Deleting a suppression rule removes a configured suppression, which re-enables (restores) alerting rather than weakening detection, so in isolation it grants no meaningful attacker advantage.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Reading suppression rules reveals which security alerts are already silenced, exposing detection blind spots an attacker can stage activity within.
   write:
     risks:
       - destruction:defense

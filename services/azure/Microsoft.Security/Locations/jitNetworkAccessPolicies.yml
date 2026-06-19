@@ -10,12 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a JIT policy removes the just-in-time gating that locks down VM management ports, disabling the network defense and leaving the surface exposed.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading JIT policies reveals which VMs/ports are gated and the access-control rules governing them, exposing the network defense configuration and gaps to target.
   write:
     risks:
       - destruction:defense

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the private link removes a private-network connectivity component for the security service, disrupting legitimate private access.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Get/List of the private link only enumerates the service's private-link connectivity configuration, i.e. read-only network reconnaissance.
   write:
     risks:
       - escalation:network

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a Gremlin graph destroys the graph container and all vertex/edge data it holds, an irreversible data-destruction capability.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read/list enumerates the Gremlin graph resource configuration (not the vertex/edge data), providing reconnaissance of the database's graph containers.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a subnet, removing a network component and severing connectivity for resources hosted in it (DoS-like network destruction).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reads a subnet definition (address ranges, NSG/route associations, service endpoints) — pure network reconnaissance.
   write:
     risks:
       - impact:manipulation

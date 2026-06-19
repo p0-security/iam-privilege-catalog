@@ -9,11 +9,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the policy removes the egress access restriction enforced on the subnet, disabling a network defense mechanism.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the policy enumerates the subnet's service-endpoint egress controls, useful for mapping network access restrictions.
   write:
     risks:
       - impact:manipulation

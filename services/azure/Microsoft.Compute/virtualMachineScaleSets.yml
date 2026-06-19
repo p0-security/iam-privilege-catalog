@@ -12,10 +12,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting the entire scale set tears down the compute infrastructure along with the data on its instance disks and takes the hosted production service offline.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading scale set properties returns the full configuration (VM profile, instance counts, network and identity references), enabling read-only reconnaissance of the compute infrastructure for targeting.
   write:
     risks:
       - escalation:lateral

@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:access
     notes: Deleting a product-group link revokes a developer group's authorized access to a product, denying legitimate consumers access to its APIs.
-  read:
-    risks:
-      - discovery:policy
-    notes: Listing product-group links reveals which developer groups are entitled to subscribe to a product's APIs, exposing the gateway's product-access mapping useful for finding weak points.
   write:
     risks:
       - impact:manipulation

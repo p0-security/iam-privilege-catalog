@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting a ResourceOverride removes the override applied during propagation, changing what namespaced resources are deployed to member clusters fleet-wide without destroying the underlying live resources.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the ResourceOverride enumerates the override/JSON-patch rules and cluster selectors governing how namespaced resources are mutated across member clusters; configuration reconnaissance returning no secret material.
   write:
     risks:
       - impact:manipulation

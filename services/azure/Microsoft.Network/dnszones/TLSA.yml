@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - destruction:defense
     notes: Deleting the TLSA record set removes a public DNS network component and the DANE certificate-pinning defense, weakening TLS trust enforcement and enabling certificate substitution.
-  read:
-    risks:
-      - discovery:network
-    notes: Reads the TLSA record set, inventorying the domain's published certificate-binding (DANE) configuration; reconnaissance only.
   write:
     risks:
       - takeover:domain

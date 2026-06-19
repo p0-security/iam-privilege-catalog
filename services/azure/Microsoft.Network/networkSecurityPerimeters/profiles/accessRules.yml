@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an access rule removes part of the perimeter's enforced traffic controls; removing a restrictive rule loosens the defensive boundary protecting associated resources.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading an access rule discloses exactly which sources/destinations are permitted through the perimeter, mapping the firewall-style ruleset and its weak points.
   write:
     risks:
       - destruction:defense

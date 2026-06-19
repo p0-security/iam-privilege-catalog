@@ -11,11 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a table removes the log stream and its collected records, destroying logs and disrupting the detection/incident-response capability that depends on them.
-  read:
-    risks:
-      - discovery:logs
-    scope: LOW
-    notes: Reading a table returns its schema, plan, and retention configuration, inventorying which log types and fields exist without returning the log content itself.
   write:
     risks:
       - impact:manipulation

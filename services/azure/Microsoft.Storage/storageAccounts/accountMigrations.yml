@@ -1,17 +1,12 @@
 name: Storage account migration
 description: A control-plane resource representing a storage account redundancy/SKU migration and its status.
-scope: LOW
+scope: MEDIUM
 notes: Operational migration status/configuration; non-sensitive.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Storage
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading account migration status only inventories the storage account's migration/redundancy configuration state.
   write:
     risks:
       - impact:manipulation
-    scope: MEDIUM
     notes: Initiating a redundancy migration (e.g. changing LRS/GRS/ZRS) alters the account's durability configuration as a control-plane manipulation of operational settings.

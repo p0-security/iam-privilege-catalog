@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:dos
     notes: Deleting leases removes leader-election locks and node heartbeats, forcing re-election/failover churn or marking nodes unhealthy, degrading cluster operations.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing leases reveals leader-election and node-heartbeat coordination state, identifying which controllers/nodes are active (low-value operational reconnaissance).
   write:
     risks:
       - impact:dos

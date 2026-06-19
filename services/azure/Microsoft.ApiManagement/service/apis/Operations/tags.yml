@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Detaching a tag from an operation deletes operational metadata associations only.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Lists/gets tags associated with an operation, exposing only organizational metadata labels.
   write:
     risks:
       - impact:manipulation

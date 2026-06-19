@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a sync group tears down the replication relationship, destroying the sync configuration and disrupting ongoing data synchronization between the hub and member databases.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists/gets sync group configuration (member database references, sync direction, schedule, conflict policy), enabling reconnaissance of the Data Sync topology without returning data or secrets.
   write:
     risks:
       - impact:manipulation

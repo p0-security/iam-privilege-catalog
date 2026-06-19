@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting the connection ACL removes the access-control policy restricting the connection (enabling unrestricted use) and can strip authorized principals of their legitimate access.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reads the ACL of a specific connection, inventorying which principals are authorized so an attacker can identify access-control gaps.
   write:
     risks:
       - escalation:privilege

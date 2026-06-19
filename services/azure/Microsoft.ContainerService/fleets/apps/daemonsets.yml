@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting DaemonSets tears down node-level workloads (often logging/monitoring/CNI agents) across the fleet, destroying running infrastructure and disrupting the services they support.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading DaemonSet specs across the fleet inventories workload configuration (images, node selectors, env, mounted volume/secret references) for reconnaissance; it returns config references, not the secret values themselves.
   write:
     risks:
       - impact:hijack

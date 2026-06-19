@@ -1,16 +1,11 @@
 name: Container registry repository metadata
 description: Repository metadata describes the repositories within an Azure Container Registry, including tags, manifest properties, and list/read/write/delete enablement flags.
-scope: LOW
+scope: MEDIUM
 links:
   - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:metadata
-    notes: Gets the descriptive metadata of a repository, enabling inventory of repository tags and properties without returning the image content itself.
   write:
     risks:
       - impact:manipulation
-    scope: MEDIUM
     notes: Updates repository metadata, letting an attacker alter operational repository properties (e.g. tag/manifest properties, list/read/write/delete enabled flags) to mislead consumers or change repository behavior.

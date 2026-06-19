@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the settings tears down the subscription-wide Defender for IoT configuration, disabling the threat-protection defense.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading Defender for IoT settings inventories the subscription-wide security configuration and posture, reconnaissance of the defensive deployment.
   write:
     risks:
       - destruction:defense

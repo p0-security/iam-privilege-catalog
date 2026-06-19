@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an API operation, removing an exposed endpoint and disrupting the API function for consumers (DoS-like effect captured by destruction:infra).
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists or gets API operation definitions, inventorying the gateway's exposed endpoint surface (methods, URL templates, parameters) for reconnaissance; returns no secret material.
   write:
     risks:
       - impact:manipulation

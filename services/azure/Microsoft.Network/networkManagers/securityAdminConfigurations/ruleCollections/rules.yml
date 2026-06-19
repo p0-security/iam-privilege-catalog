@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Deleting an admin rule removes a centrally-enforced firewall control; removing a deny rule that overrides NSGs opens previously blocked traffic paths to additional resources across managed VNets.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a security admin rule discloses the enforced allow/deny posture (ports, sources, destinations) across managed VNets, enabling network reconnaissance to locate gaps.
   write:
     risks:
       - destruction:defense

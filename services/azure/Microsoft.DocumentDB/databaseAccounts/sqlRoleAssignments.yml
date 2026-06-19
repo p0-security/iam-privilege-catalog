@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting a SQL role assignment destroys a data-plane access binding, stripping legitimate principals of access (denial-of-access) and tearing down grants that would otherwise constrain the attacker.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading a SQL role assignment enumerates which principals hold which data-plane roles on the account, mapping the RBAC graph to find privileged targets.
   write:
     risks:
       - escalation:privilege

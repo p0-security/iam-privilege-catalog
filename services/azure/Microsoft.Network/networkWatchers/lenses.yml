@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a Lens removes a network-traffic monitoring mechanism, eliminating defensive visibility into the endpoint and impairing incident response.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading Lens details only returns the monitoring resource's configuration, letting an attacker inventory which endpoints are being monitored without returning captured traffic.
   write:
     risks:
       - collection:data

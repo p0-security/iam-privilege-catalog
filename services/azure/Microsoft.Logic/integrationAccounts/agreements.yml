@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an agreement removes B2B integration configuration, breaking the partner message flows that depend on it (DoS-like effect on a single integration function).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the agreement configuration (control plane), enabling reconnaissance of partner identities and protocol/routing settings without returning the raw artifact content.
   write:
     risks:
       - impact:manipulation

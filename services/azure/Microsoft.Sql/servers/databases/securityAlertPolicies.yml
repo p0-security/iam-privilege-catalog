@@ -1,17 +1,12 @@
 name: Database Threat Detection Policy
 description: The Advanced Threat Protection / threat-detection (security alert) policy for an Azure SQL Database, a defensive control that raises alerts on anomalous and malicious activity (e.g., SQL injection, anomalous access).
-scope: MEDIUM
+scope: HIGH
 notes: A detection/alerting defense; weakening it enables undetected attacker activity.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the threat-detection policy reveals whether and how detection is enabled, helping an attacker find defensive gaps before acting.
   write:
     risks:
       - destruction:defense
-    scope: HIGH
     notes: Changing the threat-detection policy lets an attacker disable Advanced Threat Protection alerting on the database to evade detection.

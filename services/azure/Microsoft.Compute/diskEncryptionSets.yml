@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a disk encryption set severs the CMK encryption binding for dependent managed disks, which can render those disks and their VMs inaccessible, causing denial of service.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading a disk encryption set returns its Key Vault key reference and managed-identity configuration but no key material, only inventorying the encryption setup.
   write:
     risks:
       - impact:manipulation

@@ -12,10 +12,6 @@ privileges:
       - destruction:data
       - destruction:defense
     notes: Deleting a CRD cascade-deletes every custom resource instance of that type cluster-wide, tearing down operator/controller infrastructure, destroying their stored state/data, and removing policy-enforcement CRDs (e.g. Gatekeeper constraints) that act as defenses.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading CRDs inventories the cluster's extended API types and installed operators/controllers/security tooling, mapping the attack surface without exposing secret data.
   write:
     risks:
       - impact:manipulation

@@ -11,12 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting a rule collection removes enforced deny/allow rules from the NSG-overriding defense layer, disabling network protections for the targeted network groups.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    scope: MEDIUM
-    notes: Read-only enumeration of the specific enforced allow/deny rules and their target network groups, exposing the network defense/policy configuration to find weak points.
   write:
     risks:
       - destruction:defense

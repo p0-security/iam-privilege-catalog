@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a Connection removes the integration resource that dependent Logic Apps/workflows rely on, breaking those integrations in a denial-of-service-like manner.
-  Read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Control-plane get/list enumerates connection resources and their non-secret configuration (target API, status); it does not return the stored secret material.
   Write:
     risks:
       - impact:manipulation

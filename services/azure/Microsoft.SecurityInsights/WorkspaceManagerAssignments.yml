@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting workspace manager assignments removes the centrally-pushed security content from member workspaces, degrading detection coverage across the managed fleet and aiding evasion.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading workspace manager assignments only enumerates which content/configuration is pushed to which member workspaces, exposing the centralized SIEM management topology.
   write:
     risks:
       - impact:manipulation

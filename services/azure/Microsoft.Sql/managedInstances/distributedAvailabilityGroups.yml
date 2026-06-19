@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the distributed availability group tears down the replication/DR link supporting the production database's high availability, destroying that infrastructure and disrupting availability.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists/gets distributed availability group configuration, letting an attacker inventory replication topology and linked partner instances of a production database service.
   write:
     risks:
       - exfiltration:data

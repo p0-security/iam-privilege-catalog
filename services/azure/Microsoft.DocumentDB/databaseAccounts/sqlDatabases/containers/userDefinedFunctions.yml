@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deleting a UDF removes a server-side code artifact, breaking queries that depend on it.
-  read:
-    risks:
-      - discovery:code
-    notes: Reading/listing UDFs returns the server-side JavaScript source bodies defined on the container.
   write:
     risks:
       - impact:manipulation

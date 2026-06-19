@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the Web App destroys the hosting resource for a production application and takes the service offline.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reading a Web App's properties inventories its configuration and hosting details for reconnaissance; the control-plane get does not return app-setting secret values.
   Write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an action group removes the notification/automation targets that alert rules fire to, silently disabling alert delivery and impairing incident response.
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading an action group inventories its notification configuration (recipients, webhook URLs, runbook/automation targets), enabling reconnaissance of the incident-response wiring and potentially leaking webhook endpoints.
   Write:
     risks:
       - destruction:defense

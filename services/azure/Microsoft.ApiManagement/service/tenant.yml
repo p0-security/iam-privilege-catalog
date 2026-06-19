@@ -11,12 +11,6 @@ privileges:
       - destruction:policy
       - destruction:defense
     notes: Removes the global tenant policy configuration, deleting the service-wide policy that may enforce authentication/authorization and protective controls (rate limiting, IP filtering) for all API traffic.
-  read:
-    risks:
-      - discovery:policy
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reads the global policy definition and tenant access settings, inventorying service-wide access-control configuration and infrastructure state. The actual secret keys are gated behind listSecrets, so this read returns config/policy metadata only.
   write:
     risks:
       - impact:manipulation

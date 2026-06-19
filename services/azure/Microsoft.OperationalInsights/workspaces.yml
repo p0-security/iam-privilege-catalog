@@ -12,10 +12,6 @@ privileges:
       - destruction:defense
       - destruction:infra
     notes: Deleting the workspace destroys the entire log store and disables ongoing log collection, blinding incident response, removing a detection/monitoring defense, and tearing down monitoring infrastructure.
-  read:
-    risks:
-      - discovery:infra
-    notes: Gets the workspace control-plane configuration (SKU, retention, customer id, linked workspaces), enabling reconnaissance of the monitoring resource without returning log data or keys.
   write:
     risks:
       - impact:manipulation

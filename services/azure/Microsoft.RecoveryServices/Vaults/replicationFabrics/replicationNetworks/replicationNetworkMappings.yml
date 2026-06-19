@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a network mapping removes the DR network association object, breaking failover network plumbing and degrading disaster-recovery readiness.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only enumeration of source-to-target network mappings discloses DR network topology, which is network reconnaissance.
   write:
     risks:
       - impact:manipulation

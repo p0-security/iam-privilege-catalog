@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a routing rule removes a route applied to managed subnets, potentially severing connectivity for dependent services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading an individual routing rule discloses its prefixes and next-hop, providing network routing reconnaissance.
   write:
     risks:
       - impact:manipulation

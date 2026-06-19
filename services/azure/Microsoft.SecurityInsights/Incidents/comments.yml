@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting incident comments removes analyst investigation notes, destroying response-relevant records and impeding/misleading the SOC.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading incident comments exposes analyst investigation notes and findings, informing an attacker about defender awareness and response progress.
   write:
     risks:
       - impact:manipulation

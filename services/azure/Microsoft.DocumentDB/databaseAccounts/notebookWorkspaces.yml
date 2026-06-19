@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the notebook workspace, removing the supporting compute environment and any notebooks/state it hosts.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the notebook workspace configuration/state metadata, inventorying the supporting compute resource without exposing credentials or data.
   write:
     risks:
       - impact:hijack

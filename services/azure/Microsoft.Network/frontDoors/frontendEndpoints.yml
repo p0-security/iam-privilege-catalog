@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a frontend endpoint removes the public entry hostname/domain binding, making the service unreachable (DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Gets a frontend endpoint, enumerating the public hostnames/custom domains and TLS config exposed by Front Door — network reconnaissance.
   write:
     risks:
       - takeover:domain

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deleting a gallery application removes a deployable VM-application artifact definition from the shared image gallery.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a gallery application only inventories the application definition's configuration metadata, which is infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an outbound firewall rule removes part of the egress-restriction control that constrains where the server can send data, dismantling a data-exfiltration-prevention defense.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the outbound firewall rules inventories the SQL server's permitted egress destinations, revealing the exfiltration-prevention posture and any gaps for reconnaissance.
   write:
     risks:
       - destruction:defense

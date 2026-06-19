@@ -11,11 +11,6 @@ privileges:
       - destruction:account
       - impact:dos
     notes: Deleting a user-assigned identity destroys an identity principal and breaks authentication for every resource bound to it, denying service to dependent workloads.
-  read:
-    risks:
-      - discovery:account
-    scope: LOW
-    notes: Getting a user-assigned identity returns its metadata (clientId/principalId/tenant) but no usable credential material, enabling only identity reconnaissance for targeting.
   write:
     risks:
       - persistence:account

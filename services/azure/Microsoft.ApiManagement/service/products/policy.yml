@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting the product policy removes the gateway-enforced access-control and security controls (auth, IP filtering, rate limiting) applied to all APIs in the product, disabling defenses and stripping access-control policy.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading the product policy XML reveals the access-control and security enforcement rules (auth, IP filters, rate limits, routing), letting an attacker inventory defensive logic and locate weak points.
   write:
     risks:
       - impact:manipulation

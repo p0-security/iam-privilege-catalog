@@ -11,10 +11,6 @@ privileges:
       - destruction:data
       - destruction:infra
     notes: Deleting a snapshot destroys the point-in-time copy of organizational data it preserves, undermining backup/recovery, and removes the storage resource.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane get returns only snapshot configuration (source disk, size, SKU, encryption state) for infrastructure reconnaissance; it does not return raw snapshot data or a SAS token.
   write:
     risks:
       - impact:manipulation

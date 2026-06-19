@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a managed namespace tears down the namespace and the workloads/resources scoped to it, destroying infrastructure and disrupting the hosted service.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a managed namespace returns its configuration metadata, providing reconnaissance of the cluster's namespace layout with no secret material returned.
   write:
     risks:
       - impact:manipulation

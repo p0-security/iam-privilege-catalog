@@ -15,6 +15,3 @@ privileges:
       - exfiltration:logs
     notes: Returns ingested log records, allowing an attacker to read and export potentially sensitive log content.
     name: Log Analytics workspace search results
-    parent:
-      description: The (deprecated) workspace search API returns query results over the log data ingested into the Log Analytics workspace.
-      notes: Returns actual log content, which can contain sensitive operational, identity, and security data.

@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a route map removes route transformation/filtering rules from the hub, disrupting or rerouting traffic across the Virtual WAN.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the route map exposes route-advertisement/filtering rules and prefixes, reconnaissance of the Virtual WAN routing topology.
   write:
     risks:
       - impact:manipulation

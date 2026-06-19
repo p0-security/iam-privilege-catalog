@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:dos
     notes: Deleting Leases (including DeleteCollection) removes leader-election and heartbeat locks, forcing re-election churn or marking nodes unhealthy, disrupting controllers and components that depend on them.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing Leases reveals leader-election holders and node-heartbeat state — low-value reconnaissance about which controllers/components are active.
   write:
     risks:
       - impact:dos

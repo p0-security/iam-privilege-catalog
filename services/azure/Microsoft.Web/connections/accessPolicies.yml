@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting access policies removes access-control grants on the connection (destruction:policy), stripping legitimate principals (e.g. a Logic App's managed identity) of their authorized access to use the connection (impact:access).
-  Read:
-    risks:
-      - discovery:policy
-    notes: Listing the connection's access policies enumerates which principals are authorized to use the credential-bearing connection, revealing access-control configuration and weak points.
   Write:
     risks:
       - escalation:privilege

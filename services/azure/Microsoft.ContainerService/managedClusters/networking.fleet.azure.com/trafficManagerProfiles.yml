@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting removes the DNS routing component entirely so the domain can no longer route traffic to any fleet backend, destroying network routing and denying service.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading exposes the full DNS-based routing configuration, routing method, and backend endpoint list, letting an attacker inventory the public-facing network/DNS topology.
   write:
     risks:
       - impact:manipulation

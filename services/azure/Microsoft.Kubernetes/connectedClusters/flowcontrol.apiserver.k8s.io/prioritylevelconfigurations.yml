@@ -11,11 +11,6 @@ privileges:
       - impact:dos
       - destruction:defense
     notes: Deleting PriorityLevelConfigurations removes apiserver concurrency-control/overload protections, disabling a defense and degrading or denying control-plane availability.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of apiserver concurrency/queueing tiers; non-sensitive control-plane configuration reconnaissance.
   write:
     risks:
       - impact:dos

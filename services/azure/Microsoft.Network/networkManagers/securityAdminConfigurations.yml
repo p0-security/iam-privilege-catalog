@@ -11,12 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting the security admin configuration removes the centrally-enforced NSG-overriding security rules protecting managed VNets, disabling a network defense layer.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    scope: MEDIUM
-    notes: Read-only disclosure of the centrally-enforced NSG-overriding security rule posture, revealing network defense configuration and gaps.
   write:
     risks:
       - destruction:defense

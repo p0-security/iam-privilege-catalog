@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting an export job tears down the configured security-log export pipeline, disrupting downstream log collection and incident-response visibility.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading export-job configuration enumerates what Sentinel data is exported and to which destinations, reconnaissance of the security-log export pipeline.
   write:
     risks:
       - exfiltration:logs

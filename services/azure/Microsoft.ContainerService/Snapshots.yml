@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Delete destroys a saved node-pool configuration baseline used for reproducible provisioning/recovery.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get returns the node-pool snapshot's configuration, enabling read-only reconnaissance of node-pool infrastructure settings.
   write:
     risks:
       - impact:manipulation

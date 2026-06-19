@@ -1,18 +1,13 @@
 name: Container copy jobs
 description: Container copy (data transfer) jobs that move/replicate data between Azure Cosmos DB containers, accounts, or external stores within a database account.
-scope: MEDIUM
+scope: HIGH
 notes: Job definitions reference source and destination containers and govern bulk movement of production database data.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:data
-    notes: Reading/listing container copy jobs reveals source and destination containers and data-movement activity, inventorying where organizational data resides and what is being moved.
   write:
     risks:
       - exfiltration:data
       - impact:manipulation
-    scope: HIGH
     notes: Creating a container copy job can duplicate a production container's contents to an attacker-chosen destination (another account/container/store), enabling bulk data exfiltration, and writes/overwrites data at the destination.

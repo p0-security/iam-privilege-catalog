@@ -11,11 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a logger removes the telemetry/log destination for the workspace, halting log collection and disrupting incident response and monitoring defenses.
-  read:
-    risks:
-      - discovery:logs
-    scope: LOW
-    notes: Reading/listing logger configuration inventories where APIM telemetry is shipped, revealing the logging setup an attacker would target to evade detection. Returns configuration metadata, not raw secret material.
   write:
     risks:
       - destruction:logs

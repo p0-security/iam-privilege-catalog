@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the failover group tears down the geo-replication/DR relationship protecting production databases, destroying resilience infrastructure and undermining availability guarantees.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: List/Get of failover group properties only inventories the DR/geo-replication topology (partner servers, member databases, failover policy) — reconnaissance with no data or secret access.
   write:
     risks:
       - impact:manipulation

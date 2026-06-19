@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:infra
     notes: Deleting the plan removes the DDoS mitigation defense for all associated VNets, leaving protected services exposed to volumetric attacks, and destroys the defense infrastructure resource itself.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the plan returns configuration metadata of a network defense resource, enabling reconnaissance of the DDoS protection posture; no secret material is returned.
   write:
     risks:
       - impact:spend

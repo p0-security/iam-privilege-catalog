@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - destruction:defense
     notes: Deletes the routing intent, removing the policy that forces traffic through security appliances, disrupting hub routing (DoS) and removing the firewall/inspection enforcement.
-  read:
-    risks:
-      - discovery:network
-    notes: Reads the hub's routing-intent policy, inventorying how internet/private traffic is routed and whether it is forced through security appliances (topology and security-posture reconnaissance).
   write:
     risks:
       - impact:manipulation

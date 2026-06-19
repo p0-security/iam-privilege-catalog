@@ -17,6 +17,3 @@ privileges:
       - destruction:logs
     notes: Despite the /read suffix this sets the SAS URL destination for session recordings, letting an attacker redirect or disrupt where privileged-session audit recordings are written, tampering with the recording configuration and undermining the audit trail.
     name: Bastion Host session recording SAS URL
-    parent:
-      description: Azure Bastion is a managed jump-host service providing browser-based RDP/SSH access to VMs; its session recording feature captures privileged interactive sessions and uploads them to a storage account authenticated via a SAS URL.
-      notes: Bastion mediates privileged administrative access to production VMs; the session recordings are sensitive forensic/audit artifacts capturing on-screen activity and potentially credentials.

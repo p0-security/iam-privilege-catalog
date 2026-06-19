@@ -1,17 +1,12 @@
 name: Container registry task runs
 description: The ACR Tasks run records of an Azure Container Registry, representing build/task execution jobs and their properties, status, and logs.
-scope: LOW
+scope: MEDIUM
 notes: Run records are build-pipeline operational metadata; some run-scoped actions (log SAS URLs) expose credential and log material.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Getting or listing task runs enumerates build/run job properties and status, providing read-only reconnaissance of the registry's build infrastructure.
   write:
     risks:
       - impact:manipulation
-    scope: MEDIUM
     notes: Updating a run mutates ACR task run records (e.g. archive flag/properties), allowing manipulation of build-pipeline operational metadata and history.

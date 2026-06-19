@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deletes a custom recommendation, removing a posture-detection rule and disabling part of the org's security assessment coverage.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reads custom security recommendation definitions, letting an attacker learn the org's posture rules and find detection blind spots to exploit.
   write:
     risks:
       - destruction:defense

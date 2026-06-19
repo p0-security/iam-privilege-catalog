@@ -11,10 +11,6 @@ privileges:
       - destruction:data
       - destruction:infra
     notes: Deleting the server destroys the server infrastructure and all hosted databases and their data, causing irrecoverable data loss and denial of service.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists/gets server configuration properties (FQDN, admin login name, network and AAD-admin settings) without returning secret material, providing control-plane reconnaissance of a production database server.
   write:
     risks:
       - impact:manipulation

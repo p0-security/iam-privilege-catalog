@@ -1,18 +1,13 @@
 name: Azure SQL Managed Instance DTC
 description: The Distributed Transaction Coordinator (DTC) configuration of an Azure SQL Managed Instance, controlling distributed transaction inbound/outbound network connectivity and authentication settings.
-scope: MEDIUM
+scope: HIGH
 notes: DTC settings govern network reachability and transaction connectivity of a production database instance.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:network
-    notes: Reading DTC properties reveals the instance's distributed-transaction network/connectivity and authentication configuration, supporting network reconnaissance of the production instance.
   write:
     risks:
       - impact:manipulation
       - escalation:network
-    scope: HIGH
     notes: Updating DTC properties alters operational config and can enable/expand inbound/outbound distributed-transaction connectivity, broadening reachable network access to the production instance.

@@ -1,17 +1,12 @@
 name: SQL Managed Server threat detection policy
 description: The Advanced Threat Protection / threat detection (security alert) policy for an Azure SQL Managed Instance, controlling whether and how malicious-activity alerts are generated and to whom they are sent.
-scope: MEDIUM
+scope: HIGH
 notes: This is a defensive detection control; weakening it blinds incident response for the managed instance.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Lists the configured threat detection policies, revealing whether and how detection is enabled so an attacker can identify monitoring gaps and operate within blind spots.
   write:
     risks:
       - destruction:defense
-    scope: HIGH
     notes: Updates the managed server threat detection policy, letting an attacker disable or weaken threat-detection alerting (or remove alert recipients) on the SQL managed instance to evade detection of subsequent malicious activity.

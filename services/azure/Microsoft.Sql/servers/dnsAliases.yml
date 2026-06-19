@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a DNS alias removes the stable connection name clients resolve to, breaking application connectivity to the database (denial of service).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Lists/gets server DNS aliases, enumerating the DNS-name-to-server mappings clients use to reach databases — reconnaissance for redirection/takeover attacks.
   write:
     risks:
       - takeover:domain

@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - destruction:infra
     notes: Deleting the vault destroys the backup infrastructure and all recovery points it holds, eliminating the organization's ability to restore from backup (the core ransomware mitigation).
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the vault object returns only its resource configuration and properties, providing infrastructure reconnaissance of the backup deployment with no secret material disclosed.
   write:
     risks:
       - impact:manipulation

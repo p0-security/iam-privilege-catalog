@@ -1,18 +1,13 @@
 name: APIM portal settings
 description: Developer portal settings for an Azure API Management service, controlling sign-in, sign-up, and delegation behavior of the portal.
-scope: MEDIUM
+scope: HIGH
 notes: These settings shape portal authentication and user-onboarding flows; the delegation validation key is a signing secret.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads sign-in/sign-up/delegation portal settings (no secrets), inventorying the portal configuration.
   write:
     risks:
       - impact:manipulation
       - destruction:defense
-    scope: HIGH
     notes: Updating sign-in/sign-up/delegation settings lets an attacker alter portal authentication and registration behavior (e.g. enable open sign-up or redirect delegation), weakening the access controls protecting the developer portal.

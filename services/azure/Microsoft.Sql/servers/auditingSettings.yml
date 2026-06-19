@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the server blob auditing policy reveals whether and how SQL audit logging is configured server-wide, letting an attacker inventory detection coverage and identify gaps.
   write:
     risks:
       - destruction:logs

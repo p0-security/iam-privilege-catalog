@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a verifier removes a network diagnostic/reachability-analysis resource; low impact beyond loss of the supporting verification tooling, with no effect on production connectivity.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading a verifier returns its reachability-analysis configuration and results, revealing network paths, allowed flows, and topology for reconnaissance.
   write:
     risks:
       - impact:manipulation

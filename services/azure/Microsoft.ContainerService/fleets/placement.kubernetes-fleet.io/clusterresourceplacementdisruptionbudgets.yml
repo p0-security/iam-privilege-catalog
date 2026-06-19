@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:dos
     notes: Deleting the disruption budget removes the safeguard that caps simultaneous placement disruptions, eliminating an availability defense and enabling unrestricted eviction/disruption of fleet workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Read/list only enumerates the configured disruption tolerances, revealing the availability safeguard configuration for reconnaissance with no secrets returned.
   write:
     risks:
       - impact:manipulation

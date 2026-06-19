@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the zone group removes private DNS resolution for the endpoint, breaking name resolution and connectivity to the backing service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the zone group only inventories how the private endpoint resolves DNS, which is read-only network reconnaissance.
   write:
     risks:
       - impact:manipulation

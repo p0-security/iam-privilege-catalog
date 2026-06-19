@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the ISE tears down the dedicated host for every workflow and connector running in it, destroying infrastructure and taking all hosted integrations offline.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the ISE configuration (SKU, VNet/network injection, capacity, state) for read-only infrastructure reconnaissance; exposes no payload data or secrets.
   write:
     risks:
       - impact:manipulation

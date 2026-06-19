@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an export removes cross-cluster service exposure, tearing down connectivity that dependent clusters rely on and disrupting the service.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading enumerates which internal services are exported for cross-cluster consumption, inventorying the fleet's internal service/network topology.
   write:
     risks:
       - escalation:network

@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a hybrid connection severs the relay-based network path the app uses to reach backend/on-prem resources, disrupting the dependent service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a hybrid connection enumerates the relay endpoint host/port and namespace the app connects to, exposing internal network topology (the relay key is returned only by a separate listKeys action, not this read).
   write:
     risks:
       - escalation:network

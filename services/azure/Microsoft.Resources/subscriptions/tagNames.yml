@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes a subscription tag name, removing operational metadata that may underpin governance, cost tracking, automation, or policy targeting.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Gets or lists subscription tag names, enumerating the operational metadata/tag schema for reconnaissance.
   write:
     risks:
       - impact:manipulation

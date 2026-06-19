@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a fleet destroys the management/grouping infrastructure governing a set of production database accounts, disrupting fleet-level coordinated operations.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read/list only enumerates the fleet grouping configuration and its member topology, providing infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

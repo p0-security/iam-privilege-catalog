@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading case investigations exposes the investigation graph and findings, letting an attacker gauge what defenders know about an incident and which of their actions have been correlated.
   write:
     risks:
       - impact:manipulation

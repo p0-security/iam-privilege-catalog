@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - impact:dos
     notes: Dropping a classifier removes query-routing/prioritization rules, altering operational resource governance and potentially degrading or starving prioritized workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only listing of workload classifier configuration only inventories query-routing/resource-governance settings on the database.
   write:
     risks:
       - impact:manipulation

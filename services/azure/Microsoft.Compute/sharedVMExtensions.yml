@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deleting the shared extension definition removes a published, distributable extension artifact that VMs/deployments depend on, disrupting dependent operations.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading the extension definition only enumerates its configuration metadata, yielding infrastructure reconnaissance with no secret material returned.
   write:
     risks:
       - impact:manipulation

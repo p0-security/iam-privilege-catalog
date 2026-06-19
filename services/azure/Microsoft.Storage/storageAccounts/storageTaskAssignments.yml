@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the assignment that binds a storage task to the account, tearing down the configured automation (which may enforce lifecycle/immutability/retention); destroys configuration/infrastructure but not the underlying blob data.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only retrieval of the assignment configuration (bound task, conditions, target/exclude scope, schedule, report location), enabling reconnaissance of the account's data-management automation without exposing blob data or secrets.
   write:
     risks:
       - impact:manipulation

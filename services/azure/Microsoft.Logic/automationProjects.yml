@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an automation project, tearing down the deployed automation resource and the workflows it runs, a denial-of-service-like destruction of the supporting function.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads or lists an automation project, letting an attacker inventory the project's automation configuration as reconnaissance; returns no secret material.
   write:
     risks:
       - impact:manipulation

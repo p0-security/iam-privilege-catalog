@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:dos
     notes: Deleting an NSG removes the firewall ruleset protecting attached subnets/NICs, eliminating a network defense and potentially disrupting connectivity for services that depend on its rules.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading an NSG discloses its firewall rules and topology associations, letting an attacker map allowed/denied ports and IP ranges to find exposure points and weak spots.
   write:
     risks:
       - destruction:defense

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the schema configuration for an API, removing a config component the API depends on and potentially disrupting validation/processing (DoS-like effect).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads/lists the schema configuration for an API, inventorying the API's structure/contract for reconnaissance without returning secrets or stored data.
   write:
     risks:
       - impact:manipulation

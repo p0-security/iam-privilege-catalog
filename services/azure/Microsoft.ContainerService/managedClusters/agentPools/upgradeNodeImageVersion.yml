@@ -16,6 +16,3 @@ privileges:
       - impact:dos
     notes: Invoking this action forces a rolling cordon-drain-reimage of the agent pool's nodes, evicting and disrupting running workloads and causing downtime if abused.
     name: AKS agent pool node image upgrade
-    parent:
-      description: The control-plane action that triggers an upgrade of the node OS image version for an AKS managed-cluster agent (node) pool, initiating a rolling reimage of the pool's worker nodes.
-      notes: Acts on production cluster compute; the rolling reimage cordons, drains, and recreates nodes.

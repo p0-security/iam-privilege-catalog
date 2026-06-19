@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting mappings removes DR replication configuration, impairing the disaster-recovery pipeline for protected items.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only enumeration of replication storage classification mappings exposes DR replication topology for reconnaissance.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting APIService registrations unregisters aggregated/core API groups, breaking serving of those APIs cluster-wide and denying service to controllers and users that depend on them.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading APIService registrations inventories the aggregated/extension API layer and the backends serving each API group, exposing cluster API topology.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - destruction:artifact
     notes: Deletes the registry along with all stored container images/artifacts, destroying the infrastructure and the supply-chain artifacts and denying service to dependents that pull from it.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Gets/lists registry control-plane properties (login server, SKU, network rules, admin-enabled flag) without returning credentials or image contents, enabling infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

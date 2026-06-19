@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a task removes the registry's build/automation pipeline definition, disrupting CI/CD that produces and updates images (DoS-like effect on a supporting function).
-  read:
-    risks:
-      - discovery:infra
-    notes: Get/list returns the summary task configuration (triggers, steps), inventorying the registry's build/automation pipeline; the secret credential fields are returned only by listDetails, so this is reconnaissance.
   write:
     risks:
       - escalation:lateral

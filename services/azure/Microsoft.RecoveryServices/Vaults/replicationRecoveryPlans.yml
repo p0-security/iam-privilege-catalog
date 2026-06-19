@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a recovery plan removes the DR orchestration definition, undermining the organization's ability to coordinate recovery of protected workloads in a disaster.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading recovery plans enumerates the DR topology (which workloads replicate where, grouping, and failover ordering), providing infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

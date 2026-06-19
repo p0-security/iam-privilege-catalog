@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an Ingress removes the external routing/entry point for cluster services, severing public access and denying service to the hosted applications.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Read-only enumeration of L7 routing rules, hostnames, paths, backends, and TLS configuration maps the cluster's externally exposed attack surface.
   write:
     risks:
       - impact:manipulation

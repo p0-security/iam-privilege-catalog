@@ -1,18 +1,13 @@
 name: Cosmos DB collection throughput setting
 description: The provisioned throughput (RU/s) configuration for a Cosmos DB MongoDB-API collection, controlling the collection's request capacity and the dimension Cosmos DB bills on.
-scope: LOW
+scope: HIGH
 notes: Throughput is a metered provisioning knob on a production data store; it controls capacity/billing but not the stored data content.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads a collection's provisioned throughput value, exposing only non-sensitive capacity configuration as infrastructure reconnaissance.
   write:
     risks:
       - impact:dos
       - impact:spend
-    scope: HIGH
     notes: Updating a MongoDB collection's RU/s lets an attacker throttle/deny the production workload or raise capacity to inflate Cosmos DB spend.

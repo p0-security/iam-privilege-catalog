@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a backend pool removes the origins serving traffic, taking the fronted service offline (DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Gets a backend pool, revealing origin server addresses behind Front Door — network reconnaissance for origin targeting.
   write:
     risks:
       - impact:manipulation

@@ -1,7 +1,7 @@
-name: Application Insights API key
-description: An Application Insights API key is a credential scoped to a single Application Insights component that grants programmatic access to read telemetry/query the component's data APIs.
+name: Application Insights components
+description: An Application Insights component is the Azure Monitor resource that ingests, stores, and retains application telemetry (requests, traces, exceptions, dependencies, metrics).
 scope: MEDIUM
-notes: Scoped read credential for one monitoring component's telemetry; not a tenant/subscription credential. Asset sensitivity is monitoring-tier (MEDIUM).
+notes: Monitoring/diagnostics asset whose data underpins detection and incident response.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Insights
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
@@ -11,17 +11,15 @@ privileges:
       - exfiltration:crypto
       - persistence:account
     notes: "Verified: generating an API key returns a usable X-API-Key credential that authorizes reading telemetry via api.applicationinsights.io; this exports secret material and establishes a standalone persistent access credential."
-    name: Application Insights components
-    parent:
-      description: An Application Insights component is the Azure Monitor resource that ingests, stores, and retains application telemetry (requests, traces, exceptions, dependencies, metrics).
-      notes: Monitoring/diagnostics asset whose data underpins detection and incident response.
   Delete:
     risks:
       - impact:access
     notes: Deletes an API key, revoking the credential and denying legitimate integrations/dashboards their programmatic access to telemetry, without granting the attacker anything.
+    name: Application Insights API key
   Read:
     risks:
       - exfiltration:crypto
       - escalation:lateral
     scope: CRITICAL
     notes: Reading the API key resource is treated as returning usable credential material that grants programmatic telemetry/query access under an alternate identity; an attacker holding this can read the component's data plane out-of-band.
+    name: Application Insights API key

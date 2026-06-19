@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - destruction:defense
     notes: Unregistering a protection container removes the backup linkage for a workload, destroying its backup configuration and disabling the backup defense that guards against ransomware/data loss; can cascade to loss of recovery points for that container.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Listing registered protection containers inventories which workloads are registered for backup in the vault; read-only reconnaissance of backup infrastructure.
   write:
     risks:
       - impact:manipulation

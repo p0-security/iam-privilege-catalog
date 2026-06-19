@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deletes the file share and all file data it contains, destroying organizational data unless backed up.
-  read:
-    risks:
-      - discovery:data
-    notes: Control-plane get of share properties/quota that enumerates the data store's existence and configuration without returning file contents.
   write:
     risks:
       - impact:manipulation

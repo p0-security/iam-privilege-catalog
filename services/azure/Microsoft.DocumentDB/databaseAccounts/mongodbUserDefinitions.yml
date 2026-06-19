@@ -11,11 +11,6 @@ privileges:
       - destruction:account
       - impact:access
     notes: Deleting a MongoDB user definition removes a database account, destroying the identity and denying that user authorized access to the data plane.
-  read:
-    risks:
-      - discovery:account
-      - discovery:policy
-    notes: Reading a MongoDB user definition enumerates database user accounts and their assigned roles, inventorying identities as targets for compromise and revealing their access-control mappings; the API does not return plaintext passwords.
   write:
     risks:
       - persistence:account

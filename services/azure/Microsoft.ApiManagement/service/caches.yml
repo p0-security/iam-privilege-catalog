@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an external cache binding, removing supporting caching infrastructure and degrading gateway performance/availability.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets external cache configuration, enumerating supporting infrastructure; the connection string is not returned, so this is reconnaissance only.
   write:
     risks:
       - impact:manipulation

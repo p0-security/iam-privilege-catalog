@@ -11,8 +11,3 @@ privileges:
       - destruction:crypto
       - destruction:infra
     notes: This delete verb is the purge of a soft-deleted HSM, permanently destroying the HSM and all contained cryptographic keys with no recovery.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Viewing properties of a soft-deleted HSM at the location scope only inventories the deleted resource's configuration, infrastructure reconnaissance.

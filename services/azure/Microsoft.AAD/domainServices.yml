@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the managed domain tears down the domain controllers, destroying directory infrastructure and denying authentication to every workload relying on LDAP/Kerberos/NTLM.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the managed domain configuration (domain name, SKU, network/replica sets, security settings, sync scope) inventories the directory-services infrastructure without returning secret material.
   write:
     risks:
       - impact:manipulation

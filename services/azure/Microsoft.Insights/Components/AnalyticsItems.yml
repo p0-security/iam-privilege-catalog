@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a shared analytics item removes team-wide saved queries/functions used operationally for monitoring, but not the underlying telemetry data.
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading a shared analytics item exposes saved KQL queries/functions over Application Insights telemetry, revealing what monitoring data and logic exist; it does not return the telemetry itself.
   Write:
     risks:
       - impact:manipulation

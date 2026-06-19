@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the strategy removes the orchestration-config object that governs safe fleet-wide update rollout, disrupting controlled multi-cluster update operations.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the staged-update strategy, inventorying the fleet's rollout-orchestration configuration; no secret material is returned.
   write:
     risks:
       - impact:manipulation

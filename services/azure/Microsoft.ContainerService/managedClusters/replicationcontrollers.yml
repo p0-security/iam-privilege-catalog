@@ -11,10 +11,6 @@ privileges:
       - impact:dos
       - destruction:infra
     notes: Deleting replication controllers tears down the controllers and the pod replicas they maintain, terminating workloads and removing the infrastructure that sustains the affected services.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading/listing replication controllers inventories workload controllers, their embedded pod templates, and replica configuration, providing reconnaissance of running and scaled workloads.
   write:
     risks:
       - impact:hijack

@@ -11,11 +11,6 @@ privileges:
       - impact:access
       - destruction:policy
     notes: Deleting the group-product association revokes API access for all members of that group and tears down an access-control binding, denying authorized developers their access.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Lists the developer groups associated with a product, disclosing the access-control mapping that gates the product's APIs for reconnaissance of weak points.
   write:
     risks:
       - escalation:privilege

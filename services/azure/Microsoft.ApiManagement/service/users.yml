@@ -1,7 +1,7 @@
-name: APIM user accounts
-description: Registered developer-portal user accounts within an API Management service instance, identifying developers who consume the published APIs.
+name: API Management service
+description: An Azure API Management (APIM) service instance is a managed API gateway that fronts, secures, and routes traffic to a business function's backend APIs, holding gateway policies, named-value secrets, certificates, custom domains, and developer/subscription identities.
 scope: MEDIUM
-notes: User records include identifying attributes (name, email, state) and gate developer-portal access; they are identities but scoped to the APIM developer portal, not Azure RBAC.
+notes: The gateway sits on the public-facing path of an organizational function's APIs and can hold credential material (named values, certificates, subscription keys) and a managed identity; treat it as a single-function production service of HIGH sensitivity.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
@@ -10,20 +10,14 @@ privileges:
     risks:
       - persistence:account
     notes: Registering a new developer-portal user creates an attacker-controlled account that can maintain access to the API surface and obtain subscription keys for protected APIs.
-    name: API Management service
-    parent:
-      description: An Azure API Management (APIM) service instance is a managed API gateway that fronts, secures, and routes traffic to a business function's backend APIs, holding gateway policies, named-value secrets, certificates, custom domains, and developer/subscription identities.
-      notes: The gateway sits on the public-facing path of an organizational function's APIs and can hold credential material (named values, certificates, subscription keys) and a managed identity; treat it as a single-function production service of HIGH sensitivity.
   delete:
     risks:
       - destruction:account
     notes: Deletes a developer-portal user account, removing the identity from the API Management instance.
-  read:
-    risks:
-      - discovery:account
-    notes: Lists or reads developer-portal user accounts and their details, inventorying identities (including emails) as compromise targets.
+    name: APIM user accounts
   write:
     risks:
       - persistence:account
       - impact:manipulation
     notes: Creates or updates a developer-portal user, letting an attacker register a controlled account for persistent access and alter existing user records/state.
+    name: APIM user accounts

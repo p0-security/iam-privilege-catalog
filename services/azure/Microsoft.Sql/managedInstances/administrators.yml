@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deletes the existing administrator binding, removing the access-control assignment (destruction:policy) and revoking the legitimate admin's authorized access to the instance (impact:access).
-  read:
-    risks:
-      - discovery:policy
-      - discovery:account
-    notes: Reads the configured admin binding, inventorying the access-control assignment (discovery:policy) and the privileged admin identity itself (discovery:account) as a target for compromise.
   write:
     risks:
       - escalation:privilege

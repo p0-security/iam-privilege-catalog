@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting DaemonSets removes node-wide workloads (e.g. CNI, logging, monitoring, security agents) cluster-wide, destroying infrastructure and disrupting cluster operations.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading DaemonSets inventories node-level workload configuration (images, volume mounts, security contexts, service-account references), aiding cluster reconnaissance and attack planning.
   write:
     risks:
       - impact:hijack

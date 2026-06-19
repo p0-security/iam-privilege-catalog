@@ -11,10 +11,6 @@ privileges:
       - impact:dos
       - destruction:infra
     notes: Deleting Jobs terminates running/queued batch workloads and removes their pods, disrupting the processing they perform.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing/getting Jobs enumerates batch-workload definitions and their pod specs (images, commands, env references), constituting infrastructure reconnaissance.
   write:
     risks:
       - impact:hijack

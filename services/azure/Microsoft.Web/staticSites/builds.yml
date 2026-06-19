@@ -11,8 +11,3 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a build tears down a deployed environment of the site, destroying infrastructure and disrupting the served application.
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Getting a build returns build status/configuration metadata, providing only read-only infrastructure reconnaissance.

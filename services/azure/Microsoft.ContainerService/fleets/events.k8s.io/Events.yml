@@ -11,11 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting events removes the cluster activity/audit-like trail, disrupting incident response and erasing evidence of attacker actions.
-  read:
-    risks:
-      - discovery:logs
-      - discovery:infra
-    notes: Reading events enumerates the cluster activity/log stream and reveals infrastructure and workload state, supporting reconnaissance of recent operations.
   write:
     risks:
       - impact:manipulation

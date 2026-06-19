@@ -11,11 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a data connector halts ingestion of a security log source into the SIEM, destroying log collection and crippling the detection coverage that depends on it.
-  read:
-    risks:
-      - discovery:logs
-    scope: MEDIUM
-    notes: Reading data connectors enumerates which log/telemetry sources feed the SIEM, exposing monitoring coverage and blind spots an attacker can exploit to avoid being logged.
   write:
     risks:
       - destruction:logs

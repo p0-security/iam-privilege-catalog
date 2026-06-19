@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a job removes the scheduled automation orchestration object, disrupting the operational/maintenance tasks it performs against databases.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading a job definition inventories the scheduled automation configuration (schedule, target group) without returning data or secrets.
   write:
     risks:
       - impact:manipulation

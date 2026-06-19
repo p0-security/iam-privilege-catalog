@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes a worker group, removing the execution capacity for hybrid runbooks and disrupting any automation that depends on those workers.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads a worker group definition, inventorying the machines registered to execute runbooks and identifying execution targets for later abuse.
   write:
     risks:
       - escalation:lateral

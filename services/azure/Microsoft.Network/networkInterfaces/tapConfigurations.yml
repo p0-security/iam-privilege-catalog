@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the tap configuration removes the traffic-mirroring component from the interface, which can also tear down a legitimate monitoring/IDS feed attached to it.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the tap configuration reveals whether and where traffic mirroring is set up on the interface, exposing the traffic-collection topology as network reconnaissance.
   write:
     risks:
       - collection:data

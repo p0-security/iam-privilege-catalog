@@ -11,10 +11,6 @@ privileges:
       - impact:dos
       - destruction:network
     notes: Deleting Ingresses removes external routing rules, severing public access to the backing services and causing denial of service.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading Ingress objects enumerates external routing rules, hostnames, paths, TLS config, and backend service mappings, mapping the cluster's network exposure across the fleet.
   write:
     risks:
       - escalation:network

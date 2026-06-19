@@ -1,18 +1,13 @@
 name: Web App restore
 description: Backup-restore operation configuration and status for an Azure App Service web app.
-scope: LOW
+scope: HIGH
 notes: Read-only metadata about backup/restore setup; does not return application backup contents.
 links:
   - https://azure.permissions.cloud/iam/microsoft.web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading restore information inventories the app's backup/restore configuration and status, low-sensitivity reconnaissance.
   write:
     risks:
       - impact:manipulation
       - impact:dos
-    scope: HIGH
     notes: Triggering an in-place restore overwrites the running app's content and configuration with a backup, manipulating operational state and disrupting the live service.

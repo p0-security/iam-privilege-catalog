@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the filter removes the plan's event-routing configuration, disrupting event-driven integrations tied to the plan.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the filter only enumerates the plan's event-subscription configuration for reconnaissance.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the proxy tears down the private-link connectivity plumbing, severing the private path to the hosted service and denying access to consumers.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the proxy only enumerates the private-link connection orchestration configuration, yielding read-only network reconnaissance with no data or credential exposure.
   write:
     risks:
       - escalation:network

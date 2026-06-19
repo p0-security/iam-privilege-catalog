@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a run command on a scale-set instance removes that command resource and its stored execution record, a destructive change to compute infrastructure config scoped to the run-command artifact rather than the instance or its data.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Getting a scale-set instance run command's properties enumerates the configured script/parameters and execution status, providing reconnaissance of the code-execution surface without executing code or returning secrets.
   write:
     risks:
       - escalation:lateral

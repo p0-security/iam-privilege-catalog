@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a routing rule removes the path delivering public traffic to backends, breaking the hosted service (DoS).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Gets a routing rule, revealing how public traffic is mapped to backends — network/topology reconnaissance only.
   write:
     risks:
       - impact:manipulation

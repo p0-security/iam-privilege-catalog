@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the private endpoint connection proxy removes the vault's private network connectivity component, disrupting private access to backup/recovery services (DoS-like network destruction). DisplayName is mislabeled boilerplate.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the proxy enumerates the vault's private-endpoint network connectivity configuration (network reconnaissance). DisplayName ('Get all protectable containers') is a mislabeled copy-paste artifact.
   write:
     risks:
       - escalation:network

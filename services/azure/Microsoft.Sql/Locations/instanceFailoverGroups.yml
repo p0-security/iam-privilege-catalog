@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes the failover group, tearing down the DR/geo-replication relationship for production databases and removing failover protection.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists or gets failover group properties, exposing the DR/replication topology and partner-instance configuration of production managed instances.
   write:
     risks:
       - impact:manipulation

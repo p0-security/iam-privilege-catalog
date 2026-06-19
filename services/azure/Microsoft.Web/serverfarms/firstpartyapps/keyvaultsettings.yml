@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/microsoft.web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads which Key Vault references are configured for the plan, exposing config pointers to where secrets live (reconnaissance) without returning the secret values themselves.
   write:
     risks:
       - impact:manipulation

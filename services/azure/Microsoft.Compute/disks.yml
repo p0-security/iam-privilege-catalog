@@ -11,10 +11,6 @@ privileges:
       - destruction:data
       - destruction:infra
     notes: Deleting a disk destroys the organizational data it holds and removes the storage infrastructure a VM depends on, causing irrecoverable data loss and a DoS-equivalent effect on the attached workload.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane get returns only disk configuration (size, SKU, encryption settings, attachment state, source) for infrastructure reconnaissance; it does not return raw disk data or a SAS token.
   write:
     risks:
       - impact:manipulation

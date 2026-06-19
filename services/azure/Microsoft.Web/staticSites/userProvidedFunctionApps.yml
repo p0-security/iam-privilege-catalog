@@ -11,10 +11,6 @@ privileges:
       - impact:manipulation
       - impact:dos
     notes: Detaching the Function App removes the static site's backend API binding, altering operational configuration and disrupting the public site's dynamic functionality.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Listing the registered user-provided Function Apps inventories the backend resources wired into the static site (reconnaissance).
   Write:
     risks:
       - impact:manipulation

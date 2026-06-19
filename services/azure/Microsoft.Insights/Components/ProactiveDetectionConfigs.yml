@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Insights
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reads which anomaly/smart-detection rules are enabled and how they are tuned, letting an attacker learn the monitoring detection posture before evading it.
   Write:
     risks:
       - destruction:defense

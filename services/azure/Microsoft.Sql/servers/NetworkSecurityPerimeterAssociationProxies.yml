@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Dropping the NSP association removes the SQL server from its network security perimeter, tearing down the network-isolation defense and re-exposing the server to broader network reachability.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the NSP association inventories whether and how the SQL server is bound to its network-isolation perimeter and its enforcement mode, mapping the defensive network boundary for reconnaissance.
   write:
     risks:
       - destruction:defense

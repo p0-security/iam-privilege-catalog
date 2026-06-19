@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a virtual cluster tears down the infrastructure hosting SQL Managed Instances, destroying it and denying service to the dependent production databases.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Listing or getting virtual cluster properties is read-only inventory of the Managed Instance hosting infrastructure and its configuration.
   write:
     risks:
       - impact:manipulation

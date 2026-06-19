@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an individual rule removes a network traffic-filtering control acting as a defense, opening traffic paths that were previously restricted.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading an individual rule discloses specific allow/deny ports, protocols, and address prefixes, letting an attacker map the network traffic-filtering posture for weak points.
   write:
     risks:
       - destruction:defense

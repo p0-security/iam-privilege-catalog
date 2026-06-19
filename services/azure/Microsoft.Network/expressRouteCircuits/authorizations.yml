@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an authorization removes the connectivity grant, severing legitimate gateway connections that depend on it and disrupting the private/hybrid link.
-  read:
-    risks:
-      - discovery:network
-    notes: Control-plane GET of the authorization resource configuration (name, provisioning state); the dedicated key-retrieval actions exist separately, so the plain read is treated as network reconnaissance and does not surface usable key material as its headline capability.
   write:
     risks:
       - escalation:network

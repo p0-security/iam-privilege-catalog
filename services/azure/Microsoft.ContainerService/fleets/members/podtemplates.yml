@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting pod templates removes stored, reusable pod-spec definitions used operationally to provision workloads, altering the cluster's workload configuration; PodTemplates back no running pods, so there is no direct DoS or data destruction.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads/lists pod templates, revealing workload specifications including container images, commands, mounted volumes, and service-account references (workload reconnaissance).
   write:
     risks:
       - impact:manipulation

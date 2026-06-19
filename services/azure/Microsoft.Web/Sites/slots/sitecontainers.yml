@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a slot's sitecontainers tears down the container configuration the app depends on, destroying infrastructure and disrupting the hosted service.
-  Read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Control-plane read returns the slot's container image references and runtime config, enabling reconnaissance of how the app workload is composed without returning secret material.
   Write:
     risks:
       - impact:hijack

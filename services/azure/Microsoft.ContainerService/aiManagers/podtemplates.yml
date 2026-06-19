@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting pod templates removes reusable workload-definition objects relied on for provisioning pods, disrupting deployment configuration.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading pod templates discloses workload specifications (images, mounts, env, service-account references), aiding reconnaissance of cluster configuration.
   write:
     risks:
       - impact:hijack

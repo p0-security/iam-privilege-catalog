@@ -9,11 +9,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a route removes a traffic-steering rule, breaking or rerouting connectivity for the affected prefixes.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading an individual route definition reveals next-hop and prefix details, providing network reconnaissance.
   write:
     risks:
       - impact:manipulation

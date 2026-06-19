@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the PTR record set removes reverse-DNS resolution, destroying a network component and disrupting services (e.g. mail acceptance) that depend on reverse lookups.
-  read:
-    risks:
-      - discovery:network
-    notes: Getting the PTR record set reveals reverse IP-to-hostname mappings, providing network reconnaissance of infrastructure naming.
   write:
     risks:
       - takeover:domain

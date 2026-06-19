@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the Private Link Service removes the private connectivity component fronting a backend service, severing access for connected consumers (DoS-like for that network path).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the Private Link Service returns its network configuration (load balancer frontends, visibility/auto-approval subscriptions, NAT IP config, endpoint connections), enabling network reconnaissance of how a service is privately exposed.
   write:
     risks:
       - escalation:network

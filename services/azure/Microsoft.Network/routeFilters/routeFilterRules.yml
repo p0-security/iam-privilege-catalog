@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deletes a route filter rule, removing a route-advertisement control and altering/disrupting which prefixes are advertised over ExpressRoute peering.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only enumeration of the specific BGP community filtering rule, providing network routing configuration reconnaissance.
   write:
     risks:
       - impact:manipulation

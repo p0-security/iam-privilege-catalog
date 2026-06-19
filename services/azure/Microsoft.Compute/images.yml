@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deletes a VM image template, destroying a reusable deployment artifact downstream provisioning may depend on.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading image properties inventories a deployment-artifact's configuration without returning disk contents or credentials.
   write:
     risks:
       - impact:manipulation

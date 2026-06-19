@@ -1,17 +1,12 @@
 name: Database maintenance windows
 description: The configured maintenance/patching window schedule for an Azure SQL / Data Warehouse database.
-scope: LOW
+scope: MEDIUM
 notes: Low-sensitivity operational scheduling configuration.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the configured maintenance window schedule for the database, low-sensitivity operational configuration reconnaissance.
   write:
     risks:
       - impact:manipulation
-    scope: MEDIUM
     notes: Setting the maintenance window lets an attacker reschedule disruptive maintenance/patching to chosen times, manipulating operational scheduling configuration, though it does not touch database data.

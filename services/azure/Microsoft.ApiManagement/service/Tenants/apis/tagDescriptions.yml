@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a tag description removes descriptive labeling metadata associated with the API.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Reading tag descriptions enumerates descriptive labeling metadata associated with the API.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an InternalMemberCluster removes the hub-side internal record for a cluster, breaking its participation in the fleet and disrupting reconciliation and placement-driven workloads.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading InternalMemberCluster resources enumerates the hub-side internal state/heartbeat/health of member clusters, providing infrastructure reconnaissance of the fleet fabric.
   write:
     risks:
       - impact:manipulation

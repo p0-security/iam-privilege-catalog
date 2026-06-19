@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deletes a fabric, destroying DR replication infrastructure and disrupting ongoing replication/recovery for protected workloads.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads/lists fabric configuration, enumerating the DR source/target site topology registered to the vault.
   write:
     risks:
       - impact:manipulation

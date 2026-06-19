@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the policy removes the egress access-control defense that constrains subnet-to-service traffic.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the policy enumerates the network access-control configuration governing which services a subnet may reach, useful for reconnaissance of egress defenses.
   write:
     risks:
       - destruction:defense

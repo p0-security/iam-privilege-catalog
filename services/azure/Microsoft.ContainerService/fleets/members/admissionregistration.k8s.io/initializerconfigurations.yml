@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting initializerconfigurations removes a cluster-wide admission-control hook that may enforce security policy on object creation, disabling a defense mechanism so non-conforming or malicious objects are admitted unchecked.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading initializerconfigurations enumerates the cluster's admission-control policy, disclosing which interceptors gate and mutate object creation and where enforcement gaps exist, without exposing data or secrets.
   write:
     risks:
       - escalation:lateral

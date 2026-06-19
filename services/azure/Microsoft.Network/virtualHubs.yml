@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the hub tears down the central routing fabric, severing connectivity for every attached VNet/branch and causing DoS for hosted services.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the hub returns address space, routing settings and attached connections, allowing inventory of the WAN topology.
   write:
     risks:
       - impact:manipulation

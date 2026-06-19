@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deleting a tag-API link removes the tag-to-API association, destroying operational metadata used to group and surface APIs.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Listing tag-API links enumerates the organizational tag-to-API associations, low-value reconnaissance of how APIs are categorized.
   write:
     risks:
       - impact:manipulation

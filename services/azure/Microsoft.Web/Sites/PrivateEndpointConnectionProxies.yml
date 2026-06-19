@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy tears down a private-link connectivity component, severing the private path and disrupting authorized access to the web app.
-  Read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: A control-plane read that enumerates the web app's private-link connectivity configuration, granting read-only network reconnaissance with no data or credential exposure.
   Write:
     risks:
       - escalation:network

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a security assignment removes enforcement/tracking of a security standard on the scope, disabling a defensive posture mechanism.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading security assignments inventories which security standards/remediation governance are enforced on a scope, revealing posture-enforcement gaps for reconnaissance.
   write:
     risks:
       - destruction:defense

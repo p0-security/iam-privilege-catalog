@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting an inbound rule removes a firewall/traffic-filtering control on the NVA, disabling a network defense mechanism.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading the rule enumerates which inbound flows the appliance permits, revealing the firewall posture for reconnaissance.
   write:
     risks:
       - destruction:defense

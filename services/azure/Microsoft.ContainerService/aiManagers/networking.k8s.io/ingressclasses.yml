@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an IngressClass breaks ingress resolution for every Ingress referencing it, disrupting external routing across dependent services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading IngressClasses inventories the available ingress controllers and their parameters, low-value reconnaissance of how external traffic is routed.
   write:
     risks:
       - impact:manipulation

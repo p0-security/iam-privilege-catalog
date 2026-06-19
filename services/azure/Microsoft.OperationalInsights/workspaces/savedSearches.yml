@@ -9,10 +9,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes a saved search query, removing an operational query/hunting artifact without affecting the underlying log data or collection.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reads a saved search query, revealing detection/hunting logic and indirectly the structure of the data being queried.
   write:
     risks:
       - impact:manipulation

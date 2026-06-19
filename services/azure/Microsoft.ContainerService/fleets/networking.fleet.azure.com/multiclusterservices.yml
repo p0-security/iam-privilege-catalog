@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting removes the aggregated cross-cluster service endpoint, destroying network routing and denying service to dependent workloads.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading enumerates which services are imported/aggregated across member clusters and their backend targets, revealing cross-cluster service topology.
   write:
     risks:
       - escalation:network

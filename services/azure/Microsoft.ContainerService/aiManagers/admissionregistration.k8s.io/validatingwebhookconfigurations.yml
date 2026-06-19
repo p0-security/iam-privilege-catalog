@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - destruction:policy
     notes: Deleting validating webhook configurations removes cluster-wide admission policy validation (Gatekeeper/Pod Security), disabling a key defense so previously-denied privileged or non-compliant resources are admitted unchecked.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading validating webhook configurations enumerates the cluster's admission validators and their rules, revealing which actions are blocked and where security gates can be circumvented.
   write:
     risks:
       - destruction:defense

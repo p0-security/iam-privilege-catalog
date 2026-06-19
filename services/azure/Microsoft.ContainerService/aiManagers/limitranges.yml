@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting limit ranges removes a namespace's resource-constraint guardrails, lifting caps that otherwise bound workload resource consumption.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading limit ranges only inventories a namespace's resource-constraint configuration, a low-sensitivity reconnaissance of cluster governance settings.
   write:
     risks:
       - impact:manipulation

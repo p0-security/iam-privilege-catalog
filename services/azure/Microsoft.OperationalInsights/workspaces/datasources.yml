@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a data source stops collection of its telemetry stream into the workspace, disrupting log collection and removing a detection/incident-response input.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reads a data source configuration, revealing what telemetry/log collection is configured and exposing gaps in monitoring coverage.
   write:
     risks:
       - impact:manipulation

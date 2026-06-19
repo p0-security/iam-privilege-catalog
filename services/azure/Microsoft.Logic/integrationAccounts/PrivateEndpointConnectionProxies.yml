@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting private endpoint connection proxies removes network connectivity components, disrupting private access to the service (DoS-like effect).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Read-only retrieval inventories the private network connectivity configuration of the integration account (network reconnaissance).
   write:
     risks:
       - escalation:network

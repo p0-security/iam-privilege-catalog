@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes a resource link, removing operational relationship metadata without affecting the underlying resources.
-  read:
-    risks:
-      - discovery:infra
-    notes: Gets or lists resource links, enumerating dependency relationships between resources for infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

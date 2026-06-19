@@ -1,17 +1,12 @@
 name: SQL Server Advanced Threat Protection settings
 description: The Advanced Threat Protection (Microsoft Defender for SQL) settings on an Azure SQL server, controlling whether threat detection and security alerting are enabled for the server and its databases.
-scope: LOW
+scope: HIGH
 notes: A security monitoring/defense control for a production database server; disabling it blinds detection of malicious activity.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading ATP settings reveals whether threat detection is enabled and how it is configured, letting an attacker identify monitoring gaps and blind targets.
   write:
     risks:
       - destruction:defense
-    scope: HIGH
     notes: Updating ATP settings lets an attacker disable threat detection/alerting on the SQL server, suppressing alerts for malicious database activity to evade detection.

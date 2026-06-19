@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - impact:manipulation
     notes: Deletes the API-level policy, stripping enforced auth/IP-filter/rate-limit controls across the entire API and reverting it to unprotected default processing.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reads the API-level policy XML, disclosing the security/access-control enforcement applied across the whole API and exposing weak points.
   write:
     risks:
       - destruction:defense

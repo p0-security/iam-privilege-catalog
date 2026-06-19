@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes a tag, removing operational metadata used to categorize API Management resources.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Lists/reads tag definitions, enumerating operational metadata.
   write:
     risks:
       - impact:manipulation

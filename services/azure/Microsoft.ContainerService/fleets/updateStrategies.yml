@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an update strategy removes the orchestration template that update runs depend on, disrupting coordinated fleet upgrade operations.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading an update strategy discloses the upgrade-ordering/staging configuration, enabling reconnaissance of how fleet upgrades are sequenced.
   write:
     risks:
       - impact:manipulation

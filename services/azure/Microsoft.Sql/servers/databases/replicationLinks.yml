@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a replication link tears down the geo-replication relationship, destroying DR infrastructure and undermining availability/failover protection for the database.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets replication link properties, inventorying the geo-replication topology (partner servers, link state) without exposing data or credentials.
   write:
     risks:
       - impact:manipulation

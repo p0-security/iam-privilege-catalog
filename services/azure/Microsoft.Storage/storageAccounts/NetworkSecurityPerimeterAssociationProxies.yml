@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the NSP association proxy detaches the storage account from its perimeter, removing the network-isolation defense and re-exposing the account to broader network access.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the association proxy only enumerates how the storage account is bound to its perimeter, providing reconnaissance of the network defense posture.
   write:
     risks:
       - destruction:defense

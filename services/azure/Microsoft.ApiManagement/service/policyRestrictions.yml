@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the global policy restriction removes the service-wide guardrail constraining permitted policies, eliminating an enforcement control and freeing an attacker to author unrestricted (potentially malicious) policies.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading the global policy restrictions discloses the tenant-wide guardrails constraining permitted policy authoring, revealing weak points in the service's policy-governance posture before tampering.
   write:
     risks:
       - destruction:defense

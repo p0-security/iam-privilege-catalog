@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a DaemonSet tears down its per-node pods (e.g. CNI, logging, monitoring agents), removing node-level workload infrastructure and disrupting the services it provides across all nodes.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading DaemonSets enumerates per-node workload definitions and pod specs (images, host mounts, privileges, service-account references) across the cluster, infrastructure reconnaissance useful for targeting.
   write:
     risks:
       - impact:hijack

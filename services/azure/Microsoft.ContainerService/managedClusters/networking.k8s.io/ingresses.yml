@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting Ingress objects removes the routing configuration fronting cluster services, severing external access and causing denial of service to the affected applications.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading Ingress objects enumerates hostnames, paths, TLS config, and backend service mappings, providing a map of the cluster's external network exposure.
   write:
     risks:
       - impact:manipulation

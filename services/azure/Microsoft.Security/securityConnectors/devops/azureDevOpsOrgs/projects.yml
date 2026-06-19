@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Security
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the monitored project resource reveals which Azure DevOps projects are onboarded and how their DevOps security monitoring is configured.
   write:
     risks:
       - destruction:defense

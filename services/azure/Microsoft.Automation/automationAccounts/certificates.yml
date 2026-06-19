@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:crypto
     notes: Deleting a certificate asset destroys stored cryptographic credential material used by runbooks for authentication, constituting cryptographic destruction and breaking dependent automations.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: The control-plane certificate get returns asset metadata (name, thumbprint, expiry, exportable flag) but not the private key, so it enables reconnaissance of stored authentication credentials rather than exfiltration of cryptographic material.
   write:
     risks:
       - persistence:account

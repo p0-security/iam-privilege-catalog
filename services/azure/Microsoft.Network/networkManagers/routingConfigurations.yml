@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the routing configuration removes the route definitions applied across managed VNets, tearing down network routing components and disrupting connectivity to hosted services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the routing configuration inventories the route tables and next-hops applied across managed VNets, exposing routing topology for network reconnaissance.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a container irreversibly destroys all documents/items it holds, a direct organizational data-destruction action.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading/listing containers enumerates the collections holding organizational data without returning the documents themselves.
   write:
     risks:
       - impact:manipulation

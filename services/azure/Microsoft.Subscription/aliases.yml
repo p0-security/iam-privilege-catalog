@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a subscription alias removes the alias/provisioning resource that maps and manages the subscription, a destructive control-plane action on subscription infrastructure.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a subscription alias enumerates the alias-to-subscription/billing provisioning configuration, providing infrastructure reconnaissance.
   write:
     risks:
       - impact:spend

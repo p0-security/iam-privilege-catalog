@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.KeyVault
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:data
-    notes: Listing keys and reading the current version's properties enumerates the HSM cryptographic key inventory (metadata/public attributes only, not the non-exportable private material).
   write:
     risks:
       - impact:manipulation

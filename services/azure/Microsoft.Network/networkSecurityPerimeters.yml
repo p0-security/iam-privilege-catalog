@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:network
     notes: Deleting an NSP tears down the entire isolation/defense boundary protecting associated PaaS resources, removing a security control and exposing those services to broader network access.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    notes: Reading an NSP inventories the isolation boundary configuration and its access rules, revealing the defensive network topology and access-control posture to find weak points.
   write:
     risks:
       - impact:manipulation

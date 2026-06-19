@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the product policy strips the enforced gateway controls (authentication, IP restriction, rate limiting) that protect the product's APIs, removing a defense mechanism.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading the product policy XML reveals the gateway's enforcement logic (auth, IP filtering, rate limits, routing), letting an attacker map access controls and find weak points to bypass.
   write:
     risks:
       - destruction:defense

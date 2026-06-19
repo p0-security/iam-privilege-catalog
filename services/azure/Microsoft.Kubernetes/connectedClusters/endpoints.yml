@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting Endpoints removes the backend targets behind services, severing connectivity and denying service to the affected workloads.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading Endpoints enumerates the backend pod IPs/ports behind each service, mapping the cluster's internal network topology for targeting.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes the IPAM pool, destroying address-space planning metadata used operationally to allocate CIDR ranges; it does not itself tear down live VNets/endpoints or sever traffic paths.
-  read:
-    risks:
-      - discovery:network
-    notes: Read returns the pool's CIDR/address-space configuration, letting an attacker inventory the organization's IP address planning for reconnaissance.
   write:
     risks:
       - impact:manipulation

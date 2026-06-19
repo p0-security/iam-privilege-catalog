@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - destruction:logs
     notes: Deletes a deployment script and its backing container/storage, also removing the associated execution logs/output artifacts.
-  read:
-    risks:
-      - discovery:infra
-      - discovery:code
-    notes: Gets/lists deployment scripts, exposing the provisioning configuration and embedded inline script source/arguments.
   write:
     risks:
       - escalation:lateral

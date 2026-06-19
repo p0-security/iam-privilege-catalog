@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the gateway removes the network connectivity component, severing site-to-site/point-to-site tunnels and causing denial of service for dependent connectivity.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the gateway returns its configuration (connections, BGP settings, IP config), enabling inventory of VPN network topology and connectivity details. Returns no secret material.
   write:
     risks:
       - impact:manipulation

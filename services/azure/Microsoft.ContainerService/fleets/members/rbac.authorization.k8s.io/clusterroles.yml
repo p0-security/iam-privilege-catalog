@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting ClusterRoles destroys cluster-wide RBAC permission definitions, breaking access-control policy and denying access to all principals whose bindings reference those roles.
-  read:
-    risks:
-      - discovery:policy
-    notes: A read/list data action that enumerates the cluster-wide permission definitions, letting an attacker identify over-privileged roles to bind to or escalate through.
   write:
     risks:
       - escalation:privilege

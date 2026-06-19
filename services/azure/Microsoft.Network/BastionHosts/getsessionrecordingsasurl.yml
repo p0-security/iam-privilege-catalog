@@ -17,6 +17,3 @@ privileges:
       - exfiltration:logs
     notes: Returns the SAS URL (a bearer credential token) that grants direct access to the storage holding recorded RDP/SSH privileged sessions, exposing both the credential token and the sensitive session audit recordings.
     name: Bastion Host session recording SAS URL
-    parent:
-      description: Azure Bastion is a managed jump-host service providing browser-based RDP/SSH access to VMs; its session recording feature captures privileged interactive sessions and uploads them to a storage account authenticated via a SAS URL.
-      notes: Bastion mediates privileged administrative access to production VMs; the session recordings are sensitive forensic/audit artifacts capturing on-screen activity and potentially credentials.

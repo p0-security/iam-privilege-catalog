@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a public IP removes a network endpoint, disrupting connectivity for any service that depends on that public-facing address.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a public IP definition only inventories network resource configuration (address, SKU, associations), supporting network reconnaissance.
   write:
     risks:
       - escalation:network

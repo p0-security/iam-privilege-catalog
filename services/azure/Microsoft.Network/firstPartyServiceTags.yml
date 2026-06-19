@@ -11,11 +11,6 @@ privileges:
       - destruction:defense
       - destruction:network
     notes: Deleting a service tag removes an IP-prefix definition that firewall/NSG rules depend on, breaking rule resolution (destruction:network) and disrupting the filtering defense built on it (destruction:defense).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: A read/get only returns the IP-range definition behind a service tag, providing read-only network reconnaissance.
   write:
     risks:
       - impact:manipulation

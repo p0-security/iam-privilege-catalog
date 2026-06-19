@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a web app's sitecontainers removes the container definitions the production app runs in, destroying that runtime infrastructure and disrupting the service.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reading a web app's sitecontainers enumerates the configured container images and runtime settings of the production app, providing infrastructure reconnaissance of its runtime composition.
   Write:
     risks:
       - impact:hijack

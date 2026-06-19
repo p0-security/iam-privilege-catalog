@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Delete tears down the cross-cluster service binding, removing the network path through which the cluster reaches a multi-cluster service and causing DoS for dependent workloads.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Read/list only enumerates which cross-cluster services are imported and reachable into the cluster, exposing multi-cluster service networking topology as reconnaissance.
   write:
     risks:
       - impact:manipulation

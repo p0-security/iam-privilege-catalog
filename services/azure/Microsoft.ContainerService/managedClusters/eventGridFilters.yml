@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an Event Grid filter tears down the cluster's event-routing configuration, disrupting downstream event-driven automation/alerting.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only get only inventories the cluster's Event Grid filter/event-routing configuration.
   write:
     risks:
       - impact:manipulation

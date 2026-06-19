@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the outbound endpoint removes a DNS-resolution network component, breaking conditional/outbound DNS forwarding and disrupting name resolution for dependent workloads (DoS).
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the outbound endpoint returns its DNS-resolution network configuration (subnet association, IPs, properties), enabling network reconnaissance.
   write:
     risks:
       - impact:manipulation

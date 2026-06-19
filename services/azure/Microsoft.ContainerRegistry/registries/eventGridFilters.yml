@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an Event Grid filter removes the registry's event-routing integration, disrupting downstream event-driven consumers and potentially suppressing event-based monitoring.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get/List enumerates the registry's Event Grid event-subscription/routing configuration, exposing integration config but no secret or image data.
   write:
     risks:
       - impact:manipulation

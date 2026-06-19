@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:access
     notes: Deleting an authorization tears down a sanctioned cross-connect grant, disrupting dedicated connectivity (DoS-like) and revoking legitimate peers' authorized network access.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the authorization returns its configuration/state metadata (not the secret key, which is exposed only via listkeys), enabling inventory of existing connection authorizations.
   write:
     risks:
       - escalation:network

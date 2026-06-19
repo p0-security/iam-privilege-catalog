@@ -11,10 +11,6 @@ privileges:
       - destruction:artifact
       - impact:dos
     notes: Deletes a compiled DSC node configuration artifact, removing the desired-state definition assigned nodes rely on, causing configuration drift/enforcement failure and disrupting configuration management.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads node configuration metadata (name, source, status) without returning the MOF content body, providing reconnaissance of the DSC configuration inventory.
   write:
     risks:
       - impact:manipulation

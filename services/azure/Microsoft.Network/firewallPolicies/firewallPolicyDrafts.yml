@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a firewall policy draft discards staged firewall security-rule configuration, disrupting the intended defensive policy before it can be applied.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    notes: Reading a firewall policy draft exposes the staged firewall ruleset and intended access-control posture, revealing defensive gaps and bypass paths.
   write:
     risks:
       - destruction:defense

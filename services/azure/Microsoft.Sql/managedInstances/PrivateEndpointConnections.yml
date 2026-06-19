@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deletes a private endpoint connection, removing a network connectivity component and severing legitimate private-link access to the database (DoS for that path).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Lists/gets private endpoint connections, inventorying private link topology and which networks reach the database.
   write:
     risks:
       - escalation:network

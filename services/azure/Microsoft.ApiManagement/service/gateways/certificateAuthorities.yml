@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Unassigning a trusted CA removes a client-certificate validation trust anchor, disabling part of the gateway's mTLS authentication defense and breaking validation for legitimate clients.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Lists or gets the certificates assigned as CAs to a gateway, returning trust-configuration metadata (which certs are trusted) and not private key material, so it is reconnaissance of the gateway's mTLS trust setup.
   write:
     risks:
       - destruction:defense

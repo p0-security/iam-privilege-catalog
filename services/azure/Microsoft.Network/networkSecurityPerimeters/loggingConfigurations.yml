@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting the configuration stops collection of security-perimeter access logs, removing detection coverage and disrupting incident response.
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the configuration reveals which perimeter access events are logged and where, letting an attacker inventory log coverage and find blind spots.
   write:
     risks:
       - destruction:logs

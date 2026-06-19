@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a CRP halts propagation and tears down the placed workloads/config across all targeted member clusters, removing deployed infrastructure and disrupting the services it supports fleet-wide.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading CRPs enumerates which Kubernetes resources are propagated to which member clusters, inventorying the fleet's multi-cluster workload-placement topology for reconnaissance.
   write:
     risks:
       - impact:manipulation

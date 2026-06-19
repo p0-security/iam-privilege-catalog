@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a language model backend configuration, removing AI gateway routing infrastructure and disrupting dependent API operations (DoS-like effect).
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists/gets language model backend configurations, providing read-only reconnaissance of the AI gateway's configured LLM backends and routing; returns no secret material.
   write:
     risks:
       - impact:manipulation

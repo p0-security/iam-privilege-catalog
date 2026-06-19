@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy removes a private network connectivity component, disrupting private access to the gateway (DoS-like effect on the private path).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the proxy enumerates the private endpoint connectivity configuration of the gateway, a network reconnaissance read.
   write:
     risks:
       - escalation:network

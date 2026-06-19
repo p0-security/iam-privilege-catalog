@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - impact:dos
     notes: Removes all releases of an API (or a specific release), withdrawing the current published-revision binding; this changes/withdraws which revision the gateway serves and can take the live API offline.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets API release records, enumerating which revisions are current and the rollback history; read-only reconnaissance of API deployment state with no secret or data-plane disclosure.
   write:
     risks:
       - impact:manipulation

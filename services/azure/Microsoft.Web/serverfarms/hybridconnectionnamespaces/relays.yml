@@ -10,7 +10,3 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the relay removes the network bridge linking the App Service Plan to its backend endpoint, severing connectivity for any dependent app.
-  read:
-    risks:
-      - discovery:network
-    notes: Control-plane read returns the relay configuration (namespace, target endpoint host/port) for the plan, enabling reconnaissance of the hybrid/private backend connectivity; no keys are returned.

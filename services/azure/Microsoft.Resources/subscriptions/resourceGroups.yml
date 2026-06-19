@@ -12,11 +12,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deletes a resource group and ALL contained resources, cascading into destruction of infrastructure and any data those resources hold and causing denial of service for hosted functions.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Gets or lists resource groups, letting an attacker inventory the subscription's resource-group structure for reconnaissance.
   write:
     risks:
       - impact:manipulation

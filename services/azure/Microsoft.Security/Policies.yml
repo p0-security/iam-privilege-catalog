@@ -1,18 +1,13 @@
 name: Defender for Cloud security policy
 description: The Microsoft Defender for Cloud security policy configuration, which defines the security assessments, recommendations, and posture-enforcement rules applied across the scope.
-scope: MEDIUM
+scope: HIGH
 notes: "Security-governance configuration: reveals or controls which security controls are active across the scope."
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Security
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the security policy lets an attacker inventory which security assessments and controls are enforced, surfacing gaps and weak points to exploit.
   write:
     risks:
       - destruction:defense
       - impact:manipulation
-    scope: HIGH
     notes: Updating the policy lets an attacker disable or weaken Defender for Cloud assessments and enforcement (destruction:defense), altering protective security configuration (impact:manipulation).

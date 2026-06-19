@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting a ClusterRoleBinding destroys a cluster-wide access-control binding, stripping legitimate principals (including defenders) of their access while tearing down grants that would otherwise constrain the attacker.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading ClusterRoleBindings enumerates which subjects hold which cluster-wide roles, mapping the RBAC grant graph to identify privileged principals and escalation targets.
   write:
     risks:
       - escalation:privilege

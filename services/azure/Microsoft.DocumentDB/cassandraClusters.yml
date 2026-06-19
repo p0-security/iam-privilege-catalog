@@ -12,10 +12,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting a managed Cassandra cluster tears down the database infrastructure and the data it hosts, causing irreversible data loss and denial of service for the dependent function.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading or listing managed Cassandra cluster configuration only inventories the database infrastructure (topology, settings); no data or secret material is returned.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deletes the staged firewall rule collection group draft, discarding pending configuration changes; the live enforced firewall policy is unaffected, so this tampers with staged operational config rather than removing an active defense.
-  read:
-    risks:
-      - discovery:network
-    notes: Reads the staged firewall rule collection group draft, disclosing planned firewall rules and defensive posture (allowed/denied flows and gaps) for reconnaissance without modifying anything.
   write:
     risks:
       - impact:manipulation

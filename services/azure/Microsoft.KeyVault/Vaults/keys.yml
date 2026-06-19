@@ -11,10 +11,6 @@ privileges:
       - destruction:crypto
       - impact:dos
     notes: Deletes a key and all its versions; loss of an active key destroys cryptographic material and renders data encrypted under it inaccessible, disrupting dependent services (soft-delete may allow recovery).
-  read:
-    risks:
-      - discovery:data
-    notes: Lists keys and reads current-version metadata/public material but never returns private key bytes, so it only enables inventory of the vault's cryptographic objects.
   write:
     risks:
       - impact:manipulation

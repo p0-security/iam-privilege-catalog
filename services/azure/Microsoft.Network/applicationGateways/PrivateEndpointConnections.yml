@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a connection severs the private-link path to the gateway, disrupting authorized private connectivity to the service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading connections only inventories which private endpoints connect to the gateway and their state, which is network reconnaissance.
   write:
     risks:
       - impact:manipulation

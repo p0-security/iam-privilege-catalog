@@ -11,11 +11,6 @@ privileges:
       - destruction:policy
       - destruction:defense
     notes: Deleting the policy removes an access-control/authentication enforcement mechanism, disabling a defense and potentially enabling access that would otherwise be denied.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading the authentication policy returns its access-control configuration, letting an attacker inventory enforcement rules and identify weak points.
   write:
     risks:
       - destruction:defense

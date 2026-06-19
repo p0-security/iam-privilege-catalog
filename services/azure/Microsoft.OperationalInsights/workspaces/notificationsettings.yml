@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting notification settings can disable alert delivery for the workspace, removing a notification-based defense and impairing incident response.
-  read:
-    risks:
-      - discovery:metadata
-    scope: LOW
-    notes: Reads the user's notification configuration, exposing only minor alert-delivery configuration metadata.
   write:
     risks:
       - impact:manipulation

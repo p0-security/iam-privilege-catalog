@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - impact:dos
     notes: Deleting the start-stop schedule removes power-management automation, altering operational lifecycle behavior and potentially affecting availability of the production instance.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Getting or listing start-stop schedules only inventories the instance's power-management configuration and operational windows; read-only reconnaissance with no data or secret exposure.
   write:
     risks:
       - impact:dos

@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting an association detaches a resource from its collection rule, halting that resource's telemetry/log collection and creating a monitoring blind spot.
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading a DCR association reveals which resources are wired to which collection rules, mapping monitoring coverage and gaps.
   Write:
     risks:
       - destruction:logs

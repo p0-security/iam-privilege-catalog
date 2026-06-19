@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:artifact
     notes: Deleting an extension version removes a specific published payload artifact that consuming VMs/deployments may be pinned to, disrupting dependent operations.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading an extension version only enumerates its configuration properties, yielding infrastructure reconnaissance without disclosing the payload as secret material.
   write:
     risks:
       - impact:manipulation

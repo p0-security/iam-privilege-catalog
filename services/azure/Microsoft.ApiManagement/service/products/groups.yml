@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:access
     notes: Removing a group's association revokes that group's developers' authorized visibility/subscription access to the product's APIs, denying legitimate consumers.
-  read:
-    risks:
-      - discovery:policy
-    scope: LOW
-    notes: Lists which developer groups are authorized to consume the product, enumerating the access-control mapping to find weak points.
   write:
     risks:
       - escalation:privilege

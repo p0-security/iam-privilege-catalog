@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes the certificate resource (public cert plus its Key Vault binding), removing the cryptographic material reference that dependent B2B signing/encryption relies on and breaking the integration.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads the certificate resource metadata/configuration (thumbprint, public cert, Key Vault reference) for reconnaissance of the cryptographic setup; private key material is not returned.
   write:
     risks:
       - impact:manipulation

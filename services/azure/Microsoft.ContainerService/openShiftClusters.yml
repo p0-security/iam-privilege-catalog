@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the cluster tears down the entire OpenShift control plane and worker nodes, destroying the infrastructure and taking all hosted services offline.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the cluster returns its full configuration (version, network profile, node profiles, identity references), enabling read-only reconnaissance of a production container cluster. Returns no secret material on its own.
   write:
     risks:
       - impact:manipulation

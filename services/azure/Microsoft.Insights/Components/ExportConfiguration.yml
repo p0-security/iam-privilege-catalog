@@ -1,7 +1,7 @@
-name: Application Insights export settings
-description: Continuous export settings define the pipeline that ships an Application Insights component's telemetry to a destination storage account for long-term retention.
+name: Application Insights components
+description: An Application Insights component is the Azure Monitor resource that ingests, stores, and retains application telemetry (requests, traces, exceptions, dependencies, metrics).
 scope: MEDIUM
-notes: Controls whether telemetry is durably retained for downstream analysis and incident response.
+notes: Monitoring/diagnostics asset whose data underpins detection and incident response.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Insights
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
@@ -11,19 +11,12 @@ privileges:
       - exfiltration:logs
       - impact:manipulation
     notes: "Verified: continuous-export config carries the destination storage account and its SAS URL; the action can configure export to redirect ongoing telemetry to attacker-controlled storage and tampers with the export pipeline."
-    name: Application Insights components
-    parent:
-      description: An Application Insights component is the Azure Monitor resource that ingests, stores, and retains application telemetry (requests, traces, exceptions, dependencies, metrics).
-      notes: Monitoring/diagnostics asset whose data underpins detection and incident response.
   Delete:
     risks:
       - destruction:logs
       - destruction:defense
     notes: Deleting the continuous export settings stops telemetry from being shipped to storage, destroying log retention and degrading incident-response visibility.
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading export settings reveals the continuous-export destination and which telemetry is shipped externally, reconnaissance of the logging pipeline.
+    name: Application Insights export settings
   Write:
     risks:
       - exfiltration:logs
@@ -32,3 +25,4 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Writing the export settings can redirect telemetry to an attacker-controlled storage account for automated ongoing collection/exfiltration, or alter/disable the legitimate export to break log retention and weaken detection.
+    name: Application Insights export settings

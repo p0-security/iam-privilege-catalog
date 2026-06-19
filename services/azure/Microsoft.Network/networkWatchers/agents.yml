@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a network monitoring/diagnostic agent, removing a supporting observability component and reducing network visibility.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading agent details inventories the monitoring agent configuration and associated monitored network context for reconnaissance.
   write:
     risks:
       - impact:manipulation

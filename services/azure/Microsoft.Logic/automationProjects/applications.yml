@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an automation project application, removing a deployed automation component and disrupting the workflows it provides (DoS-like effect).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads or lists an automation project application, letting an attacker inventory the deployed automation application's configuration as reconnaissance.
   write:
     risks:
       - impact:manipulation

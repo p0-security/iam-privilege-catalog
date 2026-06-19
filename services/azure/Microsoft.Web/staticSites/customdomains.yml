@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the custom-domain binding removes the public hostname endpoint, taking the site offline at that domain and causing denial of service.
-  Read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Listing custom domains only enumerates the hostname/endpoint configuration for reconnaissance.
   Write:
     risks:
       - takeover:domain

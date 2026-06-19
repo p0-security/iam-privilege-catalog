@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Authorization
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the policy discloses activation guardrails (MFA/approval/justification requirements), revealing weakly-protected privileged roles.
   write:
     risks:
       - escalation:privilege

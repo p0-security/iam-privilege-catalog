@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a job agent removes the automation infrastructure and halts all its scheduled jobs, disrupting operations that depend on them.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Reading a job agent only returns its resource configuration, which is infrastructure reconnaissance of the database automation environment.
   write:
     risks:
       - escalation:lateral

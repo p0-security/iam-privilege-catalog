@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an installed site extension removes a deployed code component the slot depends on, tearing down supporting infrastructure and potentially disrupting the app.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the installed site extensions only enumerates which add-on components/versions are present on the slot, providing infrastructure reconnaissance with no data or secret exposure.
   write:
     risks:
       - escalation:lateral

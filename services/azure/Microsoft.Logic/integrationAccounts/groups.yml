@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an integration account group, removing supporting B2B configuration and disrupting dependent integration workflows.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads an integration account group, letting an attacker inventory B2B partner-grouping configuration without exposing secrets or message content.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Delete destroys a stored cluster-configuration baseline used for recovery/replication.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Get returns the captured cluster configuration, enabling read-only reconnaissance of cluster topology and settings.
   write:
     risks:
       - impact:manipulation

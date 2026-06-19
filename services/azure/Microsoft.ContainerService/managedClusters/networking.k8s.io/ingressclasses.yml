@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting ingressclasses removes the routing class backing ingress objects, breaking external traffic delivery to cluster-hosted services and causing denial of service.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading ingressclasses enumerates the cluster's ingress controllers and traffic-routing configuration, which is network reconnaissance.
   write:
     risks:
       - impact:manipulation

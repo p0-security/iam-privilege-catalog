@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Storage
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reads the consumer data-share policy, disclosing the data-sharing configuration governing inbound shares into the account for reconnaissance.
   write:
     risks:
       - impact:manipulation

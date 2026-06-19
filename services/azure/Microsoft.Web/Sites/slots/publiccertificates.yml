@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes a slot's public/trust certificate, removing a configuration object the app may depend on and potentially breaking its TLS trust validation for a single function.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reads the public certificate objects configured on a slot, enabling inventory of the slot's certificate/trust configuration but not disclosure of any private key.
   write:
     risks:
       - impact:manipulation

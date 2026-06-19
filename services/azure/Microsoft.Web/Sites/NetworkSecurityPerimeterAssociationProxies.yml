@@ -11,10 +11,6 @@ privileges:
       - destruction:defense
       - escalation:network
     notes: Deleting the NSP association proxy detaches the web app from its Network Security Perimeter, removing the network-isolation defense and re-exposing the production service to broader network access.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the NSP association proxy enumerates how the web app is bound to its Network Security Perimeter, revealing the network-isolation boundary configuration for reconnaissance.
   write:
     risks:
       - destruction:defense

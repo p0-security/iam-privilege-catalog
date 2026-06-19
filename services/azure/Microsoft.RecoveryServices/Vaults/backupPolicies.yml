@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a protection policy removes the backup schedule/retention controls, disabling the backup defense and undermining recoverability of protected data.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading protection policies inventories backup schedules and retention configuration, revealing the backup posture an attacker could exploit to time evasion of backups.
   write:
     risks:
       - destruction:defense

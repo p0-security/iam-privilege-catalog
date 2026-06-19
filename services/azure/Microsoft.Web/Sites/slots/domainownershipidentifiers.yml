@@ -11,11 +11,6 @@ privileges:
       - takeover:domain
       - impact:dos
     notes: Deleting domain-ownership identifiers removes custom-domain verification bindings, disrupting public-facing domain routing and potentially allowing the domain to be re-claimed.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading the domain-ownership identifiers only enumerates custom-domain verification metadata.
   write:
     risks:
       - takeover:domain

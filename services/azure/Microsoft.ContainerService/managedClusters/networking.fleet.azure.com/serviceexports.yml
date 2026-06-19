@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Delete withdraws the service from cross-cluster availability, removing network endpoints and causing DoS for consumers in other member clusters.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Read/list only enumerates which local services are exported to the fleet, revealing cross-cluster network exposure topology as reconnaissance.
   write:
     risks:
       - impact:manipulation

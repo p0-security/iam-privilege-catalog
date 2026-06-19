@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a network rule collection removes the firewall filtering rules that act as a defense, disabling protective traffic filtering for the network it guards.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the network rule collection enumerates the firewall's allow/deny filtering rules, disclosing the network defense posture and gaps for attack planning.
   write:
     risks:
       - destruction:defense

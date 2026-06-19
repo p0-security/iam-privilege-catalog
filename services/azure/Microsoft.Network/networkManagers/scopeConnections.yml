@@ -11,11 +11,6 @@ privileges:
       - impact:access
       - destruction:defense
     notes: Deleting a scope connection removes a scope from centralized management, dropping centrally-enforced security configurations and denying legitimate administrators operational control over those networks.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a scope connection enumerates which (potentially cross-tenant) scopes the network manager is connected to, exposing the management blast radius and trust boundaries.
   write:
     risks:
       - escalation:network

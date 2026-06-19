@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a provider destroys the registered replication agent, dismantling DR infrastructure and halting replication/failover protection for the workloads it serves.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read/list of registered Site Recovery provider agents only enumerates DR replication infrastructure configuration; no secrets or data are returned, so this is infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

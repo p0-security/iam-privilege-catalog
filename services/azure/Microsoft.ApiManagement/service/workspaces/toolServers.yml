@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a tool server removes the AI gateway tool integration, causing a DoS-like disruption of dependent agent workflows.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read lists/gets tool server configuration, enabling reconnaissance of the gateway's tool integrations (endpoints, structure) without returning the secret subtrees, which require the separate listSecrets action.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deletes a log alert rule, removing a detection/alerting mechanism so malicious activity proceeds unalerted.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Reads a scheduled query alert rule, revealing the detection query logic and thresholds so an attacker can learn what is monitored and operate beneath detection.
   Write:
     risks:
       - destruction:defense

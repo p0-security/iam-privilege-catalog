@@ -11,10 +11,6 @@ privileges:
       - destruction:crypto
       - impact:dos
     notes: Deletes a stored certificate, destroying the cryptographic material the gateway uses for backend authentication and breaking authenticated (mutual-TLS) backend connectivity, disrupting the dependent APIs.
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists certificates or gets certificate details (thumbprint, subject, expiry) without returning private-key material, so it only enables reconnaissance of the configured backend-auth certificate inventory.
   write:
     risks:
       - impact:manipulation

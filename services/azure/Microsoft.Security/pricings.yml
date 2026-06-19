@@ -1,7 +1,7 @@
-name: Defender for Cloud pricing settings
-description: The Microsoft Defender for Cloud plan/pricing tier configuration that enables or disables enhanced threat-protection plans per resource type at the scope.
+name: Microsoft Defender for Cloud subscription registration
+description: Provider-level enablement actions that register or unregister a subscription with Microsoft Defender for Cloud (Azure Security Center), the cloud security posture management and threat-protection service.
 scope: HIGH
-notes: Determines which threat-protection defenses are active across the subscription scope.
+notes: These toggle the security product on/off for the whole subscription scope.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Security
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
@@ -10,21 +10,14 @@ privileges:
     risks:
       - destruction:defense
     notes: Batch-updating pricing lets an attacker downgrade Defender plans to Free, disabling threat protection and detection coverage across the scope.
-    name: Microsoft Defender for Cloud subscription registration
-    parent:
-      description: Provider-level enablement actions that register or unregister a subscription with Microsoft Defender for Cloud (Azure Security Center), the cloud security posture management and threat-protection service.
-      notes: These toggle the security product on/off for the whole subscription scope.
   delete:
     risks:
       - destruction:defense
     notes: Deleting pricing settings reverts the Defender plan to Free, turning off enhanced threat protection for the scope.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading pricing settings reveals which Defender plans (threat-protection tiers) are enabled, letting an attacker identify unprotected resource classes before acting.
+    name: Defender for Cloud pricing settings
   write:
     risks:
       - destruction:defense
       - impact:spend
     notes: Downgrading Defender plans to Free disables threat protection across whole resource classes (destruction:defense); enabling premium tiers can inflate spend (impact:spend).
+    name: Defender for Cloud pricing settings

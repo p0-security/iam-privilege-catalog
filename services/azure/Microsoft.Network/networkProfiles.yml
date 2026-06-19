@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a network profile removes the container networking configuration dependent workloads rely on, breaking their connectivity (DoS-like network destruction).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only retrieval of a network profile inventories container networking configuration (subnet and NIC bindings), which is network reconnaissance with no secret disclosure.
   write:
     risks:
       - impact:manipulation

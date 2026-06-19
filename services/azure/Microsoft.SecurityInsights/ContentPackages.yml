@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting installed Content Packages removes bundled detection content (analytics rules, hunting queries, playbooks), disabling SIEM defensive coverage to aid evasion.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading installed Content Packages inventories which Sentinel solutions and detection content are deployed, revealing the defensive coverage and potential blind spots.
   write:
     risks:
       - impact:manipulation

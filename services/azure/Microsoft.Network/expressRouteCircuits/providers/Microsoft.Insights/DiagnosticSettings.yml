@@ -1,18 +1,13 @@
 name: ExpressRoute Circuit diagnostic settings
 description: The diagnostic settings of an ExpressRoute circuit, defining which logs/metrics are collected and to which destinations (storage, Event Hub, Log Analytics) they are routed.
-scope: LOW
+scope: MEDIUM
 notes: Controls logging/monitoring posture; reading reveals detection coverage, writing can disable or redirect log collection.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reads the diagnostic settings, revealing which logs/metrics are collected and their destinations, useful reconnaissance for finding monitoring gaps.
   write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Creating/updating diagnostic settings lets an attacker disable or reroute ExpressRoute circuit log/metric collection, undermining detection and incident response.

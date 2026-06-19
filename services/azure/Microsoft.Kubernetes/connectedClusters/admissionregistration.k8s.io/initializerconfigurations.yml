@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting initializer admission configurations removes cluster-wide admission-control enforcement, disabling a defense mechanism that would otherwise gate/restrict resource creation in the cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: HIGH
-    notes: This data-plane read enumerates the cluster's initializer admission-control configuration, revealing the admission/security setup for reconnaissance without returning secret material.
   write:
     risks:
       - impact:manipulation

@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting namespaced Roles removes access-control policy, tearing down RBAC controls and potentially revoking legitimate principals' access.
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading/listing namespaced Roles inventories RBAC permission definitions, letting an attacker locate over-privileged or exploitable roles.
   write:
     risks:
       - escalation:privilege

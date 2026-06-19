@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a circuit connection tears down the inter-circuit (Global Reach) link, removing cross-network connectivity and disrupting services that rely on it.
-  read:
-    risks:
-      - discovery:network
-    notes: Control-plane GET enumerating the cross-circuit (Global Reach) connection configuration, enabling reconnaissance of inter-network connectivity.
   write:
     risks:
       - escalation:network

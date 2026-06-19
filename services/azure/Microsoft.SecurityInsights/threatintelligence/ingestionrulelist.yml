@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the TI ingestion rule set discloses the filtering/transformation logic, revealing which indicators are accepted or dropped so an attacker can find detection blind spots.
   write:
     risks:
       - destruction:defense

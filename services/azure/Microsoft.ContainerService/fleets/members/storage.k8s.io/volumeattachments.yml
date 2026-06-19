@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting VolumeAttachments can force-detach persistent volumes from nodes, immediately disrupting stateful workloads that depend on the mounted storage.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing/getting VolumeAttachments enumerates which persistent volumes are attached to which nodes, exposing storage topology as infrastructure reconnaissance without exposing the underlying data.
   write:
     risks:
       - impact:manipulation

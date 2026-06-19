@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting the application rule collection removes enforced FQDN/application filtering rules, disabling the network defense governing egress/application traffic.
-  read:
-    risks:
-      - discovery:network
-      - discovery:policy
-    notes: Reading the application rule collection enumerates the firewall's FQDN/application allow rules, exposing the defensive configuration and gaps an attacker can exploit.
   write:
     risks:
       - destruction:defense

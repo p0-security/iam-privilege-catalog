@@ -11,11 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a diagnostic setting halts forwarding of that resource's logs and metrics to its sinks, destroying log collection and removing a detection mechanism, disrupting incident response.
-  Read:
-    risks:
-      - discovery:logs
-    scope: LOW
-    notes: Reading a diagnostic setting reveals which log/metric categories are collected and their destinations, exposing logging coverage and blind spots to inform evasion. No log content is disclosed.
   Write:
     risks:
       - destruction:logs

@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the group tears down the reserved-capacity grouping, removing guaranteed capacity and potentially disrupting allocation for dependent VMs/VMSS.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of a reservation group's grouping/configuration; infrastructure reconnaissance with no data exposure.
   write:
     risks:
       - impact:manipulation

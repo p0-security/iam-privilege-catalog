@@ -1,18 +1,13 @@
 name: Web App slot restore operation
 description: Represents the restore operation/status for a deployment slot of an Azure App Service web app, used to recover slot content and configuration from a backup snapshot.
-scope: MEDIUM
+scope: HIGH
 links:
   - https://azure.permissions.cloud/iam/microsoft.web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Getting the slot restore status only reveals restore-operation state and backup/restore configuration, a reconnaissance read.
   write:
     risks:
       - impact:manipulation
       - destruction:data
       - impact:dos
-    scope: HIGH
     notes: Triggering a restore overwrites the slot's current app content, configuration, and data with a prior backup snapshot, manipulating live state, destroying current (post-backup) data, and disrupting the running service.

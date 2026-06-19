@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - destruction:logs
     notes: Delete taskrun removes the build/run execution resource along with its run record and execution history/logs, erasing evidence of prior (possibly malicious) build activity and hindering incident response.
-  read:
-    risks:
-      - discovery:infra
-    notes: Get/List taskruns inventories the registry's build/task execution resources and their configuration without returning run logs or embedded credentials.
   write:
     risks:
       - impact:hijack

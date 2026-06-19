@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an inbound NAT rule removes a port-forwarding component, disrupting inbound access to the backend service it fronts.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reads the inbound NAT rule definition, disclosing port-forwarding/exposure mappings for network reconnaissance only.
   write:
     risks:
       - escalation:network

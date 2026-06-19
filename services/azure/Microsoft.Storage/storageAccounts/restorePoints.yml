@@ -10,8 +10,3 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a restore point destroys a recovery artifact, undermining the backup-based ability to restore organizational data.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading a restore point returns only its configuration/metadata, providing reconnaissance of the backup/replication setup.

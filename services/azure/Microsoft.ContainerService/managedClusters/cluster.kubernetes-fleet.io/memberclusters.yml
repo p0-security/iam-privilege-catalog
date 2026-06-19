@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the MemberCluster resource detaches a cluster from fleet management, destroying the membership object and disrupting fleet-driven workload placement and propagation for that cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: This data-plane read enumerates fleet membership configuration, inventorying which clusters belong to the fleet and their association state, infrastructure reconnaissance without secret exposure.
   write:
     risks:
       - impact:manipulation

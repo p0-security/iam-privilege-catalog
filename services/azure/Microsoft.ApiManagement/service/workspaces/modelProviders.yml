@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a model provider removes the AI gateway backend connection, disrupting dependent model routing in a DoS-like fashion.
-  read:
-    risks:
-      - discovery:infra
-    notes: Control-plane read lists/gets model provider configuration, enabling reconnaissance of the AI gateway's backend provider infrastructure without returning secret values.
   write:
     risks:
       - impact:manipulation

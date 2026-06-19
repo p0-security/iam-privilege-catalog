@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a linked service severs the workspace's integration with its backing Automation/cluster resource, disrupting the dependent monitoring/automation pipeline.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing linked services enumerates the resource IDs of connected Automation accounts/clusters, providing infrastructure reconnaissance without returning secrets.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the connection proxy tears down private-link connectivity plumbing for the Automation account, disrupting authorized private access.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading the connection proxy only returns internal private-link connectivity configuration, constituting network reconnaissance.
   write:
     risks:
       - escalation:network

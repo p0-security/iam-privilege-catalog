@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting IngressClasses removes the controller bindings dependent Ingresses rely on, breaking external routing cluster-wide and disrupting access to exposed services.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading IngressClasses enumerates the available ingress controllers and their parameters, minor reconnaissance of the cluster networking setup.
   write:
     risks:
       - impact:manipulation

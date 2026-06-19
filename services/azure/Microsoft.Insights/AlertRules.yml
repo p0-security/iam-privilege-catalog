@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a classic metric alert removes a detection/alerting mechanism, blinding incident response to the monitored condition.
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading a classic metric alert inventories which conditions/thresholds are monitored, letting an attacker map detection coverage and find blind spots to operate within.
   Write:
     risks:
       - destruction:defense

@@ -17,6 +17,3 @@ privileges:
       - exfiltration:data
     notes: Despite the /read verb, this returns the actual read-only account keys (secret credential material) usable to connect and bulk-read every document in the account, so it is credential exfiltration that directly enables data exfiltration, not mere discovery.
     name: Cosmos DB account read-only keys
-    parent:
-      description: The read-only access keys for an Azure Cosmos DB (DocumentDB) database account. These keys are long-lived account-level credentials that authenticate data-plane connections.
-      notes: Read-only keys grant read access to all databases, collections, and documents in the account, so they are credential material equivalent to a connection string.

@@ -11,11 +11,6 @@ privileges:
       - impact:manipulation
       - destruction:defense
     notes: Removes a user from notification recipients, suppressing delivery of operational/security alerts (e.g. subscription/quota events) to legitimate staff and thereby weakening detection.
-  read:
-    risks:
-      - discovery:account
-    scope: LOW
-    notes: Lists the API Management users subscribed to a notification, enumerating system account identities that are potential targets for compromise.
   write:
     risks:
       - impact:manipulation

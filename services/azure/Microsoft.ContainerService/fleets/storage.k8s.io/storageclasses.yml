@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting StorageClasses removes provisioning configuration that PersistentVolumeClaims depend on, breaking dynamic volume provisioning and disrupting dependent stateful workloads.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading StorageClasses enumerates the cluster's storage provisioner configuration, supporting reconnaissance of available storage backends.
   write:
     risks:
       - impact:manipulation

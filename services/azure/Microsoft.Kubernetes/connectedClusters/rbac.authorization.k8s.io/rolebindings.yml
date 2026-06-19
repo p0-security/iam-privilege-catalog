@@ -11,10 +11,6 @@ privileges:
       - destruction:policy
       - impact:access
     notes: Deleting a RoleBinding removes an RBAC grant, destroying access-control policy and revoking authorized principals' access (denial-of-access).
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading/listing RoleBindings reveals which subjects hold which roles, exposing the access-control assignment graph and escalation targets.
   write:
     risks:
       - escalation:privilege

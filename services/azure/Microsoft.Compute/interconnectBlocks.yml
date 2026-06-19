@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting an interconnect block tears down the interconnect fabric backing dependent VM/VMSS deployments, destroying infrastructure with a denial-of-service-like effect on the GPU cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Getting an interconnect block returns its configuration, a read-only inventory of the compute/interconnect topology.
   write:
     risks:
       - impact:manipulation

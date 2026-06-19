@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Removing a VNet from a network group detaches it from centrally-enforced connectivity/security-admin configurations, altering which policies apply rather than deleting any network component.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only enumeration of which VNets are statically enrolled in a network group, inventorying network topology membership.
   write:
     risks:
       - impact:manipulation

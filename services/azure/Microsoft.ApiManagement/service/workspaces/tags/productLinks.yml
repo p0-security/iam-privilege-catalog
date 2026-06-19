@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:metadata
     notes: Deletes a tag-product link, removing association metadata without affecting the underlying products or tags.
-  read:
-    risks:
-      - discovery:metadata
-    notes: Lists or gets tag-to-product association links, enumerating relationship metadata for reconnaissance.
   write:
     risks:
       - impact:manipulation

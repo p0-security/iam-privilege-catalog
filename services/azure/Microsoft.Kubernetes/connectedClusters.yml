@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting the connectedCluster resource tears down the Arc registration/management binding of the Kubernetes cluster, destroying the Arc infrastructure object and disrupting Arc-based management and dependent governance for that cluster.
-  Read:
-    risks:
-      - discovery:infra
-    notes: Get/List of the connectedCluster resource enumerates cluster configuration and metadata (distribution, agent version, identity, connectivity) without returning credentials, enabling infrastructure reconnaissance of the Arc-connected Kubernetes estate.
   Write:
     risks:
       - impact:manipulation

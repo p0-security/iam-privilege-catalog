@@ -10,11 +10,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting an established private endpoint connection severs a consumer's private-link path to the scoped Azure Monitor resources, destroying the network connection and denying private access to legitimate consumers.
-  Read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Reading a private endpoint connection inventories which consumer endpoints are connected or pending to the scope and their approval state, providing read-only network reconnaissance.
   Write:
     risks:
       - escalation:network

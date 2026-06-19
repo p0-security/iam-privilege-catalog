@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting an eviction removes a one-shot eviction record, altering fleet placement-orchestration state but undoing/clearing a control object rather than destroying organizational data or real infrastructure.
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only enumeration of eviction objects only inventories which placements have been targeted for eviction, yielding reconnaissance of fleet orchestration state with no secret exposure.
   write:
     risks:
       - impact:dos

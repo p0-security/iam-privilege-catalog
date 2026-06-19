@@ -11,10 +11,6 @@ privileges:
       - impact:dos
       - impact:manipulation
     notes: Deleting a binding tears down the placement linkage, withdrawing bound workloads from member clusters and disrupting the services they support.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading bindings enumerates which resource snapshots are propagated to which member clusters, inventorying the fleet's multi-cluster placement topology.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the gateway tears down the on-prem connectivity bridge, severing all Logic Apps/flows that rely on it to reach private data sources (denial of service).
-  Read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Get/list returns the gateway configuration metadata, inventorying the cloud-to-on-prem connectivity path for reconnaissance without returning secret installation keys.
   Write:
     risks:
       - impact:manipulation

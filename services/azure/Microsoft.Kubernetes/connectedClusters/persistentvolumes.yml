@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - impact:dos
     notes: Deleting persistent volumes removes the storage objects backing application data and, depending on reclaim policy, can release/delete the underlying storage, destroying data and disrupting dependent workloads.
-  read:
-    risks:
-      - discovery:data
-    scope: MEDIUM
-    notes: Reading/listing persistent volumes inventories the cluster's storage backends and their backing references (disk/share handles, paths), disclosing where persistent data resides without exposing its contents.
   write:
     risks:
       - impact:manipulation

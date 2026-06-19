@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Unlinking the backend severs the frontend-to-backend integration, breaking the application's API connectivity (DoS-like) by tearing down the integration wiring.
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Enumerates which backend resources are linked to the static site build, providing infrastructure/integration reconnaissance with no data or secret exposure.
   Write:
     risks:
       - impact:manipulation

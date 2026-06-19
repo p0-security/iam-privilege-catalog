@@ -1,18 +1,13 @@
 name: Virtual Network diagnostic settings
 description: The Azure Monitor diagnostic settings attached to a Virtual Network, controlling which log categories and metrics are collected and where they are routed.
-scope: LOW
+scope: MEDIUM
 notes: Monitoring/diagnostics configuration; sensitivity is low for reads but write access enables evasion.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading the VNet diagnostic settings reveals which logs/metrics are collected and their destinations, enabling reconnaissance of the monitoring configuration.
   write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Creating/updating VNet diagnostic settings lets an attacker disable or redirect network log/flow collection, weakening detection and incident response.

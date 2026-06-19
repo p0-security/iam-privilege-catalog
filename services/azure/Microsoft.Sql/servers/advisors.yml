@@ -1,17 +1,12 @@
 name: Server Advisor
 description: A server advisor represents a performance/tuning advisor scoped to an Azure SQL logical server (affecting databases hosted on it), along with its auto-execute configuration.
-scope: LOW
+scope: HIGH
 notes: Control-plane tuning configuration at server scope, governing automatic tuning behavior across hosted databases.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Read-only listing of server-level tuning advisors only enumerates configuration metadata, a control-plane reconnaissance read.
   write:
     risks:
       - impact:manipulation
-    scope: HIGH
     notes: Updating the server-level advisor's auto-execute status controls whether tuning actions are auto-applied across the server's databases, manipulating their operational configuration.

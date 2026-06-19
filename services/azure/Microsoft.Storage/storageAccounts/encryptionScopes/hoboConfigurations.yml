@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Storage
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading the encryption-scope HOBO configuration only enumerates internal platform configuration tied to the encryption scope, providing reconnaissance without returning key material.
   write:
     risks:
       - impact:manipulation

@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deletes an integration account schedule, removing recurrence configuration and disrupting scheduled integration processing (DoS-like).
-  read:
-    risks:
-      - discovery:infra
-    notes: Reads an integration account schedule, enabling inventory of the recurrence/timing configuration for integration processes.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - destruction:defense
     notes: Deleting a backup instance removes the protection and its associated recovery points, destroying the organization's backup data for that source and removing the recoverability defense against data loss/ransomware.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Returns backup instance configuration metadata (protected data source, policy, status), enabling reconnaissance of what is protected without exposing the backed-up data content itself.
   write:
     risks:
       - impact:manipulation

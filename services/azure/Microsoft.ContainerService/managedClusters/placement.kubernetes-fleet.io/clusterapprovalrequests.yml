@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:manipulation
     notes: Deleting an approval request removes a rollout-gate object, altering the staged-update approval flow that governs how changes propagate across member clusters.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of approval requests only inventories pending/approved staged-rollout gates, providing reconnaissance of the fleet rollout pipeline.
   write:
     risks:
       - impact:manipulation

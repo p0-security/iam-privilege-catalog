@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting hunts destroys threat-hunting investigation artifacts, disrupting incident response and removing defenders' analytical work (anti-forensics).
-  read:
-    risks:
-      - discovery:logs
-    notes: Reading hunts enumerates the SOC's active threat-hunting investigations and findings, revealing what defenders are searching for and tipping the attacker about detection progress.
   write:
     risks:
       - impact:manipulation

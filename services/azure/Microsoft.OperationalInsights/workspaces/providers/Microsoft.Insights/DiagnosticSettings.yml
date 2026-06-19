@@ -1,18 +1,13 @@
 name: Log Analytics workspace diagnostic settings
 description: A diagnostic setting controls which platform logs and metrics for the resource are collected and where they are routed (workspace, storage, event hub).
-scope: LOW
+scope: MEDIUM
 notes: Diagnostic settings are the on/off switch and routing for audit/diagnostic logging; tampering directly affects detection and incident response.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  Read:
-    risks:
-      - discovery:logs
-    notes: Reading the diagnostic setting reveals which log/metric categories are collected and their destinations, reconnaissance to find logging gaps or evasion opportunities.
   Write:
     risks:
       - destruction:logs
       - destruction:defense
-    scope: MEDIUM
     notes: Writing the diagnostic setting lets an attacker disable or reroute log/metric collection, blinding monitoring and defeating incident response.

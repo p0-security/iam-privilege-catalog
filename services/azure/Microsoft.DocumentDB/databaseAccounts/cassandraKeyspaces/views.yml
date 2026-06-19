@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:data
     notes: Deleting a Cassandra view destroys a defined data projection/schema object in a production database, removing the derived data it materializes.
-  read:
-    risks:
-      - discovery:data
-    notes: Reading/listing Cassandra views enumerates database schema objects and data structures (control-plane), without returning underlying row data or secrets.
   write:
     risks:
       - impact:manipulation

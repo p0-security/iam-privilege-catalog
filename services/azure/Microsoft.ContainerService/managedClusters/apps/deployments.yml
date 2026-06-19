@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a Deployment removes its managed ReplicaSets and pods, tearing down the backing application workloads and causing denial of service for the affected services.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading Deployments enumerates application workload definitions including container images, replica counts, env vars, and references to mounted secrets/configs, providing infrastructure reconnaissance of running services.
   write:
     risks:
       - impact:hijack

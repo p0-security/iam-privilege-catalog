@@ -1,18 +1,13 @@
 name: Storage Blob Services
 description: The control-plane blob service of a storage account, holding service-level configuration such as CORS rules, soft-delete, versioning, change feed, restore policy, and retention settings.
-scope: LOW
+scope: HIGH
 notes: Control-plane configuration of a single storage account's blob service; reads here do not return blob data or secret material.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Storage
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Lists/reads blob service configuration (CORS, soft-delete, versioning, retention), enumerating the service's settings and defensive posture for reconnaissance without exposing data or secrets.
   write:
     risks:
       - impact:manipulation
       - destruction:defense
-    scope: HIGH
     notes: Putting blob service properties lets an attacker alter operational configuration (CORS, default service version, retention) and disable data-protection controls such as soft-delete and versioning, weakening defenses that would otherwise enable recovery from data destruction.

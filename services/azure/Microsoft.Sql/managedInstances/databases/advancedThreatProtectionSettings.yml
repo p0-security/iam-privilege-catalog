@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:policy
-    notes: Reading the managed database ATP settings reveals whether threat protection is enabled, exposing which databases are monitored versus blind; returns no data or secrets.
   write:
     risks:
       - destruction:defense

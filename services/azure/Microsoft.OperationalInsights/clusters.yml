@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - destruction:logs
     notes: Deletes the dedicated cluster, destroying the log-storage backing infrastructure and the ingested log data it retains, disrupting monitoring and incident response.
-  read:
-    risks:
-      - discovery:infra
-    notes: Returns cluster configuration (capacity, identity, CMK/encryption settings), reconnaissance of the logging backing infrastructure.
   write:
     risks:
       - impact:manipulation

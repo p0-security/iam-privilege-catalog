@@ -11,10 +11,6 @@ privileges:
       - destruction:crypto
       - impact:dos
     notes: Deleting a managed instance TDE key removes the key reference protecting encrypted data, which can break decryption and render the production database inaccessible.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing/getting managed instance keys returns key references (Key Vault URIs, thumbprints, dates), not exportable secret material, so it is reconnaissance of the TDE key inventory rather than crypto exfiltration.
   write:
     risks:
       - impact:encryption

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a tool server removes a configured backend integration, disrupting the AI gateway's tool-calling function that depends on it (a targeted DoS-like infrastructure removal).
-  read:
-    risks:
-      - discovery:infra
-    scope: MEDIUM
-    notes: Control-plane read that lists/gets tool-server configuration (endpoints, non-secret settings), enabling reconnaissance of the gateway's backend tool integrations; the secret subtrees require the separate listSecrets action.
   write:
     risks:
       - impact:manipulation

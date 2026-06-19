@@ -6,10 +6,6 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Sql
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:infra
-    notes: Returns which key currently protects the instance (key reference/URI and TDE configuration) but not exportable secret material, so it is encryption-configuration reconnaissance, not crypto exfiltration.
   write:
     risks:
       - impact:encryption

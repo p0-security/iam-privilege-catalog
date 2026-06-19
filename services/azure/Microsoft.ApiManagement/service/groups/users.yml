@@ -10,10 +10,6 @@ privileges:
     risks:
       - impact:access
     notes: Removing a user from a group revokes that account's group-derived product/API access, denying authorized operational access.
-  read:
-    risks:
-      - discovery:account
-    notes: Lists the user entities in a group, enumerating developer-portal accounts and their group membership as reconnaissance targets.
   write:
     risks:
       - escalation:privilege

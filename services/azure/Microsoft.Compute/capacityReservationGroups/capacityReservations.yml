@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a reservation removes the guaranteed reserved capacity backing dependent VMs/VMSS, destroying infrastructure and risking those workloads cannot (re)allocate capacity.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Read-only enumeration of a capacity reservation's configuration (SKU, capacity, zone, associated VMs); reconnaissance with no data or secret exposure.
   write:
     risks:
       - impact:spend

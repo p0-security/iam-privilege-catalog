@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting CSINode objects removes per-node CSI driver registration, preventing the scheduler from placing and attaching volumes on affected nodes and disrupting storage for workloads on those nodes.
-  read:
-    risks:
-      - discovery:infra
-    notes: Listing/getting CSINode objects enumerates which CSI drivers are available on each node along with topology and attachment limits, providing storage and node infrastructure reconnaissance.
   write:
     risks:
       - impact:manipulation

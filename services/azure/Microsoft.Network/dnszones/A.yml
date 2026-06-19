@@ -11,10 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting the A record set removes IPv4 name resolution for the hostname, destroying a network component and denying service to whatever it fronts.
-  read:
-    risks:
-      - discovery:network
-    notes: Getting the A record set discloses hostname-to-IPv4 mappings, enumerating network endpoints and topology.
   write:
     risks:
       - takeover:domain

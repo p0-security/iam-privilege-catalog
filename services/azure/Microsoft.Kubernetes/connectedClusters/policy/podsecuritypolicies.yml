@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a PSP removes a pod admission-control defense, lifting restrictions that otherwise block privileged or host-accessing workloads.
-  read:
-    risks:
-      - discovery:policy
-    scope: MEDIUM
-    notes: Reading PSPs inventories the cluster's pod admission/security constraints, exposing permissive or weak policies an attacker can target for privileged-pod creation.
   write:
     risks:
       - destruction:defense

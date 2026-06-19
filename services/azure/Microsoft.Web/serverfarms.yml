@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting an App Service Plan destroys the compute infrastructure hosting all its apps, taking the dependent web services offline (denial of service).
-  Read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading App Service Plan properties only enumerates the compute hosting configuration (SKU, capacity, tier), a control-plane reconnaissance action with no data or secret exposure.
   Write:
     risks:
       - impact:manipulation

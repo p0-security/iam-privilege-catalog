@@ -11,11 +11,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a runbook destroys the automation asset and disrupts the operational processes that depend on it, causing denial of service to those automated workflows.
-  read:
-    risks:
-      - discovery:code
-    scope: MEDIUM
-    notes: Getting a runbook returns its definition, letting an attacker inventory and inspect automation source code (revealing logic, resource targets, and possibly embedded references).
   write:
     risks:
       - escalation:lateral

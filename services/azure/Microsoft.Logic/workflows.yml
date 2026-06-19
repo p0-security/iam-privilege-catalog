@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting the workflow removes the automation resource, disrupting any business process it supports (DoS-like effect).
-  read:
-    risks:
-      - discovery:infra
-    notes: A control-plane GET returns the workflow's full configuration and definition (triggers, actions, connection references), enabling reconnaissance of the automation pipeline; the GET does not return the signing-key secret or callback signatures.
   write:
     risks:
       - impact:manipulation

@@ -11,11 +11,6 @@ privileges:
       - destruction:network
       - impact:dos
     notes: Deleting a private endpoint connection tears down an established private-link path to the cluster API server, destroying a network component and severing authorized private connectivity (DoS-like for clients dependent on the private link).
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Read-only get enumerates the private endpoint connections bound to the cluster API server and their approval state, yielding network reconnaissance of the cluster's private connectivity.
   write:
     risks:
       - escalation:network

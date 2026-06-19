@@ -10,11 +10,6 @@ privileges:
     risks:
       - impact:hijack
     notes: Deleting a ResourceQuota removes the cap limiting namespace resource consumption, enabling unbounded scheduling of attacker workloads (e.g. cryptomining) within the cluster.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading/listing ResourceQuota objects only enumerates namespace resource-limit configuration, a low-sensitivity infrastructure reconnaissance capability.
   write:
     risks:
       - impact:manipulation

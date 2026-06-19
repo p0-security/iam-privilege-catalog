@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a private endpoint connection severs an established private-network path to the service, disrupting clients that depend on private link.
-  read:
-    risks:
-      - discovery:network
-    scope: LOW
-    notes: Get/List only enumerates which private endpoints are connected to the service and their approval status, i.e. read-only network reconnaissance.
   write:
     risks:
       - escalation:network

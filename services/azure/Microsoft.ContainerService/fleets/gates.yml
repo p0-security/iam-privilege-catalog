@@ -11,10 +11,6 @@ privileges:
       - destruction:infra
       - impact:manipulation
     notes: Deleting a fleet gate removes a rollout-control checkpoint, disrupting the fleet update workflow and bypassing the gating barrier.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a fleet gate returns its rollout-gating configuration/status, providing reconnaissance of the fleet's update-orchestration state.
   write:
     risks:
       - impact:manipulation

@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy tears down a private-link connectivity component for the account, severing the private network path and disrupting authorized private access (DoS-like).
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reads the connection proxy, inventorying the account's private-link connectivity plumbing; read-only network reconnaissance with no data or credential exposure.
   write:
     risks:
       - escalation:network

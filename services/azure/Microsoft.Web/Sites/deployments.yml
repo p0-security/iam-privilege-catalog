@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a deployment record removes deployment history/artifacts for the web app, destroying recoverable deployment state and impairing rollback continuity.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading deployment records enumerates the app's deployment history and metadata (commit ids, status, authors), providing reconnaissance of how and when code was shipped.
   write:
     risks:
       - impact:manipulation

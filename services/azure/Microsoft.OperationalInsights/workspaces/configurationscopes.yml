@@ -11,10 +11,6 @@ privileges:
       - destruction:logs
       - destruction:defense
     notes: Deleting a configuration scope removes the binding that drives log collection for the scoped resources, halting ingestion and degrading monitoring-based detection.
-  read:
-    risks:
-      - discovery:infra
-    notes: Reading a configuration scope only enumerates the workspace's data-collection scoping config, a read-only reconnaissance of monitoring setup.
   write:
     risks:
       - impact:manipulation

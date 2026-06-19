@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:defense
     notes: Deleting a profile tears down the perimeter's enforced access-rule configuration, dismantling the network-isolation defense around associated resources.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reading a profile inventories the perimeter's rule-grouping and membership configuration, giving reconnaissance of the network-isolation posture and where gaps exist.
   write:
     risks:
       - destruction:defense

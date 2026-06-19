@@ -1,18 +1,13 @@
 name: Private Endpoint redirect map
 description: A Private Endpoint redirect map holds the internal routing/redirection configuration that controls how private-link traffic is directed to a private endpoint.
-scope: LOW
+scope: HIGH
 notes: Internal network routing artifact for Private Link; sensitivity is that of a single network function.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the redirect map only inventories private-link routing configuration, which is network reconnaissance.
   write:
     risks:
       - impact:manipulation
       - escalation:network
-    scope: HIGH
     notes: Creating or updating the redirect map alters how private-link traffic is routed, enabling traffic manipulation/redirection and extended reachability to additional private-network resources.

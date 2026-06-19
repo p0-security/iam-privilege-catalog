@@ -10,10 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting the proxy removes a central Virtual WAN hub connectivity component, disrupting inter-network routing for all spokes transiting that hub.
-  read:
-    risks:
-      - discovery:network
-    notes: Reading the proxy enumerates Virtual WAN hub topology and connectivity configuration for network reconnaissance.
   write:
     risks:
       - escalation:network

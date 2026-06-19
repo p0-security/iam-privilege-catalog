@@ -11,11 +11,6 @@ privileges:
       - destruction:data
       - impact:defacement
     notes: Deletes content items, removing published portal content (destruction) and degrading/defacing the public-facing developer portal.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Lists/gets developer-portal content items, enabling read-only enumeration of portal content/configuration.
   write:
     risks:
       - impact:manipulation

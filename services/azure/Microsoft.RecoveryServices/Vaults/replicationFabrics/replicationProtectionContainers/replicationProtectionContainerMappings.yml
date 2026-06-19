@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:infra
     notes: Deleting a container mapping removes the replication configuration linking source and target containers, disrupting DR protection and failover capability.
-  read:
-    risks:
-      - discovery:infra
-    scope: LOW
-    notes: Reading container mappings inventories the source-to-target replication relationships and policy associations, disclosing DR configuration.
   write:
     risks:
       - impact:manipulation

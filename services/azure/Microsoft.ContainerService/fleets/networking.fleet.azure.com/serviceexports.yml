@@ -10,11 +10,6 @@ privileges:
     risks:
       - destruction:network
     notes: Deleting a ServiceExport withdraws a service from cross-cluster discovery, removing the multi-cluster network endpoint and denying consuming clusters access.
-  read:
-    risks:
-      - discovery:network
-    scope: MEDIUM
-    notes: Reads ServiceExport resources, enumerating which member-cluster services are published fleet-wide and mapping the multi-cluster network surface.
   write:
     risks:
       - escalation:network
