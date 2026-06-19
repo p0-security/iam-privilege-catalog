@@ -1,0 +1,13 @@
+name: Storage File Service Files
+description: Files and folders stored within an Azure Files share inside a storage account. This is the data plane of the file share, holding the actual organizational file data.
+scope: HIGH
+notes: Production file shares commonly hold sensitive business documents, application config, and home-directory data; data-plane access grants direct read/write/delete of that content.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+      - impact:access
+    notes: Modifies the NTFS/file ACL, letting an attacker grant themselves additional access to file data and revoke or deny legitimate users' access.
