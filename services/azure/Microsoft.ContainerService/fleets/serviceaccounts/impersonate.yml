@@ -1,7 +1,7 @@
-name: Kubernetes service accounts (fleet)
-description: Kubernetes ServiceAccount objects within an AKS fleet namespace, which represent in-cluster workload identities that pods authenticate as and that are bound to RBAC roles.
+name: Kubernetes service account impersonation (Fleet)
+description: The Kubernetes impersonate verb on ServiceAccount identities for an AKS Fleet, allowing the API caller to issue requests as an arbitrary ServiceAccount.
 scope: CRITICAL
-notes: Workload identities are targets for impersonation and credential theft; controlling them enables persistence and privilege escalation across the cluster.
+notes: ServiceAccount impersonation inherits the RBAC bound to the impersonated workload identity, enabling lateral movement and privilege escalation up to cluster-admin.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.ContainerService
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
