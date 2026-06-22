@@ -6,7 +6,7 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  Action:
+  action:
     risks:
       - exfiltration:crypto
     notes: Returns the static site's application settings, which commonly embed secrets, connection strings, and API keys usable as credentials.
