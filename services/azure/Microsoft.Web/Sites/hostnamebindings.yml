@@ -3,7 +3,7 @@ description: A hostname binding maps a custom domain (and its SSL/SNI configurat
 scope: HIGH
 notes: Governs public-facing reachability and domain-to-app routing for a single application function.
 links:
-  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
   delete:
