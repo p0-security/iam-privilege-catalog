@@ -1,0 +1,17 @@
+name: DNS SRV record set
+description: An authoritative DNS SRV record set within an Azure public DNS zone. SRV records advertise the host and port that back named services (e.g. SIP, LDAP, autodiscover) for the domain.
+scope: HIGH
+notes: DNS record data is published and resolvable by design (public); write/delete control determines where service-discovery clients are routed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the SRV record set removes service-location records so dependent clients can no longer resolve the named services, causing denial-of-service.
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+    notes: Creating/replacing SRV records repoints service-discovery lookups to attacker-controlled hosts/ports, hijacking how clients locate and reach the domain's services.
