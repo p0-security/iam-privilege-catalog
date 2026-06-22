@@ -16,4 +16,4 @@ privileges:
       - persistence:account
       - escalation:lateral
       - impact:manipulation
-    notes: PUTting a function key lets an attacker set a known invocation credential (durable backdoor / persistence) enabling repeated invocation that runs code as the app's identity (lateral), and overwriting an existing key alters/revokes the legitimate credential (manipulation).
+    notes: Sending a PUT request to set a function key lets an attacker set a known invocation credential (durable backdoor / persistence) enabling repeated invocation that runs code as the app's identity (lateral), and overwriting an existing key alters/revokes the legitimate credential (manipulation).
