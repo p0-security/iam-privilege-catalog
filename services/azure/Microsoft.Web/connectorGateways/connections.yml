@@ -16,7 +16,6 @@ privileges:
       - destruction:infra
       - impact:dos
     notes: Deleting a connection removes the credentialed link a backend integration relies on, destroying the integration resource and disrupting dependent Logic Apps/workflows.
-    name: Connector Gateway Connection
   write:
     risks:
       - impact:manipulation
