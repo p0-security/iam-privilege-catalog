@@ -9,4 +9,4 @@ privileges:
   action:
     risks:
       - exfiltration:crypto
-    notes: Returns the managed Function backend app settings, which routinely contain connection strings, API keys, and credential material returned in cleartext.
+      - escalation:lateral
