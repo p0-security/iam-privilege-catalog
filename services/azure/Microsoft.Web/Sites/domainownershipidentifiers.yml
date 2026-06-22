@@ -3,7 +3,7 @@ description: Domain ownership identifiers are the custom-domain verification tok
 scope: HIGH
 notes: Govern which custom domains can be associated with the app; manipulating them affects public-facing hostname routing for a single application.
 links:
-  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
   delete:
