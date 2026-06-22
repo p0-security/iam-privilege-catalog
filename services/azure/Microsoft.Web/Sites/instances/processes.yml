@@ -3,7 +3,7 @@ description: Instance processes are the live worker processes running the web ap
 scope: HIGH
 notes: Runtime process detail can include command lines and environment variables, which on App Service commonly hold connection strings and secrets.
 links:
-  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
   delete:
