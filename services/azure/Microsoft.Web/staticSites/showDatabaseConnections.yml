@@ -9,4 +9,4 @@ privileges:
   action:
     risks:
       - exfiltration:crypto
-    notes: Shows database connection details for the static site, returning connection strings/credentials that grant access to the backing data store.
+      - escalation:lateral
