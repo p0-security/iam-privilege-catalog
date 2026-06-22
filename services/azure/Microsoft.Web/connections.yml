@@ -6,11 +6,11 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  Delete:
+  delete:
     risks:
       - destruction:infra
     notes: Deleting a Connection removes the integration resource that dependent Logic Apps/workflows rely on, breaking those integrations in a denial-of-service-like manner.
-  Write:
+  write:
     risks:
       - impact:manipulation
       - escalation:lateral
