@@ -16,4 +16,4 @@ privileges:
       - escalation:privilege
       - escalation:lateral
       - persistence:account
-    notes: Creating a SQL role assignment binds a controlled principal or managed identity to a data-plane role, the headline primitive that grants the attacker (or another identity) read/write access to the database, enables lateral movement, and establishes durable access.
+    notes: Creating/updating a SQL role assignment binds a controlled principal or managed identity to a data-plane role, the headline primitive that grants the attacker (or another identity) read/write access to the database, enables lateral movement, and establishes durable access.
