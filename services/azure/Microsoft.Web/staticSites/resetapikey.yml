@@ -10,4 +10,4 @@ privileges:
     risks:
       - exfiltration:crypto
       - impact:access
-    notes: Resets the deployment API key, yielding a fresh attacker-usable deployment credential while invalidating the existing key, denying legitimate operators' and CI/CD deployment access.
+    notes: Resets the deployment API key, yielding a fresh attacker-usable deployment credential while invalidating the existing key, denying legitimate operators and CI/CD pipelines deployment access.
