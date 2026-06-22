@@ -1,0 +1,19 @@
+name: Fleet TrafficManagerProfile (public DNS routing profile)
+description: An AKS Fleet Manager TrafficManagerProfile resource representing an Azure Traffic Manager profile that performs DNS-based traffic routing for fleet services over a domain name.
+scope: HIGH
+notes: Data-plane object controlling public DNS-based traffic routing for the fleet's externally exposed services; governs the routing method and endpoint set for a domain.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting removes the DNS routing profile so the domain can no longer route to any backend, destroying the routing layer and denying public access to fronted services.
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating controls the profile's DNS-based routing, letting an attacker arbitrarily redirect traffic on the Traffic Manager domain to chosen endpoints and reshape cross-cluster exposure.
