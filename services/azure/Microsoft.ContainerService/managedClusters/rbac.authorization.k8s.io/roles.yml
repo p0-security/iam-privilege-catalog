@@ -1,5 +1,5 @@
 name: Kubernetes Roles (AKS)
-description: In-cluster Kubernetes RBAC Role (and ClusterRole) objects that define permission rule sets within an AKS managed cluster; subjects gain these permissions when bound via RoleBindings.
+description: In-cluster Kubernetes RBAC Role objects that define permission rule sets within an AKS managed cluster; subjects gain these permissions when bound via RoleBindings.
 scope: CRITICAL
 notes: Roles define the permission surface of the cluster's RBAC; crafting/expanding a role and binding it grants control over cluster resources, workloads, and data.
 links:
