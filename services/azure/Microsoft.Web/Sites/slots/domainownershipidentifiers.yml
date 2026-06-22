@@ -3,7 +3,7 @@ description: Custom-domain ownership-verification identifiers (tokens) used to p
 scope: HIGH
 notes: Controls custom-domain verification/binding for the public-facing app; write/delete can affect domain routing.
 links:
-  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
   delete:
