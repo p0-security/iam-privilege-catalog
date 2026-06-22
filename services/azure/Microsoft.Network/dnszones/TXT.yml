@@ -1,0 +1,17 @@
+name: DNS TXT record set
+description: An authoritative DNS TXT record set within an Azure public DNS zone. TXT records hold free-form text used for SPF/DKIM/DMARC email-authentication policy and third-party domain-ownership verification tokens.
+scope: HIGH
+notes: DNS record data is published and resolvable by design (public), but write/delete control over it governs how an organizational domain attests trust and routes mail/services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the TXT record set removes SPF/DKIM/DMARC and verification records, breaking email authentication and domain-validation flows for the domain (a DoS against the affected functions).
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+    notes: Creating/replacing TXT records lets an attacker forge domain-ownership verification tokens (to issue certs or claim SaaS tenants) and rewrite SPF/DKIM/DMARC, asserting control over the domain's trust attestation and email-auth posture.
