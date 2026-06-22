@@ -6,7 +6,7 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Automation
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  write:
+  action:
     risks:
       - exfiltration:crypto
       - escalation:lateral
