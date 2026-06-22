@@ -10,4 +10,4 @@ privileges:
     risks:
       - escalation:lateral
       - escalation:privilege
-    notes: Impersonating userextra fields lets the attacker forge additional identity attributes used in authorization, augmenting impersonated identities to satisfy authz rules and escalate access.
+    notes: Impersonating userextras fields lets the attacker forge additional identity attributes used in authorization, augmenting impersonated identities to satisfy authz rules and escalate access.
