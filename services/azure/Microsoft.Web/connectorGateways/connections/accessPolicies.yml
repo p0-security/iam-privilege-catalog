@@ -1,7 +1,7 @@
-name: Connector Gateway Connection
-description: A Connector Gateway Connection is a credential-bearing link from the gateway to a backend data source, storing authentication/connection parameters used by Logic Apps/Power Platform integrations.
+name: Connector Gateway Connection Access Policy
+description: Authorization bindings on a Connector Gateway connection that govern which principals may use the credential-bearing connection to access a backend data source.
 scope: HIGH
-notes: Connections hold or reference backend credentials, so they support access to a single organizational function's data and are sensitive.
+notes: Access policies control use of a credential-bearing connection; altering them can grant unauthorized use of the connection and its backend credentials, or revoke legitimate access.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
