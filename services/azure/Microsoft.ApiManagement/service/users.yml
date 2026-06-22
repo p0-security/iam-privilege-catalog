@@ -14,7 +14,6 @@ privileges:
     risks:
       - destruction:account
     notes: Deletes a developer-portal user account, removing the identity from the API Management instance.
-    name: APIM user accounts
   write:
     risks:
       - persistence:account
