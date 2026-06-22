@@ -22,4 +22,3 @@ privileges:
       - escalation:lateral
       - persistence:account
     notes: Create/update lets an attacker set or repoint the stored backend credential/auth configuration, planting an attacker-controlled credentialed link (persistence) and pivoting into the backend the connection targets (lateral) while altering integration config.
-    name: Connector Gateway Connection
