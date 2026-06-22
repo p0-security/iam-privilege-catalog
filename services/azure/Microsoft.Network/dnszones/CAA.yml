@@ -1,0 +1,20 @@
+name: DNS CAA record set
+description: A CAA (Certification Authority Authorization) record set within an Azure public DNS zone. CAA records declare which certificate authorities are permitted to issue TLS certificates for the domain, acting as a DNS-level trust control.
+scope: HIGH
+notes: DNS zones govern a single organizational function's public name resolution and certificate-issuance trust; the CAA restriction is a defense against fraudulent certificate issuance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - destruction:defense
+      - takeover:domain
+    notes: Deleting the CAA record set removes a DNS network component and tears down the restriction on which CAs may issue certificates for the domain, re-enabling any CA to issue certs.
+  write:
+    risks:
+      - takeover:domain
+      - destruction:defense
+      - impact:manipulation
+    notes: Create/update replaces the existing CAA records, letting an attacker authorize a CA they control to issue certificates for the domain (subverting the cert-issuance trust control) and otherwise manipulate the domain's DNS authorization data.

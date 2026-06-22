@@ -1,0 +1,17 @@
+name: DNS NS record set
+description: An authoritative DNS NS record set within an Azure public DNS zone. NS records delegate authority for the zone or a child subdomain to a set of nameservers.
+scope: HIGH
+notes: DNS record data is published and resolvable by design (public); NS delegation control hands full authoritative control over an entire namespace subtree.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the NS delegation record set breaks resolution for the delegated subdomain, making everything hosted under it unresolvable (DoS).
+  write:
+    risks:
+      - takeover:domain
+      - impact:manipulation
+    notes: Creating/replacing NS records re-delegates a (sub)zone to attacker-controlled nameservers, handing the attacker full authoritative control over all names beneath that delegation — the strongest DNS-takeover primitive.
