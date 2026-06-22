@@ -3,7 +3,7 @@ description: An Azure App Service site (Web App, Function App, or Logic App Stan
 scope: MEDIUM
 notes: Production application hosting for a single organizational function; can hold secrets in app settings, run code under a managed identity, and serve public traffic.
 links:
-  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
   action:
