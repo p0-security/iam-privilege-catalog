@@ -9,4 +9,4 @@ privileges:
   action:
     risks:
       - exfiltration:crypto
-    notes: Returns the static site's application settings, which commonly embed secrets, connection strings, and API keys usable as credentials.
+      - escalation:lateral
