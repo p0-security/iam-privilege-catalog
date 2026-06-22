@@ -3,7 +3,7 @@ description: An Azure App Service deployment slot is a live, addressable instanc
 scope: HIGH
 notes: Slots host a single organizational function's production or staging workload; their configuration and managed identity make them a pivot point for code execution and lateral movement.
 links:
-  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
   action:
