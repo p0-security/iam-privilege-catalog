@@ -3,7 +3,7 @@ description: App settings of an Azure App Service deployment slot, injected into
 scope: CRITICAL
 notes: App settings routinely hold API keys, passwords, and connection secrets returned in cleartext; treated as credential material.
 links:
-  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
   read:
