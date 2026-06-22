@@ -3,7 +3,7 @@ description: Access keys for an individual Azure Functions function, used as bea
 scope: HIGH
 notes: Function invocation keys are credentials; invoking a function runs code under the function app's (possibly managed) identity. Asset is a single function app -> HIGH.
 links:
-  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
   delete:
