@@ -1,5 +1,5 @@
-name: Subscription ownership acceptance
-description: An action that completes an ownership/billing-transfer of an entire Azure subscription, making the accepting principal the subscription owner.
+name: Subscription tenant change acceptance
+description: An action that accepts a pending tenant/directory change for an Azure subscription, moving it into the target tenant.
 scope: CRITICAL
 notes: Subscription-wide control affecting all contained resources and identities; tenant-scope sensitivity.
 links:
