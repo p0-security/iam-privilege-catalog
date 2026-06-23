@@ -1,0 +1,19 @@
+name: AKS pod security policies
+description: A PodSecurityPolicy is a cluster-wide Kubernetes admission-control object that constrains what pods may run (privileged mode, host namespaces, hostPath/hostNetwork, capabilities). On AKS this is a data-plane resource governing the cluster's pod-security defense posture.
+scope: CRITICAL
+notes: "PSPs are a security-enforcement defense mechanism: weakening or removing them lets privileged/host-mounting pods run, which is the standard path to container breakout and node/cluster compromise."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting a PodSecurityPolicy removes the admission-control defense and the security-policy object that restricts pod privileges, lifting constraints that would otherwise block privileged/host-access pods.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:privilege
+      - impact:manipulation
+    notes: Creating/updating a PodSecurityPolicy lets an attacker weaken or replace the admission-control defense (permit privileged/hostPath/hostNetwork pods), disabling a security control and enabling privileged-workload deployment that escalates to node/cluster-admin.
