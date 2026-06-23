@@ -11,7 +11,7 @@ privileges:
       - impact:access
       - destruction:account
     notes: Deleting a Static Site user removes that principal's role/account binding, denying the authorized user's access and destroying the app-level account.
-  Write:
+  write:
     risks:
       - escalation:privilege
       - persistence:account
