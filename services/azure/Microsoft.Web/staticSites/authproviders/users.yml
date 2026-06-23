@@ -6,7 +6,7 @@ links:
   - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
-  Delete:
+  delete:
     risks:
       - impact:access
       - destruction:account
