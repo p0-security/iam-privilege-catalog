@@ -3,7 +3,7 @@ description: Connection ACLs are access-control list entries on legacy API Manag
 scope: MEDIUM
 notes: Sensitivity is that of a single integration function's authorization gate; the connection may broker credentialed access to a backend.
 links:
-  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://azure.permissions.cloud/iam/Microsoft.Web
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
 privileges:
   delete:
