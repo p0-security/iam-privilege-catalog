@@ -1,0 +1,17 @@
+name: Azure Automation certificate asset
+description: An Azure Automation certificate asset stores a certificate (and optionally its private key) within an Automation account for runbooks to use when authenticating to external systems. Control-plane reads return metadata, not the private key material.
+scope: HIGH
+notes: Certificate assets are credential material used by runbooks for authentication, so write/delete on them are credential-planting and cryptographic-destruction primitives; the underlying asset is sensitive (HIGH for write/delete).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Automation
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+    notes: Deleting a certificate asset destroys stored cryptographic credential material used by runbooks for authentication, constituting cryptographic destruction and breaking dependent automations.
+  write:
+    risks:
+      - persistence:account
+      - impact:manipulation
+    notes: Creating or updating a certificate asset uploads attacker-controlled certificate/private-key material that runbooks use to authenticate, planting a credential the attacker controls (persistence) and overwriting trusted authentication material (manipulation).
