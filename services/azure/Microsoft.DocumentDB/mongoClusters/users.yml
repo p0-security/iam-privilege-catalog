@@ -1,0 +1,18 @@
+name: Mongo Cluster users
+description: Database users (data-plane accounts) defined on an Azure Cosmos DB for MongoDB (vCore) Mongo Cluster, including their roles/privileges on the cluster's databases.
+scope: HIGH
+notes: These are the database identities that authenticate to and authorize access against the production data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:account
+      - impact:access
+    notes: Deleting a database user destroys that cluster account and denies the legitimate principal its authorized access to the production database.
+  write:
+    risks:
+      - persistence:account
+      - escalation:privilege
+    notes: Create/update of a database user lets an attacker mint a new credentialed account, reset an existing user's password, or grant elevated database roles, establishing persistent privileged data-plane access.

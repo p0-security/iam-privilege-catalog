@@ -1,0 +1,17 @@
+name: Kubernetes roles (Arc connected cluster)
+description: Role objects in the Kubernetes RBAC API of an Azure Arc connected cluster. They define namespace-scoped sets of permissions over the Kubernetes API that can be granted to subjects via role bindings.
+scope: CRITICAL
+notes: Namespaced RBAC governs access within a namespace, which may host sensitive production workloads and secrets; roles are part of the cluster's access-control fabric.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a namespaced Role removes access-control policy and can strip authorized principals of their access within the namespace.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating or updating a namespaced Role lets an attacker define or expand permissions that, once bound, grant elevated privileges within the namespace.

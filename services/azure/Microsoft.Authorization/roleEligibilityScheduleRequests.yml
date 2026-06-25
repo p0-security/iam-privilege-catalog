@@ -1,0 +1,13 @@
+name: PIM role eligibility schedule request
+description: A role eligibility schedule request is the PIM object used to create or query eligibility for a principal to activate a privileged RBAC role at a scope. Writing it makes a principal eligible to elevate into a role.
+scope: CRITICAL
+notes: Eligibility is one activation step away from active privileged access, so these objects govern privilege-escalation pathways into the subscription/tenant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:privilege
+      - persistence:account
+    notes: Creating this request makes a controlled principal eligible to activate a privileged role via PIM, establishing a durable privilege-escalation and persistence pathway.

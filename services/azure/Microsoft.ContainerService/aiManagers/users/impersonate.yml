@@ -1,0 +1,13 @@
+name: Kubernetes user impersonation
+description: The Kubernetes user-impersonation capability on an AKS-managed aiManagers cluster, which lets a caller issue API requests as an arbitrary user identity via the impersonate verb.
+scope: CRITICAL
+notes: Impersonation lets the holder assume any identity's RBAC permissions, equivalent to a master skeleton key over cluster access control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - escalation:privilege
+    notes: Impersonating users lets an attacker act as any cluster user, assuming that identity's (potentially cluster-admin) privileges and moving laterally.
