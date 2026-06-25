@@ -111,6 +111,19 @@
     "ZREVRANGEBYSCORE",
     "ZSCAN",
     "ZSCORE",
-    "ZUNION"
+    "ZUNION",
+    "BZMPOP",
+    "BZPOPMAX",
+    "BZPOPMIN",
+    "GETDEL",
+    "GETEX",
+    "GETRANGE",
+    "GETSET",
+    "HGET",
+    "HGETALL",
+    "HMGET",
+    "HRANDFIELD",
+    "HSCAN",
+    "HVALS"
   ]
 }
