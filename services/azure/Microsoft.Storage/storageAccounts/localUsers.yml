@@ -1,0 +1,18 @@
+name: Storage account local users (SFTP)
+description: A local user identity configured on an Azure Storage account for SFTP/blob access, with its own credentials (password / SSH keys / shared key) and permission scopes.
+scope: HIGH
+notes: Grants data-plane access to blob/file data of a single storage account; a credentialed identity scoped to one organizational function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:account
+      - impact:access
+    notes: Deletes a local SFTP user, destroying the identity and denying the legitimate principal's data-plane access to the storage account.
+  write:
+    risks:
+      - persistence:account
+      - escalation:lateral
+    notes: Creates or updates a local SFTP user with chosen permission scopes, letting an attacker provision a persistent backdoor identity with data-plane access to the storage account.

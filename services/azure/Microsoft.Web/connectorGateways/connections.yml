@@ -1,0 +1,24 @@
+name: Connector Gateway connections
+description: A Connector Gateway connection is a Microsoft.Web integration resource representing a credentialed link to a backend/on-premises data source used by Logic Apps/Power Platform connectors.
+scope: HIGH
+notes: Connections broker stored backend credentials/auth configuration; controlling them can enable access to the backend targets they point to.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: A discrete action on a credential-bearing connection can exercise or alter the connection's stored backend identity, letting an attacker invoke the connection to reach the backend (lateral) and change its operational state.
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a connection removes the credentialed link a backend integration relies on, destroying the integration resource and disrupting dependent Logic Apps/workflows.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+      - persistence:account
+    notes: Create/update lets an attacker set or repoint the stored backend credential/auth configuration, planting an attacker-controlled credentialed link (persistence) and pivoting into the backend the connection targets (lateral) while altering integration config.

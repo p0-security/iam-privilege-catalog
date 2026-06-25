@@ -1,0 +1,21 @@
+name: API Management user accounts
+description: A developer-portal user account record in an Azure API Management (APIM) service instance.
+scope: MEDIUM
+notes: User accounts can be used to obtain/manage subscriptions and subscription keys for APIs published through the APIM instance.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - persistence:account
+    notes: Registering a new developer-portal user creates an attacker-controlled account that can maintain access to the API surface and obtain subscription keys for protected APIs.
+  delete:
+    risks:
+      - destruction:account
+    notes: Deletes a developer-portal user account, removing the identity from the API Management instance.
+  write:
+    risks:
+      - persistence:account
+      - impact:manipulation
+    notes: Creates or updates a developer-portal user, letting an attacker register a controlled account for persistent access and alter existing user records/state.
