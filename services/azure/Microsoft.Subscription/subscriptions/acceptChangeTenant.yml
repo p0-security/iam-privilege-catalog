@@ -1,0 +1,14 @@
+name: Subscription tenant change acceptance
+description: An action that accepts a pending tenant/directory change for an Azure subscription, moving it into the target tenant.
+scope: CRITICAL
+notes: Subscription-wide control affecting all contained resources and identities; tenant-scope sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Subscription
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+      - impact:access
+    notes: Accepting a tenant change moves the subscription into an attacker-controlled directory (escalation:privilege) granting control over all its resources/identities (escalation:lateral), while severing the original tenant's RBAC so legitimate principals lose access (impact:access).

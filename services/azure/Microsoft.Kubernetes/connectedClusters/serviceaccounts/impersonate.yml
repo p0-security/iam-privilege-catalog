@@ -1,0 +1,13 @@
+name: Kubernetes service accounts (connected cluster)
+description: Kubernetes ServiceAccount objects on an Azure Arc-enabled (connected) cluster. These are in-cluster workload identities that pods authenticate as and that are bound to RBAC roles governing what they can do in the cluster.
+scope: CRITICAL
+notes: Service accounts are identities; a service account bound to a privileged ClusterRole can be cluster-admin equivalent, so this asset can be highly sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - escalation:privilege
+    notes: The Kubernetes impersonate verb lets the caller act directly as a target service account, assuming its full RBAC permissions — a direct lateral-movement and privilege-escalation primitive to potentially cluster-admin-equivalent identities.
