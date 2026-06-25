@@ -1,0 +1,26 @@
+name: Connector Gateway Connection Access Policy
+description: Authorization bindings on a Connector Gateway connection that govern which principals may use the credential-bearing connection to access a backend data source.
+scope: HIGH
+notes: Access policies control use of a credential-bearing connection; altering them can grant unauthorized use of the connection and its backend credentials, or revoke legitimate access.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - escalation:privilege
+    notes: An action on a connection access policy operates on the authorization construct governing who may use the credentialed connection, letting an attacker alter that authorization in their favor.
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a connection access policy removes the access-control binding governing the connection, tearing down authorization that would otherwise deny use and stripping legitimate principals' access.
+    name: Connector Gateway Connection Access Policy
+  write:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+      - impact:access
+    notes: Create/update lets an attacker bind their own principal to the connection, granting authority to wield its stored backend credentials (privilege escalation -> lateral movement to the backend), and via policy replacement can remove legitimate principals' access.
+    name: Connector Gateway Connection Access Policy
