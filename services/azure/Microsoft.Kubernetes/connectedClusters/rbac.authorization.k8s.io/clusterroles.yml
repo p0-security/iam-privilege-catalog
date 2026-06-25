@@ -1,0 +1,17 @@
+name: Kubernetes cluster roles (Arc connected cluster)
+description: ClusterRole objects in the Kubernetes RBAC API of an Azure Arc connected cluster. They define cluster-wide sets of permissions over the Kubernetes API that can be granted to subjects via (cluster)role bindings.
+scope: CRITICAL
+notes: Cluster-scoped RBAC governs access to all namespaces and cluster resources; a ClusterRole can confer cluster-admin, making this the access-control backbone of the entire cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a ClusterRole removes cluster-wide access-control policy, which can strip authorized principals of their access and disrupt RBAC enforcement.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating or updating a ClusterRole lets an attacker define or expand cluster-wide permission sets (up to cluster-admin) that can be bound to a controlled principal.

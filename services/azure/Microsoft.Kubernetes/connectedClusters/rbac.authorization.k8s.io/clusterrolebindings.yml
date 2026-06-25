@@ -1,0 +1,18 @@
+name: Kubernetes cluster role bindings (Arc-connected cluster)
+description: ClusterRoleBindings are Kubernetes RBAC objects in an Azure Arc-connected cluster that bind subjects (users, groups, service accounts) to cluster-wide ClusterRoles, including cluster-admin, governing cluster-wide authorization.
+scope: CRITICAL
+notes: These are the cluster's primary cluster-wide access-control grants; writing them is the canonical Kubernetes privilege-escalation path.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting ClusterRoleBindings removes cluster-wide RBAC grants, destroying access-control policy (which can strip away grants that would otherwise deny the attacker) and revoking other principals'/admins' authorized access.
+  write:
+    risks:
+      - escalation:privilege
+      - persistence:account
+    notes: Creating/updating a ClusterRoleBinding lets an attacker bind any subject (including their own identity/service account) to cluster-admin, granting full cluster-wide privilege escalation and a durable privileged foothold.

@@ -1,0 +1,23 @@
+name: Kubernetes custom resources (fleet)
+description: This data-plane permission covers reading arbitrary Kubernetes custom resources (CRD-backed objects) across the fleet's member clusters, which can hold operator/controller configuration, application state, policy, and frequently secret-adjacent or credential-bearing data.
+scope: HIGH
+notes: A wildcard over custom resources spans whatever CRDs are installed; CR specs/status routinely embed connection details, configuration, and sensitive operational data, making the asset broadly sensitive across the fleet.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Deleting arbitrary custom resources destroys operator/CRD-managed state across the fleet and disrupts the controllers and workloads that depend on those resources; deleting security-enforcing CRDs can also weaken defenses.
+  read:
+    risks:
+      - exfiltration:data
+      - discovery:infra
+    notes: A data-plane read of arbitrary custom resources can return the full contents of operator/CRD objects, which frequently hold sensitive operational configuration and credential-adjacent data, constituting data exfiltration beyond mere enumeration.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:privilege
+    notes: Writing arbitrary custom resources lets an attacker mutate operator/controller-driven state across the fleet; since CRDs back RBAC/policy/operator objects, crafted CRs can be reconciled into privilege grants or attacker-controlled workloads.

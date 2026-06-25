@@ -1,0 +1,14 @@
+name: Automation project principal
+description: An automation project principal is the identity/access-control binding that grants a security principal (user, group, service principal, or managed identity) access to a Logic Apps automation project. It functions as a scoped RBAC-style binding on a single integration workload.
+scope: HIGH
+notes: This is an access-control binding analogous to an Azure role assignment, but scoped to a single Logic automation project rather than tenant/subscription-wide; the asset is the access-control configuration of one integration function.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+      - persistence:account
+    notes: Creating or updating the principal binding grants a controlled identity access to the project (escalation:privilege), binds/uses identities the automation runs as for lateral movement (escalation:lateral), and establishes a durable access grant (persistence:account), analogous to a role assignment write scoped to a single Logic automation resource.
