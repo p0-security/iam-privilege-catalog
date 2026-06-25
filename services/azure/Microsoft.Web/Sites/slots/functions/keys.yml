@@ -1,0 +1,21 @@
+name: Web Apps slot function keys
+description: Function keys are per-function bearer credentials that authorize invocation of an HTTP-triggered function in an App Service Functions slot.
+scope: HIGH
+notes: Credential material gating function invocation; the invoked function runs under the app's assigned managed identity.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:access
+      - impact:dos
+    notes: Deleting a function key destroys the credential material and revokes the invocation access legitimate callers depend on, denying authorized access and disrupting the function.
+  write:
+    risks:
+      - persistence:account
+      - escalation:lateral
+      - exfiltration:crypto
+      - impact:manipulation
+    notes: PUT creates/overwrites a function key with an attacker-chosen value and returns the resolved key, planting a persistent invocation credential and granting durable access to run the function as the app identity.

@@ -1,0 +1,13 @@
+name: PIM role management policy
+description: A PIM role management policy defines the activation rules and guardrails (MFA, approval, justification, maximum activation duration, notifications) governing how eligible principals activate privileged Azure roles.
+scope: CRITICAL
+notes: Directly governs how privileged-role activation is controlled; weakening it enables tenant/subscription-wide privilege escalation, hence a CRITICAL-tier asset.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+      - destruction:defense
+    notes: Modifying the approval rule can remove the approver gate on privileged-role activation, enabling self-approved escalation and dismantling a key access-control defense.

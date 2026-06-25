@@ -1,0 +1,13 @@
+name: Kubernetes group impersonation (Fleet)
+description: The Kubernetes group-impersonation privilege on an AKS Fleet, which allows a caller to issue API requests as a member of any group (the RBAC impersonate verb on groups).
+scope: CRITICAL
+notes: Impersonating groups such as system:masters yields the aggregated RBAC of any privileged group, equivalent to full cluster-admin escalation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+    notes: Group impersonation lets an attacker assume membership in any group (e.g. system:masters), inheriting that group's RBAC for full privilege escalation and lateral movement.

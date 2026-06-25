@@ -1,0 +1,17 @@
+name: AKS Kubernetes cluster roles
+description: A Kubernetes ClusterRole defines a set of permissions over cluster-scoped and namespaced resources across the entire cluster. On AKS this is a data-plane RBAC permission definition.
+scope: CRITICAL
+notes: Cluster roles define cluster-wide permission sets (up to cluster-admin); they are core cluster access-control policy objects.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a ClusterRole destroys a cluster-wide access-control policy definition and breaks every binding referencing it, revoking the permissions of all bound subjects and denying authorized operational access.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating/updating a ClusterRole lets an attacker craft or expand a role's permission set, escalating the cluster-wide privileges of every subject already bound to that role (including controlled identities).

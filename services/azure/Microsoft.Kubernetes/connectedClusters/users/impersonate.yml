@@ -1,0 +1,13 @@
+name: Kubernetes user impersonation (Arc-connected cluster)
+description: The Kubernetes impersonate verb on user identities for an Azure Arc-connected cluster. It allows the holder to make API requests acting as an arbitrary user identity (via the Impersonate-User header), assuming that user's RBAC permissions.
+scope: CRITICAL
+notes: "Impersonation is an identity-spoofing primitive: holding it on users/groups/userextras effectively grants the union of all identities' permissions, up to cluster-admin (system:masters). This is among the most powerful capabilities in a cluster."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+    notes: User impersonation lets the holder act as any user including cluster-admin, a direct privilege-escalation and lateral-identity-takeover primitive.

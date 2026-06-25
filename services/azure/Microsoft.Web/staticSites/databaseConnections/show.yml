@@ -1,0 +1,13 @@
+name: Static Site database connections
+description: A database connection resource that links an Azure Static Web App to a backend database, powering the site's Data API. It holds the target database binding, an optional managed-identity, and (retrievable separately) the connection string credential.
+scope: CRITICAL
+notes: The connection binds a production application to its backing data tier; the show action returns reusable database credentials, making that path credential-sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: The showDetails action returns the full unmasked connection string (and config files) embedding database credentials, a credential-export primitive redeemable for direct authenticated access to the backend database.
