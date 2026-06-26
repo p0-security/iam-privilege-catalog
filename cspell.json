@@ -7,6 +7,7 @@
     "admissionregistration",
     "Alertable",
     "analyticshub",
+    "APIM",
     "aoss",
     "APIM",
     "apiregistration",
@@ -33,11 +34,15 @@
     "Entra",
     "EVALSHA",
     "eventhub",
+    "escalatable",
     "exfiltrate",
     "exfiltrated",
     "exfiltrates",
     "exfiltrating",
     "exfiltration",
+    "eventhub",
+    "EVALSHA",
+    "Entra",
     "finalizer",
     "Firestore",
     "healthlake",
@@ -103,6 +108,10 @@
     "watchlist",
     "Watchlist",
     "Watchlists",
+    "VM",
+    "vpcaccess",
+    "VXLAN",
+    "wafv",
     "ZDIFF",
     "ZINTER",
     "ZMPOP",
@@ -127,3 +136,4 @@
     "HVALS"
   ]
 }
+

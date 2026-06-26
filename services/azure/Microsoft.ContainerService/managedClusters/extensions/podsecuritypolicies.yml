@@ -1,0 +1,19 @@
+name: AKS Kubernetes PodSecurityPolicies
+description: In-cluster Kubernetes PodSecurityPolicy admission-control objects that constrain what pods may do (privileged mode, hostPath/hostNetwork, capabilities) in an AKS managed cluster's data plane.
+scope: HIGH
+notes: PSPs are an admission-time security/access-control defense gating workload privileges; weakening them enables container-escape and node/cluster compromise for a single cluster (organizational function).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+      - escalation:privilege
+    notes: Deleting PodSecurityPolicies removes the admission-control security policy that restricts privileged workloads, disabling a defense, destroying access-control policy, and permitting privileged pods that escalate to the node/host.
+  write:
+    risks:
+      - destruction:defense
+      - escalation:privilege
+    notes: Creating/updating PodSecurityPolicies lets an attacker relax admission constraints to permit privileged/hostPath/hostNetwork pods, disabling a defense and enabling node/cluster privilege escalation via container escape.

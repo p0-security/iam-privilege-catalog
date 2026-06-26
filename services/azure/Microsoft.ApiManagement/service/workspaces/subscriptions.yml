@@ -1,0 +1,18 @@
+name: APIM product subscriptions
+description: An API Management product subscription binds a user/principal to an API product and holds the gateway API keys that authorize calls to the product's published APIs.
+scope: MEDIUM
+notes: Subscriptions are the access-grant + credential construct of the APIM gateway; the keys themselves are credentials, but the subscription entity (without keys) is access-mapping metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:access
+    notes: Deleting a subscription revokes a legitimate consumer's authorized access to the product's APIs, denying authorized operational access.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:privilege
+    scope: HIGH
+    notes: Creating a subscription grants a controlled user authorized access to a product's APIs (a fresh credential binding) and updates subscription state, expanding access without legitimate approval.

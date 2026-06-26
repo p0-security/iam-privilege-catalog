@@ -1,0 +1,13 @@
+name: Virtual machine scale set disk
+description: A managed OS/data disk attached to a Virtual Machine Scale Set instance, holding the VM's filesystem contents.
+scope: HIGH
+notes: Production compute disks can contain application data, configuration, and secrets/credentials stored on disk.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+      - exfiltration:crypto
+    notes: Returns a SAS URI granting direct blob-level read access to the full scale-set disk, enabling export of all disk contents; the returned SAS token is itself credential material (exfiltration:crypto) and grants any on-disk secrets.

@@ -1,0 +1,13 @@
+name: Static Site build
+description: A deployed build/environment (e.g. production or preview staging) of an Azure Static Web App that serves the site's static content and managed functions.
+scope: CRITICAL
+notes: A build represents a deployed version/environment serving public content and backing functions.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: Returns the build's app settings values, which commonly include secrets and connection strings, enabling credential exfiltration and lateral movement to connected resources.

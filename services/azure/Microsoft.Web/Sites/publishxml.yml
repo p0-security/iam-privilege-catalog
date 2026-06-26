@@ -1,0 +1,21 @@
+name: Web App
+description: An Azure App Service site (Web App, Function App, or Logic App Standard) is a managed hosting resource that runs an organization's application code, often with an attached managed identity, app settings/connection strings, and a public-facing endpoint.
+scope: CRITICAL
+notes: Production application hosting for a single organizational function; can hold secrets in app settings, run code under a managed identity, and serve public traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+      - takeover:account
+    notes: Returns the publishing profile XML containing FTP/Web Deploy/SCM deployment credentials, directly exfiltrating usable secrets that grant code-push access to the app and execution under its managed identity.
+  read:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+      - takeover:account
+    notes: Returns the publish profile XML with deployment credentials, exporting secret material that lets an attacker deploy/run arbitrary code as the app and take over its deployment access.
+    name: Web App publishing profile XML
