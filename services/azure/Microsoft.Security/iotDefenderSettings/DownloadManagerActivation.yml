@@ -1,0 +1,12 @@
+name: Defender for IoT settings
+description: Defender for IoT settings hold the subscription/tenant-wide configuration and plan for the Microsoft Defender for IoT security service.
+scope: MEDIUM
+notes: Configuration of a defensive security service; reading or altering it exposes or weakens the overall IoT threat-protection posture.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+    notes: Downloads the on-premises management-console activation file (with subscription quota data), returning credential-like activation material used to onboard the central manager.

@@ -1,0 +1,13 @@
+name: VPN link connection shared key
+description: The IPsec pre-shared key (shared secret) authenticating a site-to-site VPN link connection on an Azure VPN Gateway, securing the tunnel to a connected on-premises or partner network.
+scope: CRITICAL
+notes: Credential material that authenticates a tunnel bridging into internal/peer networks.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:crypto
+      - escalation:network
+    notes: This get returns the IPsec pre-shared key, exporting credential material an attacker can use to establish or impersonate the site-to-site tunnel and reach the connected network.
