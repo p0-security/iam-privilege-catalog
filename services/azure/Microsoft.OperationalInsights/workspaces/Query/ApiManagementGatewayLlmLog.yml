@@ -1,0 +1,13 @@
+name: Log Analytics workspace table data (ApiManagementGatewayLlmLog)
+description: A Log Analytics workspace table queried via the data plane; this table (ApiManagementGatewayLlmLog) holds Azure API Management gateway LLM request/response logging ingested into the Azure Monitor workspace.
+scope: MEDIUM
+notes: Monitoring/diagnostics data, but LLM gateway logs can embed captured prompt and completion content, so rows may contain genuinely sensitive application data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - exfiltration:data
+    notes: Reads APIM gateway LLM log rows that can include prompt/response payloads, so it exports both monitoring logs and potentially sensitive request/response data.

@@ -1,0 +1,12 @@
+name: Azure Firewall
+description: Azure Firewall is a managed, stateful network firewall appliance that filters and inspects traffic for a virtual network, enforcing network/application/NAT rule collections and threat intelligence.
+scope: HIGH
+notes: Acts as a network-perimeter defense for a single organizational function; its configuration reveals defensive posture and it can record in-transit traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+    notes: Triggering a packet capture records live network traffic traversing the firewall to a capture file, allowing an attacker to capture and exfiltrate sensitive in-transit data and credentials.

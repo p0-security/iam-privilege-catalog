@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (ABAPTableDataLog)
+description: A single named table within an Azure Log Analytics (Operational Insights) workspace, queried via the data plane. This Microsoft Sentinel for SAP table captures changes to ABAP business/application table data.
+scope: HIGH
+notes: Because it logs the contents of SAP ERP business-table changes, this table can contain sensitive organizational data values rather than only operational telemetry.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - exfiltration:data
+    notes: Reading this table exports captured SAP ABAP business-table data change records, exposing both the log records and the underlying organizational/ERP data values they contain.
