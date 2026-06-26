@@ -1,0 +1,14 @@
+name: Function App master key
+description: The Function App master key, an admin-level credential that bypasses function-level authorization to invoke and administer all functions in the Function App runtime.
+scope: CRITICAL
+notes: Master key grants full administrative control of the Functions runtime and enables code execution under the app's managed identity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+      - takeover:account
+    notes: Returns the admin master key as reusable credential material, enabling invocation/management of all functions and code execution as the app identity.

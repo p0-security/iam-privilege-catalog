@@ -1,0 +1,13 @@
+name: Static Site build database connections
+description: A database connection resource that links a Static Web App build (e.g. a preview/staging environment) to a backend database, powering that build's Data API. It holds the target database binding, an optional managed-identity, and (retrievable separately) the connection string credential.
+scope: CRITICAL
+notes: The connection binds a build environment to its backing data tier; the show action returns reusable database credentials, making that path credential-sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: The build-scoped showDetails action returns the full unmasked connection string and config files containing database credentials, exporting reusable secret material for direct authenticated access to the backend database.

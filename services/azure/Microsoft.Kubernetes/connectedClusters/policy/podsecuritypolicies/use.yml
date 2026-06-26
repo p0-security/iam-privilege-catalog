@@ -1,0 +1,13 @@
+name: Kubernetes pod security policies (Arc-connected cluster)
+description: PodSecurityPolicies are Kubernetes admission-control objects in an Azure Arc-connected cluster that constrain the security context of pods (e.g. privileged mode, hostPath, host namespaces, runAsRoot), acting as a cluster security/defense mechanism.
+scope: HIGH
+notes: PSPs are a defensive admission control; their configuration reveals where privileged-pod restrictions are weak.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Kubernetes
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+      - impact:hijack
+    notes: The 'use' verb authorizes a subject to admit pods under a given PSP; targeting a permissive policy lets an attacker launch privileged/host-access containers to escalate from container to node/cluster control and run arbitrary workloads.

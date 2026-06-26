@@ -1,0 +1,12 @@
+name: Kubernetes Roles
+description: Kubernetes Roles in an AKS-managed aiManagers cluster, which define sets of RBAC permission rules (verbs over resources) that are granted to subjects via bindings.
+scope: CRITICAL
+notes: Role definitions are core cluster access-control policy; manipulating them governs the permission surface up to cluster-admin.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+    notes: The Kubernetes 'escalate' verb explicitly bypasses the privilege-escalation prevention guard, allowing the holder to grant permissions exceeding their own, up to cluster-admin.

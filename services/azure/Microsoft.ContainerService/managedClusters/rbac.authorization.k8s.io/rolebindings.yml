@@ -1,0 +1,17 @@
+name: Kubernetes RoleBindings (AKS)
+description: In-cluster Kubernetes RBAC RoleBinding objects that bind subjects (users, groups, service accounts) to Roles/ClusterRoles within an AKS managed cluster, governing who can perform which actions in the cluster.
+scope: CRITICAL
+notes: Cluster RBAC is the primary access-control mechanism for the cluster; binding a subject to a privileged role (e.g. cluster-admin) yields full control of the cluster and its workloads/data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting RoleBindings tears down RBAC access-control assignments, destroying policy and revoking legitimate principals' authorized access to the cluster.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating/updating a RoleBinding lets an attacker bind any subject (including their own identity) to any role up to cluster-admin, the canonical Kubernetes privilege-escalation primitive.

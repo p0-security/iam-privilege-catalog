@@ -1,0 +1,17 @@
+name: APIM Product-group links
+description: Product-group links are association records in an Azure API Management workspace that connect a product to developer-portal groups, governing which groups can see and subscribe to a product's APIs.
+scope: MEDIUM
+notes: These control developer-portal product visibility/subscription eligibility (an access-control-adjacent surface for a single API gateway function); they are not Azure RBAC/IAM role assignments.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:access
+    notes: Deleting a product-group link revokes a developer group's authorized access to a product, denying legitimate consumers access to its APIs.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:privilege
+    notes: Creating a product-group link grants a developer group visibility and subscription access to a product's APIs, expanding which principals can consume the product and altering the access mapping.
