@@ -1,0 +1,13 @@
+name: Logic App workflow access key
+description: An access key for a Logic App workflow, used to sign callback URLs and authorize invocation of and access to workflow runs. The key is credential material.
+scope: HIGH
+notes: Access keys are secret credentials scoped to a single workflow; their list/regenerate operations return secret values while the control-plane read returns only key metadata.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: Explicitly lists the access key secrets, returning credential material an attacker can use to sign callback URLs and invoke the workflow as a trusted caller.
