@@ -1,0 +1,22 @@
+name: Kubernetes ConfigMaps (AKS)
+description: Kubernetes ConfigMaps store non-secret application and cluster configuration (settings, endpoints, scripts) consumed by workloads in an AKS managed cluster.
+scope: HIGH
+notes: Although not formal Secrets, ConfigMaps frequently contain sensitive operational data and misplaced credentials/connection strings, and config like CoreDNS or app settings is consumed/executed by pods.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Destroys configuration data that workloads depend on, removing operational data and disrupting dependent services.
+  read:
+    risks:
+      - exfiltration:data
+    notes: Returns ConfigMap contents, which commonly include sensitive configuration and occasionally misplaced credentials, directly enabling data exfiltration across cluster workloads.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Alters configuration consumed by workloads; tampering with config (CoreDNS, app settings, mounted scripts) can redirect or poison pods and pivot into running workload identities.
