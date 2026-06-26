@@ -1,0 +1,14 @@
+name: Backup Vault cross-region restore (Backup Jobs)
+description: Location-scoped cross-region restore operations on a Backup Vault, used to enumerate recovery points and trigger/validate/track restores of protected backup data from the paired secondary region.
+scope: HIGH
+notes: Backup data can include full copies of production databases, VMs, and files; the ability to enumerate and restore it from the secondary region is effectively access to the organization's recoverable data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DataProtection
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+      - impact:manipulation
+      - impact:spend
+    notes: Triggers an actual cross-region restore of a backup instance, re-materializing backed-up (potentially production) data into a restore target the attacker can reach (exfiltration), can overwrite/alter live data when restoring to an existing location (manipulation), and provisions costly restore resources (spend).
