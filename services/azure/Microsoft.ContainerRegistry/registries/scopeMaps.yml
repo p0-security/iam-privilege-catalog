@@ -1,0 +1,18 @@
+name: Container registry scope maps
+description: Scope maps define the repository-level permissions (content/pull/push/delete actions per repository) that are bound to Azure Container Registry tokens, forming the registry's repository-scoped access-control model.
+scope: CRITICAL
+notes: Scope maps are ACR's RBAC mechanism for token-based access; creating/altering them grants or revokes registry access.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerRegistry
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deletes a scope map, removing the access-control policy bound to registry tokens; this destroys RBAC configuration and can revoke legitimate principals' access to repositories.
+  write:
+    risks:
+      - escalation:privilege
+      - impact:manipulation
+    notes: Create/update grants or broadens repository-level permissions bound to registry tokens, directly escalating registry access (ACR's RBAC grant mechanism) and altering the access-control policy.
