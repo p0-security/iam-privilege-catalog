@@ -29,6 +29,7 @@
     "DMARC",
     "DNSSEC",
     "EDIFACT",
+    "escalatable",
     "exfiltrate",
     "exfiltrated",
     "exfiltrating",

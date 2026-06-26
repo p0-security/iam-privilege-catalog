@@ -1,0 +1,17 @@
+name: Role definition
+description: An RBAC role definition specifies a named set of allowed/denied actions (permissions) and assignable scopes that can be bound to principals via role assignments.
+scope: CRITICAL
+notes: Role definitions describe the permission sets behind every role; the asset is tenant/subscription-wide access-control policy.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Authorization
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:access
+    notes: Deleting a custom role definition destroys an access-control policy object and breaks every assignment referencing it, revoking the access of all principals assigned that role.
+  write:
+    risks:
+      - escalation:privilege
+    notes: Creating or updating a custom role definition lets an attacker inject arbitrary permissions and assignable scopes, escalating the privileges of every principal bound to that role.
