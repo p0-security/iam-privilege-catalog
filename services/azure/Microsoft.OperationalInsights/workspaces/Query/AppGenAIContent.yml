@@ -1,0 +1,13 @@
+name: Log Analytics workspace table (App GenAI content)
+description: A Log Analytics workspace data-plane table storing logged generative-AI application content such as prompts and completions. Read access returns the table's records.
+scope: MEDIUM
+notes: GenAI prompt/response content frequently carries sensitive user or business data, exceeding ordinary operational logging.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:logs
+      - exfiltration:data
+    notes: Reading the table exports logged GenAI prompts/responses (exfiltration:logs) that often contain sensitive organizational or user data captured in the content (exfiltration:data).
