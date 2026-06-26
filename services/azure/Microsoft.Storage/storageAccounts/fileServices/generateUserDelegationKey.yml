@@ -1,0 +1,13 @@
+name: Storage file service
+description: The file service of a storage account exposes SMB/NFS file shares and its control-plane properties (CORS, share soft-delete/retention, SMB protocol and security settings). The data-plane holds organizational file data.
+scope: CRITICAL
+notes: Backup-semantics privileges (SeBackupPrivilege/SeRestorePrivilege equivalents) bypass per-file NTFS/share ACLs.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: Returns a user delegation key, cryptographic material that can sign user-delegation SAS tokens granting direct data-plane access to file shares under a delegated credential, enabling pivot to data access.
