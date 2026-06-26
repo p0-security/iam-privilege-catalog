@@ -1,0 +1,18 @@
+name: Fleet hub Kubernetes mutating webhook configurations
+description: Mutating webhook configurations are cluster-scoped Kubernetes admission-control objects on the Fleet Manager hub cluster that register webhooks which intercept and can rewrite objects submitted to the API server.
+scope: CRITICAL
+notes: Mutating admission webhooks are a cluster-admin-tier security primitive able to alter every matching object created cluster-wide.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting mutating webhook configurations removes admission controllers that frequently enforce security/policy (e.g. Gatekeeper, Kyverno, image/identity verification), disabling those defenses across the cluster.
+  write:
+    risks:
+      - escalation:privilege
+      - impact:manipulation
+      - destruction:defense
+    notes: Writing a mutating webhook configuration registers a webhook that intercepts and rewrites every matching admission request (inject privileged sidecars/credentials, alter pod specs), a classic cluster-wide privilege-escalation, tampering, and admission-defense bypass primitive.
