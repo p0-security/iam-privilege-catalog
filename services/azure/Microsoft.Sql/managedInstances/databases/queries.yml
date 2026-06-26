@@ -1,0 +1,13 @@
+name: Azure SQL Managed Instance database query (Query Store)
+description: A Query Store query record on an Azure SQL Managed Instance database, exposing the stored SQL query text for a given query id.
+scope: HIGH
+notes: Query text can embed schema, table/column names, business logic, and literal parameter values from a production database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:data
+      - discovery:data
+    notes: Retrieves the stored SQL query TEXT by id from Query Store, which can leak literal data values and reveal database schema/structure beyond mere enumeration.

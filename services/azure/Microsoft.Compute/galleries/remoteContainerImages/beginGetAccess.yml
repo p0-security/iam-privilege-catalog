@@ -1,0 +1,13 @@
+name: Gallery remote container image
+description: A reference/definition in an Azure Compute Gallery pointing to a remote container image artifact distributable to consumers.
+scope: HIGH
+notes: Image artifact reference whose contents may be consumed by downstream deployments; supply-chain relevant.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+      - exfiltration:crypto
+    notes: Returns a SAS URI for direct blob access to the remote container image, enabling export of the image contents (and any secrets baked into it); the returned SAS token is itself credential material.

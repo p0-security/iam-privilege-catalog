@@ -1,0 +1,13 @@
+name: Kubernetes service account impersonation (AKS fleet member)
+description: The Kubernetes impersonate verb on ServiceAccount identities for a member cluster of an AKS fleet, allowing a caller to issue API requests as an arbitrary ServiceAccount.
+scope: CRITICAL
+notes: Impersonating a ServiceAccount yields that identity's RBAC permissions, enabling lateral movement and privilege escalation up to cluster-admin.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - escalation:privilege
+    notes: Impersonating a ServiceAccount lets an attacker act as that in-cluster identity and inherit its (potentially broader) RBAC, the canonical lateral-movement and privilege-escalation primitive.

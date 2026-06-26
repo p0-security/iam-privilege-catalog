@@ -1,0 +1,13 @@
+name: AKS AI Manager service accounts
+description: Kubernetes ServiceAccount objects within an AKS AI Manager namespace that represent workload identities used by pods to authenticate to the cluster API.
+scope: CRITICAL
+notes: ServiceAccounts are workload identities; impersonating one lets a caller act as that identity with its bound RBAC permissions and can enable lateral movement and privilege escalation up to cluster-admin.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+      - escalation:privilege
+    notes: Impersonating a service account lets an attacker act as that workload identity with its (potentially broader) RBAC permissions, the canonical lateral-movement and privilege-escalation primitive.
