@@ -1,0 +1,19 @@
+name: Front Door frontend endpoints
+description: A Front Door frontend endpoint defines the public hostnames/custom domains and TLS configuration that the Azure Front Door edge answers for.
+scope: HIGH
+notes: Frontend endpoints are the public ingress/domain binding of the edge; controlling them governs domain routing and the public-facing presence of an application.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a frontend endpoint removes the public entry hostname/domain binding, making the service unreachable (DoS).
+  write:
+    risks:
+      - takeover:domain
+      - impact:defacement
+      - impact:manipulation
+    notes: Creating/updating a frontend endpoint binds/alters the custom domains/hostnames Front Door answers for, enabling domain/subdomain hijack and alteration of the public-facing surface.

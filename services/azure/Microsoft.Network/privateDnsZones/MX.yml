@@ -1,0 +1,17 @@
+name: Private DNS MX record set
+description: An MX (mail-exchange) record set within an Azure Private DNS zone, which directs internal mail-routing name resolution for resources within linked virtual networks.
+scope: HIGH
+notes: Private DNS zones serve name resolution for a single network function; reading records is reconnaissance while writing/deleting can redirect or break internal resolution.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+    notes: Deleting the MX record set removes internal mail-routing resolution, causing denial of service for dependent mail services.
+  write:
+    risks:
+      - impact:manipulation
+      - takeover:domain
+    notes: Creating/replacing MX records overwrites internal mail routing, letting an attacker redirect mail flow to attacker-controlled hosts and arbitrarily route that name within the private zone.
