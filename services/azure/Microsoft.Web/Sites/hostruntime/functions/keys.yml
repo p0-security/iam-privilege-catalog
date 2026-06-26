@@ -1,0 +1,13 @@
+name: Web App hostruntime function keys
+description: Function access keys exposed via the Function App host runtime endpoint; despite the /read verb these are the actual invocation credentials.
+scope: CRITICAL
+notes: These keys authorize function invocation and code execution as the app identity, so the read returns usable secret material.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: Returns function keys via the host runtime, exporting credential material that authorizes function invocation and code execution as the app.
