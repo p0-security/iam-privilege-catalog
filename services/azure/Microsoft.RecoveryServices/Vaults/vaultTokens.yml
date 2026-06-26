@@ -1,0 +1,13 @@
+name: Recovery Services vault token
+description: The vault token is credential material returned by the Recovery Services vault that is used to authenticate vault-level backend backup and recovery operations.
+scope: CRITICAL
+notes: Returns reusable credential/secret material granting authenticated access to the vault backend.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  read:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: This read returns a vault token (credential material) that an attacker can reuse to authenticate to and act against the vault backend.

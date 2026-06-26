@@ -1,0 +1,13 @@
+name: Backup recovery points
+description: Recovery points are point-in-time backup snapshots of protected items (VMs, databases, file shares) stored within a Recovery Services vault.
+scope: CRITICAL
+notes: Recovery points hold full copies of production organizational data; access to them is equivalent to access to the source data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - exfiltration:data
+    notes: Returns an access token for cross-region restore, disclosing credential material that grants the holder access to the backed-up data copy in the secondary region.
