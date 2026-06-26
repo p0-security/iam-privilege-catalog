@@ -1,0 +1,21 @@
+name: Kubernetes mutating webhook configurations (admission control)
+description: Cluster-wide Kubernetes mutatingWebhookConfiguration objects (admissionregistration.k8s.io) that register webhooks which intercept and rewrite API objects during admission across the entire AKS-managed cluster.
+scope: CRITICAL
+notes: Mutating admission webhooks are a primary cluster-wide security/enforcement mechanism; the ability to control them approaches cluster-admin, hence CRITICAL asset sensitivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting mutating webhook configurations strips cluster-wide admission mutation/enforcement (e.g. security sidecar injection, policy mutation), disabling defenses so malicious objects that would be mutated or rejected are admitted unchanged.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+      - escalation:privilege
+      - escalation:lateral
+      - exfiltration:data
+    notes: "Registering a mutating webhook is a classic full-cluster takeover primitive: it intercepts and rewrites every admitted object cluster-wide (inject privileged sidecars, attach service accounts/managed identities, mount secrets), can read secret-bearing admission payloads, and disables mutating security defenses."

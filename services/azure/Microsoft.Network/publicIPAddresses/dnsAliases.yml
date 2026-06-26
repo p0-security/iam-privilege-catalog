@@ -1,0 +1,18 @@
+name: DNS Alias of a Public IP Address
+description: A DNS alias of a public IP address binds a publicly resolvable DNS name/FQDN to an Azure public IP, controlling how that name routes to the endpoint.
+scope: HIGH
+notes: Controls public-facing DNS routing; write/delete enable domain/subdomain takeover and defacement of public-facing assets.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - takeover:domain
+      - impact:dos
+    notes: Deleting the DNS alias removes the name-to-IP binding, breaking resolution of the public endpoint (DoS) and freeing the name to be re-claimed and re-pointed for a dangling-DNS subdomain takeover.
+  write:
+    risks:
+      - takeover:domain
+      - impact:defacement
+    notes: Creating/updating a DNS alias binds a chosen public DNS name to an IP, letting an attacker redirect traffic for that domain/subdomain to controlled infrastructure and alter the org's public-facing endpoint.
