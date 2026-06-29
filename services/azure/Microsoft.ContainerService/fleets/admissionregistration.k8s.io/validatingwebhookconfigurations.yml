@@ -1,0 +1,19 @@
+name: Kubernetes validating webhook configurations (Fleet)
+description: ValidatingWebhookConfigurations are cluster-scoped Kubernetes admission-control objects that register external/in-cluster webhooks invoked to validate (admit or reject) API requests. In a Fleet they govern admission enforcement across member clusters.
+scope: CRITICAL
+notes: These objects are the cluster's policy-enforcement defense layer (e.g. Pod Security, OPA/Gatekeeper, Kyverno). Controlling them is effectively controlling whether security policy is enforced.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:policy
+    notes: Deleting webhook configurations removes admission-control enforcement cluster/fleet-wide, disabling the security defense so otherwise-blocked malicious or privileged workloads can be admitted.
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+      - exfiltration:data
+    notes: Creating/updating webhook configs lets an attacker fail-open or narrow admission policy to bypass enforcement (defense destruction), and can register an attacker-controlled webhook endpoint that intercepts every matching API object (including secrets) for exfiltration and tampers with admission decisions.

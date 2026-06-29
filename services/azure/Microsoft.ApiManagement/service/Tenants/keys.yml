@@ -1,0 +1,23 @@
+name: API Management tenant access keys
+description: The API Management tenant access keys (primary/secondary) authenticate direct access to the service's legacy Management REST endpoint and the Git configuration repository, which control the entire APIM service configuration (APIs, policies, named values).
+scope: CRITICAL
+notes: These keys grant broad management-plane access to a single APIM service instance; possession is equivalent to administrative control of the gateway. The /read action exposes the listSecrets path, which returns the live key values.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:access
+    notes: Deleting the tenant access key destroys credential material and revokes the management/Git access path that legitimate operators and automation rely on.
+  read:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: The control-plane read covers the listSecrets POST, which returns the live primaryKey/secondaryKey values (confirmed by the AccessInformationSecretsContract schema); these credentials let an attacker authenticate to the APIM Management/Git endpoint and move laterally into service administration.
+  write:
+    risks:
+      - persistence:account
+      - impact:manipulation
+    notes: Create/update/renew lets an attacker set or rotate the tenant access key to a value they control, planting durable management-plane credentials and altering the service's authentication configuration.
