@@ -1,0 +1,13 @@
+name: Integration Account
+description: "A Logic Apps Integration Account: a container for B2B/EDI artifacts (partners, agreements, schemas, maps, certificates) that supports enterprise integration workflows."
+scope: HIGH
+notes: Supporting integration resource scoped to a single integration function; can hold certificate/key references and access keys, but is not a primary org-wide data store.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Logic
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - impact:access
+    notes: Regenerating the access key returns the new key secret in the response (usable credential material) while invalidating the prior key, locking out legitimate consumers.

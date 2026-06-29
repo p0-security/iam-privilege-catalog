@@ -1,0 +1,13 @@
+name: Application Insights Live Metrics token
+description: An action that issues an authentication token granting access to the Application Insights Live Metrics real-time telemetry stream.
+scope: MEDIUM
+notes: Live Metrics exposes near-real-time request, dependency, exception and performance telemetry that can contain sensitive operational and request data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Insights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Read:
+    risks:
+      - exfiltration:crypto
+      - exfiltration:logs
+    notes: Despite the /Read verb, this returns a usable Live Metrics auth token (credential material) whose effect is to grant the holder access to live application telemetry, so it both exports secret material and enables log/telemetry exfiltration.
