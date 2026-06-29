@@ -1,0 +1,23 @@
+name: Web App connection string
+description: Connection strings of an Azure App Service web app that embed credentials for backing databases and storage services.
+scope: CRITICAL
+notes: Connection strings by definition contain database/storage credentials (passwords, account keys, SAS tokens) returned in cleartext; credential material.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Deleting a connection string severs the app's link to its backing data store, breaking data access and disrupting the service.
+  read:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: Reading a connection string returns embedded backing-store credentials in cleartext, exportable for direct authenticated access to the data store.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating a connection string can repoint the app at an attacker-controlled data store or inject credentials, manipulating operational config and enabling lateral movement.
