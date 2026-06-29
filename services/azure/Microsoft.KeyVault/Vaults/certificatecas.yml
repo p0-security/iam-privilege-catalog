@@ -1,0 +1,22 @@
+name: Key Vault certificate issuer
+description: A certificate issuer (certificatecas) is a data-plane object in a Key Vault that stores the configuration and CA account credentials used to enroll and renew certificates through an external certificate authority (e.g. DigiCert, GlobalSign).
+scope: CRITICAL
+notes: The issuer holds CA account credentials (account ID and API key/password) and controls how trusted certificates are minted for dependent services; it lives in the CRITICAL-sensitivity Key Vault data plane.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Deleting the certificate issuer removes the data-plane object the vault uses to enroll/renew certificates, destroying stored issuer configuration/credentials and disrupting automated certificate issuance and renewal.
+  read:
+    risks:
+      - exfiltration:crypto
+    notes: The Key Vault GetCertificateIssuer data action returns the issuer's credentials object (account ID and password/API key) used to authenticate to the external CA, exposing usable secret material that could be abused to mint certificates.
+  write:
+    risks:
+      - impact:manipulation
+      - persistence:account
+    notes: Writing the certificate issuer lets an attacker create or repoint the CA configuration (including attacker-controlled CA credentials/endpoint), tampering with how certificates are issued and establishing a foothold to mint trusted certificates for persistence.

@@ -1,0 +1,21 @@
+name: Recovery Services vault extended information
+description: "The vault extended-information object (vaultExtendedInfo) holding the vault's cryptographic registration material: integrityKey, encryptionKey, encryptionKeyThumbprint, and algorithm used in MARS agent registration and backup integrity."
+scope: CRITICAL
+notes: Holds cryptographic key material tied to vault/agent registration; an asset of CRITICAL inherent sensitivity (keys/secrets).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:crypto
+      - impact:dos
+    notes: Deleting the extended-info object removes the vault's stored integrity/encryption key material, destroying cryptographic material and impairing backup agent registration and restore operations.
+  read:
+    risks:
+      - exfiltration:crypto
+    notes: GET returns the vault's integrityKey (and the schema includes encryptionKey/encryptionKeyThumbprint) as base64 material; verified the sample response literally returns integrityKey, so this discloses cryptographic key material rather than mere config.
+  write:
+    risks:
+      - impact:manipulation
+    notes: PUT/PATCH overwrites the vault's integrityKey/algorithm registration material, tampering with the vault's cryptographic/registration configuration backing backup integrity.
