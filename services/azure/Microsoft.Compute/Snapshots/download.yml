@@ -1,0 +1,12 @@
+name: Disk snapshots
+description: An Azure snapshot is a read-only point-in-time copy of a managed disk; it captures the complete filesystem contents of the source disk including any OS credentials, application data, and secrets present at capture time.
+scope: HIGH
+notes: A snapshot is a full copy of a single workload's disk data, often used for backup/recovery. SAS-based access to its raw bytes bypasses VM-level access controls.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+    notes: Data-plane read over the snapshot SAS URI streams the full raw snapshot contents, a complete point-in-time copy of the source disk's data, directly exfiltrating it.

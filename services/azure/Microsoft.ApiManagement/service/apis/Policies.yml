@@ -1,0 +1,19 @@
+name: API policies configuration
+description: "The API-level policy configuration (XML) in Azure API Management defines the gateway's request/response processing for an API: authentication (validate-jwt), authorization, IP filtering, rate limiting, caching, and backend routing/transformation."
+scope: HIGH
+notes: Policy XML is the gateway's security and routing enforcement layer; it may reference named-values/secrets but read access returns those as references rather than decrypted secret material.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ApiManagement
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Deleting the API policy strips whatever protections it enforced (authentication, authorization, IP filtering, rate limiting), weakening the gateway's defenses and reverting/altering how requests are processed.
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+      - exfiltration:data
+    notes: Writing the API policy lets an attacker disable JWT/subscription-key/IP/rate-limit validation, reroute traffic to an attacker backend, and inject log-to-eventhub/send-request policies to capture or forward request/response bodies.
