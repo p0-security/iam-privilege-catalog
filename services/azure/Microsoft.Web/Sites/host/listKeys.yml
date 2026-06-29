@@ -1,0 +1,13 @@
+name: Web Apps Functions host
+description: The Azure Functions host runtime for a function app, exposing operational actions such as syncing trigger definitions and reading sync status.
+scope: CRITICAL
+notes: Host-level operational control plane for a function app; affects which triggers the runtime activates.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: This list action returns the host/master key material, exporting usable credentials that authorize admin-level invocation of all functions and code execution as the app identity.

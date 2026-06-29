@@ -1,0 +1,23 @@
+name: Web App slot connection string
+description: Connection strings of an Azure App Service deployment slot that embed credentials for backing databases and storage services.
+scope: CRITICAL
+notes: Connection strings by definition contain database/storage credentials returned in cleartext; credential material.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Deleting a slot's connection string removes its data-store binding, breaking the slot's data access and disrupting the service.
+  read:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: Reading a slot's connection string returns embedded backing-store credentials in cleartext, exportable for direct authenticated access to the data store.
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:lateral
+    notes: Creating/updating a slot's connection string can repoint the slot to an attacker-controlled data store or inject credentials, manipulating config and enabling lateral movement.

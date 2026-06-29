@@ -1,0 +1,13 @@
+name: Web Apps slot Functions host keys
+description: Functions host keys (including the host master key) are app-level bearer credentials that authorize invocation of any function in the app and administrative access to the Functions runtime.
+scope: HIGH
+notes: The master/host key is admin-equivalent over the function app; functions invoked with it run under the app's assigned managed identity.
+links:
+  - https://azure.permissions.cloud/iam/microsoft.web
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:crypto
+      - escalation:lateral
+    notes: Listing the host keys returns the actual secret key material (including the master key), yielding usable bearer credentials to invoke any function in the app and run code as the app's managed identity.
