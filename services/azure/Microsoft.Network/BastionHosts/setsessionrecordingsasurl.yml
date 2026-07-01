@@ -1,7 +1,7 @@
-name: Bastion Host session recording SAS URL configuration
-description: Sets the SAS URL for the storage location where Bastion session recordings are stored, redirecting where future session recordings are written.
+name: Bastion Host
+description: Azure Bastion is a managed PaaS jump host deployed in a VNet that brokers secure browser-based RDP/SSH connectivity to VMs without exposing public IPs on those VMs.
 scope: HIGH
-notes: Configuration change to the audit/recording pipeline rather than to the Bastion Host's access controls directly.
+notes: A production secure-access entry point into a private network; controlling or observing it affects reachability of all VMs behind it.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
