@@ -1,0 +1,13 @@
+name: Virtual network
+description: An Azure virtual network (VNet) is the fundamental L3 network-isolation boundary in Azure, defining the address space, subnets, peerings, and security policy scope for all resources deployed into it.
+scope: CRITICAL
+notes: The VNet is the primary network-segmentation boundary in Azure; write access lets an attacker alter peerings, address space, and security-group associations that other resources rely on for isolation, which can enable significant privilege escalation via lateral network access (per the CRITICAL definition in services/README.md).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+      - escalation:lateral
+    notes: Peers the VNet with another VNet, bridging the two address spaces. Lets an attacker who controls a separate (e.g. lower-trust or attacker-owned) VNet bridge it directly into this one, extending network reachability across a segmentation boundary that was meant to isolate the two environments.
