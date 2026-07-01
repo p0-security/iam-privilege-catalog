@@ -1,0 +1,16 @@
+name: Network Watcher
+description: Azure Network Watcher is a regional network diagnostics and monitoring service that provides flow logging, topology, and connectivity/troubleshooting tools for resources in a virtual network.
+scope: MEDIUM
+notes: Network Watcher is a monitoring/diagnostics control-plane resource, not a data store; its main risk is as an evasion vector (disabling flow logging, removing the resource) and as a built-in network reconnaissance toolkit exposed via its action sub-resources.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the Network Watcher for a region removes that region's flow-logging, topology, and diagnostic capability entirely, blinding defenders to network activity in the region.
+  write:
+    risks:
+      - destruction:defense
+    notes: Creating/updating a Network Watcher can be used to reconfigure or replace the region's network diagnostics resource, similar in effect to deletion if used to disrupt existing monitoring configuration.

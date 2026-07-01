@@ -1,0 +1,18 @@
+name: Load Balancer
+description: Azure Load Balancer distributes inbound/outbound traffic across a pool of backend instances (VMs) using load-balancing and NAT rules.
+scope: HIGH
+notes: Sits in the path of live production traffic for the backend pool it serves; write access lets an attacker redirect that traffic to attacker-controlled backends. Rated HIGH rather than CRITICAL because impact is scoped to the traffic routed through this specific load balancer rather than whole-network segmentation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deletes the load balancer, removing the traffic-distribution front end and causing outage for every backend it serves.
+  write:
+    risks:
+      - exfiltration:data
+      - escalation:network
+    notes: Creating or updating load-balancing/NAT rules or backend pool membership lets an attacker redirect live production traffic to attacker-controlled backend instances.

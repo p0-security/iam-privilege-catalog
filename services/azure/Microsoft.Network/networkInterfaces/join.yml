@@ -1,0 +1,13 @@
+name: Network Interface join
+description: Joins a virtual machine to a network interface, attaching that NIC (and its IP configuration/subnet placement) to the VM.
+scope: HIGH
+notes: Controls which VMs can be attached into the network segment reachable via this NIC's subnet.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+      - escalation:lateral
+    notes: Holding join rights on a NIC scoped to a shared or sensitive subnet lets an attacker attach an attacker-controlled VM's NIC into that network segment, gaining lateral network access. Not Alertable.
