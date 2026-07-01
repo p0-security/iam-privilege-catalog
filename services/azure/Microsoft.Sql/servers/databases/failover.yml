@@ -1,0 +1,12 @@
+name: Azure SQL Database failover
+description: Customer-initiated failover of a database to its secondary replica.
+scope: HIGH
+notes: Availability action against a production database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Forcing a failover interrupts connections and causes a brief availability gap while the secondary is promoted; repeated forced failovers can be used to disrupt a production workload.

@@ -1,0 +1,12 @@
+name: Azure SQL Database import
+description: Imports a bacpac file from a storage location into an existing (or new) Azure SQL Database.
+scope: HIGH
+notes: Loads external, attacker-influenceable content into a production database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+    notes: The import source references a storage account/container chosen by the caller, which can be attacker-controlled; this lets an attacker overwrite or plant data that downstream consumers of the database will trust, staging a bacpac that is loaded into the database as a vector for injecting malicious content.
