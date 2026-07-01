@@ -1,0 +1,12 @@
+name: Application Gateway listener certificate metadata
+description: Returns metadata about the TLS certificate bound to an application gateway listener.
+scope: HIGH
+notes: Read-only reconnaissance action inherited from the application gateway's HIGH scope.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Discloses which TLS certificate/domain is bound to a listener, revealing which applications are fronted by the gateway and aiding targeting of a subsequent attack.

@@ -1,0 +1,12 @@
+name: Bastion Host session recording SAS URL configuration
+description: Sets the SAS URL for the storage location where Bastion session recordings are stored, redirecting where future session recordings are written.
+scope: HIGH
+notes: Configuration change to the audit/recording pipeline rather than to the Bastion Host's access controls directly.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Redirecting session recordings to an attacker-controlled or otherwise inaccessible storage location silently defeats the session-recording audit trail, an evasion technique that lets subsequent privileged-session abuse go unrecorded.
