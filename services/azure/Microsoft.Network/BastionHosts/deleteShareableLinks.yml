@@ -1,0 +1,12 @@
+name: Bastion Host shareable link deletion
+description: Deletes shareable URLs for the specified VMs under a Bastion Host, revoking the RBAC-less browser-access links.
+scope: HIGH
+notes: Primarily a cleanup/revocation action; lower severity than creating or reading links since it removes access rather than granting it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Can be used by an attacker to cover their tracks after abusing a shareable link they created, removing evidence of the link's existence; minor severity since it revokes rather than grants access.

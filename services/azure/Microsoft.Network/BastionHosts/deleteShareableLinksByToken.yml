@@ -1,0 +1,12 @@
+name: Bastion Host shareable link deletion by token
+description: Deletes shareable URLs identified by their tokens under a Bastion Host, revoking the RBAC-less browser-access links.
+scope: HIGH
+notes: Token-addressed variant of deleteShareableLinks with the same effect and severity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Can be used by an attacker to cover their tracks after abusing a shareable link they created, removing evidence of the link's existence; minor severity since it revokes rather than grants access.

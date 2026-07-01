@@ -1,0 +1,12 @@
+name: Bastion Host active session listing
+description: Lists the currently active RDP/SSH sessions brokered through a Bastion Host, including the target VM and connected user for each session.
+scope: HIGH
+notes: Read-only, but reveals which users are currently connected to which VMs through the organization's privileged-access chokepoint.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:account
+    notes: Exposes active administrative/remote sessions in real time, letting an attacker identify which accounts currently hold interactive access to which VMs, useful for timing further attacks or identifying high-value targets to follow up on.

@@ -1,0 +1,12 @@
+name: Bastion Host active session disconnect
+description: Forcibly disconnects one or more specified active RDP/SSH sessions brokered through a Bastion Host.
+scope: HIGH
+notes: Affects availability of an in-progress privileged session rather than data or configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Lets an attacker forcibly terminate another user's active Bastion session, including kicking a legitimate administrator off mid-session, disrupting incident response or ongoing legitimate work.

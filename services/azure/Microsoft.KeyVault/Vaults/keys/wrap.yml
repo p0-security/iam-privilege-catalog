@@ -1,0 +1,12 @@
+name: Key Vault key
+description: A cryptographic key stored in an Azure Key Vault, used for encryption, decryption, signing, verification, and key wrapping operations by applications and services.
+scope: CRITICAL
+notes: Keys are cryptographic material that frequently protect other credentials or data at rest; access to or use of them typically yields broad downstream impact, so the asset is inherently CRITICAL.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:spend
+    notes: Wraps an attacker-supplied symmetric key using this key. This is a low-risk operation (for asymmetric keys it can be performed with only read access to the public portion) that consumes billed cryptographic operations but exposes no key material.
