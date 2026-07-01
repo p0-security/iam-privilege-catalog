@@ -1,0 +1,12 @@
+name: Azure SQL Managed Database complete restore
+description: Completes a managed database restore operation, bringing a restored database online and accessible.
+scope: HIGH
+notes: Restores potentially stale data into an accessible database.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+    notes: Completing a restore from an old backup can resurrect data that predates a security fix or that was since deliberately deleted, making stale sensitive records accessible again to anyone with access to the database.
