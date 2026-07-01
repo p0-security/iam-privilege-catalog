@@ -1,0 +1,14 @@
+name: Virtual machine reimage
+description: An Azure Compute virtual machine, the primary IaaS compute workload running an operating system, application code, and any locally attached disks.
+scope: CRITICAL
+notes: A virtual machine is a full application workload; compromise of its configuration or lifecycle typically yields compromise of the OS, application data, and any identities (managed identities, service principals) bound to it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:data
+      - impact:dos
+    scope: HIGH
+    notes: Resets the VM's differencing OS disk back to its original image state, wiping any OS-level changes and application data written since deployment and interrupting the running workload.

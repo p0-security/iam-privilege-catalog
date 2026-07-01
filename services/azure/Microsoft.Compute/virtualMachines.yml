@@ -1,0 +1,18 @@
+name: Virtual machine
+description: An Azure Compute virtual machine, the primary IaaS compute workload running an operating system, application code, and any locally attached disks.
+scope: CRITICAL
+notes: A virtual machine is a full application workload; compromise of its configuration or lifecycle typically yields compromise of the OS, application data, and any identities (managed identities, service principals) bound to it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Compute
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:privilege
+      - impact:manipulation
+    notes: Creating or updating a VM's model can attach a managed identity or admin credentials, change the OS disk/image, or alter extensions, letting an attacker grant themselves the identity's privileges or plant a backdoored configuration.
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Permanently deletes the virtual machine, destroying the compute workload and interrupting whatever organizational function it served.
