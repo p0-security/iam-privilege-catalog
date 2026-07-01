@@ -9,4 +9,4 @@ privileges:
   action:
     risks:
       - discovery:network
-    notes: Returns the status of BGP peers connected to the gateway, revealing the identity and reachability of peer routers in the connected on-prem/remote network. Read-only, but useful reconnaissance for planning lateral movement beyond Azure. getadvertisedroutes, getlearnedroutes, and geteffectiveroutes are functionally near-identical (same BGP/routing-table disclosure) and are treated the same way.
+    notes: Returns the status of BGP peers connected to the gateway, revealing the identity and reachability of peer routers in the connected on-prem/remote network. Read-only, but useful reconnaissance for planning lateral movement beyond Azure; functionally near-identical to this gateway's other BGP/routing-table-disclosure actions, which are treated the same way.
