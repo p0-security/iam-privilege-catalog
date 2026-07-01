@@ -9,4 +9,4 @@ privileges:
   action:
     risks:
       - impact:spend
-    notes: Resuming an intentionally paused warehouse restores billed compute usage against the organization's will, and can be paired with a subsequent pause to disrupt availability at attacker-chosen times.
+    notes: Resuming an intentionally paused warehouse restores billed compute usage against the organization's will; availability disruption from toggling the warehouse's running state is covered by pause.yml.
