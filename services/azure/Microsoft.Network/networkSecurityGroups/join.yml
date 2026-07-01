@@ -1,0 +1,12 @@
+name: Network security group
+description: A Network Security Group (NSG) is a stateful packet filter that contains ordered allow/deny rules applied to the network interfaces and subnets it is associated with, controlling inbound and outbound traffic for the resources behind it.
+scope: HIGH
+notes: An NSG is a perimeter/segmentation control, not a data store itself, but it gates network access to every resource attached to it; misconfiguring one can expose or cut off an entire subnet's worth of workloads, so scope is rated on par with other perimeter-control assets in this provider rather than CRITICAL, which is reserved for tenant-wide IAM/policy objects.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Azure requires this permission on the NSG itself before a principal can attach a NIC/subnet to it, specifically so that a principal with only narrow "create resource" rights cannot silently exempt their own resources from security policy they don't control. Holding join lets an attacker attach an attacker-controlled interface/subnet so it inherits (or is deliberately left out of) that NSG's rules, or attach a sanctioned resource to a weaker/attacker-modified NSG, bypassing intended segmentation.

@@ -1,0 +1,18 @@
+name: Network Interface
+description: A network interface (NIC) is the virtual networking component that connects a VM to a subnet, carrying its private/public IP configuration and network security group association.
+scope: HIGH
+notes: Carries the live IP configuration and security-group binding for a single VM's network attachment; write access can redirect its traffic or strip its security controls. Rated HIGH rather than CRITICAL because impact is scoped to the traffic/VM attached to this specific interface rather than whole-network segmentation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deletes the network interface, detaching it from its VM and causing loss of network connectivity for that VM.
+  write:
+    risks:
+      - destruction:network
+      - escalation:network
+    notes: Updating an existing NIC's IP configuration or NSG association can move its traffic to attacker-controlled infrastructure or disable the security-group protections attached to it.

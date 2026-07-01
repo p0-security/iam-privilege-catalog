@@ -1,0 +1,12 @@
+name: Network Interface effective route table
+description: Returns the effective route table applied to the VM attached to a network interface.
+scope: MEDIUM
+notes: Read-only reconnaissance of routing posture; scoped down from the base HIGH rating since it discloses routing metadata rather than enabling traffic manipulation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Reveals the live effective routes for the VM's network path, exposing network topology useful for planning lateral movement or traffic interception.
