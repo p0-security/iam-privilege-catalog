@@ -1,7 +1,7 @@
 name: Network Watcher topology
 description: Returns a network-level view of the resources deployed in a resource group and their relationships (VNets, subnets, NICs, NSGs, public IPs, load balancers, and how they connect).
 scope: MEDIUM
-notes: Read-only. Represents the built-in resource-relationship-mapping entry in Network Watcher's recon toolkit; grouped separately from securityGroupView/connectivityCheck below because it operates at the resource-graph level rather than rule- or path-level.
+notes: Read-only. Represents the built-in resource-relationship-mapping entry in Network Watcher's recon toolkit; distinct from the securityGroupView/connectivityCheck actions because it operates at the resource-graph level rather than rule- or path-level.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
