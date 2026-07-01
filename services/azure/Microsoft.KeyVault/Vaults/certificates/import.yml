@@ -1,0 +1,13 @@
+name: Key Vault certificate
+description: A certificate stored in an Azure Key Vault, holding a private key plus a public identity used by applications and TLS endpoints for authentication and encryption.
+scope: CRITICAL
+notes: Certificates bundle a private key with a trusted public identity; planting or exporting one typically yields impersonation or downstream identity access, so the asset is inherently CRITICAL.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:privilege
+      - persistence:account
+    notes: Imports an externally created certificate (PFX or PEM) containing a private key the attacker already possesses, letting an attacker plant a certificate of their own choosing for an application or TLS endpoint to trust, enabling impersonation.
