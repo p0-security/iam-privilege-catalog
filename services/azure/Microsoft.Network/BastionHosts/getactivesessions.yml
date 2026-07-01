@@ -1,7 +1,7 @@
-name: Bastion Host active session listing
-description: Lists the currently active RDP/SSH sessions brokered through a Bastion Host, including the target VM and connected user for each session.
+name: Bastion Host
+description: Azure Bastion is a managed PaaS jump host deployed in a VNet that brokers secure browser-based RDP/SSH connectivity to VMs without exposing public IPs on those VMs.
 scope: HIGH
-notes: Read-only, but reveals which users are currently connected to which VMs through the organization's privileged-access chokepoint.
+notes: A production secure-access entry point into a private network; controlling or observing it affects reachability of all VMs behind it.
 links:
   - https://azure.permissions.cloud/iam/Microsoft.Network
   - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
