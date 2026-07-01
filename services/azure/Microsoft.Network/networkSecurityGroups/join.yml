@@ -1,4 +1,4 @@
-name: Network security group
+name: Network security group join
 description: A Network Security Group (NSG) is a stateful packet filter that contains ordered allow/deny rules applied to the network interfaces and subnets it is associated with, controlling inbound and outbound traffic for the resources behind it.
 scope: HIGH
 notes: An NSG is a perimeter/segmentation control, not a data store itself, but it gates network access to every resource attached to it; misconfiguring one can expose or cut off an entire subnet's worth of workloads, so scope is rated on par with other perimeter-control assets in this provider rather than CRITICAL, which is reserved for tenant-wide IAM/policy objects.
