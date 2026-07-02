@@ -1,0 +1,13 @@
+name: Security alert resolution
+description: The action that sets a Microsoft Defender for Cloud security alert's state to resolved, marking it as handled and removing it from the active alert queue.
+scope: MEDIUM
+notes: Changes the state of an already-fired detection to hide it from responders; affects incident visibility rather than production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Resolving an active alert prematurely closes a detection of the attacker's activity and manipulates its state to appear handled, evading incident response.
