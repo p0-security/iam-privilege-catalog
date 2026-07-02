@@ -1,0 +1,17 @@
+name: Site Recovery replication migration item
+description: A Site Recovery migration item is a workload being replicated for migration into Azure (Azure Migrate scenario), tracking its replication state and migration target configuration.
+scope: HIGH
+notes: Migration items hold in-flight replication state and target configuration for a workload's move into Azure; deleting or reconfiguring them disrupts the migration and can misdirect where the workload lands.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creating or updating a migration item changes its target configuration, which can redirect the workload's migration destination or alter its replication settings.
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:infra
+    notes: Deleting a migration item discards its replication state, destroying the in-flight migration copy of the workload.

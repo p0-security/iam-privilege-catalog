@@ -1,0 +1,13 @@
+name: Remove Site Recovery replication fabric
+description: Removes a Site Recovery replication fabric and its associated replication topology from the vault.
+scope: CRITICAL
+notes: Removing a fabric destroys the replication topology and the protection it provides to every workload hosted on it, defeating disaster recovery; equivalent in effect to deleting the fabric.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+      - destruction:infra
+    notes: Tears down the fabric and its contained protection, eliminating the disaster-recovery copy for the workloads it hosts.
