@@ -1,0 +1,12 @@
+name: Microsoft Sentinel incident playbook run
+description: Runs a playbook (Logic App) against a Microsoft Sentinel incident on demand, executing the playbook's automation under its configured identity.
+scope: HIGH
+notes: Playbooks run under their own managed identity, which often holds broad permissions to act on incidents and connected systems; on-demand invocation can drive that identity, so this is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:lateral
+    notes: Triggering a playbook executes its Logic App under the playbook's managed identity, letting an attacker drive that (often broadly permissioned) identity's access to connected systems.

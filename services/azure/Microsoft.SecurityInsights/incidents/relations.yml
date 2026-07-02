@@ -1,0 +1,12 @@
+name: Microsoft Sentinel incident relation
+description: A relation linking a Microsoft Sentinel incident to related resources such as bookmarks, alerts, and entities that constitute its investigation evidence.
+scope: MEDIUM
+notes: Relations are the evidence links of an incident rather than the incident itself; removing them degrades but does not delete the case, so this override is MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+    notes: Deleting incident relations severs the links between an incident and its supporting evidence (bookmarks, alerts, entities), degrading the investigation record.
