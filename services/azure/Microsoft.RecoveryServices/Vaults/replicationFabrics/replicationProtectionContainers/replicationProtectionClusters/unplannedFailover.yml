@@ -1,0 +1,13 @@
+name: Site Recovery protection cluster unplanned failover
+description: Triggers an unplanned failover of a protection cluster to its recovery region, bringing the clustered workload up from recovery points without a graceful source shutdown.
+scope: HIGH
+notes: An unplanned cluster failover forcibly relocates the clustered workload to the recovery site, disrupting production and moving it into the configured recovery network.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - escalation:network
+    notes: Forces the clustered workload over to the recovery region, disrupting the running service and relocating it into the configured recovery network the attacker may control.
