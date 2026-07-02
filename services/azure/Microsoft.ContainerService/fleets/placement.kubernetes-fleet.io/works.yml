@@ -1,0 +1,24 @@
+name: Fleet Work
+description: A Kubernetes Fleet Manager Work resource is the envelope that carries the concrete, rendered set of Kubernetes manifests the fleet agent reconciles onto a specific member cluster; it is the unit of actual manifest application.
+scope: HIGH
+notes: Because Work objects embed the full manifest payload deployed to member clusters, they can contain inline configuration and secret-bearing objects, and writing them directly controls what runs on member clusters.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - impact:manipulation
+    notes: Deleting a Work object removes the manifest bundle being reconciled onto a member cluster, tearing down the deployed workloads (denial of service) and disrupting the fleet deployment state on that cluster.
+  read:
+    risks:
+      - discovery:infra
+      - exfiltration:data
+    notes: Reading a Work object enumerates the deployed workload topology and exposes the full content of the propagated manifests, which can include inline Secret/ConfigMap objects and other sensitive workload configuration.
+  write:
+    risks:
+      - impact:manipulation
+      - impact:hijack
+      - escalation:lateral
+    notes: Writing a Work object injects or replaces the actual Kubernetes manifests applied to a member cluster, letting an attacker deploy arbitrary attacker-controlled workloads, tamper with deployed objects, and run code as in-cluster service-account identities for lateral movement.
