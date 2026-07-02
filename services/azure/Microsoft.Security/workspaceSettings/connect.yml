@@ -1,0 +1,13 @@
+name: Defender for Cloud workspace reconnection
+description: The action that changes the reconnection settings binding Microsoft Defender for Cloud to its Log Analytics workspace for the scope.
+scope: HIGH
+notes: Governs the live binding between Defender and its telemetry destination; changing it can disrupt where security data lands for the whole subscription.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Altering the workspace reconnection settings can rebind or break Defender's connection to its Log Analytics workspace, diverting or halting security telemetry and blinding detection.

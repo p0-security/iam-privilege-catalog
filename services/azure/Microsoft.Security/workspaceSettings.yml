@@ -1,0 +1,18 @@
+name: Defender for Cloud workspace settings
+description: The workspace settings that determine which Log Analytics workspace Microsoft Defender for Cloud exports its security data, alerts, and agent telemetry to for the scope.
+scope: HIGH
+notes: Defines the telemetry/alert destination for the whole subscription; redirecting or removing it can sever the flow of security data to where it is retained and analyzed.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Repointing the workspace export to an attacker-chosen or dead workspace diverts security telemetry and alerts away from the monitored/retained location, destroying the responders' log stream and blinding detection.
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting the workspace settings stops export of Defender security data to Log Analytics, cutting off telemetry retention and analysis.
