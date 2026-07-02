@@ -1,0 +1,13 @@
+name: Microsoft Sentinel unregister
+description: Unregisters the subscription from Microsoft Sentinel, tearing down the SIEM's registration at the subscription level.
+scope: HIGH
+notes: Unregistering removes Sentinel from the subscription, the broadest single blinding action available; the EVASION-tier risks carry the severity while the asset scope is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+      - destruction:logs
+    notes: Unregistering the subscription from Sentinel offboards the SIEM entirely, disabling all detection and stopping security-telemetry aggregation across the subscription.

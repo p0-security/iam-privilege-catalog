@@ -1,0 +1,12 @@
+name: Microsoft Sentinel threat intelligence bulk delete
+description: Bulk-deletes threat-intelligence objects in Microsoft Sentinel in a single operation.
+scope: MEDIUM
+notes: TI is a detection input; bulk removal degrades coverage at scale but does not disable the platform, so this is MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Bulk-deleting threat intelligence strips indicators from the SIEM en masse, degrading detection of known-malicious infrastructure at scale.

@@ -1,0 +1,16 @@
+name: Microsoft Sentinel ML analytics setting
+description: A machine-learning analytics setting in Microsoft Sentinel that powers behavioral/anomaly detections (e.g. UEBA-driven and Fusion ML models).
+scope: HIGH
+notes: ML analytics settings back the anomaly-detection layer of the SIEM; disabling or weakening them removes behavioral detection coverage, so the resource type is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Updating an ML analytics setting lets an attacker disable or detune anomaly detection, removing behavioral coverage that would otherwise flag their activity.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an ML analytics setting removes a behavioral-detection model entirely, blinding the SOC to the anomalies it covered.
