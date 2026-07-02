@@ -1,0 +1,19 @@
+name: Security Partner Provider
+description: A Security Partner Provider routes traffic through a third-party security service (e.g. a cloud-delivered firewall) for inspection before it reaches its destination.
+scope: HIGH
+notes: Sits in the traffic path as a security-inspection hop; removing or rerouting it disables inspection or diverts traffic away from the intended security service.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:network
+      - destruction:defense
+      - impact:manipulation
+    notes: Creating/updating the provider lets an attacker reroute the security-inspection path to an attacker-chosen service or reconfigure it, bypassing or disabling third-party inspection of the traffic.
+  delete:
+    risks:
+      - destruction:defense
+      - impact:dos
+    notes: Deleting the provider removes the third-party security-inspection hop from the traffic path, disabling inspection and disrupting flows that route through it.
