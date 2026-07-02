@@ -1,0 +1,13 @@
+name: AKS agent pool machine deletion
+description: An Azure Kubernetes Service (AKS) node pool, the set of VM-based nodes (VMSS or availability-set backed) that join a managed cluster and run its Kubernetes workloads.
+scope: CRITICAL
+notes: Node pools are the compute substrate a cluster's workloads and kubelets run on. An attacker with only this ARM-layer permission (no Kubernetes RBAC) can provision or reconfigure nodes that join the cluster network and host workloads, or remove the compute backing running workloads, so this is rated in line with the parent managed cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deletes specific VM instances within an agent pool without deleting the whole pool, letting an attacker selectively evict nodes and the workloads/pods scheduled on them, causing targeted service disruption that is harder to notice than deleting the entire pool.
