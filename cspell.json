@@ -22,6 +22,7 @@
     "BZPOPMAX",
     "BZPOPMIN",
     "certificatecas",
+    "chokepoint",
     "ciphertext",
     "cleanrooms",
     "codeartifact",
