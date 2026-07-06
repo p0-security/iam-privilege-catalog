@@ -1,0 +1,13 @@
+name: Azure Key Vault keys
+description: A cryptographic key stored in an Azure Key Vault (software- or HSM-protected). These keys are used for encryption, decryption, signing, key wrapping, and as customer-managed encryption keys (CMK) protecting downstream services and data.
+scope: CRITICAL
+notes: "Key Vault keys are among the most sensitive assets in a cloud tenant: they underpin envelope encryption, disk/storage/database encryption, and code/token signing. Private key material is non-exportable via normal reads, so the headline risk varies sharply by operation (read vs. crypto-oracle vs. export)."
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.KeyVault
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - persistence:account
+    notes: Restores a key and all its versions from a backup file, letting an attacker reintroduce key material (potentially exfiltrated from another vault via Backup) into a vault an application trusts.
