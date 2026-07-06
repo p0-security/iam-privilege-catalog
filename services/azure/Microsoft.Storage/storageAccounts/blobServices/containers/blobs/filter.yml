@@ -1,0 +1,12 @@
+name: Storage Blob Service Blobs
+description: Blobs are the individual data objects (files) stored inside containers of an Azure Storage account's blob service. They hold an organization's unstructured production data such as documents, backups, media, and application data.
+scope: HIGH
+notes: Data-plane access to blobs directly exposes stored organizational data; ADLS Gen2 (hierarchical namespace) accounts also expose POSIX ownership/ACLs at the blob level.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:data
+    notes: Returns the list of blobs under an account matching a tag filter, letting an attacker search across containers for blobs by tag (e.g., classification or sensitivity labels) instead of enumerating each container, a built-in targeted-search primitive for hunting specific sensitive content.

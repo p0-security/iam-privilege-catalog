@@ -1,0 +1,17 @@
+name: Log Analytics saved search
+description: A saved search query in a workspace; when paired with a schedule it forms a Log Analytics alert rule that drives detections.
+scope: HIGH
+notes: Saved searches back scheduled alert rules, so tampering with or removing them degrades detection logic; HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Rewriting a saved search can neuter the detection query behind an alert rule so malicious activity no longer matches.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a saved search removes the query behind a detection, disabling the alert built on it.

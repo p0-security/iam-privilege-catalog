@@ -1,0 +1,17 @@
+name: Log Analytics saved search schedule
+description: A schedule attached to a saved search that runs the query on an interval, turning it into a recurring Log Analytics alert rule.
+scope: HIGH
+notes: The schedule is what makes a saved search fire as a detection; disabling or removing it stops the alert from ever running; HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Altering a schedule (e.g. disabling it or widening its interval) suppresses how often the detection runs, blinding it.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a schedule stops the saved search from running, removing the detection entirely.

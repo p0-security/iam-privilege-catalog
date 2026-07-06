@@ -1,0 +1,18 @@
+name: AKS agent pool
+description: An Azure Kubernetes Service (AKS) node pool, the set of VM-based nodes (VMSS or availability-set backed) that join a managed cluster and run its Kubernetes workloads.
+scope: CRITICAL
+notes: Node pools are the compute substrate a cluster's workloads and kubelets run on. An attacker with only this ARM-layer permission (no Kubernetes RBAC) can provision or reconfigure nodes that join the cluster network and host workloads, or remove the compute backing running workloads, so this is rated in line with the parent managed cluster.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:privilege
+      - escalation:lateral
+    notes: Creating or updating an agent pool lets an attacker provision new VM nodes (with custom node configuration, extensions, or a custom node image) that join the cluster network, or alter an existing pool's configuration — a path to running attacker-controlled code on a node with network access to other pods, the node's kubelet credentials, and any secrets/volumes mounted on it.
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Deletes an entire node pool, destroying its VMs and any workloads scheduled on them; if the pool is the cluster's only pool or hosts unreplicated workloads this can disrupt or fully take down the cluster.

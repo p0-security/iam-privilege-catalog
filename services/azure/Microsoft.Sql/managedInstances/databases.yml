@@ -1,0 +1,17 @@
+name: Azure SQL Managed Database
+description: A database hosted on an Azure SQL Managed Instance, holding production organizational data for a single application or function.
+scope: HIGH
+notes: Production data store; the data plane holds sensitive organizational data, while the control plane manages the database resource configuration.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+      - impact:dos
+    notes: Deletes the managed database and all its stored data, causing irrecoverable data loss and interrupting the function it backs.
+  write:
+    risks:
+      - impact:manipulation
+    notes: Creates or updates the managed database's ARM properties (e.g. collation, restore source); lets an attacker drift the resource's configuration away from its intended state.

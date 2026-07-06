@@ -1,0 +1,18 @@
+name: Virtual network gateway
+description: An Azure Virtual Network Gateway provides VPN (site-to-site / point-to-site) and ExpressRoute connectivity between an Azure VNet and on-premises or remote networks. It is the production network ingress/egress edge for hybrid connectivity.
+scope: HIGH
+notes: A gateway is the trust boundary for a single VNet's hybrid/remote connectivity; control of it can expose or sever access to an entire private network and its hosted services.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deletes the gateway, severing the VPN/ExpressRoute connection and causing an outage for hybrid connectivity to the bridged network.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating the gateway lets an attacker reconfigure routing, VPN, or IPsec/BGP settings, redirecting or exposing traffic between Azure and the connected on-prem/remote network to an attacker-controlled endpoint.
