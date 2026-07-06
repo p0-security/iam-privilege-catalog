@@ -34,6 +34,7 @@
     "CSPM",
     "DaemonSet",
     "Dataproc",
+    "deleters",
     "DMARC",
     "DNSSEC",
     "EDIFACT",
