@@ -1,0 +1,12 @@
+name: Azure VPN gateway
+description: A VpnGateway is an Azure Virtual WAN site-to-site VPN gateway resource that provides cross-premises/hybrid network connectivity, including VPN connections, BGP routing, and IP configuration.
+scope: HIGH
+notes: Production network connectivity infrastructure for a single organizational function (hybrid/site-to-site connectivity); compromise can extend reach into peered/on-prem networks or sever connectivity.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Resets the VPN gateway instance, briefly interrupting all site-to-site VPN connectivity that traverses it while it restarts.

@@ -1,0 +1,12 @@
+name: Azure SQL Data Warehouse resume
+description: Resumes a paused Azure SQL Data Warehouse database.
+scope: HIGH
+notes: Availability action against a production data warehouse; also carries a billing/cost dimension since a paused warehouse incurs no compute charges.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:spend
+    notes: Resuming an intentionally paused warehouse restores billed compute usage against the organization's will; availability disruption from toggling the warehouse's running state is covered by pause.yml.
