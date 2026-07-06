@@ -1,0 +1,12 @@
+name: Network Interface effective network security groups
+description: Returns the effective network security groups (NSGs) applied to a network interface, merging subnet- and NIC-level associations.
+scope: MEDIUM
+notes: Read-only reconnaissance of security posture; scoped down from the base HIGH rating since it discloses security-group metadata rather than enabling traffic manipulation.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Reveals the live effective NSG rules protecting the VM's network path, exposing which ports/protocols are open and aiding planning of a network-based attack.

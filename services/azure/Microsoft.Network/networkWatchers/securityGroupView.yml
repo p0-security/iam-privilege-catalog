@@ -1,0 +1,12 @@
+name: Network Watcher security group view
+description: Returns both the configured and effective network security group rules applied to a target VM's network interfaces, merging NIC-, subnet-, and default-level rules into the rule set actually enforced.
+scope: MEDIUM
+notes: Read-only, but exposes the effective (post-merge) firewall posture of a VM without requiring direct read access to every NSG in the chain, making it a higher-value reconnaissance primitive than listing NSGs individually.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Lets an attacker map exactly which inbound/outbound traffic is actually allowed to/from a VM, identifying reachable ports and segmentation gaps to focus follow-on network attacks, without needing to install or run any scanning tooling.

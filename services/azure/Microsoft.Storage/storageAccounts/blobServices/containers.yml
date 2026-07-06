@@ -1,0 +1,13 @@
+name: Storage Blob Service Containers
+description: A blob container is a namespace within an Azure Storage account's blob service that groups and holds blobs, similar to a directory. Containers also carry their own metadata, stored access policies, and immutability/legal-hold protections.
+scope: HIGH
+notes: Container-level operations affect every blob grouped under the container at once and control the access-policy and immutability settings that govern them; scope matches the underlying blobs.yml rating for consistency.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Storage
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:data
+    scope: CRITICAL
+    notes: Deleting a container destroys every blob it holds in a single operation, so the potential blast radius is larger than deleting an individual blob and can encompass an arbitrarily large dataset.

@@ -1,0 +1,18 @@
+name: Log Analytics storage insight configuration
+description: A storage insight configuration that pulls log data from a linked storage account (e.g. diagnostic logs, WAD/LAD tables) into the workspace.
+scope: HIGH
+notes: These configs are an ingestion path from storage into the workspace; removing them stops that telemetry from being read in; HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Altering a storage insight config can stop or narrow the log data pulled from storage, suppressing future telemetry.
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting a storage insight config stops the workspace reading logs from the storage account, cutting that ingestion source.

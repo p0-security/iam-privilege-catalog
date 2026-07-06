@@ -1,0 +1,13 @@
+name: Log Analytics search
+description: Executes a search query against the log data stored in a workspace.
+scope: HIGH
+notes: Query access reads back stored log data, which can include sensitive records; it is closer to bulk read than to targeted export, so it is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:logs
+      - discovery:data
+    notes: Runs arbitrary queries over stored logs, allowing bulk read-out of telemetry and inventory of what data the workspace holds.
