@@ -1,0 +1,24 @@
+name: AKS AI Managers Kubernetes pods
+description: Kubernetes Pod objects within an AKS AI Managers cluster, representing running containerized workloads. Pod specs include container images, environment variables, mounted volumes, and references to secrets and service-account tokens.
+scope: HIGH
+notes: Data-plane access to pods is equivalent to control over the workloads of a single cluster/application function; pod specs frequently embed sensitive configuration and credential references.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.ContainerService
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - impact:dos
+      - destruction:infra
+    notes: Deleting pods (including DeleteCollection) terminates running workloads, destroying compute instances and disrupting the services they back.
+  read:
+    risks:
+      - discovery:infra
+      - exfiltration:data
+    notes: Reading pod specs/status inventories running workloads and exposes embedded sensitive data such as environment variables and mounted secret references.
+  write:
+    risks:
+      - impact:hijack
+      - escalation:lateral
+      - impact:manipulation
+    notes: Creating/updating pods lets an attacker run arbitrary containers (cryptomining/workloads), mount secrets or service-account tokens to assume in-cluster identities, and alter existing workload configuration.
