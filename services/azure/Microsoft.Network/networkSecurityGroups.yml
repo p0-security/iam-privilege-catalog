@@ -1,0 +1,18 @@
+name: Network security group
+description: A Network Security Group (NSG) is a stateful packet filter that contains ordered allow/deny rules applied to the network interfaces and subnets it is associated with, controlling inbound and outbound traffic for the resources behind it.
+scope: HIGH
+notes: An NSG is a perimeter/segmentation control, not a data store itself, but it gates network access to every resource attached to it; misconfiguring one can expose or cut off an entire subnet's worth of workloads, so scope is rated on par with other perimeter-control assets in this provider (traffic-mirroring taps, traffic routing profiles) rather than CRITICAL, which is reserved for tenant-wide IAM/policy objects.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:dos
+    notes: Deleting an NSG removes all its filter rules at once, stripping the associated interfaces/subnets of their access controls (opening them up) or breaking connectivity that depended on an allow rule (denial of service).
+  write:
+    risks:
+      - destruction:policy
+      - escalation:network
+    notes: Creating or updating an NSG's rule set lets an attacker open ingress/egress to internal resources that were previously firewalled off, or close rules to disrupt legitimate traffic; opening access to attacker-reachable resources also enables lateral/network escalation into the segment the NSG protects.
