@@ -1,0 +1,12 @@
+name: Microsoft Sentinel analytics rule on-demand run
+description: Triggers an on-demand run of an existing Microsoft Sentinel analytics rule.
+scope: LOW
+notes: This only re-executes an existing rule as already configured; it cannot disable or alter detection (that is alertRules/write) and has no destructive effect, so scope is LOW.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:consumption
+    notes: On-demand rule execution consumes analytics query capacity; repeated triggering could burn quota, but it neither alters nor disables detection.
