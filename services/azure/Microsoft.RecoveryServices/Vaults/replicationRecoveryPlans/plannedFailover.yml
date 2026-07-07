@@ -1,0 +1,12 @@
+name: Site Recovery recovery plan planned failover
+description: Triggers a planned failover of all protected items in a recovery plan to their recovery region, gracefully moving the grouped workloads to the recovery site.
+scope: CRITICAL
+notes: A planned failover relocates every workload in the plan to the recovery site; though graceful, an unauthorized invocation broadly disrupts production for the whole group.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Moves every workload in the plan to the recovery region, interrupting the production instances across the group.
