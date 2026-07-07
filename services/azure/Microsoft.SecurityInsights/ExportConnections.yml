@@ -1,0 +1,17 @@
+name: Microsoft Sentinel export connection
+description: A Microsoft Sentinel export connection that routes security data out of the workspace to an external destination.
+scope: HIGH
+notes: Export connections move aggregated security data (spanning many org functions) out of the workspace; configuring one is an exfiltration channel, so the resource type is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - exfiltration:data
+      - exfiltration:logs
+    notes: Creating or updating an export connection can route the workspace's aggregated security data and logs to an attacker-controlled destination, bulk-exfiltrating sensitive telemetry.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an export connection cuts a configured security-data export, which can sever a downstream retention or monitoring pipeline that depends on the exported telemetry.

@@ -1,0 +1,18 @@
+name: Log Analytics linked storage account
+description: A customer-owned storage account linked to the workspace for holding certain data types (custom logs, queries, alerts) under the customer's own storage.
+scope: HIGH
+notes: Linked storage accounts back specific ingestion/retention paths; removing them can disrupt that data flow and its retained records; HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Re-pointing a linked storage account can redirect or disrupt the data written to it, breaking that ingestion/retention path.
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Removing a linked storage account cuts the storage backing its data type, disrupting ingestion or retention of those records.

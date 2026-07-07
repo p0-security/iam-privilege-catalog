@@ -1,0 +1,12 @@
+name: Load balancer backend address pool
+description: A backend address pool is the set of target addresses (VMs, NICs, or IPs) that an Azure load balancer distributes incoming traffic to.
+scope: HIGH
+notes: The backend pool determines where a load balancer forwards traffic; altering its membership can redirect client traffic to attacker-controlled targets or remove legitimate ones.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Updates the admin state of backend addresses, letting an attacker forcibly mark legitimate backends down so the load balancer stops forwarding to them, denying service.

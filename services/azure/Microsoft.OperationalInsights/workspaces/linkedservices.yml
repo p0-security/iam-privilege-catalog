@@ -1,0 +1,18 @@
+name: Log Analytics linked service
+description: A linked service that binds the workspace to another resource (such as an Automation account or a cluster) used for data collection and processing.
+scope: HIGH
+notes: Linked services connect the workspace to the resources that feed and process its telemetry; breaking them disrupts collection; HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Re-pointing or altering a linked service can disrupt the collection/processing pipeline it enables, suppressing telemetry.
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Removing a linked service severs the workspace's link to the resource feeding it, halting the associated telemetry.

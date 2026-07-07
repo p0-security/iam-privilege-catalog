@@ -1,0 +1,18 @@
+name: Log Analytics data source
+description: A data source configuration under a workspace that defines what telemetry (event logs, performance counters, syslog, etc.) agents collect and forward into the workspace.
+scope: HIGH
+notes: Data sources govern what telemetry is collected, so altering or removing them stops new security logs from arriving; HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Reconfiguring a data source can narrow or suppress the telemetry collected, silently creating blind spots in future logging.
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Removing a data source halts collection of that telemetry, so subsequent activity in its scope goes unlogged.

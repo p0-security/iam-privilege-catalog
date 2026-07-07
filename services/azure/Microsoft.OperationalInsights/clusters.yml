@@ -1,0 +1,18 @@
+name: Log Analytics dedicated cluster
+description: A dedicated Log Analytics cluster that provides customer-managed-key (CMK) backed storage for one or more linked workspaces.
+scope: HIGH
+notes: A dedicated cluster stores the logs of its linked workspaces and holds their CMK association, so destroying it or changing its key affects the whole log store; HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:crypto
+      - impact:manipulation
+    notes: Changing the cluster's customer-managed-key association can rotate away or revoke the key protecting stored logs, rendering existing data unreadable or corrupting the encryption configuration.
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:data
+    notes: Deleting a dedicated cluster destroys the CMK-backed storage holding its linked workspaces' logs, eliminating that data.

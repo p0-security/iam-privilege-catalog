@@ -1,0 +1,13 @@
+name: Site Recovery protected item unplanned failover
+description: Triggers an unplanned failover of a protected item to its recovery region, bringing the workload up from a recovery point without a graceful shutdown of the source.
+scope: CRITICAL
+notes: An unplanned failover forcibly relocates the live workload to the recovery site, which is disruptive to production and can move the workload into an attacker-chosen network or region.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - escalation:network
+    notes: Forces the workload over to the recovery region, disrupting the running service and relocating it into the configured recovery network the attacker may control.
