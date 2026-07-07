@@ -1,0 +1,17 @@
+name: Microsoft Sentinel onboarding state
+description: The onboarding state marking a Log Analytics workspace as enabled for Microsoft Sentinel, gating whether the SIEM is active for that workspace.
+scope: HIGH
+notes: The onboarding state controls whether Sentinel runs on a workspace at all; removing it offboards the SIEM, so the resource type is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Altering the onboarding state can change Sentinel's enablement on a workspace, a lever toward disabling the SIEM.
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:logs
+    notes: Deleting the onboarding state offboards Sentinel from the workspace, tearing down detections and halting security-telemetry aggregation for it.

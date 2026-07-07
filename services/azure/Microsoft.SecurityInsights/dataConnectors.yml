@@ -1,0 +1,18 @@
+name: Microsoft Sentinel data connector
+description: A Microsoft Sentinel data connector that ingests telemetry from a source (Azure services, endpoints, third-party products) into the workspace, feeding all downstream detection.
+scope: HIGH
+notes: Connectors are the telemetry supply for the whole SIEM; cutting one stops the logs that every detection depends on, so the resource type is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Reconfiguring or disabling a data connector halts the telemetry feeding the workspace, so security logs stop arriving and every detection built on that source goes dark.
+  delete:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deleting a data connector severs the telemetry pipeline entirely, cutting off the log source and blinding all detections that rely on it.

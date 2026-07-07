@@ -1,0 +1,12 @@
+name: Microsoft Sentinel incident comment
+description: An analyst comment on a Microsoft Sentinel incident, capturing investigation notes and response context on the case record.
+scope: MEDIUM
+notes: Comments are a narrower part of the incident record than the incident itself; deleting them erases investigation notes but not the whole case, so this override is MEDIUM rather than the incident-level HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:logs
+    notes: Deleting incident comments removes analyst investigation notes from the case record, degrading the response audit trail.
