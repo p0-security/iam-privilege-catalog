@@ -1,0 +1,16 @@
+name: Defender for Storage settings
+description: The Microsoft Defender for Storage configuration for the scope, controlling on-upload malware scanning, sensitive-data threat detection, and activity monitoring for storage accounts.
+scope: MEDIUM
+notes: This is a detection control over storage; disabling it removes malware/threat scanning coverage rather than altering stored data itself.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Editing the settings can turn off malware scanning and threat detection for storage accounts, letting an attacker upload malicious or exfiltrate data without triggering storage threat alerts.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the Defender for Storage settings disables storage malware/threat scanning entirely, removing that detection control.

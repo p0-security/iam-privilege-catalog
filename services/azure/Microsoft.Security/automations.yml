@@ -1,0 +1,17 @@
+name: Defender for Cloud workflow automations
+description: Automation configurations that route Microsoft Defender for Cloud alerts, recommendations, and assessment events to targets such as Logic Apps, Event Hubs, or Log Analytics for automated SOAR-style response and export.
+scope: MEDIUM
+notes: These drive automated response and downstream export of security events; tampering affects response/telemetry flow rather than production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+      - exfiltration:logs
+    notes: Editing an automation can disable automated response to the attacker's activity, or repoint the export target to an attacker-controlled Event Hub/endpoint to siphon off security alert and event data.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an automation removes the automated response/export workflow, so detections no longer trigger their configured containment or notification actions.

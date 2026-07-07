@@ -1,0 +1,13 @@
+name: Security assessments
+description: The results of Microsoft Defender for Cloud security assessments (recommendation findings and their healthy/unhealthy status) recorded against resources at the scope.
+scope: MEDIUM
+notes: Assessment state is the security posture record; falsifying it misleads responders and auditors but does not alter production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Writing assessment results lets an attacker fabricate a healthy/passing status for a resource, hiding a real finding of their misconfiguration from responders and dashboards.
