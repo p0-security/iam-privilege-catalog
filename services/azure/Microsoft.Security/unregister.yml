@@ -1,0 +1,12 @@
+name: Defender for Cloud unregistration
+description: The action that unregisters the subscription from the Microsoft.Security resource provider (Azure Security Center / Defender for Cloud), offboarding it from Defender for Cloud.
+scope: HIGH
+notes: Unregistration tears down Defender for Cloud coverage for the entire subscription, a broad single-action kill switch for cloud threat detection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Unregistering the subscription offboards it from Defender for Cloud, disabling security assessments, alerts, and plans subscription-wide in a single action.

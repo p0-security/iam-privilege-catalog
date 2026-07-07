@@ -1,0 +1,12 @@
+name: JIT network access request
+description: The action that initiates a just-in-time access request, opening the requested inbound ports on a VM to specified source IPs for a limited time under an existing JIT policy.
+scope: HIGH
+notes: This action opens live inbound network access to production VMs, directly enabling reachability to workloads rather than only affecting detection.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Initiating a JIT request opens inbound access (e.g. RDP/SSH) to a VM from a chosen source, giving the attacker a live network path to reach and move toward the workload.

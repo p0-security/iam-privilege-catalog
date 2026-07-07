@@ -1,0 +1,20 @@
+name: Defender for Cloud pricing plans
+description: Per-resource-type pricing settings that enable or disable Microsoft Defender for Cloud plans (Defender for Servers, Storage, Containers, Key Vault, etc.) at a scope, controlling whether workload threat protection is active.
+scope: HIGH
+notes: These settings are the master on/off switch for Defender workload threat protection across the subscription; toggling them off blinds detection for entire resource classes.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Setting a plan's pricing tier to Free/off disables that Defender plan, turning off workload threat protection and detection for the affected resource type.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the pricing settings reverts the scope off the paid Defender plan, disabling its threat protection and detection.
+  action:
+    risks:
+      - destruction:defense
+    notes: Applies a batch of pricing settings at once, letting an attacker disable multiple Defender plans in a single call to broadly turn off workload protection.
