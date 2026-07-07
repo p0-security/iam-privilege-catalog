@@ -1,0 +1,12 @@
+name: Network Watcher connectivity check
+description: Verifies whether a direct TCP connection can be established from a source VM to a given destination (another VM or an arbitrary remote endpoint), reporting reachability, latency, and hop-by-hop path.
+scope: MEDIUM
+notes: Read-only, and functionally covers the same recon value as ipFlowVerify (allow/deny check for a specific flow) and nextHop (routing path for a destination), which are not separately documented here as they test the same reachability question from different angles.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Lets an attacker use a compromised VM's network position to test reachability to internal or external targets, using Azure's own tooling as a network scanner/pivot-mapping primitive instead of installing scanning tools that might trigger endpoint detection.

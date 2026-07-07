@@ -1,0 +1,12 @@
+name: Cosmos DB database account
+description: An Azure Cosmos DB (DocumentDB) database account, the top-level control-plane resource that hosts databases and containers and governs endpoints, regions, consistency, networking, identity, and backup configuration. It is a primary production data store.
+scope: CRITICAL
+notes: Account master keys are root-equivalent data-plane credentials granting full read/write access to all data in the account, which makes this resource type security-sensitive.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.DocumentDB
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Enables, disables, or checks the status of chaos-engineering fault injection against the live account. An attacker can enable faults to deliberately degrade or crash the database as a denial-of-service or as a distraction during a broader attack.

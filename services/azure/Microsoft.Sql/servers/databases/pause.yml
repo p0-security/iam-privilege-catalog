@@ -1,0 +1,12 @@
+name: Azure SQL Data Warehouse pause
+description: Pauses an Azure SQL Data Warehouse database, taking it offline until resumed.
+scope: HIGH
+notes: Availability action against a production data warehouse.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Sql
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+    notes: Pausing the data warehouse makes it unavailable to legitimate users and applications until explicitly resumed.

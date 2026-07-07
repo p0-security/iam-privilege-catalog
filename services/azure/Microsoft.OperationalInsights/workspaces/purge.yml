@@ -1,0 +1,13 @@
+name: Log Analytics workspace data purge
+description: Deletes specified data records by query from a Log Analytics workspace.
+scope: HIGH
+notes: Query-targeted deletion of individual log records is the classic anti-forensics primitive; it removes evidence at row granularity, so the operation is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deletes matching log records by query, letting an attacker surgically erase the traces of their own activity and defeat the audit trail.

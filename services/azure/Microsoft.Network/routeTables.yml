@@ -1,0 +1,19 @@
+name: Route table
+description: A route table holds user-defined routes that override Azure's default system routes for the subnets it is associated with, controlling the next hop that traffic destined for given address prefixes takes.
+scope: HIGH
+notes: A route table is a perimeter/segmentation control; it determines the path (and therefore the exposure) of a subnet's traffic. Rated consistent with the other network-segmentation resources documented alongside it, rather than CRITICAL, which is reserved for tenant-wide IAM/policy objects.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting a route table removes its user-defined routes from every associated subnet, reverting traffic to default system routing (which can bypass an intended network virtual appliance/firewall hop) or breaking connectivity that depended on a custom route.
+  write:
+    risks:
+      - destruction:network
+      - exfiltration:data
+      - escalation:network
+    notes: Creating or updating routes lets an attacker redirect a subnet's traffic to an attacker-controlled next hop, enabling interception/exfiltration of in-transit data, bypass of an intended firewall/NVA hop (destroying the routing control), or wholesale traffic blackholing.

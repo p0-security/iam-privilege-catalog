@@ -1,0 +1,18 @@
+name: Bastion Host
+description: Azure Bastion is a managed PaaS jump host deployed in a VNet that brokers secure browser-based RDP/SSH connectivity to VMs without exposing public IPs on those VMs.
+scope: HIGH
+notes: A production secure-access entry point into a private network; controlling or observing it affects reachability of all VMs behind it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:infra
+      - impact:dos
+    notes: Removes legitimate secure remote-access infrastructure, cutting off browser-based RDP/SSH access to VMs behind it; lower severity than the session/link risks on this resource since it degrades availability rather than granting access.
+  write:
+    risks:
+      - escalation:network
+      - persistence:account
+    notes: Reconfiguring an existing Bastion (e.g. enabling IP-based connection, native client support, or weakening its associated network restrictions) can broaden how it may be reached (network escalation); standing up a new Bastion Host gives an attacker a durable, sanctioned-looking remote-access foothold into the VNet (persistence).

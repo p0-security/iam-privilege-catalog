@@ -1,0 +1,12 @@
+name: Remove disks from Site Recovery protected item
+description: Removes one or more disks from the set replicated for a protected item, excluding them from ongoing replication and recovery.
+scope: CRITICAL
+notes: Dropping disks from replication silently narrows what is protected, so the excluded data becomes unrecoverable at failover while the item still appears protected.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Excludes disks from replication, quietly removing their data from the recovery copy without disabling protection on the item as a whole.

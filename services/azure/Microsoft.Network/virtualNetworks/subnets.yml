@@ -1,0 +1,18 @@
+name: Virtual network subnet
+description: A subnet is a segment of a virtual network's address space, used to isolate groups of resources and as the attachment point for NSGs, route tables, service endpoints, and delegated services.
+scope: CRITICAL
+notes: Subnets are the unit of network segmentation within a VNet; control-plane privileges on it — altering address ranges, NSG/route-table associations, delegations, or attaching unauthorized resources into it — can enable significant privilege escalation via lateral network access (per the CRITICAL definition in services/README.md).
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deletes the subnet, disconnecting every resource attached to it and removing its NSG/route-table/service-endpoint configuration.
+  write:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Creating or updating a subnet lets an attacker change its address range, detach or swap its NSG/route-table association, or add service endpoints/delegations, weakening the isolation the subnet was meant to enforce.

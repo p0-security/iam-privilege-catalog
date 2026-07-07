@@ -1,0 +1,18 @@
+name: Site Recovery replication recovery plan
+description: A Site Recovery recovery plan orchestrates failover of a group of protected items in a defined sequence, including pre/post steps such as Azure Automation runbooks and manual actions.
+scope: CRITICAL
+notes: Recovery plans define the org's coordinated failover orchestration and can invoke automation; manipulating one can sabotage recovery or inject attacker-controlled steps, and deleting one removes the ability to recover the grouped workloads in a coordinated way.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+      - escalation:lateral
+    notes: Editing a recovery plan can reorder or break the failover sequence (defeating orderly recovery) and can add Azure Automation runbook steps that execute in the automation account's context, giving an attacker a code-execution foothold.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a recovery plan removes the orchestration needed to fail the grouped workloads over in a coordinated way, degrading disaster-recovery capability even though the underlying protected items persist.

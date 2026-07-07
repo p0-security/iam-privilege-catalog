@@ -1,0 +1,13 @@
+name: Log Analytics table data deletion
+description: Deletes data from a table in a Log Analytics workspace.
+scope: HIGH
+notes: Table-granular deletion of log records is the same anti-forensics class as workspace purge, applied to a single evidence stream; HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Deletes log records from a table, erasing specific evidence and defeating the detections that read from it.

@@ -1,0 +1,13 @@
+name: Network Watcher flow log configuration
+description: Configures NSG flow logging for a target resource, controlling whether network traffic flow records are captured and where they are stored.
+scope: MEDIUM
+notes: Used both to enable flow logging (collection) and to disable it on an existing target, removing the network traffic audit trail.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Disabling flow logging on an NSG before or during other malicious network activity removes the traffic-level record that would otherwise reveal that activity, a textbook detection-evasion move. Can also redirect logs to an attacker-controlled storage destination.

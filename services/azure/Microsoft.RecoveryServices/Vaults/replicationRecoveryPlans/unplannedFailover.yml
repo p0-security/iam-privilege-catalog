@@ -1,0 +1,13 @@
+name: Site Recovery recovery plan unplanned failover
+description: Triggers an unplanned failover of all protected items in a recovery plan to their recovery region, without a graceful source shutdown.
+scope: CRITICAL
+notes: An unplanned failover of a recovery plan forcibly relocates every workload in the plan to the recovery site at once, a broad disruption that also moves the workloads into their configured recovery networks.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - escalation:network
+    notes: Forces every workload in the plan over to the recovery region, causing broad service disruption and relocating them into the configured recovery networks the attacker may control.

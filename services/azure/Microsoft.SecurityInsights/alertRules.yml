@@ -1,0 +1,16 @@
+name: Microsoft Sentinel analytics rule
+description: A Microsoft Sentinel analytics (alert) rule that queries ingested telemetry on a schedule and raises alerts/incidents when its detection logic matches. These rules are the primary detection mechanism of the SIEM.
+scope: HIGH
+notes: Analytics rules are the SOC's detection backbone; tampering with or removing them creates blind spots across the security-monitoring function, so the resource type is inherently HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Updating a rule lets an attacker disable it or narrow its detection logic to carve out blind spots around their own activity, defeating detection without leaving an obvious deletion.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Removing an analytics rule permanently stops the detections it produced, blinding the SOC to the behaviors it covered.
