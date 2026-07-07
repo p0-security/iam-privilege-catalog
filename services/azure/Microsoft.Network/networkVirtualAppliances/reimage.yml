@@ -1,0 +1,13 @@
+name: Network Virtual Appliance
+description: A Network Virtual Appliance (NVA) is a third-party firewall/router VM appliance that inspects and forwards network traffic in a VNet or Virtual WAN hub.
+scope: HIGH
+notes: An NVA sits in the traffic path inspecting/forwarding production traffic; controlling it enables interception, redirection, or disruption of that traffic.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - destruction:infra
+    notes: Reimaging the appliance resets it to a base image, disrupting the traffic it handles and wiping any local appliance state/configuration not preserved externally.

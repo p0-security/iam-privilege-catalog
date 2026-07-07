@@ -1,0 +1,13 @@
+name: Log Analytics workspace diagnostic setting
+description: The diagnostic setting on the workspace itself, controlling whether the workspace's own resource logs and metrics (including audit events) are emitted.
+scope: HIGH
+notes: This governs the workspace's self-telemetry, including its own audit trail; disabling it hides administrative actions taken against the log store; HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.OperationalInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  Write:
+    risks:
+      - destruction:logs
+      - destruction:defense
+    notes: Overwriting the workspace's diagnostic setting can disable its own diagnostic/audit logging, hiding the attacker's actions against the log store itself.

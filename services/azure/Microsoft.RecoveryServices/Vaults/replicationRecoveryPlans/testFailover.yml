@@ -1,0 +1,13 @@
+name: Site Recovery recovery plan test failover
+description: Performs an isolated test failover of a recovery plan, instantiating running copies of all its protected workloads into a test network without affecting production.
+scope: CRITICAL
+notes: A test failover spins up full running copies of every workload in the plan and their data; when directed into an attacker-influenced test network it yields offline access to that data across the group outside production controls.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+      - escalation:lateral
+    notes: Instantiates live copies of every workload in the plan in a chosen test network, letting an attacker access their data and reach them from network positions they control.

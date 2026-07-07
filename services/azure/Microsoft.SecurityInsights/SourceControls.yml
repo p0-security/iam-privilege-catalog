@@ -1,0 +1,17 @@
+name: Microsoft Sentinel source control connection
+description: A Microsoft Sentinel source-control connection binding the workspace to a Git repository (GitHub/Azure DevOps) for content CI/CD, holding the repository connection and credentials that deploy detections and content.
+scope: HIGH
+notes: Source-control connections carry repository credentials and an automated content-deployment path into the workspace, a persistence and content-tampering vector, so the resource type is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - persistence:account
+      - impact:manipulation
+    notes: Creating or updating a source-control connection installs attacker-controlled repository credentials and an automated deployment pipeline, both a persistence foothold and a channel to push malicious or weakened detection content into the workspace.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a source-control connection tears down the managed content pipeline that keeps detections deployed and updated, degrading detection maintenance.

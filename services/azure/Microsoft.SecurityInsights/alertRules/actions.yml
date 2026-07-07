@@ -1,0 +1,16 @@
+name: Microsoft Sentinel analytics rule action
+description: A response action attached to a Microsoft Sentinel analytics rule, binding the rule to an automation/playbook that fires when the rule triggers.
+scope: HIGH
+notes: These bindings drive automated response; removing or altering them silently breaks the reaction to a detection even while the rule itself still fires, so they inherit the detection backbone's HIGH scope.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Repointing or altering a rule's response action can suppress the automated reaction (notification, playbook) to a triggered detection, letting an alert fire into a void.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the response action decouples the rule from its automated response, so detections no longer drive any reaction.

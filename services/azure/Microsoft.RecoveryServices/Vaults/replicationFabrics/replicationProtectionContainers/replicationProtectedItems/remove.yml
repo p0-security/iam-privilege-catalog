@@ -1,0 +1,13 @@
+name: Remove Site Recovery protected item
+description: Disables replication for a protected item and removes it from Site Recovery protection.
+scope: CRITICAL
+notes: Removing a protected item stops its replication and discards its recovery points, eliminating the DR copy for that workload.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+      - destruction:infra
+    notes: Disables replication and removes the item's recovery points, leaving the workload with no disaster-recovery copy; a ransomware precursor.

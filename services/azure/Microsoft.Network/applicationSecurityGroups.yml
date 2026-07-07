@@ -1,0 +1,17 @@
+name: Application security group
+description: An Application Security Group (ASG) is a logical grouping of network interfaces (by application role) that can be referenced as the source/destination of NSG rules, instead of explicit IP ranges, to scope firewall rules to a set of VMs.
+scope: HIGH
+notes: An ASG is a perimeter/segmentation control referenced by NSG rules; membership in one determines which firewall rules apply to a given interface, so misuse indirectly controls network access the same way an NSG does. Rated consistent with the other network-segmentation resources documented alongside it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  delete:
+    risks:
+      - destruction:policy
+      - impact:dos
+    notes: Deleting an ASG invalidates any NSG rule that references it as a source/destination, silently disabling those rules (opening the traffic they were meant to restrict) or breaking rules that were permitting required traffic.
+  write:
+    risks:
+      - escalation:network
+    notes: Creating or updating an ASG definition is a prerequisite for controlling which interfaces inherit the firewall rules written against that group; combined with join rights on member interfaces/rules, it lets an attacker reshape which traffic reaches a given application tier.

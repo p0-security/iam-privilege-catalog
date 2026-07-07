@@ -1,0 +1,13 @@
+name: Security policies
+description: The Defender for Cloud security policy (the set of security assessment/compliance rules evaluated against resources) governing which misconfigurations and threats are checked for at the scope.
+scope: MEDIUM
+notes: This is security-scanning policy, not IAM/access policy; weakening it reduces which findings are detected, affecting detection posture rather than access control.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Editing the security policy can disable assessment rules so the attacker's misconfigurations go undetected, weakening the detection posture and manipulating what the security scan reports.

@@ -1,0 +1,12 @@
+name: IP Group
+description: An IP Group is a reusable named set of IP addresses/ranges referenced by Azure Firewall and NSG rules, letting many rules share a single maintained address list.
+scope: HIGH
+notes: An IP Group is referenced by firewall/NSG rules; changing its ranges silently reshapes every rule that references it, making it a policy-bearing object.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+    notes: Joining an IP Group lets a principal reference/attach the group into firewall or NSG rules it does not otherwise control, bypassing the segmentation control that gates which address lists a rule may use; flagged Not Alertable.
