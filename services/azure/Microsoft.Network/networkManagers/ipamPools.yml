@@ -1,0 +1,17 @@
+name: Network Manager IPAM pool
+description: An IPAM pool within Azure Virtual Network Manager is a managed reservation of IP address space from which Azure and non-Azure resources draw non-overlapping allocations.
+scope: MEDIUM
+notes: Primarily an address-space inventory/management object; abuse is limited to allocation manipulation that can cause routing/overlap problems rather than direct data or policy compromise.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - impact:dos
+    notes: Creating/updating a pool alters the managed address space; overlapping or reshaped ranges can break allocation logic and induce routing/addressing conflicts for resources drawing from the pool.
+  delete:
+    risks:
+      - impact:dos
+    notes: Deleting a pool removes the address-space reservation that dependent resources allocate from, disrupting provisioning and addressing.
