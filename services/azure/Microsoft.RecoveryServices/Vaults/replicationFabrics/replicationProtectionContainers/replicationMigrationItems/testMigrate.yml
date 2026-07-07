@@ -1,0 +1,13 @@
+name: Test migrate Site Recovery migration item
+description: Performs an isolated test migration of a migration item, instantiating a running copy of the workload in a test network without affecting the source.
+scope: HIGH
+notes: A test migration spins up a full running copy of the workload and its data; when directed into an attacker-influenced test network it yields offline access to that data outside production controls.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - exfiltration:data
+      - escalation:lateral
+    notes: Instantiates a live copy of the workload in a chosen test network, letting an attacker access its data and reach it from network positions they control.
