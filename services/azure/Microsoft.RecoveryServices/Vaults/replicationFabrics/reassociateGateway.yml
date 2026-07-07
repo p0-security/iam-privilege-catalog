@@ -1,0 +1,13 @@
+name: Reassociate Site Recovery fabric gateway
+description: Reassociates the gateway/process server used by a Site Recovery replication fabric to carry replication traffic between protected workloads and their recovery copies.
+scope: CRITICAL
+notes: Changing the gateway relocates the replication data path; an attacker can redirect it through an attacker-influenced server to intercept or disrupt the flow of replicated workload data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Redirects replication traffic to a different gateway, letting an attacker reroute the DR data path onto infrastructure they control or influence.

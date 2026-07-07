@@ -1,0 +1,13 @@
+name: Remove Site Recovery protection container
+description: Removes a Site Recovery replication protection container from a fabric.
+scope: HIGH
+notes: Removing a container dismantles the grouping and mappings that protect its items, defeating disaster recovery for the workloads it holds.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+      - destruction:infra
+    notes: Removes the container and the protection mappings within it, eliminating the recovery capability for the contained workloads.

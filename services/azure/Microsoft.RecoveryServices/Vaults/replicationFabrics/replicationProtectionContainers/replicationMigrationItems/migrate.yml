@@ -1,0 +1,13 @@
+name: Migrate Site Recovery migration item
+description: Performs the migration cutover of a migration item, bringing the workload up in its Azure target from the replicated data.
+scope: HIGH
+notes: Migration cutover relocates the workload into the configured Azure target; an unauthorized invocation disrupts the source workload and instantiates it in an attacker-influenced target network or resource group.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - impact:dos
+      - escalation:network
+    notes: Cuts the workload over to its Azure target, disrupting the source and landing the migrated instance in the configured (possibly attacker-controlled) target network.

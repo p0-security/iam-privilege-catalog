@@ -1,0 +1,13 @@
+name: Remove Site Recovery fabric infrastructure
+description: Removes the underlying infrastructure (process servers, gateways, and supporting components) associated with a Site Recovery replication fabric.
+scope: CRITICAL
+notes: Dismantling the fabric infrastructure breaks the data path that carries replication, degrading or defeating disaster-recovery protection for workloads on the fabric.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+      - destruction:infra
+    notes: Removes the servers and components underpinning replication, halting the protection path and rendering the DR copy unrecoverable.

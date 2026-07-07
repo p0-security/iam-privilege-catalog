@@ -1,0 +1,19 @@
+name: Site Recovery replication fabric
+description: An Azure Site Recovery replication fabric represents a source or target location (Azure region, VMM/Hyper-V site, or on-premises environment) that hosts the replication topology and process/gateway servers linking protected workloads to their disaster-recovery copies.
+scope: CRITICAL
+notes: The fabric is the root of the replication topology; deleting it cascades to every protection container and protected item it hosts, so its loss defeats disaster recovery for all workloads replicating through it.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+    notes: Creating or reconfiguring a fabric alters the replication topology and its gateway/process-server association, which can degrade or misdirect the protection path for workloads that depend on it.
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a fabric tears down the replication topology and cascades to all contained protection containers and protected items, destroying disaster-recovery capability for those workloads; a common ransomware precursor.
