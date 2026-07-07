@@ -1,0 +1,16 @@
+name: Microsoft Sentinel threat intelligence indicator
+description: An individual threat-intelligence indicator (IOC) in Microsoft Sentinel that detections match ingested telemetry against.
+scope: MEDIUM
+notes: Indicators are a detection input; altering or removing them narrows coverage but does not disable the platform, so this is MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Writing an indicator lets an attacker inject false IOCs or alter existing ones, poisoning detection logic and potentially whitelisting their own infrastructure.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting an indicator removes an IOC the SIEM matches against, degrading detection coverage of known-malicious infrastructure.

@@ -1,0 +1,16 @@
+name: Microsoft Sentinel setting
+description: A Microsoft Sentinel workspace setting toggling detection features such as UEBA, anomalies, and entity-behavior (EyesOn) capabilities.
+scope: HIGH
+notes: These settings enable whole detection features; turning them off removes coverage across the workspace, so the resource type is HIGH.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Updating a setting lets an attacker disable detection features (UEBA, anomalies, entity behavior), removing whole classes of coverage.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a setting turns off the detection feature it configured, blinding the SOC to the behaviors that feature covered.
