@@ -1,0 +1,16 @@
+name: Microsoft Sentinel watchlist
+description: A Microsoft Sentinel watchlist, a named lookup table (asset lists, allow/deny lists, high-value accounts) that analytics rules and hunting queries join against for detection context.
+scope: MEDIUM
+notes: Watchlists supply context that detections depend on; tampering can create blind spots and deletion can break dependent rules, but they are narrower than the detection engine itself, so this is MEDIUM.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.SecurityInsights
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+    notes: Editing a watchlist lets an attacker plant entries (e.g. add their own infrastructure to an allow-list) so rules that join against it suppress alerts on their activity.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting a watchlist breaks the analytics rules and hunting queries that reference it, silently disabling the detections that depend on its context.

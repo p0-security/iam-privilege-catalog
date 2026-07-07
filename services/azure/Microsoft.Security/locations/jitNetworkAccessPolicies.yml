@@ -1,0 +1,17 @@
+name: JIT network access policies
+description: Just-in-time (JIT) VM access policies in Microsoft Defender for Cloud that define which VM ports may be opened on demand, to which source IPs, and for how long, keeping management ports closed until an approved request.
+scope: HIGH
+notes: These policies gate inbound network access to production VMs; tampering can open real network paths to compromise workloads, beyond mere detection posture.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - escalation:network
+    notes: Creating/updating a JIT policy can widen allowed ports, source ranges, or durations, weakening the gate so inbound access to VMs (e.g. RDP/SSH) can be opened broadly.
+  delete:
+    risks:
+      - impact:manipulation
+    notes: Deleting a JIT policy removes the on-demand access control governing a VM's management ports, altering the enforced network access posture.

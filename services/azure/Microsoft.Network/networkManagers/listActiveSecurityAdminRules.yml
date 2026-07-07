@@ -1,0 +1,13 @@
+name: Network Manager
+description: Azure Virtual Network Manager is a centralized governance layer that authors and pushes connectivity configurations and security-admin rules across many VNets at once within a defined network group scope.
+scope: CRITICAL
+notes: A single manager governs connectivity and security-admin rules across many VNets simultaneously; security-admin rules override per-VNet NSGs, so control of the manager is an org-wide policy/segmentation blast-radius multiplier, warranting CRITICAL.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - discovery:network
+    notes: Lists the security-admin rules currently in effect across the managed VNet scope, disclosing the org-wide enforced firewall posture an attacker can use to find gaps.
+    scope: MEDIUM

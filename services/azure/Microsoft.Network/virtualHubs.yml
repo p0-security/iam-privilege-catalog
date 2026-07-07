@@ -1,0 +1,19 @@
+name: Virtual Hub
+description: A Virtual Hub is the routing core of an Azure Virtual WAN, terminating branch/VNet connections and holding the route tables that steer traffic across the WAN.
+scope: HIGH
+notes: The hub is the central routing point of a Virtual WAN; controlling its routing redirects or intercepts traffic across every connected VNet and branch.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - escalation:network
+      - exfiltration:data
+      - impact:manipulation
+    notes: Creating/updating a hub lets an attacker rewrite the WAN routing that steers traffic between connected VNets and branches, redirecting or intercepting flows across the WAN and tampering with routing configuration.
+  delete:
+    risks:
+      - destruction:network
+      - impact:dos
+    notes: Deleting the hub removes the routing core of the Virtual WAN, tearing down a network component and cutting connectivity for every VNet and branch attached to it.

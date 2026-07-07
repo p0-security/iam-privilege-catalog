@@ -1,0 +1,16 @@
+name: Security contacts
+description: The security contact configuration that defines which email addresses and phone numbers receive Microsoft Defender for Cloud alert notifications and severity thresholds for notifying.
+scope: MEDIUM
+notes: Controls the human notification path for security alerts; tampering affects whether responders are told about detections, not production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - destruction:defense
+    notes: Overwriting the security contact can remove responder recipients or raise the notification severity threshold so alerts on the attacker's activity are never emailed, cutting off the notification path.
+  delete:
+    risks:
+      - destruction:defense
+    notes: Deleting the security contact removes alert-email recipients so no one is notified of Defender detections, blinding responders.

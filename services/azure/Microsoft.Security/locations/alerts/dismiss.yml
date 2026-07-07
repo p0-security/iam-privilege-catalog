@@ -1,0 +1,13 @@
+name: Security alert dismissal
+description: The action that sets a Microsoft Defender for Cloud security alert's state to dismissed, removing it from the active alert queue that responders triage.
+scope: MEDIUM
+notes: Changes the state of an already-fired detection to hide it from responders; affects incident visibility rather than production data.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Security
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+      - impact:manipulation
+    notes: Dismissing an active alert hides an already-fired detection of the attacker's activity from responders and manipulates the alert's state to a benign disposition, evading incident response.

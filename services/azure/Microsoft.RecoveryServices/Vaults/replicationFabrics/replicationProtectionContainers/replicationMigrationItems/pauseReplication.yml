@@ -1,0 +1,12 @@
+name: Pause Site Recovery migration item replication
+description: Pauses ongoing replication for a migration item, halting updates to its replicated copy.
+scope: HIGH
+notes: Pausing replication stops the recovery copy from tracking source changes, so recovery points go stale and the protection silently degrades while the item still appears configured.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - destruction:defense
+    notes: Halts replication so the recovery copy stops updating, quietly eroding recovery readiness without disabling protection outright.

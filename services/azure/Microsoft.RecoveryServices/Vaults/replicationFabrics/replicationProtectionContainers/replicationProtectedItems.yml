@@ -1,0 +1,20 @@
+name: Site Recovery replication protected item
+description: A Site Recovery protected item is an individual workload (typically a VM) that is actively replicated to a recovery region, along with its recovery points, target network, and target resource-group configuration.
+scope: CRITICAL
+notes: Protected items are the actual replicated copies of production workloads and their recovery points; removing or reconfiguring them destroys or misdirects the disaster-recovery copy that gates an organization's ability to recover.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.RecoveryServices
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  write:
+    risks:
+      - impact:manipulation
+      - destruction:defense
+      - escalation:network
+    notes: Updating a protected item can redirect its recovery target network/resource group or shrink recovery-point retention, redirecting where the DR copy lands and reducing the recoverable history available after an attack.
+  delete:
+    risks:
+      - destruction:defense
+      - destruction:infra
+      - impact:dos
+    notes: Deleting a protected item destroys its replication and recovery points, removing the disaster-recovery copy for that workload; a classic precursor to a destructive/ransomware attack.
