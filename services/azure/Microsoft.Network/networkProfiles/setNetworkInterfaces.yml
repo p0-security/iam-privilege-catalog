@@ -1,0 +1,13 @@
+name: Network Profile
+description: A Network Profile defines container networking configuration (container network interfaces and their subnet/IP settings) used to attach container workloads to a VNet.
+scope: HIGH
+notes: Controls how container workloads are wired into the VNet; manipulation can place attacker workloads on the network or reattach existing ones into different segments.
+links:
+  - https://azure.permissions.cloud/iam/Microsoft.Network
+  - https://learn.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations
+privileges:
+  action:
+    risks:
+      - escalation:network
+      - impact:manipulation
+    notes: Sets the container network interfaces bound to the profile, wiring workloads into a chosen VNet segment and altering the intended networking configuration.
