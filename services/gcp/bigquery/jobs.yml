@@ -1,0 +1,43 @@
+name: BigQuery jobs
+description: >-
+  Jobs run queries and other asynchronous actions (load, export, copy)
+  against BigQuery resources. `create` is the single gating permission for
+  every job type.
+scope: CRITICAL
+notes: >-
+  Holding `create` alone lets a caller run arbitrary SQL -- including DML
+  and DDL -- against any table or dataset their other BigQuery permissions
+  already let them reach via the query text. Scored at the ceiling of what
+  any job could do, the same convention used elsewhere in this catalog for
+  a capability-to-modify permission (see services/gcp/iam/serviceAccounts.yml's
+  `setIamPolicy`), rather than trying to infer risk from a specific query.
+privileges:
+  create:
+    risks: [destruction:data, exfiltration:data, impact:spend]
+    notes: >-
+      Gates every job type (query, load, export, copy). A query job's SQL
+      can read, modify, or destroy any data the caller's other BigQuery
+      permissions allow.
+  get:
+    risks: [discovery:infra]
+    notes: >-
+      Job metadata (status, errors, statistics, and the executed query
+      text) -- not result rows, which remain gated by the underlying
+      table's own read permissions.
+  list:
+    risks: [discovery:infra]
+    notes: >-
+      Lists jobs the caller created, with other users' jobs redacted.
+  listAll:
+    risks: [discovery:infra, discovery:account]
+    notes: >-
+      Lists every job in the project/folder/org, including other users'
+      unredacted job metadata.
+  update:
+    risks: [impact:dos]
+    notes: >-
+      Cancels a running job. A job's creator only needs `create` to cancel
+      their own job; this permission is required to cancel another user's.
+links:
+  - https://cloud.google.com/bigquery/docs/access-control
+  - https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/cancel
