@@ -20,21 +20,25 @@ privileges:
       permissions allow.
   get:
     risks: [discovery:infra]
+    scope: LOW
     notes: >-
       Job metadata (status, errors, statistics, and the executed query
       text) -- not result rows, which remain gated by the underlying
       table's own read permissions.
   list:
     risks: [discovery:infra]
+    scope: LOW
     notes: >-
       Lists jobs the caller created, with other users' jobs redacted.
   listAll:
     risks: [discovery:infra, discovery:account]
+    scope: LOW
     notes: >-
       Lists every job in the project/folder/org, including other users'
       unredacted job metadata.
   update:
     risks: [impact:dos]
+    scope: HIGH
     notes: >-
       Cancels a running job. A job's creator only needs `create` to cancel
       their own job; this permission is required to cancel another user's.
