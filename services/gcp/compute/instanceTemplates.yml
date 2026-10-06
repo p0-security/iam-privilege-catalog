@@ -1,0 +1,51 @@
+name: Compute Engine instance templates
+description: >-
+  Templates used to create managed instance groups and individual VM
+  instances with a consistent configuration.
+scope: CRITICAL
+notes: >-
+  Carries the same class of risk as `compute.instances` (see that file):
+  a template's embedded metadata commonly includes startup scripts, which
+  frequently contain plaintext credentials, API keys, or configuration
+  secrets, plus the service account and scopes any instance created from
+  the template will be bound to.
+privileges:
+  create:
+    risks: [impact:spend, impact:hijack]
+    notes: >-
+      Can be exploited for cryptojacking purposes once an instance, or an
+      instance group referencing the template, is actually created.
+  delete:
+    risks: [destruction:infra]
+    scope: LOW
+    notes: >-
+      Removes the template definition only; does not affect any instance
+      already created from it.
+  get:
+    risks: [discovery:account, discovery:network, discovery:policy]
+    notes: >-
+      Allows access to the template's full configuration, including
+      metadata (frequently embedding startup-script credentials or other
+      secrets), network configuration, and the service account and scopes
+      bound to any instance created from the template.
+    links:
+      - https://cloud.google.com/compute/docs/metadata/default-metadata-values
+  getIamPolicy:
+    risks: [discovery:account, discovery:policy]
+  list:
+    risks: [discovery:account, discovery:network, discovery:policy]
+    notes: >-
+      Per compute.instanceTemplates.get.
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+  testIamPermissions:
+    risks: []
+  useReadOnly:
+    risks: [escalation:network]
+    scope: HIGH
+    notes: >-
+      Can be used to create an instance (or instance group) from the
+      template, inheriting its network configuration and service account.
+links:
+  - https://cloud.google.com/compute/docs/instance-templates
+  - https://cloud.google.com/compute/docs/reference/rest/v1/instanceTemplates
