@@ -1,0 +1,15 @@
+name: Compute Engine zone operations
+description: >-
+  Status and metadata for asynchronous zonal Compute Engine operations
+  (e.g. the result of creating, deleting, or modifying a zonal resource).
+scope: LOW
+notes: >-
+  Operation metadata (status, errors, warnings, timestamps) is
+  infrastructure-inventory information; it doesn't expose the target
+  resource's own data or configuration beyond what the operation itself
+  already describes (e.g. the resource name being acted on).
+privileges:
+  get:
+    risks: [discovery:infra]
+links:
+  - https://cloud.google.com/compute/docs/reference/rest/v1/zoneOperations

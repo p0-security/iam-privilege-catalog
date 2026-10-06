@@ -1,0 +1,17 @@
+name: Compute Engine machine types
+description: >-
+  Read-only, publicly available machine type definitions (vCPU/memory
+  configurations) available in a zone.
+scope: PUBLIC
+notes: >-
+  Reads publicly available data from Google Cloud. Mirrors
+  acceleratorTypes.yml, the other publicly documented hardware-catalog
+  resource in this service.
+privileges:
+  get:
+    risks: []
+  list:
+    risks: []
+links:
+  - https://cloud.google.com/compute/docs/machine-resource
+  - https://cloud.google.com/compute/docs/reference/rest/v1/machineTypes
