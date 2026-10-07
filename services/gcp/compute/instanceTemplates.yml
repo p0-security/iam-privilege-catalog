@@ -4,11 +4,10 @@ description: >-
   instances with a consistent configuration.
 scope: CRITICAL
 notes: >-
-  Carries the same class of risk as `compute.instances` (see that file):
-  a template's embedded metadata commonly includes startup scripts, which
-  frequently contain plaintext credentials, API keys, or configuration
-  secrets, plus the service account and scopes any instance created from
-  the template will be bound to.
+  `setIamPolicy` is scored at the catalog's ceiling, same convention used
+  for this permission throughout the catalog: holding it directly and
+  immediately grants control over the resource's IAM policy, no other
+  permission required.
 privileges:
   create:
     risks: [impact:spend, impact:hijack]
@@ -23,17 +22,25 @@ privileges:
       already created from it.
   get:
     risks: [discovery:account, discovery:network, discovery:policy]
+    scope: MEDIUM
     notes: >-
-      Allows access to the template's full configuration, including
-      metadata (frequently embedding startup-script credentials or other
-      secrets), network configuration, and the service account and scopes
-      bound to any instance created from the template.
+      Allows access to the template's configuration, including metadata
+      (which may embed startup-script credentials or other secrets, the
+      same way an instance's own metadata can), the network configuration,
+      and the service account/scopes any instance created from the
+      template would be bound to. Scored lower than reading a live
+      instance's equivalent metadata (see compute.instances.get): nothing
+      here is yet attached to a running resource, so acting on it (e.g.
+      actually using an exposed credential, or creating an instance to
+      inherit the service account) requires an additional, separately
+      gated step.
     links:
       - https://cloud.google.com/compute/docs/metadata/default-metadata-values
   getIamPolicy:
     risks: [discovery:account, discovery:policy]
   list:
     risks: [discovery:account, discovery:network, discovery:policy]
+    scope: MEDIUM
     notes: >-
       Per compute.instanceTemplates.get.
   setIamPolicy:
@@ -41,11 +48,13 @@ privileges:
   testIamPermissions:
     risks: []
   useReadOnly:
-    risks: [escalation:network]
-    scope: HIGH
+    risks: []
     notes: >-
-      Can be used to create an instance (or instance group) from the
-      template, inheriting its network configuration and service account.
+      Required (alongside compute.instances.create or
+      compute.instanceGroupManagers.create, which already carry their own
+      risk in their own files) to actually create something from the
+      template -- by itself it doesn't expose or do anything beyond what
+      compute.instanceTemplates.get already reads.
 links:
   - https://cloud.google.com/compute/docs/instance-templates
   - https://cloud.google.com/compute/docs/reference/rest/v1/instanceTemplates
