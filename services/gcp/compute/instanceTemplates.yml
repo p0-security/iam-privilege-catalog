@@ -10,12 +10,12 @@ privileges:
   create:
     risks: [impact:spend, impact:hijack]
     notes: >-
-      Can be exploited for cryptojacking purposes once an instance, or an
+      An attacker can use this for cryptojacking once an instance, or an
       instance group referencing the template, is actually created.
   delete:
     risks: [destruction:infra]
     notes: >-
-      Removes the template definition only; does not affect any instance
+      Removes only the template definition. Does not affect any instance
       already created from it.
   get:
     risks: [discovery:account, discovery:network, discovery:policy]
@@ -42,9 +42,9 @@ privileges:
     notes: >-
       Required (alongside compute.instances.create or
       compute.instanceGroupManagers.create, which already carry their own
-      risk in their own files) to actually create something from the
-      template -- by itself it doesn't expose or do anything beyond what
-      compute.instanceTemplates.get already reads.
+      risk in their own catalog entries) to actually create something from
+      the template -- by itself it doesn't expose or do anything beyond
+      what compute.instanceTemplates.get already reads.
 links:
   - https://cloud.google.com/compute/docs/instance-templates
   - https://cloud.google.com/compute/docs/reference/rest/v1/instanceTemplates

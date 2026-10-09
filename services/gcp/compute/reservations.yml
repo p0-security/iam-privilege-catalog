@@ -5,7 +5,7 @@ description: >-
 scope: LOW
 notes: >-
   Reservation metadata (what's reserved, for which machine type/zone) is
-  infrastructure-inventory information; it doesn't expose instance data or
+  infrastructure-inventory information. It doesn't expose instance data or
   configuration.
 privileges:
   get:

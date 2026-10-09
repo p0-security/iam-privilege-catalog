@@ -5,7 +5,7 @@ description: >-
 scope: LOW
 notes: >-
   Operation metadata (status, errors, warnings, timestamps) is
-  infrastructure-inventory information; it doesn't expose the target
+  infrastructure-inventory information. It doesn't expose the target
   resource's own data or configuration beyond what the operation itself
   already describes (e.g. the resource name being acted on).
 privileges:

@@ -15,15 +15,15 @@ privileges:
     risks: [impact:spend]
     notes: >-
       Gates every job type (query, load, export, copy). Submitting and
-      running a job costs money regardless of what it does; the data-level
-      outcome of its SQL is gated separately by the caller's own
-      permissions on the tables involved.
+      running a job costs money regardless of what it does. The caller's
+      own permissions on the tables involved gate the SQL's data-level
+      outcome separately.
   get:
     risks: [discovery:infra]
     notes: >-
       Job metadata (status, errors, statistics, and the executed query
-      text) -- not result rows, which remain gated by the underlying
-      table's own read permissions.
+      text), not result rows -- the underlying table's own read
+      permissions gate those.
   list:
     risks: [discovery:infra]
     notes: >-
@@ -37,7 +37,7 @@ privileges:
     risks: [impact:dos]
     notes: >-
       Cancels a running job. A job's creator only needs `create` to cancel
-      their own job; this permission is required to cancel another user's.
+      their own job. Canceling another user's job requires this permission.
 links:
   - https://cloud.google.com/bigquery/docs/access-control
   - https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/cancel
