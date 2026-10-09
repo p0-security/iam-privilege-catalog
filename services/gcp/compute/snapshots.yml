@@ -11,10 +11,8 @@ notes: >-
 privileges:
   get:
     risks: [discovery:infra]
-    scope: LOW
   list:
     risks: [discovery:infra]
-    scope: LOW
   useReadOnly:
     risks: [exfiltration:data, collection:data]
     notes: >-
