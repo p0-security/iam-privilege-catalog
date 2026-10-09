@@ -5,18 +5,14 @@ description: >-
   every job type.
 scope: HIGH
 notes: >-
-  Per this catalog's convention of attributing risk to the most direct
-  permission involved: `create` alone only lets a caller submit a job and
-  pay for it, not read, modify, or destroy any data. Actually doing that
-  with the job's SQL additionally requires the caller's own direct
-  permissions on the specific tables the query touches (e.g.
-  `bigquery.tables.getData`/`update`/`delete`, already in
-  services/gcp/bigquery/tables.yml) -- those already-catalogued privileges
-  carry that risk, so `create` isn't scored as if it carried it too.
+  Holding `create` alone only lets a caller submit a job and pay for it, not
+  read, modify, or destroy any data. Data exfiltration or modification
+  additionally requires `bigquery.tables.getData`/`update`/`delete`
+  (services/gcp/bigquery/tables.yml), whether granted directly on the table
+  or inherited from a dataset- or project-level binding.
 privileges:
   create:
     risks: [impact:spend]
-    scope: MEDIUM
     notes: >-
       Gates every job type (query, load, export, copy). Submitting and
       running a job costs money regardless of what it does; the data-level
@@ -24,19 +20,16 @@ privileges:
       permissions on the tables involved.
   get:
     risks: [discovery:infra]
-    scope: LOW
     notes: >-
       Job metadata (status, errors, statistics, and the executed query
       text) -- not result rows, which remain gated by the underlying
       table's own read permissions.
   list:
     risks: [discovery:infra]
-    scope: LOW
     notes: >-
       Lists jobs the caller created, with other users' jobs redacted.
   listAll:
     risks: [discovery:infra, discovery:account]
-    scope: LOW
     notes: >-
       Lists every job in the project/folder/org, including other users'
       un-redacted job metadata.
