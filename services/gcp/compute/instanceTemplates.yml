@@ -1,0 +1,50 @@
+name: Compute Engine instance templates
+description: >-
+  Templates used to create managed instance groups and individual VM
+  instances with a consistent configuration.
+scope: MEDIUM
+privileges:
+  create:
+    risks: [impact:spend, impact:hijack]
+    notes: >-
+      An attacker can use this for cryptojacking once an instance, or an
+      instance group referencing the template, is actually created.
+  delete:
+    risks: [destruction:infra]
+    notes: >-
+      Removes only the template definition. Does not affect any instance
+      already created from it.
+  get:
+    risks: [discovery:account, discovery:network, discovery:policy]
+    notes: >-
+      Allows access to the template's configuration, including metadata
+      (which may embed startup-script credentials or other secrets, the
+      same way an instance's own metadata can), the network configuration,
+      and the service account/scopes any instance created from the
+      template would be bound to.
+    links:
+      - https://cloud.google.com/compute/docs/metadata/default-metadata-values
+  getIamPolicy:
+    risks: [discovery:account, discovery:policy]
+  list:
+    risks: [discovery:account, discovery:network, discovery:policy]
+    notes: >-
+      Per compute.instanceTemplates.get.
+  setIamPolicy:
+    risks: [escalation:privilege, impact:access, destruction:policy]
+    notes: >-
+      Holding this alone immediately grants control over the resource's
+      IAM policy, no other permission required.
+  testIamPermissions:
+    risks: []
+  useReadOnly:
+    risks: []
+    notes: >-
+      Required (alongside compute.instances.create or
+      compute.instanceGroupManagers.create, which already carry their own
+      risk in their own catalog entries) to actually create something from
+      the template -- by itself it doesn't expose or do anything beyond
+      what compute.instanceTemplates.get already reads.
+links:
+  - https://cloud.google.com/compute/docs/instance-templates
+  - https://cloud.google.com/compute/docs/reference/rest/v1/instanceTemplates

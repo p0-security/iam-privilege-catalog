@@ -1,0 +1,43 @@
+name: BigQuery jobs
+description: >-
+  Jobs run queries and other asynchronous actions (load, export, copy)
+  against BigQuery resources. `create` is the single gating permission for
+  every job type.
+scope: HIGH
+notes: >-
+  Holding `create` alone only lets a caller submit a job and pay for it, not
+  read, modify, or destroy any data. Data exfiltration or modification
+  additionally requires `bigquery.tables.getData`/`update`/`delete`
+  (services/gcp/bigquery/tables.yml), whether granted directly on the table
+  or inherited from a dataset- or project-level binding.
+privileges:
+  create:
+    risks: [impact:spend]
+    notes: >-
+      Gates every job type (query, load, export, copy). Submitting and
+      running a job costs money regardless of what it does. The caller's
+      own permissions on the tables involved gate the SQL's data-level
+      outcome separately.
+  get:
+    risks: [discovery:infra]
+    notes: >-
+      Job metadata (status, errors, statistics, and the executed query
+      text), not result rows -- the underlying table's own read
+      permissions gate those.
+  list:
+    risks: [discovery:infra]
+    notes: >-
+      Lists jobs the caller created, with other users' jobs redacted.
+  listAll:
+    risks: [discovery:infra, discovery:account]
+    notes: >-
+      Lists every job in the project/folder/org, including other users'
+      un-redacted job metadata.
+  update:
+    risks: [impact:dos]
+    notes: >-
+      Cancels a running job. A job's creator only needs `create` to cancel
+      their own job. Canceling another user's job requires this permission.
+links:
+  - https://cloud.google.com/bigquery/docs/access-control
+  - https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/cancel

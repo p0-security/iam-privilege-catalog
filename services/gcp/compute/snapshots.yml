@@ -1,0 +1,26 @@
+name: Compute Engine snapshots
+description: >-
+  Point-in-time copies of persistent disks.
+scope: CRITICAL
+notes: >-
+  `get`/`list` return snapshot metadata (name, source disk, size, storage
+  bytes, creation time) only. Reading a snapshot's actual disk data
+  requires `useReadOnly`, a far more consequential permission that also
+  gates restoring (or creating a new disk/VM from) a snapshot -- including
+  across projects and organizations.
+privileges:
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+  useReadOnly:
+    risks: [exfiltration:data, collection:data]
+    notes: >-
+      Allows reading and restoring a snapshot's disk data -- creating a new
+      disk or VM from it -- including into a project or organization the
+      snapshot owner doesn't control.
+    links:
+      - https://cloud.google.com/compute/docs/disks/restore-snapshot
+links:
+  - https://cloud.google.com/compute/docs/disks/snapshots
+  - https://cloud.google.com/compute/docs/reference/rest/v1/snapshots

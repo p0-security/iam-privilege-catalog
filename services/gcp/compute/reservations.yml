@@ -1,0 +1,17 @@
+name: Compute Engine reservations
+description: >-
+  Reserved capacity for VM instances, so a project is guaranteed
+  resources are available when it needs them.
+scope: LOW
+notes: >-
+  Reservation metadata (what's reserved, for which machine type/zone) is
+  infrastructure-inventory information. It doesn't expose instance data or
+  configuration.
+privileges:
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+links:
+  - https://cloud.google.com/compute/docs/instances/reservations-overview
+  - https://cloud.google.com/compute/docs/reference/rest/v1/reservations
