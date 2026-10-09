@@ -3,9 +3,6 @@ description: >-
   Templates used to create managed instance groups and individual VM
   instances with a consistent configuration.
 scope: MEDIUM
-notes: >-
-  Holding `setIamPolicy` alone immediately grants control over the
-  resource's IAM policy, no other permission required.
 privileges:
   create:
     risks: [impact:spend, impact:hijack]
@@ -35,6 +32,9 @@ privileges:
       Per compute.instanceTemplates.get.
   setIamPolicy:
     risks: [escalation:privilege, impact:access, destruction:policy]
+    notes: >-
+      Holding this alone immediately grants control over the resource's
+      IAM policy, no other permission required.
   testIamPermissions:
     risks: []
   useReadOnly:
