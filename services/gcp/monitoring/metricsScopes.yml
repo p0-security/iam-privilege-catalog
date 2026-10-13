@@ -1,0 +1,16 @@
+name: Cloud Monitoring Metrics Scopes
+description: >-
+  Links one or more monitored projects to a single scoping project,
+  letting it query metrics across all of them.
+scope: HIGH
+privileges:
+  link:
+    risks: [escalation:lateral, exfiltration:metadata]
+    notes: >-
+      Also covers unlinking. Linking a project grants the scoping project's
+      viewers access to its metrics, a cross-project privilege boundary
+      bypass rather than a plain read. Unlinking silently drops a project
+      from a security team's centralized cross-project view.
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v1/locations.global.metricsScopes

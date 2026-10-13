@@ -1,0 +1,13 @@
+name: Cloud Monitoring Notification Channel Descriptors
+description: >-
+  Defines the type and configuration fields of a supported notification
+  channel, such as email or Slack.
+scope: PUBLIC
+privileges:
+  get:
+    risks: []
+  list:
+    risks: []
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.notificationChannelDescriptors

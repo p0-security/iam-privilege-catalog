@@ -1,0 +1,19 @@
+name: Cloud Monitoring Time Series
+description: >-
+  The individual metric data points Cloud Monitoring collects and serves.
+  Custom metrics let applications write their own data points here.
+scope: MEDIUM
+privileges:
+  create:
+    risks: [impact:manipulation, impact:spend]
+    notes: >-
+      Injected time series can trigger or mask alert policies and drive
+      autoscaling for managed instance groups or HPA, incurring cost.
+  list:
+    risks: [discovery:infra, exfiltration:metadata]
+    notes: >-
+      Custom metrics and metric labels can carry business data, exposed to
+      anyone who can query time series.
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries

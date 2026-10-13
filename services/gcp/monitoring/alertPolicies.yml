@@ -1,0 +1,37 @@
+name: Cloud Monitoring Alert Policies
+description: >-
+  Defines the conditions that trigger a notification when monitored metrics
+  behave unexpectedly.
+scope: MEDIUM
+privileges:
+  create:
+    risks: []
+  createTagBinding:
+    risks: [impact:access, escalation:privilege]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The
+      risks apply if the tag is used in any policies.
+  delete:
+    risks: [destruction:defense]
+    notes: >-
+      Removing a policy silences detection.
+  deleteTagBinding:
+    risks: [escalation:privilege, destruction:policy, impact:access]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The
+      risks apply if the tag is used in any policies.
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+  listEffectiveTags:
+    risks: [discovery:policy]
+  listTagBindings:
+    risks: [discovery:policy]
+  update:
+    risks: [destruction:defense]
+    notes: >-
+      Editing a policy's conditions can silence detection.
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies

@@ -1,0 +1,23 @@
+name: Cloud Monitoring Uptime Check Configs
+description: >-
+  Defines a periodic probe of a resource's availability from one or more
+  locations.
+scope: MEDIUM
+privileges:
+  create:
+    risks: [impact:spend, discovery:network]
+    notes: >-
+      A private uptime check can probe internal endpoints, letting an
+      attacker map internal network topology from Google's uptime-check
+      infrastructure.
+  delete:
+    risks: [destruction:defense]
+  get:
+    risks: [discovery:infra, discovery:network]
+  list:
+    risks: [discovery:infra, discovery:network]
+  update:
+    risks: [destruction:defense]
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.uptimeCheckConfigs

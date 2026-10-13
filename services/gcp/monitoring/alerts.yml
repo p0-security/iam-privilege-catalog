@@ -1,0 +1,12 @@
+name: Cloud Monitoring Alerts
+description: >-
+  The incidents generated when an alert policy's conditions are met.
+scope: LOW
+privileges:
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alerts

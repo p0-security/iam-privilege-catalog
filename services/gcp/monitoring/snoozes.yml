@@ -1,0 +1,22 @@
+name: Cloud Monitoring Snoozes
+description: >-
+  Temporarily disables notifications for an alert policy without touching
+  the policy's conditions.
+scope: MEDIUM
+privileges:
+  create:
+    risks: [destruction:defense]
+    notes: >-
+      Creating a snooze silences detection, equivalent to disabling an alarm.
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+  update:
+    risks: [destruction:defense]
+    notes: >-
+      Updating a snooze to widen its scope or duration silences detection,
+      equivalent to disabling an alarm.
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.snoozes
