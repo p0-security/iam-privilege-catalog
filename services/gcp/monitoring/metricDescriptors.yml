@@ -1,0 +1,23 @@
+name: Cloud Monitoring Metric Descriptors
+description: >-
+  Defines the type, labels, and units of a metric before any time series
+  exist for it. Required for custom metrics.
+scope: LOW
+privileges:
+  create:
+    risks: [impact:spend]
+  delete:
+    risks: [destruction:metadata, destruction:defense, impact:dos]
+    notes: >-
+      Deleting a descriptor deletes its time series and breaks dependent
+      alert policies, silently disabling any autoscaling or availability
+      alerting that depended on it. Metric descriptors are metadata, not
+      data, so this is modeled as destruction:metadata rather than
+      destruction:data.
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors

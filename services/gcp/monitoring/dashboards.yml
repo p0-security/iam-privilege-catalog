@@ -1,0 +1,33 @@
+name: Cloud Monitoring Dashboards
+description: >-
+  Defines the layout and widgets used to visualize metrics in the Cloud
+  Monitoring console.
+scope: LOW
+privileges:
+  create:
+    risks: []
+  createTagBinding:
+    risks: [impact:access, escalation:privilege]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The
+      risks apply if the tag is used in any policies.
+  delete:
+    risks: [destruction:defense]
+  deleteTagBinding:
+    risks: [escalation:privilege, destruction:policy, impact:access]
+    notes: >-
+      A common use case of tag bindings is for use in IAM policy conditions. The
+      risks apply if the tag is used in any policies.
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+  listEffectiveTags:
+    risks: [discovery:policy]
+  listTagBindings:
+    risks: [discovery:policy]
+  update:
+    risks: [destruction:defense]
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v1/projects.dashboards

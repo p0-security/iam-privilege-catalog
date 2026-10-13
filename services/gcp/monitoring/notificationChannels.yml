@@ -1,0 +1,32 @@
+name: Cloud Monitoring Notification Channels
+description: >-
+  A destination, such as email, Slack, or PagerDuty, that receives alert
+  notifications.
+scope: MEDIUM
+privileges:
+  create:
+    risks: []
+  delete:
+    risks: [destruction:defense]
+  get:
+    risks: [discovery:account]
+  getVerificationCode:
+    risks: [destruction:defense]
+    notes: >-
+      Returns a code for an already-verified channel that verify() will
+      also accept on a different channel. Combined with create and verify,
+      this bypasses the out-of-band ownership proof verification exists to
+      enforce, letting an attacker stand up a verified channel of their own.
+  list:
+    risks: [discovery:account]
+  sendVerificationCode:
+    risks: []
+  update:
+    risks: [destruction:defense, exfiltration:metadata]
+    notes: >-
+      A redirected notification channel sends alert payloads to an attacker.
+  verify:
+    risks: []
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.notificationChannels

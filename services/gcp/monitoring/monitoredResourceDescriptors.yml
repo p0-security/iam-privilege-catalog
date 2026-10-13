@@ -1,0 +1,13 @@
+name: Cloud Monitoring Monitored Resource Descriptors
+description: >-
+  Defines the type and labels of a resource kind Cloud Monitoring can
+  collect metrics for, such as a GCE instance or GKE container.
+scope: PUBLIC
+privileges:
+  get:
+    risks: []
+  list:
+    risks: []
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.monitoredResourceDescriptors

@@ -1,0 +1,19 @@
+name: Cloud Monitoring Services
+description: >-
+  A logical application or workload tracked for SLO monitoring, grouping
+  the resources that implement it.
+scope: LOW
+privileges:
+  create:
+    risks: []
+  delete:
+    risks: [destruction:defense]
+  get:
+    risks: [discovery:infra]
+  list:
+    risks: [discovery:infra]
+  update:
+    risks: [destruction:defense]
+links:
+  - https://cloud.google.com/monitoring/access-control
+  - https://cloud.google.com/monitoring/api/ref_v3/rest/v3/services
